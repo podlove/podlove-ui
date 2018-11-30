@@ -1,0 +1,49 @@
+{
+  "name": "@podlove/player-components",
+  "version": "4.2.3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@podlove/player-actions": "^4.2.3",
+    "@podlove/player-build": "^4.2.3",
+    "@podlove/player-sagas": "^4.2.3",
+    "@podlove/player-state": "^4.2.3",
+    "autoprefixer": "^9.3.1",
+    "css-loader": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.4.5",
+    "normalize.css": "^8.0.1",
+    "postcss-clean": "^1.1.0",
+    "pug-loader": "^2.4.0",
+    "vue": "^2.5.17",
+    "webpack": "^4.26.0",
+    "webpack-auto-inject-version": "^1.2.2",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-jarvis": "^0.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@podlove/player-build": "^4.2.3",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.10.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-scss": "^2.0.0",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^7.1.0",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

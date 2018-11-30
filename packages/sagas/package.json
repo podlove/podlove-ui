@@ -1,0 +1,19 @@
+{
+  "name": "@podlove/player-sagas",
+  "version": "4.2.3",
+  "description": "Sagas for podlove web player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@podlove/player-actions": "^4.2.3",
+    "redux-saga": "^0.16.2",
+    "lodash": "^4.17.11",
+    "detect-browser": "^3.0.1",
+    "mobile-detect": "^1.4.3"
+  }
+}

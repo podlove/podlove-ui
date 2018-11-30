@@ -1,0 +1,16 @@
+{
+  "name": "@podlove/player-actions",
+  "version": "4.2.3",
+  "description": "Reducers and actions for podlove player framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redux-actions": "^2.6.4",
+    "lodash": "^4.17.11"
+  }
+}
