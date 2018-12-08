@@ -1,4 +1,4 @@
-const { output, resolve, devServer, rules, plugins } = require('@podlove/player-build')
+const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 
 module.exports = {
   mode: 'development',

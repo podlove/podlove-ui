@@ -1,8 +1,9 @@
-import { get } from 'lodash'
+import { compose, propOr, prop, gt } from 'ramda'
 import color from 'color'
 import { handleActions } from 'redux-actions'
+import { createObject } from '@podlove/utils/helper'
 
-import { INIT, SET_THEME } from '@podlove/player-actions/types'
+import { INIT, SET_THEME } from '@podlove/actions/types'
 
 export const INITIAL_STATE = {
   main: '#2B8AC6',
@@ -14,18 +15,22 @@ export const INITIAL_STATE = {
   negative: false
 }
 
-const themeColors = (colors = {}) => {
-  const main = get(colors, 'main', '#2B8AC6')
-  const highlight = get(colors, 'highlight')
-  const luminosity = color(main).luminosity()
+const main = propOr('#2B8AC6', 'main')
+const highlight = prop('highlight')
+const luminosity = compose(input => color(input).luminosity(), main)
+const negative = compose(gt(0.25), luminosity)
 
-  return {
-    main,
-    highlight,
-    luminosity,
-    negative: luminosity < 0.25
-  }
-}
+const themeColors = createObject({
+  main,
+  highlight,
+  luminosity,
+  negative
+})
+
+const change = compose(
+  themeColors,
+  propOr({}, 'theme')
+)
 
 // return {
 //   negative,
@@ -135,11 +140,11 @@ const themeColors = (colors = {}) => {
 export const reducer = handleActions({
   [INIT]: (state, { payload }) => ({
     ...state,
-    ...themeColors(get(payload, 'theme'))
+    ...change(payload)
   }),
 
   [SET_THEME]: (state, { payload }) => ({
     ...state,
-    ...themeColors(payload)
+    ...change(payload)
   })
 }, INITIAL_STATE)

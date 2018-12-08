@@ -1,0 +1,141 @@
+{
+  "CHAPTERS": {
+    "TITLE": "Chapters"
+  },
+  "AUDIO": {
+    "TITLE": "Audio",
+    "VOLUME": "Volume",
+    "SPEED": "Speed",
+    "DEBUG_STATE": "Export Debug State"
+  },
+  "PLAYER": {
+    "REPLAY": "replay",
+    "RETRY": "Retry"
+  },
+  "ERROR": {
+    "LOADING": {
+      "TITLE": "Error loading audio files",
+      "MESSAGE": "Couldn't load the audio files from the server. Please try again later."
+    },
+    "MISSING_FILES": {
+      "TITLE": "Required information missing",
+      "MESSAGE": "To play the podcast important references to audio files are missing."
+    }
+  },
+  "FILES": {
+    "TITLE": "Files",
+    "TYPES": {
+      "AUDIO": {
+        "HEADER": "Audio Files"
+      }
+    },
+    "ACTIONS": {
+      "DOWNLOAD": "Download",
+      "COPY": "Copy Url"
+    }
+  },
+  "SHARE": {
+    "TITLE": "Share",
+    "CONTENT": {
+      "SHOW": "Show",
+      "EPISODE": "Episode",
+      "CHAPTER": "Chapter",
+      "TIME": "Playtime"
+    },
+    "SHARE_CHANNEL": "Share in...",
+    "SHARE_LINK": "Link",
+    "ACTIONS": {
+      "COPY": "copy"
+    },
+    "EPISODE": {
+      "TEXT": {
+        "BEGINNING": "\"{title}\" ({link})",
+        "CHAPTER": "\"{chapter}\" of \"{title}\" ({link})",
+        "PLAYTIME": "\"{title}\" ({link})"
+      },
+      "SUBJECT": {
+        "BEGINNING": "{title}",
+        "CHAPTER": "{title} - {chapter}",
+        "PLAYTIME": "{title}"
+      }
+    },
+    "SHOW": {
+      "TEXT": "\"{title}\" ({link})",
+      "SUBJECT": "{title}"
+    },
+    "EMBED": {
+      "TITLE": "Embed Episode",
+      "LABEL": {
+        "SIZE": "Embed Size",
+        "CODE": "Embed Code"
+      },
+      "ACTIONS": {
+        "COPY": "Copy Code"
+      }
+    }
+  },
+  "INFO": {
+    "TITLE": "Info",
+    "PUBLICATION_DATE": "Published: {month}/{day}/{year}",
+    "DURATION_WITH_HOURS": "{hours} hours {minutes} minutes",
+    "DURATION": "{minutes} minutes",
+    "ON_AIR": "On Air"
+  },
+  "TRANSCRIPTS": {
+    "TITLE": "Transcript",
+    "CHAPTER": "Chapter {index}: {title}",
+    "FOLLOW": "follow",
+    "SEARCH": "Search",
+    "NO_SEARCH_RESULTS": "No results"
+  },
+  "MESSAGES": {
+    "COPIED": "Copied!"
+  },
+  "A11Y": {
+    "ALT_EPISODE_COVER": "Episode Cover",
+    "ALT_SHOW_COVER": "Show Cover",
+    "PLAYER_PLAY": "Play Episode",
+    "PLAYER_START": "Start Episode, duration {hours} hours {minutes} minutes {seconds} seconds",
+    "PLAYER_RESTART": "Restart Episode",
+    "PLAYER_ERROR": "Retry Play Episode",
+    "PLAYER_PAUSE": "Pause Episode",
+    "PLAYER_LOADING": "Buffering Episode",
+    "PLAYER_CHAPTER_NEXT": "Go to Next Chapter: {index} - {title}",
+    "PLAYER_CHAPTER_END": "Jump to End of Episode",
+    "PLAYER_CHAPTER_PREVIOUS": "Go to Previous Chapter: {index} - {title}",
+    "PLAYER_CHAPTER_CURRENT": "Go to the Beginning of the Current Chapter: {index} - {title}",
+    "PLAYER_STEPPER_BACK": "Rewind {seconds} Seconds",
+    "PLAYER_STEPPER_FORWARD": "Fast Forward {seconds} Seconds",
+    "PROGRESSBAR_INPUT": "Change Playtime in Milliseconds",
+    "TIMER_CURRENT": "Current Playtime: {hours} hours {minutes} minutes {seconds} seconds",
+    "TIMER_LEFT": "Playtime Left: {hours} hours {minutes} minutes {seconds} seconds",
+    "TIMER_CHAPTER": "Current Chapter: {index} - {title}",
+    "SPEAKER_COVER": "Speaker {name}",
+    "CHAPTER_ENTRY": "{index} - {title} (Duration: {duration}, Remaining: {remaining})",
+    "SHARE_CONTENT_SHOW": "Share Show {title}",
+    "SHARE_CONTENT_EPISODE": "Share Episode {title}",
+    "SHARE_CONTENT_CHAPTER": "Share Episode Chapter {title}",
+    "SHARE_CONTENT_PLAYTIME": "Share Episode Playtime {playtime}",
+    "SHARE_CHANNEL": "Share to {channel}",
+    "SHARE_EMBED": "Create Embed Code",
+    "COPY_SHARE_LINK": "Copy Share Link",
+    "SHARE_OVERLAY": "Share Overlay",
+    "OVERLAY_CLOSE": "Close Overlay",
+    "COPY_EMBED_CODE": "Copy Embed Code",
+    "DOWNLOAD_EPISODE": "Download Episode",
+    "SELECT_EPISODE_FILETYPE": "Select Episode Filetype",
+    "COPY_DOWNLOAD_URL": "Copy Download Url",
+    "RATE": "Playback Speed",
+    "RATE_CURRENT": "Current: {rate}%",
+    "RATE_INCREASE": "Increase Playback Speed",
+    "RATE_DECREASE": "Decrease Playback Speed",
+    "SET_RATE_IN_PERCENT": "Set Playback Speed in Percent",
+    "VOLUME": "Audio Volume",
+    "VOLUME_CURRENT": "Current: {volume}%",
+    "VOLUME_MUTE": "Mute Audio",
+    "VOLUME_UNMUTE": "Unmute Audio",
+    "SET_VOLUME_IN_PERCENT": "Set Volume in Percent",
+    "DOWNLOAD_FILE": "Download File {url}",
+    "COPY_FILE": "Copy File {url}"
+  }
+}

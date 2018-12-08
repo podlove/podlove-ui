@@ -1,14 +1,30 @@
 <template lang="pug">
-  wrapper
-    h1 Hello
+  wrapper-component
+    header-component
 </template>
 
 <script>
-  import Wrapper from './Wrapper'
+  import { mapState } from 'redux-vuex'
+  import selectors from 'store/selectors'
+
+  import WrapperComponent from './Wrapper'
+  import HeaderComponent from './header'
 
   export default {
+    data: mapState({
+      language: selectors.language
+    }),
     components: {
-      Wrapper
+      WrapperComponent,
+      HeaderComponent
+    },
+    watch: {
+      language () {
+        this.$i18n.locale = this.language
+      }
+    },
+    mounted () {
+      this.$i18n.locale = this.language
     }
   }
 </script>

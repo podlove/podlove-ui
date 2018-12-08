@@ -1,3 +1,4 @@
+import { curry, map } from 'ramda'
 import { isUndefinedOrNull } from './predicates'
 
 /**
@@ -16,5 +17,5 @@ export const toInt = (input = 0) => isNaN(parseInt(input, 10)) ? 0 : parseInt(in
 export const toFloat = (input = 0) => isNaN(parseFloat(input)) ? 0 : parseFloat(input)
 
 // Functional Helper
-
 export const fallbackTo = fallback => value => isUndefinedOrNull(value) ? fallback : value
+export const createObject = curry((specification, value) => map(f => f(value), specification))

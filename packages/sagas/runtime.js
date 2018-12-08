@@ -1,5 +1,5 @@
 import { put } from 'redux-saga/effects'
-import { setRuntime } from '@podlove/player-actions/runtime'
+import { setRuntime } from '@podlove/actions/runtime'
 import { head } from 'lodash'
 import browser from 'detect-browser'
 import MobileDetect from 'mobile-detect'

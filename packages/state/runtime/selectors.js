@@ -1,4 +1,5 @@
-import { get } from 'lodash/fp'
+import { prop } from 'ramda'
 
-export const language = get('language')
-export const display = get('display')
+export const language = prop('language')
+export const display = prop('display')
+export const platform = prop('platform')

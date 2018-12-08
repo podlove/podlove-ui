@@ -1,9 +1,9 @@
 import { get, findIndex, isString } from 'lodash'
 
 import { setActiveByPlaytime, setActiveByIndex } from 'utils/chapters'
-import { handleActions } from 'utils/effects'
-import { toPlayerTime } from 'utils/time'
-import request from 'utils/request'
+import { handleActions } from '@podlove/utils/effects'
+import { toPlayerTime } from '@podlove/utils/time'
+import request from '@podlove/utils/request'
 
 import actions from 'store/actions'
 

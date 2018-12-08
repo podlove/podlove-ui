@@ -1,5 +1,5 @@
 {
-  "name": "@podlove/player-components",
+  "name": "@podlove/components",
   "version": "4.2.3",
   "description": "",
   "main": "index.js",
@@ -10,10 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@podlove/player-actions": "^4.2.3",
-    "@podlove/player-build": "^4.2.3",
-    "@podlove/player-sagas": "^4.2.3",
-    "@podlove/player-state": "^4.2.3",
+    "@podlove/actions": "^4.2.3",
+    "@podlove/utils": "^4.2.3",
     "autoprefixer": "^9.3.1",
     "css-loader": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
@@ -31,7 +29,6 @@
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
-    "@podlove/player-build": "^4.2.3",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",

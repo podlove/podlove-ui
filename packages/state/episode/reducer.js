@@ -1,10 +1,10 @@
-import { get } from 'lodash'
+import { compose, propOr } from 'ramda'
 import { handleActions } from 'redux-actions'
 
-import { parseDate } from 'utils/time'
-import { sanitize } from 'utils/dom'
-
-import { INIT } from '@podlove/player-actions/types'
+import { parseDate } from '@podlove/utils/time'
+import { sanitize } from '@podlove/utils/dom'
+import { createObject } from '@podlove/utils/helper'
+import { INIT } from '@podlove/actions/types'
 
 export const INIT_STATE = {
   title: null,
@@ -15,14 +15,18 @@ export const INIT_STATE = {
   publicationDate: null
 }
 
+const change = createObject({
+  title: propOr(null, 'title'),
+  subtitle: propOr(null, 'subtitle'),
+  summary: compose(sanitize, propOr(null, 'summary')),
+  link: propOr(null, 'link'),
+  poster: propOr(null, 'poster'),
+  publicationDate: compose(parseDate, propOr(null, 'publicationDate'))
+})
+
 export const reducer = handleActions({
   [INIT]: (state, { payload }) => ({
     ...state,
-    title: get(payload, ['title'], null),
-    subtitle: get(payload, ['subtitle'], null),
-    summary: sanitize(get(payload, ['summary'], null)),
-    link: get(payload, ['link'], null),
-    poster: get(payload, ['poster'], null),
-    publicationDate: parseDate(get(payload, ['publicationDate'], null))
+    ...change(payload)
   })
 }, INIT_STATE)

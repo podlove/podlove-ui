@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 
-import { INIT, SET_LANGUAGE, SET_RUNTIME } from '@podlove/player-actions/types'
+import { SET_LANGUAGE, SET_RUNTIME } from '@podlove/actions/types'
 
 export const INITIAL_STATE = {
   language: 'en',
@@ -11,10 +11,6 @@ export const INITIAL_STATE = {
 }
 
 export const reducer = handleActions({
-  [INIT]: (state, { payload }) => ({
-    ...state,
-    ...payload.runtime
-  }),
   [SET_LANGUAGE]: (state, { payload }) => ({
     ...state,
     language: payload

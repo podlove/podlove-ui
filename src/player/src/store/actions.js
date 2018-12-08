@@ -1,7 +1,9 @@
-import * as runtime from '@podlove/player-actions/runtime'
-import * as init from '@podlove/player-actions/init'
+import * as runtime from '@podlove/actions/runtime'
+import * as init from '@podlove/actions/init'
+import * as error from '@podlove/actions/error'
 
 export default {
   ...runtime,
-  ...init
+  ...init,
+  ...error
 }

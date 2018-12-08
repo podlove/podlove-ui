@@ -1,5 +1,5 @@
 {
-  "name": "@podlove/player-sagas",
+  "name": "@podlove/sagas",
   "version": "4.2.3",
   "description": "Sagas for podlove web player",
   "main": "index.js",
@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@podlove/player-actions": "^4.2.3",
-    "redux-saga": "^0.16.2",
-    "lodash": "^4.17.11",
+    "@podlove/actions": "^4.2.3",
+    "@podlove/utils": "^4.2.3",
     "detect-browser": "^3.0.1",
-    "mobile-detect": "^1.4.3"
+    "lodash": "^4.17.11",
+    "mobile-detect": "^1.4.3",
+    "redux-saga": "^0.16.2"
   }
 }

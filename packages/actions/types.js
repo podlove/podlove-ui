@@ -35,6 +35,7 @@ export const ERROR_LOAD = 'ERROR_LOAD'
 export const NETWORK_EMPTY = 'NETWORK_EMPTY'
 export const NETWORK_NO_SOURCE = 'NETWORK_NO_SOURCE'
 export const ERROR_MISSING_AUDIO_FILES = 'ERROR_MISSING_AUDIO_FILES'
+export const ERROR_POSTER_LOAD = 'ERROR_POSTER_LOAD'
 
 // Ghost
 export const SIMULATE_PLAYTIME = 'SIMULATE_PLAYTIME'
@@ -42,7 +43,6 @@ export const ENABLE_GHOST_MODE = 'ENABLE_GHOST_MODE'
 export const DISABLE_GHOST_MODE = 'DISABLE_GHOST_MODE'
 
 // Player
-export const SET_DURATION = 'SET_DURATION'
 export const SET_BUFFER = 'SET_BUFFER'
 export const PLAY = 'PLAY'
 export const UI_PLAY = 'UI_PLAY'
@@ -62,8 +62,10 @@ export const UNMUTE = 'UNMUTE'
 export const SET_VOLUME = 'SET_VOLUME'
 export const SET_RATE = 'SET_RATE'
 
-// Playtime
-export const SET_PLAYTIME = 'SET_PLAYTIME'
+// Timepiece
+export const SET_DURATION = 'SET_DURATION'
+export const BACKEND_PLAYTIME = 'BACKEND_PLAYTIME'
+export const REQUEST_PLAYTIME = 'REQUEST_PLAYTIME'
 export const UPDATE_PLAYTIME = 'UPDATE_PLAYTIME'
 
 // Quantiles

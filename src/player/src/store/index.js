@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import sagas from '@podlove/player-sagas'
-import runtimeSaga from '@podlove/player-sagas/runtime'
+import sagas from '@podlove/sagas'
+import runtimeSaga from '@podlove/sagas/runtime'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connect } from 'redux-vuex'
 

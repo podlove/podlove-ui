@@ -1,4 +1,4 @@
-import { fallbackTo } from 'utils/helper'
+import { fallbackTo } from './helper'
 import { find, findIndex, add, compose } from 'lodash/fp'
 
 import { get } from 'lodash'

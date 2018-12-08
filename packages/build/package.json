@@ -1,5 +1,5 @@
 {
-  "name": "@podlove/player-build",
+  "name": "@podlove/build",
   "version": "4.2.3",
   "description": "Webpack building blocks for podlove player framework",
   "main": "index.js",
@@ -39,8 +39,9 @@
     "webpack-jarvis": "^0.3.2"
   },
   "dependencies": {
-    "@podlove/player-actions": "^4.2.3",
-    "@podlove/player-sagas": "^4.2.3",
-    "@podlove/player-state": "^4.2.3"
+    "@podlove/actions": "^4.2.3",
+    "@podlove/sagas": "^4.2.3",
+    "@podlove/state": "^4.2.3",
+    "@podlove/utils": "^4.2.3"
   }
 }

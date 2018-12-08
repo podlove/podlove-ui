@@ -1,5 +1,5 @@
 {
-  "name": "@podlove/player-actions",
+  "name": "@podlove/actions",
   "version": "4.2.3",
   "description": "Reducers and actions for podlove player framework",
   "main": "index.js",
@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "redux-actions": "^2.6.4",
-    "lodash": "^4.17.11"
+    "@podlove/utils": "^4.2.3",
+    "lodash": "^4.17.11",
+    "redux-actions": "^2.6.4"
   }
 }

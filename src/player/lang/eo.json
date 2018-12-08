@@ -1,0 +1,141 @@
+{
+  "CHAPTERS": {
+    "TITLE": "Ĉapitroj"
+  },
+  "AUDIO": {
+    "TITLE": "Sono",
+    "VOLUME": "Laŭteco",
+    "SPEED": "Rapideco",
+    "DEBUG_STATE": "Elporti sencimigan staton"
+  },
+  "PLAYER": {
+    "REPLAY": "Ripeti",
+    "RETRY": "Reprovi"
+  },
+  "ERROR": {
+    "LOADING": {
+      "TITLE": "Eraro pri ŝargado de sondosiero",
+      "MESSAGE": "La sondosioro ne povis esti ŝargata, la servilo ne estas atingebla. Bonvolu reprovi pli poste."
+    },
+    "MISSING_FILES": {
+      "TITLE": "Necesaj informoj mankas",
+      "MESSAGE": "Por aŭdigi la podkaston mankas la referencoj al la sondosieroj."
+    }
+  },
+  "DOWNLOAD": {
+    "TITLE": "Elŝuti",
+    "DURATION_WITH_HOURS": "{hours} horoj {minutes} minutoj",
+    "DURATION": "{minutes} minutoj",
+    "ACTIONS": {
+      "DOWNLOAD": "Elŝuti epizodon",
+      "COPY": "Kopii URLn"
+    }
+  },
+  "SHARE": {
+    "TITLE": "Konigi",
+    "CONTENT": {
+      "SHOW": "Serio",
+      "EPISODE": "Epizodo",
+      "CHAPTER": "Ĉapitro",
+      "TIME": "Ludtempo"
+    },
+    "REFERENCE": {
+      "BEGINNING": "Komenco",
+      "CHAPTER": "Ĉapitro",
+      "TIME": "Ludtempo"
+    },
+    "SHARE_CHANNEL": "Konigi per...",
+    "SHARE_LINK": "Ligilo",
+    "ACTIONS": {
+      "COPY": "kopii"
+    },
+    "EPISODE": {
+      "TEXT": {
+        "BEGINNING": "\"{title}\" ({link}",
+        "CHAPTER": "\"{title}\" ({link}",
+        "PLAYTIME": "\"{title}\" ({link}"
+      },
+    "SUBJECT": {
+      "BEGINNING": "\"{title}\" ({link}",
+      "CHAPTER": "\"{title}\" ({link}",
+      "PLAYTIME": "\"{title}\" ({link}"
+      }
+    },
+    "SHOW": {
+      "TEXT": "\"{title}\" ({link}",
+      "SUBJECT": "\"{title}\" ({link}"
+    }
+  },
+  "EMBED": {
+    "TITLE": "Enigi epizodon",
+    "LABEL": {
+      "SIZE": "Eniga grandeco",
+      "CODE": "Eniga kodo"
+    },
+    "ACTIONS": {
+      "COPY": "Kopii kodon"
+    }
+  },
+  "INFO": {
+    "TITLE": "Informoj",
+    "PUBLICATION_DATE": "Publikigita: {day}.{month}.{year}",
+    "ON_AIR": "Aŭdebla(j)",
+    "DURATION_WITH_HOURS": "{hours} horoj {minutes} minutoj",
+    "DURATION": "{minutes} minutoj"
+  },
+  "TRANSCRIPTS": {
+    "TITLE": "Transskribaĵo",
+    "CHAPTER": "Ĉapitro {index}: {title}",
+    "FOLLOW": "Sekvi",
+    "SEARCH": "Serĉi",
+    "NO_SEARCH_RESULTS": "Nenia rezulto"
+  },
+  "MESSAGES": {
+    "COPIED": "Kopiite!"
+  },
+  "A11Y": {
+    "ALT_EPISODE_COVER": "Epizoda bildo",
+    "ALT_SHOW_COVER": "Seria bildo",
+    "PLAYER_PLAY": "Ludigi epizodon",
+    "PLAYER_START": "Lanĉi epizodon - Daŭro: {hours} horoj {minutes} minutoj {seconds} sekundoj",
+    "PLAYER_RESTART": "Rekomenci epizodon",
+    "PLAYER_ERROR": "Reprovi ludigon",
+    "PLAYER_PAUSE": "Paŭzi epizodon",
+    "PLAYER_LOADING": "Epizodo ŝargiĝas",
+    "PLAYER_CHAPTER_NEXT": "Sekva ĉapitro: {index} - {title}",
+    "PLAYER_CHAPTER_END": "Al la ĉapitra fino",
+    "PLAYER_CHAPTER_PREVIOUS": "Antaŭa ĉapitro: {index} - {title}",
+    "PLAYER_CHAPTER_CURRENT": "Al la komenco de la nuna ĉapitro: {index} - {title}",
+    "PLAYER_STEPPER_BACK": "{seconds} sekundojn malantaŭen",
+    "PLAYER_STEPPER_FORWARD": "{seconds} sekundojn antaŭen",
+    "PROGRESSBAR_INPUT": "Ŝanĝi daŭron je milisekundoj",
+    "TIMER_CURRENT": "Aktuala ludtempo: {hours} horoj {minutes} minutoj {seconds} sekundoj",
+    "TIMER_LEFT": "Restanta ludtempo: {hours} horoj {minutes} minutoj {seconds} sekundoj",
+    "TIMER_CHAPTER": "Nuna ĉapitro: {index} - {title}",
+    "SPEAKER_COVER": "Parolanto {name}",
+    "CHAPTER_ENTRY": "{index} - {title} (Daŭro: {duration}, Restanta: {remaining})",
+    "SHARE_CONTENT_SHOW": "Konigi serion {title}",
+    "SHARE_CONTENT_EPISODE": "Konigi epizodon {title}",
+    "SHARE_CONTENT_CHAPTER": "Konigi ĉapitron {title}",
+    "SHARE_CONTENT_PLAYTIME": "Konigi epizodon ĉe {playtime}",
+    "SHARE_CHANNEL": "Konigi al {channel}",
+    "SHARE_EMBED": "Krei enigan kodon",
+    "COPY_SHARE_LINK": "Kopii konigan ligilon",
+    "SHARE_OVERLAY": "Koniga dialogo",
+    "OVERLAY_CLOSE": "Fermi dialogon",
+    "COPY_EMBED_CODE": "Kopii enigan kodon",
+    "DOWNLOAD_EPISODE": "Elŝuti epizodon",
+    "SELECT_EPISODE_FILETYPE": "Elekti epizodan formaton",
+    "COPY_DOWNLOAD_URL": "Kopii elŝut-ligilon",
+    "RATE": "Ludrapideco",
+    "RATE_CURRENT": "Nune: {rate}%",
+    "RATE_INCREASE": "pli rapide",
+    "RATE_DECREASE": "malpli rapide",
+    "SET_RATE_IN_PERCENT": "Agordi rapidecon je elcentoj",
+    "VOLUME": "Laŭteco",
+    "VOLUME_CURRENT": "Nune: {volume}%",
+    "VOLUME_MUTE": "Mutigi",
+    "VOLUME_UNMUTE": "Malmutigi",
+    "SET_VOLUME_IN_PERCENT": "Agordi laŭtecon je elcentoj"
+  }
+}

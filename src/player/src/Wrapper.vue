@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.wrapper(:class="{[display]: display}", :style="{ background: 'black' }")
+  div.wrapper(:class="{[display]: display, [platform]: platform}", :style="style")
     slot
 </template>
 
@@ -9,7 +9,9 @@
 
   export default {
     data: mapState({
-      display: select.display
+      display: select.display,
+      platform: select.platform,
+      style: select.styles.wrapper
     })
   }
 </script>
