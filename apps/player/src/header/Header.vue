@@ -1,7 +1,7 @@
 <template lang="pug">
   div.header(:style="style")
     poster-component
-    div.description
+    div.info
       show-title-component
       episode-title-component
       episode-description-component
@@ -39,16 +39,17 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    font-weight: 300;
   }
 
-  .description {
+  .info {
     width: 100%;
     max-width: 100%;
     overflow: hidden;
   }
 
   @media screen and (max-width: $width-m) {
-    .info {
+    .header {
       flex-direction: column;
       text-align: center;
     }

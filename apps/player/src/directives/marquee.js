@@ -42,6 +42,5 @@ export default {
   bind (el) {
     window.addEventListener('resize', () => marquee(el))
   },
-  inserted: marquee,
-  update: marquee
+  componentUpdated: marquee
 }

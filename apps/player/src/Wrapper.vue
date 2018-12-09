@@ -29,5 +29,6 @@
     min-width: $width-xs;
 
     @include font();
+    font-size: 14px;
   }
 </style>

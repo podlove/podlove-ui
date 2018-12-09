@@ -1,5 +1,5 @@
 <template lang="pug">
-  h1.title#header-title(:style="style" v-marquee)
+  h1.episode-title#header-title(:style="style" v-marquee)
     a(:href="link" :target="target" v-if="link") {{ title }}
     span(v-else) {{ title }}
 </template>
@@ -21,9 +21,8 @@
 <style lang="scss" scoped>
   @import '~styles/variables';
 
-  .title {
-    margin-top: 0;
-    margin-bottom: $margin / 4;
+  .episode-title {
+    margin: 0;
     font-weight: inherit;
     font-size: 1.8em;
 

@@ -34,6 +34,7 @@
   @import '~styles/global';
   @import '~styles/variables';
   @import '~styles/text';
+  @import '~styles/marquee';
 
   @import '~styles/resets/button';
   @import '~styles/resets/input';
