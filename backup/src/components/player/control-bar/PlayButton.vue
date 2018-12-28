@@ -148,7 +148,8 @@
       max-width: calc(#{$button-width * 2} + #{$padding * 2});
     }
 
-    .label{
+    .label {
+      @extend %font;
       margin-left: ($margin / 2);
       font-size: 1rem;
       font-weight: 200;

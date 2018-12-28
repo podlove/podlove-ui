@@ -1,5 +1,4 @@
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const autoprefixer = require('autoprefixer')
 const cssClean = require('postcss-clean')
 
@@ -24,14 +23,11 @@ const images = prefix => ({
   }
 })
 
-const styles = mode => ({
+const styles = ({ includePaths = [] } = {}) => ({
   test: /\.scss$/,
   use: [
-    mode === 'dev' ? {
-      loader: 'vue-style-loader'
-    } : MiniCssExtractPlugin.loader,
     {
-      loader: 'css-loader'
+      loader: 'vue-style-loader'
     },
     {
       loader: 'postcss-loader',
@@ -45,7 +41,8 @@ const styles = mode => ({
       }
     },
     {
-      loader: 'sass-loader'
+      loader: 'sass-loader',
+      options: { includePaths }
     }
   ]
 })

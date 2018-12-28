@@ -11,11 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "@podlove/actions": "^4.2.3",
+    "@podlove/components": "^4.2.3",
     "@podlove/sagas": "^4.2.3",
     "@podlove/utils": "^4.2.3",
     "color": "^3.1.0",
-    "redux-actions": "^2.6.4",
     "object-mapper": "^5.0.0",
-    "ramda": "0.26.1"
+    "ramda": "0.26.1",
+    "redux-actions": "^2.6.4"
+  },
+  "devDependencies": {
+    "@podlove/build": "^4.2.3"
   }
 }
