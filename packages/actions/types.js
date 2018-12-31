@@ -1,14 +1,19 @@
 // Lifecycle
-export const INIT = 'INIT'
+export const INIT = 'INIT' // initial config
+export const READY = 'READY' // config was parsed
 
 // Chapters
 export const NEXT_CHAPTER = 'NEXT_CHAPTER'
-export const SET_NEXT_CHAPTER = 'SET_NEXT_CHAPTER'
 export const PREVIOUS_CHAPTER = 'PREVIOUS_CHAPTER'
+export const SET_NEXT_CHAPTER = 'SET_NEXT_CHAPTER'
 export const SET_PREVIOUS_CHAPTER = 'SET_PREVIOUS_CHAPTER'
 export const SET_CHAPTER = 'SET_CHAPTER'
 export const UPDATE_CHAPTER = 'UPDATE_CHAPTER'
 export const INIT_CHAPTERS = 'INIT_CHAPTERS'
+
+// Steppers
+export const STEP_FORWARD = 'STEP_FORWARD'
+export const STEP_BACKWARDS = 'STEP_BACKWARDS'
 
 // Components
 export const TOGGLE_COMPONENT_INFO = 'TOGGLE_COMPONENT_INFO'
@@ -31,7 +36,7 @@ export const TOGGLE_COMPONENT_PROGRESSBAR = 'TOGGLE_COMPONENT_PROGRESSBAR'
 export const TOGGLE_COMPONENT_CONTROLS_BUTTON = 'TOGGLE_COMPONENT_CONTROLS_BUTTON'
 
 // Error
-export const ERROR_LOAD = 'ERROR_LOAD'
+export const BACKEND_ERROR = 'BACKEND_ERROR'
 export const NETWORK_EMPTY = 'NETWORK_EMPTY'
 export const NETWORK_NO_SOURCE = 'NETWORK_NO_SOURCE'
 export const ERROR_MISSING_AUDIO_FILES = 'ERROR_MISSING_AUDIO_FILES'
@@ -44,17 +49,18 @@ export const DISABLE_GHOST_MODE = 'DISABLE_GHOST_MODE'
 
 // Player
 export const REQUEST_PLAY = 'REQUEST_PLAY'
+export const BACKEND_PLAY = 'BACKEND_PLAY'
 export const REQUEST_PAUSE = 'REQUEST_PAUSE'
+export const BACKEND_PAUSE = 'BACKEND_PAUSE'
 export const REQUEST_RESTART = 'REQUEST_RESTART'
-export const SET_BUFFER = 'SET_BUFFER'
-export const PLAY = 'PLAY'
-export const PAUSE = 'PAUSE'
+export const BACKEND_BUFFER = 'BACKEND_BUFFER'
 export const STOP = 'STOP'
 export const IDLE = 'IDLE'
-export const LOADING = 'LOADING'
-export const LOAD = 'LOAD'
+export const BACKEND_LOADING_START = 'BACKEND_LOADING_START'
+export const BACKEND_LOADING_END = 'BACKEND_LOADING_END'
+export const REQUEST_LOAD = 'REQUEST_LOAD'
 export const LOADED = 'LOADED'
-export const END = 'END'
+export const BACKEND_END = 'BACKEND_END'
 
 // Audio
 export const MUTE = 'MUTE'
@@ -63,7 +69,7 @@ export const SET_VOLUME = 'SET_VOLUME'
 export const SET_RATE = 'SET_RATE'
 
 // Timepiece
-export const SET_DURATION = 'SET_DURATION'
+export const BACKEND_DURATION = 'BACKEND_DURATION'
 export const BACKEND_PLAYTIME = 'BACKEND_PLAYTIME'
 export const REQUEST_PLAYTIME = 'REQUEST_PLAYTIME'
 export const UPDATE_PLAYTIME = 'UPDATE_PLAYTIME'

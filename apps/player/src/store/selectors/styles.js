@@ -25,10 +25,21 @@ const description = state => ({
   color: color(theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)).fade(0.25)
 })
 
+const button = state => ({
+  background: fallbackColor(theme.highlightColor(state), theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)),
+  color: theme.mainColor(state)
+})
+
+const controls = state => ({
+  'background': theme.mainColor(state)
+})
+
 export default {
   wrapper: compose(wrapper, root.theme),
   header: compose(header, root.theme),
   poster: compose(poster, root.theme),
   title: compose(title, root.theme),
-  description: compose(description, root.theme)
+  description: compose(description, root.theme),
+  button: compose(button, root.theme),
+  controls: compose(controls, root.theme)
 }

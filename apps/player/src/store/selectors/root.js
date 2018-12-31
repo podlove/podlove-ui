@@ -6,5 +6,6 @@ export default {
   timepiece: prop('timepiece'),
   episode: prop('episode'),
   show: prop('show'),
-  chapters: prop('chapters')
+  chapters: prop('chapters'),
+  media: prop('media')
 }

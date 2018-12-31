@@ -6,6 +6,7 @@ import { reducer as episode } from '@podlove/state/episode'
 import { reducer as chapters } from '@podlove/state/chapters'
 import { reducer as timepiece } from '@podlove/state/timepiece'
 import { reducer as show } from '@podlove/state/show'
+import { reducer as media } from '@podlove/state/media'
 
 export default combineReducers({
   runtime,
@@ -13,5 +14,6 @@ export default combineReducers({
   show,
   episode,
   chapters,
-  timepiece
+  timepiece,
+  media
 })

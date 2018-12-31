@@ -1,12 +1,12 @@
 <template>
   <span class="inner" aria-hidden="true">
-    <pause-icon :size="size" :color="color"></pause-icon>
+    <icon type="pause" :color="color"></icon>
     <slot></slot>
   </span>
 </template>
 
 <script>
-  import { PauseIcon } from 'icons'
+  import Icon from 'components/icons'
   import { color } from 'defaults'
 
   export default {
@@ -20,7 +20,7 @@
       }
     },
     components: {
-      PauseIcon
+      Icon
     }
   }
 </script>

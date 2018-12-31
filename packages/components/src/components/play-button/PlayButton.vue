@@ -61,7 +61,6 @@ export default {
           this.$emit('click', requestRestart())
         break
       }
-
     }
   }
 }

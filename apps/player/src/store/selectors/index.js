@@ -8,6 +8,7 @@ import episode from './episode'
 import chapters from './chapters'
 import accessibility from './accessibility'
 import show from './show'
+import media from './media'
 
 export default {
   ...runtime,
@@ -17,5 +18,6 @@ export default {
   episode,
   show,
   styles,
-  accessibility
+  accessibility,
+  media
 }

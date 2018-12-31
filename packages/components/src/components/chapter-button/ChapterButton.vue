@@ -1,0 +1,49 @@
+<template>
+  <button class="button" @click="clickHandler" :id="`chapter-button--${type}`">
+    <icon :type="type" :color="color" />
+    <slot></slot>
+  </button>
+</template>
+
+<script>
+import { color } from 'defaults'
+import Icon from 'components/icons'
+import { nextChapter, previousChapter } from '@podlove/actions/chapters'
+
+export default {
+  props: {
+    type: {
+      type: String,
+      required: true,
+      validator: (val) => ['next', 'previous'].includes(val)
+    },
+    color: {
+      type: String,
+      default: color
+    }
+  },
+  components: {
+    Icon
+  },
+  methods: {
+    clickHandler () {
+      switch (this.type) {
+        case 'next':
+          this.$emit('click', nextChapter())
+        break
+        case 'previous':
+          this.$emit('click', previousChapter())
+        break
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+  @import 'resets';
+
+  .button {
+    @extend %button;
+  }
+</style>

@@ -34,7 +34,6 @@
   @import '~styles/variables';
 
   .header {
-    padding: $padding $padding 0 $padding;
     overflow: hidden;
     width: 100%;
     display: flex;

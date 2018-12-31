@@ -1,12 +1,12 @@
 <template>
   <span class="inner" aria-hidden="true">
-    <reload-icon :size="size" :color="color"></reload-icon>
+    <icon type="restart" :color="color"></icon>
     <slot></slot>
   </span>
 </template>
 
 <script>
-  import { ReloadIcon } from 'icons'
+  import Icon from 'components/icons'
   import { color } from 'defaults'
 
   export default {
@@ -14,13 +14,10 @@
       color: {
         type: String,
         default: color
-      },
-      size: {
-        type: Number
       }
     },
     components: {
-      ReloadIcon
+      Icon
     }
   }
 </script>

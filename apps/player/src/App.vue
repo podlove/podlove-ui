@@ -1,6 +1,7 @@
 <template lang="pug">
   wrapper-component
-    header-component
+    header-component.header
+    controls-component.controls
 </template>
 
 <script>
@@ -9,6 +10,7 @@
 
   import WrapperComponent from './Wrapper'
   import HeaderComponent from './header'
+  import ControlsComponent from './controls'
 
   export default {
     data: mapState({
@@ -16,7 +18,8 @@
     }),
     components: {
       WrapperComponent,
-      HeaderComponent
+      HeaderComponent,
+      ControlsComponent
     },
     watch: {
       language () {
@@ -30,7 +33,6 @@
 </script>
 
 <style lang="scss">
-  @import '~normalize.css/normalize.css';
   @import '~styles/global';
   @import '~styles/variables';
   @import '~styles/text';
@@ -40,4 +42,12 @@
   @import '~styles/resets/input';
   @import '~styles/resets/lists';
   @import '~styles/resets/range';
+
+  .header {
+    padding: $padding $padding $padding / 2 $padding;
+  }
+
+  .controls {
+    padding: $padding / 2 0;
+  }
 </style>

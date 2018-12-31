@@ -1,12 +1,12 @@
 <template>
   <span class="inner" aria-hidden="true">
-    <play-icon :size="size" :color="color"></play-icon>
+    <icon type="play" :color="color"></icon>
     <slot></slot>
   </span>
 </template>
 
 <script>
-  import { PlayIcon } from 'icons'
+  import Icon from 'components/icons'
   import { color } from 'defaults'
 
   export default {
@@ -14,13 +14,10 @@
       color: {
         type: String,
         default: color
-      },
-      size: {
-        type: Number
       }
     },
     components: {
-      PlayIcon
+      Icon
     }
   }
 </script>

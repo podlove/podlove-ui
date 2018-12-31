@@ -1,5 +1,11 @@
+import Icon from './icons'
 import PlayButton from './play-button'
+import ChapterButton from './chapter-button'
+import StepperButton from './stepper-button'
 
 export {
-  PlayButton
+  Icon,
+  PlayButton,
+  ChapterButton,
+  StepperButton
 }
