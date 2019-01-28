@@ -1,5 +1,5 @@
 <template>
-  <span class="inner" aria-hidden="true">
+  <span class="play-inner" aria-hidden="true">
     <icon type="play" :color="color"></icon>
     <slot></slot>
   </span>
@@ -23,7 +23,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .inner {
+  .play-inner {
     display: flex;
     align-items: center;
     justify-content: center;

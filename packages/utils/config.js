@@ -1,12 +1,14 @@
-import { compose, getOr, map } from 'lodash/fp'
+import { compose, propOr, map } from 'lodash/fp'
 import { toPlayerTime } from './time'
 import { createObject } from './helper'
 
-export const duration = compose(toPlayerTime, getOr(0, 'duration'))
-export const playtime = compose(toPlayerTime, getOr(0, 'playtime'))
+export const duration = compose(toPlayerTime, propOr(0, 'duration'))
+export const playtime = compose(toPlayerTime, propOr(0, 'playtime'))
 export const media = compose(map(createObject({
-  url: getOr(null, 'url'),
-  size: getOr(0, 'size'),
-  title: getOr(null, 'title'),
-  mimeType: getOr(null, 'mimeType')
-})), getOr([], 'audio'))
+  url: propOr(null, 'url'),
+  size: propOr(0, 'size'),
+  title: propOr(null, 'title'),
+  mimeType: propOr(null, 'mimeType')
+})), propOr([], 'audio'))
+
+export const chapters = propOr([], 'chapters')

@@ -3,10 +3,10 @@ import { compose, prop } from 'ramda'
 
 import {
   UPDATE_CHAPTER,
-  SET_NEXT_CHAPTER,
-  SET_PREVIOUS_CHAPTER,
+  NEXT_CHAPTER,
+  PREVIOUS_CHAPTER,
   SET_CHAPTER,
-  INIT_CHAPTERS
+  SET_CHAPTERS
 } from '@podlove/actions/types'
 
 import {
@@ -17,6 +17,8 @@ import {
   previousChapter as getPreviousChapter,
   currentChapter as getCurrentChapter
 } from '@podlove/utils/chapters'
+
+import { chapters } from '@podlove/utils/config'
 
 const nextChapter = chapters => {
   let next = currentChapterIndex(chapters) + 1
@@ -54,7 +56,7 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [INIT_CHAPTERS]: (_, { payload }) => generateState(payload),
+    [SET_CHAPTERS]: (_, { payload }) => generateState(payload),
 
     [UPDATE_CHAPTER]: (state, { payload }) => {
       const chapters = state.list.map(setActiveByPlaytime(payload))
@@ -66,14 +68,9 @@ export const reducer = handleActions(
       return generateState(chapters)
     },
 
-    [SET_NEXT_CHAPTER]: compose(generateState, nextChapter, prop('list')),
+    [NEXT_CHAPTER]: compose(generateState, nextChapter, prop('list')),
 
-    [SET_PREVIOUS_CHAPTER]: compose(generateState, previousChapter, prop('list')),
-
-    [SET_CHAPTER]: (state, { payload }) => {
-      const chapters = state.list.map(setActiveByIndex(payload))
-      return generateState(chapters)
-    }
+    [PREVIOUS_CHAPTER]: compose(generateState, previousChapter, prop('list'))
   },
   INITIAL_STATE
 )

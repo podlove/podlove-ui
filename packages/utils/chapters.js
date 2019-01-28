@@ -1,4 +1,6 @@
 import { fallbackTo } from './helper'
+import { toPlayerTime } from './time'
+
 import { find, findIndex, add, compose } from 'lodash/fp'
 
 import { get } from 'lodash'
@@ -55,3 +57,4 @@ export const setActiveByPlaytime = playtime => chapter => {
 
 export const setActiveByIndex = chapterIndex => (chapter, index) =>
   chapterIndex === index ? activeChapter(chapter) : inactiveChapter(chapter)
+

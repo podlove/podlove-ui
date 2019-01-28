@@ -12,6 +12,8 @@
   "dependencies": {
     "dompurify": "^1.0.8",
     "lodash": "^4.17.11",
-    "ramda": "0.26.1"
+    "ramda": "0.26.1",
+    "mobile-detect": "1.4.3",
+    "color": "3.1.0"
   }
 }

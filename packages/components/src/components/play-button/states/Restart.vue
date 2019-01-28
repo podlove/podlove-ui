@@ -1,5 +1,5 @@
 <template>
-  <span class="inner" aria-hidden="true">
+  <span class="restart-inner" aria-hidden="true">
     <icon type="restart" :color="color"></icon>
     <slot></slot>
   </span>
@@ -23,7 +23,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .inner {
+  .restart-inner {
     display: flex;
     align-items: center;
     justify-content: center;

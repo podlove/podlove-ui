@@ -293,7 +293,7 @@ test.cb(
   }
 )
 
-test(`chaptersEffects: it triggers SET_PREVIOUS_CHAPTER on PREVIOUS_CHAPTER if it just played less than 2 seconds`, t => {
+test(`chaptersEffects: it triggers PREVIOUS_CHAPTER on PREVIOUS_CHAPTER if it just played less than 2 seconds`, t => {
   state.chapters.list[1].active = true
   state.chapters.current = state.chapters.list[1]
   state.playtime = 5000
@@ -301,7 +301,7 @@ test(`chaptersEffects: it triggers SET_PREVIOUS_CHAPTER on PREVIOUS_CHAPTER if i
   chapters(store, { type: 'PREVIOUS_CHAPTER' })
 
   t.deepEqual(store.dispatch.getCall(0).args[0], {
-    type: 'SET_PREVIOUS_CHAPTER'
+    type: 'PREVIOUS_CHAPTER'
   })
 })
 
@@ -318,27 +318,27 @@ test(`chaptersEffects: it triggers SET_CHAPTER on PREVIOUS_CHAPTER if it played 
   })
 })
 
-test(`chaptersEffects: it triggers SET_NEXT_CHAPTER if NEXT_CHAPTER is dispatched`, t => {
+test(`chaptersEffects: it triggers NEXT_CHAPTER if NEXT_CHAPTER is dispatched`, t => {
   chapters(store, { type: 'NEXT_CHAPTER', payload: 10 })
 
   t.deepEqual(store.dispatch.getCall(0).args[0], {
-    type: 'SET_NEXT_CHAPTER',
+    type: 'NEXT_CHAPTER',
     payload: 10
   })
 })
 
-test(`chaptersEffects: it triggers UPDATE_PLAYTIME with current chapter start time if not last chapter when SET_NEXT_CHAPTER was dispatched`, t => {
-  chapters(store, { type: 'SET_NEXT_CHAPTER' })
+test(`chaptersEffects: it triggers UPDATE_PLAYTIME with current chapter start time if not last chapter when NEXT_CHAPTER was dispatched`, t => {
+  chapters(store, { type: 'NEXT_CHAPTER' })
   t.deepEqual(store.dispatch.getCall(0).args[0], {
     type: 'UPDATE_PLAYTIME',
     payload: 0
   })
 })
 
-test(`chaptersEffects: it triggers UPDATE_PLAYTIME with duration time if not last chapter when SET_NEXT_CHAPTER was dispatched`, t => {
+test(`chaptersEffects: it triggers UPDATE_PLAYTIME with duration time if not last chapter when NEXT_CHAPTER was dispatched`, t => {
   state.chapters.current = state.chapters.list[2]
   state.playtime = 11000
-  chapters(store, { type: 'SET_NEXT_CHAPTER' })
+  chapters(store, { type: 'NEXT_CHAPTER' })
 
   t.deepEqual(store.dispatch.getCall(0).args[0], {
     type: 'UPDATE_PLAYTIME',
@@ -346,15 +346,15 @@ test(`chaptersEffects: it triggers UPDATE_PLAYTIME with duration time if not las
   })
 })
 
-test(`chaptersEffects: it triggers UPDATE_PLAYTIME if SET_PREVIOUS_CHAPTER is dispatched`, t => {
+test(`chaptersEffects: it triggers UPDATE_PLAYTIME if PREVIOUS_CHAPTER is dispatched`, t => {
   state.chapters.list[2].active = true
   state.chapters.current = state.chapters.list[2]
-  chapters(store, { type: 'SET_PREVIOUS_CHAPTER' })
+  chapters(store, { type: 'PREVIOUS_CHAPTER' })
 
   state.chapters.list[2].active = false
   state.chapters.list[1].active = true
   state.chapters.current = state.chapters.list[1]
-  chapters(store, { type: 'SET_PREVIOUS_CHAPTER' })
+  chapters(store, { type: 'PREVIOUS_CHAPTER' })
 
   t.deepEqual(store.dispatch.getCall(0).args[0], {
     type: 'UPDATE_PLAYTIME',

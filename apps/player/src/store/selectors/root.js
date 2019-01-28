@@ -7,5 +7,10 @@ export default {
   episode: prop('episode'),
   show: prop('show'),
   chapters: prop('chapters'),
-  media: prop('media')
+  media: prop('media'),
+  playstate: prop('playstate'),
+  components: prop('components'),
+  progress: prop('progress'),
+  network: prop('network'),
+  quantiles: prop('quantiles')
 }

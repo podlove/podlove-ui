@@ -25,5 +25,4 @@
   .loading-indicator {
     padding: 0 15px;
   }
-
 </style>

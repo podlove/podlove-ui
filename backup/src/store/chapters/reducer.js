@@ -3,8 +3,8 @@ import { compose, get } from 'lodash/fp'
 
 import {
   UPDATE_CHAPTER,
-  SET_NEXT_CHAPTER,
-  SET_PREVIOUS_CHAPTER,
+  NEXT_CHAPTER,
+  PREVIOUS_CHAPTER,
   SET_CHAPTER,
   INIT_CHAPTERS
 } from '../types'
@@ -66,9 +66,9 @@ export const reducer = handleActions(
       return generateState(chapters)
     },
 
-    [SET_NEXT_CHAPTER]: compose(generateState, nextChapter, get('list')),
+    [NEXT_CHAPTER]: compose(generateState, nextChapter, get('list')),
 
-    [SET_PREVIOUS_CHAPTER]: compose(generateState, previousChapter, get('list')),
+    [PREVIOUS_CHAPTER]: compose(generateState, previousChapter, get('list')),
 
     [SET_CHAPTER]: (state, { payload }) => {
       const chapters = state.list.map(setActiveByIndex(payload))

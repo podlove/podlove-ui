@@ -1,5 +1,5 @@
 <template>
-  <span class="inner" aria-hidden="true">
+  <span class="pause-inner" aria-hidden="true">
     <icon type="pause" :color="color"></icon>
     <slot></slot>
   </span>
@@ -26,7 +26,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .inner {
+  .pause-inner {
     display: flex;
     align-items: center;
     justify-content: center;

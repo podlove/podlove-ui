@@ -2,6 +2,7 @@
   wrapper-component
     header-component.header
     controls-component.controls
+    progress-component.progress
 </template>
 
 <script>
@@ -11,6 +12,7 @@
   import WrapperComponent from './Wrapper'
   import HeaderComponent from './header'
   import ControlsComponent from './controls'
+  import ProgressComponent from './progress'
 
   export default {
     data: mapState({
@@ -19,7 +21,8 @@
     components: {
       WrapperComponent,
       HeaderComponent,
-      ControlsComponent
+      ControlsComponent,
+      ProgressComponent
     },
     watch: {
       language () {

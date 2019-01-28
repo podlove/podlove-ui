@@ -10,9 +10,7 @@ import actions from 'store/actions'
 import {
   INIT,
   PREVIOUS_CHAPTER,
-  SET_PREVIOUS_CHAPTER,
   NEXT_CHAPTER,
-  SET_NEXT_CHAPTER,
   SET_CHAPTER,
   SET_PLAYTIME,
   UPDATE_PLAYTIME,
@@ -79,7 +77,7 @@ export default handleActions({
     }
   },
 
-  [SET_PREVIOUS_CHAPTER]: ({ dispatch }, _, state) => {
+  [PREVIOUS_CHAPTER]: ({ dispatch }, _, state) => {
     const { start, index } = selectCurrentChapter(state)
 
     dispatch(actions.updatePlaytime((index - 1) <= 0 ? 0 : start))
@@ -89,7 +87,7 @@ export default handleActions({
     dispatch(actions.setNextChapter(payload))
   },
 
-  [SET_NEXT_CHAPTER]: ({ dispatch }, _, state) => {
+  [NEXT_CHAPTER]: ({ dispatch }, _, state) => {
     const duration = get(state, 'duration', 0)
     const playtime = get(state, 'playtime', 0)
     const chapters = selectChapters(state)

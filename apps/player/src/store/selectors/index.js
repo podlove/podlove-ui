@@ -9,6 +9,10 @@ import chapters from './chapters'
 import accessibility from './accessibility'
 import show from './show'
 import media from './media'
+import components from './components'
+import progress from './progress'
+import network from './network'
+import quantiles from './quantiles'
 
 export default {
   ...runtime,
@@ -19,5 +23,9 @@ export default {
   show,
   styles,
   accessibility,
-  media
+  media,
+  components,
+  progress,
+  network,
+  quantiles
 }

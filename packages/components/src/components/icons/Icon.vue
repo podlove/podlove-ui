@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :color="color" :background="background" :size="size" />
+  <component :is="type" :color="color" :background="background" :size="size" aria-hidden="true" />
 </template>
 
 <script>

@@ -86,15 +86,15 @@ test(`UPDATE_CHAPTER: returns the state if no active chapter was found`, t => {
   t.deepEqual(result, generateTestData(chaptersTestData, 1))
 })
 
-test(`SET_NEXT_CHAPTER: it sets the next chapter active`, t => {
+test(`NEXT_CHAPTER: it sets the next chapter active`, t => {
   let result = chapters(generateTestData(chaptersTestData, 1), {
-    type: 'SET_NEXT_CHAPTER'
+    type: 'NEXT_CHAPTER'
   })
 
   t.deepEqual(result, generateTestData(chaptersTestData, 2))
 
   result = chapters(generateTestData(chaptersTestData, 3), {
-    type: 'SET_NEXT_CHAPTER'
+    type: 'NEXT_CHAPTER'
   })
 
   t.deepEqual(result, generateTestData(chaptersTestData, 3))
@@ -102,21 +102,21 @@ test(`SET_NEXT_CHAPTER: it sets the next chapter active`, t => {
 
 test(`PREVIOUS_CHAPTER: it sets the previous chapter active`, t => {
   let result = chapters(generateTestData(chaptersTestData, 2), {
-    type: 'SET_PREVIOUS_CHAPTER'
+    type: 'PREVIOUS_CHAPTER'
   })
 
   t.deepEqual(result, generateTestData(chaptersTestData, 1))
 
   result = chapters(generateTestData(chaptersTestData, 1), {
-    type: 'SET_PREVIOUS_CHAPTER'
+    type: 'PREVIOUS_CHAPTER'
   })
 
   t.deepEqual(result, generateTestData(chaptersTestData, 1))
 })
 
-test(`SET_PREVIOUS_CHAPTER: falls back to first chapter if no active chapter was found`, t => {
+test(`PREVIOUS_CHAPTER: falls back to first chapter if no active chapter was found`, t => {
   let result = chapters(generateTestData(chaptersTestData, -1), {
-    type: 'SET_PREVIOUS_CHAPTER'
+    type: 'PREVIOUS_CHAPTER'
   })
 
   t.deepEqual(result, generateTestData(chaptersTestData, 1))

@@ -3,13 +3,11 @@ export const INIT = 'INIT' // initial config
 export const READY = 'READY' // config was parsed
 
 // Chapters
+export const SET_CHAPTERS = 'SET_CHAPTERS'
 export const NEXT_CHAPTER = 'NEXT_CHAPTER'
 export const PREVIOUS_CHAPTER = 'PREVIOUS_CHAPTER'
-export const SET_NEXT_CHAPTER = 'SET_NEXT_CHAPTER'
-export const SET_PREVIOUS_CHAPTER = 'SET_PREVIOUS_CHAPTER'
 export const SET_CHAPTER = 'SET_CHAPTER'
 export const UPDATE_CHAPTER = 'UPDATE_CHAPTER'
-export const INIT_CHAPTERS = 'INIT_CHAPTERS'
 
 // Steppers
 export const STEP_FORWARD = 'STEP_FORWARD'
@@ -42,7 +40,7 @@ export const NETWORK_NO_SOURCE = 'NETWORK_NO_SOURCE'
 export const ERROR_MISSING_AUDIO_FILES = 'ERROR_MISSING_AUDIO_FILES'
 export const ERROR_POSTER_LOAD = 'ERROR_POSTER_LOAD'
 
-// Ghost
+// Progress
 export const SIMULATE_PLAYTIME = 'SIMULATE_PLAYTIME'
 export const ENABLE_GHOST_MODE = 'ENABLE_GHOST_MODE'
 export const DISABLE_GHOST_MODE = 'DISABLE_GHOST_MODE'

@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-indicator" aria-hidden="true" :style="wrapperStyle">
+  <div class="loading-indicator" aria-hidden="true">
     <div class="loading-bubble first" :style="bubbleStyle"></div>
     <div class="loading-bubble second" :style="bubbleStyle"></div>
     <div class="loading-bubble third" :style="bubbleStyle"></div>
@@ -20,15 +20,7 @@
         default: 12
       }
     },
-    size: {
-
-    },
     computed: {
-      wrapperStyle () {
-        return {
-          width: `${3 * (this.size + 10)}px`
-        }
-      },
       bubbleStyle () {
         return {
           background: this.color,
@@ -42,11 +34,13 @@
 
 <style lang="scss" scoped>
   .loading-indicator {
+    display: flex;
     text-align: center;
+    justify-content: space-between;
 
     .loading-bubble {
+      margin: 0 3px;
       border-radius: 100%;
-      display: inline-block;
       animation: loading 1.4s ease-in-out 0s infinite both;
     }
 

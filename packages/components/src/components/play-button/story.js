@@ -9,9 +9,14 @@ const types = { loading: 'loading', play: 'play', pause: 'pause', restart: 'rest
 
 export default () => ({
   components: { PlayButton },
+  data () {
+    return {
+      type: select('type', types, 'loading')
+    }
+  },
   template: `
     <play-button
-      type="${select('type', types, 'loading')}"
+      :type="type"
       color="${color('color', defaultVariables.color)}"
       background="${color('background', defaultVariables.background)}"
       label="${text('label', '')}"

@@ -1,6 +1,7 @@
 import { compose } from 'lodash/fp'
 import color from 'color'
 import { selectors as theme } from '@podlove/state/theme'
+import { luminosity } from '@podlove/utils/color'
 import root from './root'
 
 const fallbackColor = (first, second) => first || second
@@ -31,7 +32,17 @@ const button = state => ({
 })
 
 const controls = state => ({
-  'background': theme.mainColor(state)
+  background: theme.mainColor(state)
+})
+
+const progress = state => ({
+  background: theme.mainColor(state)
+})
+
+const progressBar = state => ({
+  range: luminosity(0.05, theme.mainColor(state)) ? color(theme.lightColor(state)).fade(0.25).string() : color(theme.darkColor(state)).fade(0.75).string(),
+  thumb: fallbackColor(theme.highlightColor(state), theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)),
+  highlight: theme.mainColor(state)
 })
 
 export default {
@@ -41,5 +52,7 @@ export default {
   title: compose(title, root.theme),
   description: compose(description, root.theme),
   button: compose(button, root.theme),
-  controls: compose(controls, root.theme)
+  controls: compose(controls, root.theme),
+  progress: compose(progress, root.theme),
+  progressBar: compose(progressBar, root.theme)
 }

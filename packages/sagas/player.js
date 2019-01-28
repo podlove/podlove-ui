@@ -21,7 +21,6 @@ export default ({ selectMedia, selectPlaytime }) => function* playerSaga () {
     const mediaElement = attatchStream(audio(mediaFiles))
 
     const actions = audioActions(mediaElement)
-
     yield takeEvery(REQUEST_PLAY, play, actions)
     yield takeEvery(REQUEST_PAUSE, pause, actions)
     yield takeEvery(REQUEST_RESTART, restart, actions)
@@ -48,15 +47,15 @@ export default ({ selectMedia, selectPlaytime }) => function* playerSaga () {
     yield takeEvery(pauseEvent, onPause)
     yield takeEvery(endEvent, onEnd)
     yield takeEvery(playtimeEvent, onPlaytimeUpdate)
-    yield takeEvery(bufferingEvent, onBuffering)
     yield takeEvery(durationEvent, onDurationChange)
     yield takeEvery(bufferChangeEvent, onBufferChange)
+    yield takeEvery(bufferingEvent, onBuffering)
     yield takeEvery(errorEvent, onError)
   }
 
   // Actions
   function* play (actions) {
-    const playtime = select(selectPlaytime)
+    const playtime = yield select(selectPlaytime)
     actions.setPlaytime(millisecondsToSeconds(playtime))
     actions.play()
   }
@@ -127,6 +126,7 @@ export default ({ selectMedia, selectPlaytime }) => function* playerSaga () {
 
   function* onBufferChange (buffers = []) {
     const payload = buffers.map(([start, stop]) => [secondsToMilliseconds(start), secondsToMilliseconds(stop)])
+    console.log(payload)
     yield put(backendBuffer(payload))
   }
 

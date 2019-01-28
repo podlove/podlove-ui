@@ -1,14 +1,16 @@
 <template lang="pug">
   div.control-bar(:style="controlbarStyle")
-    chapter-button.control-button(type="previous" :color="buttonStyle.background" @click="dispatch")
-    stepper-button.control-button(type="backwards" :color="buttonStyle.background" @click="dispatch")
-    play-button.control-button(type="play" :color="buttonStyle.color" :background="buttonStyle.background" @click="dispatch")
-    stepper-button.control-button(type="forward" :color="buttonStyle.background" @click="dispatch")
-    chapter-button.control-button(type="next" :color="buttonStyle.background" @click="dispatch")
+    chapter-button.control-button(v-if="chapterButtons" type="previous" :color="buttonStyle.background" @click="dispatch")
+    stepper-button.control-button(v-if="stepperButtons" type="backwards" :color="buttonStyle.background" @click="dispatch")
+    play-button.control-button(v-if="button.type" :type="button.type" :color="buttonStyle.color" :background="buttonStyle.background" @click="dispatch" :label="button.label")
+      span.visually-hidden {{ button.a11y }}
+    stepper-button.control-button(v-if="stepperButtons" type="forward" :color="buttonStyle.background" @click="dispatch")
+    chapter-button.control-button(v-if="chapterButtons" type="next" :color="buttonStyle.background" @click="dispatch")
 </template>
 
 <script>
 import { mapState } from 'redux-vuex'
+import { calcHours, calcMinutes, calcSeconds, fromPlayerTime } from '@podlove/utils/time'
 import store from 'store'
 
 import select from 'store/selectors'
@@ -17,7 +19,12 @@ import { PlayButton, ChapterButton, StepperButton } from '@podlove/components'
 export default {
   data: mapState({
     controlbarStyle: select.styles.controls,
-    buttonStyle: select.styles.button
+    buttonStyle: select.styles.button,
+    playButton: select.components.playButton,
+    stepperButtons: select.components.stepperButtons,
+    chapterButtons: select.components.chapterButtons,
+    duration: select.duration,
+    playtime: select.playtime
   }),
   components: {
     PlayButton,
@@ -26,6 +33,61 @@ export default {
   },
   methods: {
     dispatch: store.dispatch
+  },
+  computed: {
+    button () {
+      switch (this.playButton) {
+        case 'paused':
+          return {
+            type: 'play',
+            a11y: this.$t('A11Y.PLAYER_PAUSE')
+          }
+        case 'duration':
+          return {
+            type: 'play',
+            a11y: this.$t('A11Y.PLAYER_START', {
+              hours: calcHours(this.duration),
+              minutes: calcMinutes(this.duration),
+              seconds: calcSeconds(this.duration)
+            }),
+            label: fromPlayerTime(this.duration)
+          }
+        case 'remaining':
+          return {
+            type: 'play',
+            label: fromPlayerTime(this.playtime)
+          }
+        case 'replay':
+          return {
+            type: 'restart',
+            a11y: this.$t('A11Y.PLAYER_LOADING'),
+            label: this.$t('PLAYER.REPLAY')
+          }
+        case 'loading':
+          return {
+            type: 'loading'
+          }
+        case 'playing':
+          return {
+            type: 'pause',
+            a11y: this.$t('A11Y.PLAYER_PLAY')
+          }
+        case 'error':
+          return {
+            type: 'restart',
+            a11y: this.$t('A11Y.PLAYER_ERROR')
+          }
+        case 'retry':
+          return {
+            type: 'restart',
+            label: this.$t('PLAYER.RETRY')
+          }
+        case 'end':
+          return {
+            type: 'restart'
+          }
+      }
+    }
   }
 }
 </script>
@@ -41,6 +103,7 @@ export default {
 
     .control-button {
       margin: 0 $margin;
+      display: block;
       opacity: 1;
 
       &:hover {
