@@ -1,16 +1,21 @@
 <template lang="pug">
   div.control-bar(:style="controlbarStyle")
-    chapter-button.control-button(v-if="chapterButtons" type="previous" :color="buttonStyle.background" @click="dispatch")
-    stepper-button.control-button(v-if="stepperButtons" type="backwards" :color="buttonStyle.background" @click="dispatch")
-    play-button.control-button(v-if="button.type" :type="button.type" :color="buttonStyle.color" :background="buttonStyle.background" @click="dispatch" :label="button.label")
-      span.visually-hidden {{ button.a11y }}
-    stepper-button.control-button(v-if="stepperButtons" type="forward" :color="buttonStyle.background" @click="dispatch")
-    chapter-button.control-button(v-if="chapterButtons" type="next" :color="buttonStyle.background" @click="dispatch")
+    transition(name="entry")
+      chapter-button.control-button(v-if="chapterButtons" type="previous" :color="buttonStyle.background" @click="dispatch")
+    transition(name="entry")
+      stepper-button.control-button(v-if="stepperButtons" type="backwards" :color="buttonStyle.background" @click="dispatch")
+    transition(name="entry")
+      play-button.control-button(v-if="button.type" :type="button.type" :color="buttonStyle.color" :background="buttonStyle.background" @click="dispatch" :label="button.label")
+        span.visually-hidden {{ button.a11y }}
+    transition(name="entry")
+      stepper-button.control-button(v-if="stepperButtons" type="forward" :color="buttonStyle.background" @click="dispatch")
+    transition(name="entry")
+      chapter-button.control-button(v-if="chapterButtons" type="next" :color="buttonStyle.background" @click="dispatch")
 </template>
 
 <script>
 import { mapState } from 'redux-vuex'
-import { calcHours, calcMinutes, calcSeconds, fromPlayerTime } from '@podlove/utils/time'
+import { calcHours, calcMinutes, calcSeconds, toHumanTime } from '@podlove/utils/time'
 import store from 'store'
 
 import select from 'store/selectors'
@@ -50,12 +55,12 @@ export default {
               minutes: calcMinutes(this.duration),
               seconds: calcSeconds(this.duration)
             }),
-            label: fromPlayerTime(this.duration)
+            label: toHumanTime(this.duration)
           }
         case 'remaining':
           return {
             type: 'play',
-            label: fromPlayerTime(this.playtime)
+            label: toHumanTime(this.playtime)
           }
         case 'replay':
           return {

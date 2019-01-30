@@ -10,7 +10,7 @@ import accessibility from './accessibility'
 import show from './show'
 import media from './media'
 import components from './components'
-import progress from './progress'
+import ghost from './ghost'
 import network from './network'
 import quantiles from './quantiles'
 
@@ -25,7 +25,7 @@ export default {
   accessibility,
   media,
   components,
-  progress,
+  ghost,
   network,
   quantiles
 }

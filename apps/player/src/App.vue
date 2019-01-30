@@ -2,7 +2,7 @@
   wrapper-component
     header-component.header
     controls-component.controls
-    progress-component.progress
+    progress-bar-component.progress
 </template>
 
 <script>
@@ -12,7 +12,7 @@
   import WrapperComponent from './Wrapper'
   import HeaderComponent from './header'
   import ControlsComponent from './controls'
-  import ProgressComponent from './progress'
+  import ProgressBarComponent from './progress-bar'
 
   export default {
     data: mapState({
@@ -22,7 +22,7 @@
       WrapperComponent,
       HeaderComponent,
       ControlsComponent,
-      ProgressComponent
+      ProgressBarComponent
     },
     watch: {
       language () {
@@ -46,11 +46,13 @@
   @import '~styles/resets/lists';
   @import '~styles/resets/range';
 
+  @import '~styles/animations';
+
   .header {
     padding: $padding $padding $padding / 2 $padding;
   }
 
   .controls {
-    padding: $padding / 2 0;
+    padding: $padding / 2 0 0 0;
   }
 </style>

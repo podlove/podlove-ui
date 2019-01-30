@@ -1,3 +1,5 @@
+@import 'variables';
+
 @keyframes bounceInDown {
   from, 60%, 75%, 90%, to {
     animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
@@ -52,4 +54,27 @@
 	100%{
 		transform: translateX(-100%);
 	}
+}
+
+.entry-enter-active, .entry-leave-active {
+  transition: height $animation-duration;
+
+  * {
+    transition: opacity $animation-duration * 2;
+  }
+}
+.entry-enter, .entry-leave-to {
+  height: 0;
+
+  * {
+    opacity: 0;
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity $animation-duration * 2;
+  opacity: 1;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }

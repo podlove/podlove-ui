@@ -6,6 +6,8 @@ import root from './root'
 
 const fallbackColor = (first, second) => first || second
 
+const textColor = state => fallbackColor(theme.highlightColor(state), theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state))
+
 const wrapper = state => ({
   background: theme.lightColor(state)
 })
@@ -19,7 +21,7 @@ const poster = state => ({
 })
 
 const title = state => ({
-  color: fallbackColor(theme.highlightColor(state), theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state))
+  color: textColor(state)
 })
 
 const description = state => ({
@@ -27,7 +29,7 @@ const description = state => ({
 })
 
 const button = state => ({
-  background: fallbackColor(theme.highlightColor(state), theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)),
+  background: textColor(state),
   color: theme.mainColor(state)
 })
 
@@ -41,8 +43,14 @@ const progress = state => ({
 
 const progressBar = state => ({
   range: luminosity(0.05, theme.mainColor(state)) ? color(theme.lightColor(state)).fade(0.25).string() : color(theme.darkColor(state)).fade(0.75).string(),
-  thumb: fallbackColor(theme.highlightColor(state), theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)),
+  thumb: textColor(state),
   highlight: theme.mainColor(state)
+})
+
+const timer = state => color(textColor(state)).fade(0.5).string()
+
+const chapterTitle = state => ({
+  color: textColor(state)
 })
 
 export default {
@@ -54,5 +62,7 @@ export default {
   button: compose(button, root.theme),
   controls: compose(controls, root.theme),
   progress: compose(progress, root.theme),
-  progressBar: compose(progressBar, root.theme)
+  progressBar: compose(progressBar, root.theme),
+  timer: compose(timer, root.theme),
+  chapterTitle: compose(chapterTitle, root.theme)
 }

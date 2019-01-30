@@ -8,7 +8,7 @@ import { reducer as timepiece } from '@podlove/state/timepiece'
 import { reducer as show } from '@podlove/state/show'
 import { reducer as media } from '@podlove/state/media'
 import { reducer as components } from '@podlove/state/components'
-import { reducer as progress } from '@podlove/state/progress'
+import { reducer as ghost } from '@podlove/state/ghost'
 import { reducer as network } from '@podlove/state/network'
 import { reducer as quantiles } from '@podlove/state/quantiles'
 
@@ -21,7 +21,7 @@ export default combineReducers({
   timepiece,
   media,
   components,
-  progress,
+  ghost,
   network,
   quantiles
 })

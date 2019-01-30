@@ -1,7 +1,5 @@
 <template lang="pug">
-  div.progress-bar(:style="containerStyle")
     progress-bar(
-      v-if="progressComponent"
       @input="dispatch"
       @simulate="dispatch"
       :progressColor="progressStyle.range"
@@ -26,15 +24,13 @@ import select from 'store/selectors'
 
 export default {
   data: mapState({
-    containerStyle: select.styles.progress,
     progressStyle: select.styles.progressBar,
     duration: select.duration,
     playtime: select.playtime,
-    ghost: select.progress.ghost,
+    ghost: select.ghost.time,
     buffer: select.network.buffer,
     chapters: select.chapters.list,
     quantiles: select.quantiles,
-    progressComponent: select.components.progress
   }),
   methods: {
     dispatch: store.dispatch
@@ -44,11 +40,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  @import '~styles/variables';
-
-  .progress-bar {
-    padding: 0 $padding;
-  }
-</style>
