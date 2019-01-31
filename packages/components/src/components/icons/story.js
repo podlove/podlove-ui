@@ -11,11 +11,22 @@ const types = iconTypes.reduce((result, type) => ({
 
 export default () => ({
   components: { Icon },
+  props: {
+    type: {
+      default: select('type', types, 'play')
+    },
+    color: {
+      default: color('color', '#000')
+    },
+    size: {
+      default: number('size', 21)
+    }
+  },
   template: `
     <icon
-      type="${select('type', types, 'play')}"
-      color="${color('color', '#000')}"
-      :size="${number('size', 21)}"
+      :type="type"
+      :color="color"
+      :size="size"
     >
     </icon>`
 })

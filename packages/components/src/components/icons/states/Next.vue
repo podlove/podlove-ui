@@ -6,8 +6,6 @@
 </template>
 
 <script>
-  import { color } from 'defaults'
-
   export default {
     props: {
       size: {
@@ -16,7 +14,7 @@
       },
       color: {
         type: String,
-        default: color
+        default: 'currentColor'
       }
     }
   }

@@ -15,6 +15,8 @@ import Next from './states/Next'
 import Previous from './states/Previous'
 import Forward from './states/Forward'
 import Backwards from './states/Backwards'
+import Info from './states/Info'
+import Close from './states/Close'
 
 export default {
   props: {
@@ -25,18 +27,18 @@ export default {
     },
     background: {
       type: String,
-      default: background
+      default: 'currentColor'
     },
     color: {
       type: String,
-      default: color
+      default: 'currentColor'
     },
     size: {
       type: Number
     }
   },
   components: {
-    Play, Pause, Restart, Loading, Next, Previous, Forward, Backwards
+    Play, Pause, Restart, Loading, Next, Previous, Forward, Backwards, Info, Close
   }
 }
 </script>

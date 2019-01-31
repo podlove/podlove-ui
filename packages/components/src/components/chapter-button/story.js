@@ -7,10 +7,18 @@ const types = { next: 'next', previous: 'previous' }
 
 export default () => ({
   components: { ChapterButton },
+  props: {
+    color: {
+      default: color('color', '#000')
+    },
+    type: {
+      default: select('type', types, 'next')
+    }
+  },
   template: `
     <chapter-button
-      type="${select('type', types, 'next')}"
-      color="${color('color', '#000')}"
+      :type="type"
+      :color="color"
       @click="action"
     >
     </chapter-button>`,

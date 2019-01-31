@@ -7,10 +7,18 @@ const types = { forward: 'forward', backwards: 'backwards' }
 
 export default () => ({
   components: { StepperButton },
+  props: {
+    type: {
+      default: select('type', types, 'forward')
+    },
+    color: {
+      default: color('color', '#000')
+    }
+  },
   template: `
     <stepper-button
-      type="${select('type', types, 'forward')}"
-      color="${color('color', '#000')}"
+      :type="type"
+      :color="color"
       @click="action"
     >
     </stepper-button>`,

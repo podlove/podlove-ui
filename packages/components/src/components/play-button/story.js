@@ -9,17 +9,26 @@ const types = { loading: 'loading', play: 'play', pause: 'pause', restart: 'rest
 
 export default () => ({
   components: { PlayButton },
-  data () {
-    return {
-      type: select('type', types, 'loading')
+  props: {
+    type: {
+      default: select('type', types, 'loading')
+    },
+    color: {
+      default: color('color', defaultVariables.color)
+    },
+    background: {
+      default: color('background', defaultVariables.background)
+    },
+    label: {
+      default: text('label', '')
     }
   },
   template: `
     <play-button
       :type="type"
-      color="${color('color', defaultVariables.color)}"
-      background="${color('background', defaultVariables.background)}"
-      label="${text('label', '')}"
+      :color="color"
+      :background="background"
+      :label="label"
       @click="action"
     >
     </play-button>`,

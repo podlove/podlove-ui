@@ -20,6 +20,18 @@
   }
 }
 
+%list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
 @mixin range(
   $range-input-height,
   $thumb-width-desktop,
@@ -167,5 +179,4 @@
   input[type=range]::-ms-tooltip {
     display: none;
   }
-
 }

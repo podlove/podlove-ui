@@ -19,7 +19,7 @@
       },
       color: {
         type: String,
-        default: color
+        default: 'currentColor'
       }
     }
   }

@@ -5,32 +5,57 @@ import ProgressBar from '.'
 
 export default () => ({
   components: { ProgressBar },
-  data () {
-    return {
-      time: number('time', 0),
-      duration: number('duration', 1000),
-      ghost: number('ghost'),
-      buffer: object('buffer', [[0, 500]]),
-      quantiles: object('quantiles', [[50, 200]]),
-      chapters: object('chapters', [{
+  props: {
+    time: {
+      default: number('time', 0)
+    },
+    duration: {
+      default: number('duration', 1000)
+    },
+    ghost: {
+      default: number('ghost')
+    },
+    buffer: {
+      default: () => object('buffer', [[0, 500]])
+    },
+    quantiles: {
+      default: () => object('quantiles', [[50, 200]])
+    },
+    chapters: {
+      default: () => object('chapters', [{
         end: 400
       }])
+    },
+    progressColor: {
+      default: color('color', '#f00')
+    },
+    thumbColor: {
+      default: color('color', '#0f0')
+    },
+    highlightColor: {
+      default: color('color', '#00f')
+    },
+    label: {
+      default: text('label', '')
+    },
+    title: {
+      default: text('title', 'input title')
     }
   },
   template: `
     <progress-bar
       style="width: 200px"
-      title="${text('title', 'input title')}"
+      :title="title"
       :time="time"
       :duration="duration"
       :ghost="ghost"
       :quantiles="quantiles"
       :buffer="buffer"
       :chapters="chapters"
-      progressColor="${color('color', '#f00')}"
-      thumbColor="${color('color', '#0f0')}"
-      highlightColor="${color('color', '#00f')}"
-      label="${text('label', '')}"
+      :progressColor="progressColor"
+      :thumbColor="thumbColor"
+      :highlightColor="highlightColor"
+      :label="label"
       @input="input"
       @simulate="simulate"
     >
