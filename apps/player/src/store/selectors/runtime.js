@@ -9,5 +9,6 @@ export default {
   language: compose(runtime.language, root.runtime),
   platform: compose(runtime.platform, root.runtime),
   display: compose(runtime.display, root.runtime),
+  locale: compose(runtime.locale, root.runtime),
   target: compose(target, root.runtime)
 }

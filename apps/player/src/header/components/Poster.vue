@@ -1,19 +1,22 @@
 <template lang="pug">
   div.poster#header-poster
-    div.poster-container(:style="style")
-      img.poster-image(:src="posterSrc" :alt="$t(altText)" @error="errorPosterLoad")
+    lazy-image.poster-image(:style="style" :url="posterSrc" :alt="$t(altText)" @error="errorPosterLoad" :coverColor="coverColor")
 </template>
 
 <script>
   import { mapState, mapActions } from 'redux-vuex'
+  import { Image } from '@podlove/components'
+
   import select from 'store/selectors'
 
   export default {
     data: mapState({
       style: select.styles.poster,
       posterSrc: select.header.posterSrc,
-      altText: select.accessibility.poster
+      altText: select.accessibility.poster,
+      coverColor: select.styles.imageCover
     }),
+    components: { LazyImage: Image },
     methods: mapActions('errorPosterLoad')
   }
 </script>
@@ -25,17 +28,12 @@
     margin: 0 $margin 0 0;
   }
 
-  .poster-container {
+  .poster-image {
     height: $poster-size;
+    width: $poster-size;
     line-height: 0;
     border-width: 2px;
     border-style: solid;
-
-    .poster-image {
-      max-height: 100%;
-      max-width: none;
-      width: auto;
-    }
   }
 
   @media screen and (max-width: $width-m) {
@@ -46,8 +44,9 @@
       justify-content: center;
     }
 
-    .poster-container {
+    .poster-image {
       height: calc(#{$poster-size} + 3em); // Height of description
+      width: calc(#{$poster-size} + 3em); // Height of description
     }
   }
 </style>

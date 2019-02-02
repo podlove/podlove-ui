@@ -3,13 +3,13 @@ import { SIMULATE_PLAYTIME, ENABLE_GHOST_MODE, DISABLE_GHOST_MODE } from '@podlo
 import { toInt } from '@podlove/utils/helper'
 
 export const INITIAL_STATE = {
-  ghost: null
+  time: null
 }
 
 export const reducer = handleActions({
   [SIMULATE_PLAYTIME]: (state, { payload }) => ({
     ...state,
-    ghost: toInt(payload)
+    time: toInt(payload)
   }),
 
   [ENABLE_GHOST_MODE]: (state) => ({
@@ -18,6 +18,6 @@ export const reducer = handleActions({
 
   [DISABLE_GHOST_MODE]: (state) => ({
     ...state,
-    ghost: null
+    time: null
   })
 }, INITIAL_STATE)

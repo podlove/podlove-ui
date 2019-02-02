@@ -1,3 +1,5 @@
+/* global MutationObserver */
+
 import { curry, compose, uniq, concat, join, filter, head, identity } from 'lodash/fp'
 import DOMPurify from 'dompurify'
 
@@ -68,4 +70,11 @@ export const setAttributes = (attrs = {}) => el => {
   })
 
   return el
+}
+
+export const resizeObserver = (element, cb) => {
+  const observer = new MutationObserver(cb)
+
+  observer.observe(element, { childList: true })
+  window.addEventListener('resize', cb)
 }

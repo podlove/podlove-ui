@@ -18,7 +18,7 @@
   import { selectCurrentChapter } from 'store/selectors'
 
   import { addQueryParameter } from 'utils/url'
-  import { fromPlayerTime } from 'utils/time'
+  import { toHumanTime } from 'utils/time'
 
   import OverlayComponent from 'shared/Overlay'
   import ButtonComponent from 'shared/Button'
@@ -71,18 +71,18 @@
 
         if (this.type === 'chapter') {
           const { start, end } = this.currentChapter
-          parameters.t = `${fromPlayerTime(start)},${fromPlayerTime(end)}`
+          parameters.t = `${toHumanTime(start)},${toHumanTime(end)}`
         }
 
         if (this.type === 'time') {
-          parameters.t = fromPlayerTime(this.playtime)
+          parameters.t = toHumanTime(this.playtime)
         }
 
         return `<iframe title="${title}" width="${width}" height="${height}" src="${addQueryParameter(this.reference.share, parameters)}" frameborder="0" scrolling="no" tabindex="0"></iframe>`
       }
     },
     methods: {
-      fromPlayerTime,
+      toHumanTime,
       ...mapActions({
         setEmbedSize: 'setShareEmbedSize',
         closeEmbedOverlay: 'hideShareEmbed'

@@ -1,7 +1,5 @@
 import { fallbackTo } from './helper'
-import { toPlayerTime } from './time'
-
-import { find, findIndex, add, compose } from 'lodash/fp'
+import { find, findIndex, add, compose, curry } from 'lodash/fp'
 
 import { get } from 'lodash'
 
@@ -21,7 +19,7 @@ export const currentChapter = compose(fallbackTo(emptyChapter), find({ active: t
 export const nextChapter = chapters => compose(getChapterByIndex(chapters), add(1), currentChapterIndex)(chapters)
 export const previousChapter = chapters => compose(getChapterByIndex(chapters), add(-1), currentChapterIndex)(chapters)
 
-export const currentChapterByPlaytime = chapters => playtime => find(chapter => {
+export const currentChapterByPlaytime = curry((chapters, playtime) => find(chapter => {
   if (playtime < chapter.start) {
     return false
   }
@@ -31,7 +29,7 @@ export const currentChapterByPlaytime = chapters => playtime => find(chapter => 
   }
 
   return true
-})(chapters)
+})(chapters))
 
 export const inactiveChapter = chapter => ({
   ...chapter,

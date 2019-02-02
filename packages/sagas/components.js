@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { BACKEND_PLAY, BACKEND_PAUSE, BACKEND_LOADING_START, BACKEND_LOADING_END } from '@podlove/actions/types'
-import { showPlayingButton, showLoadingButton, showPauseButton } from '@podlove/actions/components'
+import { showPlayingButton, showLoadingButton, showPauseButton, showProgressBar, showSteppersControls, showChapterControls } from '@podlove/actions/components'
 
 export default function* () {
   yield takeEvery(BACKEND_PLAY, play)
@@ -10,6 +10,9 @@ export default function* () {
 
   function* play () {
     yield put(showPlayingButton())
+    yield put(showProgressBar())
+    yield put(showSteppersControls())
+    yield put(showChapterControls())
   }
 
   function* pause () {

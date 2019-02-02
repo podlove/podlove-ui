@@ -126,7 +126,6 @@ export default ({ selectMedia, selectPlaytime }) => function* playerSaga () {
 
   function* onBufferChange (buffers = []) {
     const payload = buffers.map(([start, stop]) => [secondsToMilliseconds(start), secondsToMilliseconds(stop)])
-    console.log(payload)
     yield put(backendBuffer(payload))
   }
 

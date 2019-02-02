@@ -18,13 +18,11 @@ export const INITIAL_STATE = {
 const main = propOr('#2B8AC6', 'main')
 const highlight = prop('highlight')
 const luminosity = compose(input => color(input).luminosity(), main)
-const negative = compose(gt(0.25), luminosity)
 
 const themeColors = createObject({
   main,
   highlight,
-  luminosity,
-  negative
+  luminosity
 })
 
 const change = compose(

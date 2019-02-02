@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions'
-import { get } from 'lodash'
+import { propOr } from 'ramda'
 
-import { INIT, TOGGLE_TAB, SET_TABS } from '../types'
+import { INIT, TOGGLE_TAB } from '@podlove/actions/types'
 
 export const INITIAL_STATE = {
   chapters: false,
@@ -13,15 +13,13 @@ export const INITIAL_STATE = {
 }
 
 export const reducer = handleActions({
-  [INIT]: (state, { payload }) => ({
+  [INIT]: (_, { payload }) => ({
     ...INITIAL_STATE,
-    ...get(payload, 'tabs', null)
+    ...propOr(null, 'tabs', payload)
   }),
 
   [TOGGLE_TAB]: (state, { payload }) => ({
     ...INITIAL_STATE,
-    [payload]: !get(state, payload, false)
-  }),
-
-  [SET_TABS]: (state, { payload }) => payload
+    [payload]: !propOr(false, payload, state)
+  })
 }, INITIAL_STATE)

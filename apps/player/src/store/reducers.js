@@ -11,6 +11,8 @@ import { reducer as components } from '@podlove/state/components'
 import { reducer as ghost } from '@podlove/state/ghost'
 import { reducer as network } from '@podlove/state/network'
 import { reducer as quantiles } from '@podlove/state/quantiles'
+import { reducer as tabs } from '@podlove/state/tabs'
+import { reducer as contributors } from '@podlove/state/contributors'
 
 export default combineReducers({
   runtime,
@@ -23,5 +25,7 @@ export default combineReducers({
   components,
   ghost,
   network,
-  quantiles
+  quantiles,
+  tabs,
+  contributors
 })

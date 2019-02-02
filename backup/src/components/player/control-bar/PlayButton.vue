@@ -17,12 +17,12 @@
 
       <span class="inner" v-if="components.controls.button.remaining" id="control-bar--play-button--remaining" aria-hidden="true">
         <play-icon size="21" :color="theme.player.actions.icon"></play-icon>
-        <span class="label" :style="textStyle">{{ fromPlayerTime(playtime) }}</span>
+        <span class="label" :style="textStyle">{{ toHumanTime(playtime) }}</span>
       </span>
 
       <span class="inner" v-if="components.controls.button.duration" id="control-bar--play-button--duration" aria-hidden="true">
         <play-icon size="21" :color="theme.player.actions.icon"></play-icon>
-        <span class="label" :style="textStyle">{{ fromPlayerTime(duration) }}</span>
+        <span class="label" :style="textStyle">{{ toHumanTime(duration) }}</span>
       </span>
 
       <span class="inner" v-if="components.controls.button.replay" id="control-bar--play-button--replay" aria-hidden="true">
@@ -44,7 +44,7 @@
 <script>
   import { mapState, mapActions } from 'redux-vuex'
 
-  import { fromPlayerTime, calcSeconds, calcMinutes, calcHours } from 'utils/time'
+  import { toHumanTime, calcSeconds, calcMinutes, calcHours } from 'utils/time'
 
   import PlayIcon from 'icons/PlayIcon'
   import PauseIcon from 'icons/PauseIcon'
@@ -96,7 +96,7 @@
       }
     },
     methods: {
-      fromPlayerTime,
+      toHumanTime,
       ...mapActions({
         onButtonClick: function ({ dispatch, actions }) {
           switch (this.playstate) {

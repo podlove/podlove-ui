@@ -5,7 +5,6 @@ import {
   UPDATE_CHAPTER,
   NEXT_CHAPTER,
   PREVIOUS_CHAPTER,
-  SET_CHAPTER,
   SET_CHAPTERS
 } from '@podlove/actions/types'
 
@@ -17,8 +16,6 @@ import {
   previousChapter as getPreviousChapter,
   currentChapter as getCurrentChapter
 } from '@podlove/utils/chapters'
-
-import { chapters } from '@podlove/utils/config'
 
 const nextChapter = chapters => {
   let next = currentChapterIndex(chapters) + 1
@@ -56,7 +53,7 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [SET_CHAPTERS]: (_, { payload }) => generateState(payload),
+    [SET_CHAPTERS]: (_, { payload }) => generateState(payload.map((item, index) => index === 0 ? { active: true, ...item } : item)),
 
     [UPDATE_CHAPTER]: (state, { payload }) => {
       const chapters = state.list.map(setActiveByPlaytime(payload))

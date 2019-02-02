@@ -13,7 +13,7 @@
   import { mapState } from 'redux-vuex'
   import { selectCurrentChapter } from 'store/selectors'
 
-  import { fromPlayerTime } from 'utils/time'
+  import { toHumanTime } from 'utils/time'
   import { addQueryParameter } from 'utils/url'
 
   import ChannelTwitterComponent from './channels/ChannelTwitter'
@@ -47,11 +47,11 @@
 
         if (this.type === 'chapter') {
           const { start, end } = this.currentChapter
-          time = `${fromPlayerTime(start)},${fromPlayerTime(end)}`
+          time = `${toHumanTime(start)},${toHumanTime(end)}`
         }
 
         if (this.type === 'time') {
-          time = fromPlayerTime(this.playtime)
+          time = toHumanTime(this.playtime)
         }
 
         return addQueryParameter(this.episode.link, { t: time })
@@ -77,7 +77,7 @@
           return this.$t('SHARE.EPISODE.TEXT.PLAYTIME', {
             ...this.episode,
             link: this.shareLink,
-            playtime: fromPlayerTime(this.playtime)
+            playtime: toHumanTime(this.playtime)
           })
         }
 
@@ -107,7 +107,7 @@
           return this.$t('SHARE.EPISODE.SUBJECT.PLAYTIME', {
             ...this.episode,
             link: this.shareLink,
-            playtime: fromPlayerTime(this.playtime)
+            playtime: toHumanTime(this.playtime)
           })
         }
 

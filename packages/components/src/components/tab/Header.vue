@@ -8,13 +8,13 @@
 <script>
   import color from 'color'
   import { setStyles, resizeObserver } from '@podlove/utils/dom'
-  import { color as defaultColor } from 'defaults'
+  import { background as defaultBackground } from 'defaults'
 
   export default {
     props: {
-      colorActive: {
+      backgroundActive: {
         type: String,
-        default: defaultColor
+        default: defaultBackground
       }
     },
     data () {
@@ -25,7 +25,7 @@
     computed: {
       headerShadowStyle () {
         return {
-          background: `linear-gradient(to bottom, ${color(this.activeColor).fade(0)} 0%, ${color(this.activeColor).fade(1)} 100%)`
+          background: `linear-gradient(to bottom, ${color(this.backgroundActive).fade(0)} 0%, ${color(this.backgroundActive).fade(1)} 100%)`
         }
       }
     },

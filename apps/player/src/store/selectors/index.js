@@ -13,6 +13,8 @@ import components from './components'
 import ghost from './ghost'
 import network from './network'
 import quantiles from './quantiles'
+import tabs from './tabs'
+import contributors from './contributors'
 
 export default {
   ...runtime,
@@ -27,5 +29,7 @@ export default {
   components,
   ghost,
   network,
-  quantiles
+  quantiles,
+  tabs,
+  contributors
 }

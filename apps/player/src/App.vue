@@ -3,6 +3,7 @@
     header-component.header
     controls-component.controls
     progress-bar-component.progress
+    tabs-component.tabs
 </template>
 
 <script>
@@ -13,6 +14,7 @@
   import HeaderComponent from './header'
   import ControlsComponent from './controls'
   import ProgressBarComponent from './progress-bar'
+  import TabsComponent from './tabs'
 
   export default {
     data: mapState({
@@ -22,7 +24,8 @@
       WrapperComponent,
       HeaderComponent,
       ControlsComponent,
-      ProgressBarComponent
+      ProgressBarComponent,
+      TabsComponent
     },
     watch: {
       language () {
@@ -52,7 +55,12 @@
     padding: $padding $padding $padding / 2 $padding;
   }
 
+  .progress {
+    margin-top: -1 * $padding;
+    padding-bottom: $padding;
+  }
+
   .controls {
-    padding: $padding / 2 0 0 0;
+    padding: $padding / 2 0 $padding 0;
   }
 </style>

@@ -21,7 +21,7 @@
   import CopyTooltipComponent from 'shared/CopyTooltip'
 
   import { addQueryParameter } from 'utils/url'
-  import { fromPlayerTime } from 'utils/time'
+  import { toHumanTime } from 'utils/time'
   import { currentChapter } from 'utils/chapters'
 
   export default {
@@ -41,11 +41,11 @@
 
         if (this.type === 'chapter') {
           const chapter = currentChapter(this.chapters)
-          time = `${fromPlayerTime(chapter.start)},${fromPlayerTime(chapter.end)}`
+          time = `${toHumanTime(chapter.start)},${toHumanTime(chapter.end)}`
         }
 
         if (this.type === 'time') {
-          time = fromPlayerTime(this.playtime)
+          time = toHumanTime(this.playtime)
         }
 
         return addQueryParameter(this.episode.link, { t: time })

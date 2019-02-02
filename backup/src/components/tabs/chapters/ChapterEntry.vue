@@ -46,7 +46,7 @@
 <script>
   import { mapActions } from 'redux-vuex'
 
-  import { fromPlayerTime } from 'utils/time'
+  import { toHumanTime } from 'utils/time'
 
   import PlayIcon from 'icons/PlayIcon'
   import LinkIcon from 'icons/LinkIcon'
@@ -65,14 +65,14 @@
     computed: {
       remainingTime () {
         if (this.chapter.active) {
-          return `-${fromPlayerTime(this.chapter.end - this.playtime)}`
+          return `-${toHumanTime(this.chapter.end - this.playtime)}`
         }
 
         if (this.ghost.active && this.ghost.time > this.chapter.start && this.ghost.time < this.chapter.end) {
-          return `-${fromPlayerTime(this.chapter.end - this.ghost.time)}`
+          return `-${toHumanTime(this.chapter.end - this.ghost.time)}`
         }
 
-        return fromPlayerTime(this.chapter.end - this.chapter.start)
+        return toHumanTime(this.chapter.end - this.chapter.start)
       },
 
       activeChapter () {
@@ -121,8 +121,8 @@
 
         return {
           ...this.chapter,
-          remaining: fromPlayerTime(remaining > 0 ? remaining : 0),
-          duration: fromPlayerTime(this.chapter.end - this.chapter.start)
+          remaining: toHumanTime(remaining > 0 ? remaining : 0),
+          duration: toHumanTime(this.chapter.end - this.chapter.start)
         }
       }
     },

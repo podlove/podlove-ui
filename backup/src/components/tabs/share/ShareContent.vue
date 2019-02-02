@@ -33,13 +33,13 @@
       <span class="active-indicator" :style="triangleStyle"></span>
     </div>
     <div
-      tabindex="0" role="button" :aria-label="$t('A11Y.SHARE_CONTENT_PLAYTIME', { playtime: fromPlayerTime(playtime) })"
+      tabindex="0" role="button" :aria-label="$t('A11Y.SHARE_CONTENT_PLAYTIME', { playtime: toHumanTime(playtime) })"
       class="content-option" id="tab-share--content--time"
       :class="{active: isActive('time')}" :style="isActive('time') ? activeContentStyle : {}"
       @click="setContent('time')">
       <share-playtime-icon class="icon"></share-playtime-icon>
       <span class="type">{{ $t('SHARE.CONTENT.TIME') }}</span>
-      <span class="title truncate">{{ fromPlayerTime(playtime) }}</span>
+      <span class="title truncate">{{ toHumanTime(playtime) }}</span>
       <span class="active-indicator" :style="triangleStyle"></span>
     </div>
   </div>
@@ -49,7 +49,7 @@
   import { mapState, mapActions } from 'redux-vuex'
   import { selectCurrentChapterTitle } from 'store/selectors'
 
-  import { fromPlayerTime } from 'utils/time'
+  import { toHumanTime } from 'utils/time'
 
   import ShareShowIcon from 'icons/ShareShowIcon'
   import ShareEpisodeIcon from 'icons/ShareEpisodeIcon'
@@ -91,7 +91,7 @@
         return this.share.content === type
       },
 
-      fromPlayerTime
+      toHumanTime
     },
     components: {
       ShareShowIcon,

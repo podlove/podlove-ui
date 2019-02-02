@@ -12,5 +12,7 @@ export default {
   components: prop('components'),
   ghost: prop('ghost'),
   network: prop('network'),
-  quantiles: prop('quantiles')
+  quantiles: prop('quantiles'),
+  tabs: prop('tabs'),
+  contributors: prop('contributors')
 }

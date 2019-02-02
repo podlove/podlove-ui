@@ -17,6 +17,9 @@ import timerStory from './timer/story'
 // Tab
 import tabStory from './tab/story'
 
+// Image
+import imageStory from './image/story'
+
 const buttons = storiesOf('Buttons', module)
 
 buttons.add('play-button', playButtonStory)
@@ -38,3 +41,6 @@ timer.add('timer', timerStory)
 const tab = storiesOf('Tab', module)
 
 tab.add('tab', tabStory)
+
+const image = storiesOf('Image', module)
+image.add('image', imageStory)

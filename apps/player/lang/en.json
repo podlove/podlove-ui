@@ -110,7 +110,7 @@
     "TIMER_CURRENT": "Current Playtime: {hours} hours {minutes} minutes {seconds} seconds",
     "TIMER_LEFT": "Playtime Left: {hours} hours {minutes} minutes {seconds} seconds",
     "TIMER_CHAPTER": "Current Chapter: {index} - {title}",
-    "SPEAKER_COVER": "Speaker {name}",
+    "CONTRIBUTOR_COVER": "Speaker {name}",
     "CHAPTER_ENTRY": "{index} - {title} (Duration: {duration}, Remaining: {remaining})",
     "SHARE_CONTENT_SHOW": "Share Show {title}",
     "SHARE_CONTENT_EPISODE": "Share Episode {title}",

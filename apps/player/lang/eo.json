@@ -112,7 +112,7 @@
     "TIMER_CURRENT": "Aktuala ludtempo: {hours} horoj {minutes} minutoj {seconds} sekundoj",
     "TIMER_LEFT": "Restanta ludtempo: {hours} horoj {minutes} minutoj {seconds} sekundoj",
     "TIMER_CHAPTER": "Nuna ĉapitro: {index} - {title}",
-    "SPEAKER_COVER": "Parolanto {name}",
+    "CONTRIBUTOR_COVER": "Parolanto {name}",
     "CHAPTER_ENTRY": "{index} - {title} (Daŭro: {duration}, Restanta: {remaining})",
     "SHARE_CONTENT_SHOW": "Konigi serion {title}",
     "SHARE_CONTENT_EPISODE": "Konigi epizodon {title}",

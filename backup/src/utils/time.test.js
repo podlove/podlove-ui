@@ -1,29 +1,29 @@
 import test from 'ava'
 import {
-  fromPlayerTime,
+  toHumanTime,
   toPlayerTime,
   secondsToMilliseconds,
   millisecondsToSeconds
 } from './time'
 
-test('exports a method called fromPlayerTime', t => {
-  t.truthy(typeof fromPlayerTime === 'function')
+test('exports a method called toHumanTime', t => {
+  t.truthy(typeof toHumanTime === 'function')
 })
 
 test('exports a method called toPlayerTime', t => {
   t.truthy(typeof toPlayerTime === 'function')
 })
 
-test('fromPlayerTime tolerates invalid inputs', t => {
-  t.is(fromPlayerTime(), '00:00')
-  t.is(fromPlayerTime(undefined), '00:00')
-  t.is(fromPlayerTime(null), '00:00')
-  t.is(fromPlayerTime('foooo'), '00:00')
+test('toHumanTime tolerates invalid inputs', t => {
+  t.is(toHumanTime(), '00:00')
+  t.is(toHumanTime(undefined), '00:00')
+  t.is(toHumanTime(null), '00:00')
+  t.is(toHumanTime('foooo'), '00:00')
 })
 
-test('fromPlayerTime transforms given milliseconds to a time string', t => {
-  t.is(fromPlayerTime(60000), '01:00')
-  t.is(fromPlayerTime(3600000), '1:00:00')
+test('toHumanTime transforms given milliseconds to a time string', t => {
+  t.is(toHumanTime(60000), '01:00')
+  t.is(toHumanTime(3600000), '1:00:00')
 })
 
 test('toPlayerTime tolerates invalid inputs', t => {

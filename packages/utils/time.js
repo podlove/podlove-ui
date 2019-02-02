@@ -32,7 +32,7 @@ export const fallbackToZero = (time = 0) => !isNumber(time) || time < 0 ? 0 : ti
 const leadingZero = time => time > 9 ? `${time}` : `0${time}`
 
 // Transforms milliseconds to (hh:)mm:ss
-export const fromPlayerTime = (time = 0) => {
+export const toHumanTime = (time = 0) => {
   let hours = compose(calcHours, fallbackToZero, toInt)(time)
   let minutes = compose(calcMinutes, fallbackToZero, toInt)(time)
   let seconds = compose(calcSeconds, fallbackToZero, toInt)(time)
