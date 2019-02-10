@@ -11,8 +11,8 @@ import { mapState } from 'redux-vuex'
 import store from 'store'
 import select from 'store/selectors'
 
-import ProgressComponent from './Progress'
-import TimerBarComponent from './TimerBar'
+import ProgressComponent from './components/Progress'
+import TimerBarComponent from './components/TimerBar'
 
 export default {
   data: mapState({

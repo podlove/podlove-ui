@@ -2,6 +2,7 @@
     progress-bar(
       @input="dispatch"
       @simulate="dispatch"
+      @ghost="dispatch"
       :progressColor="progressStyle.range"
       :thumbColor="progressStyle.thumb"
       :highlightColor="progressStyle.highlight"
