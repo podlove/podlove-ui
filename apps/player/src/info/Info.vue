@@ -3,32 +3,34 @@
     div.description
       div.episode
         h3.title#tab-info--episode-title(v-if="episodeTitle") {{ episodeTitle }}
-        episode-meta#tab-info--episode-meta
+        info-meta#tab-info--episode-meta
         p.subtitle#tab-info--episode-subtitle(v-if="episodeSubtitle") {{ episodeSubtitle }}
-        summary#tab-info--episode-summary(v-if="episodeSummary" content="episodeSummary")
-        link#tab-info--episode-link(v-if="episodeLink" :link="episodeLink")
+        info-summary#tab-info--episode-summary(v-if="episodeSummary" :content="episodeSummary")
+        info-link#tab-info--episode-link(v-if="episodeLink" :link="episodeLink")
 
       div.show
-        h3.title#tab-info--show-title(v-if="showTitle"){{ show.title }}
-        lazy-image.show-poster.shadowed#tab-info--show-poster(v-if="showPoster" :url="showPoster":alt="$t('A11Y.ALT_SHOW_COVER')" :coverColor="imageCover")
-        summary#tab-info--show-summary(v-if="showSummary" content="showSummary")
-        link#tab-info--show-link(v-if="showLink" :link="showLink")
+        h3.title#tab-info--show-title(v-if="showTitle") {{ showTitle }}
+        lazy-image.show-poster.shadowed#tab-info--show-poster(v-if="showPoster" :url="showPoster" :alt="$t('A11Y.ALT_SHOW_COVER')" :coverColor="imageCover")
+        info-summary#tab-info--show-summary(v-if="showSummary" :content="showSummary")
+        info-link#tab-info--show-link(v-if="showLink" :link="showLink")
+
+    info-contributors
 </template>
 
 <script>
   import { mapState } from 'redux-vuex'
   import { Icon } from '@podlove/components'
   import { calcHours, calcMinutes, localeDate, localeTime } from '@podlove/utils/time'
-  import { Image } from '@podlove/components'
+  import { Image as LazyImage } from '@podlove/components'
 
   import select from 'store/selectors'
 
-  import EpisodeMeta from './components/Meta'
-  import Link from './components/Link'
-  import Summary from './components/Summary'
+  import InfoMeta from './components/Meta'
+  import InfoLink from './components/Link'
+  import InfoSummary from './components/Summary'
+  import InfoContributors from './components/Contributors'
 
   export default {
-    // data: mapState('theme', 'show', 'episode', 'speakers', 'runtime', 'duration'),
     data: mapState({
       imageCover: select.styles.imageCover,
       episodeTitle: select.episode.title,
@@ -41,15 +43,16 @@
       showSummary: select.show.summary
     }),
     components: {
-      EpisodeMeta,
-      Link,
-      LazyImage: Image,
-      Summary
+      InfoMeta,
+      InfoLink,
+      LazyImage,
+      InfoSummary,
+      InfoContributors
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '~styles/variables';
 
   .info-tab {
@@ -98,20 +101,6 @@
 
         .show-poster {
           display: none;
-        }
-      }
-
-      .speakers {
-        .speaker {
-          width: 100%;
-        }
-      }
-    }
-
-    @media screen and (min-width: $width-m) and (max-width: $width-l) {
-      .speakers {
-        .speaker {
-          width: 50%;
         }
       }
     }

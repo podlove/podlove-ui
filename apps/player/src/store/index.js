@@ -25,7 +25,7 @@ sagas.run(
   runtimeSaga,
   componentsSaga,
   quantilesSaga,
-  chaptersSaga({ selectDuration: selectors.duration }),
+  chaptersSaga({ selectDuration: selectors.duration, selectPlaytime: selectors.playtime, selectCurrentChapter: selectors.chapters.current, selectChapterList: selectors.chapters.list }),
   playerSaga({ selectMedia: selectors.media, selectPlaytime: selectors.playtime })
 )
 

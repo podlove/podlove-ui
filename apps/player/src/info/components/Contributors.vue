@@ -1,18 +1,15 @@
 <template lang="pug">
-  <div class="contributors" v-if="contributors.length > 0">
-      <h3 class="title">{{ $t('INFO.ON_AIR') }}</h3>
-      <ul class="list" id="tab-info--contributors">
-        <li class="contributor" v-for="(contributor, index) in contributors" v-bind:key="index">
-          <img :src="contributor.avatar" class="shadowed avatar" :title="contributor.name" :alt="$t('A11Y.CONTRIBUTOR_COVER', { name: contributor.name })"/>
-          <span class="name">{{ contributor.name }}</span>
-        </li>
-      </ul>
-    </div>
+  div.contributors(v-if="contributors.length > 0")
+    h3.title {{ $t('INFO.ON_AIR') }}
+    ul.list#tab-info--contributors
+      li.contributor(v-for="(contributor, index) in contributors" :key="index")
+        img.shadowed.avatar(:src="contributor.avatar" title="contributor.name" :alt="$t('A11Y.CONTRIBUTOR_COVER', { name: contributor.name })")
+        span.name {{ contributor.name }}
 </template>
 
 <script>
 import { mapState } from 'redux-vuex'
-import select from 'store/select'
+import select from 'store/selectors'
 
 export default {
   data: mapState({

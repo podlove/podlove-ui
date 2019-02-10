@@ -1,5 +1,5 @@
 <template lang="pug">
-  h3.description#header-subtitle(:style="style" v-if="subtitle") {{ subtitle }}
+  h3.episode-description#header-subtitle(:style="style" v-if="subtitle") {{ subtitle }}
 </template>
 
 <script>
@@ -15,7 +15,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .description {
+  .episode-description {
     overflow: hidden;
     margin: 0;
     height: 2.75em;

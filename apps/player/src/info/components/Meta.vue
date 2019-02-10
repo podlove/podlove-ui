@@ -2,25 +2,27 @@
   p.meta
     span.tag(v-if="date")
       icon.icon(type="calendar")
-      {{ publicationDate }}, {{ publicationTime }}
+      span {{ date }}, {{ time }}
     span.tag(v-if="duration && episodeDuration.hours > 0")
       icon.icon(type="clock")
-      {{ $t('INFO.DURATION_WITH_HOURS', episodeDuration) }}
+      span {{ $t('INFO.DURATION_WITH_HOURS', episodeDuration) }}
     span.tag(v-if="duration && episodeDuration.hours === 0")
       icon.icon(type="clock")
-      {{ $t('INFO.DURATION', episodeDuration) }}
+      span {{ $t('INFO.DURATION', episodeDuration) }}
 </template>
 
 <script>
 import { mapState } from 'redux-vuex'
 import { localeDate, localeTime, calcHours, calcMinutes } from '@podlove/utils/time'
+import { Icon } from '@podlove/components'
 import select from 'store/selectors'
+
 
 export default {
   data: mapState({
     duration: select.duration,
     publicationDate: select.episode.publicationDate,
-    locale: select.runtime.locale
+    locale: select.locale
   }),
 
   computed: {
@@ -36,6 +38,10 @@ export default {
     time () {
       return this.publicationDate && localeTime(this.publicationDate, this.locale)
     }
+  },
+
+  components: {
+    Icon
   }
 }
 </script>

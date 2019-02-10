@@ -43,6 +43,7 @@
   @import '~styles/variables';
   @import '~styles/text';
   @import '~styles/marquee';
+  @import '~styles/utils';
 
   @import '~styles/resets/button';
   @import '~styles/resets/input';

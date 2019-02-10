@@ -1,23 +1,28 @@
 <template lang="pug">
   div.tabs
     tab-header(:backgroundActive="header.backgroundActive")
-      tab-header-item(name="info" @click="toggleTab('info')" :color="header.color" :colorActive="header.colorActive" :background="header.background" :backgroundActive="header.backgroundActive" :active="tabs.info")
-        icon(type="info" slot="icon")
-        span(slot="title") {{ $t('INFO.TITLE') }}
+      header-item(tab="info" icon="info" :title="$t('INFO.TITLE')")
+      header-item(tab="chapters" icon="chapter" :title="$t('CHAPTERS.TITLE')")
+    tab-body(tab="info")
+      info-tab
+    tab-body(tab="chapters")
+      chapters-tab
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, mapActions } from 'redux-vuex'
 import { Tab, Icon } from '@podlove/components'
 import { toggleTab } from '@podlove/actions/tabs'
 
-import InfoTab from '../info'
+import HeaderItem from './components/HeaderItem'
+import TabBody from './components/TabBody'
 
 import select from 'store/selectors'
 import store from 'store'
 
 const tabs = {
   InfoTab: () => import(/* webpackMode: "eager" */'../info'),
+  ChaptersTab: () => import(/* webpackMode: "eager" */'../chapters'),
 }
 
 export default {
@@ -26,16 +31,17 @@ export default {
     tabs: select.tabs
   }),
   components: {
-    TabBody: Tab.Body,
     TabHeader: Tab.Header,
-    TabHeaderItem: Tab.HeaderItem,
-    Icon
+    TabBody,
+    HeaderItem,
+    Icon,
+    ...tabs
   },
-  methods: {
-    toggleTab (tab) {
-      store.dispatch(toggleTab(tab))
+  methods: mapActions({
+    toggleTab({ dispatch }, tab) {
+      dispatch(toggleTab(tab))
     }
-  }
+  })
 }
 </script>
 
