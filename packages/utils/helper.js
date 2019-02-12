@@ -19,3 +19,8 @@ export const toFloat = (input = 0) => isNaN(parseFloat(input)) ? 0 : parseFloat(
 // Functional Helper
 export const fallbackTo = fallback => value => isUndefinedOrNull(value) ? fallback : value
 export const createObject = curry((specification, value) => map(f => f(value), specification))
+export const startsWith = curry((q, str) => str.startsWith(q))
+export const endsWith = curry((q, str) => str.endsWith(q))
+export const stripl = curry((q, str) => startsWith(q, str) ? str.slice(q.length) : str)
+export const stripr = curry((q, str) => endsWith(q, str) ? str.slice(0, str.length - q.length) : str)
+export const strip = curry((q, str) => stripl(q, stripr(q, str)))

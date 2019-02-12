@@ -20,6 +20,9 @@ import tabStory from './tab/story'
 // Image
 import imageStory from './image/story'
 
+// ChapterProgress
+import chapterProgressStory from './chapter-progress/story'
+
 const buttons = storiesOf('Buttons', module)
 
 buttons.add('play-button', playButtonStory)
@@ -44,3 +47,6 @@ tab.add('tab', tabStory)
 
 const image = storiesOf('Image', module)
 image.add('image', imageStory)
+
+const chapters = storiesOf('Chapter Progress', module)
+chapters.add('chapter-progress', chapterProgressStory)

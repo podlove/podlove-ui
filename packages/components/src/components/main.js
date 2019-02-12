@@ -6,6 +6,7 @@ import ProgressBar from './progress-bar'
 import Timer from './timer'
 import Tab from './tab'
 import Image from './image'
+import ChapterProgress from './chapter-progress'
 
 export {
   Icon,
@@ -15,5 +16,6 @@ export {
   ProgressBar,
   Timer,
   Tab,
-  Image
+  Image,
+  ChapterProgress
 }

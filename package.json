@@ -2,7 +2,6 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "lerna": "^3.4.3"
   }
 }

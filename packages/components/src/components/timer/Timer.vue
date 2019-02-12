@@ -10,8 +10,7 @@ import { toHumanTime } from '@podlove/utils/time'
 export default {
   props: {
     color: {
-      type: String,
-      default: color
+      type: String
     },
     time: {
       type: Number,
@@ -25,6 +24,10 @@ export default {
 
   computed: {
     timerStyle () {
+      if(!this.color) {
+        return {}
+      }
+
       return {
         color: this.color
       }

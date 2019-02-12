@@ -72,7 +72,6 @@ export default {
 
     .image {
       max-height: 100%;
-      max-width: none;
       width: auto;
     }
 

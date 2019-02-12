@@ -180,3 +180,18 @@
     display: none;
   }
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

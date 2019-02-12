@@ -3,7 +3,7 @@ export const INIT = 'INIT' // initial config
 export const READY = 'READY' // config was parsed
 
 // Chapters
-export const SET_CHAPTERS = 'SET_CHAPTERS'
+export const SET_CHAPTERS_LIST = 'SET_CHAPTERS_LIST'
 export const NEXT_CHAPTER = 'NEXT_CHAPTER'
 export const PREVIOUS_CHAPTER = 'PREVIOUS_CHAPTER'
 export const SET_CHAPTER = 'SET_CHAPTER'

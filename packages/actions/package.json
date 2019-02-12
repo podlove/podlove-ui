@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@podlove/utils": "^4.2.3",
-    "lodash": "^4.17.11",
-    "redux-actions": "^2.6.4"
+    "@podlove/utils": "4.2.3",
+    "lodash": "4.17.11",
+    "redux-actions": "2.6.4"
   },
   "devDependencies": {
-    "@podlove/build": "^4.2.3"
+    "@podlove/build": "4.2.3"
   }
 }

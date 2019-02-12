@@ -1,6 +1,6 @@
 {
   "presets": [[
-    "env",
+    "@babel/env",
     {
       "targets": {
         "browsers": [
@@ -11,9 +11,7 @@
     }
   ]],
   "plugins": [
-    "lodash",
-    "transform-object-rest-spread",
-    "es6-promise",
+    "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import"
   ],
   "env": {

@@ -10,14 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@podlove/actions": "^4.2.3",
-    "@podlove/components": "^4.2.3",
-    "@podlove/utils": "^4.2.3",
-    "detect-browser": "^3.0.1",
-    "lodash": "^4.17.11",
-    "redux-saga": "^0.16.2"
+    "@podlove/actions": "4.2.3",
+    "@podlove/components": "4.2.3",
+    "@podlove/utils": "4.2.3",
+    "detect-browser": "3.0.1",
+    "lodash": "4.17.11",
+    "redux-saga": "0.16.2"
   },
   "devDependencies": {
-    "@podlove/build": "^4.2.3"
+    "@podlove/build": "4.2.3"
   }
 }
