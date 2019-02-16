@@ -8,9 +8,11 @@ module.exports = {
     example: './example.js'
   },
   output: output(),
+
   resolve: resolve({
     styles: './src/styles',
-    store: './src/store'
+    store: './src/store',
+    directives: './src/directives'
   }),
 
   devtool: 'inline-source-map',

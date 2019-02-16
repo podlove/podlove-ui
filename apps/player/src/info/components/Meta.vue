@@ -1,13 +1,13 @@
 <template lang="pug">
-  p.meta
-    span.tag(v-if="date")
-      icon.icon(type="calendar")
+  p.info-meta
+    span.info-tag(v-if="date")
+      icon(type="calendar")
       span {{ date }}, {{ time }}
-    span.tag(v-if="duration && episodeDuration.hours > 0")
-      icon.icon(type="clock")
+    span.info-tag(v-if="duration && episodeDuration.hours > 0")
+      icon(type="clock")
       span {{ $t('INFO.DURATION_WITH_HOURS', episodeDuration) }}
-    span.tag(v-if="duration && episodeDuration.hours === 0")
-      icon.icon(type="clock")
+    span.info-tag(v-if="duration && episodeDuration.hours === 0")
+      icon(type="clock")
       span {{ $t('INFO.DURATION', episodeDuration) }}
 </template>
 
@@ -49,11 +49,11 @@ export default {
 <style lang="scss" scoped>
   @import '~styles/variables';
 
-  .meta {
+  .info-meta {
     display: flex;
     align-items: center;
 
-    .tag {
+    .info-tag {
       display: flex;
       align-items: center;
       margin-right: $margin
@@ -61,7 +61,7 @@ export default {
   }
 
   @media screen and (max-width: $width-m) {
-    .meta {
+    .info-meta {
       flex-direction: column;
       align-items: left;
     }

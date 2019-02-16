@@ -47,6 +47,32 @@
       "mimeType": "audio\/mpeg"
     }
   ],
+  "files": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1734\/s\/webplayer\/c\/episode\/fg064-ethik-und-genetik.m4a",
+      "size": "68715948",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1736\/s\/webplayer\/c\/episode\/fg064-ethik-und-genetik.opus",
+      "size": "60639361",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1731\/s\/webplayer\/c\/episode\/fg064-ethik-und-genetik.oga",
+      "size": "93541578",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1732\/s\/webplayer\/c\/episode\/fg064-ethik-und-genetik.mp3",
+      "size": "90686128",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
   "chapters": [
     {
       "start": "00:00:00.000",

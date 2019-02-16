@@ -1,4 +1,4 @@
-export const toPercent = (input = 0) => {
+export const toPercent = (input = '0') => {
   input = parseFloat(input) * 100
   return Math.round(input)
 }
@@ -33,3 +33,6 @@ export const inRange = (lower = 0, upper = 0) => (value = 0) => {
 }
 
 export const toDecimal = (input = 0) => parseFloat(Math.round(input * 100) / 100).toFixed(2)
+
+
+export const toMegabyte = (size = '0') => parseInt(parseInt(size) / 1000000)

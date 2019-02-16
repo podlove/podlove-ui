@@ -18,14 +18,16 @@ export const INITIAL_STATE = {
 const main = propOr('#2B8AC6', 'main')
 const highlight = prop('highlight')
 const luminosity = compose(input => color(input).luminosity(), main)
+const negative = compose(gt(0.25), luminosity)
 
 const themeColors = createObject({
   main,
   highlight,
-  luminosity
+  luminosity,
+  negative
 })
 
-const change = compose(
+const update = compose(
   themeColors,
   propOr({}, 'theme')
 )
@@ -33,11 +35,11 @@ const change = compose(
 export const reducer = handleActions({
   [INIT]: (state, { payload }) => ({
     ...state,
-    ...change(payload)
+    ...update(payload)
   }),
 
   [SET_THEME]: (state, { payload }) => ({
     ...state,
-    ...change(payload)
+    ...update(payload)
   })
 }, INITIAL_STATE)

@@ -7,6 +7,9 @@ import Timer from './timer'
 import Tab from './tab'
 import Image from './image'
 import ChapterProgress from './chapter-progress'
+import Card from './card'
+import Button from './button'
+import Tooltip from './tooltip'
 
 export {
   Icon,
@@ -17,5 +20,8 @@ export {
   Timer,
   Tab,
   Image,
-  ChapterProgress
+  ChapterProgress,
+  Card,
+  Button,
+  Tooltip
 }

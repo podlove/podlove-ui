@@ -19,7 +19,8 @@
     "normalize.css": "8.0.1",
     "vue": "2.5.17",
     "@podlove/actions": "4.2.3",
-    "@podlove/utils": "4.2.3"
+    "@podlove/utils": "4.2.3",
+    "v-tooltip": "2.0.0-rc.33"
   },
   "devDependencies": {
     "@podlove/build": "4.2.3",

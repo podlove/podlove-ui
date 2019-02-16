@@ -15,6 +15,7 @@ import network from './network'
 import quantiles from './quantiles'
 import tabs from './tabs'
 import contributors from './contributors'
+import files from './files'
 
 export default {
   ...runtime,
@@ -31,5 +32,6 @@ export default {
   network,
   quantiles,
   tabs,
-  contributors
+  contributors,
+  files
 }

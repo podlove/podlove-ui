@@ -24,7 +24,7 @@ import { PlayButton, ChapterButton, StepperButton } from '@podlove/components'
 export default {
   data: mapState({
     controlbarStyle: select.styles.controls,
-    buttonStyle: select.styles.button,
+    buttonStyle: select.styles.buttonInverted,
     playButton: select.components.playButton,
     stepperButtons: select.components.stepperButtons,
     chapterButtons: select.components.chapterButtons,

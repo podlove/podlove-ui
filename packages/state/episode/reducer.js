@@ -15,7 +15,7 @@ export const INIT_STATE = {
   publicationDate: null
 }
 
-const change = createObject({
+const update = createObject({
   title: propOr(null, 'title'),
   subtitle: propOr(null, 'subtitle'),
   summary: compose(sanitize, propOr(null, 'summary')),
@@ -27,6 +27,6 @@ const change = createObject({
 export const reducer = handleActions({
   [INIT]: (state, { payload }) => ({
     ...state,
-    ...change(payload)
+    ...update(payload)
   })
 }, INIT_STATE)

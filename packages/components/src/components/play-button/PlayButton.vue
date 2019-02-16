@@ -1,5 +1,5 @@
 <template>
-  <button class="button" id="play-button" ref="playbutton" @click="clickHandler()">
+  <button class="play-button" id="play-button" ref="playbutton" @click="clickHandler()">
       <div class="wrapper" :style="wrapper" ref="wrapper">
         <transition @enter="enterAnimation" name="component" mode="out-in">
           <component ref="component" class="component" :is="type" :color="color" :label="label" :id="`play-button--${type}`" :class="{ 'has-label': label && type !== 'loading' }">
@@ -89,7 +89,7 @@ export default {
   @import 'tokens/animation';
   @import 'tokens/play-button';
 
-  .button {
+  .play-button {
     @extend %button;
 
     .wrapper {

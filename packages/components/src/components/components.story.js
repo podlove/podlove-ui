@@ -23,6 +23,15 @@ import imageStory from './image/story'
 // ChapterProgress
 import chapterProgressStory from './chapter-progress/story'
 
+// Card
+import cardStory from './card/story'
+
+// Inputs
+import buttonStory from './button/story'
+
+// Tooltip
+import tooltipStory from './tooltip/story'
+
 const buttons = storiesOf('Buttons', module)
 
 buttons.add('play-button', playButtonStory)
@@ -50,3 +59,12 @@ image.add('image', imageStory)
 
 const chapters = storiesOf('Chapter Progress', module)
 chapters.add('chapter-progress', chapterProgressStory)
+
+const card = storiesOf('Card', module)
+card.add('card', cardStory)
+
+const input = storiesOf('Inputs', module)
+input.add('button-component', buttonStory)
+
+const tooltip = storiesOf('Tooltip', module)
+tooltip.add('tooltip', tooltipStory)

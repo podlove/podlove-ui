@@ -3,10 +3,13 @@
     tab-header(:backgroundActive="header.backgroundActive")
       header-item(tab="info" icon="info" :title="$t('INFO.TITLE')")
       header-item(tab="chapters" icon="chapter" :title="$t('CHAPTERS.TITLE')")
+      header-item(tab="files" icon="download" :title="$t('FILES.TITLE')")
     tab-body(tab="info")
       info-tab
     tab-body(tab="chapters")
       chapters-tab
+    tab-body(tab="files")
+      files-tab
 </template>
 
 <script>
@@ -23,6 +26,7 @@ import store from 'store'
 const tabs = {
   InfoTab: () => import(/* webpackMode: "eager" */'../info'),
   ChaptersTab: () => import(/* webpackMode: "eager" */'../chapters'),
+  FilesTab: () => import(/* webpackMode: "eager" */'../files')
 }
 
 export default {

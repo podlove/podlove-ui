@@ -21,6 +21,8 @@ import ClockIcon from './states/Clock'
 import CalendarIcon from './states/Calendar'
 import LinkIcon from './states/Link'
 import ChapterIcon from './states/Chapter'
+import DownloadIcon from './states/Download'
+import AudioFileIcon from './states/AudioFile'
 
 export default {
   props: {
@@ -42,7 +44,7 @@ export default {
     }
   },
   components: {
-    PlayIcon, PauseIcon, RestartIcon, LoadingIcon, NextIcon, PreviousIcon, ForwardIcon, BackwardsIcon, InfoIcon, CloseIcon, ClockIcon, CalendarIcon, LinkIcon, ChapterIcon
+    PlayIcon, PauseIcon, RestartIcon, LoadingIcon, NextIcon, PreviousIcon, ForwardIcon, BackwardsIcon, InfoIcon, CloseIcon, ClockIcon, CalendarIcon, LinkIcon, ChapterIcon, DownloadIcon, AudioFileIcon
   }
 }
 </script>
