@@ -32,6 +32,9 @@ import buttonStory from './button/story'
 // Tooltip
 import tooltipStory from './tooltip/story'
 
+// Channel
+import channelStory from './channel/story'
+
 const buttons = storiesOf('Buttons', module)
 
 buttons.add('play-button', playButtonStory)
@@ -68,3 +71,6 @@ input.add('button-component', buttonStory)
 
 const tooltip = storiesOf('Tooltip', module)
 tooltip.add('tooltip', tooltipStory)
+
+const channel = storiesOf('Channel', module)
+channel.add('channel', channelStory)

@@ -1,25 +1,32 @@
 <template>
   <a :href="facebookLink" class="channel-link" target="_blank">
-    <span class="channel-icon facebook" aria-hidden="true"><facebook-icon color="#fff"></facebook-icon></span>
-    <span class="visually-hidden">{{ $t('A11Y.SHARE_CHANNEL', { channel: 'Facebook' }) }}</span>
+    <span class="channel-icon facebook" aria-hidden="true"><icon type="facebook" color="#fff" /></span>
+    <span class="visually-hidden">{{ a11y }}</span>
   </a>
 </template>
 
 <script>
-  import FacebookIcon from 'icons/FacebookIcon'
-  import { addQueryParameter } from 'utils/url'
+  import Icon from '../../icons'
+  import { addQueryParameter } from '@podlove/utils/url'
 
   const LINK = 'https://www.facebook.com/sharer/sharer.php'
 
   export default {
-    props: ['link', 'color'],
+    props: {
+      link: {
+        type: String
+      },
+      a11y: {
+        type: String
+      }
+    },
     computed: {
       facebookLink () {
         return addQueryParameter(LINK, { u: this.link })
       }
     },
     components: {
-      FacebookIcon
+      Icon
     }
   }
 </script>

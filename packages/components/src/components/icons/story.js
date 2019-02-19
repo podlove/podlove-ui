@@ -2,7 +2,7 @@ import { select, color, number } from '@storybook/addon-knobs'
 
 import Icon from '.'
 
-import iconTypes from './types'
+import { types as iconTypes } from './types'
 
 const types = iconTypes.reduce((result, type) => ({
   ...result,

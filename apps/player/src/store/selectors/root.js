@@ -15,5 +15,6 @@ export default {
   quantiles: prop('quantiles'),
   tabs: prop('tabs'),
   contributors: prop('contributors'),
-  files: prop('files')
+  files: prop('files'),
+  share: prop('share')
 }

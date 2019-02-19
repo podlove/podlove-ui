@@ -96,6 +96,11 @@ const cardBody = state => theme.lightColor(state)
 const iconColor = monoColor
 const iconBackground = state => color(theme.mainColor(state)).lighten(0.2).string()
 
+const shareSectionStyle = state => ({
+  background: color(theme.mainColor(state)).fade(0.8).string()
+})
+
+this.theme.tabs.body.section
 
 export default {
   negative: compose(theme.isNegative, root.theme),
@@ -121,7 +126,8 @@ export default {
   cardHeader: compose(cardHeader, root.theme),
   cardBody: compose(cardBody, root.theme),
   iconColor: compose(iconColor, root.theme),
-  iconBackground: compose(iconBackground, root.theme)
+  iconBackground: compose(iconBackground, root.theme),
+  shareSectionStyle: compose(shareSectionStyle, root.theme)
 }
 
 // return {

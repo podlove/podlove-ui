@@ -1,4 +1,4 @@
-import { curry, map } from 'ramda'
+import { curry, map, compose, join, toUpper, juxt, head, tail } from 'ramda'
 import { isUndefinedOrNull } from './predicates'
 
 /**
@@ -24,3 +24,4 @@ export const endsWith = curry((q, str) => str.endsWith(q))
 export const stripl = curry((q, str) => startsWith(q, str) ? str.slice(q.length) : str)
 export const stripr = curry((q, str) => endsWith(q, str) ? str.slice(0, str.length - q.length) : str)
 export const strip = curry((q, str) => stripl(q, stripr(q, str)))
+export const capitalize = compose(join(''), juxt([compose(toUpper, head), tail]))

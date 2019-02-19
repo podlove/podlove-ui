@@ -14,6 +14,8 @@ import { reducer as quantiles } from '@podlove/state/quantiles'
 import { reducer as tabs } from '@podlove/state/tabs'
 import { reducer as contributors } from '@podlove/state/contributors'
 import { reducer as files } from '@podlove/state/files'
+import { reducer as content } from '@podlove/state/content'
+
 
 export default combineReducers({
   runtime,
@@ -29,5 +31,8 @@ export default combineReducers({
   quantiles,
   tabs,
   contributors,
-  files
+  files,
+  share: {
+    content
+  }
 })
