@@ -100,7 +100,21 @@ const shareSectionStyle = state => ({
   background: color(theme.mainColor(state)).fade(0.8).string()
 })
 
-this.theme.tabs.body.section
+const shareActiveContentStyle = state => ({
+  background: color(theme.mainColor(state)).fade(0.2).string(),
+  color: theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)
+})
+
+const shareContentStyle = state => ({
+  background: color(theme.mainColor(state)).fade(0.8).string(),
+  color: theme.isNegative(state) ? theme.darkColor(state) : theme.lightColor(state)
+})
+
+const inputStyle = state => ({
+  background: color(theme.mainColor(state)).lighten(0.3).string(),
+  color: theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state),
+  border: theme.isNegative(state) ? color(theme.mainColor(state)).lighten(0.1).string() : theme.greyColor(state)
+})
 
 export default {
   negative: compose(theme.isNegative, root.theme),
@@ -127,7 +141,10 @@ export default {
   cardBody: compose(cardBody, root.theme),
   iconColor: compose(iconColor, root.theme),
   iconBackground: compose(iconBackground, root.theme),
-  shareSectionStyle: compose(shareSectionStyle, root.theme)
+  shareSectionStyle: compose(shareSectionStyle, root.theme),
+  shareActiveContentStyle: compose(shareActiveContentStyle, root.theme),
+  shareContentStyle: compose(shareContentStyle, root.theme),
+  inputStyle: compose(inputStyle, root.theme)
 }
 
 // return {

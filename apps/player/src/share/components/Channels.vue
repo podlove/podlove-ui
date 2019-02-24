@@ -1,143 +1,140 @@
-<template>
-  <ul class="channel-list" id="tab-share--channels">
-    <li id="tab-share--channels--twitter"><channel-twitter-component :text="shareText"></channel-twitter-component></li>
-    <li id="tab-share--channels--facebook"><channel-facebook-component :link="shareLink"></channel-facebook-component></li>
-    <li id="tab-share--channels--pinterest"><channel-pinterest-component :text="shareText" :link="shareLink" :poster="sharePoster"></channel-pinterest-component></li>
-    <li id="tab-share--channels--reddit"><channel-reddit-component :text="shareText" :link="shareLink"></channel-reddit-component></li>
-    <li id="tab-share--channels--mail"><channel-mail-component :text="shareText" :subject="shareSubject"></channel-mail-component></li>
-    <li id="tab-share--channels--linkedin"><channel-linkedin-component :text="shareText" :link="shareLink"></channel-linkedin-component></li>
-  </ul>
+<template lang="pug">
+  ul.channel-list#tab-share-channels
+    li#tab-share--channels--twitter
+      channel(type="twitter" :text="shareText")
+    li#tab-share--channels--facebook
+      channel(type="facebook" :link="shareLink")
+    li#tab-share--channels--pinterest
+      channel(type="pinterest" :text="shareText" :link="shareLink" :poster="sharePoster")
+    li#tab-share--channels--reddit
+      channel(type="reddit" :text="shareText" :link="shareLink")
+    li#tab-share--channels--mail
+      channel(type="mail" :text="shareText" :subject="shareSubject")
+    li#tab-share--channels--linkedin
+      channel(type="linkedin" :text="shareText" :link="shareLink")
 </template>
 
 <script>
   import { mapState } from 'redux-vuex'
-  import { selectCurrentChapter } from 'store/selectors'
+  import { toHumanTime } from '@podlove/utils/time'
+  import { addQueryParameter } from '@podlove/utils/url'
+  import { Channel } from '@podlove/components'
 
-  import { toHumanTime } from 'utils/time'
-  import { addQueryParameter } from 'utils/url'
-
-  import ChannelTwitterComponent from './channels/ChannelTwitter'
-  import ChannelFacebookComponent from './channels/ChannelFacebook'
-  import ChannelMailComponent from './channels/ChannelMail'
-  import ChannelEmbedComponent from './channels/ChannelEmbed'
-  import ChannelPinterestComponent from './channels/ChannelPinterest'
-  import ChannelRedditComponent from './channels/ChannelReddit'
-  import ChannelLinkedinComponent from './channels/ChannelLinkedin'
+  import select from 'store/selectors'
+  import store from 'store'
 
   export default {
-    props: ['type'],
     data: mapState({
-      show: 'show',
-      episode: 'episode',
-      playtime: 'playtime',
-      currentChapter: selectCurrentChapter,
-      theme: 'theme'
+      content: select.share.content,
+      showLink: select.show.link,
+      showTitle: select.show.title,
+      showPoster: select.show.poster,
+      episodeLink: select.episode.link,
+      episodeTitle: select.episode.title,
+      episodePoster: select.episode.poster,
+      playtime: select.playtime,
+      currentChapter: select.chapters.current,
     }),
     computed: {
       shareLink () {
         let time
 
-        if (this.type === 'show') {
-          return this.show.link
+        if (this.content === 'show') {
+          return this.showLink
         }
 
-        if (this.type === 'episode') {
-          return this.episode.link
+        if (this.content === 'episode') {
+          return this.episodeLink
         }
 
-        if (this.type === 'chapter') {
+        if (this.content === 'chapter') {
           const { start, end } = this.currentChapter
           time = `${toHumanTime(start)},${toHumanTime(end)}`
         }
 
-        if (this.type === 'time') {
+        if (this.content === 'time') {
           time = toHumanTime(this.playtime)
         }
 
-        return addQueryParameter(this.episode.link, { t: time })
+        return addQueryParameter(this.episodeLink, { t: time })
       },
 
       shareText () {
-        if (this.type === 'show') {
+        if (this.content === 'show') {
           return this.$t('SHARE.SHOW.TEXT', {
-            ...this.show,
+            title: this.showTitle,
             link: this.shareLink
           })
         }
 
-        if (this.type === 'chapter') {
+        if (this.content === 'chapter') {
           return this.$t('SHARE.EPISODE.TEXT.CHAPTER', {
-            ...this.episode,
+            title: this.episodeTitle,
             link: this.shareLink,
             chapter: this.currentChapter.title
           })
         }
 
-        if (this.type === 'time') {
+        if (this.content === 'time') {
           return this.$t('SHARE.EPISODE.TEXT.PLAYTIME', {
-            ...this.episode,
+            title: this.episodeTitle,
             link: this.shareLink,
             playtime: toHumanTime(this.playtime)
           })
         }
 
         return this.$t('SHARE.EPISODE.TEXT.BEGINNING', {
-          ...this.episode,
+          title: this.episodeTitle,
           link: this.shareLink
         })
       },
 
       shareSubject () {
-        if (this.type === 'show') {
+        if (this.content === 'show') {
           return this.$t('SHARE.SHOW.SUBJECT', {
-            ...this.show,
+            title: this.showTitle,
             link: this.shareLink
           })
         }
 
-        if (this.type === 'chapter') {
+        if (this.content === 'chapter') {
           return this.$t('SHARE.EPISODE.SUBJECT.CHAPTER', {
-            ...this.episode,
+            title: this.episodeTitle,
             link: this.shareLink,
             chapter: this.currentChapter.title
           })
         }
 
-        if (this.type === 'time') {
+        if (this.content === 'time') {
           return this.$t('SHARE.EPISODE.SUBJECT.PLAYTIME', {
-            ...this.episode,
-            link: this.shareLink,
+            title: this.episodeTitle,
             playtime: toHumanTime(this.playtime)
           })
         }
 
         return this.$t('SHARE.EPISODE.SUBJECT.BEGINNING', {
-          ...this.episode,
-          link: this.shareLink
+          title: this.episodeTitle,
         })
       },
 
       sharePoster () {
-        if (this.type === 'show') {
-          return this.show.poster
+        if (this.content === 'show') {
+          return this.showPoster
         }
 
-        return this.episode.poster
+        return this.episodePoster
       }
     },
+    methods: {
+      dispatch: store.dispatch
+    },
     components: {
-      ChannelTwitterComponent,
-      ChannelFacebookComponent,
-      ChannelMailComponent,
-      ChannelEmbedComponent,
-      ChannelPinterestComponent,
-      ChannelRedditComponent,
-      ChannelLinkedinComponent
+      Channel
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '~styles/variables';
 
   .channel-list {

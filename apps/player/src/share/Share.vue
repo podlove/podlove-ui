@@ -1,12 +1,16 @@
 <template lang="pug">
   div.share-tab#tab-share
-    div.content-select
-      share-content-component(@onSelect="onContentSelect()")
+    content-select.content-select
 
-    //- div.channel-select(:style="sectionStyle")
-    //-   span.label {{ $t('SHARE.SHARE_CHANNEL') }}
-    //-   share-channels-component(:type="content" ref="channels")
+    div.share-channel(:style="sectionStyle")
+      span.label {{ $t('SHARE.SHARE_CHANNEL') }}
+      channel-select
 
+    div.share-link#tab-share--link(v-if="hasLink")
+      span.label {{ $t('SHARE.SHARE_LINK') }}
+      copy-link
+
+    //- div.share-embed()
     //-   div.channel-share#tab-share--link(v-if="showLink")
     //-     span.label {{ $t('SHARE.SHARE_LINK') }}
     //-     share-link-component(:type="content")
@@ -21,47 +25,40 @@
   import { head } from 'lodash'
   import select from 'store/selectors'
 
-  import ShareChannelsComponent from './ShareChannels'
-  import ShareContentComponent from './ShareContent'
-  import ShareLinkComponent from './ShareLink'
-
-  import ShareEmbedComponent from './ShareEmbed'
+  import ContentSelect from './components/Content'
+  import ChannelSelect from './components/Channels'
+  import CopyLink from './components/Link'
 
   export default {
     data: mapState({
       sectionStyle: select.styles.shareSectionStyle,
-
-      share: 'share',
-      show: 'show',
-      episode: 'episode',
-      reference: 'reference',
-      content: selectShareContent
+      hasLink: select.share.hasLink,
+      content: select.share.content
     }),
     computed: {
-      showLink () {
-        const hasShowLink = this.content === 'show' && this.show.link
-        const hasShareLink = this.content !== 'show' && this.episode.link
-        return hasShowLink || hasShareLink
-      },
-      showEmbed () {
-        return this.content !== 'show' && ((this.reference.config && this.reference.share) || this.reference.origin)
-      }
+      // showLink () {
+      //   const hasShowLink = this.content === 'show' && this.show.link
+      //   const hasShareLink = this.content !== 'show' && this.episode.link
+      //   return hasShowLink || hasShareLink
+      // },
+      // showEmbed () {
+      //   return this.content !== 'show' && ((this.reference.config && this.reference.share) || this.reference.origin)
+      // }
     },
     methods: {
-      onContentSelect () {
-        head(this.$refs.channels.$el.querySelectorAll('a')).focus()
-      }
+      // onContentSelect () {
+      //   head(this.$refs.channels.$el.querySelectorAll('a')).focus()
+      // }
     },
     components: {
-      ShareContentComponent,
-      ShareChannelsComponent,
-      ShareEmbedComponent,
-      ShareLinkComponent
+      ContentSelect,
+      ChannelSelect,
+      CopyLink
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '~styles/variables';
 
   .share-tab {
@@ -71,23 +68,25 @@
       font-weight: 500;
       margin: ($margin / 2) 0 $margin 0;
     }
-  }
 
-  .content-select {
-    padding: $padding $padding 0 $padding;
-  }
+    .content-select {
+      padding: $padding $padding $padding * 2 $padding;
+    }
 
-  .channel-select {
-    padding: $padding ($padding * 2) ($padding * 2) $padding;
-    text-align: center;
+    .share-channel {
+      padding: $padding;
+    }
+
+    .share-link {
+      padding: $padding $padding * 2 $padding * 2 $padding * 2;
+    }
 
     .label {
       display: block;
       font-weight: 400;
+      margin-bottom: $margin / 2;
+      text-align: center;
     }
-  }
 
-  .channel-share {
-    padding: $padding 0
   }
 </style>

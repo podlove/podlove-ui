@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import select from 'store/selectors'
 
-export default component => Vue.component('icon', {
+export default component => Vue.component('button-color', {
   props: {
     variant: {
       type: String,

@@ -16,6 +16,7 @@ import quantiles from './quantiles'
 import tabs from './tabs'
 import contributors from './contributors'
 import files from './files'
+import share from './share'
 
 export default {
   ...runtime,
@@ -33,5 +34,6 @@ export default {
   quantiles,
   tabs,
   contributors,
-  files
+  files,
+  share
 }

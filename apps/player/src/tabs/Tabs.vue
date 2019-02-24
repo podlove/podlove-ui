@@ -3,11 +3,14 @@
     tab-header(:backgroundActive="header.backgroundActive")
       header-item(tab="info" icon="info" :title="$t('INFO.TITLE')")
       header-item(tab="chapters" icon="chapter" :title="$t('CHAPTERS.TITLE')")
+      header-item(tab="share" icon="share" :title="$t('SHARE.TITLE')")
       header-item(tab="files" icon="download" :title="$t('FILES.TITLE')")
     tab-body(tab="info")
       info-tab
     tab-body(tab="chapters")
       chapters-tab
+    tab-body(tab="share")
+      share-tab
     tab-body(tab="files")
       files-tab
 </template>
@@ -23,10 +26,13 @@ import TabBody from './components/TabBody'
 import select from 'store/selectors'
 import store from 'store'
 
+import ShareTab from '../share'
+
 const tabs = {
   InfoTab: () => import(/* webpackMode: "eager" */'../info'),
   ChaptersTab: () => import(/* webpackMode: "eager" */'../chapters'),
-  FilesTab: () => import(/* webpackMode: "eager" */'../files')
+  FilesTab: () => import(/* webpackMode: "eager" */'../files'),
+  // ShareTab: () => import(/* webpackMode: "eager" */'../share')
 }
 
 export default {
@@ -39,6 +45,7 @@ export default {
     TabBody,
     HeaderItem,
     Icon,
+    ShareTab,
     ...tabs
   },
   methods: mapActions({
