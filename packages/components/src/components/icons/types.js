@@ -21,6 +21,12 @@ import PinterestIcon from './states/Pinterest'
 import MailIcon from './states/Mail'
 import LinkedinIcon from './states/Linkedin'
 import FacebookIcon from './states/Facebook'
+import ContentShowIcon from './states/ContentShow'
+import ContentPlaytimeIcon from './states/ContentPlaytime'
+import ContentChapterIcon from './states/ContentChapter'
+import ContentEpisodeIcon from './states/ContentEpisode'
+import ShareIcon from './states/Share'
+import CopyIcon from './states/Copy'
 
 export const types = [
   'play',
@@ -46,7 +52,13 @@ export const types = [
   'pinterest',
   'mail',
   'linkedin',
-  'facebook'
+  'facebook',
+  'content-show',
+  'content-playtime',
+  'content-chapter',
+  'content-episode',
+  'share',
+  'copy'
 ]
 
 export const components = {
@@ -73,4 +85,10 @@ export const components = {
   MailIcon,
   LinkedinIcon,
   FacebookIcon,
+  ContentShowIcon,
+  ContentPlaytimeIcon,
+  ContentChapterIcon,
+  ContentEpisodeIcon,
+  ShareIcon,
+  CopyIcon
 }

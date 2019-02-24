@@ -33,6 +33,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import 'boot';
   @import 'tokens/tab';
 
   .tab-body {

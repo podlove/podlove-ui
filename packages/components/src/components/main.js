@@ -10,6 +10,10 @@ import ChapterProgress from './chapter-progress'
 import Card from './card'
 import Button from './button'
 import Tooltip from './tooltip'
+import Channel from './channel'
+import ContentOption from './content-option'
+import InputText from './input-text'
+import InputGroup from './input-group'
 
 export {
   Icon,
@@ -23,5 +27,9 @@ export {
   ChapterProgress,
   Card,
   Button,
-  Tooltip
+  Tooltip,
+  ContentOption,
+  Channel,
+  InputText,
+  InputGroup
 }

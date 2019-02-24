@@ -48,6 +48,7 @@
   }
 </script>
 <style lang="scss" scoped>
+  @import 'boot';
   @import 'resets';
 
   @import 'tokens/defaults';

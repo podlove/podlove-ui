@@ -1,5 +1,5 @@
 <template>
-  <component :is="`${type}-icon`" :color="color" :background="background" :size="size" aria-hidden="true" />
+  <component :is="iconType" :color="color" :background="background" :size="size" aria-hidden="true" />
 </template>
 
 <script>
@@ -27,6 +27,16 @@ export default {
       type: Number
     }
   },
+  computed: {
+    iconType () {
+      return `${this.type}-icon`
+    }
+  },
   components
 }
 </script>
+
+<style lang="scss" scoped>
+  @import 'boot';
+</style>
+

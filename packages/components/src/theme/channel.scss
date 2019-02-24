@@ -4,7 +4,7 @@
 @import 'a11y';
 
 .channel-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-direction: column;
   margin: $margin / 2;

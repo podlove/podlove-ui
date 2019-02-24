@@ -12,3 +12,7 @@ export const media = compose(map(createObject({
 })), propOr([], 'audio'))
 
 export const chapters = propOr([], 'chapters')
+export const reference = propOr({}, 'reference')
+export const shareReference = compose(propOr(null, 'share'), reference)
+export const originReference = compose(propOr(null, 'origin'), reference)
+export const configReference = compose(propOr(null, 'origin'), reference)

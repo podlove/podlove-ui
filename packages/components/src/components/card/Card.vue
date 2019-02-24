@@ -39,6 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import 'boot';
   @import 'tokens/defaults';
   @import 'font';
 

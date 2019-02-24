@@ -50,6 +50,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import 'boot';
   @import 'font';
   @import 'resets';
   @import 'utils';
@@ -58,7 +59,6 @@
   @import 'tokens/animation';
 
   .button {
-    @extend %font;
     @extend %button;
 
     display: flex;
@@ -68,8 +68,6 @@
 
     font-size: 1.1em;
     font-variant: small-caps;
-
-    box-sizing: border-box;
 
     opacity: 1;
     transition: opacity $animation-duration;
@@ -93,6 +91,8 @@
     text-transform: uppercase;
 
     .inner {
+      @extend %font;
+      @extend %truncate;
       width: 100%;
       height: 100%;
     }

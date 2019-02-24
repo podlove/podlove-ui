@@ -157,6 +157,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import 'boot';
   @import "font";
   @import "resets";
   @import "utils";

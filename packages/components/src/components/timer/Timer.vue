@@ -6,7 +6,6 @@
 import { color } from 'defaults'
 import { toHumanTime } from '@podlove/utils/time'
 
-
 export default {
   props: {
     color: {
@@ -40,6 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import 'boot';
   @import 'font';
 
   // Timer

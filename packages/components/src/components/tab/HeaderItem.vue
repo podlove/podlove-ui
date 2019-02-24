@@ -98,6 +98,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import 'boot';
   @import 'resets';
   @import 'font';
 

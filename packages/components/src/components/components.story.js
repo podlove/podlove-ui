@@ -28,12 +28,17 @@ import cardStory from './card/story'
 
 // Inputs
 import buttonStory from './button/story'
+import inputTextStory from './input-text/story'
+import inputGroupStory from './input-group/story'
 
 // Tooltip
 import tooltipStory from './tooltip/story'
 
 // Channel
 import channelStory from './channel/story'
+
+// ContentOption
+import contentOptionStory from './content-option/story'
 
 const buttons = storiesOf('Buttons', module)
 
@@ -68,9 +73,14 @@ card.add('card', cardStory)
 
 const input = storiesOf('Inputs', module)
 input.add('button-component', buttonStory)
+input.add('input-text', inputTextStory)
+input.add('input-group', inputGroupStory)
 
 const tooltip = storiesOf('Tooltip', module)
 tooltip.add('tooltip', tooltipStory)
 
 const channel = storiesOf('Channel', module)
 channel.add('channel', channelStory)
+
+const contentOption = storiesOf('Content Option', module)
+contentOption.add('content-option', contentOptionStory)

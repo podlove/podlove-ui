@@ -1,5 +1,5 @@
 <template>
-  <button class="button" @click="clickHandler" :id="`chapter-button--${type}`">
+  <button class="chapter-button" @click="clickHandler" :id="`chapter-button--${type}`">
     <icon :type="type" :color="color" />
     <slot></slot>
   </button>
@@ -41,9 +41,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import 'boot';
   @import 'resets';
 
-  .button {
+  .chapter-button {
     @extend %button;
   }
 </style>
