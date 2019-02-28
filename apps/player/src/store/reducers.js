@@ -15,6 +15,7 @@ import { reducer as tabs } from '@podlove/state/tabs'
 import { reducer as contributors } from '@podlove/state/contributors'
 import { reducer as files } from '@podlove/state/files'
 import { reducer as content } from '@podlove/state/content'
+import { reducer as embed } from '@podlove/state/embed'
 import { reducer as reference } from '@podlove/state/reference'
 
 export default combineReducers({
@@ -34,6 +35,7 @@ export default combineReducers({
   files,
   reference,
   share: combineReducers({
-    content
+    content,
+    embed
   })
 })

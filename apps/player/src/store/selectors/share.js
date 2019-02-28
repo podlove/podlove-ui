@@ -1,19 +1,64 @@
 import { selectors as content } from '@podlove/state/content'
+import { selectors as embed } from '@podlove/state/embed'
+import { toHumanTime } from '@podlove/utils/time'
+import { addQueryParameter } from '@podlove/utils/url'
 import { compose, prop } from 'ramda'
-
-import show from './show'
-import episode from './episode'
 
 import root from './root'
 
+import show from './show'
+import episode from './episode'
+import chapter from './chapters'
+import reference from './reference'
+import timepiece from './timepiece'
+
 const contentSlice = prop('content')
+const embedSlice = prop('embed')
 const type = compose(content.content, contentSlice, root.share)
+const embedSize = compose(embed.size, embedSlice, root.share)
+const availableEmbedSizes = compose(embed.available, embedSlice, root.share)
 
 const hasLink = state => (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))
-// const hasEmbedLink =
-// return this.content !== 'show' && ((this.reference.config && this.reference.share) || this.reference.origin)
+const hasEmbedLink = state => (type(state) !== 'show') && ((reference.config(state) && reference.share(state)) || reference.origin(state))
+
+const link = state => {
+  switch (type(state)) {
+    case 'show':
+      return show.link(state)
+    case 'episode':
+      return episode.link(state)
+    case 'chapter':
+      return addQueryParameter(episode.link(state), { t: `${toHumanTime(chapter.current(state).start)},${toHumanTime(chapter.current(state).end)}` })
+    case 'time':
+      return addQueryParameter(episode.link(state), { t: toHumanTime(timepiece.playtime(state)) })
+    default:
+      return null
+  }
+}
+
+const code = state => {
+  const [width, height] = embedSize(state).split('x')
+  const showTitle = show.title(state)
+  const episodeTitle = episode.title(state)
+  const currentChapter = chapter.current(state)
+
+  const title = `Podlove Web Player:${showTitle ? ' ' + showTitle : ''}${episodeTitle ? ' - ' + episodeTitle : ''}`
+
+  const parameters = {
+    episode: reference.config(state),
+    ...(type(state) === 'chapter' ? { t: `${toHumanTime(currentChapter.start)},${toHumanTime(currentChapter.end)}` } : {}),
+    ...(type(state) === 'time' ? { t: toHumanTime(timepiece.playtime(state)) } : {})
+  }
+
+  return `<iframe title="${title}" width="${width}" height="${height}" src="${addQueryParameter(reference.share(state), parameters)}" frameborder="0" scrolling="no" tabindex="0"></iframe>`
+}
 
 export default {
   content: type,
-  hasLink
+  hasLink,
+  hasEmbedLink,
+  embedSize,
+  availableEmbedSizes,
+  link,
+  code
 }

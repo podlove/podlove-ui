@@ -1,117 +1,61 @@
-<template>
-    <div class="share-embed" id="share-tab--share-embed">
-      <input-group-component>
-        <copy-tooltip-component slot="button" :content="embedCode">
-          <button-component class="truncate">
-            <span aria-hidden="true">{{ $t('SHARE.ACTIONS.COPY') }}</span>
-            <span class="visually-hidden">{{ $t('A11Y.COPY_SHARE_LINK') }}</span>
-          </button-component>
-        </copy-tooltip-component>
-        <input-select-component slot="input" :model="share.embed.size" :options="share.embed.available" :change="setEmbedSize" id="tab-share--share-embed--size"></input-select-component>
-        <input-text-component slot="input" disabled="true" :value="embedCode" id="tab-share--share-embed--input"></input-text-component>
-      </input-group-component>
-    </div>
+<template lang="pug">
+  div.copy-code#share-tab--share-embed
+    input-group
+      tooltip(:negative="negative" :content="$t('MESSAGES.COPIED')" trigger="click" @click="copyCode" slot="button")
+        button-component.truncate
+          span(aria-hidden="true") {{ $t('SHARE.ACTIONS.COPY') }}
+          span.visually-hidden {{ $t('A11Y.COPY_SHARE_LINK') }}
+
+      input-select#tab-share--share-embed--size(slot="input" :value="embedSize" :options="availableSizes" @change="setSize")
+      input-text#tab-share--share-embed--input(slot="input" :disabled="true" :value="embedCode")
 </template>
 
 <script>
   import { mapState, mapActions } from 'redux-vuex'
-  import { selectCurrentChapter } from 'store/selectors'
+  import { Button, InputText, InputSelect, InputGroup, Tooltip } from '@podlove/components'
+  import { selectEmbedSize } from '@podlove/actions/embed'
+  import copy from 'copy-to-clipboard'
 
-  import { addQueryParameter } from 'utils/url'
-  import { toHumanTime } from 'utils/time'
+  import store from 'store'
+  import select from 'store/selectors'
+  import inputColor from 'directives/input-color'
+  import buttonColor from 'directives/button-color'
 
-  import OverlayComponent from 'shared/Overlay'
-  import ButtonComponent from 'shared/Button'
-  import InputSelectComponent from 'shared/InputSelect'
-  import InputTextComponent from 'shared/InputText'
-  import InputGroupComponent from 'shared/InputGroup'
-  import CopyTooltipComponent from 'shared/CopyTooltip'
+  import { addQueryParameter } from '@podlove/utils/url'
+  import { toHumanTime } from '@podlove/utils/time'
 
   export default {
-    props: ['type'],
     data: mapState({
-      show: 'show',
-      episode: 'episode',
-      share: 'share',
-      reference: 'reference',
-      theme: 'theme',
-      currentChapter: selectCurrentChapter,
-      playtime: 'playtime'
+      negative: select.styles.negative,
+      embedSize: select.share.embedSize,
+      availableSizes: select.share.availableEmbedSizes,
+      embedCode: select.share.code
     }),
-    computed: {
-      buttonStyle () {
-        return {
-          color: this.theme.tabs.button.text,
-          background: this.theme.tabs.button.background,
-          'border-color': this.theme.tabs.button.background
-        }
+    methods: {
+      setSize(val) {
+        store.dispatch(selectEmbedSize(val))
       },
 
-      buttonActiveStyle () {
-        return {
-          color: this.theme.tabs.button.background,
-          background: this.theme.tabs.button.text,
-          'border-color': this.theme.tabs.button.background
-        }
-      },
-
-      inputStyle () {
-        return {
-          'border-color': this.theme.tabs.input.border
-        }
-      },
-
-      embedCode () {
-        const [width, height] = this.share.embed.size.split('x')
-
-        const title = `Podlove Web Player:${this.show.title ? ' ' + this.show.title : ''}${this.episode.title ? ' - ' + this.episode.title : ''}`
-        const parameters = {
-          episode: this.reference.config
-        }
-
-        if (this.type === 'chapter') {
-          const { start, end } = this.currentChapter
-          parameters.t = `${toHumanTime(start)},${toHumanTime(end)}`
-        }
-
-        if (this.type === 'time') {
-          parameters.t = toHumanTime(this.playtime)
-        }
-
-        return `<iframe title="${title}" width="${width}" height="${height}" src="${addQueryParameter(this.reference.share, parameters)}" frameborder="0" scrolling="no" tabindex="0"></iframe>`
+      copyCode() {
+        copy(this.embedCode)
       }
     },
-    methods: {
-      toHumanTime,
-      ...mapActions({
-        setEmbedSize: 'setShareEmbedSize',
-        closeEmbedOverlay: 'hideShareEmbed'
-      })
-    },
     components: {
-      OverlayComponent,
-      ButtonComponent,
-      InputSelectComponent,
-      InputTextComponent,
-      InputGroupComponent,
-      CopyTooltipComponent
+      ButtonComponent: buttonColor(Button),
+      InputSelect: inputColor(InputSelect),
+      InputText: inputColor(InputText),
+      InputGroup,
+      Tooltip
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '~styles/variables';
 
-  .embed-code {
+  .copy-code {
     width: 100%;
     display: block;
     margin: ($margin / 2) 0;
   }
-
-  .embed-overlay {
-    .overlay {
-      width: $share-embed-width;
-    }
-  }
-
 </style>

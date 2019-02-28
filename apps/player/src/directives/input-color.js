@@ -10,8 +10,18 @@ export default component => Vue.component('input-color', {
         background: this.style.background,
         borderColor: this.style.border,
         ...this.$attrs
+      },
+      on: {
+        click: this.proxyEvent('click'),
+        change: this.proxyEvent('change'),
       }
     }, this.$slots.default)
+  },
+
+  methods: {
+    proxyEvent(event) {
+      return (val) => this.$emit(event, val)
+    }
   },
 
   data: mapState({

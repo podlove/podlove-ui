@@ -14,6 +14,7 @@ import Channel from './channel'
 import ContentOption from './content-option'
 import InputText from './input-text'
 import InputGroup from './input-group'
+import InputSelect from './input-select'
 
 export {
   Icon,
@@ -31,5 +32,6 @@ export {
   ContentOption,
   Channel,
   InputText,
-  InputGroup
+  InputGroup,
+  InputSelect
 }

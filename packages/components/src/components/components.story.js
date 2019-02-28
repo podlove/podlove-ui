@@ -29,6 +29,7 @@ import cardStory from './card/story'
 // Inputs
 import buttonStory from './button/story'
 import inputTextStory from './input-text/story'
+import inputSelectStory from './input-select/story'
 import inputGroupStory from './input-group/story'
 
 // Tooltip
@@ -74,6 +75,7 @@ card.add('card', cardStory)
 const input = storiesOf('Inputs', module)
 input.add('button-component', buttonStory)
 input.add('input-text', inputTextStory)
+input.add('input-select', inputSelectStory)
 input.add('input-group', inputGroupStory)
 
 const tooltip = storiesOf('Tooltip', module)

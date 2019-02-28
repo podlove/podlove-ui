@@ -10,14 +10,9 @@
       span.label {{ $t('SHARE.SHARE_LINK') }}
       copy-link
 
-    //- div.share-embed()
-    //-   div.channel-share#tab-share--link(v-if="showLink")
-    //-     span.label {{ $t('SHARE.SHARE_LINK') }}
-    //-     share-link-component(:type="content")
-
-    //-   div.channel-share#tab-share--embed--link(v-if="showEmbed")
-    //-     span.label {{ $t('SHARE.EMBED.TITLE') }}
-    //-     share-embed-component(:type="content")
+    div.share-embed#tab-share--embed--link(v-if="hasEmbedLink")
+      span.label {{ $t('SHARE.EMBED.TITLE') }}
+      embed-code
 </template>
 
 <script>
@@ -28,32 +23,20 @@
   import ContentSelect from './components/Content'
   import ChannelSelect from './components/Channels'
   import CopyLink from './components/Link'
+  import EmbedCode from './components/Embed'
 
   export default {
     data: mapState({
       sectionStyle: select.styles.shareSectionStyle,
       hasLink: select.share.hasLink,
-      content: select.share.content
+      content: select.share.content,
+      hasEmbedLink: select.share.hasEmbedLink
     }),
-    computed: {
-      // showLink () {
-      //   const hasShowLink = this.content === 'show' && this.show.link
-      //   const hasShareLink = this.content !== 'show' && this.episode.link
-      //   return hasShowLink || hasShareLink
-      // },
-      // showEmbed () {
-      //   return this.content !== 'show' && ((this.reference.config && this.reference.share) || this.reference.origin)
-      // }
-    },
-    methods: {
-      // onContentSelect () {
-      //   head(this.$refs.channels.$el.querySelectorAll('a')).focus()
-      // }
-    },
     components: {
       ContentSelect,
       ChannelSelect,
-      CopyLink
+      CopyLink,
+      EmbedCode
     }
   }
 </script>
@@ -62,7 +45,7 @@
   @import '~styles/variables';
 
   .share-tab {
-    padding: $padding 0 0 0;
+    padding: $padding 0;
 
     .title {
       font-weight: 500;
@@ -77,8 +60,8 @@
       padding: $padding;
     }
 
-    .share-link {
-      padding: $padding $padding * 2 $padding * 2 $padding * 2;
+    .share-link, .share-embed {
+      padding: $padding $padding * 2 0 $padding * 2;
     }
 
     .label {

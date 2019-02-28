@@ -1,4 +1,4 @@
-import { color, text, select, boolean } from '@storybook/addon-knobs'
+import { color, text, select } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import ContentOption from '.'

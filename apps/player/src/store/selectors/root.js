@@ -16,5 +16,6 @@ export default {
   tabs: prop('tabs'),
   contributors: prop('contributors'),
   files: prop('files'),
-  share: prop('share')
+  share: prop('share'),
+  reference: prop('reference')
 }

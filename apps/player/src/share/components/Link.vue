@@ -28,32 +28,9 @@
       showLink: select.show.link,
       episodeLink: select.episode.link,
       playtime: select.playtime,
-      negative: select.styles.negative
+      negative: select.styles.negative,
+      link: select.share.link
     }),
-
-    computed: {
-      link () {
-        let time
-
-        if (this.content === 'show') {
-          return this.showLink
-        }
-
-        if (this.content === 'episode') {
-          return this.episodeLink
-        }
-
-        if (this.content === 'chapter') {
-          time = `${toHumanTime(this.chapter.start)},${toHumanTime(this.chapter.end)}`
-        }
-
-        if (this.content === 'time') {
-          time = toHumanTime(this.playtime)
-        }
-
-        return addQueryParameter(this.episodeLink, { t: time })
-      }
-    },
 
     methods: {
       copyLink() {
