@@ -8,7 +8,7 @@
     :backgroundActive="header.backgroundActive"
     :active="active"
   )
-    icon-component(:type="icon" slot="icon")
+    slot(name="icon" slot="icon")
     span(slot="title") {{ title }}
 </template>
 
@@ -21,9 +21,6 @@ import select from 'store/selectors'
 export default {
   props: {
     tab: {
-      type: String
-    },
-    icon: {
       type: String
     },
     title: {

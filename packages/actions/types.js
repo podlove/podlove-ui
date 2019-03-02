@@ -79,6 +79,7 @@ export const SET_QUANTILE = 'SET_QUANTILE'
 // Runtime
 export const SET_RUNTIME = 'SET_RUNTIME'
 export const SET_LANGUAGE = 'SET_LANGUAGE'
+export const SET_VERSION = 'SET_VERSION'
 
 // Share
 export const SELECT_CONTENT = 'SELECT_CONTENT'

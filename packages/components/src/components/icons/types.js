@@ -27,6 +27,11 @@ import ContentChapterIcon from './states/ContentChapter'
 import ContentEpisodeIcon from './states/ContentEpisode'
 import ShareIcon from './states/Share'
 import CopyIcon from './states/Copy'
+import Speaker0Icon from './states/Speaker0'
+import Speaker25Icon from './states/Speaker25'
+import Speaker50Icon from './states/Speaker50'
+import Speaker75Icon from './states/Speaker75'
+import PodlovePlayerIcon from './states/PodlovePlayer'
 
 export const types = [
   'play',
@@ -58,7 +63,12 @@ export const types = [
   'content-chapter',
   'content-episode',
   'share',
-  'copy'
+  'copy',
+  'speaker-0',
+  'speaker-25',
+  'speaker-50',
+  'speaker-75',
+  'podlove-player'
 ]
 
 export const components = {
@@ -90,5 +100,10 @@ export const components = {
   ContentChapterIcon,
   ContentEpisodeIcon,
   ShareIcon,
-  CopyIcon
+  CopyIcon,
+  Speaker0Icon,
+  Speaker25Icon,
+  Speaker50Icon,
+  Speaker75Icon,
+  PodlovePlayerIcon
 }

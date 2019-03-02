@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects'
 import { setRuntime } from '@podlove/actions/runtime'
-import { head } from 'lodash'
+import { head } from 'ramda'
 import browser from 'detect-browser'
 import { isMobile } from '@podlove/utils/detect'
 

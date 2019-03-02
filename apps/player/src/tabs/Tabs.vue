@@ -1,10 +1,16 @@
 <template lang="pug">
   div.tabs
     tab-header(:backgroundActive="header.backgroundActive")
-      header-item(tab="info" icon="info" :title="$t('INFO.TITLE')")
-      header-item(tab="chapters" icon="chapter" :title="$t('CHAPTERS.TITLE')")
-      header-item(tab="share" icon="share" :title="$t('SHARE.TITLE')")
-      header-item(tab="files" icon="download" :title="$t('FILES.TITLE')")
+      header-item(tab="info" :title="$t('INFO.TITLE')")
+        icon(type="info" slot="icon")
+      header-item(tab="chapters" :title="$t('CHAPTERS.TITLE')")
+        icon(type="chapter" slot="icon")
+      header-item(tab="share" :title="$t('SHARE.TITLE')")
+        icon(type="share" slot="icon")
+      header-item(tab="files" :title="$t('FILES.TITLE')")
+        icon(type="download" slot="icon")
+      header-item(tab="audio" :title="$t('AUDIO.TITLE')")
+        icon(:type="audioIcon" slot="icon")
     tab-body(tab="info")
       info-tab
     tab-body(tab="chapters")
@@ -13,6 +19,8 @@
       share-tab
     tab-body(tab="files")
       files-tab
+    tab-body(tab="audio")
+      audio-tab
 </template>
 
 <script>
@@ -26,26 +34,27 @@ import TabBody from './components/TabBody'
 import select from 'store/selectors'
 import store from 'store'
 
-import ShareTab from '../share'
+import AudioTab from '../audio'
 
 const tabs = {
   InfoTab: () => import(/* webpackMode: "eager" */'../info'),
   ChaptersTab: () => import(/* webpackMode: "eager" */'../chapters'),
   FilesTab: () => import(/* webpackMode: "eager" */'../files'),
-  // ShareTab: () => import(/* webpackMode: "eager" */'../share')
+  ShareTab: () => import(/* webpackMode: "eager" */'../share')
 }
 
 export default {
   data: mapState({
     header: select.styles.tabsHead,
-    tabs: select.tabs
+    tabs: select.tabs,
+    audioIcon: select.audio.icon
   }),
   components: {
     TabHeader: Tab.Header,
     TabBody,
     HeaderItem,
+    AudioTab,
     Icon,
-    ShareTab,
     ...tabs
   },
   methods: mapActions({

@@ -15,6 +15,7 @@ import ContentOption from './content-option'
 import InputText from './input-text'
 import InputGroup from './input-group'
 import InputSelect from './input-select'
+import InputSlider from './input-slider'
 
 export {
   Icon,
@@ -33,5 +34,6 @@ export {
   Channel,
   InputText,
   InputGroup,
-  InputSelect
+  InputSelect,
+  InputSlider
 }

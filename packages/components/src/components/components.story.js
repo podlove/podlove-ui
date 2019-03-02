@@ -31,6 +31,7 @@ import buttonStory from './button/story'
 import inputTextStory from './input-text/story'
 import inputSelectStory from './input-select/story'
 import inputGroupStory from './input-group/story'
+import inputSliderStory from './input-slider/story'
 
 // Tooltip
 import tooltipStory from './tooltip/story'
@@ -77,6 +78,7 @@ input.add('button-component', buttonStory)
 input.add('input-text', inputTextStory)
 input.add('input-select', inputSelectStory)
 input.add('input-group', inputGroupStory)
+input.add('input-slider', inputSliderStory)
 
 const tooltip = storiesOf('Tooltip', module)
 tooltip.add('tooltip', tooltipStory)

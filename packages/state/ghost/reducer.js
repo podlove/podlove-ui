@@ -14,7 +14,6 @@ export const reducer = handleActions({
   }),
 
   [ENABLE_GHOST_MODE]: (state) => {
-    console.log(state)
     return {
       ...state,
       active: true

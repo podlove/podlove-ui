@@ -15,6 +15,9 @@ export default component => Vue.component('button-color', {
         backgroundColor: this.buttonStyle.background,
         borderColor: this.buttonStyle.border,
         ...this.$attrs
+      },
+      on: {
+        click: this.proxyEvent('click'),
       }
     }, this.$slots.default)
   },
@@ -23,5 +26,11 @@ export default component => Vue.component('button-color', {
     return this.mapState({
       buttonStyle: this.variant === 'light' ? select.styles.buttonLight : select.styles.button
     })
-  }
+  },
+
+  methods: {
+    proxyEvent(event) {
+      return (val) => this.$emit(event, val)
+    }
+  },
 })

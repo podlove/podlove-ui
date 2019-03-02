@@ -10,5 +10,6 @@ export default {
   platform: compose(runtime.platform, root.runtime),
   display: compose(runtime.display, root.runtime),
   locale: compose(runtime.locale, root.runtime),
+  version: compose(runtime.version, root.runtime),
   target: compose(target, root.runtime)
 }

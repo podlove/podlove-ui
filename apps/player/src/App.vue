@@ -44,6 +44,7 @@
   @import '~styles/text';
   @import '~styles/marquee';
   @import '~styles/utils';
+  @import '~styles/inputs';
 
   @import '~styles/resets/button';
   @import '~styles/resets/input';

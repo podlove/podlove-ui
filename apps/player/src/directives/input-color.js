@@ -13,7 +13,9 @@ export default component => Vue.component('input-color', {
       },
       on: {
         click: this.proxyEvent('click'),
+        input: this.proxyEvent('input'),
         change: this.proxyEvent('change'),
+        dblclick: this.proxyEvent('dblclick')
       }
     }, this.$slots.default)
   },

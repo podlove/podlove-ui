@@ -17,5 +17,6 @@ export default {
   contributors: prop('contributors'),
   files: prop('files'),
   share: prop('share'),
-  reference: prop('reference')
+  reference: prop('reference'),
+  audio: prop('audio')
 }

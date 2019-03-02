@@ -16,7 +16,9 @@ export const INITIAL_STATE = {
   playButton: 'duration',
   progressBar: false,
   chapterButtons: false,
-  stepperButtons: false
+  stepperButtons: false,
+  volumeControl: true,
+  rateControl: true
 }
 
 export const reducer = handleActions({

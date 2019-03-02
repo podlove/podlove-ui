@@ -17,10 +17,12 @@ import tabs from './tabs'
 import contributors from './contributors'
 import files from './files'
 import share from './share'
+import audio from './audio'
 
 export default {
   ...runtime,
   ...timepiece,
+  audio,
   chapters,
   header,
   episode,
