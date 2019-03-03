@@ -18,6 +18,7 @@ import contributors from './contributors'
 import files from './files'
 import share from './share'
 import audio from './audio'
+import transcripts from './transcripts'
 
 export default {
   ...runtime,
@@ -37,5 +38,6 @@ export default {
   tabs,
   contributors,
   files,
-  share
+  share,
+  transcripts
 }

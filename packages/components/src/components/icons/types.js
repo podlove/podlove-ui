@@ -32,6 +32,10 @@ import Speaker25Icon from './states/Speaker25'
 import Speaker50Icon from './states/Speaker50'
 import Speaker75Icon from './states/Speaker75'
 import PodlovePlayerIcon from './states/PodlovePlayer'
+import TranscriptsIcon from './states/Transcripts'
+import SearchClearIcon from './states/SearchClear'
+import SearchNextIcon from './states/SearchNext'
+import SearchPreviousIcon from './states/SearchPrevious'
 
 export const types = [
   'play',
@@ -68,7 +72,11 @@ export const types = [
   'speaker-25',
   'speaker-50',
   'speaker-75',
-  'podlove-player'
+  'podlove-player',
+  'transcripts',
+  'search-clear',
+  'search-previous',
+  'search-next'
 ]
 
 export const components = {
@@ -105,5 +113,9 @@ export const components = {
   Speaker25Icon,
   Speaker50Icon,
   Speaker75Icon,
-  PodlovePlayerIcon
+  PodlovePlayerIcon,
+  TranscriptsIcon,
+  SearchClearIcon,
+  SearchNextIcon,
+  SearchPreviousIcon
 }

@@ -18,5 +18,6 @@ export default {
   files: prop('files'),
   share: prop('share'),
   reference: prop('reference'),
-  audio: prop('audio')
+  audio: prop('audio'),
+  transcripts: prop('transcripts')
 }

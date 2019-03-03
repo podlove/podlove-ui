@@ -18,6 +18,7 @@ import { reducer as content } from '@podlove/state/content'
 import { reducer as embed } from '@podlove/state/embed'
 import { reducer as reference } from '@podlove/state/reference'
 import { reducer as audio } from '@podlove/state/audio'
+import { reducer as transcripts } from '@podlove/state/transcripts'
 
 export default combineReducers({
   runtime,
@@ -36,6 +37,7 @@ export default combineReducers({
   files,
   reference,
   audio,
+  transcripts,
   share: combineReducers({
     content,
     embed

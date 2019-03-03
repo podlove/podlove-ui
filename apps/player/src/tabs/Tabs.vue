@@ -5,6 +5,8 @@
         icon(type="info" slot="icon")
       header-item(tab="chapters" :title="$t('CHAPTERS.TITLE')")
         icon(type="chapter" slot="icon")
+      header-item(tab="transcripts" :title="$t('TRANSCRIPTS.TITLE')")
+        icon(type="transcripts" slot="icon")
       header-item(tab="share" :title="$t('SHARE.TITLE')")
         icon(type="share" slot="icon")
       header-item(tab="files" :title="$t('FILES.TITLE')")
@@ -21,9 +23,12 @@
       files-tab
     tab-body(tab="audio")
       audio-tab
+    tab-body(tab="transcripts")
+      transcripts-tab
 </template>
 
 <script>
+import { compose } from 'ramda'
 import { mapState, mapActions } from 'redux-vuex'
 import { Tab, Icon } from '@podlove/components'
 import { toggleTab } from '@podlove/actions/tabs'
@@ -34,13 +39,14 @@ import TabBody from './components/TabBody'
 import select from 'store/selectors'
 import store from 'store'
 
-import AudioTab from '../audio'
+import TranscriptsTab from '../transcripts'
 
 const tabs = {
   InfoTab: () => import(/* webpackMode: "eager" */'../info'),
   ChaptersTab: () => import(/* webpackMode: "eager" */'../chapters'),
   FilesTab: () => import(/* webpackMode: "eager" */'../files'),
-  ShareTab: () => import(/* webpackMode: "eager" */'../share')
+  ShareTab: () => import(/* webpackMode: "eager" */'../share'),
+  AudioTab: () => import(/* webpackMode: "eager" */'../audio')
 }
 
 export default {
@@ -53,15 +59,13 @@ export default {
     TabHeader: Tab.Header,
     TabBody,
     HeaderItem,
-    AudioTab,
+    TranscriptsTab,
     Icon,
     ...tabs
   },
-  methods: mapActions({
-    toggleTab({ dispatch }, tab) {
-      dispatch(toggleTab(tab))
-    }
-  })
+  methods: {
+    toggleTab: compose(store.dispatch, toggleTab)
+  }
 }
 </script>
 
