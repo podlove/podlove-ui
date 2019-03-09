@@ -2,22 +2,22 @@
   div.transcripts(:class="{ 'has-search-results': hasSearchResults }")
     div.transcripts-header
       search
-      //- follow.transcripts-follow-button
+      follow.transcripts-follow-button
     //- Render
-    //- render-container.transcripts-container(:prerender="prerender" v-if="prerender && prerender.length > 0")
+    render-container.transcripts-container(:prerender="prerender" v-if="prerender && prerender.length > 0")
     //- Prerender
-    //- prerender-container.transcripts-container(:transcripts="transcripts.timeline" @load="loadPrerender" v-else)
+    prerender-container.transcripts-container(:transcripts="timeline" @load="loadPrerender" v-else)
 </template>
 
 <script>
-// import PrerenderContainer from './Prerender'
 // import RenderContainer from './Render'
-// import Search from './Search'
-// import Follow from './Follow'
 
 import select from 'store/selectors'
 
 import Search from './components/Search'
+import Follow from './components/Follow'
+import RenderContainer from './components/Render'
+import PrerenderContainer from './components/Prerender'
 
 export default {
   data () {
@@ -27,6 +27,7 @@ export default {
         activeFollow: select.transcripts.follow,
         selectedSearch: select.transcripts.searchSelected,
         searchQuery: select.transcripts.searchQuery,
+        timeline: select.transcripts.timeline,
       }),
       prerender: null
     }
@@ -52,7 +53,10 @@ export default {
     window.removeEventListener('resize', this.render.bind(this))
   },
   components: {
-    Search
+    Search,
+    Follow,
+    RenderContainer,
+    PrerenderContainer
   }
 }
 </script>

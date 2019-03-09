@@ -13,7 +13,8 @@ export default {
   props: {
     tab: {
       type: String
-    }
+    },
+
   },
   data: mapState({
     body: select.styles.tabsBody,
@@ -29,7 +30,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

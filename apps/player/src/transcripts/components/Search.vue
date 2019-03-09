@@ -6,13 +6,13 @@
           icon(type="search-clear" :color="buttonStyle.background")
       div.search-navigation(v-if="searchQuery.length > 2")
         div.search-stepper
-          button.stepper(@click="previousSearchResult()" v-if="searchResults.length > 0")
+          button.stepper(@click="previousSearchResult()" v-if="searchResults.length > 0" :style="searchContainerStyle")
             icon(type="search-previous" :color="buttonStyle.background")
 
-          button.stepper(@click="nextSearchResult()" v-if="searchResults.length > 0")
+          button.stepper(@click="nextSearchResult()" v-if="searchResults.length > 0" :style="searchContainerStyle")
             icon(type="search-next" :color="buttonStyle.background")
 
-        div.search-results.counter(v-if="searchResults.length > 0") {{ `${transcripts.search.selected + 1} / ${searchResults.length}` }}
+        div.search-results.counter(v-if="searchResults.length > 0") {{ `${searchSelected + 1} / ${searchResults.length}` }}
         div.search-results.truncate(v-else) {{ $t('TRANSCRIPTS.NO_SEARCH_RESULTS') }}
 </template>
 
@@ -31,7 +31,8 @@ export default {
     buttonStyle: select.styles.button,
     inputStyle: select.styles.inputStyle,
     searchResults: select.transcripts.searchResults,
-    searchQuery: select.transcripts.searchQuery
+    searchQuery: select.transcripts.searchQuery,
+    searchSelected: select.transcripts.searchSelected
   }),
   methods: {
     search (event) {

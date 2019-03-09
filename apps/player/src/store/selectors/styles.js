@@ -116,6 +116,23 @@ const inputStyle = state => ({
   border: theme.isNegative(state) ? color(theme.mainColor(state)).lighten(0.1).string() : theme.greyColor(state)
 })
 
+const transcriptsChapter = state => ({
+  background: color(theme.mainColor(state)).fade(0.8).string(),
+  color: theme.greyColor(state)
+})
+
+const transcriptsActive = state => ({
+  background: color(theme.mainColor(state)).fade(0.6).string(),
+  color: theme.greyColor(state),
+  border: `1px solid ${color(theme.mainColor(state)).fade(0.6).string()}`
+})
+
+const transcriptsGhost = state => ({
+  background: color(theme.greyColor(state)).fade(0.8).string(),
+  color: theme.greyColor(state),
+  border: `1px solid ${color(theme.greyColor(state)).fade(0.8).string()}`
+})
+
 export default {
   negative: compose(theme.isNegative, root.theme),
   wrapper: compose(wrapper, root.theme),
@@ -144,7 +161,10 @@ export default {
   shareSectionStyle: compose(shareSectionStyle, root.theme),
   shareActiveContentStyle: compose(shareActiveContentStyle, root.theme),
   shareContentStyle: compose(shareContentStyle, root.theme),
-  inputStyle: compose(inputStyle, root.theme)
+  inputStyle: compose(inputStyle, root.theme),
+  transcriptsChapter: compose(transcriptsChapter, root.theme),
+  transcriptsActive: compose(transcriptsActive, root.theme),
+  transcriptsGhost: compose(transcriptsGhost, root.theme)
 }
 
 // return {
