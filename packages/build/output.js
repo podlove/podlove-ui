@@ -1,9 +1,8 @@
 const { resolve } = require('path')
 const { prepend } = require('./utils')
 
-module.exports = ({ path = 'dist/', publicPath, prefix = '' } = {}) => ({
+module.exports = ({ path = 'dist/', prefix = '' } = {}) => ({
   path: resolve(path),
   filename: '[name].js',
-  chunkFilename: prepend('[name].js', prefix),
-  publicPath
+  chunkFilename: prepend('[name].js', prefix)
 })

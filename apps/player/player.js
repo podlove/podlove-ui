@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { head } from 'lodash'
 
-import App from './src/App'
+import App from './src'
 import store from './src/store'
 import './src/directives'
 

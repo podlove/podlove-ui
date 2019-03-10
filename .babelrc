@@ -13,17 +13,5 @@
   "plugins": [
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import"
-  ],
-  "env": {
-    "AVA": {
-      "plugins": [
-        [
-          "babel-plugin-webpack-alias",
-          {
-            "config": "build/webpack.config.prod.js"
-          }
-        ]
-      ]
-    }
-  }
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "name": "@podlove/web-player",
+  "version": "4.2.3",
+  "description": "",
+  "main": "dist/player.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
+    "postinstall": "npm run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@podlove/player": "4.2.3"
+  },
+  "devDependencies": {
+  }
+}

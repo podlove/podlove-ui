@@ -1,6 +1,7 @@
 
 const autoprefixer = require('autoprefixer')
 const cssClean = require('postcss-clean')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const { prepend } = require('./utils')
 
@@ -23,11 +24,14 @@ const images = prefix => ({
   }
 })
 
-const styles = ({ includePaths = [] } = {}) => ({
+const styles = ({ includePaths = [], prod = false } = {}) => ({
   test: /\.scss$/,
   use: [
     {
-      loader: 'vue-style-loader'
+      loader: prod ? MiniCssExtractPlugin.loader : 'vue-style-loader'
+    },
+    {
+      loader: 'css-loader'
     },
     {
       loader: 'postcss-loader',

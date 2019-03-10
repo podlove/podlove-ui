@@ -39,14 +39,43 @@ import TabBody from './components/TabBody'
 import select from 'store/selectors'
 import store from 'store'
 
-import TranscriptsTab from '../transcripts'
-
 const tabs = {
-  InfoTab: () => import(/* webpackMode: "eager" */'../info'),
-  ChaptersTab: () => import(/* webpackMode: "eager" */'../chapters'),
-  FilesTab: () => import(/* webpackMode: "eager" */'../files'),
-  ShareTab: () => import(/* webpackMode: "eager" */'../share'),
-  AudioTab: () => import(/* webpackMode: "eager" */'../audio')
+  InfoTab: () => import(
+    /* webpackChunkName: "info-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../info'
+  ),
+  ChaptersTab: () => import(
+    /* webpackChunkName: "chapters-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../chapters'
+  ),
+  FilesTab: () => import(
+    /* webpackChunkName: "files-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../files'
+  ),
+  ShareTab: () => import(
+    /* webpackChunkName: "share-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../share'
+  ),
+  AudioTab: () => import(
+    /* webpackChunkName: "audio-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../audio'
+  ),
+  TranscriptsTab: () => import(
+    /* webpackChunkName: "transcripts-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../transcripts'
+  )
 }
 
 export default {
@@ -59,7 +88,6 @@ export default {
     TabHeader: Tab.Header,
     TabBody,
     HeaderItem,
-    TranscriptsTab,
     Icon,
     ...tabs
   },

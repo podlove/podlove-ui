@@ -12,8 +12,8 @@ const { prepend } = require('./utils')
 
 const vue = () => new VueLoaderPlugin()
 
-const css = (prefix = '') => new MiniCssExtractPlugin({
-  filename: prepend('[name].css', prefix)
+const css = ({ filename = '[name].css', prefix = '' } = {}) => new MiniCssExtractPlugin({
+  filename: prepend(filename, prefix)
 })
 
 const minifyCss = () => new OptimizeCSSAssetsPlugin({})

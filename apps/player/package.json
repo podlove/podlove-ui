@@ -2,11 +2,13 @@
   "name": "@podlove/player",
   "version": "4.2.3",
   "description": "",
-  "main": "index.js",
+  "main": "dist/player.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
-    "build": "webpack --config build/webpack.config.prod.js"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
+    "postinstall": "npm run"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +32,7 @@
   },
   "devDependencies": {
     "@podlove/build": "4.2.3",
-    "webpack-dev-server": "3.1.10"
+    "webpack-dev-server": "3.1.10",
+    "webpack": "4.26.0"
   }
 }

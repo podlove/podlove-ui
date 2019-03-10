@@ -9,11 +9,11 @@
     "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "postinstall": "npm run build"
+    "prepublishOnly": "npm run build && cp -r ./dist/* ."
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "lodash": "4.17.11",
     "normalize.css": "8.0.1",
