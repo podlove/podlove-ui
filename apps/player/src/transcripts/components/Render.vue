@@ -24,10 +24,10 @@
 <script>
   import { reduce, head } from 'lodash'
   import { compose } from 'ramda'
-  import { simulatePlaytime, requestPlaytime } from '@podlove/actions/timepiece'
-  import { requestPlay } from '@podlove/actions/play'
-  import { enableGhost, disableGhost } from '@podlove/actions/progress'
-  import { followTranscripts } from '@podlove/actions/transcripts'
+  import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
+  import { requestPlay } from '@podlove/player-actions/play'
+  import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
+  import { followTranscripts } from '@podlove/player-actions/transcripts'
   import select from 'store/selectors'
   import store from 'store'
 

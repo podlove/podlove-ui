@@ -1,4 +1,4 @@
-import { selectors as timepiece } from '@podlove/state/timepiece'
+import { selectors as timepiece } from '@podlove/player-state/timepiece'
 import { compose } from 'lodash/fp'
 
 import root from './root'

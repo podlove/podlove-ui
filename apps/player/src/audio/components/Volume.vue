@@ -26,7 +26,7 @@
 import { compose } from 'ramda'
 import { mapState, mapActions } from 'redux-vuex'
 import { toPercent } from '@podlove/utils/math'
-import { setVolume, mute, unmute } from '@podlove/actions/audio'
+import { setVolume, mute, unmute } from '@podlove/player-actions/audio'
 import { Icon, InputSlider, Button } from '@podlove/components'
 
 import buttonColor from 'directives/button-color'

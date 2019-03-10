@@ -39,8 +39,8 @@
   import { interpolate, relativePosition } from '@podlove/utils/math'
   import { isNegative, light, dark } from '@podlove/utils/color'
   import { isMobile } from '@podlove/utils/detect'
-  import { requestPlaytime, simulatePlaytime } from '@podlove/actions/timepiece'
-  import { enableGhost, disableGhost } from '@podlove/actions/progress'
+  import { requestPlaytime, simulatePlaytime } from '@podlove/player-actions/timepiece'
+  import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
 
   import { color as defaultColor, background as defaultBackground, highlight as defaultHighlight } from 'defaults'
 

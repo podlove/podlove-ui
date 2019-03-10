@@ -1,5 +1,5 @@
 import { compose } from 'ramda'
-import { selectors as quantiles } from '@podlove/state/quantiles'
+import { selectors as quantiles } from '@podlove/player-state/quantiles'
 
 import root from './root'
 

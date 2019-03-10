@@ -1,6 +1,6 @@
 import { compose } from 'ramda'
 import root from './root'
-import { selectors as episode } from '@podlove/state/episode'
+import { selectors as episode } from '@podlove/player-state/episode'
 
 export default {
   title: compose(episode.title, root.episode),

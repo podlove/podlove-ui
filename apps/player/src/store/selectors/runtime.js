@@ -1,4 +1,4 @@
-import { selectors as runtime } from '@podlove/state/runtime'
+import { selectors as runtime } from '@podlove/player-state/runtime'
 import { compose } from 'ramda'
 
 import root from './root'

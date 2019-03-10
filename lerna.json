@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/*",
+    "packages/**",
     "apps/**"
   ],
   "version": "4.1.3",

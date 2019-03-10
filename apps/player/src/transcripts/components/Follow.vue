@@ -20,7 +20,7 @@
 
 <script>
   import { mapState } from 'redux-vuex'
-  import { followTranscripts } from '@podlove/actions/transcripts'
+  import { followTranscripts } from '@podlove/player-actions/transcripts'
   import store from 'store'
 
   import select from 'store/selectors'

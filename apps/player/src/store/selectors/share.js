@@ -1,5 +1,5 @@
-import { selectors as content } from '@podlove/state/content'
-import { selectors as embed } from '@podlove/state/embed'
+import { selectors as content } from '@podlove/player-state/content'
+import { selectors as embed } from '@podlove/player-state/embed'
 import { toHumanTime } from '@podlove/utils/time'
 import { addQueryParameter } from '@podlove/utils/url'
 import { compose, prop } from 'ramda'

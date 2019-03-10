@@ -13,7 +13,7 @@
 <script>
   import { mapState, mapActions } from 'redux-vuex'
   import { Button, InputText, InputSelect, InputGroup, Tooltip } from '@podlove/components'
-  import { selectEmbedSize } from '@podlove/actions/embed'
+  import { selectEmbedSize } from '@podlove/player-actions/embed'
   import copy from 'copy-to-clipboard'
 
   import store from 'store'

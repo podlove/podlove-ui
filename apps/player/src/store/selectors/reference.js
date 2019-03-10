@@ -1,5 +1,5 @@
 import { compose } from 'ramda'
-import { selectors as reference } from '@podlove/state/reference'
+import { selectors as reference } from '@podlove/player-state/reference'
 
 import root from './root'
 

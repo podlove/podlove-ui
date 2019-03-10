@@ -1,5 +1,5 @@
 import { compose } from 'ramda'
-import { selectors as audio } from '@podlove/state/audio'
+import { selectors as audio } from '@podlove/player-state/audio'
 
 import root from './root'
 

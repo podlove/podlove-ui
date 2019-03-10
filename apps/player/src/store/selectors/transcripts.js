@@ -1,5 +1,5 @@
 import { compose } from 'ramda'
-import { selectors as transcripts } from '@podlove/state/transcripts'
+import { selectors as transcripts } from '@podlove/player-state/transcripts'
 
 import root from './root'
 

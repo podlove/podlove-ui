@@ -2,7 +2,7 @@ import { compose } from 'ramda'
 
 import root from './root'
 import { createObject } from '@podlove/utils/helper'
-import { selectors as tabs } from '@podlove/state/tabs'
+import { selectors as tabs } from '@podlove/player-state/tabs'
 
 export default createObject({
   chapters: compose(tabs.chapters, root.tabs),

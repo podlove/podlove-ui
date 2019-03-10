@@ -1,4 +1,4 @@
-import { selectors as show } from '@podlove/state/show'
+import { selectors as show } from '@podlove/player-state/show'
 import { compose } from 'ramda'
 
 import root from './root'

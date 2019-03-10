@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import { disableGhost, enableGhost } from '@podlove/actions/progress'
-import { setChapter } from '@podlove/actions/chapters'
-import { simulatePlaytime, requestPlaytime } from '@podlove/actions/timepiece'
-import { requestPlay } from '@podlove/actions/play'
+import { disableGhost, enableGhost } from '@podlove/player-actions/progress'
+import { setChapter } from '@podlove/player-actions/chapters'
+import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
+import { requestPlay } from '@podlove/player-actions/play'
 
 import { background } from 'defaults'
 import color from 'color'

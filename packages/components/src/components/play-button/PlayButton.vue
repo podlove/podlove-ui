@@ -19,7 +19,7 @@ import Pause from './states/Pause'
 import Loading from './states/Loading'
 import Restart from './states/Restart'
 
-import { requestPlay, requestPause, requestRestart } from '@podlove/actions/play'
+import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
 
 export default {
   props: {

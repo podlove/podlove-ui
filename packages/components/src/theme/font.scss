@@ -4,42 +4,6 @@
   text-overflow: ellipsis;
 }
 
-@font-face {
-  font-family: Fira Sans;
-  src: url('~/theme/fonts/FiraSans-Light.eot') format('eot'),
-       url('~/theme/fonts/FiraSans-Light.woff') format('woff'),
-       url('~/theme/fonts/FiraSans-Light.woff2') format('woff2');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Fira Sans;
-  src: url('~/theme/fonts/FiraSans-Regular.eot') format('eot'),
-       url('~/theme/fonts/FiraSans-Regular.woff') format('woff'),
-       url('~/theme/fonts/FiraSans-Regular.woff2') format('woff2');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Fira Sans;
-  src: url('~/theme/fonts/FiraSans-Bold.eot') format('eot'),
-       url('~/theme/fonts/FiraSans-Bold.woff') format('woff'),
-       url('~/theme/fonts/FiraSans-Bold.woff2') format('woff2');
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Fira Mono;
-  src: url('~/theme/fonts/FiraMono-Regular.eot') format('eot'),
-       url('~/theme/fonts/FiraMono-Regular.woff') format('woff'),
-       url('~/theme/fonts/FiraMono-Regular.woff2') format('woff2');
-  font-weight: 500;
-}
-
 %font {
-  font-family: 'Fira Sans', sans-serif;
-}
-
-%font-monospace {
-  font-family: 'Fira Mono', monospace;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }

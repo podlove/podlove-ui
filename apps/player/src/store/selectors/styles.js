@@ -1,6 +1,6 @@
 import { compose } from 'lodash/fp'
 import color from 'color'
-import { selectors as theme } from '@podlove/state/theme'
+import { selectors as theme } from '@podlove/player-state/theme'
 import root from './root'
 
 const fallbackColor = (first, second) => first || second

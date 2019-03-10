@@ -8,7 +8,7 @@
 <script>
 import { color } from 'defaults'
 import Icon from 'components/icons'
-import { stepForward, stepBackwards } from '@podlove/actions/stepper'
+import { stepForward, stepBackwards } from '@podlove/player-actions/stepper'
 
 export default {
   props: {

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { selectContent } from '@podlove/actions/share'
+import { selectContent } from '@podlove/player-actions/share'
 
 import { color, background } from 'defaults'
 

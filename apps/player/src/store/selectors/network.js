@@ -1,5 +1,5 @@
 import { compose } from 'ramda'
-import { selectors as network } from '@podlove/state/network'
+import { selectors as network } from '@podlove/player-state/network'
 
 import root from './root'
 

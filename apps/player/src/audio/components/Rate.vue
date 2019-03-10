@@ -19,7 +19,7 @@
 <script>
   import { compose } from 'ramda'
   import { toDecimal, roundUp, round } from '@podlove/utils/math'
-  import { setRate } from '@podlove/actions/audio'
+  import { setRate } from '@podlove/player-actions/audio'
   import { InputSlider } from '@podlove/components'
 
   import inputColor from 'directives/input-color'

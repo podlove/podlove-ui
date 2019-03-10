@@ -1,6 +1,6 @@
 import { compose } from 'ramda'
 import root from './root'
-import { selectors as components } from '@podlove/state/components'
+import { selectors as components } from '@podlove/player-state/components'
 
 export default {
   playButton: compose(components.playButton, root.components),

@@ -31,7 +31,7 @@
 import { compose } from 'ramda'
 import { mapState, mapActions } from 'redux-vuex'
 import { Tab, Icon } from '@podlove/components'
-import { toggleTab } from '@podlove/actions/tabs'
+import { toggleTab } from '@podlove/player-actions/tabs'
 
 import HeaderItem from './components/HeaderItem'
 import TabBody from './components/TabBody'

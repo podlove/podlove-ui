@@ -21,7 +21,7 @@ import { compose } from 'ramda'
 import { mapState } from 'redux-vuex'
 import { Icon } from '@podlove/components'
 
-import { searchTranscripts, followTranscripts, resetSearchTranscription, previousTranscriptsSearchResult, nextTranscriptsSearchResult } from '@podlove/actions/transcripts'
+import { searchTranscripts, followTranscripts, resetSearchTranscription, previousTranscriptsSearchResult, nextTranscriptsSearchResult } from '@podlove/player-actions/transcripts'
 
 import store from 'store'
 import select from 'store/selectors'

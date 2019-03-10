@@ -1,6 +1,6 @@
 import { compose } from 'ramda'
 import root from './root'
-import { selectors as chapters } from '@podlove/state/chapters'
+import { selectors as chapters } from '@podlove/player-state/chapters'
 
 export default {
   list: compose(chapters.list, root.chapters),

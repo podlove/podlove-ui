@@ -25,8 +25,8 @@
 
 <script>
   import { mapActions } from 'redux-vuex'
-  import { setChapter } from '@podlove/actions/chapters'
-  import { requestPlay } from '@podlove/actions/play'
+  import { setChapter } from '@podlove/player-actions/chapters'
+  import { requestPlay } from '@podlove/player-actions/play'
   import { toHumanTime } from '@podlove/utils/time'
 
   import select from 'store/selectors'

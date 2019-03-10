@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { selectChannel } from '@podlove/actions/share'
+import { selectChannel } from '@podlove/player-actions/share'
 
 import { background } from 'defaults'
 import EmbedChannel from './states/Embed'
