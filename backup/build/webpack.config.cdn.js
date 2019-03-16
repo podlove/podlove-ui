@@ -29,6 +29,6 @@ module.exports = {
     plugins.version(),
     plugins.base(`${BASE}${version}`),
     plugins.shareHtml(version),
-    plugins.env('production')
+    plugins.env({ mode: 'production' })
   ]
 }

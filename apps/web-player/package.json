@@ -2,20 +2,25 @@
   "name": "@podlove/web-player",
   "version": "4.2.3",
   "description": "",
-  "main": "dist/player.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist",
-    "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
-    "postinstall": "npm run"
+    "build": "npm run clean && webpack --config .build/webpack.config.prod.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@podlove/player": "4.2.3"
+    "@podlove/player": "4.2.3",
+    "@podlove/utils": "4.2.3",
+    "@podlove/player-actions": "4.2.3",
+    "ramda": "0.26.1",
+    "iframe-resizer": "4.0.4"
   },
   "devDependencies": {
+    "@podlove/build": "4.2.3",
+    "webpack-dev-server": "3.1.10",
+    "webpack": "4.26.0"
   }
 }

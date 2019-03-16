@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <div id="player"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        podlovePlayer('#player', '//localhost:9000/example.json', {})
+      }
+    })
+  </script>
+</body>
+
+</html>

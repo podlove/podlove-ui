@@ -8,6 +8,9 @@ import './src/directives'
 
 Vue.use(VueI18n)
 
+// Use public path from application
+__webpack_public_path__ = window.resourceBaseUrl || '/'
+
 window.PODLOVE_STORE = store
 
 const i18n = new VueI18n({

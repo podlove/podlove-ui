@@ -7,6 +7,7 @@ const WebpackAutoInject = require('webpack-auto-inject-version')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Jarvis = require('webpack-jarvis')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CopyPlugin = require('copy-webpack-plugin')
 
 const { prepend } = require('./utils')
 
@@ -44,10 +45,14 @@ const bundleAnalyzer = () => new BundleAnalyzerPlugin({
 
 const hmr = () => new webpack.HotModuleReplacementPlugin()
 
-const env = mode => new webpack.DefinePlugin({
-  mode: JSON.stringify(mode)
-})
+const env = (data = {}) => new webpack.DefinePlugin(
+  Object.keys(data).reduce((result, key) => Object.assign({}, result, {
+    [key]: JSON.stringify(data[key])
+  }), {})
+)
+
+const copy = (patterns = []) => new CopyPlugin(patterns)
 
 module.exports = {
-  vue, css, minifyCss, version, base, html, jarvis, bundleAnalyzer, hmr, env
+  vue, css, minifyCss, version, base, html, jarvis, bundleAnalyzer, hmr, env, copy
 }

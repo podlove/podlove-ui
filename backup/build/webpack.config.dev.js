@@ -31,6 +31,6 @@ module.exports = {
     plugins.hmr(),
     plugins.shareHtml(),
     ...plugins.devHtml('standalone.html'),
-    plugins.env('development')
+    plugins.env({ mode: 'development' })
   ]
 }

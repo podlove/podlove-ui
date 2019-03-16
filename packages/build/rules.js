@@ -24,12 +24,41 @@ const images = prefix => ({
   }
 })
 
-const styles = ({ includePaths = [], prod = false } = {}) => ({
+const mustache = () => ({
+  test: /\.html$/,
+  loader: 'mustache-loader?minify'
+})
+
+const vueStyles = ({ includePaths = [], prod = false } = {}) => ({
   test: /\.scss$/,
   use: [
     {
       loader: prod ? MiniCssExtractPlugin.loader : 'vue-style-loader'
     },
+    {
+      loader: 'css-loader'
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        plugins: () => [
+          cssClean({
+            inline: ['none']
+          }),
+          autoprefixer()
+        ]
+      }
+    },
+    {
+      loader: 'sass-loader',
+      options: { includePaths }
+    }
+  ]
+})
+
+const scss = ({ includePaths = [] } = {}) => ({
+  test: /\.scss$/,
+  use: [
     {
       loader: 'css-loader'
     },
@@ -65,5 +94,5 @@ const fonts = prefix => ({
 })
 
 module.exports = {
-  vue, javascript, images, styles, fonts, pug
+  vue, javascript, images, vueStyles, fonts, pug, scss, mustache
 }

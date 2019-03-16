@@ -1,0 +1,3683 @@
+[
+  {
+      "start": "00:01:07.701",
+      "start_ms": 67701,
+      "end": "00:01:15.800",
+      "end_ms": 75800,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "insbesondere das Thema Klimawandel kommt uns jetzt hier immer wieder neu vor die Flinte und so soll es auch sein."
+  },
+  {
+      "start": "00:01:20.001",
+      "start_ms": 80001,
+      "end": "00:01:28.100",
+      "end_ms": 88100,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "war auch die Ausgabe Nummer 23 vom Anfang 2016, mit Franz Josef Rademacher,"
+  },
+  {
+      "start": "00:01:52.501",
+      "start_ms": 112501,
+      "end": "00:01:54.400",
+      "end_ms": 114400,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Herzlich willkommen, Herr Radermacher."
+  },
+  {
+      "start": "00:02:29.401",
+      "start_ms": 149401,
+      "end": "00:02:30.200",
+      "end_ms": 150200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja, richtig."
+  },
+  {
+      "start": "00:02:30.201",
+      "start_ms": 150201,
+      "end": "00:02:35.300",
+      "end_ms": 155300,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "kann man sagen, Sie sind aber in verschiedenen anderen Organisationen berufen,"
+  },
+  {
+      "start": "00:02:45.901",
+      "start_ms": 165901,
+      "end": "00:02:47.600",
+      "end_ms": 167600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Was machen Sie dort?"
+  },
+  {
+      "start": "00:03:15.101",
+      "start_ms": 195101,
+      "end": "00:03:23.300",
+      "end_ms": 203300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Gut, ich bin froh, dass ich zumindest in einem gewissen Umfang weiter viel Kontakt mit Studenten habe."
+  },
+  {
+      "start": "00:03:23.301",
+      "start_ms": 203301,
+      "end": "00:03:30.300",
+      "end_ms": 210300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das hat mehrere Dimensionen, das eine ist die Vermittlung von Inhalten und das Heranwachsen von jungen Leuten,"
+  },
+  {
+      "start": "00:03:30.301",
+      "start_ms": 210301,
+      "end": "00:03:33.200",
+      "end_ms": 213200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die diese Inhalte in besonderer Weise verstehen,"
+  },
+  {
+      "start": "00:03:33.201",
+      "start_ms": 213201,
+      "end": "00:03:40.500",
+      "end_ms": 220500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber das andere ist auch die Wechselwirkung im Bereich von Magisterarbeiten, potentiell Promotionen usw."
+  },
+  {
+      "start": "00:04:06.601",
+      "start_ms": 246601,
+      "end": "00:04:12.500",
+      "end_ms": 252500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "mindestens in der Debatte, wenn nicht sogar auf der politischen Entscheidungsebene."
+  },
+  {
+      "start": "00:04:19.301",
+      "start_ms": 259301,
+      "end": "00:04:24.500",
+      "end_ms": 264500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "wie soll ich sagen, Depression ist vielleicht zu weit gegriffen,"
+  },
+  {
+      "start": "00:04:24.501",
+      "start_ms": 264501,
+      "end": "00:04:31.700",
+      "end_ms": 271700,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "aber doch zumindest eine gewisse Grundskepsis ob der allgemeinen Entwicklungen herauszulesen ist."
+  },
+  {
+      "start": "00:04:31.701",
+      "start_ms": 271701,
+      "end": "00:04:35.800",
+      "end_ms": 275800,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Bei Ihnen habe ich so den Eindruck, dass Sie eigentlich immer noch sehr vom Optimismus getragen sind."
+  },
+  {
+      "start": "00:04:35.801",
+      "start_ms": 275801,
+      "end": "00:04:39.700",
+      "end_ms": 279700,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ist das so geblieben?"
+  },
+  {
+      "start": "00:04:39.701",
+      "start_ms": 279701,
+      "end": "00:04:41.800",
+      "end_ms": 281800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Meine Haltung ist mehr die:"
+  },
+  {
+      "start": "00:04:41.801",
+      "start_ms": 281801,
+      "end": "00:04:45.400",
+      "end_ms": 285400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir sind in einer schwierigen Situation,"
+  },
+  {
+      "start": "00:04:52.001",
+      "start_ms": 292001,
+      "end": "00:05:01.400",
+      "end_ms": 301400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und wenn man es richtig macht, kann man auch Partner finden, sowohl in der Wirtschaft, wie in der Politik, wie in der Zivilgesellschaft."
+  },
+  {
+      "start": "00:05:26.601",
+      "start_ms": 326601,
+      "end": "00:05:29.500",
+      "end_ms": 329500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Wie haben Sie das wahrgenommen?"
+  },
+  {
+      "start": "00:05:43.101",
+      "start_ms": 343101,
+      "end": "00:05:48.800",
+      "end_ms": 348800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Klima hat sehr viel zu tun mit Energie, deshalb mit Fragen der Macht,"
+  },
+  {
+      "start": "00:05:48.801",
+      "start_ms": 348801,
+      "end": "00:05:54.600",
+      "end_ms": 354600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "hat sehr viel zu tun mit Geopolitik, sehr viel zu tun mit Reichtum,"
+  },
+  {
+      "start": "00:06:00.301",
+      "start_ms": 360301,
+      "end": "00:06:06.300",
+      "end_ms": 366300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also insofern sind viele Themen irgendwo mit dem Klimathema eng verbunden"
+  },
+  {
+      "start": "00:06:13.701",
+      "start_ms": 373701,
+      "end": "00:06:21.000",
+      "end_ms": 381000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "in Bezug auf die Einkommensverteilung infolge der Globalisierung, wie auch infolge der Digitalisierung,"
+  },
+  {
+      "start": "00:06:35.401",
+      "start_ms": 395401,
+      "end": "00:06:41.300",
+      "end_ms": 401300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass die Globalisierung und die Digitalisierung Verlierer erzeugt."
+  },
+  {
+      "start": "00:06:54.701",
+      "start_ms": 414701,
+      "end": "00:06:59.200",
+      "end_ms": 419200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "also der Industriearbeiter in den USA sieht nicht ein,"
+  },
+  {
+      "start": "00:06:59.201",
+      "start_ms": 419201,
+      "end": "00:07:06.300",
+      "end_ms": 426300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "warum die Verbesserung der Lebenssituation des chinesischen Arbeiters zu seinen Lasten geht,"
+  },
+  {
+      "start": "00:07:11.801",
+      "start_ms": 431801,
+      "end": "00:07:18.000",
+      "end_ms": 438000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und da tun sich auch Elemente sozialer Spaltung auf, und die haben wir bei uns auch,"
+  },
+  {
+      "start": "00:07:18.001",
+      "start_ms": 438001,
+      "end": "00:07:24.600",
+      "end_ms": 444600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und da kommen dann die verschiedenen Themen zusammen, und wenn man etwas genauer hinein schaut,"
+  },
+  {
+      "start": "00:07:24.601",
+      "start_ms": 444601,
+      "end": "00:07:30.800",
+      "end_ms": 450800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wie bei uns zum Beispiel Aufnahme von Migranten praktisch umgesetzt wird,"
+  },
+  {
+      "start": "00:07:50.301",
+      "start_ms": 470301,
+      "end": "00:07:53.600",
+      "end_ms": 473600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die irgendwann das einfach nicht mehr mitmachen."
+  },
+  {
+      "start": "00:08:29.501",
+      "start_ms": 509501,
+      "end": "00:08:34.400",
+      "end_ms": 514400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "der mit seinem Auto nicht mehr fahren darf, obwohl er sein Auto unbedingt braucht,"
+  },
+  {
+      "start": "00:08:39.901",
+      "start_ms": 519901,
+      "end": "00:08:43.800",
+      "end_ms": 523800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und das macht die Situation so schwierig."
+  },
+  {
+      "start": "00:08:43.801",
+      "start_ms": 523801,
+      "end": "00:08:55.500",
+      "end_ms": 535500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Jetzt gab es ja das Abkommen von Paris, da wurde viel gejubelt, ein Durchbruch ist gefeiert worden,"
+  },
+  {
+      "start": "00:08:55.501",
+      "start_ms": 535501,
+      "end": "00:09:01.300",
+      "end_ms": 541300,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "ich denke, die Stimmung war allgemein dann doch erstmal sehr positiv,"
+  },
+  {
+      "start": "00:09:20.301",
+      "start_ms": 560301,
+      "end": "00:09:24.000",
+      "end_ms": 564000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich nehme jetzt mal die Position des Wissenschaftlers"
+  },
+  {
+      "start": "00:09:28.001",
+      "start_ms": 568001,
+      "end": "00:09:36.400",
+      "end_ms": 576400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Bis Kopenhagen wollten eigentlich alle, die wissenschaftlich-mathematisch an das Klimaproblem herangingen,"
+  },
+  {
+      "start": "00:09:36.401",
+      "start_ms": 576401,
+      "end": "00:09:49.200",
+      "end_ms": 589200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ein globales Cap-and-Trade-System etablieren, bei dem die Menschheit einen Pfad der CO2-Reduktion global festlegt,"
+  },
+  {
+      "start": "00:09:49.201",
+      "start_ms": 589201,
+      "end": "00:10:00.100",
+      "end_ms": 600100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "an den verbliebenen Emissionspotentialen Eigentumsrechte verteilt, zum Beispiel pro Kopf gleiche Rechte auf Emission,"
+  },
+  {
+      "start": "00:10:16.501",
+      "start_ms": 616501,
+      "end": "00:10:20.000",
+      "end_ms": 620000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "So ein bisschen, wie wir das mit unserem,"
+  },
+  {
+      "start": "00:10:41.201",
+      "start_ms": 641201,
+      "end": "00:10:44.400",
+      "end_ms": 644400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "In Kopenhagen ist das gescheitert."
+  },
+  {
+      "start": "00:10:53.701",
+      "start_ms": 653701,
+      "end": "00:10:56.100",
+      "end_ms": 656100,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Wohl gemerkt noch Obama."
+  },
+  {
+      "start": "00:10:56.101",
+      "start_ms": 656101,
+      "end": "00:11:02.100",
+      "end_ms": 662100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Noch Obama, und die haben, wenn man so will, den gordischen Knoten dann durchschlagen,"
+  },
+  {
+      "start": "00:11:02.101",
+      "start_ms": 662101,
+      "end": "00:11:10.500",
+      "end_ms": 670500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und haben gesagt, okay, wir machen es jetzt anders, jetzt sagt jeder, was er freiwillig zu tun bereit ist."
+  },
+  {
+      "start": "00:11:10.501",
+      "start_ms": 670501,
+      "end": "00:11:22.200",
+      "end_ms": 682200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir haben nur ein halbes Jahr nach Kopenhagen in einer wissenschaftlichen Publikation beschrieben, wo sich das jetzt hinbewegen wird"
+  },
+  {
+      "start": "00:11:22.201",
+      "start_ms": 682201,
+      "end": "00:11:26.700",
+      "end_ms": 686700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und das ist so in etwa das, was in Paris herausgekommen ist."
+  },
+  {
+      "start": "00:11:33.501",
+      "start_ms": 693501,
+      "end": "00:11:38.100",
+      "end_ms": 698100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "bei Weitem nicht ausreicht, um das Zwei-Grad-Ziel zu erreichen."
+  },
+  {
+      "start": "00:11:48.001",
+      "start_ms": 708001,
+      "end": "00:11:56.000",
+      "end_ms": 716000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und in Kopenhagen war es viel einfacher, weil da war sozusagen die Zusage des Einen immer bindend an die Zusage des Anderen,"
+  },
+  {
+      "start": "00:12:02.901",
+      "start_ms": 722901,
+      "end": "00:12:08.000",
+      "end_ms": 728000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil in Paris sagt jeder, was er zu tun bereit ist, und da er unterstellt,"
+  },
+  {
+      "start": "00:12:08.001",
+      "start_ms": 728001,
+      "end": "00:12:13.000",
+      "end_ms": 733000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass der andere sowieso auch nicht besonders viel tut, wird keiner besonders viel tun,"
+  },
+  {
+      "start": "00:12:21.401",
+      "start_ms": 741401,
+      "end": "00:12:25.500",
+      "end_ms": 745500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das war in einer rein mathematischen Betrachtung alles vorher klar."
+  },
+  {
+      "start": "00:12:33.401",
+      "start_ms": 753401,
+      "end": "00:12:35.300",
+      "end_ms": 755300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das war die Erkenntnis von Kopenhagen."
+  },
+  {
+      "start": "00:12:35.301",
+      "start_ms": 755301,
+      "end": "00:12:42.800",
+      "end_ms": 762800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Nach der Erkenntnis von Kopenhagen sind die freiwilligen Zusagen von Paris das Beste, was man kriegen kann,"
+  },
+  {
+      "start": "00:13:56.001",
+      "start_ms": 836001,
+      "end": "00:13:59.700",
+      "end_ms": 839700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also ist zu Paris Folgendes zu sagen:"
+  },
+  {
+      "start": "00:14:24.501",
+      "start_ms": 864501,
+      "end": "00:14:31.200",
+      "end_ms": 871200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und um das zu erreichen, was man das Zwei-Grad-Ziel nennt,"
+  },
+  {
+      "start": "00:14:54.201",
+      "start_ms": 894201,
+      "end": "00:14:57.400",
+      "end_ms": 897400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass man statt zwei Grad anderthalb will."
+  },
+  {
+      "start": "00:15:25.201",
+      "start_ms": 925201,
+      "end": "00:15:29.400",
+      "end_ms": 929400,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Das klingt jetzt nicht so optimistisch."
+  },
+  {
+      "start": "00:15:29.401",
+      "start_ms": 929401,
+      "end": "00:15:37.500",
+      "end_ms": 937500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Nein, das ist realistisch, und mir geht es in der ganzen Debatte ohnehin darum,"
+  },
+  {
+      "start": "00:15:45.501",
+      "start_ms": 945501,
+      "end": "00:15:51.200",
+      "end_ms": 951200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und mal so nebenbei so irgendwas unterstellen, und sagen, ja stellen wir uns mal vor,"
+  },
+  {
+      "start": "00:16:06.401",
+      "start_ms": 966401,
+      "end": "00:16:10.500",
+      "end_ms": 970500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich will das Problem mal an folgender Beobachtung klar machen:"
+  },
+  {
+      "start": "00:16:10.501",
+      "start_ms": 970501,
+      "end": "00:16:20.200",
+      "end_ms": 980200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Heute emittiert China mehr CO2 als die USA, Europa und Japan zusammen."
+  },
+  {
+      "start": "00:16:20.201",
+      "start_ms": 980201,
+      "end": "00:16:25.000",
+      "end_ms": 985000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Die meisten bei uns glauben immer noch, die USA seien das Problem -"
+  },
+  {
+      "start": "00:16:25.001",
+      "start_ms": 985001,
+      "end": "00:16:28.700",
+      "end_ms": 988700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Nein, das eigentliche Problem sind die Chinesen."
+  },
+  {
+      "start": "00:16:28.701",
+      "start_ms": 988701,
+      "end": "00:16:32.200",
+      "end_ms": 992200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir tauchen da alle kaum noch auf."
+  },
+  {
+      "start": "00:16:50.001",
+      "start_ms": 1010001,
+      "end": "00:16:53.000",
+      "end_ms": 1013000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Menschen aus der Armut herauszuholen."
+  },
+  {
+      "start": "00:17:02.001",
+      "start_ms": 1022001,
+      "end": "00:17:13.500",
+      "end_ms": 1033500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Die Gegenseite ist: China hat in unserem Jahr 2017 Hundert mal so viel Beton verbaut wie Deutschland."
+  },
+  {
+      "start": "00:17:13.501",
+      "start_ms": 1033501,
+      "end": "00:17:21.000",
+      "end_ms": 1041000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "China hat in 5 Jahren so viel Beton verbaut wie die USA im ganzen letzten Jahrhundert."
+  },
+  {
+      "start": "00:17:28.101",
+      "start_ms": 1048101,
+      "end": "00:17:34.000",
+      "end_ms": 1054000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber es gibt in Europa nur ein drittel so viel Menschen wie in China."
+  },
+  {
+      "start": "00:17:34.001",
+      "start_ms": 1054001,
+      "end": "00:17:41.200",
+      "end_ms": 1061200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Insofern ist jetzt China das Problem, aber letztlich ist auch China nicht das Problem."
+  },
+  {
+      "start": "00:17:50.401",
+      "start_ms": 1070401,
+      "end": "00:17:52.300",
+      "end_ms": 1072300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber das ist gar nicht das Hauptproblem."
+  },
+  {
+      "start": "00:17:52.301",
+      "start_ms": 1072301,
+      "end": "00:17:55.800",
+      "end_ms": 1075800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das Hauptproblem ist Indien und Afrika."
+  },
+  {
+      "start": "00:18:15.001",
+      "start_ms": 1095001,
+      "end": "00:18:22.700",
+      "end_ms": 1102700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wenn die Inder und die Afrikaner sich auch nur in Richtung 3-4 Tonnen pro Kopf bewegen,"
+  },
+  {
+      "start": "00:18:59.001",
+      "start_ms": 1139001,
+      "end": "00:19:05.100",
+      "end_ms": 1145100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wenn wir das 1,5-Grad-Ziel erreichen wollen."
+  },
+  {
+      "start": "00:19:32.001",
+      "start_ms": 1172001,
+      "end": "00:19:43.000",
+      "end_ms": 1183000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "oder die haben den Wohlstandszuwachs, dann muss irgendeiner finanzieren, dass dieser Wohlstandszuwachs klimaneutral passiert."
+  },
+  {
+      "start": "00:20:01.001",
+      "start_ms": 1201001,
+      "end": "00:20:09.100",
+      "end_ms": 1209100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "damit nicht der chinesische Weg zu Wohlstand repliziert wird, weil man kann ihn nicht replizieren,"
+  },
+  {
+      "start": "00:20:09.101",
+      "start_ms": 1209101,
+      "end": "00:20:16.500",
+      "end_ms": 1216500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wenn man das Zwei-Grad-Ziel einhalten will, von einem 1,5-Grad-Ziel gar nicht zu reden."
+  },
+  {
+      "start": "00:20:16.501",
+      "start_ms": 1216501,
+      "end": "00:20:19.600",
+      "end_ms": 1219600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ist denn nicht in China auch schon ein Menge passiert?"
+  },
+  {
+      "start": "00:20:19.601",
+      "start_ms": 1219601,
+      "end": "00:20:27.800",
+      "end_ms": 1227800,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Also ich meine, am Anfang hat man extrem auf Kohlekraftwerke gesetzt und im Prinzip den ganzen Raubbau genauso erstmal eingeleitet,"
+  },
+  {
+      "start": "00:20:27.801",
+      "start_ms": 1227801,
+      "end": "00:20:38.200",
+      "end_ms": 1238200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "wie man das aus den USA und Europa auch kannte, aber mittlerweile ist doch auch in China ein wenig die Einsicht eingekehrt, dass es so nicht weitergehen kann."
+  },
+  {
+      "start": "00:20:38.201",
+      "start_ms": 1238201,
+      "end": "00:20:40.500",
+      "end_ms": 1240500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich sage mal einmal ja,"
+  },
+  {
+      "start": "00:21:10.801",
+      "start_ms": 1270801,
+      "end": "00:21:18.000",
+      "end_ms": 1278000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja, aber die selben Chinesen bestehen darauf, dass sie ein Entwicklungsland sind,"
+  },
+  {
+      "start": "00:22:19.301",
+      "start_ms": 1339301,
+      "end": "00:22:22.100",
+      "end_ms": 1342100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "auf dem Weg zur Nachhaltigkeit zugestanden,"
+  },
+  {
+      "start": "00:22:22.101",
+      "start_ms": 1342101,
+      "end": "00:22:25.500",
+      "end_ms": 1345500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "damit man aus der Armut rauskommt, ja?"
+  },
+  {
+      "start": "00:22:25.501",
+      "start_ms": 1345501,
+      "end": "00:22:30.500",
+      "end_ms": 1350500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Man muss aus der Armut raus, auch China hat immer noch viel an der Armutsfrage zu tun,"
+  },
+  {
+      "start": "00:22:30.501",
+      "start_ms": 1350501,
+      "end": "00:22:33.000",
+      "end_ms": 1353000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und deshalb macht China alles gleichzeitig,"
+  },
+  {
+      "start": "00:22:33.001",
+      "start_ms": 1353001,
+      "end": "00:22:41.200",
+      "end_ms": 1361200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "kein Mensch macht so viel Kohle wie China, China macht auch Atomkraftwerke, China macht ganz viel erneuerbare Energie,"
+  },
+  {
+      "start": "00:22:41.201",
+      "start_ms": 1361201,
+      "end": "00:22:51.300",
+      "end_ms": 1371300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "China macht ganz viel Aufforstung, aber China sind auch 1,4 Milliarden Menschen und ein ziemlich klimaineffizientes System,"
+  },
+  {
+      "start": "00:23:11.601",
+      "start_ms": 1391601,
+      "end": "00:23:15.300",
+      "end_ms": 1395300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Sich so durchzuoptimieren wie wir kostet ganz viel Geld,"
+  },
+  {
+      "start": "00:23:15.301",
+      "start_ms": 1395301,
+      "end": "00:23:17.800",
+      "end_ms": 1397800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und da braucht man sehr viel Zeit."
+  },
+  {
+      "start": "00:23:46.401",
+      "start_ms": 1426401,
+      "end": "00:23:50.600",
+      "end_ms": 1430600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ja, Sie sagten ja gerade, bei Indien muss man es jetzt hinbekommen und bei Afrika auch,"
+  },
+  {
+      "start": "00:23:50.601",
+      "start_ms": 1430601,
+      "end": "00:23:55.000",
+      "end_ms": 1435000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "von vornherein diesen wirtschaftlichen Wohlstand klimaneutral zu gestalten."
+  },
+  {
+      "start": "00:23:55.001",
+      "start_ms": 1435001,
+      "end": "00:23:56.000",
+      "end_ms": 1436000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja."
+  },
+  {
+      "start": "00:24:17.201",
+      "start_ms": 1457201,
+      "end": "00:24:21.000",
+      "end_ms": 1461000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass sie viel eigenes Geld nach China transferieren,"
+  },
+  {
+      "start": "00:24:40.501",
+      "start_ms": 1480501,
+      "end": "00:24:42.700",
+      "end_ms": 1482700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und da wird man dem, mit dem man um die Weltherrschaft ringt"
+  },
+  {
+      "start": "00:24:47.401",
+      "start_ms": 1487401,
+      "end": "00:24:55.100",
+      "end_ms": 1495100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dem wird man nicht noch das Geld schicken, damit er seine Industriewachstumsprozesse klimaneutral gestalten kann."
+  },
+  {
+      "start": "00:24:55.101",
+      "start_ms": 1495101,
+      "end": "00:24:57.000",
+      "end_ms": 1497000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das wird man nicht machen."
+  },
+  {
+      "start": "00:24:57.001",
+      "start_ms": 1497001,
+      "end": "00:25:02.900",
+      "end_ms": 1502900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das wird man vielleicht bei Indien machen, am ehesten noch bei Afrika."
+  },
+  {
+      "start": "00:25:02.901",
+      "start_ms": 1502901,
+      "end": "00:25:07.000",
+      "end_ms": 1507000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "In Wirklichkeit machen wir das ja nicht, ich habe ja nur gesagt, was man logisch-mathematisch"
+  },
+  {
+      "start": "00:25:16.101",
+      "start_ms": 1516101,
+      "end": "00:25:19.000",
+      "end_ms": 1519000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "es sei denn es tut es jemand anderes."
+  },
+  {
+      "start": "00:25:30.501",
+      "start_ms": 1530501,
+      "end": "00:25:35.500",
+      "end_ms": 1535500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Was soll dieses Geld konkret bewirken?"
+  },
+  {
+      "start": "00:25:40.501",
+      "start_ms": 1540501,
+      "end": "00:25:46.400",
+      "end_ms": 1546400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das sich vor allen Dingen auch mit dem Club of Rome und dem Senat der Wirtschaft"
+  },
+  {
+      "start": "00:26:15.001",
+      "start_ms": 1575001,
+      "end": "00:26:25.700",
+      "end_ms": 1585700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also Afrika wird von 1,2 Milliarden auf 2,4 Milliarden Menschen im Jahr 2050 anwachsen."
+  },
+  {
+      "start": "00:26:25.701",
+      "start_ms": 1585701,
+      "end": "00:26:34.900",
+      "end_ms": 1594900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Afrika ist einem gewissen Sinne der Problemkontinent, ist aber ein Kontinent, in dem sich die Zukunft der Menschheit entscheiden wird,"
+  },
+  {
+      "start": "00:27:03.901",
+      "start_ms": 1623901,
+      "end": "00:27:08.100",
+      "end_ms": 1628100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "also eine weitere Verdopplung nach 2050."
+  },
+  {
+      "start": "00:27:08.101",
+      "start_ms": 1628101,
+      "end": "00:27:12.900",
+      "end_ms": 1632900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wenn man die nicht will, braucht man Wohlstand in Afrika."
+  },
+  {
+      "start": "00:27:52.601",
+      "start_ms": 1672601,
+      "end": "00:27:58.000",
+      "end_ms": 1678000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Nun, ich beschreibe jetzt die drei Hauptkomponenten, und das sind auch die drei Hauptkomponenten,"
+  },
+  {
+      "start": "00:27:58.001",
+      "start_ms": 1678001,
+      "end": "00:28:02.300",
+      "end_ms": 1682300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die wir im Rahmen des Marshall-Plans verfolgen:"
+  },
+  {
+      "start": "00:28:24.701",
+      "start_ms": 1704701,
+      "end": "00:28:30.000",
+      "end_ms": 1710000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "In Afrika etwa 200 Millionen Hektar."
+  },
+  {
+      "start": "00:28:33.901",
+      "start_ms": 1713901,
+      "end": "00:28:44.800",
+      "end_ms": 1724800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und diese Aufforstung bringt eine Menge benefits verschiedenster Art, im Sinne der Nachhaltigkeitsziele der Vereinten Nationen."
+  },
+  {
+      "start": "00:29:31.601",
+      "start_ms": 1771601,
+      "end": "00:29:40.200",
+      "end_ms": 1780200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und das Potential ist etwa 10 Tonnen pro Jahr und Hektar."
+  },
+  {
+      "start": "00:29:40.201",
+      "start_ms": 1780201,
+      "end": "00:29:41.000",
+      "end_ms": 1781000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Tonnen CO2?"
+  },
+  {
+      "start": "00:29:41.001",
+      "start_ms": 1781001,
+      "end": "00:29:45.400",
+      "end_ms": 1785400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "CO2, also wenn man diese Karte voll spielt, weltweit,"
+  },
+  {
+      "start": "00:30:19.701",
+      "start_ms": 1819701,
+      "end": "00:30:23.000",
+      "end_ms": 1823000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist die Schiene Nummer 1."
+  },
+  {
+      "start": "00:30:23.001",
+      "start_ms": 1823001,
+      "end": "00:30:26.200",
+      "end_ms": 1826200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Schiene Nummer 2 ist die Landwirtschaft."
+  },
+  {
+      "start": "00:30:58.601",
+      "start_ms": 1858601,
+      "end": "00:31:03.400",
+      "end_ms": 1863400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich will aber darauf hinaus, dass auch die normale Landwirtschaft, die wir betreiben,"
+  },
+  {
+      "start": "00:31:03.401",
+      "start_ms": 1863401,
+      "end": "00:31:14.100",
+      "end_ms": 1874100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "sehr viel CO2 freisetzt, weil sie letzten Endes die Bodenbiotopgemeinschaften zerreist,"
+  },
+  {
+      "start": "00:31:20.501",
+      "start_ms": 1880501,
+      "end": "00:31:26.200",
+      "end_ms": 1886200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Die wichtigste Komponente zur CO2-Bindung im Boden ist Humus."
+  },
+  {
+      "start": "00:31:39.301",
+      "start_ms": 1899301,
+      "end": "00:31:45.700",
+      "end_ms": 1905700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "so etwas wie Holzkohle, und dass man letzten Endes diese in die Erde bringt,"
+  },
+  {
+      "start": "00:31:56.801",
+      "start_ms": 1916801,
+      "end": "00:32:02.400",
+      "end_ms": 1922400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wird mit den biologischen Prozessen der Luft wieder entzogen, und wenn man klug ist,"
+  },
+  {
+      "start": "00:32:02.401",
+      "start_ms": 1922401,
+      "end": "00:32:06.000",
+      "end_ms": 1926000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und das am Ende in Pflanzen und Holzkohle verwandelt,"
+  },
+  {
+      "start": "00:33:21.301",
+      "start_ms": 2001301,
+      "end": "00:33:25.600",
+      "end_ms": 2005600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wie bei der Aufforstung, und dann hat man den zweiten Baustein."
+  },
+  {
+      "start": "00:33:35.001",
+      "start_ms": 2015001,
+      "end": "00:33:37.600",
+      "end_ms": 2017600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und die Situation deutlich verbessern."
+  },
+  {
+      "start": "00:33:37.601",
+      "start_ms": 2017601,
+      "end": "00:33:38.400",
+      "end_ms": 2018400,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Kurze Nachfrage:"
+  },
+  {
+      "start": "00:33:38.401",
+      "start_ms": 2018401,
+      "end": "00:33:41.100",
+      "end_ms": 2021100,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Diese Biokohle, wie wird die denn erzeugt?"
+  },
+  {
+      "start": "00:33:43.801",
+      "start_ms": 2023801,
+      "end": "00:33:45.000",
+      "end_ms": 2025000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Den Begriff kenne ich so noch nicht."
+  },
+  {
+      "start": "00:33:45.001",
+      "start_ms": 2025001,
+      "end": "00:33:48.500",
+      "end_ms": 2028500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also dies wird so erzeugt wie auch die Holzkohle erzeugt wird,"
+  },
+  {
+      "start": "00:33:48.501",
+      "start_ms": 2028501,
+      "end": "00:33:51.000",
+      "end_ms": 2031000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das ist die sogenannte Pyrolyse."
+  },
+  {
+      "start": "00:33:59.701",
+      "start_ms": 2039701,
+      "end": "00:34:03.600",
+      "end_ms": 2043600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das zu 80 Prozent Kohlenstoff ist."
+  },
+  {
+      "start": "00:34:09.401",
+      "start_ms": 2049401,
+      "end": "00:34:12.400",
+      "end_ms": 2052400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist er nebenbei gesagt in Afrika immer noch."
+  },
+  {
+      "start": "00:34:33.201",
+      "start_ms": 2073201,
+      "end": "00:34:41.400",
+      "end_ms": 2081400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aus allem Restholz muss Holzkohle werden, aber die Holzkohle wird nicht energetisch genutzt, sondern geht in die Erde,"
+  },
+  {
+      "start": "00:34:57.501",
+      "start_ms": 2097501,
+      "end": "00:35:03.000",
+      "end_ms": 2103000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "da sind dann die Mineralien drin und der Kohlenstoff, und das muss in die Erde,"
+  },
+  {
+      "start": "00:35:49.201",
+      "start_ms": 2149201,
+      "end": "00:35:56.000",
+      "end_ms": 2156000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Die dritte Komponente sind synthetische Kraftstoffe, die klimaneutral sind."
+  },
+  {
+      "start": "00:35:56.001",
+      "start_ms": 2156001,
+      "end": "00:36:01.300",
+      "end_ms": 2161300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also der Ansatz besteht im Grunde genommen darin, dass man mit erneuerbaren Energien,"
+  },
+  {
+      "start": "00:36:01.301",
+      "start_ms": 2161301,
+      "end": "00:36:03.900",
+      "end_ms": 2163900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "zum Beispiel aus der Sahara,"
+  },
+  {
+      "start": "00:37:18.101",
+      "start_ms": 2238101,
+      "end": "00:37:28.800",
+      "end_ms": 2248800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aus Stahlanlagen usw. herstellen, das dort sowieso generierte CO2 einfangen,"
+  },
+  {
+      "start": "00:37:37.501",
+      "start_ms": 2257501,
+      "end": "00:37:40.300",
+      "end_ms": 2260300,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Weil man an der Stelle einen neutralen Zyklus geschaffen hat?"
+  },
+  {
+      "start": "00:37:58.301",
+      "start_ms": 2278301,
+      "end": "00:38:06.100",
+      "end_ms": 2286100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "etwa ein Viertel unserer heutigen Emissionen ist, ist man dieses Viertel los."
+  },
+  {
+      "start": "00:38:06.101",
+      "start_ms": 2286101,
+      "end": "00:38:09.600",
+      "end_ms": 2289600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Wie bekannt ist dieser Plan?"
+  },
+  {
+      "start": "00:38:09.601",
+      "start_ms": 2289601,
+      "end": "00:38:15.700",
+      "end_ms": 2295700,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Sind Sie der Einzige, der das formuliert, oder ist das schon etwas, was so in dieser Form weit diskutiert wird?"
+  },
+  {
+      "start": "00:38:15.701",
+      "start_ms": 2295701,
+      "end": "00:38:19.000",
+      "end_ms": 2299000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Nein, ich verdanke das ja anderen, ich bin ja nicht der, der das erfunden hat."
+  },
+  {
+      "start": "00:38:40.501",
+      "start_ms": 2320501,
+      "end": "00:38:48.200",
+      "end_ms": 2328200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also in chinesischem Benzin ist heute immer mindestens 15 Prozent Methanol beigemischt."
+  },
+  {
+      "start": "00:38:48.201",
+      "start_ms": 2328201,
+      "end": "00:38:53.900",
+      "end_ms": 2333900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich sagte eben, die Chinesen machen alles, die machen eben auch Methanol."
+  },
+  {
+      "start": "00:39:11.001",
+      "start_ms": 2351001,
+      "end": "00:39:16.900",
+      "end_ms": 2356900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich habe da eine lange Verbindung zu Leuten, die von der RWTH Aachen kommen,"
+  },
+  {
+      "start": "00:39:20.601",
+      "start_ms": 2360601,
+      "end": "00:39:23.000",
+      "end_ms": 2363000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "da sind Leute von Degussa dabei,"
+  },
+  {
+      "start": "00:39:23.001",
+      "start_ms": 2363001,
+      "end": "00:39:26.000",
+      "end_ms": 2366000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "also das ist eine deutsche,"
+  },
+  {
+      "start": "00:39:26.001",
+      "start_ms": 2366001,
+      "end": "00:39:32.500",
+      "end_ms": 2372500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "sagen wir mal in der Chemie wissenschaftlich verfolgte Tradition,"
+  },
+  {
+      "start": "00:39:32.501",
+      "start_ms": 2372501,
+      "end": "00:39:37.200",
+      "end_ms": 2377200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die allerdings im Moment in der Debatte zu kurz kommt,"
+  },
+  {
+      "start": "00:39:49.401",
+      "start_ms": 2389401,
+      "end": "00:39:52.800",
+      "end_ms": 2392800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wir nennen das Desertec 2.0."
+  },
+  {
+      "start": "00:40:30.101",
+      "start_ms": 2430101,
+      "end": "00:40:36.600",
+      "end_ms": 2436600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist ist ein absurdes Programm, und es gibt eine Alternative zu diesem absurden Programm."
+  },
+  {
+      "start": "00:41:00.501",
+      "start_ms": 2460501,
+      "end": "00:41:09.600",
+      "end_ms": 2469600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "mit entsprechenden solarthermischen Anlagen vor allem Energie erzeugt, und diese mit Gleichstromleitungen nach Europa transferiert,"
+  },
+  {
+      "start": "00:41:14.001",
+      "start_ms": 2474001,
+      "end": "00:41:20.400",
+      "end_ms": 2480400,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Da ist es nie so richtig dazu gekommen, weil es vor allem an der politischen Gesamtkonstellation gescheitert ist,"
+  },
+  {
+      "start": "00:41:50.101",
+      "start_ms": 2510101,
+      "end": "00:41:54.200",
+      "end_ms": 2514200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "aber eben jetzt nicht, um Strom unmittelbar nach Europa zu pumpen,"
+  },
+  {
+      "start": "00:42:04.801",
+      "start_ms": 2524801,
+      "end": "00:42:06.300",
+      "end_ms": 2526300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja, so ist es gut beschrieben."
+  },
+  {
+      "start": "00:42:06.301",
+      "start_ms": 2526301,
+      "end": "00:42:13.800",
+      "end_ms": 2533800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Der Club of Rome war ja immer wesentlich involviert in die Entwicklung der Desertec-Ideen,"
+  },
+  {
+      "start": "00:42:13.801",
+      "start_ms": 2533801,
+      "end": "00:42:17.200",
+      "end_ms": 2537200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "diese Ideen sind auch absolut valide, man muss wissen,"
+  },
+  {
+      "start": "00:42:45.501",
+      "start_ms": 2565501,
+      "end": "00:42:49.600",
+      "end_ms": 2569600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Was man verstehen muss sind zwei Dinge:"
+  },
+  {
+      "start": "00:42:49.601",
+      "start_ms": 2569601,
+      "end": "00:42:54.300",
+      "end_ms": 2574300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Zum Einen haben die Deutschen mit dem erneuerbaren Energiegesetz,"
+  },
+  {
+      "start": "00:42:54.301",
+      "start_ms": 2574301,
+      "end": "00:43:01.600",
+      "end_ms": 2581600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "mit der Bevorzugung von in Deutschland hergestellter erneuerbarer Energie,"
+  },
+  {
+      "start": "00:43:17.501",
+      "start_ms": 2597501,
+      "end": "00:43:19.400",
+      "end_ms": 2599400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist die eine Seite."
+  },
+  {
+      "start": "00:43:38.101",
+      "start_ms": 2618101,
+      "end": "00:43:43.100",
+      "end_ms": 2623100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber die rechnen sich, wenn es keine Alternative gibt, also muss man die Alternative verhindern."
+  },
+  {
+      "start": "00:43:43.101",
+      "start_ms": 2623101,
+      "end": "00:43:48.600",
+      "end_ms": 2628600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Deshalb ist Desertec schlicht daran gescheitert, dass wir, aus welchem Grund auch immer,"
+  },
+  {
+      "start": "00:43:48.601",
+      "start_ms": 2628601,
+      "end": "00:43:52.700",
+      "end_ms": 2632700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "gar nicht bereit waren, die Energie abzunehmen."
+  },
+  {
+      "start": "00:44:12.601",
+      "start_ms": 2652601,
+      "end": "00:44:18.600",
+      "end_ms": 2658600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die Schiffe und alles, schon gibt, also man kann das Methanol nach Europa bringen,"
+  },
+  {
+      "start": "00:44:36.401",
+      "start_ms": 2676401,
+      "end": "00:44:42.000",
+      "end_ms": 2682000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "auch wenn man das ganze Theater um die Automobile sieht, um die Automobilindustrie"
+  },
+  {
+      "start": "00:44:42.001",
+      "start_ms": 2682001,
+      "end": "00:44:45.000",
+      "end_ms": 2685000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und die Flottenwerte der Automobilindustrie,"
+  },
+  {
+      "start": "00:45:06.801",
+      "start_ms": 2706801,
+      "end": "00:45:14.400",
+      "end_ms": 2714400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wenn man das CO2 einspart in Afrika, in der dortigen Stahl- und Energieproduktion,"
+  },
+  {
+      "start": "00:45:14.401",
+      "start_ms": 2714401,
+      "end": "00:45:23.300",
+      "end_ms": 2723300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "um es ins Methanol zu bringen, dann muss dieser Effekt anerkannt werden, wenn man jetzt mit diesem Methanol"
+  },
+  {
+      "start": "00:45:34.401",
+      "start_ms": 2734401,
+      "end": "00:45:37.700",
+      "end_ms": 2737700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Man landet also zum Schluss immer bei Regulierungsfragen."
+  },
+  {
+      "start": "00:45:45.201",
+      "start_ms": 2745201,
+      "end": "00:45:50.500",
+      "end_ms": 2750500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil diese Konkurrenz nicht gewollt wird, weil man das Elektroauto will,"
+  },
+  {
+      "start": "00:45:50.501",
+      "start_ms": 2750501,
+      "end": "00:45:55.400",
+      "end_ms": 2755400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "egal welche Probleme dann zum Schluss aus dem Elektroauto resultieren."
+  },
+  {
+      "start": "00:45:55.401",
+      "start_ms": 2755401,
+      "end": "00:46:01.500",
+      "end_ms": 2761500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wenn man aber klug an die Sache herangeht, hat man hier eine Chance, enorm Co2 einzusparen,"
+  },
+  {
+      "start": "00:46:12.001",
+      "start_ms": 2772001,
+      "end": "00:46:19.000",
+      "end_ms": 2779000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Besser weil schon seit langem fertig entwickelte Technologie, die alle Bereiche abdeckt,"
+  },
+  {
+      "start": "00:46:19.001",
+      "start_ms": 2779001,
+      "end": "00:46:20.700",
+      "end_ms": 2780700,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "weil man das zum Einsatz bringt?"
+  },
+  {
+      "start": "00:46:20.701",
+      "start_ms": 2780701,
+      "end": "00:46:24.200",
+      "end_ms": 2784200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist erstens schon alles da."
+  },
+  {
+      "start": "00:46:31.801",
+      "start_ms": 2791801,
+      "end": "00:46:38.600",
+      "end_ms": 2798600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Daran erkennt man sofort, wie viel einfacher die Lage wird, wenn ich einen klimaneutralen Kraftstoff habe."
+  },
+  {
+      "start": "00:46:44.701",
+      "start_ms": 2804701,
+      "end": "00:46:46.900",
+      "end_ms": 2806900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil ja schon der Kraftstoff klimaneutral ist."
+  },
+  {
+      "start": "00:46:46.901",
+      "start_ms": 2806901,
+      "end": "00:46:51.900",
+      "end_ms": 2811900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich kann die Autos benutzen, die ich habe, ich muss mir nicht neue Autos ausdenken,"
+  },
+  {
+      "start": "00:46:51.901",
+      "start_ms": 2811901,
+      "end": "00:46:59.400",
+      "end_ms": 2819400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und jetzt kommt ja beim Elektroauto das Problem dazu, dass heute allein die Batterie im Produktionsprozess"
+  },
+  {
+      "start": "00:47:17.801",
+      "start_ms": 2837801,
+      "end": "00:47:22.400",
+      "end_ms": 2842400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "sondern das ist ein mit viel CO2-Emissionen verbundener Strom."
+  },
+  {
+      "start": "00:47:22.401",
+      "start_ms": 2842401,
+      "end": "00:47:27.700",
+      "end_ms": 2847700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir brauchen gigantische Infrastrukturen, etwa zum Aufladen, die es noch nicht gibt,"
+  },
+  {
+      "start": "00:47:46.301",
+      "start_ms": 2866301,
+      "end": "00:47:50.100",
+      "end_ms": 2870100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das wir sowieso schon etabliert haben."
+  },
+  {
+      "start": "00:47:50.101",
+      "start_ms": 2870101,
+      "end": "00:47:56.700",
+      "end_ms": 2876700,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Was hindert denn die politische Debatte um so ein System?"
+  },
+  {
+      "start": "00:48:32.501",
+      "start_ms": 2912501,
+      "end": "00:48:37.500",
+      "end_ms": 2917500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Zumindest hat es eine Chance und es wird an dem Thema gearbeitet."
+  },
+  {
+      "start": "00:48:52.301",
+      "start_ms": 2932301,
+      "end": "00:48:59.400",
+      "end_ms": 2939400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die entsprechenden Projektprozesse auf, zum Beispiel, Nordafrika auszudehnen."
+  },
+  {
+      "start": "00:49:04.801",
+      "start_ms": 2944801,
+      "end": "00:49:13.400",
+      "end_ms": 2953400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Bisher haben wir immer ein Denken, das zunehmend territotialer wird, bei uns verengt sich alles in der Vorstellung,"
+  },
+  {
+      "start": "00:49:36.401",
+      "start_ms": 2976401,
+      "end": "00:49:43.900",
+      "end_ms": 2983900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass wir zunehmend da herangehen werden, weil das, was wir heute politisch versuchen,"
+  },
+  {
+      "start": "00:49:43.901",
+      "start_ms": 2983901,
+      "end": "00:49:50.500",
+      "end_ms": 2990500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "meiner Ansicht nach chancenlos ist, und es ist vor allen Dingen eben deshalb chancenlos,"
+  },
+  {
+      "start": "00:49:50.501",
+      "start_ms": 2990501,
+      "end": "00:50:00.800",
+      "end_ms": 3000800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil die eigentlichen Klimaprobleme der Welt in Afrika und am indischen Subkontinent entstehen und sich akkumulieren,"
+  },
+  {
+      "start": "00:50:00.801",
+      "start_ms": 3000801,
+      "end": "00:50:10.300",
+      "end_ms": 3010300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und wir feststellen werden, dass, egal was wir hier tun, wir dann auf diese globalen Prozesse praktisch keinen Einfluss haben,"
+  },
+  {
+      "start": "00:50:13.301",
+      "start_ms": 3013301,
+      "end": "00:50:20.800",
+      "end_ms": 3020800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das wird uns jedes Jahr deutlicher werden, weil im Moment laufen die Prozesse alle in eine Richtung,"
+  },
+  {
+      "start": "00:50:24.201",
+      "start_ms": 3024201,
+      "end": "00:50:28.300",
+      "end_ms": 3028300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die Welt ist nicht auf dem Weg der Dekarbonisierung,"
+  },
+  {
+      "start": "00:50:40.401",
+      "start_ms": 3040401,
+      "end": "00:50:46.800",
+      "end_ms": 3046800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Die Dekarbonisierung ist genau das Gegenteil von dem, was im Moment auf der Welt stattfindet."
+  },
+  {
+      "start": "00:51:15.701",
+      "start_ms": 3075701,
+      "end": "00:51:22.300",
+      "end_ms": 3082300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die sind alle am Thema vorbei, die Menge der CO2-Emissionen wird noch zunehmen,"
+  },
+  {
+      "start": "00:51:40.701",
+      "start_ms": 3100701,
+      "end": "00:51:48.600",
+      "end_ms": 3108600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "in Brasilien haben wir jetzt auch so eine neue Regierung am Start, die zwar jetzt noch nicht sehr viel sichtbares erzeugt hat,"
+  },
+  {
+      "start": "00:52:01.001",
+      "start_ms": 3121001,
+      "end": "00:52:06.000",
+      "end_ms": 3126000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "nochmal ein extra beunruhigender Trend."
+  },
+  {
+      "start": "00:52:37.601",
+      "start_ms": 3157601,
+      "end": "00:52:43.100",
+      "end_ms": 3163100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und wir gucken zu und zahlen nicht."
+  },
+  {
+      "start": "00:53:17.901",
+      "start_ms": 3197901,
+      "end": "00:53:22.200",
+      "end_ms": 3202200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Dieser ganze Deal ist zum Schluss unter anderem an Deutschland gescheitert,"
+  },
+  {
+      "start": "00:54:19.501",
+      "start_ms": 3259501,
+      "end": "00:54:27.700",
+      "end_ms": 3267700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wenn wir reich und arm auf der Erde haben, und wenn insbesondere auch der reiche Teil der Welt will,"
+  },
+  {
+      "start": "00:54:55.401",
+      "start_ms": 3295401,
+      "end": "00:55:02.300",
+      "end_ms": 3302300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "was wir wollen sollten und damit kommt man auch zum Kern dieser ganzen Umweltprobleme,"
+  },
+  {
+      "start": "00:55:40.001",
+      "start_ms": 3340001,
+      "end": "00:55:41.500",
+      "end_ms": 3341500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Der ja auch immer wieder in Frage gestellt wird."
+  },
+  {
+      "start": "00:55:41.501",
+      "start_ms": 3341501,
+      "end": "00:55:44.400",
+      "end_ms": 3344400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja, aber der ein Segen ist, und das ist ja genau der Punkt."
+  },
+  {
+      "start": "00:55:52.201",
+      "start_ms": 3352201,
+      "end": "00:56:01.000",
+      "end_ms": 3361000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wird trotzdem immer schlecht geredet, und weltweit tun wir nicht, was wir bei uns tun, weil es das Richtige ist,"
+  },
+  {
+      "start": "00:56:01.001",
+      "start_ms": 3361001,
+      "end": "00:56:06.300",
+      "end_ms": 3366300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und indem wir aber weltweit immer das Falsche tun, kommt dann zum Schluss auch das Falsche raus,"
+  },
+  {
+      "start": "00:56:06.301",
+      "start_ms": 3366301,
+      "end": "00:56:08.200",
+      "end_ms": 3368200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "da muss man sich nicht wundern."
+  },
+  {
+      "start": "00:56:23.401",
+      "start_ms": 3383401,
+      "end": "00:56:29.300",
+      "end_ms": 3389300,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Im Prinzip ist es so eine Art Versicherung, die man zahlt, weil das hat ja auch gar nichts damit zu tun,"
+  },
+  {
+      "start": "00:56:36.401",
+      "start_ms": 3396401,
+      "end": "00:56:45.300",
+      "end_ms": 3405300,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "das ist einfach auch wahrscheinlich die einfache Erkenntnis, dass sich dann eben so eine Ausbeutung auch mittelfristig einfach nicht verhindern lassen wird,"
+  },
+  {
+      "start": "00:57:06.601",
+      "start_ms": 3426601,
+      "end": "00:57:11.300",
+      "end_ms": 3431300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und jeden Tag auf ihrem Smartphone sehen, wie wir leben,"
+  },
+  {
+      "start": "00:57:11.301",
+      "start_ms": 3431301,
+      "end": "00:57:17.900",
+      "end_ms": 3437900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ja, wer will denn dagegen argumentieren, dass die versuchen, aus ihren Ressourcen Wohlstand zu produzieren?"
+  },
+  {
+      "start": "00:57:20.501",
+      "start_ms": 3440501,
+      "end": "00:57:21.600",
+      "end_ms": 3441600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Haben wir ja auch gemacht."
+  },
+  {
+      "start": "00:57:21.601",
+      "start_ms": 3441601,
+      "end": "00:57:27.000",
+      "end_ms": 3447000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja, weil wir das alles auch gemacht haben, wir haben es ihnen doch alles vorexerziert."
+  },
+  {
+      "start": "00:57:27.001",
+      "start_ms": 3447001,
+      "end": "00:57:32.400",
+      "end_ms": 3452400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Was haben wir in Nordamerika, als die Einwanderer nach Nordamerika gingen,"
+  },
+  {
+      "start": "00:57:39.601",
+      "start_ms": 3459601,
+      "end": "00:57:42.900",
+      "end_ms": 3462900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und kostete nichts, einfach nur zugreifen."
+  },
+  {
+      "start": "00:57:42.901",
+      "start_ms": 3462901,
+      "end": "00:57:48.500",
+      "end_ms": 3468500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Da ist ein Teil unseres Wohlstands entstanden, indem wir einfach zugegriffen haben."
+  },
+  {
+      "start": "00:57:48.501",
+      "start_ms": 3468501,
+      "end": "00:57:53.100",
+      "end_ms": 3473100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und jetzt kommen die anderen, sehen, was wir so alles so hinbekommen haben,"
+  },
+  {
+      "start": "00:57:56.501",
+      "start_ms": 3476501,
+      "end": "00:57:59.500",
+      "end_ms": 3479500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das macht ja das Klimathema so schwierig."
+  },
+  {
+      "start": "00:58:05.701",
+      "start_ms": 3485701,
+      "end": "00:58:12.400",
+      "end_ms": 3492400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "China, der legitime Wunsch Chinas, aus der Armut zu kommen, beschert uns jetzt CO2-Emissionen,"
+  },
+  {
+      "start": "00:58:18.101",
+      "start_ms": 3498101,
+      "end": "00:58:20.000",
+      "end_ms": 3500000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "es ist das selbe, was wir gemacht haben."
+  },
+  {
+      "start": "00:58:20.001",
+      "start_ms": 3500001,
+      "end": "00:58:24.800",
+      "end_ms": 3504800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Nur das Ergebnis ist, dass sich die CO2-Emissionen mal eben verdoppelt haben,"
+  },
+  {
+      "start": "00:59:11.901",
+      "start_ms": 3551901,
+      "end": "00:59:17.700",
+      "end_ms": 3557700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "also wir wollen jetzt bei uns das erst mal alles hinkriegen, damit die Welt dann sieht, wie es geht."
+  },
+  {
+      "start": "00:59:17.701",
+      "start_ms": 3557701,
+      "end": "00:59:23.500",
+      "end_ms": 3563500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Man muss aber wissen, dass wir bei 11 Tonnen CO2 pro Kopf sind und die Franzosen bei 5."
+  },
+  {
+      "start": "00:59:30.101",
+      "start_ms": 3570101,
+      "end": "00:59:32.800",
+      "end_ms": 3572800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das ist dann vielleicht in 30 Jahren so weit."
+  },
+  {
+      "start": "00:59:38.301",
+      "start_ms": 3578301,
+      "end": "00:59:40.200",
+      "end_ms": 3580200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "was sollen die von uns lernen?"
+  },
+  {
+      "start": "00:59:40.201",
+      "start_ms": 3580201,
+      "end": "00:59:42.000",
+      "end_ms": 3582000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das wissen die doch sowieso alles."
+  },
+  {
+      "start": "00:59:42.001",
+      "start_ms": 3582001,
+      "end": "00:59:46.200",
+      "end_ms": 3586200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Da wartet doch keiner darauf, ob wir irgendeinen Fortschritt bei uns erzielen oder nicht,"
+  },
+  {
+      "start": "00:59:52.101",
+      "start_ms": 3592101,
+      "end": "00:59:57.000",
+      "end_ms": 3597000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass wir das Richtige tun, wenn wir alle unsere Kraft hier einsetzen,"
+  },
+  {
+      "start": "00:59:57.001",
+      "start_ms": 3597001,
+      "end": "01:00:01.600",
+      "end_ms": 3601600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "obwohl das eigentliche Problem woanders ist."
+  },
+  {
+      "start": "01:00:24.901",
+      "start_ms": 3624901,
+      "end": "01:00:28.400",
+      "end_ms": 3628400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "relativ schnell zumindest zu halbieren, ja?"
+  },
+  {
+      "start": "01:00:47.801",
+      "start_ms": 3647801,
+      "end": "01:00:51.800",
+      "end_ms": 3651800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Sondern man muss gucken, was erreiche ich mit meinem Geld?"
+  },
+  {
+      "start": "01:00:51.801",
+      "start_ms": 3651801,
+      "end": "01:00:55.300",
+      "end_ms": 3655300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Was ist mein Beitrag, mit dem Geld, was ich habe?"
+  },
+  {
+      "start": "01:01:00.901",
+      "start_ms": 3660901,
+      "end": "01:01:04.300",
+      "end_ms": 3664300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Was machen die mit ihrem Geld?"
+  },
+  {
+      "start": "01:01:04.301",
+      "start_ms": 3664301,
+      "end": "01:01:10.900",
+      "end_ms": 3670900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wenn man an den Ozonschirm denkt, an das Montrealer Protokoll, ..."
+  },
+  {
+      "start": "01:01:10.901",
+      "start_ms": 3670901,
+      "end": "01:01:12.000",
+      "end_ms": 3672000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ja?"
+  },
+  {
+      "start": "01:01:29.301",
+      "start_ms": 3689301,
+      "end": "01:01:33.200",
+      "end_ms": 3693200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "steigt mit uns aus FCKW aus"
+  },
+  {
+      "start": "01:01:33.201",
+      "start_ms": 3693201,
+      "end": "01:01:38.900",
+      "end_ms": 3698900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und was das mehr kostet, werden wir bezahlen,"
+  },
+  {
+      "start": "01:01:38.901",
+      "start_ms": 3698901,
+      "end": "01:01:42.100",
+      "end_ms": 3702100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wir werden euch das Geld transferieren."
+  },
+  {
+      "start": "01:02:00.001",
+      "start_ms": 3720001,
+      "end": "01:02:04.400",
+      "end_ms": 3724400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir sind nicht bereit, den selben Deal bei Energie zu machen,"
+  },
+  {
+      "start": "01:02:09.001",
+      "start_ms": 3729001,
+      "end": "01:02:10.900",
+      "end_ms": 3730900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und deshalb machen wir es nicht,"
+  },
+  {
+      "start": "01:02:10.901",
+      "start_ms": 3730901,
+      "end": "01:02:18.100",
+      "end_ms": 3738100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber wenn wir es nicht machen, werden wir das Zwei-Grad-Ziel nicht erreichen."
+  },
+  {
+      "start": "01:02:37.801",
+      "start_ms": 3757801,
+      "end": "01:02:43.900",
+      "end_ms": 3763900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also wir haben ja nie die 0,7 Prozent geschafft, die wir versprochen haben."
+  },
+  {
+      "start": "01:02:49.601",
+      "start_ms": 3769601,
+      "end": "01:02:51.900",
+      "end_ms": 3771900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir haben nicht mal die 0,7 geschafft."
+  },
+  {
+      "start": "01:03:32.801",
+      "start_ms": 3812801,
+      "end": "01:03:39.600",
+      "end_ms": 3819600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Nicht mal das werden wir hinkriegen, weil wir die 100 Milliarden pro Jahr nicht hinkriegen werden,"
+  },
+  {
+      "start": "01:04:01.201",
+      "start_ms": 3841201,
+      "end": "01:04:02.800",
+      "end_ms": 3842800,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "kein Geld zahlen?"
+  },
+  {
+      "start": "01:04:02.801",
+      "start_ms": 3842801,
+      "end": "01:04:05.700",
+      "end_ms": 3845700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das bedeutet es, und die zweite Seite:"
+  },
+  {
+      "start": "01:04:36.801",
+      "start_ms": 3876801,
+      "end": "01:04:40.000",
+      "end_ms": 3880000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Zusammen."
+  },
+  {
+      "start": "01:04:46.801",
+      "start_ms": 3886801,
+      "end": "01:04:52.200",
+      "end_ms": 3892200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber das andere Ziel ist, den Russen, den Iranis und anderen, die Luft abzudrehen,"
+  },
+  {
+      "start": "01:05:07.301",
+      "start_ms": 3907301,
+      "end": "01:05:12.800",
+      "end_ms": 3912800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Aber der Preis ist durch die US-Politik massiv runtergegangen,"
+  },
+  {
+      "start": "01:05:27.401",
+      "start_ms": 3927401,
+      "end": "01:05:33.300",
+      "end_ms": 3933300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist ein entscheidender Hebel im internationalen Kampf um die Macht,"
+  },
+  {
+      "start": "01:05:33.301",
+      "start_ms": 3933301,
+      "end": "01:05:37.300",
+      "end_ms": 3937300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und das ist das Gegenteil von Dekarbonisierung,"
+  },
+  {
+      "start": "01:05:37.301",
+      "start_ms": 3937301,
+      "end": "01:05:43.400",
+      "end_ms": 3943400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und ich kann nicht gut das Paris-Abkommen unterschreiben, wenn ich alles tue,"
+  },
+  {
+      "start": "01:06:00.101",
+      "start_ms": 3960101,
+      "end": "01:06:06.100",
+      "end_ms": 3966100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "damit wir eben nicht die Energie aus Russland holen, sondern die Energie von den USA abkaufen,"
+  },
+  {
+      "start": "01:06:08.101",
+      "start_ms": 3968101,
+      "end": "01:06:10.200",
+      "end_ms": 3970200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "... den Terminals, die da gebaut worden sind."
+  },
+  {
+      "start": "01:06:10.201",
+      "start_ms": 3970201,
+      "end": "01:06:15.100",
+      "end_ms": 3975100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "... teurer ist als das russische Gas, aber an dieser Stelle erkennt man auch sofort, was passiert ist."
+  },
+  {
+      "start": "01:06:15.101",
+      "start_ms": 3975101,
+      "end": "01:06:20.100",
+      "end_ms": 3980100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Es werden alle diese Terminals gebaut, es werden alle die Pipelines zu den Terminals gebaut,"
+  },
+  {
+      "start": "01:06:20.101",
+      "start_ms": 3980101,
+      "end": "01:06:26.000",
+      "end_ms": 3986000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und alle diese Investitionen, die haben 40 Jahre Abschreibungszeit,"
+  },
+  {
+      "start": "01:07:04.101",
+      "start_ms": 4024101,
+      "end": "01:07:07.600",
+      "end_ms": 4027600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wo soll da eine Dekarbonisierung herkommen?"
+  },
+  {
+      "start": "01:07:07.601",
+      "start_ms": 4027601,
+      "end": "01:07:13.600",
+      "end_ms": 4033600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Das Ganze scheint sich politisch nicht wirklich trennen zu lassen von diesen ganzen Machtfragen,"
+  },
+  {
+      "start": "01:07:15.101",
+      "start_ms": 4035101,
+      "end": "01:07:21.800",
+      "end_ms": 4041800,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Man sieht das in Paris, ein bisschen an der Steuerschraube des Benzinpreises gedreht,"
+  },
+  {
+      "start": "01:07:32.901",
+      "start_ms": 4052901,
+      "end": "01:07:39.200",
+      "end_ms": 4059200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Das bedeutet ja im Prinzip auch, die Leute gehen eigentlich im Kopf immer noch nicht so richtig mit."
+  },
+  {
+      "start": "01:07:39.201",
+      "start_ms": 4059201,
+      "end": "01:07:45.000",
+      "end_ms": 4065000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Da ist einfach noch nicht genug Erkenntnis angelangt,"
+  },
+  {
+      "start": "01:07:55.801",
+      "start_ms": 4075801,
+      "end": "01:07:59.200",
+      "end_ms": 4079200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Na ich sehe das nicht so wie Sie, sondern ich glaube,"
+  },
+  {
+      "start": "01:08:23.301",
+      "start_ms": 4103301,
+      "end": "01:08:29.800",
+      "end_ms": 4109800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und dann landet man in der Umsetzung sehr schnell bei Mechanismen, die insbesondere auch Sozialschwache treffen."
+  },
+  {
+      "start": "01:09:00.101",
+      "start_ms": 4140101,
+      "end": "01:09:02.300",
+      "end_ms": 4142300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Sie profitieren."
+  },
+  {
+      "start": "01:09:07.201",
+      "start_ms": 4147201,
+      "end": "01:09:10.600",
+      "end_ms": 4150600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die als Umweltschutz ausgegeben werden."
+  },
+  {
+      "start": "01:09:48.501",
+      "start_ms": 4188501,
+      "end": "01:09:50.100",
+      "end_ms": 4190100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich kann das gut nachvollziehen."
+  },
+  {
+      "start": "01:09:50.101",
+      "start_ms": 4190101,
+      "end": "01:09:55.100",
+      "end_ms": 4195100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist das selbe Theater wie bei den Grenzwerten, die Diskussion, die wir jetzt haben,"
+  },
+  {
+      "start": "01:09:55.101",
+      "start_ms": 4195101,
+      "end": "01:09:58.800",
+      "end_ms": 4198800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "es werden absurd niedrige Grenzwerte festgesetzt,"
+  },
+  {
+      "start": "01:10:06.101",
+      "start_ms": 4206101,
+      "end": "01:10:11.100",
+      "end_ms": 4211100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die massiv in das Eigentum von Menschen eingreifen, und was wir nicht haben ist"
+  },
+  {
+      "start": "01:10:16.001",
+      "start_ms": 4216001,
+      "end": "01:10:18.800",
+      "end_ms": 4218800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "insbesondere ob wir diese Grenzwerte wollen,"
+  },
+  {
+      "start": "01:10:25.301",
+      "start_ms": 4225301,
+      "end": "01:10:28.500",
+      "end_ms": 4228500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und dann fragen wir uns, wer hat eigentlich diese Grenzwerte gemacht?"
+  },
+  {
+      "start": "01:10:28.501",
+      "start_ms": 4228501,
+      "end": "01:10:31.400",
+      "end_ms": 4231400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und warum? Welches Programm ist dahinter?"
+  },
+  {
+      "start": "01:10:31.401",
+      "start_ms": 4231401,
+      "end": "01:10:35.300",
+      "end_ms": 4235300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wer versucht, das jetzt unbedingt vor die Gerichte zu bringen?"
+  },
+  {
+      "start": "01:10:35.301",
+      "start_ms": 4235301,
+      "end": "01:10:37.600",
+      "end_ms": 4237600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wer hat ein Interesse daran? Warum?"
+  },
+  {
+      "start": "01:10:41.401",
+      "start_ms": 4241401,
+      "end": "01:10:44.900",
+      "end_ms": 4244900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und das sind jetzt die Debatten, die ablaufen, weil wir merken,"
+  },
+  {
+      "start": "01:10:58.201",
+      "start_ms": 4258201,
+      "end": "01:11:01.800",
+      "end_ms": 4261800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber die anderen wollen diese Modelle nicht,"
+  },
+  {
+      "start": "01:11:10.601",
+      "start_ms": 4270601,
+      "end": "01:11:16.600",
+      "end_ms": 4276600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "mit einer Luft zu leben, die nicht ganz so sauber ist wie die Luft, die ich im Moment habe,"
+  },
+  {
+      "start": "01:11:30.001",
+      "start_ms": 4290001,
+      "end": "01:11:33.900",
+      "end_ms": 4293900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und wir hatten mal ganz andere Zeiten mit der Luftverschmutzung,"
+  },
+  {
+      "start": "01:11:46.901",
+      "start_ms": 4306901,
+      "end": "01:11:50.600",
+      "end_ms": 4310600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir haben ja nichts gegen Grenzwertverbesserung, solange wir es nicht merken,"
+  },
+  {
+      "start": "01:12:03.501",
+      "start_ms": 4323501,
+      "end": "01:12:08.500",
+      "end_ms": 4328500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ich habe den Eindruck, dass dieser Druck oder diese Erkenntnislage nicht so weit verbreitet ist,"
+  },
+  {
+      "start": "01:12:35.001",
+      "start_ms": 4355001,
+      "end": "01:12:39.200",
+      "end_ms": 4359200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "hier mal Griechenland ein bisschen unter die Arme zu retten, war ja hier im Prinzip schon alles vorbei,"
+  },
+  {
+      "start": "01:12:42.101",
+      "start_ms": 4362101,
+      "end": "01:12:44.400",
+      "end_ms": 4364400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja klar, aber daran merkt man doch, wie absurd die Debatte ist."
+  },
+  {
+      "start": "01:12:44.401",
+      "start_ms": 4364401,
+      "end": "01:12:47.600",
+      "end_ms": 4367600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Es gibt keinen, der von Europa so profitiert wie wir."
+  },
+  {
+      "start": "01:12:47.601",
+      "start_ms": 4367601,
+      "end": "01:12:48.400",
+      "end_ms": 4368400,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ja."
+  },
+  {
+      "start": "01:13:06.101",
+      "start_ms": 4386101,
+      "end": "01:13:11.700",
+      "end_ms": 4391700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "also wir profitieren von der Situation, und die Griechen haben die Nachteile."
+  },
+  {
+      "start": "01:13:15.001",
+      "start_ms": 4395001,
+      "end": "01:13:20.000",
+      "end_ms": 4400000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "um den Griechen zu helfen, haben wir einen Diskurs, die Griechen seien zu faul."
+  },
+  {
+      "start": "01:13:29.201",
+      "start_ms": 4409201,
+      "end": "01:13:33.100",
+      "end_ms": 4413100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil unser Vorteil ist ja gerade, dass die anderen nicht so sind."
+  },
+  {
+      "start": "01:13:36.701",
+      "start_ms": 4416701,
+      "end": "01:13:39.100",
+      "end_ms": 4419100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wenn wir der Exportweltmeister sind."
+  },
+  {
+      "start": "01:13:51.201",
+      "start_ms": 4431201,
+      "end": "01:13:54.100",
+      "end_ms": 4434100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und man muss sich da was ausdenken."
+  },
+  {
+      "start": "01:14:18.001",
+      "start_ms": 4458001,
+      "end": "01:14:22.300",
+      "end_ms": 4462300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil wir das Richtige schon dauernd als falsch diffamiert haben."
+  },
+  {
+      "start": "01:15:05.901",
+      "start_ms": 4505901,
+      "end": "01:15:10.300",
+      "end_ms": 4510300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ist es dringend notwendig, dass wir zumindest die Einheit Europa haben,"
+  },
+  {
+      "start": "01:15:17.101",
+      "start_ms": 4517101,
+      "end": "01:15:20.400",
+      "end_ms": 4520400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wenn wir unsere Kultur und unseren Wohlstand erhalten wollen,"
+  },
+  {
+      "start": "01:15:34.001",
+      "start_ms": 4534001,
+      "end": "01:15:38.200",
+      "end_ms": 4538200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und nicht auch noch Europa schlecht reden."
+  },
+  {
+      "start": "01:16:15.901",
+      "start_ms": 4575901,
+      "end": "01:16:19.900",
+      "end_ms": 4579900,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "dass es an sich schon gar nicht so eine schlechte Idee gewesen ist."
+  },
+  {
+      "start": "01:16:19.901",
+      "start_ms": 4579901,
+      "end": "01:16:23.800",
+      "end_ms": 4583800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also ich sage seit dem Referendum,"
+  },
+  {
+      "start": "01:16:31.801",
+      "start_ms": 4591801,
+      "end": "01:16:37.100",
+      "end_ms": 4597100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass die Briten im Wesentlichen in der EU bleiben."
+  },
+  {
+      "start": "01:16:48.101",
+      "start_ms": 4608101,
+      "end": "01:16:51.900",
+      "end_ms": 4611900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und das sind ja jetzt auch die Bausteine, die im Raum stehen,"
+  },
+  {
+      "start": "01:16:59.701",
+      "start_ms": 4619701,
+      "end": "01:17:05.100",
+      "end_ms": 4625100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "sobald sie in der Zollunion sind, kann man die harte Grenze in Irland vermeiden,"
+  },
+  {
+      "start": "01:17:11.401",
+      "start_ms": 4631401,
+      "end": "01:17:13.500",
+      "end_ms": 4633500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "oder die Liechtenstein hat,"
+  },
+  {
+      "start": "01:17:27.201",
+      "start_ms": 4647201,
+      "end": "01:17:31.600",
+      "end_ms": 4651600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Liechtenstein ist in einer Zollunion mit der Schweiz,"
+  },
+  {
+      "start": "01:17:31.601",
+      "start_ms": 4651601,
+      "end": "01:17:35.500",
+      "end_ms": 4655500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber Liechtenstein ist auch in einer Zollunion mit der EU."
+  },
+  {
+      "start": "01:17:38.801",
+      "start_ms": 4658801,
+      "end": "01:17:40.900",
+      "end_ms": 4660900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Aber das ist der Status quo."
+  },
+  {
+      "start": "01:17:40.901",
+      "start_ms": 4660901,
+      "end": "01:17:41.600",
+      "end_ms": 4661600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ja."
+  },
+  {
+      "start": "01:17:53.001",
+      "start_ms": 4673001,
+      "end": "01:17:57.600",
+      "end_ms": 4677600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber man ist dann doch nicht drin und man kann dann im Ausnahmefall auch mal irgendwas machen,"
+  },
+  {
+      "start": "01:18:01.301",
+      "start_ms": 4681301,
+      "end": "01:18:04.600",
+      "end_ms": 4684600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich hoffe, dass wir da noch rauskommen werden."
+  },
+  {
+      "start": "01:18:19.601",
+      "start_ms": 4699601,
+      "end": "01:18:22.300",
+      "end_ms": 4702300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "einen Tod muss man sterben,"
+  },
+  {
+      "start": "01:18:22.301",
+      "start_ms": 4702301,
+      "end": "01:18:27.900",
+      "end_ms": 4707900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das ist ein bisschen eine Auseinandersetzung vom Typ Prisoner's Dilemma,"
+  },
+  {
+      "start": "01:18:27.901",
+      "start_ms": 4707901,
+      "end": "01:18:30.400",
+      "end_ms": 4710400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ein bisschen vom Typ Ultimatumspiel,"
+  },
+  {
+      "start": "01:18:30.401",
+      "start_ms": 4710401,
+      "end": "01:18:32.900",
+      "end_ms": 4712900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ist ein bisschen was wie Pokern,"
+  },
+  {
+      "start": "01:18:32.901",
+      "start_ms": 4712901,
+      "end": "01:18:35.800",
+      "end_ms": 4715800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "gucken, wer die Nerven hat, bis wann."
+  },
+  {
+      "start": "01:18:41.801",
+      "start_ms": 4721801,
+      "end": "01:18:47.100",
+      "end_ms": 4727100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass im Endergebnis die Briten im Wesentlichen in der EU bleiben."
+  },
+  {
+      "start": "01:19:05.101",
+      "start_ms": 4745101,
+      "end": "01:19:11.400",
+      "end_ms": 4751400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ohne die Konditionen zu kennen, die mit dem einen oder anderen verbunden sind."
+  },
+  {
+      "start": "01:19:19.401",
+      "start_ms": 4759401,
+      "end": "01:19:25.000",
+      "end_ms": 4765000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "willst du ein Haus kaufen oder nicht, spielt eine Rolle, ist da vielleicht noch eine Erbpacht drauf,"
+  },
+  {
+      "start": "01:19:25.001",
+      "start_ms": 4765001,
+      "end": "01:19:28.400",
+      "end_ms": 4768400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "darf da noch einer 10 Jahre drin wohnen, was kostet das Haus?"
+  },
+  {
+      "start": "01:19:37.401",
+      "start_ms": 4777401,
+      "end": "01:19:41.300",
+      "end_ms": 4781300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass sie zumindest den Gedanken zulassen, dass sie raus wollen."
+  },
+  {
+      "start": "01:19:46.101",
+      "start_ms": 4786101,
+      "end": "01:19:47.200",
+      "end_ms": 4787200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Welche Alternativen habe ich?"
+  },
+  {
+      "start": "01:19:52.501",
+      "start_ms": 4792501,
+      "end": "01:19:58.100",
+      "end_ms": 4798100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ob ich bei dieser Angebotslage nun wirklich raus will, oder ob ich dann doch lieber drin bleibe."
+  },
+  {
+      "start": "01:20:17.401",
+      "start_ms": 4817401,
+      "end": "01:20:22.900",
+      "end_ms": 4822900,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Brexit ist ja eigentlich gar nicht unser Thema, aber ich denke, dass der Zustand in Europa,"
+  },
+  {
+      "start": "01:20:22.901",
+      "start_ms": 4822901,
+      "end": "01:20:27.900",
+      "end_ms": 4827900,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "der sich jetzt hier in gewisser Hinsicht zumindest im Kleinen nochmal so neu verhandelt,"
+  },
+  {
+      "start": "01:20:35.601",
+      "start_ms": 4835601,
+      "end": "01:20:36.900",
+      "end_ms": 4836900,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "den die Welt an sich gehen muss."
+  },
+  {
+      "start": "01:21:03.801",
+      "start_ms": 4863801,
+      "end": "01:21:06.100",
+      "end_ms": 4866100,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "wie es die EU am Anfang auch gemacht hat,"
+  },
+  {
+      "start": "01:21:06.101",
+      "start_ms": 4866101,
+      "end": "01:21:11.600",
+      "end_ms": 4871600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "und dass ich dann hier vielleicht schon irgendwann auch mal wieder eine neue globale Politik abzeichnen kann,"
+  },
+  {
+      "start": "01:21:19.901",
+      "start_ms": 4879901,
+      "end": "01:21:26.200",
+      "end_ms": 4886200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja, wobei allerdings, sagen wir mal, die geopolitischen Fragen"
+  },
+  {
+      "start": "01:21:26.201",
+      "start_ms": 4886201,
+      "end": "01:21:29.600",
+      "end_ms": 4889600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weltweit auf einer ganz anderen Ebene liegen als in der kleinen EU."
+  },
+  {
+      "start": "01:21:29.601",
+      "start_ms": 4889601,
+      "end": "01:21:33.500",
+      "end_ms": 4893500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also insofern ist die EU eigentlich der einfache Fall,"
+  },
+  {
+      "start": "01:21:33.501",
+      "start_ms": 4893501,
+      "end": "01:21:38.900",
+      "end_ms": 4898900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und an diesem einfachen Fall haben wir ja auch sehr viel richtig gemacht."
+  },
+  {
+      "start": "01:21:59.201",
+      "start_ms": 4919201,
+      "end": "01:22:02.700",
+      "end_ms": 4922700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber dazu braucht man auch die volle Demokratie in Europa,"
+  },
+  {
+      "start": "01:22:02.701",
+      "start_ms": 4922701,
+      "end": "01:22:07.900",
+      "end_ms": 4927900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "man braucht ein voll verantwortliches Parlament,"
+  },
+  {
+      "start": "01:22:14.901",
+      "start_ms": 4934901,
+      "end": "01:22:19.900",
+      "end_ms": 4939900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wenn man das alles klug durchdenkt, dann kann man Europa fortentwickeln,"
+  },
+  {
+      "start": "01:22:19.901",
+      "start_ms": 4939901,
+      "end": "01:22:23.700",
+      "end_ms": 4943700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "sehr klug, zu unserer aller Vorteil."
+  },
+  {
+      "start": "01:24:00.701",
+      "start_ms": 5040701,
+      "end": "01:24:03.700",
+      "end_ms": 5043700,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Um mal langsam wieder den Weg auf unser Kernthema zu finden,"
+  },
+  {
+      "start": "01:24:03.701",
+      "start_ms": 5043701,
+      "end": "01:24:07.600",
+      "end_ms": 5047600,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "aber ohne den Faden jetzt hier komplett fallenzulassen:"
+  },
+  {
+      "start": "01:24:43.101",
+      "start_ms": 5083101,
+      "end": "01:24:47.700",
+      "end_ms": 5087700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Erstens Ja, zweitens ist das auch die gesetzliche Lage,"
+  },
+  {
+      "start": "01:24:47.701",
+      "start_ms": 5087701,
+      "end": "01:24:50.700",
+      "end_ms": 5090700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und drittens nehmen wir die nicht zur Kenntnis."
+  },
+  {
+      "start": "01:25:05.801",
+      "start_ms": 5105801,
+      "end": "01:25:13.800",
+      "end_ms": 5113800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das ist auch sinnvoll, weil wir in einem gemeinsamen Markt operieren und die CO2-Emissionen ja Ergebnisse der Marktprozesse sind,"
+  },
+  {
+      "start": "01:25:30.801",
+      "start_ms": 5130801,
+      "end": "01:25:35.500",
+      "end_ms": 5135500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und das haben wir auch immer so gemacht, und das ist gut so."
+  },
+  {
+      "start": "01:25:45.101",
+      "start_ms": 5145101,
+      "end": "01:25:48.000",
+      "end_ms": 5148000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ja, und wir haben ja sogar ein Vehikel."
+  },
+  {
+      "start": "01:25:48.001",
+      "start_ms": 5148001,
+      "end": "01:25:56.200",
+      "end_ms": 5156200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und im Moment diskutieren wir zum Beispiel, dass Deutschland sein Ziel 2010 verfehlt."
+  },
+  {
+      "start": "01:25:56.201",
+      "start_ms": 5156201,
+      "end": "01:26:00.400",
+      "end_ms": 5160400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Europa wird sein Ziel 2020 nicht verfehlen."
+  },
+  {
+      "start": "01:26:44.101",
+      "start_ms": 5204101,
+      "end": "01:26:47.000",
+      "end_ms": 5207000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das wird alles so kommen,"
+  },
+  {
+      "start": "01:26:52.201",
+      "start_ms": 5212201,
+      "end": "01:26:55.800",
+      "end_ms": 5215800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass wir unser Klimaziel verfehlen."
+  },
+  {
+      "start": "01:26:55.801",
+      "start_ms": 5215801,
+      "end": "01:26:58.900",
+      "end_ms": 5218900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Jetzt kann man einen logischen Schritt weitergehen,"
+  },
+  {
+      "start": "01:27:04.301",
+      "start_ms": 5224301,
+      "end": "01:27:06.400",
+      "end_ms": 5226400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "nach irgendeiner Logik,"
+  },
+  {
+      "start": "01:27:16.201",
+      "start_ms": 5236201,
+      "end": "01:27:20.900",
+      "end_ms": 5240900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Na, diese absurde Frage stellt im Moment keiner, weil Berlin ist ja Teil von Deutschland,"
+  },
+  {
+      "start": "01:27:28.601",
+      "start_ms": 5248601,
+      "end": "01:27:29.200",
+      "end_ms": 5249200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ja, okay."
+  },
+  {
+      "start": "01:27:35.701",
+      "start_ms": 5255701,
+      "end": "01:27:41.300",
+      "end_ms": 5261300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "in Europa haben wir das so gemacht und wir werden unsere Ziele erreichen, und Deutschland leistet seinen Beitrag."
+  },
+  {
+      "start": "01:27:41.301",
+      "start_ms": 5261301,
+      "end": "01:27:46.200",
+      "end_ms": 5266200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und das ist genau die Richtung, wie man sich auch in Zukunft weiterentwickeln sollte,"
+  },
+  {
+      "start": "01:27:59.001",
+      "start_ms": 5279001,
+      "end": "01:28:02.000",
+      "end_ms": 5282000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das dann bei uns anrechenbar ist."
+  },
+  {
+      "start": "01:28:02.001",
+      "start_ms": 5282001,
+      "end": "01:28:07.200",
+      "end_ms": 5287200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das war im Kioto-Protokoll so, das war der sogenannte Clean Development Mechanism,"
+  },
+  {
+      "start": "01:28:19.401",
+      "start_ms": 5299401,
+      "end": "01:28:22.300",
+      "end_ms": 5302300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und was die meisten Leute gar nicht gemerkt haben:"
+  },
+  {
+      "start": "01:28:28.401",
+      "start_ms": 5308401,
+      "end": "01:28:35.200",
+      "end_ms": 5315200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wie man die CO2-Volumina auf der Ebene der Versprechen verbessert."
+  },
+  {
+      "start": "01:29:02.701",
+      "start_ms": 5342701,
+      "end": "01:29:08.100",
+      "end_ms": 5348100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber das Problem ist, dass wir viel zu viele, mittlerweile, in Deutschland und Europa haben,"
+  },
+  {
+      "start": "01:29:08.101",
+      "start_ms": 5348101,
+      "end": "01:29:15.000",
+      "end_ms": 5355000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "die mit dem Schlagwort Ablasshandel gegen alle diesen internationalen Mechanismen argumentieren,"
+  },
+  {
+      "start": "01:29:15.001",
+      "start_ms": 5355001,
+      "end": "01:29:19.700",
+      "end_ms": 5359700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und nicht mal mehr den Austausch innerhalb Europas zulassen wollen,"
+  },
+  {
+      "start": "01:29:19.701",
+      "start_ms": 5359701,
+      "end": "01:29:24.100",
+      "end_ms": 5364100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "sondern sich zunehmend national verengen, bei einem Thema,"
+  },
+  {
+      "start": "01:29:38.701",
+      "start_ms": 5378701,
+      "end": "01:29:42.000",
+      "end_ms": 5382000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Und da haben dann auch die Briten ein weiteres Brexit-Problem,"
+  },
+  {
+      "start": "01:29:47.401",
+      "start_ms": 5387401,
+      "end": "01:29:49.500",
+      "end_ms": 5389500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "dass Deutschland viel schlimmer ist."
+  },
+  {
+      "start": "01:29:50.101",
+      "start_ms": 5390101,
+      "end": "01:29:55.300",
+      "end_ms": 5395300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich glaube, also die Briten werden sicher, selbst wenn sie aus der EU rausgehen,"
+  },
+  {
+      "start": "01:29:55.301",
+      "start_ms": 5395301,
+      "end": "01:30:00.500",
+      "end_ms": 5400500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "werden die Briten ihr Klimaregime mit unserem koppeln,"
+  },
+  {
+      "start": "01:31:05.801",
+      "start_ms": 5465801,
+      "end": "01:31:10.000",
+      "end_ms": 5470000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "indem man andere Dinge finanziert."
+  },
+  {
+      "start": "01:31:10.001",
+      "start_ms": 5470001,
+      "end": "01:31:20.000",
+      "end_ms": 5480000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Man macht einen Flug, man hat irgendeine andere nennenswerte Belastung und spendet dann entsprechend Geld an Projekte."
+  },
+  {
+      "start": "01:31:46.501",
+      "start_ms": 5506501,
+      "end": "01:31:50.300",
+      "end_ms": 5510300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich habe dazu ein Buch geschrieben, der Milliarden-Joker,"
+  },
+  {
+      "start": "01:32:09.401",
+      "start_ms": 5529401,
+      "end": "01:32:14.800",
+      "end_ms": 5534800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und das sind in der Regel solche, die sehr hohe CO2-Emissionen haben,"
+  },
+  {
+      "start": "01:32:14.801",
+      "start_ms": 5534801,
+      "end": "01:32:19.300",
+      "end_ms": 5539300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "also Leute mit 100 Tonnen im Jahr, 200 Tonnen im Jahr, 400 Tonnen im Jahr,"
+  },
+  {
+      "start": "01:32:19.301",
+      "start_ms": 5539301,
+      "end": "01:32:26.100",
+      "end_ms": 5546100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "wo der deutsche Durchschnitt bei 11 ist, und viele bei uns mit 5 oder 6 Tonnen auskommen,"
+  },
+  {
+      "start": "01:32:26.101",
+      "start_ms": 5546101,
+      "end": "01:32:28.700",
+      "end_ms": 5548700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und der Bangladeschi mit weniger als einer Tonne."
+  },
+  {
+      "start": "01:32:28.701",
+      "start_ms": 5548701,
+      "end": "01:32:33.100",
+      "end_ms": 5553100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wir haben Leute, 500 Tonnen, aber die haben wir auch in Bangladesch,"
+  },
+  {
+      "start": "01:32:33.101",
+      "start_ms": 5553101,
+      "end": "01:32:35.100",
+      "end_ms": 5555100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das sind die Reichen in Bangladesch,"
+  },
+  {
+      "start": "01:32:46.001",
+      "start_ms": 5566001,
+      "end": "01:32:51.700",
+      "end_ms": 5571700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil die ganz viel Wohlstand vernichten wird und diese Leute viel von diesem Wohlstand besitzen."
+  },
+  {
+      "start": "01:32:51.701",
+      "start_ms": 5571701,
+      "end": "01:32:57.600",
+      "end_ms": 5577600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Diese Leute haben auch deshalb Interesse daran, das Klimaproblem zu vermeiden,"
+  },
+  {
+      "start": "01:32:57.601",
+      "start_ms": 5577601,
+      "end": "01:33:04.900",
+      "end_ms": 5584900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "weil sonst in einer Hysterie bei uns massive Eingriffe in die Lebensstile kommen,"
+  },
+  {
+      "start": "01:33:04.901",
+      "start_ms": 5584901,
+      "end": "01:33:07.900",
+      "end_ms": 5587900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "man merkt das jetzt im Moment bei den Dieselfahrzeugen,"
+  },
+  {
+      "start": "01:33:07.901",
+      "start_ms": 5587901,
+      "end": "01:33:13.300",
+      "end_ms": 5593300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber man merkt das auch bei Forderungen, kein Fleisch zu essen, und nicht so viel zu reisen usw."
+  },
+  {
+      "start": "01:33:36.001",
+      "start_ms": 5616001,
+      "end": "01:33:41.100",
+      "end_ms": 5621100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "hochwertige Projekte, und diese Projekte sollen zwei Dinge tun:"
+  },
+  {
+      "start": "01:33:57.401",
+      "start_ms": 5637401,
+      "end": "01:34:00.200",
+      "end_ms": 5640200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "SDGs sind die Sustainable Development Goals."
+  },
+  {
+      "start": "01:34:00.201",
+      "start_ms": 5640201,
+      "end": "01:34:05.300",
+      "end_ms": 5645300,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das sind die Sustainable Development Goals, das sind die Ziele der Weltgemeinschaft,"
+  },
+  {
+      "start": "01:34:05.301",
+      "start_ms": 5645301,
+      "end": "01:34:10.800",
+      "end_ms": 5650800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und dann sollen die selben Projekte gleichzeitig bilanziell dem Klima helfen."
+  },
+  {
+      "start": "01:34:16.401",
+      "start_ms": 5656401,
+      "end": "01:34:20.900",
+      "end_ms": 5660900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "aber zum Beispiel erneuerbare Energien, synthetische Kraftstoffe usw.,"
+  },
+  {
+      "start": "01:34:20.901",
+      "start_ms": 5660901,
+      "end": "01:34:24.900",
+      "end_ms": 5664900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und stecke in alles das dein Geld rein."
+  },
+  {
+      "start": "01:34:24.901",
+      "start_ms": 5664901,
+      "end": "01:34:31.400",
+      "end_ms": 5671400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und entweder mach die Projekte, oder kaufe Zertifikate, und wenn du Zertifikate kaufst,"
+  },
+  {
+      "start": "01:34:31.401",
+      "start_ms": 5671401,
+      "end": "01:34:40.200",
+      "end_ms": 5680200,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "ist das Geld weg, also dein entscheidender Beitrag ist, dass du dein Geld nimmst und gibst es ab."
+  },
+  {
+      "start": "01:34:40.201",
+      "start_ms": 5680201,
+      "end": "01:34:43.400",
+      "end_ms": 5683400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Es ist weg, du kannst es nicht mehr selber ausgeben."
+  },
+  {
+      "start": "01:34:43.401",
+      "start_ms": 5683401,
+      "end": "01:34:47.600",
+      "end_ms": 5687600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Du kannst auch mit dem Ausgeben von deinem Geld an der Stelle keinen Schaden mehr machen."
+  },
+  {
+      "start": "01:34:47.601",
+      "start_ms": 5687601,
+      "end": "01:34:54.900",
+      "end_ms": 5694900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das Geld ist woanders, und es ist irgendwo, wo es Menschen hilft, der Natur hilft, und dem Klima hilft,"
+  },
+  {
+      "start": "01:35:01.601",
+      "start_ms": 5701601,
+      "end": "01:35:06.800",
+      "end_ms": 5706800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Wenn du also jemand mit 10 Tonnen bist, dann kompensiere mal mindestens 10 Tonnen,"
+  },
+  {
+      "start": "01:35:06.801",
+      "start_ms": 5706801,
+      "end": "01:35:07.800",
+      "end_ms": 5707800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das kann jeder machen."
+  },
+  {
+      "start": "01:35:07.801",
+      "start_ms": 5707801,
+      "end": "01:35:12.000",
+      "end_ms": 5712000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Es kostet im Moment, je nach Zertifikat, vielleicht 100 Euro,"
+  },
+  {
+      "start": "01:35:12.001",
+      "start_ms": 5712001,
+      "end": "01:35:14.800",
+      "end_ms": 5714800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dann nimmt man 100 Euro, sie sind weg,"
+  },
+  {
+      "start": "01:35:14.801",
+      "start_ms": 5714801,
+      "end": "01:35:22.100",
+      "end_ms": 5722100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "man gibt die 100 Euro, nach Afrika, in Projekten, wo die NGOs dabei sind,"
+  },
+  {
+      "start": "01:35:37.001",
+      "start_ms": 5737001,
+      "end": "01:35:39.500",
+      "end_ms": 5739500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "helfen der Natur und helfen dem Klima."
+  },
+  {
+      "start": "01:35:50.301",
+      "start_ms": 5750301,
+      "end": "01:35:53.700",
+      "end_ms": 5753700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "September in Gang gesetzt haben, September, Oktober letzten Jahres,"
+  },
+  {
+      "start": "01:35:53.701",
+      "start_ms": 5753701,
+      "end": "01:35:57.400",
+      "end_ms": 5757400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "heute schon 160 Partner."
+  },
+  {
+      "start": "01:36:08.901",
+      "start_ms": 5768901,
+      "end": "01:36:15.100",
+      "end_ms": 5775100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "was droht, da ist SAP dabei, ist der Club of Rome dabei, ist Ritter Sport dabei,"
+  },
+  {
+      "start": "01:36:48.901",
+      "start_ms": 5808901,
+      "end": "01:36:54.000",
+      "end_ms": 5814000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "indem dieser Wohlstandszuwachs klimaneutral erfolgt."
+  },
+  {
+      "start": "01:37:01.201",
+      "start_ms": 5821201,
+      "end": "01:37:06.400",
+      "end_ms": 5826400,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "da entsprechende Klimakompensation auszusenden."
+  },
+  {
+      "start": "01:37:06.401",
+      "start_ms": 5826401,
+      "end": "01:37:07.700",
+      "end_ms": 5827700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Sehr gut, sehr gut."
+  },
+  {
+      "start": "01:37:07.701",
+      "start_ms": 5827701,
+      "end": "01:37:10.000",
+      "end_ms": 5830000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Genau das brauchen wir."
+  },
+  {
+      "start": "01:37:14.001",
+      "start_ms": 5834001,
+      "end": "01:37:18.500",
+      "end_ms": 5838500,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "warum eigentlich das nicht sowieso schon in dem Ticketpreis drin ist."
+  },
+  {
+      "start": "01:37:18.501",
+      "start_ms": 5838501,
+      "end": "01:37:21.100",
+      "end_ms": 5841100,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Das sind Dinge, an denen wir jetzt arbeiten."
+  },
+  {
+      "start": "01:37:31.201",
+      "start_ms": 5851201,
+      "end": "01:37:35.400",
+      "end_ms": 5855400,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "zumindest immer die Kompensation automatisch mit anbieten,"
+  },
+  {
+      "start": "01:37:35.401",
+      "start_ms": 5855401,
+      "end": "01:37:40.700",
+      "end_ms": 5860700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "vielleicht dass wir dahin kommen, dass jemand, der nicht kompensieren will, ein Kreuz machen muss."
+  },
+  {
+      "start": "01:37:40.701",
+      "start_ms": 5860701,
+      "end": "01:37:44.500",
+      "end_ms": 5864500,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Und wer kein Kreuz macht, in dessen Preis ist die Kompensation schon drin,"
+  },
+  {
+      "start": "01:37:44.501",
+      "start_ms": 5864501,
+      "end": "01:37:46.800",
+      "end_ms": 5866800,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "damit ist das alles schon geregelt."
+  },
+  {
+      "start": "01:37:46.801",
+      "start_ms": 5866801,
+      "end": "01:37:53.600",
+      "end_ms": 5873600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Also wir brauchen sozusagen Multiplikatorinstrumente, die immer mehr Menschen dazu bringen,"
+  },
+  {
+      "start": "01:37:53.601",
+      "start_ms": 5873601,
+      "end": "01:37:57.700",
+      "end_ms": 5877700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "dass sie automatisch diese Kompensationen finanzieren."
+  },
+  {
+      "start": "01:37:57.701",
+      "start_ms": 5877701,
+      "end": "01:37:59.000",
+      "end_ms": 5879000,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Dann sind wir viel weiter."
+  },
+  {
+      "start": "01:38:10.101",
+      "start_ms": 5890101,
+      "end": "01:38:12.700",
+      "end_ms": 5892700,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "und die gehen in Kompensation."
+  },
+  {
+      "start": "01:38:34.101",
+      "start_ms": 5914101,
+      "end": "01:38:39.900",
+      "end_ms": 5919900,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "das ist dann, wenn man so will, eine Art Internalisierung der externen Kosten,"
+  },
+  {
+      "start": "01:39:18.401",
+      "start_ms": 5958401,
+      "end": "01:39:22.000",
+      "end_ms": 5962000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Ja, Herr Radermacher,"
+  },
+  {
+      "start": "01:39:25.801",
+      "start_ms": 5965801,
+      "end": "01:39:30.200",
+      "end_ms": 5970200,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "Mal gucken, vielleicht bleibt es ja auch nicht das letzte in dieser Reihe,"
+  },
+  {
+      "start": "01:39:30.201",
+      "start_ms": 5970201,
+      "end": "01:39:32.000",
+      "end_ms": 5972000,
+      "speaker": "1",
+      "voice": "timpritlove",
+      "text": "aber ich bedanke mich jetzt erstmal sehr ..."
+  },
+  {
+      "start": "01:39:32.001",
+      "start_ms": 5972001,
+      "end": "01:39:33.600",
+      "end_ms": 5973600,
+      "speaker": "26",
+      "voice": "franzjosefradermacher",
+      "text": "Ich danke Ihnen!"
+  }
+]

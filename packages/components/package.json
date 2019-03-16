@@ -9,7 +9,7 @@
     "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "prepublishOnly": "npm run build && cp -r ./dist/* ."
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
