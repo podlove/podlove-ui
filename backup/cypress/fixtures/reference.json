@@ -1,7 +1,0 @@
-{
-  "reference": {
-    "config": "//localhost:8080/fixtures/example.json",
-    "share": "//localhost:8080/share",
-    "origin": "//localhost:8080/standalone.html"
-  }
-}
