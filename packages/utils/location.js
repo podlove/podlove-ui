@@ -1,4 +1,5 @@
 import queryString from 'query-string'
+import { toPlayerTime } from './time'
 
 export const locationParams = queryString.parse(window.location.search)
 
@@ -7,8 +8,8 @@ const parseParameters = parameters => {
 
   if (parameters.t) {
     const [start, stop] = parameters.t.split(',')
-    parsed.starttime = isString(start) ? toPlayerTime(start) : undefined
-    parsed.stoptime = isString(stop) ? toPlayerTime(stop) : undefined
+    parsed.starttime = typeof start === 'string' ? toPlayerTime(start) : undefined
+    parsed.stoptime = typeof stop === 'string' ? toPlayerTime(stop) : undefined
   }
 
   if (parameters.episode) {

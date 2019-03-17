@@ -3,9 +3,10 @@ import { delay } from 'redux-saga/lib'
 import { last, find, isNumber, endsWith } from 'lodash'
 import { compose, map, orderBy, reduce, concat } from 'lodash/fp'
 
-import { INIT_TRANSCRIPTS, BACKEND_PLAYTIME, REQUEST_PLAYTIME, DISABLE_GHOST_MODE, SIMULATE_PLAYTIME, SEARCH_TRANSCRIPTS } from '@podlove/player-actions/types'
+import { INIT, BACKEND_PLAYTIME, REQUEST_PLAYTIME, DISABLE_GHOST_MODE, SIMULATE_PLAYTIME, SEARCH_TRANSCRIPTS } from '@podlove/player-actions/types'
 import { setTranscriptsTimeline, updateTranscripts, setTranscriptsSearchResults } from '@podlove/player-actions/transcripts'
 import { secondsToMilliseconds, toPlayerTime } from '@podlove/utils/time'
+import { transcripts as getTranscripts } from '@podlove/utils/config'
 import { inAnimationFrame  } from '@podlove/utils/helper'
 import { binarySearch, textSearch } from '@podlove/utils/search'
 
@@ -83,14 +84,14 @@ const mapSpeakers = speakers =>
   })
 
 export default ({ selectSpeakers, selectChapters }) => function* () {
-  yield takeEvery(INIT_TRANSCRIPTS, init)
+  yield takeEvery(INIT, init)
 
   function* init ({ payload }) {
     const speakers = yield select(selectSpeakers)
     const chapters = yield select(selectChapters)
 
     const assignSpeakers = mapSpeakers(speakers)
-    const transcripts = compose(orderBy('start', 'asc'), concat(transformChapters(chapters)), assignSpeakers, transformTranscript)(payload)
+    const transcripts = compose(orderBy('start', 'asc'), concat(transformChapters(chapters)), assignSpeakers, transformTranscript, getTranscripts)(payload)
     const searchIndex = inAnimationFrame(binarySearch(transcripts.map(({ start }) => start)))
     const searchText = textSearch(transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' ')))
 

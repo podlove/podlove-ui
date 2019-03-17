@@ -13,6 +13,7 @@ export const media = compose(map(createObject({
 
 export const chapters = propOr([], 'chapters')
 export const reference = propOr({}, 'reference')
+export const transcripts = propOr([], 'transcripts')
 export const shareReference = compose(propOr(null, 'share'), reference)
 export const originReference = compose(propOr(null, 'origin'), reference)
 export const configReference = compose(propOr(null, 'origin'), reference)
