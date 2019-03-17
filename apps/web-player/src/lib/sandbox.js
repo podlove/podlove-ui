@@ -5,6 +5,7 @@ import { iframeResizer } from 'iframe-resizer'
 // eslint-disable-next-line
 import iframeResizerContentWindow from 'raw-loader!iframe-resizer/js/iframeResizer.contentWindow.min.js'
 import embedPlayerDom from './embed.html'
+import { createLoader } from './loader'
 
 const setAccessibilityAttributes = curry((config, node) => {
   const title = `Podlove Web Player${prop('title', config) ? ': ' + prop('title', config) : ''}`
@@ -23,7 +24,8 @@ export const createSandbox = async (config, node) => {
     base: reference,
     styles: STYLES,
     scripts: SCRIPTS,
-    resizer: iframeResizerContentWindow
+    resizer: iframeResizerContentWindow,
+    loader: createLoader(config)
   })
 
   const player = await sandbox(node, playerDom)

@@ -51,11 +51,11 @@ export default {
           return {
             type: 'play',
             a11y: this.$t('A11Y.PLAYER_START', {
-              hours: calcHours(this.duration),
-              minutes: calcMinutes(this.duration),
-              seconds: calcSeconds(this.duration)
+              hours: calcHours(this.playtime > 0 ? this.playtime : this.duration),
+              minutes: calcMinutes(this.playtime > 0 ? this.playtime : this.duration),
+              seconds: calcSeconds(this.playtime > 0 ? this.playtime : this.duration)
             }),
-            label: toHumanTime(this.duration)
+            label: toHumanTime(this.playtime > 0 ? this.playtime : this.duration)
           }
         case 'remaining':
           return {

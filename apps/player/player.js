@@ -25,6 +25,6 @@ const i18n = new VueI18n({
 
 new Vue({
   i18n,
-  el: head(document.getElementsByTagName('podlove-web-player')),
+  el: head(document.getElementsByTagName('podlove-player')),
   render: h => h(App)
 })

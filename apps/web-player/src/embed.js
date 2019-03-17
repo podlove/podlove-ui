@@ -1,14 +1,12 @@
 import { init } from '@podlove/player-actions/lifecycle'
-import { setPlaybackParams } from '@podlove/player-actions/runtime'
 import { findNode } from '@podlove/utils/dom'
-import { urlParameters } from '@podlove/utils/location'
-import { propOr } from 'ramda'
-
 
 import { version } from '../package'
-
-import { parseConfig } from './config'
-import { createSandbox } from './sandbox'
+import { parseConfig } from './lib/config'
+import { createSandbox } from './lib/sandbox'
+import { setVisibleComponents } from './lib/visible-components'
+import { applyUrlParameters } from './lib/url-params'
+import { persistPlayer } from './lib/persist'
 
 const canvas = selector => {
   const node = findNode(selector)
@@ -37,7 +35,9 @@ window.podlovePlayer = async (selector, episode, additional = {}) => {
 
     store.dispatch(init(config))
 
-    store.dispatch(setPlaybackParams(urlParameters))
+    setVisibleComponents(config, store)
+    persistPlayer(config, store)
+    applyUrlParameters(store)
 
     return store
   } catch (err) {
@@ -50,33 +50,3 @@ window.podlovePlayer = async (selector, episode, additional = {}) => {
     console.groupEnd()
   }
 }
-
-/**
- * window.podlovePlayer = (selector, episode, additional = {}) => {
-  const node = findNode(selector)
-  const nodeHtml = node.innerHTML
-  node.innerHTML = ''
-
-  return requestConfig(episode)
-    .then(config =>
-      Promise.resolve(merge(config, additional))
-        .then(setPublicPath)
-        .then(createPlayerDom)
-        .then(sandboxFromSelector(node))
-        // Set Title for accessibility
-        .then(setAccessibilityAttributes(config))
-        .then(resizer)
-        .then(sandboxWindow(['PODLOVE_STORE']))
-        .then(dispatchUrlParameters)
-    )
-    .catch(err => {
-      node.innerHTML = nodeHtml
-      console.group(`Can't load Podlove Webplayer ${version}`)
-      console.error('selector', selector)
-      console.error('config', episode)
-      console.error(err)
-      console.groupEnd()
-    })
-}
-
- */

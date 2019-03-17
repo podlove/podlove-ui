@@ -9,14 +9,17 @@
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js"
   },
   "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "@podlove/player": "4.2.3",
     "@podlove/utils": "4.2.3",
     "@podlove/player-actions": "4.2.3",
+    "@podlove/player-state": "4.2.3",
     "ramda": "0.26.1",
-    "iframe-resizer": "4.0.4"
+    "iframe-resizer": "4.0.4",
+    "localstorage": "1.0.1",
+    "hashcode": "1.0.3",
+    "color": "3.1.0"
   },
   "devDependencies": {
     "@podlove/build": "4.2.3",
