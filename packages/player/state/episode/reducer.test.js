@@ -10,7 +10,8 @@ test.beforeEach(t => {
       title: 'title',
       subtitle: 'subtitle',
       poster: '//episode/poster',
-      summary: 'Die muntere Talk Show um Leben mit Technik, das Netz und Technikkultur. Bisweilen Apple-lastig aber selten einseitig. Wir leben und lieben Technologie und reden darüber. Mit Tim, hukl, roddi, Clemens und Denis. Freak Show hieß irgendwann mal mobileMacs.',
+      summary:
+        'Die muntere Talk Show um Leben mit Technik, das Netz und Technikkultur. Bisweilen Apple-lastig aber selten einseitig. Wir leben und lieben Technologie und reden darüber. Mit Tim, hukl, roddi, Clemens und Denis. Freak Show hieß irgendwann mal mobileMacs.',
       link: 'https://freakshow.fm/fs171-invasion',
       publicationDate: '2016-02-11T03:13:55+00:00'
     }

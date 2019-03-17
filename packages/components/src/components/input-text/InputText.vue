@@ -3,70 +3,70 @@
 </template>
 
 <script>
-  import { color, background } from 'defaults'
+import { color, background } from 'defaults'
 
-  export default {
-    props: {
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-
-      value: {
-        type: String
-      },
-
-      color: {
-        type: String,
-        default: background
-      },
-
-      borderColor: {
-        type: String,
-        default: background
-      },
-
-      background: {
-        type: String,
-        default: color
-      },
-
-      block: {
-        type: Boolean,
-        default: false
-      }
+export default {
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
     },
-    computed: {
-      style () {
-        return {
-          color: this.color,
-          background: this.background,
-          'border-color': this.borderColor
-        }
+
+    value: {
+      type: String
+    },
+
+    color: {
+      type: String,
+      default: background
+    },
+
+    borderColor: {
+      type: String,
+      default: background
+    },
+
+    background: {
+      type: String,
+      default: color
+    },
+
+    block: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    style () {
+      return {
+        color: this.color,
+        background: this.background,
+        'border-color': this.borderColor
       }
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'tokens/defaults';
-  @import 'tokens/input';
+@import 'boot';
+@import 'tokens/defaults';
+@import 'tokens/input';
 
-  .input-text {
-    box-sizing: border-box;
-    display: inline-block;
-    resize: none;
-    padding: $padding / 4;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 3px;
-    height: $input-height;
-    font-size: 1em;
+.input-text {
+  box-sizing: border-box;
+  display: inline-block;
+  resize: none;
+  padding: $padding / 4;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  height: $input-height;
+  font-size: 1em;
 
-    &.block {
-      display: block;
-      width: 100%;
-    }
+  &.block {
+    display: block;
+    width: 100%;
   }
+}
 </style>

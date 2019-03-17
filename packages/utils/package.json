@@ -1,14 +1,14 @@
 {
   "name": "@podlove/utils",
   "version": "4.2.3",
-  "description": "Reducers and actions for podlove player framework",
+  "description": "Utils for Podlove Framework",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
   "dependencies": {
     "dompurify": "1.0.8",
     "lodash": "4.17.11",

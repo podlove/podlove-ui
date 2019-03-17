@@ -1,4 +1,3 @@
-
 const autoprefixer = require('autoprefixer')
 const cssClean = require('postcss-clean')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -94,5 +93,12 @@ const fonts = prefix => ({
 })
 
 module.exports = {
-  vue, javascript, images, vueStyles, fonts, pug, scss, mustache
+  vue,
+  javascript,
+  images,
+  vueStyles,
+  fonts,
+  pug,
+  scss,
+  mustache
 }

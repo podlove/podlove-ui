@@ -7,11 +7,14 @@ export const INITIAL_STATE = {
   size: '320x400'
 }
 
-const update = (state, payload) => state.available.includes(payload) ? payload : state.size
+const update = (state, payload) => (state.available.includes(payload) ? payload : state.size)
 
-export const reducer = handleActions({
-  [SELECT_EMBED_SIZE]: (state, { payload }) => ({
-    ...state,
-    size: update(state, payload)
-  })
-}, INITIAL_STATE)
+export const reducer = handleActions(
+  {
+    [SELECT_EMBED_SIZE]: (state, { payload }) => ({
+      ...state,
+      size: update(state, payload)
+    })
+  },
+  INITIAL_STATE
+)

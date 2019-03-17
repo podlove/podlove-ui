@@ -6,32 +6,32 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
+import { mapState } from 'redux-vuex'
 
-  import select from 'store/selectors'
+import select from 'store/selectors'
 
-  import Volume from './components/volume'
-  import Rate from './components/rate'
-  import Brand from './components/brand'
+import Volume from './components/volume'
+import Rate from './components/rate'
+import Brand from './components/brand'
 
-  export default {
-    data: mapState({
-      volumeVisible: select.components.volumeControl,
-      rateVisible: select.components.rateControl,
-    }),
-    components: {
-      Volume,
-      Rate,
-      Brand
-    }
+export default {
+  data: mapState({
+    volumeVisible: select.components.volumeControl,
+    rateVisible: select.components.rateControl
+  }),
+  components: {
+    Volume,
+    Rate,
+    Brand
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .audio-tab {
-    width: 100%;
-    padding-top: $padding;
-  }
+.audio-tab {
+  width: 100%;
+  padding-top: $padding;
+}
 </style>

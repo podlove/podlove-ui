@@ -14,12 +14,25 @@ import timepiece from './timepiece'
 
 const contentSlice = prop('content')
 const embedSlice = prop('embed')
-const type = compose(content.content, contentSlice, root.share)
-const embedSize = compose(embed.size, embedSlice, root.share)
-const availableEmbedSizes = compose(embed.available, embedSlice, root.share)
+const type = compose(
+  content.content,
+  contentSlice,
+  root.share
+)
+const embedSize = compose(
+  embed.size,
+  embedSlice,
+  root.share
+)
+const availableEmbedSizes = compose(
+  embed.available,
+  embedSlice,
+  root.share
+)
 
 const hasLink = state => (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))
-const hasEmbedLink = state => (type(state) !== 'show') && ((reference.config(state) && reference.share(state)) || reference.origin(state))
+const hasEmbedLink = state =>
+  type(state) !== 'show' && ((reference.config(state) && reference.share(state)) || reference.origin(state))
 
 const link = state => {
   switch (type(state)) {
@@ -28,7 +41,9 @@ const link = state => {
     case 'episode':
       return episode.link(state)
     case 'chapter':
-      return addQueryParameter(episode.link(state), { t: `${toHumanTime(chapter.current(state).start)},${toHumanTime(chapter.current(state).end)}` })
+      return addQueryParameter(episode.link(state), {
+        t: `${toHumanTime(chapter.current(state).start)},${toHumanTime(chapter.current(state).end)}`
+      })
     case 'time':
       return addQueryParameter(episode.link(state), { t: toHumanTime(timepiece.playtime(state)) })
     default:
@@ -46,11 +61,16 @@ const code = state => {
 
   const parameters = {
     episode: reference.config(state),
-    ...(type(state) === 'chapter' ? { t: `${toHumanTime(currentChapter.start)},${toHumanTime(currentChapter.end)}` } : {}),
+    ...(type(state) === 'chapter'
+      ? { t: `${toHumanTime(currentChapter.start)},${toHumanTime(currentChapter.end)}` }
+      : {}),
     ...(type(state) === 'time' ? { t: toHumanTime(timepiece.playtime(state)) } : {})
   }
 
-  return `<iframe title="${title}" width="${width}" height="${height}" src="${addQueryParameter(reference.share(state), parameters)}" frameborder="0" scrolling="no" tabindex="0"></iframe>`
+  return `<iframe title="${title}" width="${width}" height="${height}" src="${addQueryParameter(
+    reference.share(state),
+    parameters
+  )}" frameborder="0" scrolling="no" tabindex="0"></iframe>`
 }
 
 export default {

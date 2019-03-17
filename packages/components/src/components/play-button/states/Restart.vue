@@ -6,26 +6,26 @@
 </template>
 
 <script>
-  import Icon from 'components/icons'
-  import { color } from 'defaults'
+import Icon from 'components/icons'
+import { color } from 'defaults'
 
-  export default {
-    props: {
-      color: {
-        type: String,
-        default: color
-      }
-    },
-    components: {
-      Icon
+export default {
+  props: {
+    color: {
+      type: String,
+      default: color
     }
+  },
+  components: {
+    Icon
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  .restart-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.restart-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>

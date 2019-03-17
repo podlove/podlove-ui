@@ -13,9 +13,10 @@ const { prepend } = require('./utils')
 
 const vue = () => new VueLoaderPlugin()
 
-const css = ({ filename = '[name].css', prefix = '' } = {}) => new MiniCssExtractPlugin({
-  filename: prepend(filename, prefix)
-})
+const css = ({ filename = '[name].css', prefix = '' } = {}) =>
+  new MiniCssExtractPlugin({
+    filename: prepend(filename, prefix)
+  })
 
 const minifyCss = () => new OptimizeCSSAssetsPlugin({})
 
@@ -26,33 +27,51 @@ const base = base =>
     BASE: JSON.stringify(base)
   })
 
-const html = ({ files, chunks, exclude }) => files.map(({ filename, template }) =>
-  new HtmlWebpackPlugin({
-    filename,
-    template,
-    chunksSortMode: 'none',
-    chunks,
-    excludeChunks: exclude
-  })
-)
+const html = ({ files, chunks, exclude }) =>
+  files.map(
+    ({ filename, template }) =>
+      new HtmlWebpackPlugin({
+        filename,
+        template,
+        chunksSortMode: 'none',
+        chunks,
+        excludeChunks: exclude
+      })
+  )
 
 const jarvis = (port = 1337) => new Jarvis({ port })
 
-const bundleAnalyzer = () => new BundleAnalyzerPlugin({
-  analyzerMode: 'static',
-  openAnalyzer: false
-})
+const bundleAnalyzer = () =>
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    openAnalyzer: false
+  })
 
 const hmr = () => new webpack.HotModuleReplacementPlugin()
 
-const env = (data = {}) => new webpack.DefinePlugin(
-  Object.keys(data).reduce((result, key) => Object.assign({}, result, {
-    [key]: JSON.stringify(data[key])
-  }), {})
-)
+const env = (data = {}) =>
+  new webpack.DefinePlugin(
+    Object.keys(data).reduce(
+      (result, key) =>
+        Object.assign({}, result, {
+          [key]: JSON.stringify(data[key])
+        }),
+      {}
+    )
+  )
 
 const copy = (patterns = []) => new CopyPlugin(patterns)
 
 module.exports = {
-  vue, css, minifyCss, version, base, html, jarvis, bundleAnalyzer, hmr, env, copy
+  vue,
+  css,
+  minifyCss,
+  version,
+  base,
+  html,
+  jarvis,
+  bundleAnalyzer,
+  hmr,
+  env,
+  copy
 }

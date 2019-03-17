@@ -23,14 +23,14 @@ export default {
 
   computed: {
     timerStyle () {
-      if(!this.color) {
+      if (!this.color) {
         return {}
       }
 
       return {
         color: this.color
       }
-    },
+    }
   },
   methods: {
     toHumanTime
@@ -39,13 +39,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'font';
+@import 'boot';
+@import 'font';
 
-  // Timer
-  .timer {
-    display: block;
-    font-variant-numeric: tabular-nums;
-    @extend %font;
-  }
+// Timer
+.timer {
+  display: block;
+  font-variant-numeric: tabular-nums;
+  @extend %font;
+}
 </style>

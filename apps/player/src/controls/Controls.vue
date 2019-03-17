@@ -98,38 +98,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .control-bar {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.control-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  .control-button {
+    margin: 0 $margin;
+    display: block;
+    opacity: 1;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  @media screen and (max-width: $width-s) {
     .control-button {
-      margin: 0 $margin;
-      display: block;
-      opacity: 1;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-
-    @media screen and (max-width: $width-s) {
-      .control-button {
-        margin: 0 ($margin / 2);
-      }
+      margin: 0 ($margin / 2);
     }
   }
+}
 
-  .player-control {
-    margin: 0 ($margin / 1.5);
-  }
+.player-control {
+  margin: 0 ($margin / 1.5);
+}
 
-  @media screen and (max-width: $width-xs) {
-    .chapter-control {
-      display: none;
-    }
+@media screen and (max-width: $width-xs) {
+  .chapter-control {
+    display: none;
   }
+}
 </style>

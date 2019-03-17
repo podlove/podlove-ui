@@ -8,10 +8,13 @@ export const INITIAL_STATE = {
   origin: null
 }
 
-export const reducer = handleActions({
-  [INIT]: (_, { payload }) => ({
-    config: configReference(payload),
-    share: shareReference(payload),
-    origin: originReference(payload)
-  })
-}, INITIAL_STATE)
+export const reducer = handleActions(
+  {
+    [INIT]: (_, { payload }) => ({
+      config: configReference(payload),
+      share: shareReference(payload),
+      origin: originReference(payload)
+    })
+  },
+  INITIAL_STATE
+)

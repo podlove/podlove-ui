@@ -1,13 +1,21 @@
 <template>
   <button class="play-button" id="play-button" ref="playbutton" @click="clickHandler()">
-      <div class="wrapper" :style="wrapper" ref="wrapper">
-        <transition @enter="enterAnimation" name="component" mode="out-in">
-          <component ref="component" class="component" :is="type" :color="color" :label="label" :id="`play-button--${type}`" :class="{ 'has-label': label && type !== 'loading' }">
-            <span v-if="label" class="label" :style="{ color: color }">{{ label }}</span>
-          </component>
-        </transition>
-        <slot></slot>
-      </div>
+    <div class="wrapper" :style="wrapper" ref="wrapper">
+      <transition @enter="enterAnimation" name="component" mode="out-in">
+        <component
+          ref="component"
+          class="component"
+          :is="type"
+          :color="color"
+          :label="label"
+          :id="`play-button--${type}`"
+          :class="{ 'has-label': label && type !== 'loading' }"
+        >
+          <span v-if="label" class="label" :style="{ color: color }">{{ label }}</span>
+        </component>
+      </transition>
+      <slot></slot>
+    </div>
   </button>
 </template>
 
@@ -46,7 +54,10 @@ export default {
     }
   },
   components: {
-    Play, Pause, Loading, Restart
+    Play,
+    Pause,
+    Loading,
+    Restart
   },
   computed: {
     wrapper () {
@@ -61,13 +72,13 @@ export default {
       switch (this.type) {
         case 'play':
           this.$emit('click', requestPlay())
-        break
+          break
         case 'pause':
           this.$emit('click', requestPause())
-        break
+          break
         case 'restart':
           this.$emit('click', requestRestart())
-        break
+          break
       }
     },
     resize () {
@@ -84,43 +95,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'resets';
-  @import 'font';
-  @import 'tokens/animation';
-  @import 'tokens/play-button';
+@import 'boot';
+@import 'resets';
+@import 'font';
+@import 'tokens/animation';
+@import 'tokens/play-button';
 
-  .play-button {
-    @extend %button;
+.play-button {
+  @extend %button;
 
-    .wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: $button-width;
-      min-width: $button-width;
-      border-radius: $button-width / 2;
-      transition: all $animation-duration * 2;
-    }
-
-    .label {
-      margin-left: $margin;
-      font-size: 1rem;
-      font-weight: 200;
-      text-transform: uppercase;
-      @extend %truncate;
-      @extend %font;
-    }
-
-    .has-label {
-      padding: 0 $padding * 2;
-    }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $button-width;
+    min-width: $button-width;
+    border-radius: $button-width / 2;
+    transition: all $animation-duration * 2;
   }
 
-  .component-enter-active, .component-leave-active {
-    transition: opacity .3s ease;
+  .label {
+    margin-left: $margin;
+    font-size: 1rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    @extend %truncate;
+    @extend %font;
   }
-  .component-enter, .component-leave-to {
-    opacity: 0;
+
+  .has-label {
+    padding: 0 $padding * 2;
   }
+}
+
+.component-enter-active,
+.component-leave-active {
+  transition: opacity 0.3s ease;
+}
+.component-enter,
+.component-leave-to {
+  opacity: 0;
+}
 </style>

@@ -2,7 +2,7 @@ import { boolean, text, color } from '@storybook/addon-knobs'
 
 import InputText from '.'
 
-import * as defaultColors from 'defaults';
+import * as defaultColors from 'defaults'
 
 export default () => ({
   components: { InputText },

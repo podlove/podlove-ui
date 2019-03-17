@@ -36,12 +36,12 @@ export default {
     IconComponent
   },
   computed: {
-    active() {
+    active () {
       return !!this.tabs[this.tab]
     }
   },
   methods: mapActions({
-    toggleTab({ dispatch }, tab) {
+    toggleTab ({ dispatch }, tab) {
       dispatch(toggleTab(tab))
     }
   })

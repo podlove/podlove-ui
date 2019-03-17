@@ -3,10 +3,13 @@ import { action } from '@storybook/addon-actions'
 
 import Channel from '.'
 
-const types = ['embed', 'facebook', 'linkedin', 'mail', 'reddit', 'twitter', 'pinterest'].reduce((result, type) => ({
-  ...result,
-  [type]: type
-}), {})
+const types = ['embed', 'facebook', 'linkedin', 'mail', 'reddit', 'twitter', 'pinterest'].reduce(
+  (result, type) => ({
+    ...result,
+    [type]: type
+  }),
+  {}
+)
 
 export default () => ({
   components: { Channel },
@@ -32,7 +35,7 @@ export default () => ({
     a11y: {
       type: String,
       default: text('a11y', 'The a11y text')
-    },
+    }
   },
   template: `
     <channel :type="type" :color="color" @click="action" :link="link" :subject="subject" :text="text" :a11y="a11y">

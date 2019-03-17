@@ -24,68 +24,74 @@ export const INITIAL_STATE = {
   }
 }
 
-export const reducer = handleActions({
-  [SET_TRANSCRIPTS_TIMELINE]: (state, { payload }) => ({
-    ...state,
-    hasTranscripts: payload.length > 0,
-    timeline: payload
-  }),
+export const reducer = handleActions(
+  {
+    [SET_TRANSCRIPTS_TIMELINE]: (state, { payload }) => ({
+      ...state,
+      hasTranscripts: payload.length > 0,
+      timeline: payload
+    }),
 
-  [SET_TRANSCRIPTS_CHAPTERS]: (state, { payload }) => ({
-    ...state,
-    timeline: payload
-  }),
+    [SET_TRANSCRIPTS_CHAPTERS]: (state, { payload }) => ({
+      ...state,
+      timeline: payload
+    }),
 
-  [UPDATE_TRANSCRIPTS]: (state, { payload }) => ({
-    ...state,
-    active: payload
-  }),
+    [UPDATE_TRANSCRIPTS]: (state, { payload }) => ({
+      ...state,
+      active: payload
+    }),
 
-  [TOGGLE_FOLLOW_TRANSCRIPTS]: (state, { payload }) => ({
-    ...state,
-    follow: payload
-  }),
+    [TOGGLE_FOLLOW_TRANSCRIPTS]: (state, { payload }) => ({
+      ...state,
+      follow: payload
+    }),
 
-  [SEARCH_TRANSCRIPTS]: (state, { payload }) => ({
-    ...state,
-    search: {
-      ...state.search,
-      query: payload
-    }
-  }),
+    [SEARCH_TRANSCRIPTS]: (state, { payload }) => ({
+      ...state,
+      search: {
+        ...state.search,
+        query: payload
+      }
+    }),
 
-  [SET_SEARCH_TRANSCRIPTS_RESULTS]: (state, { payload }) => ({
-    ...state,
-    search: {
-      ...state.search,
-      selected: payload.length > 0 ? 0 : -1,
-      results: payload
-    }
-  }),
+    [SET_SEARCH_TRANSCRIPTS_RESULTS]: (state, { payload }) => ({
+      ...state,
+      search: {
+        ...state.search,
+        selected: payload.length > 0 ? 0 : -1,
+        results: payload
+      }
+    }),
 
-  [NEXT_SEARCH_RESULT]: (state) => ({
-    ...state,
-    search: {
-      ...state.search,
-      selected: ((state.search.selected + 1) > (state.search.results.length - 1)) ? (state.search.results.length - 1) : (state.search.selected + 1)
-    }
-  }),
+    [NEXT_SEARCH_RESULT]: state => ({
+      ...state,
+      search: {
+        ...state.search,
+        selected:
+          state.search.selected + 1 > state.search.results.length - 1
+            ? state.search.results.length - 1
+            : state.search.selected + 1
+      }
+    }),
 
-  [PREVIOUS_SEARCH_RESULT]: (state) => ({
-    ...state,
-    search: {
-      ...state.search,
-      selected: ((state.search.selected - 1) < 0) ? 0 : (state.search.selected - 1)
-    }
-  }),
+    [PREVIOUS_SEARCH_RESULT]: state => ({
+      ...state,
+      search: {
+        ...state.search,
+        selected: state.search.selected - 1 < 0 ? 0 : state.search.selected - 1
+      }
+    }),
 
-  [RESET_SEARCH_TRANSCRIPTS]: (state) => ({
-    ...state,
-    search: {
-      ...state.search,
-      results: [],
-      selected: -1,
-      query: ''
-    }
-  })
-}, INITIAL_STATE)
+    [RESET_SEARCH_TRANSCRIPTS]: state => ({
+      ...state,
+      search: {
+        ...state.search,
+        results: [],
+        selected: -1,
+        query: ''
+      }
+    })
+  },
+  INITIAL_STATE
+)

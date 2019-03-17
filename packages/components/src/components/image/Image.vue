@@ -3,7 +3,7 @@
     <transition name="fade">
       <div class="cover" :style="coverStyle" v-if="!loaded"></div>
     </transition>
-    <img class="image" :style="imageStyle" :src="url" :alt="alt" @error="errorHandler" @load="loadHandler" v-if="url"/>
+    <img class="image" :style="imageStyle" :src="url" :alt="alt" @error="errorHandler" @load="loadHandler" v-if="url" />
   </div>
 </template>
 
@@ -64,25 +64,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'tokens/animation';
+@import 'boot';
+@import 'tokens/animation';
 
-  .image-container {
-    position: relative;
-    line-height: 0;
+.image-container {
+  position: relative;
+  line-height: 0;
 
-    .image {
-      max-height: 100%;
-      width: auto;
-    }
-
-    .cover {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
-    @extend %fade-animation;
+  .image {
+    max-height: 100%;
+    width: auto;
   }
+
+  .cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  @extend %fade-animation;
+}
 </style>

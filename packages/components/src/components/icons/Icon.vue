@@ -13,7 +13,7 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: (val) => types.includes(val)
+      validator: val => types.includes(val)
     },
     background: {
       type: String,
@@ -37,6 +37,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
+@import 'boot';
 </style>
-

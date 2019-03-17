@@ -5,24 +5,24 @@
 </template>
 
 <script>
-  import { color } from 'defaults'
-  import Icon from 'components/icons'
+import { color } from 'defaults'
+import Icon from 'components/icons'
 
-  export default {
-    props: {
-      color: {
-        type: String,
-        default: color
-      }
-    },
-    components: {
-      Icon
+export default {
+  props: {
+    color: {
+      type: String,
+      default: color
     }
+  },
+  components: {
+    Icon
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  .loading-indicator {
-    padding: 0 15px;
-  }
+.loading-indicator {
+  padding: 0 15px;
+}
 </style>

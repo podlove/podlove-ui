@@ -4,8 +4,16 @@ import { stripr } from './helper'
 
 const url = href => new URL(href)
 
-export const hostname = compose(replace(/^(www\.)/, ''), propOr('', 'hostname'), url)
-export const pathname = compose(stripr('/'), propOr('', 'pathname'), url)
+export const hostname = compose(
+  replace(/^(www\.)/, ''),
+  propOr('', 'hostname'),
+  url
+)
+export const pathname = compose(
+  stripr('/'),
+  propOr('', 'pathname'),
+  url
+)
 
 export const addQueryParameter = (url, additionalParameters = {}) => {
   const parser = document.createElement('a')

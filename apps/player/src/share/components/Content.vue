@@ -52,55 +52,54 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'redux-vuex'
-  import { toHumanTime } from '@podlove/utils/time'
-  import { Icon, ContentOption } from '@podlove/components'
+import { mapState, mapActions } from 'redux-vuex'
+import { toHumanTime } from '@podlove/utils/time'
+import { Icon, ContentOption } from '@podlove/components'
 
-  import select from 'store/selectors'
-  import store from 'store'
+import select from 'store/selectors'
+import store from 'store'
 
+export default {
+  data: mapState({
+    activeStyle: select.styles.shareActiveContentStyle,
+    style: select.styles.shareContentStyle,
+    content: select.share.content,
+    showTitle: select.show.title,
+    showLink: select.show.link,
+    episodeTitle: select.episode.title,
+    currentChapter: select.chapters.current,
+    playtime: select.playtime
+  }),
+  methods: {
+    dispatch: store.dispatch,
 
-  export default {
-    data: mapState({
-      activeStyle: select.styles.shareActiveContentStyle,
-      style: select.styles.shareContentStyle,
-      content: select.share.content,
-      showTitle: select.show.title,
-      showLink: select.show.link,
-      episodeTitle: select.episode.title,
-      currentChapter: select.chapters.current,
-      playtime: select.playtime
-    }),
-    methods: {
-      dispatch: store.dispatch,
-
-      isActive (type) {
-        return this.content === type
-      },
-
-      toHumanTime
+    isActive (type) {
+      return this.content === type
     },
-    components: {
-      Icon,
-      ContentOption
-    }
+
+    toHumanTime
+  },
+  components: {
+    Icon,
+    ContentOption
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
+.share-select-content {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: $width-l) {
   .share-select-content {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
   }
-
-   @media screen and (max-width: $width-l) {
-    .share-select-content {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-  }
+}
 </style>

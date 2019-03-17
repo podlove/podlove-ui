@@ -13,15 +13,14 @@ export default {
   props: {
     tab: {
       type: String
-    },
-
+    }
   },
   data: mapState({
     body: select.styles.tabsBody,
     tabs: select.tabs
   }),
   computed: {
-    active() {
+    active () {
       return this.tabs[this.tab]
     }
   },

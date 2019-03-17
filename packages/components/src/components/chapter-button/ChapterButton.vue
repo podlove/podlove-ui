@@ -15,7 +15,7 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: (val) => ['next', 'previous'].includes(val)
+      validator: val => ['next', 'previous'].includes(val)
     },
     color: {
       type: String,
@@ -30,10 +30,10 @@ export default {
       switch (this.type) {
         case 'next':
           this.$emit('click', nextChapter())
-        break
+          break
         case 'previous':
           this.$emit('click', previousChapter())
-        break
+          break
       }
     }
   }
@@ -41,10 +41,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'resets';
+@import 'boot';
+@import 'resets';
 
-  .chapter-button {
-    @extend %button;
-  }
+.chapter-button {
+  @extend %button;
+}
 </style>

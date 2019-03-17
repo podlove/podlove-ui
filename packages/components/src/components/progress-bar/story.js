@@ -22,9 +22,12 @@ export default () => ({
       default: () => object('quantiles', [[50, 200]])
     },
     chapters: {
-      default: () => object('chapters', [{
-        end: 400
-      }])
+      default: () =>
+        object('chapters', [
+          {
+            end: 400
+          }
+        ])
     },
     progressColor: {
       default: color('color', '#f00')

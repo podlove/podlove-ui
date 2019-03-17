@@ -21,7 +21,8 @@ export default {
     audio: select.files.audio
   }),
   components: {
-    Card, File
+    Card,
+    File
   },
   computed: {
     headerStyle () {
@@ -34,9 +35,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .files-tab {
-    padding: $padding * 1.5;
-  }
+.files-tab {
+  padding: $padding * 1.5;
+}
 </style>

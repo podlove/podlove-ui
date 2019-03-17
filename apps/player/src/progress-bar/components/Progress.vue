@@ -31,7 +31,7 @@ export default {
     ghost: select.ghost.time,
     buffer: select.network.buffer,
     chapters: select.chapters.list,
-    quantiles: select.quantiles,
+    quantiles: select.quantiles
   }),
   methods: {
     dispatch: store.dispatch

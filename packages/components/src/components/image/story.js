@@ -29,5 +29,5 @@ export default () => ({
       @load="load"
     >
     </lazy-image>`,
-  methods: { error: action('@error'), load: action('@load') },
+  methods: { error: action('@error'), load: action('@load') }
 })

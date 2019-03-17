@@ -7,22 +7,25 @@ export const INITIAL_STATE = {
   time: null
 }
 
-export const reducer = handleActions({
-  [SIMULATE_PLAYTIME]: (state, { payload }) => ({
-    ...state,
-    time: state.active ? toInt(payload) : null
-  }),
-
-  [ENABLE_GHOST_MODE]: (state) => {
-    return {
+export const reducer = handleActions(
+  {
+    [SIMULATE_PLAYTIME]: (state, { payload }) => ({
       ...state,
-      active: true
-    }
-  },
+      time: state.active ? toInt(payload) : null
+    }),
 
-  [DISABLE_GHOST_MODE]: (state) => ({
-    ...state,
-    active: false,
-    time: null
-  })
-}, INITIAL_STATE)
+    [ENABLE_GHOST_MODE]: state => {
+      return {
+        ...state,
+        active: true
+      }
+    },
+
+    [DISABLE_GHOST_MODE]: state => ({
+      ...state,
+      active: false,
+      time: null
+    })
+  },
+  INITIAL_STATE
+)

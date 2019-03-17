@@ -11,7 +11,7 @@ import transcriptsSaga from '@podlove/player-sagas/transcripts'
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connect } from 'redux-vuex'
-import { version } from '../../package';
+import { version } from '../../package'
 
 import reducers from './reducers'
 import actions from './actions'
@@ -29,7 +29,12 @@ sagas.run(
   runtimeSaga,
   componentsSaga,
   quantilesSaga,
-  chaptersSaga({ selectDuration: selectors.duration, selectPlaytime: selectors.playtime, selectCurrentChapter: selectors.chapters.current, selectChapterList: selectors.chapters.list }),
+  chaptersSaga({
+    selectDuration: selectors.duration,
+    selectPlaytime: selectors.playtime,
+    selectCurrentChapter: selectors.chapters.current,
+    selectChapterList: selectors.chapters.list
+  }),
   playerSaga({ selectMedia: selectors.media, selectPlaytime: selectors.playtime }),
   versionSaga({ version }),
   transcriptsSaga({ selectChapters: selectors.chapters.list, selectSpeakers: selectors.contributors })

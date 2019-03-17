@@ -23,7 +23,9 @@ const dom = ({ theme }) => {
   </div>`
 }
 
-const script = tag('script', `
+const script = tag(
+  'script',
+  `
   var loader = document.getElementById('loader')
 
   window.addEventListener('load', function() {
@@ -35,6 +37,7 @@ const script = tag('script', `
       loader.parentNode.removeChild(loader)
     }, 600)
   })
-`)
+`
+)
 
-export const createLoader = config => ([style, dom(config), script].join(''))
+export const createLoader = config => [style, dom(config), script].join('')

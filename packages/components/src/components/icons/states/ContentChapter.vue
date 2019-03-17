@@ -10,16 +10,16 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      size: {
-        type: Number,
-        default: 20
-      },
-      color: {
-        type: String,
-        default: 'currentColor'
-      }
+export default {
+  props: {
+    size: {
+      type: Number,
+      default: 20
+    },
+    color: {
+      type: String,
+      default: 'currentColor'
     }
   }
+}
 </script>

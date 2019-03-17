@@ -8,22 +8,25 @@ export const INITIAL_STATE = {
   playtime: 0
 }
 
-export const reducer = handleActions({
-  [INIT]: (state, { payload }) => ({
-    ...state,
-    duration: duration(payload),
-    playtime: playtime(payload)
-  }),
-  [BACKEND_DURATION]: (state, { payload }) => ({
-    ...state,
-    duration: toInt(payload || state.duration)
-  }),
-  [BACKEND_PLAYTIME]: (state, { payload }) => ({
-    ...state,
-    playtime: toInt(payload)
-  }),
-  [REQUEST_PLAYTIME]: (state, { payload }) => ({
-    ...state,
-    playtime: toInt(payload)
-  })
-}, INITIAL_STATE)
+export const reducer = handleActions(
+  {
+    [INIT]: (state, { payload }) => ({
+      ...state,
+      duration: duration(payload),
+      playtime: playtime(payload)
+    }),
+    [BACKEND_DURATION]: (state, { payload }) => ({
+      ...state,
+      duration: toInt(payload || state.duration)
+    }),
+    [BACKEND_PLAYTIME]: (state, { payload }) => ({
+      ...state,
+      playtime: toInt(payload)
+    }),
+    [REQUEST_PLAYTIME]: (state, { payload }) => ({
+      ...state,
+      playtime: toInt(payload)
+    })
+  },
+  INITIAL_STATE
+)

@@ -9,6 +9,7 @@
 !.circleci
 !.vuepress
 !.build
+!.prettierignore
 
 coverage
 

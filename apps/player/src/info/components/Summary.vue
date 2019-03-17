@@ -14,27 +14,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .summary {
-    hyphens: auto;
+.summary {
+  hyphens: auto;
 
-    ul, ol {
-      margin-left: 1em;
-    }
-
-    ul {
-      list-style: disc;
-    }
-
-    ol {
-      list-style: decimal;
-    }
-
-    li {
-      margin-left: 0.25em;
-    }
-
-    a {
-      font-weight: 500;
-    }
+  ul,
+  ol {
+    margin-left: 1em;
   }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li {
+    margin-left: 0.25em;
+  }
+
+  a {
+    font-weight: 500;
+  }
+}
 </style>

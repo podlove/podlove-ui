@@ -68,7 +68,7 @@ export default {
   },
 
   methods: {
-    clickHandler() {
+    clickHandler () {
       this.$emit('click', selectChannel(this.type))
     }
   }
@@ -76,5 +76,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
+@import 'boot';
 </style>

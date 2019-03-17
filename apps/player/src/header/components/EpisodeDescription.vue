@@ -3,25 +3,25 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import select from 'store/selectors'
+import { mapState } from 'redux-vuex'
+import select from 'store/selectors'
 
-  export default {
-    data: mapState({
-      style: select.styles.description,
-      subtitle: select.episode.subtitle
-    })
-  }
+export default {
+  data: mapState({
+    style: select.styles.description,
+    subtitle: select.episode.subtitle
+  })
+}
 </script>
 
 <style lang="scss" scoped>
-  .episode-description {
-    overflow: hidden;
-    margin: 0;
-    height: 2.75em;
-    line-height: 1.3em;
-    font-size: 1.1em;
-    font-weight: 100;
-    hyphens: auto;
-  }
+.episode-description {
+  overflow: hidden;
+  margin: 0;
+  height: 2.75em;
+  line-height: 1.3em;
+  font-size: 1.1em;
+  font-weight: 100;
+  hyphens: auto;
+}
 </style>

@@ -5,7 +5,7 @@ export const binarySearch = (list = []) => search => {
   let currentElement
 
   while (minIndex <= maxIndex) {
-    currentIndex = (minIndex + maxIndex) / 2 | 0
+    currentIndex = ((minIndex + maxIndex) / 2) | 0
     currentElement = list[currentIndex]
 
     if (currentElement < search) {

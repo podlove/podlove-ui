@@ -1,7 +1,21 @@
 import { compose, propOr, includes, equals, length } from 'ramda'
-import { showComponentTab, hideComponentTab, showInfoPoster, hideInfoPoster, showShowTitle, hideShowTitle, showEpisodeTitle, hideEpisodeTitle, showSubtitle, hideSubtitle } from '@podlove/player-actions/components';
+import {
+  showComponentTab,
+  hideComponentTab,
+  showInfoPoster,
+  hideInfoPoster,
+  showShowTitle,
+  hideShowTitle,
+  showEpisodeTitle,
+  hideEpisodeTitle,
+  showSubtitle,
+  hideSubtitle
+} from '@podlove/player-actions/components'
 
-const emptyList = compose(equals(0), length)
+const emptyList = compose(
+  equals(0),
+  length
+)
 
 const infoTab = includes('tabInfo')
 const chaptersTab = includes('tabChapters')

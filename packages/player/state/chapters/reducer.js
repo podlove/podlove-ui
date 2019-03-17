@@ -54,7 +54,8 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [SET_CHAPTERS_LIST]: (_, { payload }) => generateState(payload.map((item, index) => index === 0 ? { active: true, ...item } : item)),
+    [SET_CHAPTERS_LIST]: (_, { payload }) =>
+      generateState(payload.map((item, index) => (index === 0 ? { active: true, ...item } : item))),
 
     [SET_CHAPTER]: (state, { payload }) => {
       const chapters = state.list.map(setActiveByIndex(payload))
@@ -71,9 +72,17 @@ export const reducer = handleActions(
       return generateState(chapters)
     },
 
-    [NEXT_CHAPTER]: compose(generateState, nextChapter, prop('list')),
+    [NEXT_CHAPTER]: compose(
+      generateState,
+      nextChapter,
+      prop('list')
+    ),
 
-    [PREVIOUS_CHAPTER]: compose(generateState, previousChapter, prop('list'))
+    [PREVIOUS_CHAPTER]: compose(
+      generateState,
+      previousChapter,
+      prop('list')
+    )
   },
   INITIAL_STATE
 )

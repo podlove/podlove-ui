@@ -25,17 +25,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
+.file-icon {
+  display: block;
+  width: $files-icon-width;
+  height: $files-icon-width;
+}
+
+@media screen and (max-width: $width-m) {
   .file-icon {
-    display: block;
-    width: $files-icon-width;
-    height: $files-icon-width;
+    display: none;
   }
-
-  @media screen and (max-width: $width-m) {
-    .file-icon {
-      display: none;
-    }
-  }
+}
 </style>

@@ -6,40 +6,38 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import { Icon } from '@podlove/components'
+import { mapState } from 'redux-vuex'
+import { Icon } from '@podlove/components'
 
-  import select from 'store/selectors'
+import select from 'store/selectors'
 
-  export default {
-    data: mapState({
-      version: select.version
-    }),
-    components: {
-      Icon
-    }
+export default {
+  data: mapState({
+    version: select.version
+  }),
+  components: {
+    Icon
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .footer {
-    margin: $margin;
+.footer {
+  margin: $margin;
+  display: flex;
+
+  .version {
     display: flex;
-
-    .version {
-      display: flex;
-      align-items: center;
-      font-size: 0.8rem;
-      margin-left: auto;
-      color: rgba($accent-color, 0.75);
-    }
-
-    .icon {
-      margin-right: $margin / 2;
-    }
+    align-items: center;
+    font-size: 0.8rem;
+    margin-left: auto;
+    color: rgba($accent-color, 0.75);
   }
+
+  .icon {
+    margin-right: $margin / 2;
+  }
+}
 </style>
-
-

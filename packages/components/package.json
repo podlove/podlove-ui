@@ -1,7 +1,7 @@
 {
   "name": "@podlove/components",
   "version": "4.2.3",
-  "description": "",
+  "description": "Reusable Podlove UI Components",
   "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "postinstall": "npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
     "lodash": "4.17.11",

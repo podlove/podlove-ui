@@ -10,67 +10,67 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import * as defaultColors from 'defaults'
+import { mapState } from 'redux-vuex'
+import * as defaultColors from 'defaults'
 
-  export default {
-    props: {
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      options: {
-        type: Array,
-        default: () => []
-      },
-      color: {
-        type: String,
-        default: defaultColors.background
-      },
-      background: {
-        type: String,
-        default: defaultColors.color
-      },
-      borderColor: {
-        type: String,
-        default: defaultColors.background
-      },
-      value: {
-        type: String
-      }
+export default {
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
     },
-    computed: {
-      style () {
-        return {
-          color: this.color,
-          background: this.background,
-          'border-color': this.borderColor
-        }
-      }
+    options: {
+      type: Array,
+      default: () => []
     },
-    methods: {
-      changeEvent (event) {
-        this.$emit('change', event.target.value)
+    color: {
+      type: String,
+      default: defaultColors.background
+    },
+    background: {
+      type: String,
+      default: defaultColors.color
+    },
+    borderColor: {
+      type: String,
+      default: defaultColors.background
+    },
+    value: {
+      type: String
+    }
+  },
+  computed: {
+    style () {
+      return {
+        color: this.color,
+        background: this.background,
+        'border-color': this.borderColor
       }
     }
+  },
+  methods: {
+    changeEvent (event) {
+      this.$emit('change', event.target.value)
+    }
   }
+}
 </script>
 
 <style lang="scss">
-  @import 'boot';
-  @import 'tokens/defaults';
-  @import 'tokens/input';
+@import 'boot';
+@import 'tokens/defaults';
+@import 'tokens/input';
 
-  .input-select {
-    display: block;
-    width: 100%;
+.input-select {
+  display: block;
+  width: 100%;
 
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 0;
-    padding: $padding / 4;
-    height: $input-height;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0;
+  padding: $padding / 4;
+  height: $input-height;
 
-    -webkit-appearance: none;
-  }
+  -webkit-appearance: none;
+}
 </style>

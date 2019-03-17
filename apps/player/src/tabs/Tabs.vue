@@ -40,42 +40,36 @@ import select from 'store/selectors'
 import store from 'store'
 
 const tabs = {
-  InfoTab: () => import(
-    /* webpackChunkName: "info-tab" */
+  InfoTab: () =>
+    import(/* webpackChunkName: "info-tab" */
     /* webpackMode: "lazy" */
     /* webpackPreload: true */
-    '../info'
-  ),
-  ChaptersTab: () => import(
-    /* webpackChunkName: "chapters-tab" */
+    '../info'),
+  ChaptersTab: () =>
+    import(/* webpackChunkName: "chapters-tab" */
     /* webpackMode: "lazy" */
     /* webpackPreload: true */
-    '../chapters'
-  ),
-  FilesTab: () => import(
-    /* webpackChunkName: "files-tab" */
+    '../chapters'),
+  FilesTab: () =>
+    import(/* webpackChunkName: "files-tab" */
     /* webpackMode: "lazy" */
     /* webpackPreload: true */
-    '../files'
-  ),
-  ShareTab: () => import(
-    /* webpackChunkName: "share-tab" */
+    '../files'),
+  ShareTab: () =>
+    import(/* webpackChunkName: "share-tab" */
     /* webpackMode: "lazy" */
     /* webpackPreload: true */
-    '../share'
-  ),
-  AudioTab: () => import(
-    /* webpackChunkName: "audio-tab" */
+    '../share'),
+  AudioTab: () =>
+    import(/* webpackChunkName: "audio-tab" */
     /* webpackMode: "lazy" */
     /* webpackPreload: true */
-    '../audio'
-  ),
-  TranscriptsTab: () => import(
-    /* webpackChunkName: "transcripts-tab" */
+    '../audio'),
+  TranscriptsTab: () =>
+    import(/* webpackChunkName: "transcripts-tab" */
     /* webpackMode: "lazy" */
     /* webpackPreload: true */
-    '../transcripts'
-  )
+    '../transcripts')
 }
 
 export default {
@@ -92,16 +86,19 @@ export default {
     ...tabs
   },
   methods: {
-    toggleTab: compose(store.dispatch, toggleTab)
+    toggleTab: compose(
+      store.dispatch,
+      toggleTab
+    )
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  @import "~styles/variables";
+@import '~styles/variables';
 
-  .tabs {
-    width: 100%;
-    background: $background-color;
-  }
+.tabs {
+  width: 100%;
+  background: $background-color;
+}
 </style>

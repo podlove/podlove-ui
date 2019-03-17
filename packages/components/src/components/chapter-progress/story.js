@@ -37,7 +37,9 @@ export default () => ({
     }
   },
   template: `
-    <div style="background: ${col(defaultVariables.background).fade(0.8).string()}">
+    <div style="background: ${col(defaultVariables.background)
+      .fade(0.8)
+      .string()}">
       <chapter-progress
         :chapter="chapter"
         :showLink="showLink"

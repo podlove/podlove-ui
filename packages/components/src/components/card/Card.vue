@@ -39,28 +39,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'tokens/defaults';
-  @import 'font';
+@import 'boot';
+@import 'tokens/defaults';
+@import 'font';
 
-  .card {
-    @extend %font;
-    border-radius: 4px;
-    margin-bottom: $margin;
+.card {
+  @extend %font;
+  border-radius: 4px;
+  margin-bottom: $margin;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    .card-header {
-      padding: $padding / 2 $padding;
-      border-radius: 4px 4px 0 0;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-
-    .card-body {
-      padding: $padding;
-    }
+  &:last-child {
+    margin-bottom: 0;
   }
+
+  .card-header {
+    padding: $padding / 2 $padding;
+    border-radius: 4px 4px 0 0;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .card-body {
+    padding: $padding;
+  }
+}
 </style>

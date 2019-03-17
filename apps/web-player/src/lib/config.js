@@ -14,7 +14,7 @@ const files = media
 
 const chapters = async config => {
   try {
-    return typeof config.chapters === 'string' ? await(request(config.chapters)) : config.chapters
+    return typeof config.chapters === 'string' ? await request(config.chapters) : config.chapters
   } catch (err) {
     console.warn(`Couldn't parse chapters "${chapters}", falling back to empty list`)
     return []
@@ -23,7 +23,7 @@ const chapters = async config => {
 
 const transcripts = async config => {
   try {
-    return typeof config.transcripts === 'string' ? await(request(config.transcripts)) : config.transcripts
+    return typeof config.transcripts === 'string' ? await request(config.transcripts) : config.transcripts
   } catch (err) {
     console.warn(`Couldn't parse transcripts "${transcripts}", falling back to empty list`)
     return []
@@ -39,10 +39,13 @@ export const parseConfig = async (input = {}, additional = {}) => {
     throw new Error(`Couldn't parse configuration "${input}"`)
   }
 
-  return mergeDeepRight(Object.assign({}, config, {
-    media: media(config),
-    files: files(config),
-    transcripts: await transcripts(config),
-    chapters: await chapters(config)
-  }), additional)
+  return mergeDeepRight(
+    Object.assign({}, config, {
+      media: media(config),
+      files: files(config),
+      transcripts: await transcripts(config),
+      chapters: await chapters(config)
+    }),
+    additional
+  )
 }

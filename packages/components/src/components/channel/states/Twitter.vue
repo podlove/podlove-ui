@@ -6,38 +6,38 @@
 </template>
 
 <script>
-  import { addQueryParameter } from '@podlove/utils/url'
-  import Icon from '../../icons'
+import { addQueryParameter } from '@podlove/utils/url'
+import Icon from '../../icons'
 
-  const LINK = 'https://twitter.com/intent/tweet'
+const LINK = 'https://twitter.com/intent/tweet'
 
-  export default {
-    props: {
-      text: {
-        type: String
-      },
-      color: {
-        type: String
-      },
-      a11y: {
-        type: String
-      }
+export default {
+  props: {
+    text: {
+      type: String
     },
-    computed: {
-      twitterLink () {
-        return addQueryParameter(LINK, { text: this.text })
-      }
+    color: {
+      type: String
     },
-    components: {
-      Icon
+    a11y: {
+      type: String
     }
+  },
+  computed: {
+    twitterLink () {
+      return addQueryParameter(LINK, { text: this.text })
+    }
+  },
+  components: {
+    Icon
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import 'channel';
+@import 'channel';
 
-  .channel-icon.twitter {
-    background-color: $channel-twitter-color;
-  }
+.channel-icon.twitter {
+  background-color: $channel-twitter-color;
+}
 </style>

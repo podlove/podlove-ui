@@ -20,10 +20,13 @@ const iframe = compose(
   createNode
 )
 
-const createFrame = () => new Promise((resolve) => resolve(iframe('iframe')))
+const createFrame = () => new Promise(resolve => resolve(iframe('iframe')))
 
 export const sandboxWindow = prop('contentWindow')
-export const sandboxDocument = compose(prop('document'), sandboxWindow)
+export const sandboxDocument = compose(
+  prop('document'),
+  sandboxWindow
+)
 
 const resize = curry((anchor, frame) => {
   const setFrameSize = () => setAttributes({ width: anchor.offsetWidth })(frame)
@@ -39,32 +42,35 @@ const resize = curry((anchor, frame) => {
   return frame
 })
 
-const inject = curry((content, sandbox) => new Promise(resolve => {
-  const sdbxWindow = sandboxWindow(sandbox)
-  const doc = sandboxDocument(sandbox)
+const inject = curry(
+  (content, sandbox) =>
+    new Promise(resolve => {
+      const sdbxWindow = sandboxWindow(sandbox)
+      const doc = sandboxDocument(sandbox)
 
-  // transfer global window functions to sandbox
-  if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-    sdbxWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  }
+      // transfer global window functions to sandbox
+      if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+        sdbxWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      }
 
-  const onLoad = () => {
-    if (doc.readyState === 'complete') {
-      return resolve(sandbox)
-    }
+      const onLoad = () => {
+        if (doc.readyState === 'complete') {
+          return resolve(sandbox)
+        }
 
-    return setTimeout(onLoad, 150)
-  }
+        return setTimeout(onLoad, 150)
+      }
 
-  doc.open()
-  doc.write('<!DOCTYPE html>')
-  doc.write('<html>')
-  doc.write('<head><meta charset="utf-8" /></head>')
-  doc.write(content)
-  doc.close()
+      doc.open()
+      doc.write('<!DOCTYPE html>')
+      doc.write('<html>')
+      doc.write('<head><meta charset="utf-8" /></head>')
+      doc.write(content)
+      doc.close()
 
-  onLoad()
-}))
+      onLoad()
+    })
+)
 
 export const sandbox = curry((anchor, content) =>
   createFrame()

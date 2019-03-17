@@ -14,11 +14,10 @@ export const roundUp = (base, number) => {
     return (number + base) / 100
   }
 
-  return (number + (base - number % base)) / 100
+  return (number + (base - (number % base))) / 100
 }
 
-export const relativePosition = (current = 0, maximum = 0) =>
-  ((current * 100) / maximum) + '%'
+export const relativePosition = (current = 0, maximum = 0) => (current * 100) / maximum + '%'
 
 export const inRange = (lower = 0, upper = 0) => (value = 0) => {
   if (value < lower) {
@@ -33,6 +32,5 @@ export const inRange = (lower = 0, upper = 0) => (value = 0) => {
 }
 
 export const toDecimal = (input = 0) => parseFloat(Math.round(input * 100) / 100).toFixed(2)
-
 
 export const toMegabyte = (size = '0') => parseInt(parseInt(size) / 1000000)

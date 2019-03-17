@@ -6,11 +6,13 @@ import { isMobile } from '@podlove/utils/detect'
 
 const locale = navigator.language || navigator.userLanguage || 'en-us'
 
-export default function* () {
-  yield put(setRuntime({
-    browser: `${browser.name}:${browser.version}`,
-    platform: isMobile ? 'mobile' : 'desktop',
-    language: head(locale.split('-')),
-    locale
-  }))
+export default function * () {
+  yield put(
+    setRuntime({
+      browser: `${browser.name}:${browser.version}`,
+      platform: isMobile ? 'mobile' : 'desktop',
+      language: head(locale.split('-')),
+      locale
+    })
+  )
 }

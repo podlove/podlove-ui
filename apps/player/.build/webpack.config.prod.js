@@ -18,13 +18,7 @@ module.exports = {
   }),
 
   module: {
-    rules: [
-      rules.vue(),
-      rules.javascript(),
-      rules.images(),
-      rules.vueStyles({ prod: true }),
-      rules.pug()
-    ]
+    rules: [rules.vue(), rules.javascript(), rules.images(), rules.vueStyles({ prod: true }), rules.pug()]
   },
 
   plugins: [

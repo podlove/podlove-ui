@@ -24,18 +24,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .link-container {
-    display: flex;
-    align-items: center;
-  }
+.link-container {
+  display: flex;
+  align-items: center;
+}
 
-  .link {
-    font-weight: 700;
-  }
+.link {
+  font-weight: 700;
+}
 
-  .icon {
-    margin-right: $margin / 2;
-  }
+.icon {
+  margin-right: $margin / 2;
+}
 </style>

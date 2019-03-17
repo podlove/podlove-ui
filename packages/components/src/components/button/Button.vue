@@ -12,104 +12,104 @@
 </template>
 
 <script>
-  import { color, background } from 'defaults'
+import { color, background } from 'defaults'
 
-  export default {
-    props: {
-      textColor: {
-        type: String,
-        default: background
-      },
-      backgroundColor: {
-        type: String,
-        default: color
-      },
-      borderColor: {
-        type: String,
-        default: background
-      },
-      href: {
-        type: String
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      }
+export default {
+  props: {
+    textColor: {
+      type: String,
+      default: background
     },
+    backgroundColor: {
+      type: String,
+      default: color
+    },
+    borderColor: {
+      type: String,
+      default: background
+    },
+    href: {
+      type: String
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
 
-    computed: {
-      style () {
-        return {
-          color: this.textColor,
-          background: this.backgroundColor,
-          'border-color': this.borderColor
-        }
+  computed: {
+    style () {
+      return {
+        color: this.textColor,
+        background: this.backgroundColor,
+        'border-color': this.borderColor
       }
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'font';
-  @import 'resets';
-  @import 'utils';
-  @import 'tokens/defaults';
-  @import 'tokens/button';
-  @import 'tokens/animation';
+@import 'boot';
+@import 'font';
+@import 'resets';
+@import 'utils';
+@import 'tokens/defaults';
+@import 'tokens/button';
+@import 'tokens/animation';
 
-  .button {
-    @extend %button;
+.button {
+  @extend %button;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: $input-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $input-height;
 
-    font-size: 1.1em;
-    font-variant: small-caps;
+  font-size: 1.1em;
+  font-variant: small-caps;
 
-    opacity: 1;
-    transition: opacity $animation-duration;
+  opacity: 1;
+  transition: opacity $animation-duration;
 
-    cursor: pointer;
-    background: transparent;
-    outline: none;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
 
-    &.disabled {
-      opacity: 0.5;
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    border-radius: 3px;
-    border-width: 1px;
-    border-style: solid;
-    padding: $padding / 4 $padding / 2;
-    text-transform: uppercase;
-
-    .inner {
-      @extend %font;
-      @extend %truncate;
-      width: 100%;
-      height: 100%;
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &.block {
-      display: block;
-      width: 100%;
-    }
-
-    text-align: center;
-
-    svg {
-      display: inline;
-    }
+  &.disabled {
+    opacity: 0.5;
   }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: $padding / 4 $padding / 2;
+  text-transform: uppercase;
+
+  .inner {
+    @extend %font;
+    @extend %truncate;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
+  }
+
+  text-align: center;
+
+  svg {
+    display: inline;
+  }
+}
 </style>

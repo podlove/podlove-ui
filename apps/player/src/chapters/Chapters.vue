@@ -4,26 +4,26 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import select from 'store/selectors'
+import { mapState } from 'redux-vuex'
+import select from 'store/selectors'
 
-  import EntryComponent from './components/Entry'
+import EntryComponent from './components/Entry'
 
-  export default {
-    data: mapState({
-      chapters: select.chapters.list
-    }),
-    components: {
-      EntryComponent
-    }
+export default {
+  data: mapState({
+    chapters: select.chapters.list
+  }),
+  components: {
+    EntryComponent
   }
+}
 </script>
 
 <style lang="scss">
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .chapters-tab {
-    width: 100%;
-    padding: $padding 0;
-  }
+.chapters-tab {
+  width: 100%;
+  padding: $padding 0;
+}
 </style>

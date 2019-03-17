@@ -4,7 +4,10 @@ import { requestPlay, requestPause } from '@podlove/player-actions/play'
 import { requestPlaytime } from '@podlove/player-actions/timepiece'
 import { urlParameters } from '@podlove/utils/location'
 
-const selectPlaytime = compose(selectors.playtime, propOr({}, 'timepiece'))
+const selectPlaytime = compose(
+  selectors.playtime,
+  propOr({}, 'timepiece')
+)
 
 const stopAt = (stoptime, store) => {
   let stopped = false

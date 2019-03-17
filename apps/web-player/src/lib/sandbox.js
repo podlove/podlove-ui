@@ -32,10 +32,13 @@ export const createSandbox = async (config, node) => {
 
   setAccessibilityAttributes(config, player)
 
-  iframeResizer({
-    checkOrigin: false,
-    log: false
-  }, player)
+  iframeResizer(
+    {
+      checkOrigin: false,
+      log: false
+    },
+    player
+  )
 
   const store = prop('PODLOVE_STORE', sandboxWindow(player))
 

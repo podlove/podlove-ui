@@ -26,8 +26,16 @@ export default {
   computed: {
     a11y () {
       return {
-        current: this.$t('A11Y.TIMER_CURRENT', { hours: calcHours(this.playtime), minutes: calcMinutes(this.playtime), seconds: calcSeconds(this.playtime) }),
-        left: this.$t('A11Y.TIMER_LEFT', { hours: calcHours(this.duration - this.playtime), minutes: calcMinutes(this.duration - this.playtime), seconds: calcSeconds(this.duration - this.playtime) })
+        current: this.$t('A11Y.TIMER_CURRENT', {
+          hours: calcHours(this.playtime),
+          minutes: calcMinutes(this.playtime),
+          seconds: calcSeconds(this.playtime)
+        }),
+        left: this.$t('A11Y.TIMER_LEFT', {
+          hours: calcHours(this.duration - this.playtime),
+          minutes: calcMinutes(this.duration - this.playtime),
+          seconds: calcSeconds(this.duration - this.playtime)
+        })
       }
     }
   },
@@ -37,33 +45,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
-  @import '~styles/font';
+@import '~styles/variables';
+@import '~styles/font';
 
- .timer-bar {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    transition: height $animation-duration;
-    margin-top: -1em;
-    height: $timer-height;
+.timer-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  transition: height $animation-duration;
+  margin-top: -1em;
+  height: $timer-height;
 
-    .current {
-      width: $timer-width;
-      text-align: left;
-      margin-left: -2px;
-    }
-
-    .chapter {
-      text-align: center;
-      width: calc(100% - #{$timer-width * 2});
-      margin: 0 $margin / 2;
-    }
-
-    .left {
-      width: $timer-width;
-      text-align: right;
-      margin-right: -2px;
-    }
+  .current {
+    width: $timer-width;
+    text-align: left;
+    margin-left: -2px;
   }
+
+  .chapter {
+    text-align: center;
+    width: calc(100% - #{$timer-width * 2});
+    margin: 0 $margin / 2;
+  }
+
+  .left {
+    width: $timer-width;
+    text-align: right;
+    margin-right: -2px;
+  }
+}
 </style>

@@ -1,85 +1,91 @@
 import { propOr, prop } from 'ramda'
 import { takeEvery, select, put } from 'redux-saga/effects'
-import { INIT, REQUEST_PLAYTIME, BACKEND_PLAYTIME, SET_CHAPTER, DISABLE_GHOST_MODE, PREVIOUS_CHAPTER, NEXT_CHAPTER } from '@podlove/player-actions/types'
+import {
+  INIT,
+  REQUEST_PLAYTIME,
+  BACKEND_PLAYTIME,
+  SET_CHAPTER,
+  DISABLE_GHOST_MODE,
+  PREVIOUS_CHAPTER,
+  NEXT_CHAPTER
+} from '@podlove/player-actions/types'
 import * as config from '@podlove/utils/config'
 import * as chapter from '@podlove/player-actions/chapters'
 import { requestPlaytime } from '@podlove/player-actions/timepiece'
 import { toPlayerTime } from '@podlove/utils/time'
 import { hostname } from '@podlove/utils/url'
 
-export default ({ selectDuration, selectPlaytime, selectCurrentChapter, selectChapterList }) => function* chaptersSaga () {
-  yield takeEvery(INIT, initChapters)
-  yield takeEvery(REQUEST_PLAYTIME, chapterUpdate)
-  yield takeEvery(BACKEND_PLAYTIME, chapterUpdate)
-  yield takeEvery(SET_CHAPTER, setChapter)
-  yield takeEvery(DISABLE_GHOST_MODE, resetChapter)
-  yield takeEvery(PREVIOUS_CHAPTER, previousChapter)
-  yield takeEvery(NEXT_CHAPTER, nextChapter)
+export default ({ selectDuration, selectPlaytime, selectCurrentChapter, selectChapterList }) =>
+  function * chaptersSaga () {
+    yield takeEvery(INIT, initChapters)
+    yield takeEvery(REQUEST_PLAYTIME, chapterUpdate)
+    yield takeEvery(BACKEND_PLAYTIME, chapterUpdate)
+    yield takeEvery(SET_CHAPTER, setChapter)
+    yield takeEvery(DISABLE_GHOST_MODE, resetChapter)
+    yield takeEvery(PREVIOUS_CHAPTER, previousChapter)
+    yield takeEvery(NEXT_CHAPTER, nextChapter)
 
-  function* initChapters ({ payload }) {
-    const chapters = config.chapters(payload)
-    const duration = yield select(selectDuration)
+    function * initChapters ({ payload }) {
+      const chapters = config.chapters(payload)
+      const duration = yield select(selectDuration)
 
-    const state = chapters.reduce((result, chapter, index, chapters) => {
-      const end = propOr({ start: duration }, index + 1, chapters)
-      const href = propOr(null, 'href', chapter)
+      const state = chapters.reduce((result, chapter, index, chapters) => {
+        const end = propOr({ start: duration }, index + 1, chapters)
+        const href = propOr(null, 'href', chapter)
 
-      return [
-        ...result,
-        {
-          index: index + 1,
-          start: toPlayerTime(chapter.start),
-          end: toPlayerTime(end.start),
-          title: prop('title', chapter),
-          image: prop('image', chapter),
-          href,
-          linkTitle: href ? hostname(href) : null
-        }
-      ]
-    }, [])
+        return [
+          ...result,
+          {
+            index: index + 1,
+            start: toPlayerTime(chapter.start),
+            end: toPlayerTime(end.start),
+            title: prop('title', chapter),
+            image: prop('image', chapter),
+            href,
+            linkTitle: href ? hostname(href) : null
+          }
+        ]
+      }, [])
 
-    yield put(chapter.setChapters(state))
-  }
+      yield put(chapter.setChapters(state))
+    }
 
-  function* chapterUpdate({ payload }) {
-    yield put(chapter.updateChapter(payload))
-  }
+    function * chapterUpdate ({ payload }) {
+      yield put(chapter.updateChapter(payload))
+    }
 
-  function* setChapter() {
-    const current = yield select(selectCurrentChapter)
-    yield put(requestPlaytime(current.start))
-  }
+    function * setChapter () {
+      const current = yield select(selectCurrentChapter)
+      yield put(requestPlaytime(current.start))
+    }
 
-  function* resetChapter() {
-    const playtime = yield select(selectPlaytime)
-    yield put(chapter.updateChapter(playtime))
-  }
+    function * resetChapter () {
+      const playtime = yield select(selectPlaytime)
+      yield put(chapter.updateChapter(playtime))
+    }
 
-  function* previousChapter() {
-    const playtime = yield select(selectPlaytime)
-    const { start, index } = yield select(selectCurrentChapter)
+    function * previousChapter () {
+      const playtime = yield select(selectPlaytime)
+      const { start, index } = yield select(selectCurrentChapter)
 
-    if (playtime - start <= 2) {
-      yield put(previousChapter())
-    } else {
-      yield put(chapter.setChapter(index - 1))
+      if (playtime - start <= 2) {
+        yield put(previousChapter())
+      } else {
+        yield put(chapter.setChapter(index - 1))
+      }
+    }
+
+    function * nextChapter () {
+      const duration = yield select(selectDuration)
+      const playtime = yield select(selectPlaytime)
+      const chapters = yield select(selectChapterList)
+      const { start, index } = yield select(selectCurrentChapter)
+
+      const chapterStart = index === chapters.length && playtime >= start ? duration : start
+
+      yield put(requestPlaytime(chapterStart))
     }
   }
-
-  function* nextChapter() {
-    const duration = yield select(selectDuration)
-    const playtime = yield select(selectPlaytime)
-    const chapters = yield select(selectChapterList)
-    const { start, index } = yield select(selectCurrentChapter)
-
-    const chapterStart = index === chapters.length &&
-      playtime >= start
-      ? duration
-      : start
-
-    yield put(requestPlaytime(chapterStart))
-  }
-}
 
 /**
  *

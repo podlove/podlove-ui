@@ -12,7 +12,7 @@ export default {
     chapterStyle: select.styles.chapterTitle,
     currentGhostChapter: select.ghost.chapter,
     currentChapter: select.chapters.current,
-    ghost: select.ghost.time,
+    ghost: select.ghost.time
   }),
   computed: {
     chapter () {
@@ -30,13 +30,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .timer-chapter {
-    width: 100%;
-    text-align: center;
+.timer-chapter {
+  width: 100%;
+  text-align: center;
 
-    .title {
-      white-space: nowrap;
-      display: inline-block;
-    }
+  .title {
+    white-space: nowrap;
+    display: inline-block;
   }
+}
 </style>

@@ -10,39 +10,39 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import copy from 'copy-to-clipboard'
-  import { InputGroup, InputText, Button as ButtonComponent, Tooltip } from '@podlove/components'
-  import { addQueryParameter } from '@podlove/utils/url'
-  import { toHumanTime } from '@podlove/utils/time'
+import { mapState } from 'redux-vuex'
+import copy from 'copy-to-clipboard'
+import { InputGroup, InputText, Button as ButtonComponent, Tooltip } from '@podlove/components'
+import { addQueryParameter } from '@podlove/utils/url'
+import { toHumanTime } from '@podlove/utils/time'
 
-  import buttonColor from 'directives/button-color'
-  import inputColor from 'directives/input-color'
+import buttonColor from 'directives/button-color'
+import inputColor from 'directives/input-color'
 
-  import select from 'store/selectors'
+import select from 'store/selectors'
 
-  export default {
-    data: mapState({
-      content: select.share.content,
-      chapter: select.chapters.current,
-      showLink: select.show.link,
-      episodeLink: select.episode.link,
-      playtime: select.playtime,
-      negative: select.styles.negative,
-      link: select.share.link
-    }),
+export default {
+  data: mapState({
+    content: select.share.content,
+    chapter: select.chapters.current,
+    showLink: select.show.link,
+    episodeLink: select.episode.link,
+    playtime: select.playtime,
+    negative: select.styles.negative,
+    link: select.share.link
+  }),
 
-    methods: {
-      copyLink() {
-        copy(this.link)
-      }
-    },
-
-    components: {
-      InputGroup,
-      ButtonComponent: buttonColor(ButtonComponent),
-      InputText: inputColor(InputText),
-      Tooltip
+  methods: {
+    copyLink () {
+      copy(this.link)
     }
+  },
+
+  components: {
+    InputGroup,
+    ButtonComponent: buttonColor(ButtonComponent),
+    InputText: inputColor(InputText),
+    Tooltip
   }
+}
 </script>

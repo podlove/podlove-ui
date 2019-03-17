@@ -18,91 +18,92 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import { Icon } from '@podlove/components'
-  import { calcHours, calcMinutes, localeDate, localeTime } from '@podlove/utils/time'
-  import { Image as LazyImage } from '@podlove/components'
+import { mapState } from 'redux-vuex'
+import { Icon } from '@podlove/components'
+import { calcHours, calcMinutes, localeDate, localeTime } from '@podlove/utils/time'
+import { Image as LazyImage } from '@podlove/components'
 
-  import select from 'store/selectors'
+import select from 'store/selectors'
 
-  import InfoMeta from './components/Meta'
-  import InfoLink from './components/Link'
-  import InfoSummary from './components/Summary'
-  import InfoContributors from './components/Contributors'
+import InfoMeta from './components/Meta'
+import InfoLink from './components/Link'
+import InfoSummary from './components/Summary'
+import InfoContributors from './components/Contributors'
 
-  export default {
-    data: mapState({
-      imageCover: select.styles.imageCover,
-      episodeTitle: select.episode.title,
-      episodeSubtitle: select.episode.subtitle,
-      episodeSummary: select.episode.summary,
-      episodeLink: select.episode.link,
-      showTitle: select.show.title,
-      showPoster: select.show.poster,
-      showLink: select.show.link,
-      showSummary: select.show.summary
-    }),
-    components: {
-      InfoMeta,
-      InfoLink,
-      LazyImage,
-      InfoSummary,
-      InfoContributors
-    }
+export default {
+  data: mapState({
+    imageCover: select.styles.imageCover,
+    episodeTitle: select.episode.title,
+    episodeSubtitle: select.episode.subtitle,
+    episodeSummary: select.episode.summary,
+    episodeLink: select.episode.link,
+    showTitle: select.show.title,
+    showPoster: select.show.poster,
+    showLink: select.show.link,
+    showSummary: select.show.summary
+  }),
+  components: {
+    InfoMeta,
+    InfoLink,
+    LazyImage,
+    InfoSummary,
+    InfoContributors
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .info-tab {
-     padding: $padding;
+.info-tab {
+  padding: $padding;
 
+  .description {
+    display: flex;
+
+    .episode {
+      width: 60%;
+      padding-right: $padding;
+    }
+
+    .show {
+      width: 40%;
+      padding-left: $padding;
+    }
+
+    .subtitle {
+      font-weight: 500;
+      hyphens: auto;
+    }
+
+    .show-poster {
+      display: block;
+      width: 100%;
+      max-width: $info-cover-width;
+      height: auto;
+      margin-bottom: $margin;
+    }
+  }
+
+  @media screen and (max-width: $width-m) {
     .description {
-      display: flex;
+      display: block;
 
-      .episode {
-        width: 60%;
-        padding-right: $padding;
+      .meta {
+        flex-direction: column;
+        align-items: left;
       }
 
+      .episode,
       .show {
-        width: 40%;
-        padding-left: $padding;
-      }
-
-      .subtitle {
-        font-weight: 500;
-        hyphens: auto;
+        width: 100%;
+        padding: 0;
       }
 
       .show-poster {
-        display: block;
-        width: 100%;
-        max-width: $info-cover-width;
-        height: auto;
-        margin-bottom: $margin;
-      }
-    }
-
-    @media screen and (max-width: $width-m) {
-      .description {
-        display: block;
-
-        .meta {
-          flex-direction: column;
-          align-items: left;
-        }
-
-        .episode, .show {
-          width: 100%;
-          padding: 0;
-        }
-
-        .show-poster {
-          display: none;
-        }
+        display: none;
       }
     }
   }
+}
 </style>

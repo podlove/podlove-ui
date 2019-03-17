@@ -1,9 +1,9 @@
-import {  color, object, number } from '@storybook/addon-knobs'
+import { color, object, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import InputSelect from '.'
 
-import * as defaultColors from 'defaults';
+import * as defaultColors from 'defaults'
 
 export default () => ({
   components: { InputSelect },
@@ -21,22 +21,28 @@ export default () => ({
       default: number('value', 0)
     },
     pins: {
-      default: object('pins', [{
-        value: 0,
-        label: '0x'
-      }, {
-        value: 0.25,
-        label: '25x'
-      }, {
-        value: 0.50,
-        label: '50x'
-      }, {
-        value: 0.75,
-        label: '75x'
-      }, {
-        value: 1,
-        label: '100x'
-      }])
+      default: object('pins', [
+        {
+          value: 0,
+          label: '0x'
+        },
+        {
+          value: 0.25,
+          label: '25x'
+        },
+        {
+          value: 0.5,
+          label: '50x'
+        },
+        {
+          value: 0.75,
+          label: '75x'
+        },
+        {
+          value: 1,
+          label: '100x'
+        }
+      ])
     },
 
     borderColor: {
@@ -50,7 +56,7 @@ export default () => ({
   methods: {
     change: action('@change'),
     input: action('@input'),
-    dblclick: action('@dblclick'),
+    dblclick: action('@dblclick')
   },
 
   template: `

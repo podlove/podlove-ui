@@ -1,14 +1,14 @@
 {
   "name": "@podlove/player-sagas",
   "version": "4.2.3",
-  "description": "Sagas for podlove web player",
+  "description": "Sagas for Podlove Web Player",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
   "dependencies": {
     "@podlove/player-actions": "4.2.3",
     "@podlove/components": "4.2.3",

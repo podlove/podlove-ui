@@ -17,42 +17,42 @@
 </template>
 
 <script>
-  import { map } from 'lodash'
-  import { mapState } from 'redux-vuex'
-  import { asyncAnimation } from '@podlove/utils/helper'
+import { map } from 'lodash'
+import { mapState } from 'redux-vuex'
+import { asyncAnimation } from '@podlove/utils/helper'
 
-  import select from 'store/selectors'
+import select from 'store/selectors'
 
-  import TranscriptEntry from './Entry'
+import TranscriptEntry from './Entry'
 
-  export default {
-    props: {
-      transcripts: {
-        type: Array,
-        default: () => ([])
-      }
-    },
-    data: mapState({
-      playtime: select.playtime,
-      ghostActive: select.ghost.active,
-      ghostTime: select.ghost.time,
-      searchResults: select.transcripts.searchResults,
-      searchQuery: select.transcripts.searchQuery,
-      chapterStyle: select.styles.transcriptsChapter,
-      activeStyle: select.styles.transcriptsActive,
-      ghostStyle: select.styles.transcriptsGhost
-    }),
-    components: {
-      TranscriptEntry
-    },
-    mounted () {
-      this.$nextTick(() => {
-        const entries = map(this.$el.children, asyncAnimation(entry => entry.clientHeight))
-
-        Promise.all(entries).then(resolved => {
-          this.$emit('load', resolved)
-        })
-      })
+export default {
+  props: {
+    transcripts: {
+      type: Array,
+      default: () => []
     }
+  },
+  data: mapState({
+    playtime: select.playtime,
+    ghostActive: select.ghost.active,
+    ghostTime: select.ghost.time,
+    searchResults: select.transcripts.searchResults,
+    searchQuery: select.transcripts.searchQuery,
+    chapterStyle: select.styles.transcriptsChapter,
+    activeStyle: select.styles.transcriptsActive,
+    ghostStyle: select.styles.transcriptsGhost
+  }),
+  components: {
+    TranscriptEntry
+  },
+  mounted () {
+    this.$nextTick(() => {
+      const entries = map(this.$el.children, asyncAnimation(entry => entry.clientHeight))
+
+      Promise.all(entries).then(resolved => {
+        this.$emit('load', resolved)
+      })
+    })
   }
+}
 </script>

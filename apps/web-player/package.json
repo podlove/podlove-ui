@@ -9,6 +9,7 @@
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js"
   },
   "keywords": [],
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
     "@podlove/player": "4.2.3",

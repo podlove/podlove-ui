@@ -21,7 +21,13 @@ import { compose } from 'ramda'
 import { mapState } from 'redux-vuex'
 import { Icon } from '@podlove/components'
 
-import { searchTranscripts, followTranscripts, resetSearchTranscription, previousTranscriptsSearchResult, nextTranscriptsSearchResult } from '@podlove/player-actions/transcripts'
+import {
+  searchTranscripts,
+  followTranscripts,
+  resetSearchTranscription,
+  previousTranscriptsSearchResult,
+  nextTranscriptsSearchResult
+} from '@podlove/player-actions/transcripts'
 
 import store from 'store'
 import select from 'store/selectors'
@@ -39,9 +45,18 @@ export default {
       store.dispatch(searchTranscripts(event.target.value))
       store.dispatch(followTranscripts(false))
     },
-    reset: compose(store.dispatch, resetSearchTranscription),
-    previousSearchResult: compose(store.dispatch, previousTranscriptsSearchResult),
-    nextSearchResult: compose(store.dispatch, nextTranscriptsSearchResult)
+    reset: compose(
+      store.dispatch,
+      resetSearchTranscription
+    ),
+    previousSearchResult: compose(
+      store.dispatch,
+      previousTranscriptsSearchResult
+    ),
+    nextSearchResult: compose(
+      store.dispatch,
+      nextTranscriptsSearchResult
+    )
   },
   computed: {
     searchInputStyle () {
@@ -64,79 +79,79 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~styles/variables';
-  @import '~styles/utils';
+@import '~styles/variables';
+@import '~styles/utils';
 
-  .transcripts-search {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.transcripts-search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+
+  .search-input {
+    // Padding left and right transcripts-header
+    max-width: $width-xs;
+    position: relative;
+    margin-right: 0.5em;
     width: 100%;
 
-    .search-input {
-      // Padding left and right transcripts-header
-      max-width: $width-xs;
-      position: relative;
-      margin-right: 0.5em;
+    .input {
+      padding: 0.2em 24px 0.2em 1em;
+      font-size: 1em;
+      border-radius: 1em;
+      border-width: 1px;
+      border-style: solid;
+      height: 100%;
       width: 100%;
+      font-weight: 300;
 
-      .input {
-        padding: 0.2em 24px 0.2em 1em;
-        font-size: 1em;
-        border-radius: 1em;
-        border-width: 1px;
-        border-style: solid;
-        height: 100%;
-        width: 100%;
-        font-weight: 300;
-
-        &::placeholder {
-          color: currentColor;
-          opacity: 0.6;
-        }
-      }
-
-      .delete {
-        position: absolute;
-        right: 1px;
-        top: 1px;
+      &::placeholder {
+        color: currentColor;
+        opacity: 0.6;
       }
     }
 
-    .search-navigation {
-      width: 100%;
+    .delete {
+      position: absolute;
+      right: 1px;
+      top: 1px;
+    }
+  }
+
+  .search-navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 0.5em;
+
+    @media screen and (max-width: $width-l) {
+      width: 25%;
+    }
+
+    .search-stepper {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      margin-right: 0.5em;
+      justify-content: space-between;
+      height: 100%;
+      width: 4em;
+      margin: 0 0.5em;
 
-      @media screen and (max-width: $width-l) {
-        width: 25%;
+      .stepper {
+        display: inherit;
       }
+    }
 
-      .search-stepper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-        width: 4em;
-        margin: 0 0.5em;
+    .search-results {
+      white-space: nowrap;
+      margin-left: 0.5em;
 
-        .stepper {
-          display: inherit;
-        }
-      }
-
-      .search-results {
-        white-space: nowrap;
-        margin-left: 0.5em;
-
-        &.counter {
-          @media screen and (max-width: $width-l) {
-            display: none;
-          }
+      &.counter {
+        @media screen and (max-width: $width-l) {
+          display: none;
         }
       }
     }
   }
+}
 </style>

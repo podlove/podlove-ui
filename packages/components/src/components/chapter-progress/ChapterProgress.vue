@@ -1,23 +1,25 @@
 <template>
-  <div class="chapter-progress"
+  <div
+    class="chapter-progress"
     @mouseout="progressOut"
     @mousemove.alt="progressMove"
     @click.exact="progressClick"
     @click.alt="contextProgressClick"
     ref="progressContainer"
-    aria-hidden="true">
-      <span class="title truncate" aria-hidden="true">
-        {{ chapter.title }}
-      </span>
-      <span class="link" v-if="hasLink">
-        <icon class="icon" type="link"></icon>
-        <a class="info-link truncate" :href="chapter.href" target="_blank" @mouseover="linkOver" @mouseleave="linkLeave">
-          {{ chapter.linkTitle }}
-        </a>
-      </span>
-      <timer class="timer" :time="remainingTime" :remaining="chapter.active || ghostActive"/>
-      <span class="chapter-progress-bar" :style="progressStyle" aria-hidden="true"></span>
-      <span class="chapter-progress-bar" :style="progressGhostStyle" aria-hidden="true"></span>
+    aria-hidden="true"
+  >
+    <span class="title truncate" aria-hidden="true">
+      {{ chapter.title }}
+    </span>
+    <span class="link" v-if="hasLink">
+      <icon class="icon" type="link"></icon>
+      <a class="info-link truncate" :href="chapter.href" target="_blank" @mouseover="linkOver" @mouseleave="linkLeave">
+        {{ chapter.linkTitle }}
+      </a>
+    </span>
+    <timer class="timer" :time="remainingTime" :remaining="chapter.active || ghostActive" />
+    <span class="chapter-progress-bar" :style="progressStyle" aria-hidden="true"></span>
+    <span class="chapter-progress-bar" :style="progressGhostStyle" aria-hidden="true"></span>
   </div>
 </template>
 
@@ -70,7 +72,7 @@ export default {
       }
 
       return {
-        'width': this.progress(this.playtime),
+        width: this.progress(this.playtime),
         'background-color': this.progressColor
       }
     },
@@ -85,7 +87,7 @@ export default {
       }
 
       return {
-        'width': this.progress(this.ghost),
+        width: this.progress(this.ghost),
         'background-color': color(this.progressColor).fade(0.7)
       }
     },
@@ -108,45 +110,48 @@ export default {
   },
 
   methods: {
-    hoverPlaytime(event) {
+    hoverPlaytime (event) {
       const clientRect = this.$refs.progressContainer.getBoundingClientRect()
-      return this.chapter.start + (this.chapter.end - this.chapter.start) * (event.clientX - clientRect.left) / clientRect.width
+      return (
+        this.chapter.start +
+        ((this.chapter.end - this.chapter.start) * (event.clientX - clientRect.left)) / clientRect.width
+      )
     },
 
-    progress(time) {
+    progress (time) {
       return `${((time - this.chapter.start) * 100) / (this.chapter.end - this.chapter.start)}%`
     },
 
-    progressClick(event) {
+    progressClick (event) {
       this.$emit('chapter', setChapter(this.chapter.index - 1))
       this.$emit('play', requestPlay())
       return false
     },
 
-    contextProgressClick(event) {
+    contextProgressClick (event) {
       this.$emit('playtime', requestPlaytime(this.hoverPlaytime(event)))
       this.$emit('play', requestPlay())
       event.preventDefault()
       return false
     },
 
-    progressOut() {
+    progressOut () {
       this.$emit('ghost', disableGhost())
     },
 
-    progressMove(event) {
+    progressMove (event) {
       this.$emit('ghost', enableGhost())
 
       this.$emit('simulate', simulatePlaytime(this.hoverPlaytime(event)))
     },
 
-    linkOver() {
+    linkOver () {
       this.$emit('hover', true)
     },
 
-    linkLeave() {
+    linkLeave () {
       this.$emit('hover', false)
-    },
+    }
   },
 
   components: {
@@ -157,52 +162,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import "font";
-  @import "resets";
-  @import "utils";
-  @import "tokens/defaults";
+@import 'boot';
+@import 'font';
+@import 'resets';
+@import 'utils';
+@import 'tokens/defaults';
 
-  .chapter-progress {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: ($padding / 2) 0;
-    @extend %font;
+.chapter-progress {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: ($padding / 2) 0;
+  @extend %font;
 
-    .title {
-      width: calc(100% - 4.4em);
-      pointer-events: none;
-    }
-
-    .icon {
-      flex-shrink: 0;
-    }
-
-    .info-link {
-      font-weight: 500;
-    }
-
-    .link {
-      display: flex;
-      align-items: flex-end;
-      max-width: calc(40%);
-    }
-
-    .timer {
-      min-width: 4.4em;
-      display: block;
-      text-align: right;
-      pointer-events: none;
-      padding-right: $padding / 2;
-    }
-
-    .chapter-progress-bar {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 3px;
-      pointer-events: none;
-    }
+  .title {
+    width: calc(100% - 4.4em);
+    pointer-events: none;
   }
+
+  .icon {
+    flex-shrink: 0;
+  }
+
+  .info-link {
+    font-weight: 500;
+  }
+
+  .link {
+    display: flex;
+    align-items: flex-end;
+    max-width: calc(40%);
+  }
+
+  .timer {
+    min-width: 4.4em;
+    display: block;
+    text-align: right;
+    pointer-events: none;
+    padding-right: $padding / 2;
+  }
+
+  .chapter-progress-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    pointer-events: none;
+  }
+}
 </style>

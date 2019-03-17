@@ -1,4 +1,3 @@
-
 const devServer = require('./dev-server')
 const output = require('./output')
 const rules = require('./rules')

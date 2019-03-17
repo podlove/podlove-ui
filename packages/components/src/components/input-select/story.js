@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 
 import InputSelect from '.'
 
-import * as defaultColors from 'defaults';
+import * as defaultColors from 'defaults'
 
 export default () => ({
   components: { InputSelect },

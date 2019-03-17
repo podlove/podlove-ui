@@ -16,60 +16,60 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import { head } from 'lodash'
-  import select from 'store/selectors'
+import { mapState } from 'redux-vuex'
+import { head } from 'lodash'
+import select from 'store/selectors'
 
-  import ContentSelect from './components/Content'
-  import ChannelSelect from './components/Channels'
-  import CopyLink from './components/Link'
-  import EmbedCode from './components/Embed'
+import ContentSelect from './components/Content'
+import ChannelSelect from './components/Channels'
+import CopyLink from './components/Link'
+import EmbedCode from './components/Embed'
 
-  export default {
-    data: mapState({
-      sectionStyle: select.styles.shareSectionStyle,
-      hasLink: select.share.hasLink,
-      content: select.share.content,
-      hasEmbedLink: select.share.hasEmbedLink
-    }),
-    components: {
-      ContentSelect,
-      ChannelSelect,
-      CopyLink,
-      EmbedCode
-    }
+export default {
+  data: mapState({
+    sectionStyle: select.styles.shareSectionStyle,
+    hasLink: select.share.hasLink,
+    content: select.share.content,
+    hasEmbedLink: select.share.hasEmbedLink
+  }),
+  components: {
+    ContentSelect,
+    ChannelSelect,
+    CopyLink,
+    EmbedCode
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .share-tab {
-    padding: $padding 0;
+.share-tab {
+  padding: $padding 0;
 
-    .title {
-      font-weight: 500;
-      margin: ($margin / 2) 0 $margin 0;
-    }
-
-    .content-select {
-      padding: $padding $padding $padding * 2 $padding;
-    }
-
-    .share-channel {
-      padding: $padding;
-    }
-
-    .share-link, .share-embed {
-      padding: $padding $padding * 2 0 $padding * 2;
-    }
-
-    .label {
-      display: block;
-      font-weight: 400;
-      margin-bottom: $margin / 2;
-      text-align: center;
-    }
-
+  .title {
+    font-weight: 500;
+    margin: ($margin / 2) 0 $margin 0;
   }
+
+  .content-select {
+    padding: $padding $padding $padding * 2 $padding;
+  }
+
+  .share-channel {
+    padding: $padding;
+  }
+
+  .share-link,
+  .share-embed {
+    padding: $padding $padding * 2 0 $padding * 2;
+  }
+
+  .label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: $margin / 2;
+    text-align: center;
+  }
+}
 </style>

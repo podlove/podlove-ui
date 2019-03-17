@@ -15,7 +15,7 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: (val) => ['forward', 'backwards'].includes(val)
+      validator: val => ['forward', 'backwards'].includes(val)
     },
     color: {
       type: String,
@@ -30,10 +30,10 @@ export default {
       switch (this.type) {
         case 'forward':
           this.$emit('click', stepForward())
-        break
+          break
         case 'backwards':
           this.$emit('click', stepBackwards())
-        break
+          break
       }
     }
   }
@@ -41,10 +41,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'boot';
-  @import 'resets';
+@import 'boot';
+@import 'resets';
 
-  .stepper-button {
-    @extend %button;
-  }
+.stepper-button {
+  @extend %button;
+}
 </style>

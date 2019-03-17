@@ -24,28 +24,32 @@ module.exports = {
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 
   module: {
-    rules: [
-      rules.javascript(),
-      rules.scss(),
-      rules.mustache()
-    ]
+    rules: [rules.javascript(), rules.scss(), rules.mustache()]
   },
 
   plugins: [
     plugins.hmr(),
     ...plugins.html({
-      files: [{
-        filename: 'index.html', template: './example.html'
-      }]
+      files: [
+        {
+          filename: 'index.html',
+          template: './example.html'
+        }
+      ]
     }),
     plugins.env({ MODE: 'development', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player'], STYLES: ['styles'] }),
-    plugins.copy([{
-        from: `./node_modules/@podlove/player/dist`, to: BASE,
-      }, {
+    plugins.copy([
+      {
+        from: `./node_modules/@podlove/player/dist`,
+        to: BASE
+      },
+      {
         from: './example.json'
-      }, {
+      },
+      {
         from: './transcripts.json'
-      }, {
+      },
+      {
         from: './chapters.json'
       }
     ])

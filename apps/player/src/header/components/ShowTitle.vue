@@ -5,28 +5,29 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import select from 'store/selectors'
+import { mapState } from 'redux-vuex'
+import select from 'store/selectors'
 
-  export default {
-    data: mapState({
-      style: select.styles.title,
-      title: select.show.title,
-      link: select.show.link
-    })
-  }
+export default {
+  data: mapState({
+    style: select.styles.title,
+    title: select.show.title,
+    link: select.show.link
+  })
+}
 </script>
 
 <style lang="scss">
-  .show-title {
-    margin: 0;
-    font-weight: inherit;
-    font-size: 1em;
-    line-height: 1.2em;
-    min-width: 0;
+.show-title {
+  margin: 0;
+  font-weight: inherit;
+  font-size: 1em;
+  line-height: 1.2em;
+  min-width: 0;
 
-    a, span {
-      display: block;
-    }
+  a,
+  span {
+    display: block;
   }
+}
 </style>

@@ -27,10 +27,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .progress-bar {
-    padding: 0 $padding;
-    height: $progress-bar-height;
-  }
+.progress-bar {
+  padding: 0 $padding;
+  height: $progress-bar-height;
+}
 </style>

@@ -27,7 +27,7 @@ export default {
         activeFollow: select.transcripts.follow,
         selectedSearch: select.transcripts.searchSelected,
         searchQuery: select.transcripts.searchQuery,
-        timeline: select.transcripts.timeline,
+        timeline: select.transcripts.timeline
       }),
       prerender: null
     }
@@ -62,42 +62,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .transcripts {
-    height: 100%;
-    overflow: hidden;
-    position: relative;
+.transcripts {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.transcripts-header {
+  height: $transcripts-header-height;
+  box-shadow: 0 4px 2px -2px rgba($overlay-color, 0.1);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > * {
+    height: $transcripts-header-element-height;
+  }
+}
+
+.transcripts-container {
+  position: relative;
+  max-height: $tabs-body-max-height - $transcripts-height;
+  overflow-y: auto;
+  padding: 0;
+}
+
+@media screen and (max-width: $width-m) {
+  .transcripts.has-search-results .transcripts-follow-button {
+    display: none;
   }
 
-  .transcripts-header {
-    height: $transcripts-header-height;
-    box-shadow: 0 4px 2px -2px rgba($overlay-color, 0.1);
-    padding: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > * {
-      height: $transcripts-header-element-height;
-    }
+  .transcripts.has-search-results .search-navigation {
+    justify-content: flex-end;
+    margin-right: 0;
   }
-
-  .transcripts-container {
-    position: relative;
-    max-height: $tabs-body-max-height - $transcripts-height;
-    overflow-y: auto;
-    padding: 0;
-  }
-
-  @media screen and (max-width: $width-m) {
-    .transcripts.has-search-results .transcripts-follow-button {
-      display: none;
-    }
-
-    .transcripts.has-search-results .search-navigation {
-      justify-content: flex-end;
-      margin-right: 0;
-    }
-  }
+}
 </style>

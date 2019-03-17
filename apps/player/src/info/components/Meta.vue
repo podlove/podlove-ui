@@ -17,7 +17,6 @@ import { localeDate, localeTime, calcHours, calcMinutes } from '@podlove/utils/t
 import { Icon } from '@podlove/components'
 import select from 'store/selectors'
 
-
 export default {
   data: mapState({
     duration: select.duration,
@@ -47,23 +46,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .info-meta {
+.info-meta {
+  display: flex;
+  align-items: center;
+
+  .info-tag {
     display: flex;
     align-items: center;
-
-    .info-tag {
-      display: flex;
-      align-items: center;
-      margin-right: $margin
-    }
+    margin-right: $margin;
   }
+}
 
-  @media screen and (max-width: $width-m) {
-    .info-meta {
-      flex-direction: column;
-      align-items: left;
-    }
+@media screen and (max-width: $width-m) {
+  .info-meta {
+    flex-direction: column;
+    align-items: left;
   }
+}
 </style>

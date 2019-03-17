@@ -11,12 +11,18 @@ export const INIT_STATE = {
 const audioFiles = ({ mimeType }) => mimeType.includes('audio')
 
 const update = createObject({
-  audio: compose(filter(audioFiles), propOr([], 'files'))
+  audio: compose(
+    filter(audioFiles),
+    propOr([], 'files')
+  )
 })
 
-export const reducer = handleActions({
-  [INIT]: (state, { payload }) => ({
-    ...state,
-    ...update(payload)
-  })
-}, INIT_STATE)
+export const reducer = handleActions(
+  {
+    [INIT]: (state, { payload }) => ({
+      ...state,
+      ...update(payload)
+    })
+  },
+  INIT_STATE
+)

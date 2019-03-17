@@ -1,36 +1,41 @@
 import Vue from 'vue'
 import select from 'store/selectors'
 
-export default component => Vue.component('button-color', {
-  props: {
-    variant: {
-      type: String,
-      default: null
-    }
-  },
-  render: function (h) {
-    return h(component, {
-      props: {
-        textColor: this.buttonStyle.color,
-        backgroundColor: this.buttonStyle.background,
-        borderColor: this.buttonStyle.border,
-        ...this.$attrs
-      },
-      on: {
-        click: this.proxyEvent('click'),
+export default component =>
+  Vue.component('button-color', {
+    props: {
+      variant: {
+        type: String,
+        default: null
       }
-    }, this.$slots.default)
-  },
+    },
+    render: function (h) {
+      return h(
+        component,
+        {
+          props: {
+            textColor: this.buttonStyle.color,
+            backgroundColor: this.buttonStyle.background,
+            borderColor: this.buttonStyle.border,
+            ...this.$attrs
+          },
+          on: {
+            click: this.proxyEvent('click')
+          }
+        },
+        this.$slots.default
+      )
+    },
 
-  data() {
-    return this.mapState({
-      buttonStyle: this.variant === 'light' ? select.styles.buttonLight : select.styles.button
-    })
-  },
+    data () {
+      return this.mapState({
+        buttonStyle: this.variant === 'light' ? select.styles.buttonLight : select.styles.button
+      })
+    },
 
-  methods: {
-    proxyEvent(event) {
-      return (val) => this.$emit(event, val)
+    methods: {
+      proxyEvent (event) {
+        return val => this.$emit(event, val)
+      }
     }
-  },
-})
+  })

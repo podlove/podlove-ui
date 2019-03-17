@@ -22,125 +22,124 @@
 </template>
 
 <script>
-  import { mapState } from 'redux-vuex'
-  import copy from 'copy-to-clipboard'
-  import { Button as ButtonComponent, Icon, Tooltip } from '@podlove/components'
-  import { toMegabyte } from '@podlove/utils/math'
-  import buttonColor from 'directives/button-color'
+import { mapState } from 'redux-vuex'
+import copy from 'copy-to-clipboard'
+import { Button as ButtonComponent, Icon, Tooltip } from '@podlove/components'
+import { toMegabyte } from '@podlove/utils/math'
+import buttonColor from 'directives/button-color'
 
-  import select from 'store/selectors'
+import select from 'store/selectors'
 
-  import FileIcon from './FileIcon'
+import FileIcon from './FileIcon'
 
-  export default {
-    data: mapState({
-      negative: select.styles.negative
-    }),
+export default {
+  data: mapState({
+    negative: select.styles.negative
+  }),
 
-    props: {
-      icon: {
-        type: String
-      },
-      file: {
-        type: Object,
-        default: () => ({
-          title: null,
-          size: null,
-          mimeType: null,
-          url: null
-        })
-      }
+  props: {
+    icon: {
+      type: String
     },
-
-    methods: {
-      toMegabyte,
-      copyUrl() {
-        copy(this.file.url)
-      }
-    },
-
-    components: {
-      ButtonComponent: buttonColor(ButtonComponent),
-      Tooltip,
-      FileIcon,
-      Icon
+    file: {
+      type: Object,
+      default: () => ({
+        title: null,
+        size: null,
+        mimeType: null,
+        url: null
+      })
     }
+  },
+
+  methods: {
+    toMegabyte,
+    copyUrl () {
+      copy(this.file.url)
+    }
+  },
+
+  components: {
+    ButtonComponent: buttonColor(ButtonComponent),
+    Tooltip,
+    FileIcon,
+    Icon
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
-  .file {
+.file {
+  display: flex;
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .file-info {
+    opacity: 0.8;
+  }
+
+  .file-type {
+    font-weight: 500;
+  }
+
+  .file-meta {
     display: flex;
-    margin-bottom: 1em;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - #{$files-icon-width} - #{$files-actions-width} - #{$margin});
+    line-height: 1.2em;
+    margin-left: $margin;
+  }
 
-    &:last-child {
-      margin-bottom: 0;
+  .file-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: $files-actions-width;
+    margin-left: $margin * 2;
+
+    .file-action-text {
+      display: block;
     }
 
-    .file-info {
-      opacity: 0.8;
+    .file-action-icon {
+      display: none;
     }
 
-    .file-type {
-      font-weight: 500;
+    .file-input-button {
+      margin-left: 1em;
+    }
+
+    .file-action {
+      margin-left: $margin;
+    }
+  }
+}
+
+@media screen and (max-width: $width-m) {
+  .file-file {
+    .file-icon {
+      display: none;
     }
 
     .file-meta {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: calc(100% - #{$files-icon-width} - #{$files-actions-width} - #{$margin});
-      line-height: 1.2em;
-      margin-left: $margin;
+      width: calc(100% - #{$files-icon-width * 2});
+      margin-left: 0;
     }
 
     .file-actions {
-      display: flex;
-      justify-content: flex-end;
-      width: $files-actions-width;
-      margin-left: $margin * 2;
-
       .file-action-text {
-        display: block;
+        display: none;
       }
 
       .file-action-icon {
-        display: none;
-      }
-
-      .file-input-button {
-        margin-left: 1em;
-      }
-
-      .file-action {
-        margin-left: $margin;
+        display: block;
       }
     }
   }
-
-
-  @media screen and (max-width: $width-m) {
-    .file-file {
-      .file-icon {
-        display: none;
-      }
-
-      .file-meta {
-        width: calc(100% - #{$files-icon-width * 2});
-        margin-left: 0;
-      }
-
-      .file-actions {
-        .file-action-text {
-          display: none;
-        }
-
-        .file-action-icon {
-          display: block;
-        }
-      }
-    }
-  }
+}
 </style>

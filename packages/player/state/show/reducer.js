@@ -16,14 +16,20 @@ export const INITIAL_STATE = {
 const change = createObject({
   title: pathOr(null, ['show', 'title']),
   subtitle: pathOr(null, ['show', 'subtitle']),
-  summary: compose(sanitize, pathOr(null, ['show', 'summary'])),
+  summary: compose(
+    sanitize,
+    pathOr(null, ['show', 'summary'])
+  ),
   link: pathOr(null, ['show', 'link']),
   poster: pathOr(null, ['show', 'poster'])
 })
 
-export const reducer = handleActions({
-  [INIT]: (state, { payload }) => ({
-    ...state,
-    ...change(payload)
-  })
-}, INITIAL_STATE)
+export const reducer = handleActions(
+  {
+    [INIT]: (state, { payload }) => ({
+      ...state,
+      ...change(payload)
+    })
+  },
+  INITIAL_STATE
+)

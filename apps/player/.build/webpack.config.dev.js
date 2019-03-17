@@ -19,13 +19,7 @@ module.exports = {
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 
   module: {
-    rules: [
-      rules.vue(),
-      rules.javascript(),
-      rules.images(),
-      rules.vueStyles({ prod: false }),
-      rules.pug()
-    ]
+    rules: [rules.vue(), rules.javascript(), rules.images(), rules.vueStyles({ prod: false }), rules.pug()]
   },
 
   plugins: [
@@ -35,9 +29,12 @@ module.exports = {
     plugins.bundleAnalyzer(),
     plugins.hmr(),
     ...plugins.html({
-      files: [{
-        filename: 'index.html', template: './index.html'
-      }]
+      files: [
+        {
+          filename: 'index.html',
+          template: './index.html'
+        }
+      ]
     }),
     plugins.env({ mode: 'development' })
   ]

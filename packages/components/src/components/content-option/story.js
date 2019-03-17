@@ -6,10 +6,13 @@ import Icon from '../icons'
 import { types as iconTypes } from '../icons/types'
 import * as defaults from 'defaults'
 
-const icons = iconTypes.reduce((result, type) => ({
-  ...result,
-  [type]: type
-}), {})
+const icons = iconTypes.reduce(
+  (result, type) => ({
+    ...result,
+    [type]: type
+  }),
+  {}
+)
 
 export default () => ({
   components: { ContentOption, Icon },

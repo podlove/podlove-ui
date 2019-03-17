@@ -10,8 +10,8 @@
     "postinstall": "npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
   "dependencies": {
     "@podlove/player-actions": "4.2.3",
     "@podlove/components": "4.2.3",

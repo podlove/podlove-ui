@@ -13,23 +13,41 @@ const emptyChapter = {
 
 export const getChapterByIndex = chapters => index => get(chapters, index, emptyChapter)
 
-export const currentChapterIndex = compose(fallbackTo(-1), findIndex({ active: true }))
-export const currentChapter = compose(fallbackTo(emptyChapter), find({ active: true }))
+export const currentChapterIndex = compose(
+  fallbackTo(-1),
+  findIndex({ active: true })
+)
+export const currentChapter = compose(
+  fallbackTo(emptyChapter),
+  find({ active: true })
+)
 
-export const nextChapter = chapters => compose(getChapterByIndex(chapters), add(1), currentChapterIndex)(chapters)
-export const previousChapter = chapters => compose(getChapterByIndex(chapters), add(-1), currentChapterIndex)(chapters)
+export const nextChapter = chapters =>
+  compose(
+    getChapterByIndex(chapters),
+    add(1),
+    currentChapterIndex
+  )(chapters)
+export const previousChapter = chapters =>
+  compose(
+    getChapterByIndex(chapters),
+    add(-1),
+    currentChapterIndex
+  )(chapters)
 
-export const currentChapterByPlaytime = curry((chapters, playtime) => find(chapter => {
-  if (playtime < chapter.start) {
-    return false
-  }
+export const currentChapterByPlaytime = curry((chapters, playtime) =>
+  find(chapter => {
+    if (playtime < chapter.start) {
+      return false
+    }
 
-  if (playtime >= chapter.end) {
-    return false
-  }
+    if (playtime >= chapter.end) {
+      return false
+    }
 
-  return true
-})(chapters))
+    return true
+  })(chapters)
+)
 
 export const inactiveChapter = chapter => ({
   ...chapter,
@@ -55,4 +73,3 @@ export const setActiveByPlaytime = playtime => chapter => {
 
 export const setActiveByIndex = chapterIndex => (chapter, index) =>
   chapterIndex === index ? activeChapter(chapter) : inactiveChapter(chapter)
-

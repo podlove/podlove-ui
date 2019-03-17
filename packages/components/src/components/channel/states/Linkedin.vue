@@ -6,41 +6,41 @@
 </template>
 
 <script>
-  import Icon from '../../icons'
-  import { addQueryParameter } from '@podlove/utils/url'
+import Icon from '../../icons'
+import { addQueryParameter } from '@podlove/utils/url'
 
-  const LINK = 'https://www.linkedin.com/shareArticle'
+const LINK = 'https://www.linkedin.com/shareArticle'
 
-  export default {
-    props: {
-      text: {
-        type: String
-      },
-      subject: {
-        type: String
-      },
-      color: {
-        type: String
-      },
-      a11y: {
-        type: String
-      }
+export default {
+  props: {
+    text: {
+      type: String
     },
-    computed: {
-      linkedinLink () {
-        return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
-      }
+    subject: {
+      type: String
     },
-    components: {
-      Icon
+    color: {
+      type: String
+    },
+    a11y: {
+      type: String
     }
+  },
+  computed: {
+    linkedinLink () {
+      return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
+    }
+  },
+  components: {
+    Icon
   }
+}
 </script>
 
 <style lang="scss">
-  @import 'channel';
+@import 'channel';
 
-  .channel-icon.Linkedin {
-    background-color: $channel-linkedin-color;
-  }
+.channel-icon.Linkedin {
+  background-color: $channel-linkedin-color;
+}
 </style>

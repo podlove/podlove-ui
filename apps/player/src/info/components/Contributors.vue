@@ -19,49 +19,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~styles/variables';
+@import '~styles/variables';
 
+.contributors {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .contributor {
+    display: flex;
+    width: 33%;
+    padding: ($padding / 2);
+    overflow: hidden;
+    align-items: center;
+  }
+
+  .avatar {
+    border-radius: 4px;
+    width: $info-contributor-avatar-size;
+    height: auto;
+    margin: $margin / 4;
+  }
+
+  .name {
+    display: block;
+    margin: $margin / 4;
+  }
+}
+
+@media screen and (max-width: $width-m) {
   .contributors {
-    .list {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
     .contributor {
-      display: flex;
-      width: 33%;
-      padding: ($padding / 2);
-      overflow: hidden;
-      align-items: center;
-    }
-
-    .avatar {
-      border-radius: 4px;
-      width: $info-contributor-avatar-size;
-      height: auto;
-      margin: $margin / 4;
-    }
-
-    .name {
-      display: block;
-      margin: $margin / 4;
+      width: 100%;
     }
   }
+}
 
-  @media screen and (max-width: $width-m) {
-    .contributors {
-      .contributor {
-        width: 100%;
-      }
+@media screen and (min-width: $width-m) and (max-width: $width-l) {
+  .contributors {
+    .contributor {
+      width: 50%;
     }
   }
-
-  @media screen and (min-width: $width-m) and (max-width: $width-l) {
-    .contributors {
-      .contributor {
-        width: 50%;
-      }
-    }
-  }
-
+}
 </style>

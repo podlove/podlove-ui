@@ -35,7 +35,7 @@ import select from 'store/selectors'
 import store from 'store'
 
 export default {
-  data() {
+  data () {
     return {
       ...this.mapState({
         volume: select.audio.volume,
@@ -67,7 +67,7 @@ export default {
     }
   },
   computed: {
-    visualVolume() {
+    visualVolume () {
       if (this.muted) {
         return 0
       }
@@ -75,17 +75,24 @@ export default {
       return this.volume
     },
 
-    a11y() {
-      return this.muted
-        ? this.$t('A11Y.VOLUME_UNMUTE')
-        : this.$t('A11Y.VOLUME_MUTE')
+    a11y () {
+      return this.muted ? this.$t('A11Y.VOLUME_UNMUTE') : this.$t('A11Y.VOLUME_MUTE')
     }
   },
   methods: {
-    setVolume: compose(store.dispatch, setVolume),
-    mute: compose(store.dispatch, mute),
-    unmute: compose(store.dispatch, unmute),
-    toggleMute() {
+    setVolume: compose(
+      store.dispatch,
+      setVolume
+    ),
+    mute: compose(
+      store.dispatch,
+      mute
+    ),
+    unmute: compose(
+      store.dispatch,
+      unmute
+    ),
+    toggleMute () {
       this.muted ? this.unmute() : this.mute()
     },
     toPercent
@@ -99,7 +106,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~styles/variables";
+@import '~styles/variables';
 
 .audio-tab {
   .input-value {

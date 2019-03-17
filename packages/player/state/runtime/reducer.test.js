@@ -14,7 +14,8 @@ test.beforeEach(t => {
       show: {
         title: 'showTitle',
         subtitle: 'Menschen! Technik! Sensationen!',
-        summary: 'Die muntere Talk Show um Leben mit Technik, das Netz und Technikkultur. Bisweilen Apple-lastig aber selten einseitig. Wir leben und lieben Technologie und reden darüber. Mit Tim, hukl, roddi, Clemens und Denis. Freak Show hieß irgendwann mal mobileMacs.',
+        summary:
+          'Die muntere Talk Show um Leben mit Technik, das Netz und Technikkultur. Bisweilen Apple-lastig aber selten einseitig. Wir leben und lieben Technologie und reden darüber. Mit Tim, hukl, roddi, Clemens und Denis. Freak Show hieß irgendwann mal mobileMacs.',
         poster: '//show/poster',
         url: 'https://freakshow.fm'
       },
@@ -41,12 +42,10 @@ test.beforeEach(t => {
         { start: '03:23:39', title: 'Dante' },
         { start: '03:38:03', title: 'Dante Via' },
         { start: '03:45:33', title: 'Internet of Things Security' },
-        { start: '03:56:11', title: 'That One Privacy Guy\'s VPN Comparison Chart' },
+        { start: '03:56:11', title: "That One Privacy Guy's VPN Comparison Chart" },
         { start: '04:10:00', title: 'Ausklang' }
       ],
-      audio: [
-        'my/audio/url.mp4'
-      ],
+      audio: ['my/audio/url.mp4'],
       reference: {
         config: '//config/reference',
         share: '//share/reference',

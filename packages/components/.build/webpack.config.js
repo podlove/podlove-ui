@@ -4,17 +4,21 @@ const { resolve, rules, plugins } = require('@podlove/build')
 
 const base = path.resolve(__dirname, '..', 'src')
 
-const entries = glob.sync('components/**/index.js', { cwd: base })
+const entries = glob
+  .sync('components/**/index.js', { cwd: base })
   .map(component => ({
     name: component.split('/')[1],
     file: component
   }))
-  .reduce((results, component) => ({
-    ...results,
-    [component.name]: component.file
-  }), {
-    main: path.resolve(base, 'components', 'main.js')
-  })
+  .reduce(
+    (results, component) => ({
+      ...results,
+      [component.name]: component.file
+    }),
+    {
+      main: path.resolve(base, 'components', 'main.js')
+    }
+  )
 
 module.exports = {
   mode: 'production',
@@ -43,14 +47,11 @@ module.exports = {
       rules.javascript(),
       rules.images(),
       rules.vueStyles({
-        includePaths: [ path.resolve(base, 'theme') ]
+        includePaths: [path.resolve(base, 'theme')]
       }),
       rules.fonts()
     ]
   },
 
-  plugins: [
-    plugins.vue(),
-    plugins.env({ mode: 'production' })
-  ]
+  plugins: [plugins.vue(), plugins.env({ mode: 'production' })]
 }

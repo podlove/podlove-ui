@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@podlove/build",
   "version": "4.2.3",
   "description": "Webpack building blocks for podlove player framework",
@@ -7,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
   "dependencies": {
     "@podlove/utils": "4.2.3",
     "@babel/core": "7.2.2",

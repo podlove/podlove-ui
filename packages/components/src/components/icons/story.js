@@ -4,10 +4,13 @@ import Icon from '.'
 
 import { types as iconTypes } from './types'
 
-const types = iconTypes.reduce((result, type) => ({
-  ...result,
-  [type]: type
-}), {})
+const types = iconTypes.reduce(
+  (result, type) => ({
+    ...result,
+    [type]: type
+  }),
+  {}
+)
 
 export default () => ({
   components: { Icon },
