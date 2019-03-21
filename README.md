@@ -79,3 +79,6 @@ TBD: Description of our CI environment (DroneCi)
 ## Releasing
 
 TBD: Instructions on how to create mono repo releases to npm and the cdn
+
+## Support
+<a href="https://keycdn.com"><img src="https://logos.keycdn.com/keycdn-logo-black.svg" alt="KeyCDN" width="200px"></a>
