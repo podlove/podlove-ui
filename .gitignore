@@ -31,3 +31,4 @@ gh-pages-branch
 
 # logs
 yarn-error.log
+lerna-debug.log
