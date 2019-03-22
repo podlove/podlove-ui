@@ -7,6 +7,7 @@ import {
   showChapterControls,
   showProgressBar
 } from '@podlove/player-actions/components'
+import { loadQuantiles } from '@podlove/player-actions/quantiles'
 import { toggleTab } from '@podlove/player-actions/tabs'
 import { compose, propOr } from 'ramda'
 import LocalStorage from 'localStorage'
@@ -16,6 +17,9 @@ const selectPlaytime = compose(
   selectors.playtime,
   propOr({}, 'timepiece')
 )
+
+const selectQuantiles = propOr([], 'quantiles')
+
 const selectTabs = propOr({}, 'tabs')
 
 export const persistPlayer = (config, store) => {
@@ -39,13 +43,18 @@ export const persistPlayer = (config, store) => {
     store.dispatch(requestPlaytime(existing.playtime))
   }
 
+  if (existing.quantiles) {
+    store.dispatch(loadQuantiles(existing.quantiles))
+  }
+
   store.subscribe(
     throttle(() => {
       const state = store.getState()
       const playtime = selectPlaytime(state)
       const tabs = selectTabs(state)
+      const quantiles = selectQuantiles(state)
 
-      storage.put(key, { playtime, tabs })
+      storage.put(key, { playtime, tabs, quantiles })
     }, 1000)
   )
 }
