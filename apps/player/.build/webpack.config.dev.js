@@ -5,7 +5,7 @@ module.exports = {
 
   entry: {
     main: './player.js',
-    example: './example.js'
+    example: './example/example.js'
   },
   output: output(),
 
@@ -32,7 +32,7 @@ module.exports = {
       files: [
         {
           filename: 'index.html',
-          template: './index.html'
+          template: './example/index.html'
         }
       ]
     }),

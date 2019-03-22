@@ -10,6 +10,7 @@
 !.vuepress
 !.build
 !.prettierignore
+!.storybook
 
 coverage
 

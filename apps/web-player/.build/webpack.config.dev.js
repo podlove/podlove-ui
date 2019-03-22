@@ -33,7 +33,7 @@ module.exports = {
       files: [
         {
           filename: 'index.html',
-          template: './example.html'
+          template: './example/example.html'
         }
       ]
     }),
@@ -44,13 +44,13 @@ module.exports = {
         to: BASE
       },
       {
-        from: './example.json'
+        from: './example/example.json'
       },
       {
-        from: './transcripts.json'
+        from: './example/transcripts.json'
       },
       {
-        from: './chapters.json'
+        from: './example/chapters.json'
       }
     ])
   ]
