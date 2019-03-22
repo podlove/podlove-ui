@@ -14,7 +14,7 @@
 
 ## Architecture
 
-![Architecture](architecture.png)
+![Architecture](architecture.svg)
 
 ## Getting Started
 
