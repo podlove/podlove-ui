@@ -1,4 +1,3 @@
-const fs = require('fs')
 const path = require('path')
 
 const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
@@ -12,7 +11,8 @@ module.exports = {
   mode: 'development',
 
   entry: {
-    embed: './src/embed.js'
+    embed: './src/embed.js',
+    'extensions/external-events': './src/extensions/external-events.js'
   },
   output: output(),
 

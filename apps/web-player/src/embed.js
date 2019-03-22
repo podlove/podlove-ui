@@ -1,31 +1,15 @@
 import { init } from '@podlove/player-actions/lifecycle'
-import { findNode } from '@podlove/utils/dom'
 
 import { version } from '../package'
+
+import canvas from './lib/canvas'
 import { parseConfig } from './lib/config'
 import { createSandbox } from './lib/sandbox'
 import { setVisibleComponents } from './lib/visible-components'
 import { applyUrlParameters } from './lib/url-params'
 import { persistPlayer } from './lib/persist'
 
-const canvas = selector => {
-  const node = findNode(selector)
-  const content = node.innerHTML
-
-  return {
-    node,
-
-    init () {
-      node.innerHTML = ''
-    },
-
-    reset () {
-      node.innerHTML = content
-    }
-  }
-}
-
-window.podlovePlayer = async (selector, episode, additional = {}) => {
+const boostrap = async (selector, episode, additional = {}) => {
   const target = canvas(selector)
 
   try {
@@ -49,4 +33,8 @@ window.podlovePlayer = async (selector, episode, additional = {}) => {
     console.error(err)
     console.groupEnd()
   }
+}
+
+if (typeof window.podlovePlayer === 'undefined') {
+  window.podlovePlayer = boostrap
 }

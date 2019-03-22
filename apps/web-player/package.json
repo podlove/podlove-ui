@@ -1,7 +1,7 @@
 {
   "name": "@podlove/web-player",
   "version": "4.2.3",
-  "description": "",
+  "description": "Embedded version of Podlove Player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
