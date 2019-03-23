@@ -31,7 +31,7 @@ export default {
   .input-text,
   .input-select {
     padding: $padding / 2;
-    width: calc(100% - #{$addon-button-width});
+    width: 100%;
     border-radius: 0 3px 3px 0;
     border-width: 1px 1px 1px 0;
     height: $input-height;
@@ -45,7 +45,19 @@ export default {
     height: $input-height;
   }
 
+  &.elements-2 {
+    *:nth-child(1) {
+      width: auto;
+      border-radius: 3px 0 0 3px;
+    }
+  }
+
   &.elements-3 {
+    *:nth-child(1) {
+      width: auto;
+      border-radius: 3px 0 0 3px;
+    }
+
     *:nth-child(2) {
       width: auto;
       border-radius: 0;
