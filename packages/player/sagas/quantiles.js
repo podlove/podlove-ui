@@ -19,7 +19,7 @@ export default function * quantilesSaga () {
     yield put(setQuantiles({ start: time, end: payload }))
   }
 
-  function * resetTime () {
+  function resetTime () {
     time = null
   }
 }
