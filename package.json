@@ -2,18 +2,22 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "format": "prettier-standard '**/*.{js,vue}'"
+    "format": "eslint --fix '**/*.{js,vue}'",
+    "lint": "eslint '**/*.{js,vue}'"
   },
   "devDependencies": {
-    "lerna": "3.4.3",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.3",
+    "eslint-plugin-vue": "^5.2.2",
     "husky": "1.3.1",
-    "prettier-standard": "9.1.1",
+    "lerna": "3.4.3",
     "lint-staged": "8.1.5"
   },
   "lint-staged": {
     "linters": {
-      "**/*.js": [
-        "prettier-standard",
+      "**/*.{js,vue}": [
+        "eslint",
         "git add"
       ]
     }
@@ -22,5 +26,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "dependencies": {}
 }
