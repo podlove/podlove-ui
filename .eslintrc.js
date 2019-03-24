@@ -29,6 +29,7 @@ module.exports = {
     'vue/no-shared-component-data': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/html-closing-bracket-spacing': 'off',
-    'vue/html-self-closing': 'off'
+    'vue/html-self-closing': 'off',
+    'generator-star-spacing': ['error', 'both']
   }
 }
