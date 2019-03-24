@@ -10,7 +10,7 @@ module.exports = {
   output: output(),
 
   resolve: resolve({
-    styles: './src/styles',
+    theme: './src/theme',
     store: './src/store',
     directives: './src/directives'
   }),
