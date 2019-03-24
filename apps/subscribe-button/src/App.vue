@@ -8,9 +8,19 @@
 
 <script>
 import { mapState } from "redux-vuex";
-import { selectStyle } from "store/selectors";
+import {
+  selectColor,
+  selectFormat,
+  selectSize,
+  selectStyle
+} from "store/selectors";
 export default {
-  data: mapState({ style: selectStyle })
+  data: mapState({
+    color: selectColor,
+    format: selectFormat,
+    size: selectSize,
+    style: selectStyle
+  })
 };
 </script>
 
