@@ -1,6 +1,21 @@
 import * as config from './reducers/config'
+import { propOr, compose } from 'ramda'
 
-export const selectColor = state => config.color(state.color)
-export const selectFormat = state => config.format(state.format)
-export const selectSize = state => config.size(state.size)
-export const selectStyle = state => config.style(state.config)
+export const configSlice = propOr({}, 'config')
+
+export const selectColor = compose(
+  config.color,
+  configSlice
+)
+export const selectFormat = compose(
+  config.format,
+  configSlice
+)
+export const selectSize = compose(
+  config.size,
+  configSlice
+)
+export const selectStyle = compose(
+  config.style,
+  configSlice
+)
