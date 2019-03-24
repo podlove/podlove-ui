@@ -1,7 +1,8 @@
 <template>
-  <div>
-    Hello.
+  <div :style="`background: ${color}`">
+    <div>cover</div>
     <button>Subscribe</button>
+    <div>{{color}}</div>
     {{style}}
   </div>
 </template>
@@ -14,6 +15,7 @@ import {
   selectSize,
   selectStyle
 } from "store/selectors";
+
 export default {
   data: mapState({
     color: selectColor,
