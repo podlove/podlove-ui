@@ -7,6 +7,10 @@ export const selectColor = compose(
   config.color,
   configSlice
 )
+export const selectCover = compose(
+  config.cover,
+  configSlice
+)
 export const selectFormat = compose(
   config.format,
   configSlice
