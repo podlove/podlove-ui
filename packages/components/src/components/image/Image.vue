@@ -27,7 +27,7 @@ export default {
       type: String,
       default: null
     },
-    coverColor: {
+    color: {
       type: String,
       default: background
     }
@@ -36,7 +36,7 @@ export default {
   computed: {
     coverStyle () {
       return {
-        'background-color': this.coverColor
+        'background-color': this.color
       }
     },
     imageStyle () {
