@@ -14,7 +14,7 @@ export default () => ({
     url: {
       default: text('url', 'https://via.placeholder.com/1500')
     },
-    coverColor: {
+    color: {
       default: color('color', defaultColor)
     }
   },
@@ -24,7 +24,7 @@ export default () => ({
       style="width: 250px; height: 250px;"
       :alt="alt"
       :url="url"
-      :coverColor="coverColor"
+      :color="coverColor"
       @error="error"
       @load="load"
     >

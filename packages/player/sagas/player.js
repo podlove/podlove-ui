@@ -1,6 +1,6 @@
 import { audio, events as audioEvents, actions as audioActions } from '@podlove/html5-audio-driver'
 import { attatchStream } from '@podlove/html5-audio-driver/hls'
-import { takeEvery, select, call, put } from 'redux-saga/effects'
+import { select, call, put, takeEvery } from 'redux-saga/effects'
 import {
   REQUEST_PLAY,
   REQUEST_PAUSE,
@@ -114,8 +114,8 @@ export default ({ selectMedia, selectPlaytime }) =>
     }
 
     // Events
-    function * onReady () {
-      yield put(backendLoadingEnd())
+    function * onReady (payload) {
+      yield put(backendLoadingEnd(payload))
     }
 
     function * onPlay () {

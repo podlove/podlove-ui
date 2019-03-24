@@ -30,8 +30,8 @@ export default function * () {
     yield put(showLoadingButton())
   }
 
-  function * loaded ({ paused }) {
-    if (paused) {
+  function * loaded ({ payload }) {
+    if (payload.paused) {
       yield put(showPauseButton())
     } else {
       yield put(showPlayingButton())
