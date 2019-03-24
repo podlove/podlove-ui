@@ -1,4 +1,5 @@
 import { handleActions } from 'redux-actions'
+import { prop } from 'ramda'
 import { INIT } from './types'
 
 export const INIT_STATE = {
@@ -10,7 +11,8 @@ export const INIT_STATE = {
 
 export const reducer = handleActions({ [INIT]: (state, { payload }) => ({ ...state, ...payload }) }, INIT_STATE)
 
-export const color = state => state.color
-export const format = state => state.format
-export const size = state => state.size
-export const style = state => state.style
+// export const color = state => state.color;
+export const color = prop('color')
+export const format = prop('format')
+export const size = prop('size')
+export const style = prop('style')
