@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "vue": "2.5.17",
+    "ramda": "0.26.1",
     "redux": "4.0.1",
     "redux-actions": "2.6.4",
     "redux-vuex": "0.1.3"
