@@ -10,4 +10,7 @@ export const INIT_STATE = {
 
 export const reducer = handleActions({ [INIT]: (state, { payload }) => ({ ...state, ...payload }) }, INIT_STATE)
 
+export const color = state => state.color
+export const format = state => state.format
+export const size = state => state.size
 export const style = state => state.style
