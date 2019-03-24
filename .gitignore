@@ -4,6 +4,7 @@
 !.jshintrc
 !.eslintrc
 !.eslintrc.js
+!.eslintignore
 !.editorconfig
 !.travis.yml
 !.babelrc

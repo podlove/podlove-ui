@@ -17,6 +17,7 @@ module.exports = {
     'prettier/prettier': ['error'],
     'generator-star-spacing': ['error', 'both'],
     'vue/no-v-html': 'warning',
-    'vue/component-name-in-template-casing': 'kebab-case'
+    'vue/component-name-in-template-casing': 'kebab-case',
+    'vue/no-shared-component-data': 'off'
   }
 }
