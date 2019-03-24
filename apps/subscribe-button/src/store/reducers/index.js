@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux'
-import * as test from './test'
+import { reducer as config } from './config'
 
-export default combineReducers({ test: test.reducer })
+export default combineReducers({ config })
