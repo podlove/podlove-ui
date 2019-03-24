@@ -10,11 +10,7 @@ module.exports = {
   output: output(),
 
   resolve: resolve({
-<<<<<<< HEAD
     theme: './src/theme',
-=======
-    styles: './src/styles',
->>>>>>> Add basic subscribe button folder
     store: './src/store',
     directives: './src/directives'
   }),
@@ -23,7 +19,6 @@ module.exports = {
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 
   module: {
-<<<<<<< HEAD
     rules: [
       rules.vue(),
       rules.javascript(),
@@ -31,9 +26,6 @@ module.exports = {
       rules.vueStyles({ prod: false }),
       rules.pug()
     ]
-=======
-    rules: [rules.vue(), rules.javascript(), rules.images(), rules.vueStyles({ prod: false }), rules.pug()]
->>>>>>> Add basic subscribe button folder
   },
 
   plugins: [
@@ -42,19 +34,9 @@ module.exports = {
     plugins.jarvis(1337),
     plugins.bundleAnalyzer(),
     plugins.hmr(),
-<<<<<<< HEAD
     plugins.html({
       filename: 'index.html',
       template: './example/index.html'
-=======
-    ...plugins.html({
-      files: [
-        {
-          filename: 'index.html',
-          template: './example/index.html'
-        }
-      ]
->>>>>>> Add basic subscribe button folder
     }),
     plugins.env({ mode: 'development' })
   ]
