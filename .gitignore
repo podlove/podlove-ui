@@ -3,12 +3,14 @@
 !.gitignore
 !.jshintrc
 !.eslintrc
+!.eslintrc.js
 !.editorconfig
 !.travis.yml
 !.babelrc
 !.circleci
 !.vuepress
 !.build
+!.prettierrc
 !.prettierignore
 !.storybook
 
