@@ -1,0 +1,24 @@
+{
+  "name": "subscribe-button",
+  "version": "1.0.0",
+  "description": "",
+  "main": "subscribe-button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js"
+  },
+  "keywords": [],
+  "author": "Letty",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "2.5.17",
+    "redux": "4.0.1",
+    "redux-actions": "2.6.4",
+    "redux-vuex": "0.1.3"
+  },
+  "devDependencies": {
+    "@podlove/build": "4.2.3",
+    "webpack-dev-server": "3.1.11",
+    "webpack": "4.26.0"
+  }
+}
