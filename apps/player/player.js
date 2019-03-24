@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import { head } from 'lodash'
+import { head } from 'ramda'
 
 import App from './src'
 import store from './src/store'
