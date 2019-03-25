@@ -1,5 +1,5 @@
 <template>
-  <ul class="tab-header" :class="{ overflows }" role="tablist">
+  <ul class="tab-header" role="tablist">
     <span class="header-shadow" :style="headerShadowStyle"></span>
     <slot></slot>
   </ul>
@@ -7,7 +7,6 @@
 
 <script>
 import color from 'color'
-import { setStyles, resizeObserver } from '@podlove/utils/dom'
 import { background as defaultBackground } from 'defaults'
 
 export default {
@@ -17,35 +16,14 @@ export default {
       default: defaultBackground
     }
   },
-  data () {
-    return {
-      overflows: false
-    }
-  },
   computed: {
-    headerShadowStyle () {
+    headerShadowStyle() {
       return {
         background: `linear-gradient(to bottom, ${color(this.backgroundActive).fade(0)} 0%, ${color(
           this.backgroundActive
         ).fade(1)} 100%)`
       }
     }
-  },
-  methods: {
-    resizeHandler () {
-      this.overflows = false
-
-      this.$nextTick(() => {
-        setStyles({ 'overflow-x': 'auto' })(this.$el)
-        this.overflows = this.$el.scrollWidth > this.$el.clientWidth
-        setStyles({ 'overflow-x': 'hidden' })(this.$el)
-      })
-    }
-  },
-
-  mounted () {
-    resizeObserver(this.$el, this.resizeHandler.bind(this))
-    this.resizeHandler()
   }
 }
 </script>
@@ -81,10 +59,6 @@ export default {
 
   .title {
     text-transform: uppercase;
-  }
-
-  &.overflows .tab-header-item .title {
-    display: none;
   }
 }
 </style>

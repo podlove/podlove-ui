@@ -1,17 +1,17 @@
 <template lang="pug">
-  div.tabs
-    tab-header(:backgroundActive="header.backgroundActive")
-      header-item(tab="info" :title="$t('INFO.TITLE')")
+  div
+    tab-header(:class="{overflows}" :backgroundActive="header.backgroundActive" v-resize="resizeHandler" ref="tabHeader")
+      tab-header-item(tab="info" :title="$t('INFO.TITLE')")
         icon(type="info" slot="icon")
-      header-item(tab="chapters" :title="$t('CHAPTERS.TITLE')")
+      tab-header-item(tab="chapters" :title="$t('CHAPTERS.TITLE')")
         icon(type="chapter" slot="icon")
-      header-item(tab="transcripts" :title="$t('TRANSCRIPTS.TITLE')")
+      tab-header-item(tab="transcripts" :title="$t('TRANSCRIPTS.TITLE')")
         icon(type="transcripts" slot="icon")
-      header-item(tab="share" :title="$t('SHARE.TITLE')")
+      tab-header-item(tab="share" :title="$t('SHARE.TITLE')")
         icon(type="share" slot="icon")
-      header-item(tab="files" :title="$t('FILES.TITLE')")
+      tab-header-item(tab="files" :title="$t('FILES.TITLE')")
         icon(type="download" slot="icon")
-      header-item(tab="audio" :title="$t('AUDIO.TITLE')")
+      tab-header-item(tab="audio" :title="$t('AUDIO.TITLE')")
         icon(:type="audioIcon" slot="icon")
     tab-body(tab="info")
       info-tab
@@ -29,15 +29,16 @@
 
 <script>
 import { compose } from 'ramda'
-import { mapState, mapActions } from 'redux-vuex'
 import { Tab, Icon } from '@podlove/components'
 import { toggleTab } from '@podlove/player-actions/tabs'
 
-import HeaderItem from './components/HeaderItem'
+import TabHeaderItem from './components/TabHeaderItem'
 import TabBody from './components/TabBody'
 
 import select from 'store/selectors'
 import store from 'store'
+
+import { setStyles, resizeObserver } from '@podlove/utils/dom'
 
 const tabs = {
   InfoTab: () =>
@@ -73,15 +74,20 @@ const tabs = {
 }
 
 export default {
-  data: mapState({
-    header: select.styles.tabsHead,
-    tabs: select.tabs,
-    audioIcon: select.audio.icon
-  }),
+  data() {
+    return {
+      ...this.mapState({
+        header: select.styles.tabsHead,
+        tabs: select.tabs,
+        audioIcon: select.audio.icon
+      }),
+      overflows: true
+    }
+  },
   components: {
     TabHeader: Tab.Header,
     TabBody,
-    HeaderItem,
+    TabHeaderItem,
     Icon,
     ...tabs
   },
@@ -89,7 +95,21 @@ export default {
     toggleTab: compose(
       store.dispatch,
       toggleTab
-    )
+    ),
+    resizeHandler() {
+      this.overflows = false
+
+      this.$nextTick(() => {
+        let tabHeader = this.$refs.tabHeader.$el
+        setStyles({ 'overflow-x': 'auto' })(tabHeader)
+        this.overflows = tabHeader.scrollWidth > tabHeader.clientWidth
+        setStyles({ 'overflow-x': 'hidden' })(tabHeader)
+      })
+    },
+    mounted() {
+      resizeObserver(this.$el, this.resizeHandler.bind(this))
+      this.resizeHandler()
+    }
   }
 }
 </script>
@@ -100,5 +120,9 @@ export default {
 .tabs {
   width: 100%;
   background: $background-color;
+
+  .overflows .tab-header-item >>> .title {
+    display: none;
+  }
 }
 </style>
