@@ -4,8 +4,13 @@ import { compose } from 'ramda'
 import root from './root'
 
 const target = compose(
-  display => (display === 'native' ? '_parent' : '_blank'),
-  runtime.display
+  mode => (mode === 'native' ? '_parent' : '_blank'),
+  runtime.mode
+)
+
+const fixed = compose(
+  mode => mode === 'embed',
+  runtime.mode
 )
 
 export default {
@@ -17,8 +22,8 @@ export default {
     runtime.platform,
     root.runtime
   ),
-  display: compose(
-    runtime.display,
+  mode: compose(
+    runtime.mode,
     root.runtime
   ),
   locale: compose(
@@ -31,6 +36,10 @@ export default {
   ),
   target: compose(
     target,
+    root.runtime
+  ),
+  fixed: compose(
+    fixed,
     root.runtime
   )
 }

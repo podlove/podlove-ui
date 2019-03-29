@@ -10,7 +10,7 @@
 
       div.show
         h3.title#tab-info--show-title(v-if="showTitle") {{ showTitle }}
-        lazy-image.show-poster.shadowed#tab-info--show-poster(v-if="showPoster" :url="showPoster" :alt="$t('A11Y.ALT_SHOW_COVER')" :coverColor="imageCover")
+        lazy-image.show-poster.shadowed#tab-info--show-poster(v-if="showPoster" :url="showPoster" :alt="$t('A11Y.ALT_SHOW_COVER')" :color="imageCover")
         info-summary#tab-info--show-summary(v-if="showSummary" :content="showSummary")
         info-link#tab-info--show-link(v-if="showLink" :link="showLink")
 

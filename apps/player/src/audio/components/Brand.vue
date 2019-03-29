@@ -25,7 +25,8 @@ export default {
 @import '~styles/variables';
 
 .footer {
-  margin: $margin;
+  margin: $margin $margin 0 $margin;
+  padding-bottom: $padding;
   display: flex;
 
   .version {

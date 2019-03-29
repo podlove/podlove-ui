@@ -9,7 +9,7 @@ import { setVisibleComponents } from './lib/visible-components'
 import { applyUrlParameters } from './lib/url-params'
 import { persistPlayer } from './lib/persist'
 
-const boostrap = async (selector, episode, additional = {}) => {
+const podlovePlayer = async (selector, episode, additional = {}) => {
   const target = canvas(selector)
 
   try {
@@ -36,5 +36,5 @@ const boostrap = async (selector, episode, additional = {}) => {
 }
 
 if (typeof window.podlovePlayer === 'undefined') {
-  window.podlovePlayer = boostrap
+  window.podlovePlayer = podlovePlayer
 }

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.tabs
     tab-header(:class="{overflows}" :backgroundActive="header.backgroundActive" v-resize="resizeHandler" ref="tabHeader")
       tab-header-item(tab="info" :title="$t('INFO.TITLE')")
         icon(type="info" slot="icon")
@@ -119,7 +119,6 @@ export default {
 
 .tabs {
   width: 100%;
-  background: $background-color;
 
   .overflows .tab-header-item >>> .title {
     display: none;

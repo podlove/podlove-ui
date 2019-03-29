@@ -1,14 +1,15 @@
 <template>
   <div
     class="tab-body"
-    :class="{ active }"
-    :style="bodyStyle"
+    :class="{ active, fixed }"
     role="tabpanel"
     :aria-labelledby="`trigger-${name}`"
     tabindex="0"
     :aria-hidden="!active"
   >
-    <slot tabindex="0"></slot>
+    <div class="tab-content" :style="bodyStyle">
+      <slot tabindex="0"></slot>
+    </div>
   </div>
 </template>
 
@@ -28,10 +29,14 @@ export default {
     background: {
       type: String,
       default: background
+    },
+    fixed: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
-    bodyStyle () {
+    bodyStyle() {
       return {
         'background-color': this.background
       }
@@ -42,6 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 @import 'boot';
+@import 'tokens/color';
 @import 'tokens/tab';
 
 .tab-body {
@@ -53,8 +59,15 @@ export default {
     overflow-y: auto;
   }
 
+  background: $background-color;
+
   &.fixed {
-    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow-x: auto;
+    height: calc(100% - #{$tabs-header-height});
   }
 }
 </style>

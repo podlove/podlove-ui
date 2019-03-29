@@ -1,5 +1,5 @@
 <template lang="pug">
-  tab-body(:active="active" :name="tab" :aria-selected="active" :ref="tab" v-if="active" :background="body.background")
+  tab-body.tab(:active="active" :name="tab" :aria-selected="active" :ref="tab" v-if="active" :background="body.background" :fixed="fixed")
     slot
 </template>
 
@@ -17,10 +17,11 @@ export default {
   },
   data: mapState({
     body: select.styles.tabsBody,
-    tabs: select.tabs
+    tabs: select.tabs,
+    fixed: select.fixed
   }),
   computed: {
-    active () {
+    active() {
       return this.tabs[this.tab]
     }
   },
