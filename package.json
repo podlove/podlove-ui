@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "format": "eslint --fix '**/*.{js,vue}'",
-    "lint": "eslint '**/*.{js,vue}'"
+    "lint": "eslint -f codeframe '**/*.{js,vue}'"
   },
   "devDependencies": {
     "@vue/eslint-config-prettier": "^4.0.1",

@@ -1,6 +1,4 @@
 <script>
-import { mapState } from 'redux-vuex'
-
 const container = (h, c) => (children = []) =>
   h(
     'div',
@@ -88,10 +86,12 @@ export default {
       default: false
     },
     entry: {
-      type: Object
+      type: Object,
+      default: () => ({})
     },
     playtime: {
-      type: Number
+      type: Number,
+      default: null
     },
     ghostActive: {
       type: Boolean
@@ -101,11 +101,12 @@ export default {
       default: ''
     },
     ghostTime: {
-      type: Number
+      type: Number,
+      default: null
     },
     searchResults: {
       type: Array,
-      default: []
+      default: () => []
     },
     chapterStyle: {
       type: Object,
@@ -120,28 +121,18 @@ export default {
       default: () => ({})
     }
   },
-  render (h) {
-    const entryContainer = container(h, this)
-    const entryChapter = chapter(h, this)
-    const entryTranscript = transcript(h, this)
-    const entryTexts = text(h, this)
-
-    return entryContainer([
-      this.entry.type === 'chapter' ? entryChapter() : entryTranscript(this.entry.texts.map(entryTexts))
-    ])
-  },
   computed: {
-    speakerBackgroundStyle () {
+    speakerBackgroundStyle() {
       return {
         background: this.chapterStyle.background
       }
     },
-    speakerTextStyle () {
+    speakerTextStyle() {
       return {
         color: this.chapterStyle.color
       }
     },
-    query () {
+    query() {
       if (!this.searchQuery || this.searchResults.length === 0) {
         return null
       }
@@ -151,26 +142,28 @@ export default {
   },
   methods: {
     // Event Bindings
-    onClick (entry) {
+    onClick(entry) {
       this.$emit('onClick', entry)
     },
 
-    onMouseLeave (transcript) {
+    onMouseLeave(transcript) {
       this.$emit('onMouseLeave', transcript)
     },
 
-    onMouseOver (transcript) {
+    onMouseOver(transcript) {
       this.$emit('onMouseOver', transcript)
     },
 
-    searchText (text) {
+    searchText(text) {
       return this.query
-        ? text.toString().replace(this.query, matchedText => `<span class="highlight">${matchedText}</span>`)
+        ? text
+            .toString()
+            .replace(this.query, matchedText => `<span class="highlight">${matchedText}</span>`)
         : text
     },
 
     // Utilities
-    activePlaytime (transcript) {
+    activePlaytime(transcript) {
       if (transcript.start > this.playtime) {
         return false
       }
@@ -182,7 +175,7 @@ export default {
       return true
     },
 
-    activeGhost (transcript) {
+    activeGhost(transcript) {
       if (!this.ghostTime) {
         return false
       }
@@ -202,7 +195,7 @@ export default {
       return true
     },
 
-    transcriptStyle (transcript) {
+    transcriptStyle(transcript) {
       if (this.prerender) {
         return {}
       }
@@ -217,6 +210,18 @@ export default {
 
       return {}
     }
+  },
+  render(h) {
+    const entryContainer = container(h, this)
+    const entryChapter = chapter(h, this)
+    const entryTranscript = transcript(h, this)
+    const entryTexts = text(h, this)
+
+    return entryContainer([
+      this.entry.type === 'chapter'
+        ? entryChapter()
+        : entryTranscript(this.entry.texts.map(entryTexts))
+    ])
   }
 }
 </script>

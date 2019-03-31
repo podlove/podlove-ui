@@ -16,6 +16,8 @@ import select from 'store/selectors'
 import ChapterTitle from './ChapterTitle'
 
 export default {
+  components: { Timer, ChapterTitle },
+
   data: mapState({
     playtime: select.playtime,
     duration: select.duration,
@@ -24,7 +26,7 @@ export default {
   }),
 
   computed: {
-    a11y () {
+    a11y() {
       return {
         current: this.$t('A11Y.TIMER_CURRENT', {
           hours: calcHours(this.playtime),
@@ -38,9 +40,7 @@ export default {
         })
       }
     }
-  },
-
-  components: { Timer, ChapterTitle }
+  }
 }
 </script>
 

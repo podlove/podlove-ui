@@ -1,15 +1,15 @@
 import { handleActions } from 'redux-actions'
 import { propOr } from 'ramda'
 
-import { SET_LANGUAGE, SET_RUNTIME, SET_VERSION } from '@podlove/player-actions/types'
+import { SET_LANGUAGE, SET_RUNTIME, SET_VERSION, SET_MODE } from '@podlove/player-actions/types'
 
 export const INITIAL_STATE = {
   language: 'en',
-  display: 'native',
   browser: null,
   locale: null,
   platform: null,
-  version: null
+  version: null,
+  mode: 'native'
 }
 
 export const reducer = handleActions(
@@ -28,6 +28,10 @@ export const reducer = handleActions(
     [SET_VERSION]: (state, { payload }) => ({
       ...state,
       version: payload
+    }),
+    [SET_MODE]: (state, { payload }) => ({
+      ...state,
+      mode: ['native', 'embed'].includes(payload) ? payload : state.mode
     })
   },
   INITIAL_STATE

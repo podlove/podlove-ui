@@ -4,7 +4,15 @@ import { mapState } from 'redux-vuex'
 
 export default component =>
   Vue.component('input-color', {
-    render: function (h) {
+    data: mapState({
+      style: select.styles.inputStyle
+    }),
+    methods: {
+      proxyEvent(event) {
+        return val => this.$emit(event, val)
+      }
+    },
+    render: function(h) {
       return h(
         component,
         {
@@ -23,15 +31,5 @@ export default component =>
         },
         this.$slots.default
       )
-    },
-
-    methods: {
-      proxyEvent (event) {
-        return val => this.$emit(event, val)
-      }
-    },
-
-    data: mapState({
-      style: select.styles.inputStyle
-    })
+    }
   })

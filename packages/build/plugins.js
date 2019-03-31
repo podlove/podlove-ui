@@ -27,17 +27,16 @@ const base = base =>
     BASE: JSON.stringify(base)
   })
 
-const html = ({ files, chunks, exclude }) =>
-  files.map(
-    ({ filename, template }) =>
-      new HtmlWebpackPlugin({
-        filename,
-        template,
-        chunksSortMode: 'none',
-        chunks,
-        excludeChunks: exclude
-      })
-  )
+const html = ({ filename, template, chunks, exclude, base, files }) =>
+  new HtmlWebpackPlugin({
+    filename,
+    template,
+    chunksSortMode: 'none',
+    chunks,
+    base,
+    files,
+    excludeChunks: exclude
+  })
 
 const jarvis = (port = 1337) => new Jarvis({ port })
 

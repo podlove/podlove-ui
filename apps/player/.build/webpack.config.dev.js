@@ -28,13 +28,9 @@ module.exports = {
     plugins.jarvis(1337),
     plugins.bundleAnalyzer(),
     plugins.hmr(),
-    ...plugins.html({
-      files: [
-        {
-          filename: 'index.html',
-          template: './example/index.html'
-        }
-      ]
+    plugins.html({
+      filename: 'index.html',
+      template: './example/index.html'
     }),
     plugins.env({ mode: 'development' })
   ]

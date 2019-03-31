@@ -6,7 +6,7 @@ import Icon from '../icons'
 
 export default () => ({
   components: { TabHeader: Tab.Header, TabHeaderItem: Tab.HeaderItem, TabBody: Tab.Body, Icon },
-  data () {
+  data() {
     return {
       tabs: {
         futurama: false,
@@ -60,7 +60,7 @@ export default () => ({
     </div>
   `,
   methods: {
-    selectTab (tab) {
+    selectTab(tab) {
       Object.keys(this.tabs).forEach(key => {
         this.tabs[key] = tab === key
       })

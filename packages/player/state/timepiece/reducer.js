@@ -1,5 +1,10 @@
 import { handleActions } from 'redux-actions'
-import { INIT, BACKEND_DURATION, BACKEND_PLAYTIME, REQUEST_PLAYTIME } from '@podlove/player-actions/types'
+import {
+  INIT,
+  BACKEND_DURATION,
+  BACKEND_PLAYTIME,
+  REQUEST_PLAYTIME
+} from '@podlove/player-actions/types'
 import { toInt } from '@podlove/utils/helper'
 import { duration, playtime } from '@podlove/utils/config'
 

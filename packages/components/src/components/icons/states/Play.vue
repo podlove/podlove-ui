@@ -9,15 +9,13 @@
   >
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g transform="translate(-17.000000, -13.000000)" :fill="color">
-        <polygon points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096"></polygon>
+        <polygon points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096" />
       </g>
     </g>
   </svg>
 </template>
 
 <script>
-import { color } from 'defaults'
-
 export default {
   props: {
     size: {

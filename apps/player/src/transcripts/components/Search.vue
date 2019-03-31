@@ -33,6 +33,9 @@ import store from 'store'
 import select from 'store/selectors'
 
 export default {
+  components: {
+    Icon
+  },
   data: mapState({
     buttonStyle: select.styles.button,
     inputStyle: select.styles.inputStyle,
@@ -40,8 +43,22 @@ export default {
     searchQuery: select.transcripts.searchQuery,
     searchSelected: select.transcripts.searchSelected
   }),
+  computed: {
+    searchInputStyle() {
+      return {
+        background: this.inputStyle.background,
+        color: this.inputStyle.color,
+        'border-color': this.inputStyle.border
+      }
+    },
+    searchContainerStyle() {
+      return {
+        color: this.inputStyle.color
+      }
+    }
+  },
   methods: {
-    search (event) {
+    search(event) {
       store.dispatch(searchTranscripts(event.target.value))
       store.dispatch(followTranscripts(false))
     },
@@ -57,23 +74,6 @@ export default {
       store.dispatch,
       nextTranscriptsSearchResult
     )
-  },
-  computed: {
-    searchInputStyle () {
-      return {
-        background: this.inputStyle.background,
-        color: this.inputStyle.color,
-        'border-color': this.inputStyle.border
-      }
-    },
-    searchContainerStyle () {
-      return {
-        color: this.inputStyle.color
-      }
-    }
-  },
-  components: {
-    Icon
   }
 }
 </script>

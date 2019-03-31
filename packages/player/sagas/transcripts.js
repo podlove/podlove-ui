@@ -96,10 +96,10 @@ const mapSpeakers = speakers =>
   })
 
 export default ({ selectSpeakers, selectChapters }) =>
-  function * () {
+  function*() {
     yield takeEvery(INIT, init)
 
-    function * init ({ payload }) {
+    function* init({ payload }) {
       const speakers = yield select(selectSpeakers)
       const chapters = yield select(selectChapters)
 
@@ -112,7 +112,9 @@ export default ({ selectSpeakers, selectChapters }) =>
         getTranscripts
       )(payload)
       const searchIndex = inAnimationFrame(binarySearch(transcripts.map(({ start }) => start)))
-      const searchText = textSearch(transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' ')))
+      const searchText = textSearch(
+        transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' '))
+      )
 
       yield put(setTranscriptsTimeline(transcripts))
       yield takeEvery(BACKEND_PLAYTIME, update, searchIndex)
@@ -123,7 +125,7 @@ export default ({ selectSpeakers, selectChapters }) =>
       yield takeEvery(SEARCH_TRANSCRIPTS, search, searchText)
     }
 
-    function * update (searchFn, { payload }) {
+    function* update(searchFn, { payload }) {
       const index = searchFn(payload)
 
       if (index) {
@@ -131,7 +133,7 @@ export default ({ selectSpeakers, selectChapters }) =>
       }
     }
 
-    function * debouncedUpdate (searchFn, { payload }) {
+    function* debouncedUpdate(searchFn, { payload }) {
       const index = searchFn(payload)
       yield delay(200)
 
@@ -140,7 +142,7 @@ export default ({ selectSpeakers, selectChapters }) =>
       }
     }
 
-    function * search (searchFn, { payload }) {
+    function* search(searchFn, { payload }) {
       const results = searchFn(payload)
 
       if (results) {

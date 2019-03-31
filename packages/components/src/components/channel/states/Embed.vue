@@ -1,6 +1,8 @@
 <template>
   <button class="channel-link">
-    <span class="channel-icon" :style="iconStyle" aria-hidden="true"><icon type="embed" color="#fff"/></span>
+    <span class="channel-icon" :style="iconStyle" aria-hidden="true">
+      <icon type="embed" color="#fff" />
+    </span>
     <span class="visually-hidden">{{ a11y }}</span>
   </button>
 </template>
@@ -9,30 +11,33 @@
 import Icon from '../../icons'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     text: {
-      type: String
+      type: String,
+      default: ''
     },
     subject: {
-      type: String
+      type: String,
+      default: ''
     },
     color: {
       type: String,
       default: 'transparent'
     },
     a11y: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {
-    iconStyle () {
+    iconStyle() {
       return {
         'background-color': this.color
       }
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

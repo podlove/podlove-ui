@@ -16,7 +16,7 @@ import { toPlayerTime } from '@podlove/utils/time'
 import { hostname } from '@podlove/utils/url'
 
 export default ({ selectDuration, selectPlaytime, selectCurrentChapter, selectChapterList }) =>
-  function * chaptersSaga () {
+  function* chaptersSaga() {
     yield takeEvery(INIT, initChapters)
     yield takeEvery(REQUEST_PLAYTIME, chapterUpdate)
     yield takeEvery(BACKEND_PLAYTIME, chapterUpdate)
@@ -25,7 +25,7 @@ export default ({ selectDuration, selectPlaytime, selectCurrentChapter, selectCh
     yield takeEvery(PREVIOUS_CHAPTER, previousChapter)
     yield takeEvery(NEXT_CHAPTER, nextChapter)
 
-    function * initChapters ({ payload }) {
+    function* initChapters({ payload }) {
       const chapters = config.chapters(payload)
       const duration = yield select(selectDuration)
 
@@ -50,21 +50,21 @@ export default ({ selectDuration, selectPlaytime, selectCurrentChapter, selectCh
       yield put(chapter.setChapters(state))
     }
 
-    function * chapterUpdate ({ payload }) {
+    function* chapterUpdate({ payload }) {
       yield put(chapter.updateChapter(payload))
     }
 
-    function * setChapter () {
+    function* setChapter() {
       const current = yield select(selectCurrentChapter)
       yield put(requestPlaytime(current.start))
     }
 
-    function * resetChapter () {
+    function* resetChapter() {
       const playtime = yield select(selectPlaytime)
       yield put(chapter.updateChapter(playtime))
     }
 
-    function * previousChapter () {
+    function* previousChapter() {
       const playtime = yield select(selectPlaytime)
       const { start, index } = yield select(selectCurrentChapter)
 
@@ -75,7 +75,7 @@ export default ({ selectDuration, selectPlaytime, selectCurrentChapter, selectCh
       }
     }
 
-    function * nextChapter () {
+    function* nextChapter() {
       const duration = yield select(selectDuration)
       const playtime = yield select(selectPlaytime)
       const chapters = yield select(selectChapterList)

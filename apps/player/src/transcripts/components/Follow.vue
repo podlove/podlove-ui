@@ -9,17 +9,31 @@
       xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <defs>
-        <rect id="color-path" x="0" y="0" width="85" height="25" rx="12.5"></rect>
+        <rect id="color-path" x="0" y="0" width="85" height="25" rx="12.5" />
       </defs>
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g>
-          <use :fill="backgroundColor" fill-rule="evenodd" xlink:href="#color-path"></use>
-          <rect :stroke="borderColor" stroke-width="1" x="0.5" y="0.5" width="84" height="24" rx="12"></rect>
+          <use :fill="backgroundColor" fill-rule="evenodd" xlink:href="#color-path" />
+          <rect
+            :stroke="borderColor"
+            stroke-width="1"
+            x="0.5"
+            y="0.5"
+            width="84"
+            height="24"
+            rx="12"
+          />
         </g>
-        <text font-size="12" font-weight="normal" line-spacing="20" :fill="textColor" class="follow-text">
+        <text
+          font-size="12"
+          font-weight="normal"
+          line-spacing="20"
+          :fill="textColor"
+          class="follow-text"
+        >
           <tspan x="23.4375" y="17">{{ $t('TRANSCRIPTS.FOLLOW') }}</tspan>
         </text>
-        <polygon :fill="textColor" points="11 8 18 12.0413943 11 16.0827887"></polygon>
+        <polygon :fill="textColor" points="11 8 18 12.0413943 11 16.0827887" />
       </g>
     </svg>
   </button>
@@ -37,13 +51,8 @@ export default {
     follow: select.transcripts.follow,
     style: select.styles.button
   }),
-  methods: {
-    toggleFollow () {
-      store.dispatch(followTranscripts(!this.follow))
-    }
-  },
   computed: {
-    textColor () {
+    textColor() {
       if (this.follow) {
         return this.style.color
       }
@@ -51,16 +60,21 @@ export default {
       return this.style.background
     },
 
-    borderColor () {
+    borderColor() {
       return this.style.background
     },
 
-    backgroundColor () {
+    backgroundColor() {
       if (this.follow) {
         return this.style.background
       }
 
       return 'transparent'
+    }
+  },
+  methods: {
+    toggleFollow() {
+      store.dispatch(followTranscripts(!this.follow))
     }
   }
 }

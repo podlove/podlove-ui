@@ -13,24 +13,23 @@ import Icon from '../../icons'
 const LINK = 'http://reddit.com/submit'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
-    link: {
-      type: String
-    },
     text: {
-      type: String
+      type: String,
+      default: ''
     },
     a11y: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {
-    redditLink () {
+    redditLink() {
       return addQueryParameter(LINK, { url: this.link, title: this.text })
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

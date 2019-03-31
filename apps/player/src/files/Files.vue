@@ -15,17 +15,17 @@ import select from 'store/selectors'
 import File from './components/File'
 
 export default {
+  components: {
+    Card,
+    File
+  },
   data: mapState({
     cardHeader: select.styles.cardHeader,
     cardBody: select.styles.cardBody,
     audio: select.files.audio
   }),
-  components: {
-    Card,
-    File
-  },
   computed: {
-    headerStyle () {
+    headerStyle() {
       return {
         color: this.cardHeader.color
       }

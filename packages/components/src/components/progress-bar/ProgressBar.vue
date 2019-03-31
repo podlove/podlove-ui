@@ -1,14 +1,14 @@
 <template>
-  <div class="progress" id="progress-bar">
+  <div id="progress-bar" class="progress">
     <input
       v-if="isMobile"
       type="range"
       min="0"
       :max="interpolate(duration)"
       :value="interpolate(time)"
+      :title="title"
       @change="onChange"
       @input="onInput"
-      :title="title"
     />
     <input
       v-else
@@ -16,30 +16,35 @@
       min="0"
       :max="interpolate(duration)"
       :value="interpolate(time)"
+      :title="title"
       @change="onChange"
       @input="onInput"
       @mousemove="onMouseMove"
       @mouseout="onMouseOut"
-      :title="title"
     />
-    <span class="progress-range" :style="rangeStyle"></span>
+    <span class="progress-range" :style="rangeStyle" />
     <span
-      class="progress-buffer"
       v-for="(buffering, index) in buffer"
-      :style="bufferStyle(buffering)"
       :key="`buffer-${index}`"
-    ></span>
+      class="progress-buffer"
+      :style="bufferStyle(buffering)"
+    />
     <span
       v-for="(quantile, index) in quantiles"
+      :key="`track-${index}`"
       class="progress-track"
       :style="trackStyle(quantile)"
-      :key="`track-${index}`"
-    ></span>
+    />
     <div class="chapters-progress">
-      <span class="indicator" v-for="(chapter, index) in chapters" :key="index" :style="chapterStyle(chapter)"></span>
+      <span
+        v-for="(chapter, index) in chapters"
+        :key="index"
+        class="indicator"
+        :style="chapterStyle(chapter)"
+      />
     </div>
-    <span class="ghost-thumb" :style="ghostStyle"></span>
-    <span class="progress-thumb" :class="{ active: thumbActive }" :style="thumbStyle"></span>
+    <span class="ghost-thumb" :style="ghostStyle" />
+    <span class="progress-thumb" :class="{ active: thumbActive }" :style="thumbStyle" />
   </div>
 </template>
 
@@ -52,7 +57,7 @@ import { isMobile } from '@podlove/utils/detect'
 import { requestPlaytime, simulatePlaytime } from '@podlove/player-actions/timepiece'
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
 
-import { color as defaultColor, background as defaultBackground, highlight as defaultHighlight } from 'defaults'
+import { color as defaultColor, highlight as defaultHighlight } from 'defaults'
 
 export default {
   props: {
@@ -89,27 +94,28 @@ export default {
       default: defaultHighlight
     },
     title: {
-      type: String
+      type: String,
+      default: ''
     },
     chapters: {
       type: Array,
       default: () => []
     }
   },
-  data () {
+  data() {
     return {
       thumbActive: false,
       isMobile
     }
   },
   computed: {
-    rangeStyle () {
+    rangeStyle() {
       return {
         'background-color': this.progressColor
       }
     },
 
-    thumbStyle () {
+    thumbStyle() {
       return {
         display: 'block',
         left: relativePosition(this.time, this.duration),
@@ -118,9 +124,9 @@ export default {
       }
     },
 
-    ghostStyle () {
+    ghostStyle() {
       return {
-        display: !!this.ghost ? 'block' : 'none',
+        display: this.ghost ? 'block' : 'none',
         left: relativePosition(this.ghost, this.duration),
         'background-color': color(this.thumbColor).fade(0.2),
         'border-color': this.highlightColor
@@ -129,17 +135,17 @@ export default {
   },
   methods: {
     ...mapActions({
-      onChange: function ({ actions, dispatch }, event) {
+      onChange(_, event) {
         this.$emit('input', requestPlaytime(event.target.value))
       },
 
-      onInput: function ({ actions, dispatch }, event) {
+      onInput(_, event) {
         this.thumbAnimated = false
         this.$emit('input', requestPlaytime(event.target.value))
         this.$emit('ghost', disableGhost())
       },
 
-      onMouseMove: function ({ actions, dispatch }, event) {
+      onMouseMove(_, event) {
         if (
           (event.offsetY < 13 && event.offsetY > 31) ||
           event.offsetX < 0 ||
@@ -153,13 +159,16 @@ export default {
         this.thumbAnimated = true
         this.thumbActive = true
 
-        this.$emit('simulate', simulatePlaytime((this.duration * event.offsetX) / event.target.clientWidth))
+        this.$emit(
+          'simulate',
+          simulatePlaytime((this.duration * event.offsetX) / event.target.clientWidth)
+        )
         this.$emit('ghost', enableGhost())
 
         return false
       },
 
-      onMouseOut: function ({ actions, dispatch }, event) {
+      onMouseOut() {
         this.thumbActive = false
 
         this.$emit('ghost', disableGhost())
@@ -169,7 +178,7 @@ export default {
       }
     }),
 
-    trackStyle ([start, end]) {
+    trackStyle([start, end]) {
       return {
         left: relativePosition(start, this.duration),
         width: relativePosition(end - start, this.duration),
@@ -177,19 +186,21 @@ export default {
       }
     },
 
-    bufferStyle ([start, end]) {
+    bufferStyle([start, end]) {
       return {
         left: relativePosition(start, this.duration),
         width: relativePosition(end - start, this.duration),
-        'background-color': isNegative(this.progressColor) ? color(light).fade(0.5) : color(dark).fade(0.7)
+        'background-color': isNegative(this.progressColor)
+          ? color(light).fade(0.5)
+          : color(dark).fade(0.7)
       }
     },
 
-    isLast (index) {
+    isLast(index) {
       return this.chapters.length - 1 === index
     },
 
-    chapterStyle (chapter) {
+    chapterStyle(chapter) {
       return {
         left: (chapter.end * 100) / this.duration + '%',
         background: this.highlightColor

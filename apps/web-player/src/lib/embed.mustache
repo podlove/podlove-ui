@@ -1,0 +1,19 @@
+<script type="text/javascript">
+  window.resourceBaseUrl = '{{ base }}';
+</script>
+
+<podlove-player></podlove-player>
+
+{{#styles}}
+<link rel="stylesheet" href="{{ base }}{{ . }}.css">
+{{/styles}}
+
+{{#scripts}}
+<script type="text/javascript" src="{{ base }}{{ . }}.js"></script>
+{{/scripts}}
+
+<script>
+  {{{ resizer }}}
+</script>
+
+{{{ loader }}}

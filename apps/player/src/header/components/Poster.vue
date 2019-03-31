@@ -10,13 +10,13 @@ import { Image } from '@podlove/components'
 import select from 'store/selectors'
 
 export default {
+  components: { LazyImage: Image },
   data: mapState({
     style: select.styles.poster,
     posterSrc: select.header.posterSrc,
     altText: select.accessibility.poster,
     coverColor: select.styles.imageCover
   }),
-  components: { LazyImage: Image },
   methods: mapActions('errorPosterLoad')
 }
 </script>

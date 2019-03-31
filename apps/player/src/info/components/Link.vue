@@ -9,6 +9,7 @@ import { Icon } from '@podlove/components'
 import { hostname, pathname } from '@podlove/utils/url'
 
 export default {
+  components: { Icon },
   props: {
     link: {
       type: String,
@@ -18,8 +19,7 @@ export default {
   methods: {
     hostname,
     pathname
-  },
-  components: { Icon }
+  }
 }
 </script>
 

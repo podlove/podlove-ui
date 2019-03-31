@@ -1,8 +1,8 @@
 <template>
   <div class="loading-indicator" aria-hidden="true">
-    <div class="loading-bubble first" :style="bubbleStyle"></div>
-    <div class="loading-bubble second" :style="bubbleStyle"></div>
-    <div class="loading-bubble third" :style="bubbleStyle"></div>
+    <div class="loading-bubble first" :style="bubbleStyle" />
+    <div class="loading-bubble second" :style="bubbleStyle" />
+    <div class="loading-bubble third" :style="bubbleStyle" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     }
   },
   computed: {
-    bubbleStyle () {
+    bubbleStyle() {
       return {
         background: this.color,
         width: `${this.size}px`,

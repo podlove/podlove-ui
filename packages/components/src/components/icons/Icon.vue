@@ -1,14 +1,18 @@
 <template>
-  <component :is="iconType" :color="color" :background="background" :size="size" aria-hidden="true" />
+  <component
+    :is="iconType"
+    :color="color"
+    :background="background"
+    :size="size"
+    aria-hidden="true"
+  />
 </template>
 
 <script>
-import { capitalize } from '@podlove/utils/helper'
-import { background, color } from 'defaults'
-
 import { components, types } from './types'
 
 export default {
+  components,
   props: {
     type: {
       type: String,
@@ -24,15 +28,15 @@ export default {
       default: 'currentColor'
     },
     size: {
-      type: Number
+      type: Number,
+      default: null
     }
   },
   computed: {
-    iconType () {
+    iconType() {
       return `${this.type}-icon`
     }
-  },
-  components
+  }
 }
 </script>
 

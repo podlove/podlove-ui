@@ -3,7 +3,7 @@ import { reducer as runtime } from './reducer'
 
 let testAction
 
-test.beforeEach(t => {
+test.beforeEach(() => {
   testAction = {
     type: 'INIT',
     payload: {
@@ -79,7 +79,10 @@ test(`runtime: it returns an empty object if a runtime is not available`, t => {
 })
 
 test(`runtime: it sets the language in SET_LANGUAGE`, t => {
-  let result = runtime({ platform: 'mobile', language: 'en' }, { type: 'SET_LANGUAGE', payload: 'de' })
+  let result = runtime(
+    { platform: 'mobile', language: 'en' },
+    { type: 'SET_LANGUAGE', payload: 'de' }
+  )
 
   t.deepEqual(result, { platform: 'mobile', language: 'de' })
 })

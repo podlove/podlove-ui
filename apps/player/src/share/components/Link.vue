@@ -13,8 +13,6 @@
 import { mapState } from 'redux-vuex'
 import copy from 'copy-to-clipboard'
 import { InputGroup, InputText, Button as ButtonComponent, Tooltip } from '@podlove/components'
-import { addQueryParameter } from '@podlove/utils/url'
-import { toHumanTime } from '@podlove/utils/time'
 
 import buttonColor from 'directives/button-color'
 import inputColor from 'directives/input-color'
@@ -22,6 +20,13 @@ import inputColor from 'directives/input-color'
 import select from 'store/selectors'
 
 export default {
+  components: {
+    InputGroup,
+    ButtonComponent: buttonColor(ButtonComponent),
+    InputText: inputColor(InputText),
+    Tooltip
+  },
+
   data: mapState({
     content: select.share.content,
     chapter: select.chapters.current,
@@ -33,16 +38,9 @@ export default {
   }),
 
   methods: {
-    copyLink () {
+    copyLink() {
       copy(this.link)
     }
-  },
-
-  components: {
-    InputGroup,
-    ButtonComponent: buttonColor(ButtonComponent),
-    InputText: inputColor(InputText),
-    Tooltip
   }
 }
 </script>

@@ -12,24 +12,23 @@ import Icon from '../../icons'
 const LINK = 'https://twitter.com/intent/tweet'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     text: {
-      type: String
-    },
-    color: {
-      type: String
+      type: String,
+      default: ''
     },
     a11y: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {
-    twitterLink () {
+    twitterLink() {
       return addQueryParameter(LINK, { text: this.text })
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

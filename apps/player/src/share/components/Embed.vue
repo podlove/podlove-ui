@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'redux-vuex'
+import { mapState } from 'redux-vuex'
 import { Button, InputText, InputSelect, InputGroup, Tooltip } from '@podlove/components'
 import { selectEmbedSize } from '@podlove/player-actions/embed'
 import copy from 'copy-to-clipboard'
@@ -21,10 +21,14 @@ import select from 'store/selectors'
 import inputColor from 'directives/input-color'
 import buttonColor from 'directives/button-color'
 
-import { addQueryParameter } from '@podlove/utils/url'
-import { toHumanTime } from '@podlove/utils/time'
-
 export default {
+  components: {
+    ButtonComponent: buttonColor(Button),
+    InputSelect: inputColor(InputSelect),
+    InputText: inputColor(InputText),
+    InputGroup,
+    Tooltip
+  },
   data: mapState({
     negative: select.styles.negative,
     embedSize: select.share.embedSize,
@@ -32,20 +36,13 @@ export default {
     embedCode: select.share.code
   }),
   methods: {
-    setSize (val) {
+    setSize(val) {
       store.dispatch(selectEmbedSize(val))
     },
 
-    copyCode () {
+    copyCode() {
       copy(this.embedCode)
     }
-  },
-  components: {
-    ButtonComponent: buttonColor(Button),
-    InputSelect: inputColor(InputSelect),
-    InputText: inputColor(InputText),
-    InputGroup,
-    Tooltip
   }
 }
 </script>

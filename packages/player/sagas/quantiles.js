@@ -1,8 +1,13 @@
 import { takeEvery, put } from 'redux-saga/effects'
-import { BACKEND_PLAYTIME, NEXT_CHAPTER, PREVIOUS_CHAPTER, UPDATE_PLAYTIME } from '@podlove/player-actions/types'
+import {
+  BACKEND_PLAYTIME,
+  NEXT_CHAPTER,
+  PREVIOUS_CHAPTER,
+  UPDATE_PLAYTIME
+} from '@podlove/player-actions/types'
 import { setQuantiles } from '@podlove/player-actions/quantiles'
 
-export default function * quantilesSaga () {
+export default function* quantilesSaga() {
   let time = null
 
   yield takeEvery(NEXT_CHAPTER, resetTime)
@@ -11,7 +16,7 @@ export default function * quantilesSaga () {
 
   yield takeEvery(BACKEND_PLAYTIME, updateQuantiles)
 
-  function * updateQuantiles ({ payload }) {
+  function* updateQuantiles({ payload }) {
     if (!time) {
       time = payload
     }
@@ -19,7 +24,7 @@ export default function * quantilesSaga () {
     yield put(setQuantiles({ start: time, end: payload }))
   }
 
-  function resetTime () {
+  function resetTime() {
     time = null
   }
 }

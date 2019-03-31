@@ -20,7 +20,13 @@ import RenderContainer from './components/Render'
 import PrerenderContainer from './components/Prerender'
 
 export default {
-  data () {
+  components: {
+    Search,
+    Follow,
+    RenderContainer,
+    PrerenderContainer
+  },
+  data() {
     return {
       ...this.mapState({
         activeTranscript: select.transcripts.active,
@@ -32,31 +38,25 @@ export default {
       prerender: null
     }
   },
-  methods: {
-    loadPrerender (prerender) {
-      this.prerender = prerender
-    },
-    render () {
-      this.prerender = []
-    }
-  },
   computed: {
-    hasSearchResults () {
+    hasSearchResults() {
       return this.searchQuery.length > 2
     }
   },
-  mounted () {
+  mounted() {
     this.render()
     window.addEventListener('resize', this.render.bind(this))
   },
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener('resize', this.render.bind(this))
   },
-  components: {
-    Search,
-    Follow,
-    RenderContainer,
-    PrerenderContainer
+  methods: {
+    loadPrerender(prerender) {
+      this.prerender = prerender
+    },
+    render() {
+      this.prerender = []
+    }
   }
 }
 </script>

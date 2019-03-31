@@ -17,7 +17,6 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { head } from 'lodash'
 import select from 'store/selectors'
 
 import ContentSelect from './components/Content'
@@ -26,18 +25,18 @@ import CopyLink from './components/Link'
 import EmbedCode from './components/Embed'
 
 export default {
-  data: mapState({
-    sectionStyle: select.styles.shareSectionStyle,
-    hasLink: select.share.hasLink,
-    content: select.share.content,
-    hasEmbedLink: select.share.hasEmbedLink
-  }),
   components: {
     ContentSelect,
     ChannelSelect,
     CopyLink,
     EmbedCode
-  }
+  },
+  data: mapState({
+    sectionStyle: select.styles.shareSectionStyle,
+    hasLink: select.share.hasLink,
+    content: select.share.content,
+    hasEmbedLink: select.share.hasEmbedLink
+  })
 }
 </script>
 

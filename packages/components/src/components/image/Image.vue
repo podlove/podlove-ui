@@ -1,9 +1,17 @@
 <template>
   <div class="image-container">
     <transition name="fade">
-      <div class="cover" :style="coverStyle" v-if="!loaded"></div>
+      <div v-if="!loaded" class="cover" :style="coverStyle" />
     </transition>
-    <img class="image" :style="imageStyle" :src="url" :alt="alt" @error="errorHandler" @load="loadHandler" v-if="url" />
+    <img
+      v-if="url"
+      class="image"
+      :style="imageStyle"
+      :src="url"
+      :alt="alt"
+      @error="errorHandler"
+      @load="loadHandler"
+    />
   </div>
 </template>
 
@@ -11,13 +19,6 @@
 import { background } from 'defaults'
 
 export default {
-  data () {
-    return {
-      loaded: false,
-      width: null
-    }
-  },
-
   props: {
     url: {
       type: String,
@@ -32,14 +33,20 @@ export default {
       default: background
     }
   },
+  data() {
+    return {
+      loaded: false,
+      width: null
+    }
+  },
 
   computed: {
-    coverStyle () {
+    coverStyle() {
       return {
         'background-color': this.color
       }
     },
-    imageStyle () {
+    imageStyle() {
       if (!this.loaded) {
         return {
           height: 0
@@ -51,12 +58,12 @@ export default {
   },
 
   methods: {
-    loadHandler (event) {
+    loadHandler(event) {
       this.loaded = true
       this.$emit('load', event)
     },
 
-    errorHandler (event) {
+    errorHandler(event) {
       this.$emit('error', event)
     }
   }

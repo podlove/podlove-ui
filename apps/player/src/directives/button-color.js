@@ -9,7 +9,19 @@ export default component =>
         default: null
       }
     },
-    render: function (h) {
+
+    data() {
+      return this.mapState({
+        buttonStyle: this.variant === 'light' ? select.styles.buttonLight : select.styles.button
+      })
+    },
+
+    methods: {
+      proxyEvent(event) {
+        return val => this.$emit(event, val)
+      }
+    },
+    render: function(h) {
       return h(
         component,
         {
@@ -25,17 +37,5 @@ export default component =>
         },
         this.$slots.default
       )
-    },
-
-    data () {
-      return this.mapState({
-        buttonStyle: this.variant === 'light' ? select.styles.buttonLight : select.styles.button
-      })
-    },
-
-    methods: {
-      proxyEvent (event) {
-        return val => this.$emit(event, val)
-      }
     }
   })

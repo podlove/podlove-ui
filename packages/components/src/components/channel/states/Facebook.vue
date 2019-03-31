@@ -1,6 +1,8 @@
 <template>
   <a :href="facebookLink" class="channel-link" target="_blank">
-    <span class="channel-icon facebook" aria-hidden="true"><icon type="facebook" color="#fff"/></span>
+    <span class="channel-icon facebook" aria-hidden="true">
+      <icon type="facebook" color="#fff" />
+    </span>
     <span class="visually-hidden">{{ a11y }}</span>
   </a>
 </template>
@@ -12,21 +14,23 @@ import { addQueryParameter } from '@podlove/utils/url'
 const LINK = 'https://www.facebook.com/sharer/sharer.php'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     link: {
-      type: String
+      type: String,
+      default: null
     },
     a11y: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {
-    facebookLink () {
+    facebookLink() {
       return addQueryParameter(LINK, { u: this.link })
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

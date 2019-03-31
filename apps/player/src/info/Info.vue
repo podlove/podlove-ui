@@ -10,7 +10,7 @@
 
       div.show
         h3.title#tab-info--show-title(v-if="showTitle") {{ showTitle }}
-        lazy-image.show-poster.shadowed#tab-info--show-poster(v-if="showPoster" :url="showPoster" :alt="$t('A11Y.ALT_SHOW_COVER')" :coverColor="imageCover")
+        lazy-image.show-poster.shadowed#tab-info--show-poster(v-if="showPoster" :url="showPoster" :alt="$t('A11Y.ALT_SHOW_COVER')" :color="imageCover")
         info-summary#tab-info--show-summary(v-if="showSummary" :content="showSummary")
         info-link#tab-info--show-link(v-if="showLink" :link="showLink")
 
@@ -19,8 +19,6 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Icon } from '@podlove/components'
-import { calcHours, calcMinutes, localeDate, localeTime } from '@podlove/utils/time'
 import { Image as LazyImage } from '@podlove/components'
 
 import select from 'store/selectors'
@@ -31,6 +29,13 @@ import InfoSummary from './components/Summary'
 import InfoContributors from './components/Contributors'
 
 export default {
+  components: {
+    InfoMeta,
+    InfoLink,
+    LazyImage,
+    InfoSummary,
+    InfoContributors
+  },
   data: mapState({
     imageCover: select.styles.imageCover,
     episodeTitle: select.episode.title,
@@ -41,14 +46,7 @@ export default {
     showPoster: select.show.poster,
     showLink: select.show.link,
     showSummary: select.show.summary
-  }),
-  components: {
-    InfoMeta,
-    InfoLink,
-    LazyImage,
-    InfoSummary,
-    InfoContributors
-  }
+  })
 }
 </script>
 

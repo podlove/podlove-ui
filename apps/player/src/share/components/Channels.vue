@@ -24,6 +24,9 @@ import select from 'store/selectors'
 import store from 'store'
 
 export default {
+  components: {
+    Channel
+  },
   data: mapState({
     content: select.share.content,
     showLink: select.show.link,
@@ -36,7 +39,7 @@ export default {
     currentChapter: select.chapters.current
   }),
   computed: {
-    shareLink () {
+    shareLink() {
       let time
 
       if (this.content === 'show') {
@@ -59,7 +62,7 @@ export default {
       return addQueryParameter(this.episodeLink, { t: time })
     },
 
-    shareText () {
+    shareText() {
       if (this.content === 'show') {
         return this.$t('SHARE.SHOW.TEXT', {
           title: this.showTitle,
@@ -89,7 +92,7 @@ export default {
       })
     },
 
-    shareSubject () {
+    shareSubject() {
       if (this.content === 'show') {
         return this.$t('SHARE.SHOW.SUBJECT', {
           title: this.showTitle,
@@ -117,7 +120,7 @@ export default {
       })
     },
 
-    sharePoster () {
+    sharePoster() {
       if (this.content === 'show') {
         return this.showPoster
       }
@@ -127,9 +130,6 @@ export default {
   },
   methods: {
     dispatch: store.dispatch
-  },
-  components: {
-    Channel
   }
 }
 </script>

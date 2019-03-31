@@ -50,7 +50,8 @@ const inject = curry(
 
       // transfer global window functions to sandbox
       if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-        sdbxWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        sdbxWindow.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ =
+          window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       }
 
       const onLoad = () => {

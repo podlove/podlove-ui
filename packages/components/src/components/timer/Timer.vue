@@ -3,13 +3,14 @@
 </template>
 
 <script>
-import { color } from 'defaults'
+import defaults from 'defaults'
 import { toHumanTime } from '@podlove/utils/time'
 
 export default {
   props: {
     color: {
-      type: String
+      type: String,
+      default: defaults.color
     },
     time: {
       type: Number,
@@ -22,7 +23,7 @@ export default {
   },
 
   computed: {
-    timerStyle () {
+    timerStyle() {
       if (!this.color) {
         return {}
       }

@@ -12,6 +12,7 @@ module.exports = {
 
   entry: {
     embed: './src/embed.js',
+    share: './src/share.js',
     'extensions/external-events': './src/extensions/external-events.js'
   },
   output: output(),
@@ -29,13 +30,20 @@ module.exports = {
 
   plugins: [
     plugins.hmr(),
-    ...plugins.html({
-      files: [
-        {
-          filename: 'index.html',
-          template: './example/example.html'
-        }
-      ]
+    plugins.html({
+      filename: 'index.html',
+      template: './example/example.html',
+      exclude: ['share']
+    }),
+    plugins.html({
+      files: {
+        styles: ['styles'],
+        scripts: ['vendor', 'styles', 'runtime', 'player']
+      },
+      filename: 'share.html',
+      template: '!!mustache-loader!./src/lib/share.mustache',
+      exclude: ['embed', 'extensions/external-events'],
+      base: BASE
     }),
     plugins.env({ MODE: 'development', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player'], STYLES: ['styles'] }),
     plugins.copy([
@@ -51,6 +59,12 @@ module.exports = {
       },
       {
         from: './example/chapters.json'
+      },
+      {
+        from: './example/example.m4a'
+      },
+      {
+        from: './example/example.jpg'
       }
     ])
   ]

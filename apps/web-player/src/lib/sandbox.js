@@ -1,10 +1,12 @@
+/* global BASE, STYLES, SCRIPTS */
+
 import { propOr, prop, curry } from 'ramda'
 import { setAttributes } from '@podlove/utils/dom'
 import { sandbox, sandboxWindow } from '@podlove/utils/sandbox'
 import { iframeResizer } from 'iframe-resizer'
 // eslint-disable-next-line
 import iframeResizerContentWindow from 'raw-loader!iframe-resizer/js/iframeResizer.contentWindow.min.js'
-import embedPlayerDom from './embed.html'
+import embedPlayerDom from './embed.mustache'
 import { createLoader } from './loader'
 
 const setAccessibilityAttributes = curry((config, node) => {
@@ -19,7 +21,6 @@ const setAccessibilityAttributes = curry((config, node) => {
 
 export const createSandbox = async (config, node) => {
   const reference = propOr(BASE, 'base', config.reference)
-
   const playerDom = embedPlayerDom({
     base: reference,
     styles: STYLES,

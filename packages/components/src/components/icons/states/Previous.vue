@@ -12,8 +12,13 @@
       :fill="color"
       fill-rule="evenodd"
       points="13.872375 0.4245 1.249875 7.712 13.872375 14.9995"
-    ></polygon>
-    <polygon stroke="none" :fill="color" fill-rule="evenodd" points="0 15 3.4375 15 3.4375 0.425 0 0.425"></polygon>
+    />
+    <polygon
+      stroke="none"
+      :fill="color"
+      fill-rule="evenodd"
+      points="0 15 3.4375 15 3.4375 0.425 0 0.425"
+    />
   </svg>
 </template>
 

@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'redux-vuex'
+import { mapState } from 'redux-vuex'
 import { toHumanTime } from '@podlove/utils/time'
 import { Icon, ContentOption } from '@podlove/components'
 
@@ -60,6 +60,10 @@ import select from 'store/selectors'
 import store from 'store'
 
 export default {
+  components: {
+    Icon,
+    ContentOption
+  },
   data: mapState({
     activeStyle: select.styles.shareActiveContentStyle,
     style: select.styles.shareContentStyle,
@@ -73,15 +77,11 @@ export default {
   methods: {
     dispatch: store.dispatch,
 
-    isActive (type) {
+    isActive(type) {
       return this.content === type
     },
 
     toHumanTime
-  },
-  components: {
-    Icon,
-    ContentOption
   }
 }
 </script>

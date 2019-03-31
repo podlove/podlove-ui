@@ -5,7 +5,8 @@ import root from './root'
 
 const fallbackColor = (first, second) => first || second
 
-const monoColor = state => (theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state))
+const monoColor = state =>
+  theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)
 const textColor = state => fallbackColor(theme.highlightColor(state), monoColor(state))
 
 const wrapper = state => ({
@@ -107,7 +108,8 @@ const imageCover = state =>
     .fade(0.25)
     .string()
 
-const chapterIcon = state => (theme.isNegative(state) ? theme.mainColor(state) : theme.darkColor(state))
+const chapterIcon = state =>
+  theme.isNegative(state) ? theme.mainColor(state) : theme.darkColor(state)
 
 const activeChapter = state => ({
   'background-color': theme.isNegative(state)

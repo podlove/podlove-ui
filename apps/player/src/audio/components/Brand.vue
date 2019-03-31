@@ -12,12 +12,12 @@ import { Icon } from '@podlove/components'
 import select from 'store/selectors'
 
 export default {
-  data: mapState({
-    version: select.version
-  }),
   components: {
     Icon
-  }
+  },
+  data: mapState({
+    version: select.version
+  })
 }
 </script>
 
@@ -25,7 +25,8 @@ export default {
 @import '~styles/variables';
 
 .footer {
-  margin: $margin;
+  margin: $margin $margin 0 $margin;
+  padding-bottom: $padding;
   display: flex;
 
   .version {

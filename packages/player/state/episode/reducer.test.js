@@ -3,7 +3,7 @@ import { reducer as episode } from './reducer'
 
 let testAction
 
-test.beforeEach(t => {
+test.beforeEach(() => {
   testAction = {
     type: 'INIT',
     payload: {

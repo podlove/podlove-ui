@@ -22,6 +22,11 @@ import select from 'store/selectors'
 import { PlayButton, ChapterButton, StepperButton } from '@podlove/components'
 
 export default {
+  components: {
+    PlayButton,
+    ChapterButton,
+    StepperButton
+  },
   data: mapState({
     controlbarStyle: select.styles.controls,
     buttonStyle: select.styles.buttonInverted,
@@ -31,22 +36,15 @@ export default {
     duration: select.duration,
     playtime: select.playtime
   }),
-  components: {
-    PlayButton,
-    ChapterButton,
-    StepperButton
-  },
-  methods: {
-    dispatch: store.dispatch
-  },
   computed: {
-    button () {
+    button() {
       switch (this.playButton) {
         case 'paused':
           return {
             type: 'play',
             a11y: this.$t('A11Y.PLAYER_PAUSE')
           }
+        default:
         case 'duration':
           return {
             type: 'play',
@@ -93,6 +91,9 @@ export default {
           }
       }
     }
+  },
+  methods: {
+    dispatch: store.dispatch
   }
 }
 </script>

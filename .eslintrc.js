@@ -15,9 +15,11 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'require-yield': ['warn'],
     'prettier/prettier': ['error'],
-    'generator-star-spacing': ['error', 'both'],
     'vue/no-v-html': 'warning',
     'vue/component-name-in-template-casing': 'kebab-case',
-    'vue/no-shared-component-data': 'off'
+    'vue/no-shared-component-data': 'off',
+    'vue/max-attributes-per-line': 'off',
+    'vue/html-closing-bracket-spacing': 'off',
+    'vue/html-self-closing': 'off'
   }
 }

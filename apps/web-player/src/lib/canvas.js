@@ -7,11 +7,11 @@ export default selector => {
   return {
     node,
 
-    init () {
+    init() {
       node.innerHTML = ''
     },
 
-    reset () {
+    reset() {
       node.innerHTML = content
     }
   }

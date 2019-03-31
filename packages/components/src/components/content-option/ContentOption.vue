@@ -1,10 +1,10 @@
 <template>
-  <div role="button" :aria-label="a11y" class="content-option" @click="clickHandler" :style="style">
+  <div role="button" :aria-label="a11y" class="content-option" :style="style" @click="clickHandler">
     <div class="content-option-icon">
       <slot name="icon" />
     </div>
-    <span class="content-option-type" v-if="content">{{ content }}</span>
-    <span class="content-option-title truncate" v-if="title">{{ title }}</span>
+    <span v-if="content" class="content-option-type">{{ content }}</span>
+    <span v-if="title" class="content-option-title truncate">{{ title }}</span>
   </div>
 </template>
 
@@ -16,16 +16,20 @@ import { color, background } from 'defaults'
 export default {
   props: {
     content: {
-      type: String
+      type: String,
+      default: ''
     },
     title: {
-      type: String
+      type: String,
+      default: ''
     },
     type: {
-      type: String
+      type: String,
+      default: ''
     },
     a11y: {
-      type: String
+      type: String,
+      default: ''
     },
     background: {
       type: String,
@@ -37,7 +41,7 @@ export default {
     }
   },
   computed: {
-    style () {
+    style() {
       return {
         background: this.background,
         color: this.color
@@ -45,7 +49,7 @@ export default {
     }
   },
   methods: {
-    clickHandler () {
+    clickHandler() {
       this.$emit('click', selectContent(this.type))
     }
   }

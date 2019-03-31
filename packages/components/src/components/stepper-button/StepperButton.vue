@@ -1,7 +1,7 @@
 <template>
-  <button class="stepper-button" @click="clickHandler" :id="`stepper-button--${type}`">
+  <button :id="`stepper-button--${type}`" class="stepper-button" @click="clickHandler">
     <icon :type="type" :color="color" />
-    <slot></slot>
+    <slot />
   </button>
 </template>
 
@@ -11,6 +11,9 @@ import Icon from 'components/icons'
 import { stepForward, stepBackwards } from '@podlove/player-actions/stepper'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     type: {
       type: String,
@@ -22,11 +25,8 @@ export default {
       default: color
     }
   },
-  components: {
-    Icon
-  },
   methods: {
-    clickHandler () {
+    clickHandler() {
       switch (this.type) {
         case 'forward':
           this.$emit('click', stepForward())

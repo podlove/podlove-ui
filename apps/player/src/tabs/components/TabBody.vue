@@ -1,5 +1,5 @@
 <template lang="pug">
-  tab-body(:active="active" :name="tab" :aria-selected="active" :ref="tab" v-if="active" :background="body.background")
+  tab-body.tab(:active="active" :name="tab" :aria-selected="active" :ref="tab" v-if="active" :background="body.background" :fixed="fixed")
     slot
 </template>
 
@@ -10,22 +10,24 @@ import { Tab } from '@podlove/components'
 import select from 'store/selectors'
 
 export default {
+  components: {
+    TabBody: Tab.Body
+  },
   props: {
     tab: {
-      type: String
+      type: String,
+      default: null
     }
   },
   data: mapState({
     body: select.styles.tabsBody,
-    tabs: select.tabs
+    tabs: select.tabs,
+    fixed: select.fixed
   }),
   computed: {
-    active () {
+    active() {
       return this.tabs[this.tab]
     }
-  },
-  components: {
-    TabBody: Tab.Body
   }
 }
 </script>

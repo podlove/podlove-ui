@@ -1,7 +1,7 @@
 <template>
   <span class="play-inner" aria-hidden="true">
-    <icon type="play" :color="color"></icon>
-    <slot></slot>
+    <icon type="play" :color="color" />
+    <slot />
   </span>
 </template>
 
@@ -10,14 +10,14 @@ import Icon from 'components/icons'
 import { color } from 'defaults'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     color: {
       type: String,
       default: color
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

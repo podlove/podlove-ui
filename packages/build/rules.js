@@ -24,7 +24,7 @@ const images = prefix => ({
 })
 
 const mustache = () => ({
-  test: /\.html$/,
+  test: /\.mustache$/,
   loader: 'mustache-loader?minify'
 })
 
@@ -92,6 +92,8 @@ const fonts = prefix => ({
   }
 })
 
+const handlebars = () => ({ test: /\.hbs$/, loader: 'handlebars-loader' })
+
 module.exports = {
   vue,
   javascript,
@@ -100,5 +102,6 @@ module.exports = {
   fonts,
   pug,
   scss,
-  mustache
+  mustache,
+  handlebars
 }

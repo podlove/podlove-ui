@@ -10,12 +10,17 @@
       @change="handleChange"
       @dblclick="handleDblclick"
     />
-    <span class="track"></span>
-    <span class="pin" v-for="(pin, index) in pins" :key="index" :style="{ left: `${round(pin.value * 100)}%` }">
+    <span class="track" />
+    <span
+      v-for="(pin, index) in pins"
+      :key="index"
+      class="pin"
+      :style="{ left: `${round(pin.value * 100)}%` }"
+    >
       {{ pin.label }}
     </span>
-    <span class="thumb" :style="thumbStyle"></span>
-    <slot></slot>
+    <span class="thumb" :style="thumbStyle" />
+    <slot />
   </div>
 </template>
 
@@ -51,7 +56,7 @@ export default {
     },
     pins: {
       type: Array,
-      default: []
+      default: () => []
     },
     background: {
       type: String,
@@ -64,7 +69,7 @@ export default {
   },
 
   computed: {
-    thumbStyle () {
+    thumbStyle() {
       const left = relativePosition(this.value, this.min, this.max)
       return {
         left: `${left}%`,
@@ -74,22 +79,26 @@ export default {
     }
   },
   methods: {
-    calcValue (event) {
+    calcValue(event) {
       const value = event.target.value
 
-      return this.pins.map(pluck('value')).find(pin => pin + pinRange >= value && pin - pinRange <= value) || value
+      return (
+        this.pins
+          .map(pluck('value'))
+          .find(pin => pin + pinRange >= value && pin - pinRange <= value) || value
+      )
     },
 
     round,
 
     // Events Handlers
-    handleInput (event) {
+    handleInput(event) {
       this.$emit('input', this.calcValue(event))
     },
-    handleChange (event) {
+    handleChange(event) {
       this.$emit('change', this.calcValue(event))
     },
-    handleDblclick (event) {
+    handleDblclick(event) {
       this.$emit('dblclick', event.target.value)
     }
   }

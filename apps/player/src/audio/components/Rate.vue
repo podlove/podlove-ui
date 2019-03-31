@@ -73,7 +73,10 @@ const stateToSpeedSlider = (value = 0) => {
 }
 
 export default {
-  data () {
+  components: {
+    InputSlider: inputColor(InputSlider)
+  },
+  data() {
     return {
       ...this.mapState({
         rate: select.audio.rate
@@ -107,7 +110,7 @@ export default {
     }
   },
   computed: {
-    sliderRate () {
+    sliderRate() {
       return this.toSliderRate(this.rate)
     }
   },
@@ -116,7 +119,7 @@ export default {
       store.dispatch,
       setRate
     ),
-    toStateRate (value) {
+    toStateRate(value) {
       compose(
         this.setRate.bind(this),
         round,
@@ -124,13 +127,13 @@ export default {
         normalizeSliderValue
       )(value)
     },
-    setStateRate (value) {
+    setStateRate(value) {
       compose(
         this.setRate.bind(this),
         round
       )(value)
     },
-    changeRate (offset, rate) {
+    changeRate(offset, rate) {
       return compose(
         this.setRate.bind(this),
         roundUp(offset)
@@ -142,9 +145,6 @@ export default {
       normalizeRateValue
     ),
     toDecimal
-  },
-  components: {
-    InputSlider: inputColor(InputSlider)
   }
 }
 </script>

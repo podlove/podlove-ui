@@ -24,7 +24,6 @@
 
 <script>
 import { compose } from 'ramda'
-import { mapState, mapActions } from 'redux-vuex'
 import { toPercent } from '@podlove/utils/math'
 import { setVolume, mute, unmute } from '@podlove/player-actions/audio'
 import { Icon, InputSlider, Button } from '@podlove/components'
@@ -35,7 +34,12 @@ import select from 'store/selectors'
 import store from 'store'
 
 export default {
-  data () {
+  components: {
+    InputSlider: inputColor(InputSlider),
+    ButtonComponent: buttonColor(Button),
+    Icon
+  },
+  data() {
     return {
       ...this.mapState({
         volume: select.audio.volume,
@@ -67,7 +71,7 @@ export default {
     }
   },
   computed: {
-    visualVolume () {
+    visualVolume() {
       if (this.muted) {
         return 0
       }
@@ -75,7 +79,7 @@ export default {
       return this.volume
     },
 
-    a11y () {
+    a11y() {
       return this.muted ? this.$t('A11Y.VOLUME_UNMUTE') : this.$t('A11Y.VOLUME_MUTE')
     }
   },
@@ -92,15 +96,10 @@ export default {
       store.dispatch,
       unmute
     ),
-    toggleMute () {
+    toggleMute() {
       this.muted ? this.unmute() : this.mute()
     },
     toPercent
-  },
-  components: {
-    InputSlider: inputColor(InputSlider),
-    ButtonComponent: buttonColor(Button),
-    Icon
   }
 }
 </script>

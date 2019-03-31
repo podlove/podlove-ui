@@ -36,13 +36,16 @@ import TranscriptEntry from './Entry'
 const RENDER_BUFFER = 10
 
 export default {
+  components: {
+    TranscriptEntry
+  },
   props: {
     prerender: {
       type: Array,
-      default: []
+      default: () => []
     }
   },
-  data () {
+  data() {
     return {
       start: 0,
       end: 0,
@@ -62,8 +65,30 @@ export default {
       })
     }
   },
+  watch: {
+    transcripts() {
+      this.follow && this.selected === -1 && this.scrollWindow()
+    },
+    follow() {
+      this.follow && this.scrollWindow()
+    },
+    selected() {
+      if (this.query.length === 0 || this.selected === -1) {
+        return
+      }
+
+      this.scrollTo(this.searchResults[this.selected])
+    }
+  },
+  mounted() {
+    // Render the transcripts
+    this.renderWindow(this.active)
+
+    // Scroll to the active transcript
+    this.scrollWindow()
+  },
   methods: {
-    onMouseOver ({ start }) {
+    onMouseOver({ start }) {
       store.dispatch(enableGhost())
       store.dispatch(simulatePlaytime(start))
     },
@@ -71,14 +96,14 @@ export default {
       store.dispatch,
       disableGhost
     ),
-    onClick ({ start }) {
+    onClick({ start }) {
       store.dispatch(requestPlaytime(start))
       store.dispatch(requestPlay())
     },
-    disableFollow () {
+    disableFollow() {
       store.dispatch(followTranscripts(false))
     },
-    inRange (index) {
+    inRange(index) {
       if (index < 0) {
         return 0
       }
@@ -89,7 +114,7 @@ export default {
 
       return index
     },
-    indexByHeight (search, index = 0, height = 0) {
+    indexByHeight(search, index = 0, height = 0) {
       if (search <= height) {
         return index - 1
       }
@@ -104,14 +129,14 @@ export default {
 
       return this.indexByHeight(search, index + 1, height + this.prerender[index])
     },
-    heightByIndex (start = 0, end = -1) {
+    heightByIndex(start = 0, end = -1) {
       return reduce(this.prerender.slice(start, end), (result, element) => result + element, 0)
     },
-    slice (start = 0, end = 0) {
+    slice(start = 0, end = 0) {
       // slice not includes the last end element, therefore + 1
       return this.timeline.slice(start, end + 1)
     },
-    renderWindow (startIndex = -1) {
+    renderWindow(startIndex = -1) {
       window.requestAnimationFrame(() => {
         let endIndex
 
@@ -126,7 +151,7 @@ export default {
         this.end = this.inRange(endIndex + RENDER_BUFFER)
       })
     },
-    scrollWindow () {
+    scrollWindow() {
       window.requestAnimationFrame(() => {
         // If transcript isn't in rendered slice, mostly initial or on scrub
         if (this.start > this.active || this.end < this.active) {
@@ -151,34 +176,9 @@ export default {
         this.$el.scroll({ behavior: 'smooth', top: scrollPosition })
       })
     },
-    scrollTo (index) {
+    scrollTo(index) {
       this.$el.scroll({ top: this.heightByIndex(0, index) })
     }
-  },
-  watch: {
-    transcripts () {
-      this.follow && this.selected === -1 && this.scrollWindow()
-    },
-    follow () {
-      this.follow && this.scrollWindow()
-    },
-    selected () {
-      if (this.query.length === 0 || this.selected === -1) {
-        return
-      }
-
-      this.scrollTo(this.searchResults[this.selected])
-    }
-  },
-  mounted () {
-    // Render the transcripts
-    this.renderWindow(this.active)
-
-    // Scroll to the active transcript
-    this.scrollWindow()
-  },
-  components: {
-    TranscriptEntry
   }
 }
 </script>

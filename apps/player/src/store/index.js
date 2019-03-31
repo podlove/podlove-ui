@@ -38,7 +38,10 @@ sagas.run(
   }),
   playerSaga({ selectMedia: selectors.media, selectPlaytime: selectors.playtime }),
   versionSaga({ version }),
-  transcriptsSaga({ selectChapters: selectors.chapters.list, selectSpeakers: selectors.contributors }),
+  transcriptsSaga({
+    selectChapters: selectors.chapters.list,
+    selectSpeakers: selectors.contributors
+  }),
   stepperSaga({
     selectDuration: selectors.duration,
     selectPlaytime: selectors.playtime

@@ -24,6 +24,9 @@ import store from 'store'
 import select from 'store/selectors'
 
 export default {
+  components: {
+    ProgressBar
+  },
   data: mapState({
     progressStyle: select.styles.progressBar,
     duration: select.duration,
@@ -35,9 +38,6 @@ export default {
   }),
   methods: {
     dispatch: store.dispatch
-  },
-  components: {
-    ProgressBar
   }
 }
 </script>

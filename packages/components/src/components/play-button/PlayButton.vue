@@ -1,20 +1,20 @@
 <template>
-  <button class="play-button" id="play-button" ref="playbutton" @click="clickHandler()">
-    <div class="wrapper" :style="wrapper" ref="wrapper">
-      <transition @enter="enterAnimation" name="component" mode="out-in">
+  <button id="play-button" ref="playbutton" class="play-button" @click="clickHandler()">
+    <div ref="wrapper" class="wrapper" :style="wrapper">
+      <transition name="component" mode="out-in" @enter="enterAnimation">
         <component
+          :is="type"
+          :id="`play-button--${type}`"
           ref="component"
           class="component"
-          :is="type"
           :color="color"
           :label="label"
-          :id="`play-button--${type}`"
           :class="{ 'has-label': label && type !== 'loading' }"
         >
           <span v-if="label" class="label" :style="{ color: color }">{{ label }}</span>
         </component>
       </transition>
-      <slot></slot>
+      <slot />
     </div>
   </button>
 </template>
@@ -30,6 +30,12 @@ import Restart from './states/Restart'
 import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
 
 export default {
+  components: {
+    Play,
+    Pause,
+    Loading,
+    Restart
+  },
   props: {
     type: {
       type: String,
@@ -45,30 +51,28 @@ export default {
       default: color
     },
     label: {
-      type: String
+      type: String,
+      default: ''
     }
   },
-  data () {
+  data() {
     return {
       width: null
     }
   },
-  components: {
-    Play,
-    Pause,
-    Loading,
-    Restart
-  },
   computed: {
-    wrapper () {
+    wrapper() {
       return {
         'background-color': this.background,
         width: `${this.width}px`
       }
     }
   },
+  mounted() {
+    this.resize()
+  },
   methods: {
-    clickHandler () {
+    clickHandler() {
       switch (this.type) {
         case 'play':
           this.$emit('click', requestPlay())
@@ -81,15 +85,12 @@ export default {
           break
       }
     },
-    resize () {
+    resize() {
       this.width = this.$refs.component.$el.offsetWidth
     },
-    enterAnimation () {
+    enterAnimation() {
       this.resize()
     }
-  },
-  mounted () {
-    this.resize()
   }
 }
 </script>

@@ -19,22 +19,24 @@ import { toggleTab } from '@podlove/player-actions/tabs'
 
 import select from 'store/selectors'
 export default {
+  components: {
+    TabHeaderItem: Tab.HeaderItem,
+    IconComponent
+  },
   props: {
     tab: {
-      type: String
+      type: String,
+      default: null
     },
     title: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   data: mapState({
     header: select.styles.tabsHead,
     tabs: select.tabs
   }),
-  components: {
-    TabHeaderItem: Tab.HeaderItem,
-    IconComponent
-  },
   computed: {
     active() {
       return !!this.tabs[this.tab]

@@ -1,7 +1,7 @@
 <template>
   <component
-    class="channel-link"
     :is="`${type}-channel`"
+    class="channel-link"
     :color="color"
     :subject="subject"
     :link="link"
@@ -25,6 +25,15 @@ import LinkedinChannel from './states/Linkedin'
 import FacebookChannel from './states/Facebook'
 
 export default {
+  components: {
+    EmbedChannel,
+    TwitterChannel,
+    RedditChannel,
+    PinterestChannel,
+    MailChannel,
+    LinkedinChannel,
+    FacebookChannel
+  },
   props: {
     color: {
       type: String,
@@ -53,22 +62,13 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: val => ['embed', 'facebook', 'linkedin', 'mail', 'reddit', 'twitter', 'pinterest'].includes(val)
+      validator: val =>
+        ['embed', 'facebook', 'linkedin', 'mail', 'reddit', 'twitter', 'pinterest'].includes(val)
     }
   },
 
-  components: {
-    EmbedChannel,
-    TwitterChannel,
-    RedditChannel,
-    PinterestChannel,
-    MailChannel,
-    LinkedinChannel,
-    FacebookChannel
-  },
-
   methods: {
-    clickHandler () {
+    clickHandler() {
       this.$emit('click', selectChannel(this.type))
     }
   }

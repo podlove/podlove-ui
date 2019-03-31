@@ -3,7 +3,8 @@ import { head, findIndex } from 'lodash'
 
 import { LOAD_QUANTILES, SET_QUANTILE } from '@podlove/player-actions/types'
 
-const findQuantile = (quantiles = [], start) => findIndex(quantiles, quantile => head(quantile) === start)
+const findQuantile = (quantiles = [], start) =>
+  findIndex(quantiles, quantile => head(quantile) === start)
 
 const newQuantile = (quantiles = [], quantile) => [...quantiles, quantile]
 

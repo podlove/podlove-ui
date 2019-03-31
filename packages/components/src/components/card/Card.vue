@@ -1,10 +1,10 @@
 <template>
   <div class="card" :style="containerStyle">
     <div class="card-header" :style="headerStyle">
-      <slot name="header"></slot>
+      <slot name="header" />
     </div>
     <div class="card-body">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -24,12 +24,12 @@ export default {
     }
   },
   computed: {
-    containerStyle () {
+    containerStyle() {
       return {
         background: this.backgroundColor
       }
     },
-    headerStyle () {
+    headerStyle() {
       return {
         background: this.headerColor
       }
