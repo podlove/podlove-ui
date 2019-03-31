@@ -16,7 +16,7 @@
       y="28"
       width="2"
       height="20"
-    ></rect>
+    />
     <rect
       stroke="none"
       :fill="color"
@@ -26,7 +26,7 @@
       y="28"
       width="2"
       height="20"
-    ></rect>
+    />
   </svg>
 </template>
 

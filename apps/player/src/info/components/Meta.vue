@@ -18,6 +18,10 @@ import { Icon } from '@podlove/components'
 import select from 'store/selectors'
 
 export default {
+  components: {
+    Icon
+  },
+
   data: mapState({
     duration: select.duration,
     publicationDate: select.episode.publicationDate,
@@ -25,22 +29,18 @@ export default {
   }),
 
   computed: {
-    episodeDuration () {
+    episodeDuration() {
       return {
         hours: calcHours(this.duration),
         minutes: calcMinutes(this.duration)
       }
     },
-    date () {
+    date() {
       return this.publicationDate && localeDate(this.publicationDate, this.locale)
     },
-    time () {
+    time() {
       return this.publicationDate && localeTime(this.publicationDate, this.locale)
     }
-  },
-
-  components: {
-    Icon
   }
 }
 </script>

@@ -1,3 +1,5 @@
+/* global BASE, STYLES, SCRIPTS */
+
 import { propOr, prop, curry } from 'ramda'
 import { setAttributes } from '@podlove/utils/dom'
 import { sandbox, sandboxWindow } from '@podlove/utils/sandbox'

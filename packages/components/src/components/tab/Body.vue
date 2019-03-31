@@ -8,7 +8,7 @@
     :aria-hidden="!active"
   >
     <div class="tab-content" :style="bodyStyle">
-      <slot tabindex="0"></slot>
+      <slot tabindex="0" />
     </div>
   </div>
 </template>

@@ -15,14 +15,14 @@ export default {
     ghost: select.ghost.time
   }),
   computed: {
-    chapter () {
+    chapter() {
       if (this.ghost) {
         return this.currentGhostChapter
       }
 
       return this.currentChapter
     },
-    a11y () {
+    a11y() {
       return this.$t('A11Y.TIMER_CHAPTER', this.chapter)
     }
   }

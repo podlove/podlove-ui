@@ -9,13 +9,14 @@ import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
 
 export default {
-  props: {
-    type: {
-      type: String
-    }
-  },
   components: {
     Icon
+  },
+  props: {
+    type: {
+      type: String,
+      default: ''
+    }
   },
   data: mapState({
     background: select.styles.iconColor,

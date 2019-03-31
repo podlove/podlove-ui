@@ -74,6 +74,13 @@ const tabs = {
 }
 
 export default {
+  components: {
+    TabHeader: Tab.Header,
+    TabBody,
+    TabHeaderItem,
+    Icon,
+    ...tabs
+  },
   data() {
     return {
       ...this.mapState({
@@ -83,13 +90,6 @@ export default {
       }),
       overflows: true
     }
-  },
-  components: {
-    TabHeader: Tab.Header,
-    TabBody,
-    TabHeaderItem,
-    Icon,
-    ...tabs
   },
   methods: {
     toggleTab: compose(

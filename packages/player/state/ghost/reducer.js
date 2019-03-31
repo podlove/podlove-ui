@@ -1,5 +1,9 @@
 import { handleActions } from 'redux-actions'
-import { SIMULATE_PLAYTIME, ENABLE_GHOST_MODE, DISABLE_GHOST_MODE } from '@podlove/player-actions/types'
+import {
+  SIMULATE_PLAYTIME,
+  ENABLE_GHOST_MODE,
+  DISABLE_GHOST_MODE
+} from '@podlove/player-actions/types'
 import { toInt } from '@podlove/utils/helper'
 
 export const INITIAL_STATE = {

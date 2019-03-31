@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { init } from '@podlove/player-actions/lifecycle'
 
 import { version } from '../package'

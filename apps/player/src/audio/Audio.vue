@@ -15,15 +15,15 @@ import Rate from './components/rate'
 import Brand from './components/brand'
 
 export default {
-  data: mapState({
-    volumeVisible: select.components.volumeControl,
-    rateVisible: select.components.rateControl
-  }),
   components: {
     Volume,
     Rate,
     Brand
-  }
+  },
+  data: mapState({
+    volumeVisible: select.components.volumeControl,
+    rateVisible: select.components.rateControl
+  })
 }
 </script>
 

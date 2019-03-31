@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { urlParameters } from '@podlove/utils/location'
 
 import { init } from '@podlove/player-actions/lifecycle'

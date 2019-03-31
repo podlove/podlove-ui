@@ -1,17 +1,17 @@
 <template>
   <li class="tab-header-item" :style="tabStyle" :class="{ active }" role="presentation" :rel="name">
     <button
+      :id="`trigger-${name}`"
       class="caption"
       role="tab"
-      :id="`trigger-${name}`"
       :aria-controls="name"
       :aria-selected="active"
       :tabindex="index"
       @click="clickHandler"
     >
-      <span class="icon" :style="iconStyle" aria-hidden="true"><slot name="icon"></slot></span>
-      <span class="title"><slot name="title"></slot></span>
-      <icon type="close" class="close" :color="iconColor(true)" v-if="active" aria-hidden="true" />
+      <span class="icon" :style="iconStyle" aria-hidden="true"><slot name="icon"/></span>
+      <span class="title"><slot name="title"/></span>
+      <icon v-if="active" type="close" class="close" :color="iconColor(true)" aria-hidden="true" />
     </button>
   </li>
 </template>
@@ -21,6 +21,9 @@ import { color, background } from 'defaults'
 import Icon from '../icons'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     index: {
       type: Number,
@@ -56,7 +59,7 @@ export default {
     }
   },
   computed: {
-    tabStyle () {
+    tabStyle() {
       const style = {
         color: this.color,
         background: this.background
@@ -74,14 +77,14 @@ export default {
 
       return style
     },
-    iconStyle () {
+    iconStyle() {
       return {
         fill: this.iconColor(this.active)
       }
     }
   },
   methods: {
-    iconColor (active) {
+    iconColor(active) {
       let color = this.color
 
       if (active) {
@@ -95,12 +98,9 @@ export default {
       return color
     },
 
-    clickHandler () {
+    clickHandler() {
       this.$emit('click')
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

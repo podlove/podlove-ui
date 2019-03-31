@@ -1,25 +1,31 @@
 <template>
   <div
+    ref="progressContainer"
     class="chapter-progress"
+    aria-hidden="true"
     @mouseout="progressOut"
     @mousemove.alt="progressMove"
     @click.exact="progressClick"
     @click.alt="contextProgressClick"
-    ref="progressContainer"
-    aria-hidden="true"
   >
     <span class="title truncate" aria-hidden="true">
       {{ chapter.title }}
     </span>
-    <span class="link" v-if="hasLink">
-      <icon class="icon" type="link"></icon>
-      <a class="info-link truncate" :href="chapter.href" target="_blank" @mouseover="linkOver" @mouseleave="linkLeave">
+    <span v-if="hasLink" class="link">
+      <icon class="icon" type="link" />
+      <a
+        class="info-link truncate"
+        :href="chapter.href"
+        target="_blank"
+        @mouseover="linkOver"
+        @mouseleave="linkLeave"
+      >
         {{ chapter.linkTitle }}
       </a>
     </span>
     <timer class="timer" :time="remainingTime" :remaining="chapter.active || ghostActive" />
-    <span class="chapter-progress-bar" :style="progressStyle" aria-hidden="true"></span>
-    <span class="chapter-progress-bar" :style="progressGhostStyle" aria-hidden="true"></span>
+    <span class="chapter-progress-bar" :style="progressStyle" aria-hidden="true" />
+    <span class="chapter-progress-bar" :style="progressGhostStyle" aria-hidden="true" />
   </div>
 </template>
 
@@ -35,17 +41,21 @@ import Icon from '../icons'
 import Timer from '../timer'
 
 export default {
+  components: {
+    Icon,
+    Timer
+  },
   props: {
     chapter: {
       type: Object,
-      default: {
+      default: () => ({
         start: 0,
         end: 0,
         title: '',
         href: null,
         linkTitle: null,
         active: false
-      }
+      })
     },
     showLink: {
       type: Boolean,
@@ -66,7 +76,7 @@ export default {
   },
 
   computed: {
-    progressStyle () {
+    progressStyle() {
       if (!this.chapter.active || this.playtime > this.chapter.end) {
         return {}
       }
@@ -77,11 +87,11 @@ export default {
       }
     },
 
-    ghostActive () {
+    ghostActive() {
       return this.ghost && this.ghost > this.chapter.start && this.ghost < this.chapter.end
     },
 
-    progressGhostStyle () {
+    progressGhostStyle() {
       if (!this.ghostActive) {
         return {}
       }
@@ -92,7 +102,7 @@ export default {
       }
     },
 
-    remainingTime () {
+    remainingTime() {
       if (this.chapter.active) {
         return this.chapter.end - this.playtime
       }
@@ -104,59 +114,55 @@ export default {
       return this.chapter.end - this.chapter.start
     },
 
-    hasLink () {
+    hasLink() {
       return this.chapter.href && this.showLink
     }
   },
 
   methods: {
-    hoverPlaytime (event) {
+    hoverPlaytime(event) {
       const clientRect = this.$refs.progressContainer.getBoundingClientRect()
       return (
         this.chapter.start +
-        ((this.chapter.end - this.chapter.start) * (event.clientX - clientRect.left)) / clientRect.width
+        ((this.chapter.end - this.chapter.start) * (event.clientX - clientRect.left)) /
+          clientRect.width
       )
     },
 
-    progress (time) {
+    progress(time) {
       return `${((time - this.chapter.start) * 100) / (this.chapter.end - this.chapter.start)}%`
     },
 
-    progressClick (event) {
+    progressClick() {
       this.$emit('chapter', setChapter(this.chapter.index - 1))
       this.$emit('play', requestPlay())
       return false
     },
 
-    contextProgressClick (event) {
+    contextProgressClick(event) {
       this.$emit('playtime', requestPlaytime(this.hoverPlaytime(event)))
       this.$emit('play', requestPlay())
       event.preventDefault()
       return false
     },
 
-    progressOut () {
+    progressOut() {
       this.$emit('ghost', disableGhost())
     },
 
-    progressMove (event) {
+    progressMove(event) {
       this.$emit('ghost', enableGhost())
 
       this.$emit('simulate', simulatePlaytime(this.hoverPlaytime(event)))
     },
 
-    linkOver () {
+    linkOver() {
       this.$emit('hover', true)
     },
 
-    linkLeave () {
+    linkLeave() {
       this.$emit('hover', false)
     }
-  },
-
-  components: {
-    Icon,
-    Timer
   }
 }
 </script>

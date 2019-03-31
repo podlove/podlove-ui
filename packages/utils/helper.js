@@ -5,7 +5,8 @@ import { isUndefinedOrNull } from './predicates'
  * Collection of functional helpers
  */
 
-export const inAnimationFrame = func => (...args) => window.requestAnimationFrame(() => func.apply(null, args))
+export const inAnimationFrame = func => (...args) =>
+  window.requestAnimationFrame(() => func.apply(null, args))
 export const asyncAnimation = func => (...args) =>
   new Promise(resolve => {
     window.requestAnimationFrame(resolve(func.apply(null, args)))
@@ -23,7 +24,9 @@ export const createObject = curry((specification, value) => map(f => f(value), s
 export const startsWith = curry((q, str) => str.startsWith(q))
 export const endsWith = curry((q, str) => str.endsWith(q))
 export const stripl = curry((q, str) => (startsWith(q, str) ? str.slice(q.length) : str))
-export const stripr = curry((q, str) => (endsWith(q, str) ? str.slice(0, str.length - q.length) : str))
+export const stripr = curry((q, str) =>
+  endsWith(q, str) ? str.slice(0, str.length - q.length) : str
+)
 export const strip = curry((q, str) => stripl(q, stripr(q, str)))
 export const capitalize = compose(
   join(''),

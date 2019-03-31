@@ -12,27 +12,27 @@ import { addQueryParameter } from '@podlove/utils/url'
 const LINK = 'mailto:'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     text: {
-      type: String
+      type: String,
+      default: ''
     },
     subject: {
-      type: String
-    },
-    color: {
-      type: String
+      type: String,
+      default: ''
     },
     a11y: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {
-    mailLink () {
+    mailLink() {
       return addQueryParameter(LINK, { body: this.text, subject: this.subject })
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

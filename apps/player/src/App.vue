@@ -17,9 +17,6 @@ import ProgressBarComponent from './progress-bar'
 import TabsComponent from './tabs'
 
 export default {
-  data: mapState({
-    language: selectors.language
-  }),
   components: {
     WrapperComponent,
     HeaderComponent,
@@ -27,12 +24,15 @@ export default {
     ProgressBarComponent,
     TabsComponent
   },
+  data: mapState({
+    language: selectors.language
+  }),
   watch: {
-    language () {
+    language() {
       this.$i18n.locale = this.language
     }
   },
-  mounted () {
+  mounted() {
     this.$i18n.locale = this.language
   }
 }

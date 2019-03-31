@@ -12,12 +12,12 @@ import { Icon } from '@podlove/components'
 import select from 'store/selectors'
 
 export default {
-  data: mapState({
-    version: select.version
-  }),
   components: {
     Icon
-  }
+  },
+  data: mapState({
+    version: select.version
+  })
 }
 </script>
 

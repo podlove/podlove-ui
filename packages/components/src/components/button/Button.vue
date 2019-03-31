@@ -1,12 +1,12 @@
 <template>
-  <a class="button" :class="{ disabled }" v-if="href" :href="href" :style="style">
+  <a v-if="href" class="button" :class="{ disabled }" :href="href" :style="style">
     <span class="inner centered">
-      <slot></slot>
+      <slot />
     </span>
   </a>
-  <button class="button" :class="{ disabled }" v-else :disabled="disabled" :style="style">
+  <button v-else class="button" :class="{ disabled }" :disabled="disabled" :style="style">
     <span class="inner centered">
-      <slot></slot>
+      <slot />
     </span>
   </button>
 </template>
@@ -29,7 +29,8 @@ export default {
       default: background
     },
     href: {
-      type: String
+      type: String,
+      default: null
     },
     disabled: {
       type: Boolean,
@@ -38,7 +39,7 @@ export default {
   },
 
   computed: {
-    style () {
+    style() {
       return {
         color: this.textColor,
         background: this.backgroundColor,

@@ -39,7 +39,7 @@ const marquee = el => {
 }
 
 export default {
-  bind (el) {
+  bind(el) {
     window.addEventListener('resize', () => marquee(el))
   },
   componentUpdated: marquee

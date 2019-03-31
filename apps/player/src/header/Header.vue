@@ -17,16 +17,16 @@ import EpisodeTitleComponent from './components/EpisodeTitle'
 import EpisodeDescriptionComponent from './components/EpisodeDescription'
 
 export default {
-  data: mapState({
-    style: select.styles.header
-  }),
-
   components: {
     PosterComponent,
     ShowTitleComponent,
     EpisodeTitleComponent,
     EpisodeDescriptionComponent
-  }
+  },
+
+  data: mapState({
+    style: select.styles.header
+  })
 }
 </script>
 

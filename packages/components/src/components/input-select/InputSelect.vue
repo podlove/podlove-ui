@@ -1,16 +1,21 @@
 <template>
-  <select v-if="options" :style="style" class="input-select" :disabled="disabled" @change="changeEvent">
-    <option v-for="(option, index) in options" v-bind:key="index" :selected="option === value">
+  <select
+    v-if="options"
+    :style="style"
+    class="input-select"
+    :disabled="disabled"
+    @change="changeEvent"
+  >
+    <option v-for="(option, index) in options" :key="index" :selected="option === value">
       {{ option }}
     </option>
   </select>
   <select v-else :style="style" class="input-select" :disabled="disabled" @change="changeEvent">
-    <slot></slot>
+    <slot />
   </select>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
 import * as defaultColors from 'defaults'
 
 export default {
@@ -36,11 +41,12 @@ export default {
       default: defaultColors.background
     },
     value: {
-      type: String
+      type: String,
+      default: null
     }
   },
   computed: {
-    style () {
+    style() {
       return {
         color: this.color,
         background: this.background,
@@ -49,7 +55,7 @@ export default {
     }
   },
   methods: {
-    changeEvent (event) {
+    changeEvent(event) {
       this.$emit('change', event.target.value)
     }
   }

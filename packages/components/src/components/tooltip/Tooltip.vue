@@ -1,14 +1,16 @@
 <template>
   <v-popover
+    ref="popover"
     class="tooltip"
     :popover-class="[negative ? 'negative' : '']"
     :auto-hide="true"
-    ref="popover"
     trigger="manual"
     delay.show="100"
     delay.hide="3000"
   >
-    <span @mouseleave="mouseLeave" @mouseover="mouseOver" @click="click"><slot></slot></span>
+    <span @click="click" @mouseleave="mouseLeave" @mouseover="mouseOver">
+      <slot />
+    </span>
     <template slot="popover">
       {{ content }}
     </template>
@@ -19,6 +21,9 @@
 import { VPopover } from 'v-tooltip'
 
 export default {
+  components: {
+    VPopover
+  },
   props: {
     trigger: {
       type: String,
@@ -34,24 +39,20 @@ export default {
     }
   },
 
-  components: {
-    VPopover
-  },
-
   methods: {
-    show () {
+    show() {
       this.$refs.popover.show()
     },
 
-    hide () {
+    hide() {
       this.$refs.popover.hide()
     },
 
-    mouseLeave () {
+    mouseLeave() {
       this.hide()
     },
 
-    mouseOver () {
+    mouseOver() {
       if (!this.content) {
         return
       }
@@ -63,7 +64,7 @@ export default {
       this.show()
     },
 
-    click () {
+    click() {
       if (!this.content) {
         return
       }

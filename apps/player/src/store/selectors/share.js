@@ -30,9 +30,11 @@ const availableEmbedSizes = compose(
   root.share
 )
 
-const hasLink = state => (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))
+const hasLink = state =>
+  (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))
 const hasEmbedLink = state =>
-  type(state) !== 'show' && ((reference.config(state) && reference.share(state)) || reference.origin(state))
+  type(state) !== 'show' &&
+  ((reference.config(state) && reference.share(state)) || reference.origin(state))
 
 const link = state => {
   switch (type(state)) {
@@ -57,7 +59,9 @@ const code = state => {
   const episodeTitle = episode.title(state)
   const currentChapter = chapter.current(state)
 
-  const title = `Podlove Web Player:${showTitle ? ' ' + showTitle : ''}${episodeTitle ? ' - ' + episodeTitle : ''}`
+  const title = `Podlove Web Player:${showTitle ? ' ' + showTitle : ''}${
+    episodeTitle ? ' - ' + episodeTitle : ''
+  }`
 
   const parameters = {
     episode: reference.config(state),

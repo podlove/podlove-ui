@@ -20,7 +20,10 @@ export const addQueryParameter = (url, additionalParameters = {}) => {
   parser.href = url
 
   const existingParameters = queryString.parse(parser.search)
-  parser.search = queryString.stringify(Object.assign({}, existingParameters, additionalParameters), { encode: false })
+  parser.search = queryString.stringify(
+    Object.assign({}, existingParameters, additionalParameters),
+    { encode: false }
+  )
 
   return parser.href
 }

@@ -1,7 +1,7 @@
 <template>
   <ul class="tab-header" role="tablist">
-    <span class="header-shadow" :style="headerShadowStyle"></span>
-    <slot></slot>
+    <span class="header-shadow" :style="headerShadowStyle" />
+    <slot />
   </ul>
 </template>
 

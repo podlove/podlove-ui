@@ -10,8 +10,8 @@
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g transform="translate(-16.000000, -14.000000)" :fill="color">
         <g transform="translate(16.000000, 14.000000)">
-          <polygon points="18 23 12 23 12 0 18 0"></polygon>
-          <polygon points="6 23 0 23 0 0 6 0"></polygon>
+          <polygon points="18 23 12 23 12 0 18 0" />
+          <polygon points="6 23 0 23 0 0 6 0" />
         </g>
       </g>
     </g>

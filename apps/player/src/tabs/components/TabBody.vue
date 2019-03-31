@@ -10,9 +10,13 @@ import { Tab } from '@podlove/components'
 import select from 'store/selectors'
 
 export default {
+  components: {
+    TabBody: Tab.Body
+  },
   props: {
     tab: {
-      type: String
+      type: String,
+      default: null
     }
   },
   data: mapState({
@@ -24,9 +28,6 @@ export default {
     active() {
       return this.tabs[this.tab]
     }
-  },
-  components: {
-    TabBody: Tab.Body
   }
 }
 </script>

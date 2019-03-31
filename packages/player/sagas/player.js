@@ -28,10 +28,10 @@ import { millisecondsToSeconds, secondsToMilliseconds } from '@podlove/utils/tim
 import { channel } from './helper'
 
 export default ({ selectMedia, selectPlaytime }) =>
-  function * playerSaga () {
+  function* playerSaga() {
     yield takeEvery(READY, initPlayer)
 
-    function * initPlayer () {
+    function* initPlayer() {
       const mediaFiles = yield select(selectMedia)
 
       if (mediaFiles.length === 0) {
@@ -74,82 +74,85 @@ export default ({ selectMedia, selectPlaytime }) =>
     }
 
     // Actions
-    function * play (actions) {
+    function* play(actions) {
       const playtime = yield select(selectPlaytime)
       actions.setPlaytime(millisecondsToSeconds(playtime))
+      yield actions.play()
+    }
+
+    function* pause(actions) {
+      yield actions.pause()
+    }
+
+    function* restart(actions) {
       actions.play()
+      yield actions.restart()
     }
 
-    function * pause (actions) {
-      actions.pause()
+    function* load(actions) {
+      yield actions.load()
     }
 
-    function * restart (actions) {
-      actions.play()
-      actions.restart()
+    function* playtime(actions, { payload }) {
+      yield actions.setPlaytime(millisecondsToSeconds(payload))
     }
 
-    function * load (actions) {
-      actions.load()
+    function* rate(actions, { payload }) {
+      yield actions.setRate(payload)
     }
 
-    function * playtime (actions, { payload }) {
-      actions.setPlaytime(millisecondsToSeconds(payload))
+    function* volume(actions, { payload }) {
+      yield actions.setVolume(payload)
     }
 
-    function * rate (actions, { payload }) {
-      actions.setRate(payload)
+    function* mute(actions) {
+      yield actions.mute()
     }
 
-    function * volume (actions, { payload }) {
-      actions.setVolume(payload)
-    }
-
-    function * mute (actions) {
-      actions.mute()
-    }
-
-    function * unmute (actions) {
-      actions.unmute()
+    function* unmute(actions) {
+      yield actions.unmute()
     }
 
     // Events
-    function * onReady (payload) {
+    function* onReady(payload) {
       yield put(backendLoadingEnd(payload))
     }
 
-    function * onPlay () {
+    function* onPlay() {
       yield put(backendPlay())
     }
 
-    function * onPause () {
+    function* onPause() {
       yield put(backendPause())
     }
 
-    function * onEnd () {
+    function* onEnd() {
       yield put(backendEnd())
     }
 
-    function * onPlaytimeUpdate (playtime) {
+    function* onPlaytimeUpdate(playtime) {
       const action = backendPlaytime(secondsToMilliseconds(playtime))
       yield put(action)
     }
 
-    function * onDurationChange (duration) {
+    function* onDurationChange(duration) {
       const action = backendDuration(secondsToMilliseconds(duration))
       yield put(action)
     }
 
-    function * onBuffering () {
+    function* onBuffering() {
       yield put(backendLoadingStart())
     }
 
-    function * onBufferChange (buffers = []) {
-      const payload = buffers.map(([start, stop]) => [secondsToMilliseconds(start), secondsToMilliseconds(stop)])
+    function* onBufferChange(buffers = []) {
+      const payload = buffers.map(([start, stop]) => [
+        secondsToMilliseconds(start),
+        secondsToMilliseconds(stop)
+      ])
       yield put(backendBuffer(payload))
     }
 
-    function * onError (type) {
+    function* onError(type) {
       yield put(backendError(type))
     }
   }

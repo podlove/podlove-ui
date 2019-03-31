@@ -13,7 +13,8 @@ export default {
     },
 
     value: {
-      type: String
+      type: String,
+      default: ''
     },
 
     color: {
@@ -37,7 +38,7 @@ export default {
     }
   },
   computed: {
-    style () {
+    style() {
       return {
         color: this.color,
         background: this.background,

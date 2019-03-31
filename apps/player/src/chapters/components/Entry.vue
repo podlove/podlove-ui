@@ -35,9 +35,19 @@ import store from 'store'
 import { ChapterProgress, Icon } from '@podlove/components'
 
 export default {
-  props: ['chapter'],
+  components: {
+    Icon,
+    ChapterProgress
+  },
 
-  data () {
+  props: {
+    chapter: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+
+  data() {
     return {
       ...this.mapState({
         playtime: select.playtime,
@@ -53,7 +63,7 @@ export default {
   },
 
   computed: {
-    chapterStyle () {
+    chapterStyle() {
       if (this.chapter.active || this.hover) {
         return this.activeChapterStyle
       }
@@ -61,8 +71,10 @@ export default {
       return {}
     },
 
-    a11y () {
-      const remaining = this.chapter.active ? this.chapter.end - this.playtime : this.chapter.end - this.chapter.start
+    a11y() {
+      const remaining = this.chapter.active
+        ? this.chapter.end - this.playtime
+        : this.chapter.end - this.chapter.start
 
       return {
         ...this.chapter,
@@ -73,20 +85,20 @@ export default {
   },
 
   methods: {
-    mouseOverHandler () {
+    mouseOverHandler() {
       this.hover = true
     },
 
-    mouseLeaveHandler () {
+    mouseLeaveHandler() {
       this.hover = false
     },
 
-    linkMouseover (state) {
+    linkMouseover(state) {
       this.linkHover = state
     },
 
     ...mapActions({
-      selectChapter: function ({ dispatch }, event) {
+      selectChapter: function({ dispatch }, event) {
         if (this.linkHover) {
           return false
         }
@@ -98,10 +110,6 @@ export default {
       }
     }),
     dispatch: store.dispatch
-  },
-  components: {
-    Icon,
-    ChapterProgress
   }
 }
 </script>

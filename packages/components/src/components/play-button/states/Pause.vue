@@ -1,7 +1,7 @@
 <template>
   <span class="pause-inner" aria-hidden="true">
-    <icon type="pause" :color="color"></icon>
-    <slot></slot>
+    <icon type="pause" :color="color" />
+    <slot />
   </span>
 </template>
 
@@ -10,17 +10,14 @@ import Icon from 'components/icons'
 import { color } from 'defaults'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     color: {
       type: String,
       default: color
-    },
-    size: {
-      type: Number
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

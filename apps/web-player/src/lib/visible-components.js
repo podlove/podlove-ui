@@ -9,7 +9,13 @@ import {
   showEpisodeTitle,
   hideEpisodeTitle,
   showSubtitle,
-  hideSubtitle
+  hideSubtitle,
+  hideChapterControls,
+  showChapterControls,
+  showSteppersControls,
+  hideSteppersControls,
+  showProgressBar,
+  hideProgressBar
 } from '@podlove/player-actions/components'
 
 const emptyList = compose(

@@ -5,7 +5,8 @@ import root from './root'
 
 const fallbackColor = (first, second) => first || second
 
-const monoColor = state => (theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state))
+const monoColor = state =>
+  theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state)
 const textColor = state => fallbackColor(theme.highlightColor(state), monoColor(state))
 
 const wrapper = state => ({
@@ -33,8 +34,8 @@ const button = state => ({
   color: textColor(state),
   border: theme.isNegative(state)
     ? color(theme.mainColor(state))
-      .lighten(0.1)
-      .string()
+        .lighten(0.1)
+        .string()
     : theme.greyColor(state)
 })
 
@@ -62,11 +63,11 @@ const progressBar = state => ({
   range:
     theme.luminosity(state) < 0.05
       ? color(theme.lightColor(state))
-        .fade(0.25)
-        .string()
+          .fade(0.25)
+          .string()
       : color(theme.darkColor(state))
-        .fade(0.75)
-        .string(),
+          .fade(0.75)
+          .string(),
   thumb: textColor(state),
   highlight: theme.mainColor(state)
 })
@@ -84,11 +85,11 @@ const tabsHead = state => ({
   background:
     theme.luminosity(state) < 0.15
       ? color(theme.mainColor(state))
-        .lighten(0.2 - theme.luminosity(state))
-        .string()
+          .lighten(0.2 - theme.luminosity(state))
+          .string()
       : color(theme.mainColor(state))
-        .darken(0.2)
-        .string(),
+          .darken(0.2)
+          .string(),
   backgroundActive: color(theme.mainColor(state))
     .fade(0.9)
     .string(),
@@ -107,27 +108,28 @@ const imageCover = state =>
     .fade(0.25)
     .string()
 
-const chapterIcon = state => (theme.isNegative(state) ? theme.mainColor(state) : theme.darkColor(state))
+const chapterIcon = state =>
+  theme.isNegative(state) ? theme.mainColor(state) : theme.darkColor(state)
 
 const activeChapter = state => ({
   'background-color': theme.isNegative(state)
     ? color(theme.mainColor(state))
-      .fade(0.8)
-      .string()
+        .fade(0.8)
+        .string()
     : color(theme.darkColor(state))
-      .fade(0.9)
-      .string(),
+        .fade(0.9)
+        .string(),
   color: theme.darkColor(state)
 })
 
 const progressChapterColor = state =>
   theme.isNegative(state)
     ? color(theme.mainColor(state))
-      .fade(0.1)
-      .string()
+        .fade(0.1)
+        .string()
     : color(theme.darkColor(state))
-      .fade(0.1)
-      .string()
+        .fade(0.1)
+        .string()
 
 const cardHeader = state => ({
   background: color(theme.mainColor(state))
@@ -171,8 +173,8 @@ const inputStyle = state => ({
   color: theme.isNegative(state) ? theme.lightColor(state) : theme.darkColor(state),
   border: theme.isNegative(state)
     ? color(theme.mainColor(state))
-      .lighten(0.1)
-      .string()
+        .lighten(0.1)
+        .string()
     : theme.greyColor(state)
 })
 

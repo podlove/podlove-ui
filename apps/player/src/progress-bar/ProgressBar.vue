@@ -7,22 +7,20 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-
-import store from 'store'
 import select from 'store/selectors'
 
 import ProgressComponent from './components/Progress'
 import TimerBarComponent from './components/TimerBar'
 
 export default {
-  data: mapState({
-    containerStyle: select.styles.progress,
-    progressBar: select.components.progressBar
-  }),
   components: {
     ProgressComponent,
     TimerBarComponent
-  }
+  },
+  data: mapState({
+    containerStyle: select.styles.progress,
+    progressBar: select.components.progressBar
+  })
 }
 </script>
 

@@ -33,13 +33,17 @@ import select from 'store/selectors'
 import FileIcon from './FileIcon'
 
 export default {
-  data: mapState({
-    negative: select.styles.negative
-  }),
+  components: {
+    ButtonComponent: buttonColor(ButtonComponent),
+    Tooltip,
+    FileIcon,
+    Icon
+  },
 
   props: {
     icon: {
-      type: String
+      type: String,
+      default: null
     },
     file: {
       type: Object,
@@ -52,18 +56,15 @@ export default {
     }
   },
 
+  data: mapState({
+    negative: select.styles.negative
+  }),
+
   methods: {
     toMegabyte,
-    copyUrl () {
+    copyUrl() {
       copy(this.file.url)
     }
-  },
-
-  components: {
-    ButtonComponent: buttonColor(ButtonComponent),
-    Tooltip,
-    FileIcon,
-    Icon
   }
 }
 </script>

@@ -1,6 +1,8 @@
 <template>
   <a :href="pinterestLink" class="channel-link" target="_blank">
-    <span class="channel-icon pinterest" aria-hidden="true"><icon type="pinterest" color="#fff"/></span>
+    <span class="channel-icon pinterest" aria-hidden="true">
+      <icon type="pinterest" color="#fff" />
+    </span>
     <span class="visually-hidden">{{ a11y }}</span>
   </a>
 </template>
@@ -12,27 +14,36 @@ import Icon from '../../icons'
 const LINK = 'https://pinterest.com/pin/create/bookmarklet/'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     link: {
-      type: String
+      type: String,
+      default: null
     },
     text: {
-      type: String
+      type: String,
+      default: ''
     },
     poster: {
-      type: String
+      type: String,
+      default: null
     },
     a11y: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {
-    pinterestLink () {
-      return addQueryParameter(LINK, { url: this.link, media: this.poster, is_video: false, description: this.text })
+    pinterestLink() {
+      return addQueryParameter(LINK, {
+        url: this.link,
+        media: this.poster,
+        is_video: false,
+        description: this.text
+      })
     }
-  },
-  components: {
-    Icon
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <button class="chapter-button" @click="clickHandler" :id="`chapter-button--${type}`">
+  <button :id="`chapter-button--${type}`" class="chapter-button" @click="clickHandler">
     <icon :type="type" :color="color" />
-    <slot></slot>
+    <slot />
   </button>
 </template>
 
@@ -11,6 +11,9 @@ import Icon from 'components/icons'
 import { nextChapter, previousChapter } from '@podlove/player-actions/chapters'
 
 export default {
+  components: {
+    Icon
+  },
   props: {
     type: {
       type: String,
@@ -22,11 +25,8 @@ export default {
       default: color
     }
   },
-  components: {
-    Icon
-  },
   methods: {
-    clickHandler () {
+    clickHandler() {
       switch (this.type) {
         case 'next':
           this.$emit('click', nextChapter())

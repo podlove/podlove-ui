@@ -1,4 +1,5 @@
-import { mergeDeepRight, propOr, uniqWith, concat, eqProps, compose } from 'ramda'
+/* eslint-disable no-console */
+import { mergeDeepRight, propOr, uniqWith, concat, eqProps } from 'ramda'
 
 const request = async url => fetch(url).then(res => res.json())
 
@@ -23,7 +24,9 @@ const chapters = async config => {
 
 const transcripts = async config => {
   try {
-    return typeof config.transcripts === 'string' ? await request(config.transcripts) : config.transcripts
+    return typeof config.transcripts === 'string'
+      ? await request(config.transcripts)
+      : config.transcripts
   } catch (err) {
     console.warn(`Couldn't parse transcripts "${transcripts}", falling back to empty list`)
     return []

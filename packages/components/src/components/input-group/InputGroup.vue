@@ -1,19 +1,19 @@
 <template>
   <div class="input-group" :class="{ [`elements-${elements}`]: true }">
-    <slot name="button"></slot>
-    <slot name="input"></slot>
+    <slot name="button" />
+    <slot name="input" />
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       elements: 0
     }
   },
 
-  mounted () {
+  mounted() {
     this.elements = this.$el.children.length
   }
 }

@@ -26,6 +26,9 @@ import select from 'store/selectors'
 import TranscriptEntry from './Entry'
 
 export default {
+  components: {
+    TranscriptEntry
+  },
   props: {
     transcripts: {
       type: Array,
@@ -42,10 +45,7 @@ export default {
     activeStyle: select.styles.transcriptsActive,
     ghostStyle: select.styles.transcriptsGhost
   }),
-  components: {
-    TranscriptEntry
-  },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       const entries = map(this.$el.children, asyncAnimation(entry => entry.clientHeight))
 

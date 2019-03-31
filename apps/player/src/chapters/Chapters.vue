@@ -10,12 +10,12 @@ import select from 'store/selectors'
 import EntryComponent from './components/Entry'
 
 export default {
-  data: mapState({
-    chapters: select.chapters.list
-  }),
   components: {
     EntryComponent
-  }
+  },
+  data: mapState({
+    chapters: select.chapters.list
+  })
 }
 </script>
 
