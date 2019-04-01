@@ -3,14 +3,13 @@
 </template>
 
 <script>
-import defaults from 'defaults'
 import { toHumanTime } from '@podlove/utils/time'
 
 export default {
   props: {
     color: {
       type: String,
-      default: defaults.color
+      default: undefined
     },
     time: {
       type: Number,

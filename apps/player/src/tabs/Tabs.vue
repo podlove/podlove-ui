@@ -38,7 +38,7 @@ import TabBody from './components/TabBody'
 import select from 'store/selectors'
 import store from 'store'
 
-import { setStyles, resizeObserver } from '@podlove/utils/dom'
+import { setStyles } from '@podlove/utils/dom'
 
 const tabs = {
   InfoTab: () =>
@@ -96,18 +96,16 @@ export default {
       store.dispatch,
       toggleTab
     ),
-    resizeHandler() {
+    resizeHandler(el) {
       this.overflows = false
 
       this.$nextTick(() => {
-        let tabHeader = this.$refs.tabHeader.$el
-        setStyles({ 'overflow-x': 'auto' })(tabHeader)
-        this.overflows = tabHeader.scrollWidth > tabHeader.clientWidth
-        setStyles({ 'overflow-x': 'hidden' })(tabHeader)
+        setStyles({ 'overflow-x': 'auto' })(el)
+        this.overflows = el.scrollWidth > el.clientWidth
+        setStyles({ 'overflow-x': 'hidden' })(el)
       })
     },
     mounted() {
-      resizeObserver(this.$el, this.resizeHandler.bind(this))
       this.resizeHandler()
     }
   }

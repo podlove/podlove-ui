@@ -7,8 +7,8 @@
     "link": "https://forschergeist.de"
   },
   "reference": {
-    "share": "https://forschergeist.de/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/lib/modules/podlove_web_player/player_v4/dist/share.html",
-    "config": "https://forschergeist.de/?podlove_player4=215"
+    "config": "http://localhost:9000/example.json",
+    "origin": "http://localhost:9000"
   },
   "theme": {
     "main": "#12584b",

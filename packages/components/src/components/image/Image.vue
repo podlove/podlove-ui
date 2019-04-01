@@ -4,7 +4,7 @@
       <div v-if="!loaded" class="cover" :style="coverStyle" />
     </transition>
     <img
-      v-if="url"
+      v-if="url && !error"
       class="image"
       :style="imageStyle"
       :src="url"
@@ -36,7 +36,8 @@ export default {
   data() {
     return {
       loaded: false,
-      width: null
+      width: null,
+      error: false
     }
   },
 
@@ -64,6 +65,7 @@ export default {
     },
 
     errorHandler(event) {
+      this.error = true
       this.$emit('error', event)
     }
   }
@@ -90,6 +92,7 @@ export default {
     width: 100%;
     height: 100%;
   }
+
   @extend %fade-animation;
 }
 </style>

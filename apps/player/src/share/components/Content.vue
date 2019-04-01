@@ -1,6 +1,6 @@
 <template lang="pug">
   div.share-select-content#tab-share--content
-    content-option#tab-share--content--show(
+    content-option.content-option#tab-share--content--show(
       v-if="showLink"
       tabindex="0"
       :content="$t('SHARE.CONTENT.SHOW')"
@@ -13,7 +13,7 @@
     )
       icon(slot="icon" type="content-show")
 
-    content-option#tab-share--content--episode(
+    content-option.content-option#tab-share--content--episode(
       tabindex="0"
       :content="$t('SHARE.CONTENT.EPISODE')"
       :title="episodeTitle"
@@ -25,7 +25,7 @@
     )
       icon(slot="icon" type="content-episode")
 
-    content-option#tab-share--content--chapter(
+    content-option.content-option#tab-share--content--chapter(
       v-if="currentChapter"
       tabindex="0"
       :content="$t('SHARE.CONTENT.CHAPTER')"
@@ -38,7 +38,7 @@
     )
       icon(slot="icon" type="content-chapter")
 
-    content-option#tab-share--content--time(
+    content-option.content-option#tab-share--content--time(
       tabindex="0"
       :content="$t('SHARE.CONTENT.TIME')"
       :title="toHumanTime(playtime)"
@@ -92,6 +92,10 @@ export default {
 .share-select-content {
   display: flex;
   justify-content: center;
+
+  .content-option {
+    margin: $margin / 2;
+  }
 }
 
 @media screen and (max-width: $width-l) {

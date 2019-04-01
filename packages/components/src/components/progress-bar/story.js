@@ -61,8 +61,8 @@ export default () => ({
       :label="label"
       @input="input"
       @simulate="simulate"
-      @ghost="ghost"
+      @ghost="ghostAction"
     >
     </progress-bar>`,
-  methods: { input: action('@click'), simulate: action('@simulate'), ghost: action('@ghost') }
+  methods: { input: action('@click'), simulate: action('@simulate'), ghostAction: action('@ghost') }
 })

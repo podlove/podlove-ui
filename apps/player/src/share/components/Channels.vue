@@ -1,16 +1,16 @@
 <template lang="pug">
   ul.channel-list#tab-share-channels
-    li#tab-share--channels--twitter
+    li.channel#tab-share--channels--twitter
       channel(type="twitter" :text="shareText")
-    li#tab-share--channels--facebook
+    li.channel#tab-share--channels--facebook
       channel(type="facebook" :link="shareLink")
-    li#tab-share--channels--pinterest
+    li.channel#tab-share--channels--pinterest
       channel(type="pinterest" :text="shareText" :link="shareLink" :poster="sharePoster")
-    li#tab-share--channels--reddit
+    li.channel#tab-share--channels--reddit
       channel(type="reddit" :text="shareText" :link="shareLink")
-    li#tab-share--channels--mail
+    li.channel#tab-share--channels--mail
       channel(type="mail" :text="shareText" :subject="shareSubject")
-    li#tab-share--channels--linkedin
+    li.channel#tab-share--channels--linkedin
       channel(type="linkedin" :text="shareText" :link="shareLink")
 </template>
 
@@ -141,7 +141,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   list-style: none;
   margin: 0 0 $margin / 2 0;
   padding: 0;
