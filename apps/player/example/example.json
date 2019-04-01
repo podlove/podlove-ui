@@ -3,13 +3,13 @@
     "title": "Forschergeist",
     "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
     "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
-    "poster": "https:/forschergeist.de/wp-content/cache/podlove/56/919e28c4f31fedd72bcd78569f81bc/forschergeist_500x500.jpg",
-    "link": "https:/forschergeist.de"
+    "poster": "https://forschergeist.de/wp-content/cache/podlove/56/919e28c4f31fedd72bcd78569f81bc/forschergeist_500x500.jpg",
+    "link": "https://forschergeist.de"
   },
   "reference": {
-    "share": "http://localhost:9000/share.html",
-    "config": "https:/forschergeist.de/?podlove_player4=209",
-    "origin": "http://localhost:9000"
+    "share": "//localhost:9000/share.html",
+    "config": "//localhost:9000/example.json",
+    "origin": "//localhost:9000"
   },
   "theme": {
     "main": "#12584b",
@@ -19,30 +19,30 @@
   "subtitle": "Ethische Fragen und Analysen hinterfragen und leiten eine durch moderne genetische Verfahren voranschreitende Medizin",
   "summary": "Die Gen-Schere (CRISPR/Cas) verspricht als neue \u201eWunderwaffe\u201c der Lebenswissenschaften das Genom von Menschen, Tieren und Pflanzen gezielt zu ver\u00e4ndern. Mediziner hoffen, mit der neuen Methode schwere Krankheiten zu heilen. Zwischen Hype und Hoffnung mischen sich kritische Stimmen, zumal bei Keimbahneingriffen an Embryonen auch zuk\u00fcnftige Generationen betroffen sind.\r\n\r\n\u00dcber ethische Fragen zum Genome Editing macht sich vor allem die Forschungsstelle \u201eEthik der Genomeditierung\u201c (EGE) an der Universit\u00e4t T\u00fcbingen Gedanken. Dort haben wir den Leiter der Forschungsstelle, Robert Ranisch, getroffen und mit ihm unter anderem \u00fcber Genom-Editierung, Embryonenselektion oder Gene-Drives gesprochen. Als Wissenschaftler untersucht Ranisch normative Fragen an den Schnittstellen von Technologie, Gesellschaft und Politik. Daneben arbeitet er im Bereich Ethikberatung und unterst\u00fctzt Organisationen beim Aufbau guter Strukturen und erfolgreicher Wertekommunikation.\r\n\r\nDie EGE ist eine Forschungsstelle am Institut f\u00fcr Ethik und Geschichte der Medizin, die sich schwerpunktm\u00e4\u00dfig ethischen Fragen der Genom-Editierung widmet. Sie dokumentiert als deutschlandweit einzigartige Einrichtung \u00fcber einen l\u00e4ngeren Zeitraum die technischen Entwicklungen in den Lebenswissenschaften sowie deren Verarbeitung und Vermittlung in der \u00d6ffentlichkeit. Das Ziel der EGE ist es ethische, rechtliche und soziale Herausforderungen der Genom-Editierung zu identifizieren, normative Fragen in institutionalisierter Form zu reflektieren und damit die wissenschaftliche Grundlage f\u00fcr einen transdisziplin\u00e4ren Dialog bereitzustellen.",
   "publicationDate": "2018-10-29T12:51:30+00:00",
-  "poster": "https:/forschergeist.de/wp-content/cache/podlove/5a/b2ce5dad9216e6572daefb8c479fbc/fg064-ethik-und-genetik_500x500.jpg",
+  "poster": "https://forschergeist.de/wp-content/cache/podlove/5a/b2ce5dad9216e6572daefb8c479fbc/fg064-ethik-und-genetik_500x500.jpg",
   "duration": "01:47:16.900",
-  "link": "https:/forschergeist.de/podcast/fg064-ethik-und-genetik/",
+  "link": "https://forschergeist.de/podcast/fg064-ethik-und-genetik/",
   "audio": [
     {
-      "url": "https:/forschergeist.de/podlove/file/1734/s/webplayer/c/episode/fg064-ethik-und-genetik.m4a",
+      "url": "https://forschergeist.de/podlove/file/1734/s/webplayer/c/episode/fg064-ethik-und-genetik.m4a",
       "size": "68715948",
       "title": "MPEG-4 AAC Audio (m4a)",
       "mimeType": "audio/mp4"
     },
     {
-      "url": "https:/forschergeist.de/podlove/file/1736/s/webplayer/c/episode/fg064-ethik-und-genetik.opus",
+      "url": "https://forschergeist.de/podlove/file/1736/s/webplayer/c/episode/fg064-ethik-und-genetik.opus",
       "size": "60639361",
       "title": "Opus Audio (opus)",
       "mimeType": "audio/opus"
     },
     {
-      "url": "https:/forschergeist.de/podlove/file/1731/s/webplayer/c/episode/fg064-ethik-und-genetik.oga",
+      "url": "https://forschergeist.de/podlove/file/1731/s/webplayer/c/episode/fg064-ethik-und-genetik.oga",
       "size": "93541578",
       "title": "Ogg Vorbis Audio (oga)",
       "mimeType": "audio/ogg"
     },
     {
-      "url": "https:/forschergeist.de/podlove/file/1732/s/webplayer/c/episode/fg064-ethik-und-genetik.mp3",
+      "url": "https://forschergeist.de/podlove/file/1732/s/webplayer/c/episode/fg064-ethik-und-genetik.mp3",
       "size": "90686128",
       "title": "MP3 Audio (mp3)",
       "mimeType": "audio/mpeg"
@@ -50,25 +50,25 @@
   ],
   "files": [
     {
-      "url": "https:/forschergeist.de/podlove/file/1734/s/webplayer/c/episode/fg064-ethik-und-genetik.m4a",
+      "url": "https://forschergeist.de/podlove/file/1734/s/webplayer/c/episode/fg064-ethik-und-genetik.m4a",
       "size": "68715948",
       "title": "MPEG-4 AAC Audio (m4a)",
       "mimeType": "audio/mp4"
     },
     {
-      "url": "https:/forschergeist.de/podlove/file/1736/s/webplayer/c/episode/fg064-ethik-und-genetik.opus",
+      "url": "https://forschergeist.de/podlove/file/1736/s/webplayer/c/episode/fg064-ethik-und-genetik.opus",
       "size": "60639361",
       "title": "Opus Audio (opus)",
       "mimeType": "audio/opus"
     },
     {
-      "url": "https:/forschergeist.de/podlove/file/1731/s/webplayer/c/episode/fg064-ethik-und-genetik.oga",
+      "url": "https://forschergeist.de/podlove/file/1731/s/webplayer/c/episode/fg064-ethik-und-genetik.oga",
       "size": "93541578",
       "title": "Ogg Vorbis Audio (oga)",
       "mimeType": "audio/ogg"
     },
     {
-      "url": "https:/forschergeist.de/podlove/file/1732/s/webplayer/c/episode/fg064-ethik-und-genetik.mp3",
+      "url": "https://forschergeist.de/podlove/file/1732/s/webplayer/c/episode/fg064-ethik-und-genetik.mp3",
       "size": "90686128",
       "title": "MP3 Audio (mp3)",
       "mimeType": "audio/mpeg"
@@ -193,7 +193,7 @@
   "contributors": [
     {
       "name": "Tim Pritlove",
-      "avatar": "https:/forschergeist.de/wp-content/cache/podlove/47/08928e3c26dcb1141d67ad75869619/tim-pritlove_150x150.jpg",
+      "avatar": "https://forschergeist.de/wp-content/cache/podlove/47/08928e3c26dcb1141d67ad75869619/tim-pritlove_150x150.jpg",
       "role": {
         "id": "1",
         "slug": "moderation",
@@ -209,7 +209,7 @@
     },
     {
       "name": "Robert Ranisch",
-      "avatar": "https:/forschergeist.de/wp-content/cache/podlove/53/bea5b7ea6e5c60379b268d8c2f7c31/robert-ranisch_150x150.jpg",
+      "avatar": "https://forschergeist.de/wp-content/cache/podlove/53/bea5b7ea6e5c60379b268d8c2f7c31/robert-ranisch_150x150.jpg",
       "role": {
         "id": "2",
         "slug": "guest",
@@ -225,7 +225,7 @@
     },
     {
       "name": "Michael Sonnabend",
-      "avatar": "https:/forschergeist.de/wp-content/cache/podlove/d8/c6e28abc443e76cdd6bc2ea102d5cc/michael-sonnabend_150x150.jpg",
+      "avatar": "https://forschergeist.de/wp-content/cache/podlove/d8/c6e28abc443e76cdd6bc2ea102d5cc/michael-sonnabend_150x150.jpg",
       "role": {
         "id": "3",
         "slug": "redaktion",
@@ -240,5 +240,5 @@
       "id": "7"
     }
   ],
-  "transcripts": "https:/forschergeist.de/podcast/fg064-ethik-und-genetik/?podlove_transcript=json"
+  "transcripts": "https://forschergeist.de/podcast/fg064-ethik-und-genetik/?podlove_transcript=json"
 }

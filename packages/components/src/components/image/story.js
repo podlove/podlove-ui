@@ -24,7 +24,7 @@ export default () => ({
       style="width: 250px; height: 250px;"
       :alt="alt"
       :url="url"
-      :color="coverColor"
+      :color="color"
       @error="error"
       @load="load"
     >

@@ -71,7 +71,7 @@ export default {
     },
     ghost: {
       type: Number,
-      default: null
+      default: undefined
     },
     buffer: {
       type: Array,

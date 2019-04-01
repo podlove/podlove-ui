@@ -29,7 +29,7 @@ export default {
     },
     size: {
       type: Number,
-      default: null
+      default: undefined
     }
   },
   computed: {

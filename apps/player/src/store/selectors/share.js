@@ -32,9 +32,11 @@ const availableEmbedSizes = compose(
 
 const hasLink = state =>
   (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))
+
 const hasEmbedLink = state =>
   type(state) !== 'show' &&
-  ((reference.config(state) && reference.share(state)) || reference.origin(state))
+  reference.config(state) &&
+  (reference.share(state) || reference.origin(state))
 
 const link = state => {
   switch (type(state)) {
@@ -72,7 +74,7 @@ const code = state => {
   }
 
   return `<iframe title="${title}" width="${width}" height="${height}" src="${addQueryParameter(
-    reference.share(state),
+    reference.share(state) || reference.origin(state) + '/share.html',
     parameters
   )}" frameborder="0" scrolling="no" tabindex="0"></iframe>`
 }

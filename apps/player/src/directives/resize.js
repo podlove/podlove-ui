@@ -1,10 +1,7 @@
-/* global MutationObserver */
-
 export default {
   bind(el, { value }) {
-    const observer = new MutationObserver(value)
+    value(el)
 
-    observer.observe(el, { childList: true })
-    window.addEventListener('resize', value)
+    window.addEventListener('resize', () => value(el))
   }
 }
