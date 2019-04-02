@@ -148,4 +148,56 @@ export default {
     height: $size-small-square-rectangle-height;
   }
 }
+
+.big-square {
+  .image-container {
+    display: none;
+  }
+  width: $size-big-square-rectangle-height;
+  height: $size-big-square-rectangle-height;
+}
+
+.medium-rectangle {
+  width: $size-medium-width;
+  height: $size-medium-square-rectangle-height;
+
+  .image-container {
+    display: none;
+  }
+}
+
+.medium-cover {
+  width: $size-medium-width;
+  height: $size-medium-height;
+}
+
+.medium-square {
+  .image-container {
+    display: none;
+  }
+  width: $size-medium-square-rectangle-height;
+  height: $size-medium-square-rectangle-height;
+}
+
+.small-rectangle {
+  width: $size-small-width;
+  height: $size-small-square-rectangle-height;
+
+  .image-container {
+    display: none;
+  }
+}
+
+.small-cover {
+  width: $size-small-width;
+  height: $size-small-height;
+}
+
+.small-square {
+  .image-container {
+    display: none;
+  }
+  width: $size-small-square-rectangle-height;
+  height: $size-small-square-rectangle-height;
+}
 </style>
