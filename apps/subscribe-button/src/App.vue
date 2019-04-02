@@ -1,6 +1,6 @@
 <template>
   <div :class="dimensions">
-    <cover v-if="cover" alt="ccc" :url="cover" :cover-color="color"/>
+    <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color"/>
     <button-component :style="filling"></button-component>
   </div>
 </template>
@@ -37,7 +37,6 @@ export default {
     },
     dimensions() {
       return `${this.size.toLowerCase()}-${this.format.toLowerCase()}`;
-      // return `${this.size.toLowerCase()} ${this.format.toLowerCase()} ${this.style.toLowerCase()}`;
     }
   },
   components: { Cover: Image, ButtonComponent }
@@ -53,65 +52,91 @@ export default {
   width: $size-big-width;
   height: $size-big-square-rectangle-height;
 
-  .image-container {
-    display: none;
+  button {
+    height: $size-big-square-rectangle-height;
   }
 }
 
 .big-cover {
   width: $size-big-width;
-  height: $size-big-height;
+  height: calc($size-big-cover-height + $size-big-square-rectangle-height);
+
+  img {
+    height: $size-big-cover-height;
+  }
+  button {
+    height: $size-big-square-rectangle-height;
+  }
 }
 
 .big-square {
-  .image-container {
-    display: none;
-  }
   width: $size-big-square-rectangle-height;
   height: $size-big-square-rectangle-height;
+
+  button {
+    height: $size-big-square-rectangle-height;
+  }
 }
 
 .medium-rectangle {
   width: $size-medium-width;
   height: $size-medium-square-rectangle-height;
 
-  .image-container {
-    display: none;
+  button {
+    height: $size-medium-square-rectangle-height;
   }
 }
 
 .medium-cover {
   width: $size-medium-width;
-  height: $size-medium-height;
+  height: calc(
+    $size-medium-cover-height + $size-medium-square-rectangle-height
+  );
+
+  img {
+    height: $size-medium-cover-height;
+  }
+  button {
+    height: $size-medium-square-rectangle-height;
+  }
 }
 
 .medium-square {
-  .image-container {
-    display: none;
-  }
   width: $size-medium-square-rectangle-height;
   height: $size-medium-square-rectangle-height;
+
+  button {
+    height: $size-medium-square-rectangle-height;
+  }
 }
 
 .small-rectangle {
   width: $size-small-width;
   height: $size-small-square-rectangle-height;
 
-  .image-container {
-    display: none;
+  button {
+    height: $size-small-square-rectangle-height;
   }
 }
 
 .small-cover {
   width: $size-small-width;
-  height: $size-small-height;
+  height: calc($size-small-cover-height + $size-small-square-rectangle-height);
+
+  img {
+    height: $size-small-cover-height;
+  }
+  button {
+    height: $size-small-square-rectangle-height;
+  }
 }
 
 .small-square {
-  .image-container {
-    display: none;
-  }
   width: $size-small-square-rectangle-height;
   height: $size-small-square-rectangle-height;
+
+  button {
+    height: $size-small-square-rectangle-height;
+  }
 }
 </style>
