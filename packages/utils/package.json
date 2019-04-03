@@ -16,6 +16,6 @@
     "mobile-detect": "1.4.3",
     "color": "3.1.0",
     "query-string": "6.2.0",
-    "redux-saga": "1.0.2"
+    "redux-saga": "0.16.2"
   }
 }

@@ -8,8 +8,10 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
+    "jest/globals": true
   },
+  plugins: ['jest'],
   extends: ['@vue/prettier', 'plugin:vue/recommended'],
   rules: {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
