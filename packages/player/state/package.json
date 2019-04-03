@@ -4,7 +4,8 @@
   "description": "Reducers for Podlove Player Framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cd ../../../ && npm run test ./packages/player/state",
+    "test:dev": "cd ../../../ && npm run test:dev ./packages/player/state"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",

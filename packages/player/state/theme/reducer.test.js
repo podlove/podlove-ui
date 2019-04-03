@@ -1,48 +1,49 @@
-import test from 'ava'
 import { reducer as theme } from './reducer'
 
-test(`theme: is a reducer function`, t => {
-  t.is(typeof theme, 'function')
-})
+describe('theme', () => {
+  test(`theme: is a reducer function`, () => {
+    expect(typeof theme).toBe('function')
+  })
 
-test(`theme: it sets the theme on INIT`, t => {
-  let result = theme(undefined, {
-    type: 'INIT',
-    paylaod: {
-      theme: {
-        main: '#fff',
-        highlight: '#000'
+  test(`theme: it sets the theme on INIT`, () => {
+    let result = theme(undefined, {
+      type: 'INIT',
+      paylaod: {
+        theme: {
+          main: '#fff',
+          highlight: '#000'
+        }
       }
-    }
+    })
+
+    expect(typeof result).toBe('object')
   })
 
-  t.is(typeof result, 'object')
-})
+  test(`it has a default fallback if no theme is provided`, () => {
+    let result = theme(undefined, {
+      type: 'INIT'
+    })
 
-test(`theme: it has a default fallback if no theme is provided`, t => {
-  let result = theme(undefined, {
-    type: 'INIT'
+    expect(typeof result).toBe('object')
   })
 
-  t.is(typeof result, 'object')
-})
-
-test(`theme: it sets the theme on SET_THEME`, t => {
-  let result = theme(undefined, {
-    type: 'SET_THEME',
-    paylaod: {
-      theme: {
-        main: '#fff'
+  test(`it sets the theme on SET_THEME`, () => {
+    let result = theme(undefined, {
+      type: 'SET_THEME',
+      paylaod: {
+        theme: {
+          main: '#fff'
+        }
       }
-    }
+    })
+
+    expect(typeof result).toBe('object')
   })
 
-  t.is(typeof result, 'object')
-})
-
-test(`theme: it does nothing if a unknown action is dispatched`, t => {
-  const result = theme('CUSTOM', {
-    type: 'NOT_A_REAL_TYPE'
+  test(`it does nothing if a unknown action is dispatched`, () => {
+    const result = theme('CUSTOM', {
+      type: 'NOT_A_REAL_TYPE'
+    })
+    expect(result).toBe('CUSTOM')
   })
-  t.is(result, 'CUSTOM')
 })
