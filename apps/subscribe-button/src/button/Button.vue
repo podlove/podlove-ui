@@ -1,16 +1,12 @@
 <template>
-  <button id="podlove-subscribe-button">Subscribe</button>
+  <button id="podlove-subscribe-button">
+    Subscribe
+  </button>
 </template>
 
 <script>
-import { mapState } from "redux-vuex";
-import {
-  selectColor,
-  selectCover,
-  selectFormat,
-  selectSize,
-  selectStyle
-} from "store/selectors";
+import { mapState } from 'redux-vuex'
+import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 
 export default {
   data: mapState({
@@ -22,16 +18,16 @@ export default {
   }),
   computed: {
     dimensions() {
-      return `${this.size.toLowerCase()} ${this.format.toLowerCase()} ${this.style.toLowerCase()}`;
+      return `${this.size.toLowerCase()} ${this.format.toLowerCase()} ${this.style.toLowerCase()}`
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import "~normalize-scss";
-@import "~theme/reset";
-@import "~theme/variable";
+@import '~normalize-scss';
+@import '~theme/reset';
+@import '~theme/variable';
 
 button {
   font-weight: 500;
@@ -43,4 +39,3 @@ button {
   font-size: 16px;
 }
 </style>
-
