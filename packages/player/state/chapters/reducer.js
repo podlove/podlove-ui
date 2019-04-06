@@ -54,7 +54,7 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [SET_CHAPTERS_LIST]: (_, { payload }) =>
+    [SET_CHAPTERS_LIST]: (_, { payload = [] }) =>
       generateState(payload.map((item, index) => (index === 0 ? { active: true, ...item } : item))),
 
     [SET_CHAPTER]: (state, { payload }) => {

@@ -14,10 +14,7 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [INIT]: (_, { payload }) => ({
-      ...INITIAL_STATE,
-      ...propOr(null, 'tabs', payload)
-    }),
+    [INIT]: () => INITIAL_STATE,
 
     [TOGGLE_TAB]: (state, { payload }) => ({
       ...INITIAL_STATE,

@@ -4,7 +4,7 @@ import { handleActions } from 'redux-actions'
 import { INIT } from '@podlove/player-actions/types'
 import { createObject } from '@podlove/utils/helper'
 
-export const INIT_STATE = {
+export const INITIAL_STATE = {
   audio: []
 }
 
@@ -24,5 +24,5 @@ export const reducer = handleActions(
       ...update(payload)
     })
   },
-  INIT_STATE
+  INITIAL_STATE
 )

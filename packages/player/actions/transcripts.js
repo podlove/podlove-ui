@@ -2,7 +2,6 @@ import { createAction } from 'redux-actions'
 
 import {
   SET_TRANSCRIPTS_TIMELINE,
-  SET_TRANSCRIPTS_CHAPTERS,
   UPDATE_TRANSCRIPTS,
   TOGGLE_FOLLOW_TRANSCRIPTS,
   SEARCH_TRANSCRIPTS,
@@ -12,10 +11,6 @@ import {
   PREVIOUS_SEARCH_RESULT
 } from './types'
 
-export const setTranscriptsChapters = createAction(
-  SET_TRANSCRIPTS_CHAPTERS,
-  (chapters = []) => chapters
-)
 export const setTranscriptsTimeline = createAction(
   SET_TRANSCRIPTS_TIMELINE,
   (transcripts = []) => transcripts
