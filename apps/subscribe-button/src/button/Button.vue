@@ -1,16 +1,12 @@
 <template>
-  <button id="podlove-subscribe-button">Subscribe</button>
+  <button id="podlove-subscribe-button">
+    Subscribe
+  </button>
 </template>
 
 <script>
-import { mapState } from "redux-vuex";
-import {
-  selectColor,
-  selectCover,
-  selectFormat,
-  selectSize,
-  selectStyle
-} from "store/selectors";
+import { mapState } from 'redux-vuex'
+import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 
 export default {
   data: mapState({
