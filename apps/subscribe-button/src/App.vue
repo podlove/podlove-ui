@@ -1,23 +1,27 @@
 <template>
-  <div :class="dimensions">
-    <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color"/>
-    <button-component :style="filling"></button-component>
+  <div>
+    <div :class="dimensions">
+      <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color" />
+      <button-component :style="filling"></button-component>
+    </div>
+    <ul>
+      <li>{{ color }}</li>
+      <li>{{ cover }}</li>
+      <li>{{ format }}</li>
+      <li>{{ size }}</li>
+      <li>{{ style }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
-import ButtonComponent from "./button/button";
-import { Image } from "@podlove/components";
-import { mapState } from "redux-vuex";
-import {
-  selectColor,
-  selectCover,
-  selectFormat,
-  selectSize,
-  selectStyle
-} from "store/selectors";
+import ButtonComponent from './button/button'
+import { Image } from '@podlove/components'
+import { mapState } from 'redux-vuex'
+import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 
 export default {
+  components: { Cover: Image, ButtonComponent },
   data: mapState({
     color: selectColor,
     cover: selectCover,
@@ -27,26 +31,25 @@ export default {
   }),
   computed: {
     filling() {
-      if (this.style === "outline") {
-        return `border: 2px solid ${this.color}; color: ${this.color};`;
-      } else if (this.style === "frameless") {
-        return `color: ${this.color}; background: none;`;
+      if (this.style === 'outline') {
+        return `border: 2px solid ${this.color}; color: ${this.color};`
+      } else if (this.style === 'frameless') {
+        return `color: ${this.color}; background: none;`
       } else {
-        return `background: ${this.color};`;
+        return `background: ${this.color};`
       }
     },
     dimensions() {
-      return `${this.size.toLowerCase()}-${this.format.toLowerCase()}`;
+      return `${this.size.toLowerCase()}-${this.format.toLowerCase()}`
     }
-  },
-  components: { Cover: Image, ButtonComponent }
-};
+  }
+}
 </script>
 
 <style lang="scss">
-@import "~normalize-scss";
-@import "~theme/reset";
-@import "~theme/variable";
+@import '~normalize-scss';
+@import '~theme/reset';
+@import '~theme/variable';
 
 .big-rectangle {
   width: $size-big-width;
@@ -89,9 +92,7 @@ export default {
 
 .medium-cover {
   width: $size-medium-width;
-  height: calc(
-    $size-medium-cover-height + $size-medium-square-rectangle-height
-  );
+  height: calc($size-medium-cover-height + $size-medium-square-rectangle-height);
 
   img {
     height: $size-medium-cover-height;
