@@ -136,7 +136,7 @@ export const reducer = handleActions(
     }),
     [HIDE_COMPONENT_VOLUME_SLIDER]: state => ({
       ...state,
-      volumeControl: true
+      volumeControl: false
     }),
     [SHOW_COMPONENT_RATE_SLIDER]: state => ({
       ...state,
@@ -144,7 +144,7 @@ export const reducer = handleActions(
     }),
     [HIDE_COMPONENT_RATE_SLIDER]: state => ({
       ...state,
-      rateControl: true
+      rateControl: false
     }),
     [SHOW_COMPONENT_TAB]: (state, { payload }) => ({
       ...state,

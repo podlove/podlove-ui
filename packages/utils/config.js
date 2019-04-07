@@ -34,6 +34,6 @@ export const originReference = compose(
   reference
 )
 export const configReference = compose(
-  propOr(null, 'origin'),
+  propOr(null, 'config'),
   reference
 )
