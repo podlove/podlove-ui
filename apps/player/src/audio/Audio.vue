@@ -10,9 +10,9 @@ import { mapState } from 'redux-vuex'
 
 import select from 'store/selectors'
 
-import Volume from './components/volume'
-import Rate from './components/rate'
-import Brand from './components/brand'
+import Volume from './components/Volume'
+import Rate from './components/Rate'
+import Brand from './components/Brand'
 
 export default {
   components: {
