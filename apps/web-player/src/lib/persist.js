@@ -10,7 +10,7 @@ import {
 import { loadQuantiles } from '@podlove/player-actions/quantiles'
 import { toggleTab } from '@podlove/player-actions/tabs'
 import { compose, propOr } from 'ramda'
-import LocalStorage from 'localStorage'
+import LocalStorage from 'localstorage'
 import { hashCode } from 'hashcode'
 
 const selectPlaytime = compose(

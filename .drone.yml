@@ -1,0 +1,161 @@
+---
+kind: pipeline
+name: apps/player
+
+steps:
+- name: bootstrap
+  image: node
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node
+  commands:
+    - npx eslint 'apps/player/**/*.{js,vue}'
+
+- name: test
+  image: node
+  commands:
+    - npx jest 'apps/player/**/*.js'
+
+- name: build
+  image: node
+  commands:
+    - npx lerna run build --scope @podlove/player
+
+---
+kind: pipeline
+name: apps/web-player
+
+steps:
+- name: bootstrap
+  image: node
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node
+  commands:
+    - npx eslint 'apps/web-player/**/*.{js,vue}'
+
+- name: test
+  image: node
+  commands:
+    - npx jest 'apps/web-player/**/*.js'
+
+- name: build
+  image: node
+  commands:
+    - npx lerna run build --scope @podlove/web-player
+
+---
+kind: pipeline
+name: packages/components
+
+steps:
+- name: bootstrap
+  image: node
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node
+  commands:
+    - npx eslint 'packages/components/**/*.{js,vue}'
+
+- name: test
+  image: node
+  commands:
+    - npx jest 'packages/components/**/*.js'
+
+- name: build
+  image: node
+  commands:
+    - npx lerna run build --scope @podlove/components
+
+---
+kind: pipeline
+name: packages/player-actions
+
+steps:
+- name: bootstrap
+  image: node
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node
+  commands:
+    - npx eslint 'packages/player/actions/**/*.{js,vue}'
+
+- name: test
+  image: node
+  commands:
+    - npx jest 'packages/player/actions/**/*.js'
+
+- name: build
+  image: node
+  commands:
+    - npx lerna run build --scope @podlove/player-actions
+
+---
+kind: pipeline
+name: packages/player-sagas
+
+steps:
+- name: bootstrap
+  image: node
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node
+  commands:
+    - npx eslint 'packages/player/sagas/**/*.{js,vue}'
+
+- name: test
+  image: node
+  commands:
+    - npx jest 'packages/player/sagas/**/*.js'
+
+- name: build
+  image: node
+  commands:
+    - npx lerna run build --scope @podlove/player-sagas
+
+---
+kind: pipeline
+name: packages/player-state
+
+steps:
+- name: bootstrap
+  image: node
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node
+  commands:
+    - npx eslint 'packages/player/state/**/*.{js,vue}'
+
+- name: test
+  image: node
+  commands:
+    - npx jest 'packages/player/state/**/*.js'
+
+- name: build
+  image: node
+  commands:
+    - npx lerna run build --scope @podlove/player-state

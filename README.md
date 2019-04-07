@@ -2,6 +2,8 @@
 
 > Mono Repo for all UI Related Podlove Projects
 
+[![Build Status](https://cloud.drone.io/api/badges/podlove/ui/status.svg?ref=/refs/heads/develop)](https://cloud.drone.io/podlove/ui)
+
 ## Getting Started
 
 ### For Contribution
