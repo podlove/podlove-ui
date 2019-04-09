@@ -159,3 +159,30 @@ steps:
   image: node
   commands:
     - npx lerna run build --scope @podlove/player-state
+
+---
+kind: pipeline
+name: packages/utils
+
+steps:
+- name: bootstrap
+  image: node
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node
+  commands:
+    - npx eslint 'packages/utils/**/*.{js,vue}'
+
+- name: test
+  image: node
+  commands:
+    - npx jest 'packages/utils/**/*.js'
+
+- name: build
+  image: node
+  commands:
+    - npx lerna run build --scope @podlove/utils
