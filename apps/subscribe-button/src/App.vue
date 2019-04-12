@@ -4,24 +4,20 @@
       <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color" />
       <button-component :style="filling"></button-component>
     </div>
-    <ul>
-      <li>{{ color }}</li>
-      <li>{{ cover }}</li>
-      <li>{{ format }}</li>
-      <li>{{ size }}</li>
-      <li>{{ style }}</li>
-    </ul>
+
+    <overlay-component></overlay-component>
   </div>
 </template>
 
 <script>
 import ButtonComponent from './button/button'
+import OverlayComponent from './overlay/overlay'
 import { Image } from '@podlove/components'
 import { mapState } from 'redux-vuex'
 import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 
 export default {
-  components: { Cover: Image, ButtonComponent },
+  components: { Cover: Image, ButtonComponent, OverlayComponent },
   data: mapState({
     color: selectColor,
     cover: selectCover,
