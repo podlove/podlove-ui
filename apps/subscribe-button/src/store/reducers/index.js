@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
 import { reducer as config } from './config'
-import { reducer as meta_data } from './metadata'
+import { reducer as metadata } from './metadata'
 
-export default combineReducers({ config, meta_data })
+export default combineReducers({ config, metadata })
