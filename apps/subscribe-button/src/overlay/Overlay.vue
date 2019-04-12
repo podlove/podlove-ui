@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <ul>
-      <li>{{ color }}</li>
-      <li>{{ cover }}</li>
-      <li>{{ podcastDescription }}</li>
-      <li>{{ podcastFeed }}</li>
-      <li>{{ podcastTitle }}</li>
-      <li>{{ podcastSubTitle }}</li>
-    </ul>
+  <div class="overlay">
+    <cover alt="ccc" :url="cover" :cover-color="color" />
+    <h1>{{ podcastTitle }}</h1>
+    <p>{{ podcastSubTitle }}</p>
+    <p>Bitte die URL kopieren und in deine Podcast- oder RSS-App einfügen.</p>
+
+    <button-component style="filling"></button-component>
   </div>
 </template>
 
@@ -21,8 +19,11 @@ import {
   selectDescription,
   selectFeed
 } from 'store/selectors'
+import ButtonComponent from '../button/button'
+import { Image } from '@podlove/components'
 
 export default {
+  components: { Cover: Image, ButtonComponent },
   data: mapState({
     color: selectColor,
     cover: selectCover,
@@ -33,3 +34,22 @@ export default {
   })
 }
 </script>
+
+<style lang="scss">
+@import '~normalize-scss';
+@import '~theme/reset';
+@import '~theme/variable';
+
+.overlay {
+  width: 300px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    height: $size-big-cover-height;
+  }
+}
+</style>
