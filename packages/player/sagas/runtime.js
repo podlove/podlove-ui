@@ -6,7 +6,7 @@ import { isMobile } from '@podlove/utils/detect'
 
 const locale = navigator.language || navigator.userLanguage || 'en-us'
 
-export default function*() {
+export function* runtimeSaga() {
   yield put(
     setRuntime({
       browser: `${browser.name}:${browser.version}`,
