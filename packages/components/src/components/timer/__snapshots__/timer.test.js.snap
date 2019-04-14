@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer props should render with prop color 1`] = `
+<span
+  class="timer"
+  style="color: rgb(255, 255, 255);"
+>
+  00:00
+</span>
+`;
+
+exports[`Timer props should render with prop remaining 1`] = `
+<span
+  class="timer"
+>
+  -00:00
+</span>
+`;
+
+exports[`Timer props should render with prop time 1`] = `
+<span
+  class="timer"
+>
+  00:00
+</span>
+`;
+
+exports[`Timer props should render without props 1`] = `
+<span
+  class="timer"
+>
+  00:00
+</span>
+`;

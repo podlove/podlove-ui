@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentOption props should render a default 1`] = `
+<div
+  aria-label=""
+  class="content-option"
+  role="button"
+  style="background: rgb(43, 138, 198); color: rgb(255, 255, 255);"
+>
+  <div
+    class="content-option-icon"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`ContentOption props should render with prop a11y 1`] = `
+<div
+  aria-label="test a11y"
+  class="content-option"
+  role="button"
+  style="background: rgb(43, 138, 198); color: rgb(255, 255, 255);"
+>
+  <div
+    class="content-option-icon"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`ContentOption props should render with prop background 1`] = `
+<div
+  aria-label=""
+  class="content-option"
+  role="button"
+  style="background: rgb(255, 255, 255); color: rgb(255, 255, 255);"
+>
+  <div
+    class="content-option-icon"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`ContentOption props should render with prop color 1`] = `
+<div
+  aria-label=""
+  class="content-option"
+  role="button"
+  style="background: rgb(43, 138, 198); color: rgb(255, 255, 255);"
+>
+  <div
+    class="content-option-icon"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`ContentOption props should render with prop content 1`] = `
+<div
+  aria-label=""
+  class="content-option"
+  role="button"
+  style="background: rgb(43, 138, 198); color: rgb(255, 255, 255);"
+>
+  <div
+    class="content-option-icon"
+  />
+   
+  <span
+    class="content-option-type"
+  >
+    test content
+  </span>
+   
+  <!---->
+</div>
+`;
+
+exports[`ContentOption props should render with prop title 1`] = `
+<div
+  aria-label=""
+  class="content-option"
+  role="button"
+  style="background: rgb(43, 138, 198); color: rgb(255, 255, 255);"
+>
+  <div
+    class="content-option-icon"
+  />
+   
+  <!---->
+   
+  <span
+    class="content-option-title truncate"
+  >
+    test title
+  </span>
+</div>
+`;
+
+exports[`ContentOption props should render with prop type 1`] = `
+<div
+  aria-label=""
+  class="content-option"
+  role="button"
+  style="background: rgb(43, 138, 198); color: rgb(255, 255, 255);"
+>
+  <div
+    class="content-option-icon"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;

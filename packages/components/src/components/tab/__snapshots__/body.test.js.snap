@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabHeader props should render with prop backgroundActive 1`] = `
+<ul
+  class="tab-header"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+  <span>
+    Inner Tab Header
+  </span>
+</ul>
+`;
+
+exports[`TabHeader props should render without props 1`] = `
+<ul
+  class="tab-header"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+  <span>
+    Inner Tab Header
+  </span>
+</ul>
+`;

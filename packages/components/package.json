@@ -17,7 +17,7 @@
   "dependencies": {
     "lodash": "4.17.11",
     "normalize.css": "8.0.1",
-    "vue": "2.5.17",
+    "vue": "2.6.10",
     "@podlove/player-actions": "4.2.3",
     "@podlove/utils": "4.2.3",
     "v-tooltip": "2.0.0-rc.33"

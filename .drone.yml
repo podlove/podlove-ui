@@ -15,10 +15,10 @@ steps:
   commands:
     - npx eslint 'apps/player/**/*.{js,vue}'
 
-- name: test
-  image: node
-  commands:
-    - npx jest 'apps/player/**/*.js'
+# - name: test
+#   image: node
+#   commands:
+#     - npx jest 'apps/player'
 
 - name: build
   image: node
@@ -72,7 +72,7 @@ steps:
 - name: test
   image: node
   commands:
-    - npx jest 'packages/components/**/*.js'
+    - npx jest 'packages/components'
 
 - name: build
   image: node
@@ -96,10 +96,10 @@ steps:
   commands:
     - npx eslint 'packages/player/actions/**/*.{js,vue}'
 
-- name: test
-  image: node
-  commands:
-    - npx jest 'packages/player/actions/**/*.js'
+# - name: test
+#   image: node
+#   commands:
+#     - npx jest 'packages/player/actions'
 
 - name: build
   image: node
@@ -126,7 +126,7 @@ steps:
 - name: test
   image: node
   commands:
-    - npx jest 'packages/player/sagas/**/*.js'
+    - npx jest 'packages/player/sagas'
 
 - name: build
   image: node
@@ -153,7 +153,7 @@ steps:
 - name: test
   image: node
   commands:
-    - npx jest 'packages/player/state/**/*.js'
+    - npx jest 'packages/player/state'
 
 - name: build
   image: node
@@ -180,7 +180,7 @@ steps:
 - name: test
   image: node
   commands:
-    - npx jest 'packages/utils/**/*.js'
+    - npx jest 'packages/utils'
 
 - name: build
   image: node
