@@ -14,32 +14,32 @@ import {
   showChapterControls
 } from '@podlove/player-actions/components'
 
-export default function*() {
+export function* componentsSaga() {
   yield takeEvery(BACKEND_PLAY, play)
   yield takeEvery(BACKEND_PAUSE, pause)
   yield takeEvery(BACKEND_LOADING_START, loading)
   yield takeEvery(BACKEND_LOADING_END, loaded)
+}
 
-  function* play() {
-    yield put(showPlayingButton())
-    yield put(showProgressBar())
-    yield put(showSteppersControls())
-    yield put(showChapterControls())
-  }
+export function* play() {
+  yield put(showPlayingButton())
+  yield put(showProgressBar())
+  yield put(showSteppersControls())
+  yield put(showChapterControls())
+}
 
-  function* pause() {
+export function* pause() {
+  yield put(showPauseButton())
+}
+
+export function* loading() {
+  yield put(showLoadingButton())
+}
+
+export function* loaded({ payload }) {
+  if (payload.paused) {
     yield put(showPauseButton())
-  }
-
-  function* loading() {
-    yield put(showLoadingButton())
-  }
-
-  function* loaded({ payload }) {
-    if (payload.paused) {
-      yield put(showPauseButton())
-    } else {
-      yield put(showPlayingButton())
-    }
+  } else {
+    yield put(showPlayingButton())
   }
 }

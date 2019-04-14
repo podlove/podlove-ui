@@ -95,58 +95,57 @@ const mapSpeakers = speakers =>
     }
   })
 
-export default ({ selectSpeakers, selectChapters }) =>
-  function*() {
-    yield takeEvery(INIT, init)
-
-    function* init({ payload }) {
-      const speakers = yield select(selectSpeakers)
-      const chapters = yield select(selectChapters)
-
-      const assignSpeakers = mapSpeakers(speakers)
-      const transcripts = compose(
-        orderBy('start', 'asc'),
-        concat(transformChapters(chapters)),
-        assignSpeakers,
-        transformTranscript,
-        getTranscripts
-      )(payload)
-      const searchIndex = inAnimationFrame(binarySearch(transcripts.map(({ start }) => start)))
-      const searchText = textSearch(
-        transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' '))
-      )
-
-      yield put(setTranscriptsTimeline(transcripts))
-      yield takeEvery(BACKEND_PLAYTIME, update, searchIndex)
-      yield takeEvery(REQUEST_PLAYTIME, update, searchIndex)
-      yield takeEvery(DISABLE_GHOST_MODE, debouncedUpdate, searchIndex)
-      yield takeEvery(SIMULATE_PLAYTIME, debouncedUpdate, searchIndex)
-      yield takeEvery(SIMULATE_PLAYTIME, debouncedUpdate, searchIndex)
-      yield takeEvery(SEARCH_TRANSCRIPTS, search, searchText)
-    }
-
-    function* update(searchFn, { payload }) {
-      const index = searchFn(payload)
-
-      if (index) {
-        yield put(updateTranscripts(index))
-      }
-    }
-
-    function* debouncedUpdate(searchFn, { payload }) {
-      const index = searchFn(payload)
-      yield delay(200)
-
-      if (index) {
-        yield put(updateTranscripts(index))
-      }
-    }
-
-    function* search(searchFn, { payload }) {
-      const results = searchFn(payload)
-
-      if (results) {
-        yield put(setTranscriptsSearchResults(results))
-      }
-    }
+export const transcriptsSaga = ({ selectSpeakers, selectChapters }) =>
+  function* saga() {
+    yield takeEvery(INIT, init, { selectSpeakers, selectChapters })
   }
+
+export function* init({ selectSpeakers, selectChapters }, { payload }) {
+  const speakers = yield select(selectSpeakers)
+  const chapters = yield select(selectChapters)
+
+  const assignSpeakers = mapSpeakers(speakers)
+  const transcripts = compose(
+    orderBy('start', 'asc'),
+    concat(transformChapters(chapters)),
+    assignSpeakers,
+    transformTranscript,
+    getTranscripts
+  )(payload)
+  const searchIndex = inAnimationFrame(binarySearch(transcripts.map(({ start }) => start)))
+  const searchText = textSearch(
+    transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' '))
+  )
+
+  yield put(setTranscriptsTimeline(transcripts))
+  yield takeEvery(BACKEND_PLAYTIME, update, searchIndex)
+  yield takeEvery(REQUEST_PLAYTIME, update, searchIndex)
+  yield takeEvery(DISABLE_GHOST_MODE, debouncedUpdate, searchIndex)
+  yield takeEvery(SIMULATE_PLAYTIME, debouncedUpdate, searchIndex)
+  yield takeEvery(SEARCH_TRANSCRIPTS, search, searchText)
+}
+
+export function* update(searchFn, { payload }) {
+  const index = searchFn(payload)
+
+  if (index) {
+    yield put(updateTranscripts(index))
+  }
+}
+
+export function* debouncedUpdate(searchFn, { payload }) {
+  const index = searchFn(payload)
+  yield delay(200)
+
+  if (index) {
+    yield put(updateTranscripts(index))
+  }
+}
+
+export function* search(searchFn, { payload }) {
+  const results = searchFn(payload)
+
+  if (results) {
+    yield put(setTranscriptsSearchResults(results))
+  }
+}
