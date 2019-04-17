@@ -1,0 +1,583 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(255, 255, 255); width: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="loading-indicator component"
+      id="play-button--loading"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <div
+        aria-hidden="true"
+        background="currentColor"
+        class="loading-indicator"
+      >
+        <div
+          class="loading-bubble first"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+         
+        <div
+          class="loading-bubble second"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+         
+        <div
+          class="loading-bubble third"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+      </div>
+    </div>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="loading-indicator component"
+      id="play-button--loading"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <div
+        aria-hidden="true"
+        background="currentColor"
+        class="loading-indicator"
+      >
+        <div
+          class="loading-bubble first"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+         
+        <div
+          class="loading-bubble second"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+         
+        <div
+          class="loading-bubble third"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+      </div>
+    </div>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="loading-indicator component"
+      id="play-button--loading"
+      label="test-label"
+      mode="out-in"
+      name="component"
+    >
+      <div
+        aria-hidden="true"
+        background="currentColor"
+        class="loading-indicator"
+      >
+        <div
+          class="loading-bubble first"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+         
+        <div
+          class="loading-bubble second"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+         
+        <div
+          class="loading-bubble third"
+          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+        />
+      </div>
+    </div>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(255, 255, 255); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="pause-inner component"
+      id="play-button--pause"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="23.400000000000002"
+        version="1.1"
+        viewBox="0 0 18 23"
+        width="18"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="none"
+          stroke-width="1"
+        >
+          <g
+            fill="#fff"
+            transform="translate(-16.000000, -14.000000)"
+          >
+            <g
+              transform="translate(16.000000, 14.000000)"
+            >
+              <polygon
+                points="18 23 12 23 12 0 18 0"
+              />
+               
+              <polygon
+                points="6 23 0 23 0 0 6 0"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>
+       
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="pause-inner component"
+      id="play-button--pause"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="23.400000000000002"
+        version="1.1"
+        viewBox="0 0 18 23"
+        width="18"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="none"
+          stroke-width="1"
+        >
+          <g
+            fill="#fff"
+            transform="translate(-16.000000, -14.000000)"
+          >
+            <g
+              transform="translate(16.000000, 14.000000)"
+            >
+              <polygon
+                points="18 23 12 23 12 0 18 0"
+              />
+               
+              <polygon
+                points="6 23 0 23 0 0 6 0"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>
+       
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="pause-inner component has-label"
+      id="play-button--pause"
+      label="test-label"
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="23.400000000000002"
+        version="1.1"
+        viewBox="0 0 18 23"
+        width="18"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="none"
+          stroke-width="1"
+        >
+          <g
+            fill="#fff"
+            transform="translate(-16.000000, -14.000000)"
+          >
+            <g
+              transform="translate(16.000000, 14.000000)"
+            >
+              <polygon
+                points="18 23 12 23 12 0 18 0"
+              />
+               
+              <polygon
+                points="6 23 0 23 0 0 6 0"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>
+       
+      <span
+        class="label"
+        style="color: rgb(255, 255, 255);"
+      >
+        test-label
+      </span>
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'play' with 'background' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(255, 255, 255); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="play-inner component"
+      id="play-button--play"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="23.982"
+        version="1.1"
+        viewBox="0 0 21 24"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="none"
+          stroke-width="1"
+        >
+          <g
+            fill="#fff"
+            transform="translate(-17.000000, -13.000000)"
+          >
+            <polygon
+              points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096"
+            />
+          </g>
+        </g>
+      </svg>
+       
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'play' with 'color' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="play-inner component"
+      id="play-button--play"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="23.982"
+        version="1.1"
+        viewBox="0 0 21 24"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="none"
+          stroke-width="1"
+        >
+          <g
+            fill="#fff"
+            transform="translate(-17.000000, -13.000000)"
+          >
+            <polygon
+              points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096"
+            />
+          </g>
+        </g>
+      </svg>
+       
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'play' with 'label' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="play-inner component has-label"
+      id="play-button--play"
+      label="test-label"
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="23.982"
+        version="1.1"
+        viewBox="0 0 21 24"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="none"
+          stroke-width="1"
+        >
+          <g
+            fill="#fff"
+            transform="translate(-17.000000, -13.000000)"
+          >
+            <polygon
+              points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096"
+            />
+          </g>
+        </g>
+      </svg>
+       
+      <span
+        class="label"
+        style="color: rgb(255, 255, 255);"
+      >
+        test-label
+      </span>
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(255, 255, 255); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="restart-inner component"
+      id="play-button--restart"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
+          fill="#fff"
+        />
+      </svg>
+       
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="restart-inner component"
+      id="play-button--restart"
+      label=""
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
+          fill="#fff"
+        />
+      </svg>
+       
+    </span>
+     
+  </div>
+</button>
+`;
+
+exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
+<button
+  class="play-button"
+  id="play-button"
+>
+  <div
+    class="wrapper"
+    style="background-color: rgb(43, 138, 198); width: 0px;"
+  >
+    <span
+      aria-hidden="true"
+      class="restart-inner component has-label"
+      id="play-button--restart"
+      label="test-label"
+      mode="out-in"
+      name="component"
+    >
+      <svg
+        aria-hidden="true"
+        background="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
+          fill="#fff"
+        />
+      </svg>
+       
+      <span
+        class="label"
+        style="color: rgb(255, 255, 255);"
+      >
+        test-label
+      </span>
+    </span>
+     
+  </div>
+</button>
+`;

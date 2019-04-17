@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputText props should render type 'background' 1`] = `
+<input
+  class="input-text"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+/>
+`;
+
+exports[`InputText props should render type 'block' 1`] = `
+<input
+  class="input-text block"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+/>
+`;
+
+exports[`InputText props should render type 'borderColor' 1`] = `
+<input
+  class="input-text"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #fff;"
+/>
+`;
+
+exports[`InputText props should render type 'color' 1`] = `
+<input
+  class="input-text"
+  style="color: rgb(255, 255, 255); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+/>
+`;
+
+exports[`InputText props should render type 'disabled' 1`] = `
+<input
+  class="input-text"
+  disabled="disabled"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+/>
+`;
+
+exports[`InputText props should render type 'value' 1`] = `
+<input
+  class="input-text"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+/>
+`;
+
+exports[`InputText props should render without props 1`] = `
+<input
+  class="input-text"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+/>
+`;

@@ -1,0 +1,1493 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Channel props should render type 'embed' with prop a11y 1`] = `
+<button
+  class="channel-link channel-link"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    test a11y
+  </span>
+</button>
+`;
+
+exports[`Channel props should render type 'embed' with prop color 1`] = `
+<button
+  class="channel-link channel-link"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon"
+    style="background-color: rgb(255, 255, 255);"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Channel props should render type 'embed' with prop link 1`] = `
+<button
+  class="channel-link channel-link"
+  link="http://foo.bar"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Channel props should render type 'embed' with prop poster 1`] = `
+<button
+  class="channel-link channel-link"
+  poster="http://foo.bar/test.jpg"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Channel props should render type 'embed' with prop subject 1`] = `
+<button
+  class="channel-link channel-link"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Channel props should render type 'embed' with prop text 1`] = `
+<button
+  class="channel-link channel-link"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</button>
+`;
+
+exports[`Channel props should render type 'facebook' with prop a11y 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon facebook"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="25"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    test a11y
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'facebook' with prop color 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#fff"
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon facebook"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="25"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'facebook' with prop link 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.facebook.com/sharer/sharer.php?u=http://foo.bar"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon facebook"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="25"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'facebook' with prop poster 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon facebook"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="25"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'facebook' with prop subject 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  subject="test subject"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon facebook"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="25"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'facebook' with prop text 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  target="_blank"
+  text="test text"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon facebook"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="25"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15.117 0H.883C.395 0 0 .395 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077c.488 0 .883-.395.883-.883V.883C16 .395 15.605 0 15.117 0"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'linkedin' with prop a11y 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.linkedin.com/shareArticle?mini=true&summary"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon Linkedin"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      role="img"
+      viewBox="0 0 24 24"
+      width="25"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    test a11y
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'linkedin' with prop color 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#fff"
+  href="https://www.linkedin.com/shareArticle?mini=true&summary"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon Linkedin"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      role="img"
+      viewBox="0 0 24 24"
+      width="25"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'linkedin' with prop link 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.linkedin.com/shareArticle?mini=true&summary"
+  link="http://foo.bar"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon Linkedin"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      role="img"
+      viewBox="0 0 24 24"
+      width="25"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'linkedin' with prop poster 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.linkedin.com/shareArticle?mini=true&summary"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon Linkedin"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      role="img"
+      viewBox="0 0 24 24"
+      width="25"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'linkedin' with prop subject 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.linkedin.com/shareArticle?mini=true&summary"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon Linkedin"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      role="img"
+      viewBox="0 0 24 24"
+      width="25"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'linkedin' with prop text 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://www.linkedin.com/shareArticle?mini=true&summary=test%20text"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon Linkedin"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="25"
+      role="img"
+      viewBox="0 0 24 24"
+      width="25"
+    >
+      <path
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'mail' with prop a11y 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="mailto:?body&subject"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon mail"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    test a11y
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'mail' with prop color 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#fff"
+  href="mailto:?body&subject"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon mail"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'mail' with prop link 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="mailto:?body&subject"
+  link="http://foo.bar"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon mail"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'mail' with prop poster 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="mailto:?body&subject"
+  poster="http://foo.bar/test.jpg"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon mail"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'mail' with prop subject 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="mailto:?body&subject=test%20subject"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon mail"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'mail' with prop text 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="mailto:?body=test%20text&subject"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon mail"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'pinterest' with prop a11y 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon pinterest"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      role="img"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    test a11y
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'pinterest' with prop color 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#fff"
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon pinterest"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      role="img"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'pinterest' with prop link 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url=http://foo.bar"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon pinterest"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      role="img"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'pinterest' with prop poster 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media=http://foo.bar/test.jpg&url"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon pinterest"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      role="img"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'pinterest' with prop subject 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url"
+  subject="test subject"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon pinterest"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      role="img"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'pinterest' with prop text 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://pinterest.com/pin/create/bookmarklet/?description=test%20text&is_video=false&media&url"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon pinterest"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      role="img"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'reddit' with prop a11y 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="http://reddit.com/submit?title"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon reddit"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.204 14.049c-.06.276-.091.56-.091.847 0 3.443 4.402 6.249 9.814 6.249 5.41 0 9.812-2.804 9.812-6.249 0-.274-.029-.546-.082-.809l-.015-.032c-.021-.055-.029-.11-.029-.165-.302-1.175-1.117-2.241-2.296-3.103-.045-.016-.088-.039-.126-.07-.026-.02-.045-.042-.067-.064-1.792-1.234-4.356-2.008-7.196-2.008-2.815 0-5.354.759-7.146 1.971-.014.018-.029.033-.049.049-.039.033-.084.06-.13.075-1.206.862-2.042 1.937-2.354 3.123 0 .058-.014.114-.037.171l-.008.015zm9.773 5.441c-1.794 0-3.057-.389-3.863-1.197-.173-.174-.173-.457 0-.632.176-.165.46-.165.635 0 .63.629 1.685.943 3.228.943 1.542 0 2.591-.3 3.219-.929.165-.164.45-.164.629 0 .165.18.165.465 0 .645-.809.808-2.065 1.198-3.862 1.198l.014-.028zm-3.606-7.573c-.914 0-1.677.765-1.677 1.677 0 .91.763 1.65 1.677 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm7.233 0c-.914 0-1.678.765-1.678 1.677 0 .91.764 1.65 1.678 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm4.548-1.595c1.037.833 1.8 1.821 2.189 2.904.45-.336.719-.864.719-1.449 0-1.002-.815-1.816-1.818-1.816-.399 0-.778.129-1.09.363v-.002zM2.711 9.963c-1.003 0-1.817.816-1.817 1.818 0 .543.239 1.048.644 1.389.401-1.079 1.172-2.053 2.213-2.876-.302-.21-.663-.329-1.039-.329v-.002zm9.217 12.079c-5.906 0-10.709-3.205-10.709-7.142 0-.275.023-.544.068-.809C.494 13.598 0 12.729 0 11.777c0-1.496 1.227-2.713 2.725-2.713.674 0 1.303.246 1.797.682 1.856-1.191 4.357-1.941 7.112-1.992l1.812-5.524.404.095s.016 0 .016.002l4.223.993c.344-.798 1.138-1.36 2.065-1.36 1.229 0 2.231 1.004 2.231 2.234 0 1.232-1.003 2.234-2.231 2.234s-2.23-1.004-2.23-2.23l-3.851-.912-1.467 4.477c2.65.105 5.047.854 6.844 2.021.494-.464 1.144-.719 1.833-.719 1.498 0 2.718 1.213 2.718 2.711 0 .987-.54 1.886-1.378 2.365.029.255.059.494.059.749-.015 3.938-4.806 7.143-10.72 7.143l-.034.009zm8.179-19.187c-.74 0-1.34.599-1.34 1.338 0 .738.6 1.34 1.34 1.34.732 0 1.33-.6 1.33-1.334 0-.733-.598-1.332-1.347-1.332l.017-.012z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    test a11y
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'reddit' with prop color 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#fff"
+  href="http://reddit.com/submit?title"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon reddit"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.204 14.049c-.06.276-.091.56-.091.847 0 3.443 4.402 6.249 9.814 6.249 5.41 0 9.812-2.804 9.812-6.249 0-.274-.029-.546-.082-.809l-.015-.032c-.021-.055-.029-.11-.029-.165-.302-1.175-1.117-2.241-2.296-3.103-.045-.016-.088-.039-.126-.07-.026-.02-.045-.042-.067-.064-1.792-1.234-4.356-2.008-7.196-2.008-2.815 0-5.354.759-7.146 1.971-.014.018-.029.033-.049.049-.039.033-.084.06-.13.075-1.206.862-2.042 1.937-2.354 3.123 0 .058-.014.114-.037.171l-.008.015zm9.773 5.441c-1.794 0-3.057-.389-3.863-1.197-.173-.174-.173-.457 0-.632.176-.165.46-.165.635 0 .63.629 1.685.943 3.228.943 1.542 0 2.591-.3 3.219-.929.165-.164.45-.164.629 0 .165.18.165.465 0 .645-.809.808-2.065 1.198-3.862 1.198l.014-.028zm-3.606-7.573c-.914 0-1.677.765-1.677 1.677 0 .91.763 1.65 1.677 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm7.233 0c-.914 0-1.678.765-1.678 1.677 0 .91.764 1.65 1.678 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm4.548-1.595c1.037.833 1.8 1.821 2.189 2.904.45-.336.719-.864.719-1.449 0-1.002-.815-1.816-1.818-1.816-.399 0-.778.129-1.09.363v-.002zM2.711 9.963c-1.003 0-1.817.816-1.817 1.818 0 .543.239 1.048.644 1.389.401-1.079 1.172-2.053 2.213-2.876-.302-.21-.663-.329-1.039-.329v-.002zm9.217 12.079c-5.906 0-10.709-3.205-10.709-7.142 0-.275.023-.544.068-.809C.494 13.598 0 12.729 0 11.777c0-1.496 1.227-2.713 2.725-2.713.674 0 1.303.246 1.797.682 1.856-1.191 4.357-1.941 7.112-1.992l1.812-5.524.404.095s.016 0 .016.002l4.223.993c.344-.798 1.138-1.36 2.065-1.36 1.229 0 2.231 1.004 2.231 2.234 0 1.232-1.003 2.234-2.231 2.234s-2.23-1.004-2.23-2.23l-3.851-.912-1.467 4.477c2.65.105 5.047.854 6.844 2.021.494-.464 1.144-.719 1.833-.719 1.498 0 2.718 1.213 2.718 2.711 0 .987-.54 1.886-1.378 2.365.029.255.059.494.059.749-.015 3.938-4.806 7.143-10.72 7.143l-.034.009zm8.179-19.187c-.74 0-1.34.599-1.34 1.338 0 .738.6 1.34 1.34 1.34.732 0 1.33-.6 1.33-1.334 0-.733-.598-1.332-1.347-1.332l.017-.012z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'reddit' with prop link 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="http://reddit.com/submit?title"
+  link="http://foo.bar"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon reddit"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.204 14.049c-.06.276-.091.56-.091.847 0 3.443 4.402 6.249 9.814 6.249 5.41 0 9.812-2.804 9.812-6.249 0-.274-.029-.546-.082-.809l-.015-.032c-.021-.055-.029-.11-.029-.165-.302-1.175-1.117-2.241-2.296-3.103-.045-.016-.088-.039-.126-.07-.026-.02-.045-.042-.067-.064-1.792-1.234-4.356-2.008-7.196-2.008-2.815 0-5.354.759-7.146 1.971-.014.018-.029.033-.049.049-.039.033-.084.06-.13.075-1.206.862-2.042 1.937-2.354 3.123 0 .058-.014.114-.037.171l-.008.015zm9.773 5.441c-1.794 0-3.057-.389-3.863-1.197-.173-.174-.173-.457 0-.632.176-.165.46-.165.635 0 .63.629 1.685.943 3.228.943 1.542 0 2.591-.3 3.219-.929.165-.164.45-.164.629 0 .165.18.165.465 0 .645-.809.808-2.065 1.198-3.862 1.198l.014-.028zm-3.606-7.573c-.914 0-1.677.765-1.677 1.677 0 .91.763 1.65 1.677 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm7.233 0c-.914 0-1.678.765-1.678 1.677 0 .91.764 1.65 1.678 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm4.548-1.595c1.037.833 1.8 1.821 2.189 2.904.45-.336.719-.864.719-1.449 0-1.002-.815-1.816-1.818-1.816-.399 0-.778.129-1.09.363v-.002zM2.711 9.963c-1.003 0-1.817.816-1.817 1.818 0 .543.239 1.048.644 1.389.401-1.079 1.172-2.053 2.213-2.876-.302-.21-.663-.329-1.039-.329v-.002zm9.217 12.079c-5.906 0-10.709-3.205-10.709-7.142 0-.275.023-.544.068-.809C.494 13.598 0 12.729 0 11.777c0-1.496 1.227-2.713 2.725-2.713.674 0 1.303.246 1.797.682 1.856-1.191 4.357-1.941 7.112-1.992l1.812-5.524.404.095s.016 0 .016.002l4.223.993c.344-.798 1.138-1.36 2.065-1.36 1.229 0 2.231 1.004 2.231 2.234 0 1.232-1.003 2.234-2.231 2.234s-2.23-1.004-2.23-2.23l-3.851-.912-1.467 4.477c2.65.105 5.047.854 6.844 2.021.494-.464 1.144-.719 1.833-.719 1.498 0 2.718 1.213 2.718 2.711 0 .987-.54 1.886-1.378 2.365.029.255.059.494.059.749-.015 3.938-4.806 7.143-10.72 7.143l-.034.009zm8.179-19.187c-.74 0-1.34.599-1.34 1.338 0 .738.6 1.34 1.34 1.34.732 0 1.33-.6 1.33-1.334 0-.733-.598-1.332-1.347-1.332l.017-.012z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'reddit' with prop poster 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="http://reddit.com/submit?title"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon reddit"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.204 14.049c-.06.276-.091.56-.091.847 0 3.443 4.402 6.249 9.814 6.249 5.41 0 9.812-2.804 9.812-6.249 0-.274-.029-.546-.082-.809l-.015-.032c-.021-.055-.029-.11-.029-.165-.302-1.175-1.117-2.241-2.296-3.103-.045-.016-.088-.039-.126-.07-.026-.02-.045-.042-.067-.064-1.792-1.234-4.356-2.008-7.196-2.008-2.815 0-5.354.759-7.146 1.971-.014.018-.029.033-.049.049-.039.033-.084.06-.13.075-1.206.862-2.042 1.937-2.354 3.123 0 .058-.014.114-.037.171l-.008.015zm9.773 5.441c-1.794 0-3.057-.389-3.863-1.197-.173-.174-.173-.457 0-.632.176-.165.46-.165.635 0 .63.629 1.685.943 3.228.943 1.542 0 2.591-.3 3.219-.929.165-.164.45-.164.629 0 .165.18.165.465 0 .645-.809.808-2.065 1.198-3.862 1.198l.014-.028zm-3.606-7.573c-.914 0-1.677.765-1.677 1.677 0 .91.763 1.65 1.677 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm7.233 0c-.914 0-1.678.765-1.678 1.677 0 .91.764 1.65 1.678 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm4.548-1.595c1.037.833 1.8 1.821 2.189 2.904.45-.336.719-.864.719-1.449 0-1.002-.815-1.816-1.818-1.816-.399 0-.778.129-1.09.363v-.002zM2.711 9.963c-1.003 0-1.817.816-1.817 1.818 0 .543.239 1.048.644 1.389.401-1.079 1.172-2.053 2.213-2.876-.302-.21-.663-.329-1.039-.329v-.002zm9.217 12.079c-5.906 0-10.709-3.205-10.709-7.142 0-.275.023-.544.068-.809C.494 13.598 0 12.729 0 11.777c0-1.496 1.227-2.713 2.725-2.713.674 0 1.303.246 1.797.682 1.856-1.191 4.357-1.941 7.112-1.992l1.812-5.524.404.095s.016 0 .016.002l4.223.993c.344-.798 1.138-1.36 2.065-1.36 1.229 0 2.231 1.004 2.231 2.234 0 1.232-1.003 2.234-2.231 2.234s-2.23-1.004-2.23-2.23l-3.851-.912-1.467 4.477c2.65.105 5.047.854 6.844 2.021.494-.464 1.144-.719 1.833-.719 1.498 0 2.718 1.213 2.718 2.711 0 .987-.54 1.886-1.378 2.365.029.255.059.494.059.749-.015 3.938-4.806 7.143-10.72 7.143l-.034.009zm8.179-19.187c-.74 0-1.34.599-1.34 1.338 0 .738.6 1.34 1.34 1.34.732 0 1.33-.6 1.33-1.334 0-.733-.598-1.332-1.347-1.332l.017-.012z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'reddit' with prop subject 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="http://reddit.com/submit?title"
+  subject="test subject"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon reddit"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.204 14.049c-.06.276-.091.56-.091.847 0 3.443 4.402 6.249 9.814 6.249 5.41 0 9.812-2.804 9.812-6.249 0-.274-.029-.546-.082-.809l-.015-.032c-.021-.055-.029-.11-.029-.165-.302-1.175-1.117-2.241-2.296-3.103-.045-.016-.088-.039-.126-.07-.026-.02-.045-.042-.067-.064-1.792-1.234-4.356-2.008-7.196-2.008-2.815 0-5.354.759-7.146 1.971-.014.018-.029.033-.049.049-.039.033-.084.06-.13.075-1.206.862-2.042 1.937-2.354 3.123 0 .058-.014.114-.037.171l-.008.015zm9.773 5.441c-1.794 0-3.057-.389-3.863-1.197-.173-.174-.173-.457 0-.632.176-.165.46-.165.635 0 .63.629 1.685.943 3.228.943 1.542 0 2.591-.3 3.219-.929.165-.164.45-.164.629 0 .165.18.165.465 0 .645-.809.808-2.065 1.198-3.862 1.198l.014-.028zm-3.606-7.573c-.914 0-1.677.765-1.677 1.677 0 .91.763 1.65 1.677 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm7.233 0c-.914 0-1.678.765-1.678 1.677 0 .91.764 1.65 1.678 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm4.548-1.595c1.037.833 1.8 1.821 2.189 2.904.45-.336.719-.864.719-1.449 0-1.002-.815-1.816-1.818-1.816-.399 0-.778.129-1.09.363v-.002zM2.711 9.963c-1.003 0-1.817.816-1.817 1.818 0 .543.239 1.048.644 1.389.401-1.079 1.172-2.053 2.213-2.876-.302-.21-.663-.329-1.039-.329v-.002zm9.217 12.079c-5.906 0-10.709-3.205-10.709-7.142 0-.275.023-.544.068-.809C.494 13.598 0 12.729 0 11.777c0-1.496 1.227-2.713 2.725-2.713.674 0 1.303.246 1.797.682 1.856-1.191 4.357-1.941 7.112-1.992l1.812-5.524.404.095s.016 0 .016.002l4.223.993c.344-.798 1.138-1.36 2.065-1.36 1.229 0 2.231 1.004 2.231 2.234 0 1.232-1.003 2.234-2.231 2.234s-2.23-1.004-2.23-2.23l-3.851-.912-1.467 4.477c2.65.105 5.047.854 6.844 2.021.494-.464 1.144-.719 1.833-.719 1.498 0 2.718 1.213 2.718 2.711 0 .987-.54 1.886-1.378 2.365.029.255.059.494.059.749-.015 3.938-4.806 7.143-10.72 7.143l-.034.009zm8.179-19.187c-.74 0-1.34.599-1.34 1.338 0 .738.6 1.34 1.34 1.34.732 0 1.33-.6 1.33-1.334 0-.733-.598-1.332-1.347-1.332l.017-.012z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'reddit' with prop text 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="http://reddit.com/submit?title=test%20text"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon reddit"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      height="30"
+      viewBox="0 0 24 24"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.204 14.049c-.06.276-.091.56-.091.847 0 3.443 4.402 6.249 9.814 6.249 5.41 0 9.812-2.804 9.812-6.249 0-.274-.029-.546-.082-.809l-.015-.032c-.021-.055-.029-.11-.029-.165-.302-1.175-1.117-2.241-2.296-3.103-.045-.016-.088-.039-.126-.07-.026-.02-.045-.042-.067-.064-1.792-1.234-4.356-2.008-7.196-2.008-2.815 0-5.354.759-7.146 1.971-.014.018-.029.033-.049.049-.039.033-.084.06-.13.075-1.206.862-2.042 1.937-2.354 3.123 0 .058-.014.114-.037.171l-.008.015zm9.773 5.441c-1.794 0-3.057-.389-3.863-1.197-.173-.174-.173-.457 0-.632.176-.165.46-.165.635 0 .63.629 1.685.943 3.228.943 1.542 0 2.591-.3 3.219-.929.165-.164.45-.164.629 0 .165.18.165.465 0 .645-.809.808-2.065 1.198-3.862 1.198l.014-.028zm-3.606-7.573c-.914 0-1.677.765-1.677 1.677 0 .91.763 1.65 1.677 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm7.233 0c-.914 0-1.678.765-1.678 1.677 0 .91.764 1.65 1.678 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm4.548-1.595c1.037.833 1.8 1.821 2.189 2.904.45-.336.719-.864.719-1.449 0-1.002-.815-1.816-1.818-1.816-.399 0-.778.129-1.09.363v-.002zM2.711 9.963c-1.003 0-1.817.816-1.817 1.818 0 .543.239 1.048.644 1.389.401-1.079 1.172-2.053 2.213-2.876-.302-.21-.663-.329-1.039-.329v-.002zm9.217 12.079c-5.906 0-10.709-3.205-10.709-7.142 0-.275.023-.544.068-.809C.494 13.598 0 12.729 0 11.777c0-1.496 1.227-2.713 2.725-2.713.674 0 1.303.246 1.797.682 1.856-1.191 4.357-1.941 7.112-1.992l1.812-5.524.404.095s.016 0 .016.002l4.223.993c.344-.798 1.138-1.36 2.065-1.36 1.229 0 2.231 1.004 2.231 2.234 0 1.232-1.003 2.234-2.231 2.234s-2.23-1.004-2.23-2.23l-3.851-.912-1.467 4.477c2.65.105 5.047.854 6.844 2.021.494-.464 1.144-.719 1.833-.719 1.498 0 2.718 1.213 2.718 2.711 0 .987-.54 1.886-1.378 2.365.029.255.059.494.059.749-.015 3.938-4.806 7.143-10.72 7.143l-.034.009zm8.179-19.187c-.74 0-1.34.599-1.34 1.338 0 .738.6 1.34 1.34 1.34.732 0 1.33-.6 1.33-1.334 0-.733-.598-1.332-1.347-1.332l.017-.012z"
+        fill="#fff"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'twitter' with prop a11y 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://twitter.com/intent/tweet?text"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon twitter"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="30"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    test a11y
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'twitter' with prop color 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#fff"
+  href="https://twitter.com/intent/tweet?text"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon twitter"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="30"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'twitter' with prop link 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://twitter.com/intent/tweet?text"
+  link="http://foo.bar"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon twitter"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="30"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'twitter' with prop poster 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://twitter.com/intent/tweet?text"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon twitter"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="30"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'twitter' with prop subject 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://twitter.com/intent/tweet?text"
+  subject="test subject"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon twitter"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="30"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Channel props should render type 'twitter' with prop text 1`] = `
+<a
+  class="channel-link channel-link"
+  color="#2B8AC6"
+  href="https://twitter.com/intent/tweet?text=test%20text"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="channel-icon twitter"
+  >
+    <svg
+      aria-hidden="true"
+      background="currentColor"
+      clip-rule="evenodd"
+      fill-rule="evenodd"
+      height="30"
+      stroke-linejoin="round"
+      stroke-miterlimit="1.414"
+      viewBox="0 0 16 16"
+      width="30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z"
+        fill="#fff"
+        fill-rule="nonzero"
+      />
+    </svg>
+  </span>
+   
+  <span
+    class="visually-hidden"
+  >
+    
+  </span>
+</a>
+`;

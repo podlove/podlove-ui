@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabBody props should render with prop active 1`] = `
+<div
+  aria-labelledby="trigger-"
+  class="tab-body active"
+  role="tabpanel"
+  tabindex="0"
+>
+  <div
+    class="tab-content"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <div>
+      Inner Tab
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabBody props should render with prop background 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="trigger-"
+  class="tab-body"
+  role="tabpanel"
+  tabindex="0"
+>
+  <div
+    class="tab-content"
+    style="background-color: rgb(255, 255, 255);"
+  >
+    <div>
+      Inner Tab
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabBody props should render with prop fixed 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="trigger-"
+  class="tab-body fixed"
+  role="tabpanel"
+  tabindex="0"
+>
+  <div
+    class="tab-content"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <div>
+      Inner Tab
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabBody props should render with prop name 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="trigger-tab-name"
+  class="tab-body"
+  role="tabpanel"
+  tabindex="0"
+>
+  <div
+    class="tab-content"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <div>
+      Inner Tab
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabBody props should render without props 1`] = `
+<div
+  aria-hidden="true"
+  aria-labelledby="trigger-"
+  class="tab-body"
+  role="tabpanel"
+  tabindex="0"
+>
+  <div
+    class="tab-content"
+    style="background-color: rgb(43, 138, 198);"
+  >
+    <div>
+      Inner Tab
+    </div>
+  </div>
+</div>
+`;

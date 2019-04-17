@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChapterButton props should render type 'next' with prop color 1`] = `
+<button
+  class="chapter-button"
+  id="chapter-button--next"
+>
+  <svg
+    aria-hidden="true"
+    background="currentColor"
+    height="15"
+    version="1.1"
+    viewBox="0 0 14 15"
+    width="15"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    <polygon
+      fill="#fff"
+      fill-rule="evenodd"
+      points="0 0.4245 0 14.9995 12.6225 7.712"
+      stroke="none"
+    />
+     
+    <polygon
+      fill="#fff"
+      fill-rule="evenodd"
+      points="10.435 15 13.87125 15 13.87125 0.425 10.435 0.425"
+      stroke="none"
+    />
+  </svg>
+   
+</button>
+`;
+
+exports[`ChapterButton props should render type 'previous' with prop color 1`] = `
+<button
+  class="chapter-button"
+  id="chapter-button--previous"
+>
+  <svg
+    aria-hidden="true"
+    background="currentColor"
+    height="15"
+    version="1.1"
+    viewBox="0 0 14 15"
+    width="15"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    <polygon
+      fill="#fff"
+      fill-rule="evenodd"
+      points="13.872375 0.4245 1.249875 7.712 13.872375 14.9995"
+      stroke="none"
+    />
+     
+    <polygon
+      fill="#fff"
+      fill-rule="evenodd"
+      points="0 15 3.4375 15 3.4375 0.425 0 0.425"
+      stroke="none"
+    />
+  </svg>
+   
+</button>
+`;

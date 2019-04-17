@@ -12,7 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "@podlove/utils": "4.2.3",
-    "@babel/core": "7.2.2",
     "@babel/preset-env": "7.3.1",
     "@csstools/postcss-sass": "3.0.0",
     "autoprefixer": "9.4.2",
@@ -33,7 +32,7 @@
     "pug-plain-loader": "1.0.0",
     "sass-loader": "7.1.0",
     "vue-loader": "15.4.2",
-    "vue-template-compiler": "2.5.17",
+    "vue-template-compiler": "2.6.10",
     "webpack": "4.26.0",
     "webpack-auto-inject-version": "1.2.2",
     "webpack-bundle-analyzer": "3.0.3",

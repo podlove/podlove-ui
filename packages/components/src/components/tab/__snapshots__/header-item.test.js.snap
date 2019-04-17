@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabHeader props should render with prop active 1`] = `
+<ul
+  class="tab-header"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render with prop background 1`] = `
+<ul
+  background="#fff"
+  class="tab-header"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render with prop backgroundActive 1`] = `
+<ul
+  class="tab-header"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render with prop color 1`] = `
+<ul
+  class="tab-header"
+  color="#fff"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render with prop colorActive 1`] = `
+<ul
+  class="tab-header"
+  coloractive="#fff"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render with prop display 1`] = `
+<ul
+  class="tab-header"
+  display="fixed"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render with prop index 1`] = `
+<ul
+  class="tab-header"
+  index="5"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render with prop name 1`] = `
+<ul
+  class="tab-header"
+  name="tab-name"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;
+
+exports[`TabHeader props should render without props 1`] = `
+<ul
+  class="tab-header"
+  role="tablist"
+>
+  <span
+    class="header-shadow"
+  />
+   
+</ul>
+`;

@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChapterProgress props should render 'chapter' 1`] = `
+<div
+  aria-hidden="true"
+  class="chapter-progress"
+>
+  <span
+    aria-hidden="true"
+    class="title truncate"
+  >
+    
+    chapter title
+  
+  </span>
+   
+  <!---->
+   
+  <span
+    class="timer timer"
+  >
+    -00:00
+  </span>
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+    style="width: 0%; background-color: rgb(43, 138, 198);"
+  />
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+</div>
+`;
+
+exports[`ChapterProgress props should render 'playtime' 1`] = `
+<div
+  aria-hidden="true"
+  class="chapter-progress"
+>
+  <span
+    aria-hidden="true"
+    class="title truncate"
+  >
+    
+    
+  
+  </span>
+   
+  <!---->
+   
+  <span
+    class="timer timer"
+  >
+    00:00
+  </span>
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+</div>
+`;
+
+exports[`ChapterProgress props should render 'progressColor' 1`] = `
+<div
+  aria-hidden="true"
+  class="chapter-progress"
+>
+  <span
+    aria-hidden="true"
+    class="title truncate"
+  >
+    
+    
+  
+  </span>
+   
+  <!---->
+   
+  <span
+    class="timer timer"
+  >
+    00:00
+  </span>
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+</div>
+`;
+
+exports[`ChapterProgress props should render 'showLink' 1`] = `
+<div
+  aria-hidden="true"
+  class="chapter-progress"
+>
+  <span
+    aria-hidden="true"
+    class="title truncate"
+  >
+    
+    
+  
+  </span>
+   
+  <!---->
+   
+  <span
+    class="timer timer"
+  >
+    00:00
+  </span>
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+</div>
+`;
+
+exports[`ChapterProgress props should render without props 1`] = `
+<div
+  aria-hidden="true"
+  class="chapter-progress"
+>
+  <span
+    aria-hidden="true"
+    class="title truncate"
+  >
+    
+    
+  
+  </span>
+   
+  <!---->
+   
+  <span
+    class="timer timer"
+  >
+    00:00
+  </span>
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+   
+  <span
+    aria-hidden="true"
+    class="chapter-progress-bar"
+  />
+</div>
+`;

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should provide defaults 1`] = `
+<div
+  class="card"
+  style="background: rgb(255, 255, 255);"
+>
+  <div
+    class="card-header"
+    style="background: rgb(43, 138, 198);"
+  />
+   
+  <div
+    class="card-body"
+  >
+    <span>
+      Card Inner
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Card props should have a property for backgroundColor 1`] = `
+<div
+  class="card"
+  style="background: rgb(255, 255, 255);"
+>
+  <div
+    class="card-header"
+    style="background: rgb(43, 138, 198);"
+  />
+   
+  <div
+    class="card-body"
+  >
+    <span>
+      Card Inner
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Card props should have a property for headerColor 1`] = `
+<div
+  class="card"
+  style="background: rgb(255, 255, 255);"
+>
+  <div
+    class="card-header"
+    style="background: rgb(255, 255, 255);"
+  />
+   
+  <div
+    class="card-body"
+  >
+    <span>
+      Card Inner
+    </span>
+  </div>
+</div>
+`;

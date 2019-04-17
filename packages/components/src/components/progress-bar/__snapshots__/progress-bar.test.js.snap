@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar props should render 'buffer' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+   
+  <span
+    class="progress-buffer"
+    style="left: 0%; width: 10%; background-color: rgba(0, 0, 0, 0.30000000000000004);"
+  />
+  <span
+    class="progress-buffer"
+    style="left: 50%; width: 10%; background-color: rgba(0, 0, 0, 0.30000000000000004);"
+  />
+    
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'chapters' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  >
+    <span
+      class="indicator"
+      style="background: rgb(170, 0, 0);"
+    />
+    <span
+      class="indicator"
+      style="background: rgb(170, 0, 0);"
+    />
+  </div>
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'ghost' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: block; left: 0.3%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'highlightColor' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #fff;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #fff;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'progressColor' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'quantiles' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+    
+  <span
+    class="progress-track"
+    style="left: 0%; width: 3%; background-color: rgb(255, 255, 255);"
+  />
+  <span
+    class="progress-track"
+    style="left: 55%; width: 5%; background-color: rgb(255, 255, 255);"
+  />
+   
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'thumbColor' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'time' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 50%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render 'title' 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="10000"
+    min="0"
+    title="title"
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;
+
+exports[`ProgressBar props should render with default props 1`] = `
+<div
+  class="progress"
+  id="progress-bar"
+>
+  <input
+    max="0"
+    min="0"
+    title=""
+    type="range"
+  />
+   
+  <span
+    class="progress-range"
+    style="background-color: rgb(255, 255, 255);"
+  />
+     
+  <div
+    class="chapters-progress"
+  />
+   
+  <span
+    class="ghost-thumb"
+    style="display: none; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+  />
+   
+  <span
+    class="progress-thumb"
+    style="display: block; background-color: rgb(255, 255, 255); border-color: #a00;"
+  />
+</div>
+`;

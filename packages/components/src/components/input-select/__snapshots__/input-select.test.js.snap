@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputSelect props should render type 'background' 1`] = `
+<select
+  class="input-select"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+>
+  <option>
+    
+    foo
+  
+  </option>
+  <option>
+    
+    bar
+  
+  </option>
+  <option>
+    
+    baz
+  
+  </option>
+</select>
+`;
+
+exports[`InputSelect props should render type 'borderColor' 1`] = `
+<select
+  class="input-select"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #fff;"
+>
+  <option>
+    
+    foo
+  
+  </option>
+  <option>
+    
+    bar
+  
+  </option>
+  <option>
+    
+    baz
+  
+  </option>
+</select>
+`;
+
+exports[`InputSelect props should render type 'color' 1`] = `
+<select
+  class="input-select"
+  style="color: rgb(255, 255, 255); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+>
+  <option>
+    
+    foo
+  
+  </option>
+  <option>
+    
+    bar
+  
+  </option>
+  <option>
+    
+    baz
+  
+  </option>
+</select>
+`;
+
+exports[`InputSelect props should render type 'disabled' 1`] = `
+<select
+  class="input-select"
+  disabled="disabled"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+>
+  <option>
+    
+    foo
+  
+  </option>
+  <option>
+    
+    bar
+  
+  </option>
+  <option>
+    
+    baz
+  
+  </option>
+</select>
+`;
+
+exports[`InputSelect props should render type 'value' 1`] = `
+<select
+  class="input-select"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+>
+  <option>
+    
+    foo
+  
+  </option>
+  <option>
+    
+    bar
+  
+  </option>
+  <option>
+    
+    baz
+  
+  </option>
+</select>
+`;
+
+exports[`InputSelect props should render with default props 1`] = `
+<select
+  class="input-select"
+  style="color: rgb(43, 138, 198); background: rgb(255, 255, 255); border-color: #2b8ac6;"
+/>
+`;

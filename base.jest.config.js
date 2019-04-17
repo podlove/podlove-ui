@@ -18,10 +18,10 @@ module.exports = {
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  // collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: null,
+  // collectCoverageFrom: ["**/*.{js,vue}", "!**/node_modules/**"],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
@@ -66,7 +66,7 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: ['js'],
+  moduleFileExtensions: ['js', 'vue'],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -155,7 +155,8 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
+    '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest'
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
