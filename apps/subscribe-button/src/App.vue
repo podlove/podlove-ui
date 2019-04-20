@@ -26,15 +26,6 @@ export default {
     style: selectStyle
   }),
   computed: {
-    filling() {
-      if (this.style === 'outline') {
-        return `border: 2px solid ${this.color}; color: ${this.color};`
-      } else if (this.style === 'frameless') {
-        return `color: ${this.color}; background: none;`
-      } else {
-        return `background: ${this.color};`
-      }
-    },
     dimensions() {
       return `${this.size.toLowerCase()}-${this.format.toLowerCase()}`
     }
