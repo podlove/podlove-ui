@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="background">
     <div :class="dimensions">
       <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color" />
-      <button-component :style="filling"></button-component>
+      <button-component :clickevent="testClick"></button-component>
     </div>
 
     <overlay-component></overlay-component>
@@ -26,17 +26,13 @@ export default {
     style: selectStyle
   }),
   computed: {
-    filling() {
-      if (this.style === 'outline') {
-        return `border: 2px solid ${this.color}; color: ${this.color};`
-      } else if (this.style === 'frameless') {
-        return `color: ${this.color}; background: none;`
-      } else {
-        return `background: ${this.color};`
-      }
-    },
     dimensions() {
       return `${this.size.toLowerCase()}-${this.format.toLowerCase()}`
+    }
+  },
+  methods: {
+    testClick() {
+      // console.log('testing')
     }
   }
 }
@@ -46,6 +42,18 @@ export default {
 @import '~normalize-scss';
 @import '~theme/reset';
 @import '~theme/variable';
+
+.background {
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  > * {
+    margin: 20px;
+  }
+}
 
 .big-rectangle {
   width: $size-big-width;
