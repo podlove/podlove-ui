@@ -1,11 +1,42 @@
 <template>
   <div class="overlay">
-    <cover alt="ccc" :url="cover" :cover-color="color" />
-    <h1>{{ podcastTitle }}</h1>
-    <p>{{ podcastSubTitle }}</p>
-    <p>Bitte die URL kopieren und in deine Podcast- oder RSS-App einfügen.</p>
-
-    <button-component style="filling"></button-component>
+    <div class="subscribe-top">
+      <cover alt="ccc" :url="cover" :cover-color="color" />
+      <div class="podcast-describtion">
+        <h1>{{ podcastTitle }}</h1>
+        <p>{{ podcastSubTitle }}</p>
+        <p>Bitte die URL kopieren und in deine Podcast- oder RSS-App einfügen.</p>
+        <button-component :clickevent="testCopy"></button-component>
+      </div>
+    </div>
+    <div class="app-liste">
+      <ul>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+      </ul>
+      <ul>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+        <li>App 1</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -31,7 +62,12 @@ export default {
     podcastFeed: selectFeed,
     podcastTitle: selectTitle,
     podcastSubTitle: selectSubTitle
-  })
+  }),
+  methods: {
+    testCopy() {
+      // console.log('copy testing')
+    }
+  }
 }
 </script>
 
@@ -41,15 +77,25 @@ export default {
 @import '~theme/variable';
 
 .overlay {
-  width: 300px;
+  width: 500px;
   background: #fff;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 1em;
 
   img {
     height: $size-big-cover-height;
   }
+}
+
+.subscribe-top {
+  display: flex;
+}
+
+.podcast-describtion {
+  margin-left: 1em;
+}
+
+.app-liste {
+  display: flex;
+  align-content: flex-start;
 }
 </style>
