@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './src'
 import store from './src/store'
 
-// window.PODLOVE_STORE = store;
+window.PODLOVE_STORE = store
 
 new Vue({
   // i18n,
