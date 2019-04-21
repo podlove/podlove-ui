@@ -2,16 +2,16 @@
   <div class="background">
     <div :class="dimensions">
       <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color" />
-      <button-component :clickevent="testClick"></button-component>
+      <button-component :clickevent="testClick" :sb="true"></button-component>
     </div>
 
     <overlay-component></overlay-component>
   </div>
 </template>
-
 <script>
 import ButtonComponent from './button/button'
 import OverlayComponent from './overlay/overlay'
+// import { getPlattform } from '@podlove/utils/useragent'
 import { Image } from '@podlove/components'
 import { mapState } from 'redux-vuex'
 import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     testClick() {
-      // console.log('testing')
+      // console.log(getPlattform())
     }
   }
 }
