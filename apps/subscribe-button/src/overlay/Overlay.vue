@@ -5,8 +5,8 @@
       <div class="podcast-describtion">
         <h1>{{ podcastTitle }}</h1>
         <p>{{ podcastSubTitle }}</p>
-        <p>Bitte die URL kopieren und in deine Podcast- oder RSS-App einfügen.</p>
-        <button-component :clickevent="testCopy"></button-component>
+        <!-- <p>Bitte die URL kopieren und in deine Podcast- oder RSS-App einfügen.</p>
+        <button class="btn-copy" :style='btnColor'>Weiter</button> -->
       </div>
     </div>
     <div class="app-liste">
@@ -50,11 +50,10 @@ import {
   selectDescription,
   selectFeed
 } from 'store/selectors'
-import ButtonComponent from '../button/button'
 import { Image } from '@podlove/components'
 
 export default {
-  components: { Cover: Image, ButtonComponent },
+  components: { Cover: Image },
   data: mapState({
     color: selectColor,
     cover: selectCover,
@@ -63,6 +62,11 @@ export default {
     podcastTitle: selectTitle,
     podcastSubTitle: selectSubTitle
   }),
+  computed: {
+    btnColor() {
+      return `background: ${this.color};`
+    }
+  },
   methods: {
     testCopy() {
       // console.log('copy testing')
@@ -88,14 +92,25 @@ export default {
 
 .subscribe-top {
   display: flex;
+
+  .image-container {
+    margin-right: 1em;
+  }
 }
 
 .podcast-describtion {
-  margin-left: 1em;
+  h1 {
+    margin-top: 0px;
+  }
 }
 
 .app-liste {
   display: flex;
   align-content: flex-start;
+}
+
+.btn-copy {
+  width: 250px;
+  height: 50px;
 }
 </style>
