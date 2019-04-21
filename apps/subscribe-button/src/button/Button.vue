@@ -1,5 +1,5 @@
 <template>
-  <button id="podlove podlove-subscribe-button" :style="filling" @click="clickevent()">
+  <button id="podlove-subscribe-button" :style="filling" @click="clickevent()">
     Subscribe
   </button>
 </template>
@@ -10,7 +10,10 @@ import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 
 
 export default {
   props: {
-    clickevent: Function
+    clickevent: {
+      type: Function,
+      default: null
+    }
   },
   data: mapState({
     color: selectColor,
@@ -28,9 +31,6 @@ export default {
       } else {
         return `background: ${this.color};`
       }
-    },
-    dimensions() {
-      return `${this.size.toLowerCase()} ${this.format.toLowerCase()} ${this.style.toLowerCase()}`
     }
   }
 }
