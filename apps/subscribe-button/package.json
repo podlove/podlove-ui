@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@podlove/components": "4.2.3",
+    "@podlove/utils": "4.2.3",
     "normalize-scss": "7.0.1",
     "ramda": "0.26.1",
     "redux": "4.0.1",
