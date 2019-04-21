@@ -1,5 +1,5 @@
 <template>
-  <button id="podlove-subscribe-button">
+  <button id="podlove podlove-subscribe-button" :style="filling" @click="clickevent()">
     Subscribe
   </button>
 </template>
@@ -9,6 +9,9 @@ import { mapState } from 'redux-vuex'
 import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 
 export default {
+  props: {
+    clickevent: Function
+  },
   data: mapState({
     color: selectColor,
     cover: selectCover,
@@ -17,6 +20,15 @@ export default {
     style: selectStyle
   }),
   computed: {
+    filling() {
+      if (this.style === 'outline') {
+        return `border: 2px solid ${this.color}; color: ${this.color};`
+      } else if (this.style === 'frameless') {
+        return `color: ${this.color}; background: none;`
+      } else {
+        return `background: ${this.color};`
+      }
+    },
     dimensions() {
       return `${this.size.toLowerCase()} ${this.format.toLowerCase()} ${this.style.toLowerCase()}`
     }
