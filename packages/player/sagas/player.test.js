@@ -430,10 +430,14 @@ describe('player', () => {
 
     test('should call media restart', () => {
       gen.next()
-      expect(actions.restart).toHaveBeenCalled()
+      gen.next()
+      expect(actions.setPlaytime).toHaveBeenCalledWith(0)
+      expect(actions.play).toHaveBeenCalled()
     })
 
     test('should end the saga', () => {
+      gen.next()
+      gen.next()
       gen.next()
       expect(gen.next().done).toBeTruthy()
     })

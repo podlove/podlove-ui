@@ -9,17 +9,11 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    'jest/globals': true
+    'jest/globals': true,
+    'cypress/globals': true
   },
-  plugins: ['jest'],
-  extends: [
-    'prettier',
-    'prettier/standard',
-    'plugin:vue/recommended',
-    'eslint:recommended',
-    'prettier/vue',
-    'plugin:prettier/recommended'
-  ],
+  plugins: ['jest', 'cypress'],
+  extends: ['@vue/prettier', 'plugin:vue/recommended'],
   rules: {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'require-yield': ['warn'],
@@ -30,6 +24,6 @@ module.exports = {
     'vue/max-attributes-per-line': 'off',
     'vue/html-closing-bracket-spacing': 'off',
     'vue/html-self-closing': 'off',
-    'generator-star-spacing': ['error', 'both']
+    'generator-star-spacing': 'off'
   }
 }

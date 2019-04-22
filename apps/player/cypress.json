@@ -1,0 +1,10 @@
+{
+  "projectId": "mvgejp",
+  "baseUrl": "http://localhost:8080",
+  "fileServerFolder": "./cypress/testbed",
+  "fixturesFolder": "./cypress/fixtures",
+  "integrationFolder": "./cypress/integration",
+  "supportFile": "./cypress/support",
+  "videosFolder": "../../reports/player/videos",
+  "screenshotsFolder": "../../reports/player/screenshots"
+}

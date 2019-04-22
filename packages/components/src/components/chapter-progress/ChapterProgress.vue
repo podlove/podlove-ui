@@ -23,7 +23,7 @@
         {{ chapter.linkTitle }}
       </a>
     </span>
-    <timer class="timer" :time="remainingTime" :remaining="chapter.active || ghostActive" />
+    <timer class="timer" :time="remainingTime" :remaining="chapter.active || !!ghostActive" />
     <span class="chapter-progress-bar" :style="progressStyle" aria-hidden="true" />
     <span class="chapter-progress-bar" :style="progressGhostStyle" aria-hidden="true" />
   </div>

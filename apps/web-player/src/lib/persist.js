@@ -9,7 +9,7 @@ import {
 } from '@podlove/player-actions/components'
 import { loadQuantiles } from '@podlove/player-actions/quantiles'
 import { toggleTab } from '@podlove/player-actions/tabs'
-import { compose, propOr } from 'ramda'
+import { compose, propOr, isEmpty } from 'ramda'
 import LocalStorage from 'localstorage'
 import { hashCode } from 'hashcode'
 
@@ -27,7 +27,7 @@ export const persistPlayer = (config, store) => {
   const key = hashCode().value(config)
   const [, existing = {}] = storage.get(key)
 
-  if (existing) {
+  if (!isEmpty(existing)) {
     store.dispatch(showPauseButton())
     store.dispatch(showSteppersControls())
     store.dispatch(showChapterControls())

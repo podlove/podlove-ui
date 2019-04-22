@@ -19,8 +19,8 @@ describe('lifecycle', () => {
 
   describe('validateConfig()', () => {
     test('should dispatch READY', () => {
-      const gen = validateConfig()
-      expect(gen.next().value).toEqual(put(ready()))
+      const gen = validateConfig({ payload: { foo: 'bar' } })
+      expect(gen.next().value).toEqual(put(ready({ foo: 'bar' })))
       expect(gen.next().done).toBeTruthy()
     })
   })

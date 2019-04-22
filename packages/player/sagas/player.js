@@ -86,8 +86,8 @@ export function* pause(actions) {
 }
 
 export function* restart(actions) {
-  actions.play()
-  yield actions.restart()
+  actions.setPlaytime(0)
+  yield actions.play()
 }
 
 export function* load(actions) {

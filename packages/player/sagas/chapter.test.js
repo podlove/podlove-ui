@@ -175,7 +175,7 @@ describe('chapters', () => {
       const gen = previousChapter({ selectPlaytime, selectCurrentChapter })
       gen.next()
       gen.next(22000)
-      expect(gen.next({ start: 20000, index: 1 }).value).toEqual(put(chapter.previousChapter()))
+      expect(gen.next({ start: 21000, index: 1 }).value).toEqual(put(chapter.previousChapter()))
       expect(gen.next().done).toBeTruthy()
     })
 

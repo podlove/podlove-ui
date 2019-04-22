@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.info-tab#info-tab
+  div.info-tab#tab-info
     div.description
       div.episode
         h3.title#tab-info--episode-title(v-if="episodeTitle") {{ episodeTitle }}

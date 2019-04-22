@@ -1,16 +1,16 @@
 <template lang="pug">
   div.control-bar(:style="controlbarStyle")
     transition(name="entry")
-      chapter-button.control-button(v-if="chapterButtons" type="previous" :color="buttonStyle.background" @click="dispatch")
+      chapter-button.control-button(v-if="chapterButtons" type="previous" :disabled="previousChapterDisabled" :color="buttonStyle.background" @click="dispatch")
     transition(name="entry")
-      stepper-button.control-button(v-if="stepperButtons" type="backwards" :color="buttonStyle.background" @click="dispatch")
+      stepper-button.control-button(v-if="stepperButtons" type="backwards" :disabled="previousStepperDisabled" :color="buttonStyle.background" @click="dispatch")
     transition(name="entry")
       play-button.control-button(v-if="button.type" :type="button.type" :color="buttonStyle.color" :background="buttonStyle.background" @click="dispatch" :label="button.label")
         span.visually-hidden {{ button.a11y }}
     transition(name="entry")
-      stepper-button.control-button(v-if="stepperButtons" type="forward" :color="buttonStyle.background" @click="dispatch")
+      stepper-button.control-button(v-if="stepperButtons" type="forward" :disabled="nextStepperDisabled" :color="buttonStyle.background" @click="dispatch")
     transition(name="entry")
-      chapter-button.control-button(v-if="chapterButtons" type="next" :color="buttonStyle.background" @click="dispatch")
+      chapter-button.control-button(v-if="chapterButtons" type="next" :disabled="nextChapterDisabled" :color="buttonStyle.background" @click="dispatch")
 </template>
 
 <script>
@@ -32,6 +32,10 @@ export default {
     buttonStyle: select.styles.buttonInverted,
     playButton: select.components.playButton,
     stepperButtons: select.components.stepperButtons,
+    nextStepperDisabled: select.components.nextStepDisabled,
+    nextChapterDisabled: select.components.nextChapterDisabled,
+    previousChapterDisabled: select.components.previousChapterDisabled,
+    previousStepperDisabled: select.components.previousStepDisabled,
     chapterButtons: select.components.chapterButtons,
     duration: select.duration,
     playtime: select.playtime

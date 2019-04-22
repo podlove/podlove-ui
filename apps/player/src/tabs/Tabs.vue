@@ -1,30 +1,30 @@
 <template lang="pug">
-  div.tabs
+  div.tabs#tabs
     tab-header(:class="{overflows}" :backgroundActive="header.backgroundActive" v-resize="resizeHandler" ref="tabHeader")
-      tab-header-item(tab="info" :title="$t('INFO.TITLE')")
+      tab-header-item(tab="info" :title="$t('INFO.TITLE')" v-if="infoTab")
         icon(type="info" slot="icon")
-      tab-header-item(tab="chapters" :title="$t('CHAPTERS.TITLE')")
+      tab-header-item(tab="chapters" :title="$t('CHAPTERS.TITLE')" v-if="chaptersTab")
         icon(type="chapter" slot="icon")
-      tab-header-item(tab="transcripts" :title="$t('TRANSCRIPTS.TITLE')")
+      tab-header-item(tab="transcripts" :title="$t('TRANSCRIPTS.TITLE')" v-if="transcriptTab")
         icon(type="transcripts" slot="icon")
-      tab-header-item(tab="share" :title="$t('SHARE.TITLE')")
+      tab-header-item(tab="share" :title="$t('SHARE.TITLE')" v-if="shareTab")
         icon(type="share" slot="icon")
-      tab-header-item(tab="files" :title="$t('FILES.TITLE')")
+      tab-header-item(tab="files" :title="$t('FILES.TITLE')" v-if="filesTab")
         icon(type="download" slot="icon")
-      tab-header-item(tab="audio" :title="$t('AUDIO.TITLE')")
+      tab-header-item(tab="audio" :title="$t('AUDIO.TITLE')" v-if="audioTab")
         icon(:type="audioIcon" slot="icon")
-    tab-body(tab="info")
+    tab-body(tab="info" v-if="infoTab" rel="info")
       info-tab
-    tab-body(tab="chapters")
+    tab-body(tab="chapters" v-if="chaptersTab" rel="chapters")
       chapters-tab
-    tab-body(tab="share")
-      share-tab
-    tab-body(tab="files")
-      files-tab
-    tab-body(tab="audio")
-      audio-tab
-    tab-body(tab="transcripts")
+    tab-body(tab="transcripts" v-if="transcriptTab" rel="transcripts")
       transcripts-tab
+    tab-body(tab="share" v-if="shareTab" rel="share")
+      share-tab
+    tab-body(tab="files" v-if="filesTab" rel="files")
+      files-tab
+    tab-body(tab="audio" v-if="audioTab" rel="audio")
+      audio-tab
 </template>
 
 <script>
@@ -98,7 +98,13 @@ export default {
       ...this.mapState({
         header: select.styles.tabsHead,
         tabs: select.tabs,
-        audioIcon: select.audio.icon
+        audioIcon: select.audio.icon,
+        infoTab: select.components.infoTab,
+        chaptersTab: select.components.chaptersTab,
+        transcriptTab: select.components.transcriptTab,
+        shareTab: select.components.shareTab,
+        filesTab: select.components.filesTab,
+        audioTab: select.components.audioTab
       }),
       overflows: true
     }

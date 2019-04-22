@@ -1,7 +1,7 @@
 <template lang="pug">
   div.timer-bar
-    timer.current#progress-bar--timer-curren(:color="timerColor" :time="ghost ? ghost: playtime" :aria-label="a11y.current" tabindex="0")
-    chapter-title.chapter
+    timer.current#progress-bar--timer-current(:color="timerColor" :time="ghost ? ghost: playtime" :aria-label="a11y.current" tabindex="0")
+    chapter-title.chapter#progress-bar--current-chapter
     timer.left#progress-bar--timer-left(:color="timerColor" :time="duration - (ghost ? ghost : playtime)" :aria-label="a11y.current" tabindex="0" :remaining="true")
 </template>
 

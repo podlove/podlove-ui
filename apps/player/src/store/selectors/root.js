@@ -10,6 +10,7 @@ export default {
   media: prop('media'),
   playstate: prop('playstate'),
   components: prop('components'),
+  visibleComponents: prop('visibleComponents'),
   ghost: prop('ghost'),
   network: prop('network'),
   quantiles: prop('quantiles'),

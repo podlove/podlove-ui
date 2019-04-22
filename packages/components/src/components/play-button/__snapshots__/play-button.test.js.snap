@@ -3,7 +3,7 @@
 exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--loading"
 >
   <div
     class="wrapper"
@@ -46,7 +46,7 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
 exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--loading"
 >
   <div
     class="wrapper"
@@ -89,7 +89,7 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
 exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--loading"
 >
   <div
     class="wrapper"
@@ -132,7 +132,7 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
 exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--pause"
 >
   <div
     class="wrapper"
@@ -190,7 +190,7 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
 exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--pause"
 >
   <div
     class="wrapper"
@@ -248,7 +248,7 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
 exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--pause"
 >
   <div
     class="wrapper"
@@ -312,7 +312,7 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
 exports[`PlayButton props should render type 'play' with 'background' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--play"
 >
   <div
     class="wrapper"
@@ -362,7 +362,7 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
 exports[`PlayButton props should render type 'play' with 'color' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--play"
 >
   <div
     class="wrapper"
@@ -412,7 +412,7 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
 exports[`PlayButton props should render type 'play' with 'label' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--play"
 >
   <div
     class="wrapper"
@@ -468,7 +468,7 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
 exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--restart"
 >
   <div
     class="wrapper"
@@ -505,7 +505,7 @@ exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
 exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--restart"
 >
   <div
     class="wrapper"
@@ -542,7 +542,7 @@ exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
 exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
 <button
   class="play-button"
-  id="play-button"
+  id="play-button--restart"
 >
   <div
     class="wrapper"

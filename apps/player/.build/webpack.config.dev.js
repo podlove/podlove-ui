@@ -32,6 +32,14 @@ module.exports = {
       filename: 'index.html',
       template: './example/index.html'
     }),
+    plugins.html({
+      filename: 'test.html',
+      template: './example/index.html',
+      chunks: ['main']
+    }),
+    plugins.copy([
+      { from: './example/assets', to: 'assets' }
+    ]),
     plugins.env({ mode: 'development' })
   ]
 }

@@ -1,9 +1,9 @@
 <template lang="pug">
   div.files-tab#tab-files
-    card(:headerColor="cardHeader.background" :backgroundColor="cardBody")
+    card#tab-files--audio(:headerColor="cardHeader.background" :backgroundColor="cardBody")
       span.files-header(:style="headerStyle" slot="header") {{ $t('FILES.TYPES.AUDIO.HEADER') }}
       div
-        file(v-for="(file, index) in audio" :file="file" :key="index" icon="audio-file")
+        file.files-entry(v-for="(file, index) in audio" :file="file" :key="index" icon="audio-file")
 </template>
 
 <script>

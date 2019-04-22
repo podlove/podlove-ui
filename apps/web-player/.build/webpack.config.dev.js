@@ -36,6 +36,11 @@ module.exports = {
       exclude: ['share']
     }),
     plugins.html({
+      filename: 'test.html',
+      template: './example/test.html',
+      exclude: ['share', 'extensions/external-events']
+    }),
+    plugins.html({
       files: {
         styles: ['styles'],
         scripts: ['vendor', 'styles', 'runtime', 'player']
@@ -65,7 +70,8 @@ module.exports = {
       },
       {
         from: './example/example.jpg'
-      }
+      },
+      { from: './example/assets', to: 'assets' }
     ])
   ]
 }
