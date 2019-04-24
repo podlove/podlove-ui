@@ -9,10 +9,17 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    "jest/globals": true
+    'jest/globals': true
   },
   plugins: ['jest'],
-  extends: ['@vue/prettier', 'plugin:vue/recommended'],
+  extends: [
+    'prettier',
+    'prettier/standard',
+    'plugin:vue/recommended',
+    'eslint:recommended',
+    'prettier/vue',
+    'plugin:prettier/recommended'
+  ],
   rules: {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'require-yield': ['warn'],
