@@ -42,35 +42,47 @@ import { setStyles } from '@podlove/utils/dom'
 
 const tabs = {
   InfoTab: () =>
-    import(/* webpackChunkName: "info-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../info'),
+    import(
+      /* webpackChunkName: "info-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../info'
+    ),
   ChaptersTab: () =>
-    import(/* webpackChunkName: "chapters-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../chapters'),
+    import(
+      /* webpackChunkName: "chapters-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../chapters'
+    ),
   FilesTab: () =>
-    import(/* webpackChunkName: "files-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../files'),
+    import(
+      /* webpackChunkName: "files-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../files'
+    ),
   ShareTab: () =>
-    import(/* webpackChunkName: "share-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../share'),
+    import(
+      /* webpackChunkName: "share-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../share'
+    ),
   AudioTab: () =>
-    import(/* webpackChunkName: "audio-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../audio'),
+    import(
+      /* webpackChunkName: "audio-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../audio'
+    ),
   TranscriptsTab: () =>
-    import(/* webpackChunkName: "transcripts-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../transcripts')
+    import(
+      /* webpackChunkName: "transcripts-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../transcripts'
+    )
 }
 
 export default {
