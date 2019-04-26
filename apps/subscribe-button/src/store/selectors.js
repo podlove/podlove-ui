@@ -1,7 +1,9 @@
 import * as config from './reducers/config'
 import * as metadata from './reducers/metadata'
-import * as tabs from './reducers/tabs'
+import * as tabsreducer from './reducers/tabs'
 import { propOr, compose } from 'ramda'
+
+import { createObject } from '@podlove/utils/helper'
 
 export const configSlice = propOr({}, 'config')
 export const metadataSlice = propOr({}, 'metadata')
@@ -48,22 +50,21 @@ export const selectFeed = compose(
   metadataSlice
 )
 
-export const selectApps = compose(
-  tabs.apps,
-  tabSlice
-)
-
-export const selectCloud = compose(
-  tabs.cloud,
-  tabSlice
-)
-
-export const selectPlatform = compose(
-  tabs.platform,
-  tabSlice
-)
-
-export const selectInfo = compose(
-  tabs.info,
-  tabSlice
-)
+export const tabs = createObject({
+  apps: compose(
+    tabsreducer.apps,
+    tabSlice
+  ),
+  cloud: compose(
+    tabsreducer.cloud,
+    tabSlice
+  ),
+  platform: compose(
+    tabsreducer.platform,
+    tabSlice
+  ),
+  info: compose(
+    tabsreducer.info,
+    tabSlice
+  )
+})
