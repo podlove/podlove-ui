@@ -15,23 +15,24 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "lodash": "4.17.11",
-    "normalize.css": "8.0.1",
-    "vue": "2.5.17",
     "@podlove/player-actions": "4.2.3",
     "@podlove/utils": "4.2.3",
-    "v-tooltip": "2.0.0-rc.33"
+    "lodash": "4.17.11",
+    "normalize.css": "8.0.1",
+    "v-tooltip": "2.0.0-rc.33",
+    "vue": "2.5.17",
+    "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
     "@podlove/build": "4.2.3",
-    "webpack-dev-server": "3.1.11",
-    "webpack": "4.26.0",
     "@storybook/addon-actions": "5.0.5",
     "@storybook/addon-centered": "5.0.5",
     "@storybook/addon-knobs": "5.0.5",
     "@storybook/addon-options": "5.0.5",
     "@storybook/addons": "5.0.5",
     "@storybook/vue": "5.0.5",
-    "terser": "3.14.1"
+    "terser": "3.14.1",
+    "webpack": "4.26.0",
+    "webpack-dev-server": "3.1.11"
   }
 }

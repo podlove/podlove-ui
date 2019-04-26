@@ -10,14 +10,15 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "4.2.3",
     "@podlove/components": "4.2.3",
+    "@podlove/player-actions": "4.2.3",
     "@podlove/player-sagas": "4.2.3",
     "@podlove/utils": "4.2.3",
     "color": "3.1.0",
     "object-mapper": "5.0.0",
     "ramda": "0.26.1",
-    "redux-actions": "2.6.4"
+    "redux-actions": "2.6.4",
+    "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
     "@podlove/build": "4.2.3"

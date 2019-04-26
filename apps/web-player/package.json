@@ -13,18 +13,19 @@
   "license": "MIT",
   "dependencies": {
     "@podlove/player": "4.2.3",
-    "@podlove/utils": "4.2.3",
     "@podlove/player-actions": "4.2.3",
     "@podlove/player-state": "4.2.3",
-    "ramda": "0.26.1",
+    "@podlove/utils": "4.2.3",
+    "color": "3.1.0",
+    "hashcode": "1.0.3",
     "iframe-resizer": "4.0.4",
     "localstorage": "1.0.1",
-    "hashcode": "1.0.3",
-    "color": "3.1.0"
+    "ramda": "0.26.1",
+    "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
     "@podlove/build": "4.2.3",
-    "webpack-dev-server": "3.1.11",
-    "webpack": "4.26.0"
+    "webpack": "4.26.0",
+    "webpack-dev-server": "3.1.11"
   }
 }

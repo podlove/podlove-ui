@@ -10,12 +10,13 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "4.2.3",
     "@podlove/components": "4.2.3",
+    "@podlove/player-actions": "4.2.3",
     "@podlove/utils": "4.2.3",
     "detect-browser": "3.0.1",
     "lodash": "4.17.11",
-    "redux-saga": "0.16.2"
+    "redux-saga": "0.16.2",
+    "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
     "@podlove/build": "4.2.3"
