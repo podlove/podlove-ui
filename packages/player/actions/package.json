@@ -12,7 +12,8 @@
   "dependencies": {
     "@podlove/utils": "4.2.3",
     "lodash": "4.17.11",
-    "redux-actions": "2.6.4"
+    "redux-actions": "2.6.4",
+    "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
     "@podlove/build": "4.2.3"
