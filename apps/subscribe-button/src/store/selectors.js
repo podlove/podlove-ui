@@ -5,7 +5,7 @@ import { propOr, compose } from 'ramda'
 
 export const configSlice = propOr({}, 'config')
 export const metadataSlice = propOr({}, 'metadata')
-export const tabSlice = propOr({}, 'tab')
+export const tabSlice = propOr({}, 'tabs')
 
 export const selectColor = compose(
   config.color,
