@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions'
 import { prop } from 'ramda'
 import { INIT } from './types'
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   apps: false,
   cloud: false,
   platform: false,
