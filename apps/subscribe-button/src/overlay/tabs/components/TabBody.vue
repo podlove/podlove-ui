@@ -12,19 +12,28 @@
 </template>
 
 <script>
+import { mapState } from 'redux-vuex'
+
 import { Tab } from '@podlove/components'
+
+import { tabs } from 'store/selectors'
+
 export default {
   components: {
     TabBody: Tab.Body
   },
   props: {
-    active: {
-      type: Boolean,
-      default: false
-    },
     tab: {
       type: String,
       default: null
+    }
+  },
+  data: mapState({
+    tabs: tabs
+  }),
+  computed: {
+    active() {
+      return this.tabs[this.tab]
     }
   }
 }
