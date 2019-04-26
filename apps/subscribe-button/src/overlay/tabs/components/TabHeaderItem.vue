@@ -1,20 +1,9 @@
 <template>
   <tab-header-item :name="tab" :active="active">
-    <span>
+    <span slot="title">
       {{ title }}
     </span>
   </tab-header-item>
-  <!-- tab-header-item(
-    :name="tab"
-    @click="toggleTab(tab)"
-    :color="header.color"
-    :colorActive="header.colorActive"
-    :background="header.background"
-    :backgroundActive="header.backgroundActive"
-    :active="active"
-  )
-    slot(name="icon" slot="icon")
-    span(slot="title") {{ title }} -->
 </template>
 
 <script>
@@ -25,6 +14,10 @@ export default {
   },
   props: {
     title: {
+      type: String,
+      default: null
+    },
+    tab: {
       type: String,
       default: null
     },

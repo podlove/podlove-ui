@@ -1,10 +1,14 @@
 <template>
   <div class="tabs">
     <tab-header class="overflows">
-      <tab-header-item title="tab 0" :active="true"></tab-header-item>
-      <tab-header-item title="tab 1" :active="false"></tab-header-item>
-      <tab-header-item title="tab 2" :active="false"></tab-header-item>
-      <tab-header-item title="tab 3" :active="false"></tab-header-item>
+      <tab-header-item tab="apps" :title="$t('APPS.TITLE')" :active="false"></tab-header-item>
+      <tab-header-item tab="cloud" :title="$t('CLOUD.TITLE')" :active="false"></tab-header-item>
+      <tab-header-item
+        tab="platform"
+        :title="$t('PLATFORM.TITLE')"
+        :active="false"
+      ></tab-header-item>
+      <tab-header-item tab="info" :title="$t('INFO.TITLE')" :active="false"></tab-header-item>
     </tab-header>
   </div>
 </template>
@@ -20,13 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.tabs {
-  width: 100%;
-
-  .overflows .tab-header-item >>> .title {
-    display: none;
-  }
-}
-</style>
