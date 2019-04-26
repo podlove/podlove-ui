@@ -1,5 +1,5 @@
 <template>
-  <tab-header-item :name="tab" :active="active">
+  <tab-header-item :name="tab" :active="active" @click="toogle(tab)">
     <span slot="title">
       {{ title }}
     </span>
@@ -7,7 +7,11 @@
 </template>
 
 <script>
+import { mapState } from 'redux-vuex'
 import { Tab } from '@podlove/components'
+
+import { tabs } from 'store/selectors'
+
 export default {
   components: {
     TabHeaderItem: Tab.HeaderItem
@@ -20,10 +24,14 @@ export default {
     tab: {
       type: String,
       default: null
-    },
-    active: {
-      type: Boolean,
-      default: false
+    }
+  },
+  data: mapState({
+    tabs: tabs
+  }),
+  computed: {
+    active() {
+      return !!this.tabs[this.tab]
     }
   }
 }
