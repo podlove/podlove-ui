@@ -1,6 +1,12 @@
 {
   "INFO" : {
-    "TITLE": "Infos"
+    "TITLE": "Infos",
+    "HEADLINE": "Abonnieren?",
+    "PARAGRAPHS": [
+      "Dank eines Abonnements verpasst du keine Episode dieses Podcasts mehr.",
+      "Nach dem Abonnieren lädt eine Podcast-App automatisch neue Folgen herunter und gibt dir Zugriff auf das Episoden-Archiv.",
+      "Der Podlove Subscribe Button macht das Abonnieren leichter. Wähle eine App oder einen Cloud-Service aus und lasse den Button alles Weitere erledigen. Benutze den Download-Link, um die App falls nötig zu installieren."
+    ]
   },
   "APPS" : {
     "TITLE": "Apps"
