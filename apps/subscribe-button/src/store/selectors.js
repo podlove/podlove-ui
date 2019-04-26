@@ -1,9 +1,11 @@
 import * as config from './reducers/config'
 import * as metadata from './reducers/metadata'
+import * as tab from './reducers/tab'
 import { propOr, compose } from 'ramda'
 
 export const configSlice = propOr({}, 'config')
 export const metadataSlice = propOr({}, 'metadata')
+export const tabSlice = propOr({}, 'tab')
 
 export const selectColor = compose(
   config.color,
@@ -44,4 +46,24 @@ export const selectDescription = compose(
 export const selectFeed = compose(
   metadata.feed,
   metadataSlice
+)
+
+export const selectApps = compose(
+  tab.apps,
+  tabSlice
+)
+
+export const selectCloud = compose(
+  tab.cloud,
+  tabSlice
+)
+
+export const selectPlatform = compose(
+  tab.platform,
+  tabSlice
+)
+
+export const selectInfo = compose(
+  tab.info,
+  tabSlice
 )
