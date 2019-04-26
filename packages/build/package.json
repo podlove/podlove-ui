@@ -38,6 +38,7 @@
     "pug-plain-loader": "1.0.0",
     "ramda": "0.26.1",
     "sass-loader": "7.1.0",
+    "vue-i18n": "^8.11.1",
     "vue-loader": "15.4.2",
     "vue-template-compiler": "2.6.10",
     "webpack": "4.26.0",
