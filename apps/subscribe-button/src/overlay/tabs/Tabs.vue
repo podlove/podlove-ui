@@ -30,15 +30,14 @@ import { Tab } from '@podlove/components'
 
 import TabHeaderItem from './components/TabHeaderItem'
 import TabBody from './components/TabBody'
-import InfoTab from '../info/'
 
-// const tabs = {
-//   InfoTab: () =>
-//     import(/* webpackChunkName: "info-tab" */
-//     /* webpackMode: "lazy" */
-//     /* webpackPreload: true */
-//     '../info')
-// }
+const tabs = {
+  InfoTab: () =>
+    import(/* webpackChunkName: "info-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../info')
+}
 
 import { TOGGLE_TAB } from 'store/reducers/types'
 import store from 'store'
@@ -53,7 +52,6 @@ const tabs = {
 
 export default {
   components: {
-    InfoTab,
     TabBody,
     TabHeader: Tab.Header,
     TabHeaderItem,
