@@ -10,34 +10,6 @@
       </div>
     </div>
     <tabs-component></tabs-component>
-    <div class="app-liste">
-      <ul>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-      </ul>
-      <ul>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-        <li>App 1</li>
-      </ul>
-    </div>
   </div>
 </template>
 
