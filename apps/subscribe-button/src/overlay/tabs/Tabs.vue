@@ -33,23 +33,21 @@ import { Tab } from '@podlove/components'
 
 import TabHeaderItem from './components/TabHeaderItem'
 import TabBody from './components/TabBody'
-import InfoTab from '../info/'
 
-// const tabs = {
-//   InfoTab: () =>
-//     import(/* webpackChunkName: "info-tab" */
-//     /* webpackMode: "lazy" */
-//     /* webpackPreload: true */
-//     '../info')
-// }
+const tabs = {
+  InfoTab: () =>
+    import(/* webpackChunkName: "info-tab" */
+    /* webpackMode: "lazy" */
+    /* webpackPreload: true */
+    '../info')
+}
 
 export default {
   components: {
-    InfoTab,
     TabBody,
     TabHeader: Tab.Header,
-    TabHeaderItem
-    // ...tabs
+    TabHeaderItem,
+    ...tabs
   }
 }
 </script>
