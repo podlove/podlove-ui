@@ -9,6 +9,7 @@
         <button class="btn-copy" :style='btnColor'>Weiter</button> -->
       </div>
     </div>
+    <tabs-component></tabs-component>
     <div class="app-liste">
       <ul>
         <li>App 1</li>
@@ -51,9 +52,10 @@ import {
   selectFeed
 } from 'store/selectors'
 import { Image } from '@podlove/components'
+import TabsComponent from './tabs/tabs'
 
 export default {
-  components: { Cover: Image },
+  components: { Cover: Image, TabsComponent },
   data: mapState({
     color: selectColor,
     cover: selectCover,
