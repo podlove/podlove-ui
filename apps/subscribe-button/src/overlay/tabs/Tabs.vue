@@ -6,10 +6,25 @@
       <tab-header-item
         tab="platform"
         :title="$t('PLATFORM.TITLE')"
-        :active="false"
+        :active="true"
       ></tab-header-item>
       <tab-header-item tab="info" :title="$t('INFO.TITLE')" :active="false"></tab-header-item>
     </tab-header>
+    <tab-body tab="apps" :active="false">
+      <div>something</div>
+    </tab-body>
+    <tab-body tab="cloud" :active="false">
+      <div>something</div>
+    </tab-body>
+    <tab-body tab="platform" :active="true">
+      <div>
+        something
+        <h1>hello</h1>
+      </div>
+    </tab-body>
+    <tab-body tab="info" :active="false">
+      <div>something</div>
+    </tab-body>
   </div>
 </template>
 
@@ -17,8 +32,11 @@
 import { Tab } from '@podlove/components'
 
 import TabHeaderItem from './components/TabHeaderItem'
+import TabBody from './components/TabBody'
+
 export default {
   components: {
+    TabBody,
     TabHeader: Tab.Header,
     TabHeaderItem
   }
