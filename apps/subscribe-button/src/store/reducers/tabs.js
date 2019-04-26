@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 import { prop } from 'ramda'
-import { INIT } from './types'
+import { INIT, TOGGLE_TAB } from './types'
 
 export const INITIAL_STATE = {
   apps: false,
@@ -10,7 +10,10 @@ export const INITIAL_STATE = {
 }
 
 export const reducer = handleActions(
-  { [INIT]: (state, { payload }) => ({ ...state, ...payload }) },
+  {
+    [INIT]: (state, { payload }) => ({ ...state, ...payload }),
+    [TOGGLE_TAB]: (state, { payload }) => ({ ...state, ...payload })
+  },
   INITIAL_STATE
 )
 
