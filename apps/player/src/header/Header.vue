@@ -1,10 +1,10 @@
 <template lang="pug">
   div.header(:style="style")
-    poster-component
+    poster-component(v-if="poster")
     div.info
-      show-title-component
-      episode-title-component
-      episode-description-component
+      show-title-component(v-if="showTitle")
+      episode-title-component(v-if="episodeTitle")
+      episode-description-component(v-if="subtitle")
 </template>
 
 <script>
@@ -25,7 +25,11 @@ export default {
   },
 
   data: mapState({
-    style: select.styles.header
+    style: select.styles.header,
+    showTitle: select.components.showTitle,
+    episodeTitle: select.components.episodeTitle,
+    subtitle: select.components.subtitle,
+    poster: select.components.poster
   })
 }
 </script>

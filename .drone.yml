@@ -4,24 +4,27 @@ name: apps/player
 
 steps:
 - name: bootstrap
-  image: node
+  image: node:10
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node
+  image: node:10
   commands:
     - npx eslint 'apps/player/**/*.{js,vue}'
 
-# - name: test
-#   image: node
-#   commands:
-#     - npx jest 'apps/player'
+- name: integration
+  image: cypress/base:10
+  commands:
+    - npx cypress install
+    - npx lerna run integration:build --scope @podlove/player
+    - npx lerna run integration:server --scope @podlove/player
+    - npx lerna run integration:ci --scope @podlove/player
 
 - name: build
-  image: node
+  image: node:10
   commands:
     - npx lerna run build --scope @podlove/player
 
@@ -31,24 +34,27 @@ name: apps/web-player
 
 steps:
 - name: bootstrap
-  image: node
+  image: node:10
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node
+  image: node:10
   commands:
     - npx eslint 'apps/web-player/**/*.{js,vue}'
 
-- name: test
-  image: node
+- name: integration
+  image: cypress/base:10
   commands:
-    - npx jest 'apps/web-player/**/*.js'
+    - npx cypress install
+    - npx lerna run integration:build --scope @podlove/web-player
+    - npx lerna run integration:server --scope @podlove/web-player
+    - npx lerna run integration:ci --scope @podlove/web-player
 
 - name: build
-  image: node
+  image: node:10
   commands:
     - npx lerna run build --scope @podlove/web-player
 
@@ -58,24 +64,24 @@ name: packages/components
 
 steps:
 - name: bootstrap
-  image: node
+  image: node:10
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node
+  image: node:10
   commands:
     - npx eslint 'packages/components/**/*.{js,vue}'
 
 - name: test
-  image: node
+  image: node:10
   commands:
-    - npx jest 'packages/components'
+    - npx jest packages/components
 
 - name: build
-  image: node
+  image: node:10
   commands:
     - npx lerna run build --scope @podlove/components
 
@@ -85,24 +91,24 @@ name: packages/player-actions
 
 steps:
 - name: bootstrap
-  image: node
+  image: node:10
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node
+  image: node:10
   commands:
     - npx eslint 'packages/player/actions/**/*.{js,vue}'
 
 # - name: test
-#   image: node
+#   image: node:10
 #   commands:
 #     - npx jest 'packages/player/actions'
 
 - name: build
-  image: node
+  image: node:10
   commands:
     - npx lerna run build --scope @podlove/player-actions
 
@@ -112,24 +118,24 @@ name: packages/player-sagas
 
 steps:
 - name: bootstrap
-  image: node
+  image: node:10
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node
+  image: node:10
   commands:
     - npx eslint 'packages/player/sagas/**/*.{js,vue}'
 
 - name: test
-  image: node
+  image: node:10
   commands:
     - npx jest 'packages/player/sagas'
 
 - name: build
-  image: node
+  image: node:10
   commands:
     - npx lerna run build --scope @podlove/player-sagas
 
@@ -139,24 +145,24 @@ name: packages/player-state
 
 steps:
 - name: bootstrap
-  image: node
+  image: node:10
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node
+  image: node:10
   commands:
     - npx eslint 'packages/player/state/**/*.{js,vue}'
 
 - name: test
-  image: node
+  image: node:10
   commands:
     - npx jest 'packages/player/state'
 
 - name: build
-  image: node
+  image: node:10
   commands:
     - npx lerna run build --scope @podlove/player-state
 
@@ -166,23 +172,23 @@ name: packages/utils
 
 steps:
 - name: bootstrap
-  image: node
+  image: node:10
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node
+  image: node:10
   commands:
     - npx eslint 'packages/utils/**/*.{js,vue}'
 
 - name: test
-  image: node
+  image: node:10
   commands:
     - npx jest 'packages/utils'
 
 - name: build
-  image: node
+  image: node:10
   commands:
     - npx lerna run build --scope @podlove/utils

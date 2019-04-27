@@ -9,6 +9,7 @@
       :a11y="$t('A11Y.SHARE_CONTENT_SHOW', { title: showTitle })"
       :color="isActive('show') ? activeStyle.color : style.color",
       :background="isActive('show') ? activeStyle.background : style.background"
+      :class="{ active: isActive('show') }"
       @click="dispatch"
     )
       icon(slot="icon" type="content-show")
@@ -21,12 +22,13 @@
       :a11y="$t('A11Y.SHARE_CONTENT_EPISODE', { title: episodeTitle })"
       :color="isActive('episode') ? activeStyle.color : style.color",
       :background="isActive('episode') ? activeStyle.background : style.background"
+      :class="{ active: isActive('episode') }"
       @click="dispatch"
     )
       icon(slot="icon" type="content-episode")
 
     content-option.content-option#tab-share--content--chapter(
-      v-if="currentChapter"
+      v-if="chaptersChannel"
       tabindex="0"
       :content="$t('SHARE.CONTENT.CHAPTER')"
       :title="currentChapter.title"
@@ -34,6 +36,7 @@
       :a11y="$t('A11Y.SHARE_CONTENT_CHAPTER', { title: currentChapter.title })"
       :color="isActive('chapter') ? activeStyle.color : style.color",
       :background="isActive('chapter') ? activeStyle.background : style.background"
+      :class="{ active: isActive('chapter') }"
       @click="dispatch"
     )
       icon(slot="icon" type="content-chapter")
@@ -46,9 +49,10 @@
       :a11y="$t('A11Y.SHARE_CONTENT_PLAYTIME', { playtime: toHumanTime(playtime) })"
       :color="isActive('time') ? activeStyle.color : style.color",
       :background="isActive('time') ? activeStyle.background : style.background"
+      :class="{ active: isActive('time') }"
       @click="dispatch"
     )
-      icon(slot="icon" type="content-chapter")
+      icon(slot="icon" type="content-playtime")
 </template>
 
 <script>
@@ -72,7 +76,8 @@ export default {
     showLink: select.show.link,
     episodeTitle: select.episode.title,
     currentChapter: select.chapters.current,
-    playtime: select.playtime
+    playtime: select.playtime,
+    chaptersChannel: select.components.chaptersChannel
   }),
   methods: {
     dispatch: store.dispatch,

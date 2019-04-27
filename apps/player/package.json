@@ -7,7 +7,11 @@
     "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist",
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
+    "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
+    "integration:ci": "cypress run --record --key 54ef8855-9428-4b03-92db-fe0d853c4c41 --config baseUrl=http://localhost:8080",
+    "integration:dev": "cypress open --config baseUrl=http://localhost:9000"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -32,6 +36,7 @@
   "devDependencies": {
     "@podlove/build": "4.2.3",
     "webpack-dev-server": "3.1.11",
-    "webpack": "4.26.0"
+    "webpack": "4.26.0",
+    "cypress": "3.2.0"
   }
 }

@@ -74,7 +74,7 @@ export function* previousChapter({ selectPlaytime, selectCurrentChapter }) {
   const playtime = yield select(selectPlaytime)
   const { start, index } = yield select(selectCurrentChapter)
 
-  if (playtime - start <= 2000) {
+  if (playtime - start <= 1000) {
     yield put(chapter.previousChapter())
   } else {
     yield put(chapter.setChapter(index - 1))

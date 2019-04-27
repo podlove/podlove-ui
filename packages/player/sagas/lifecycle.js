@@ -6,7 +6,7 @@ export function* lifeCycleSaga() {
   yield takeEvery(INIT, validateConfig)
 }
 
-export function* validateConfig() {
+export function* validateConfig({ payload }) {
   // TODO: validate config
-  yield put(ready())
+  yield put(ready(payload))
 }

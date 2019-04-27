@@ -1,5 +1,5 @@
 <template>
-  <button id="play-button" ref="playbutton" class="play-button" @click="clickHandler()">
+  <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
     <div ref="wrapper" class="wrapper" :style="wrapper">
       <transition name="component" mode="out-in" @enter="enterAnimation">
         <component

@@ -1,6 +1,5 @@
 /* eslint-disable no-global-assign, no-unused-vars */
 /* globals __webpack_public_path__ */
-
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { head } from 'ramda'

@@ -20,7 +20,7 @@ export const chaptersTab = compose(
   tabs
 )
 export const transcriptTab = compose(
-  prop('transcript'),
+  prop('transcripts'),
   tabs
 )
 export const shareTab = compose(

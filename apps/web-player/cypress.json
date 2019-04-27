@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://localhost:8080",
+  "fileServerFolder": "./cypress/testbed",
+  "fixturesFolder": "./cypress/fixtures",
+  "integrationFolder": "./cypress/integration",
+  "pluginsFolder": false,
+  "supportFile": "./cypress/support",
+  "videosFolder": "../../reports/web-player/videos",
+  "screenshotsFolder": "../../reports/web-player/screenshots",
+  "projectId": "tz4idp"
+}

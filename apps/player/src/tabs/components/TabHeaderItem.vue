@@ -15,6 +15,7 @@
 <script>
 import { mapState, mapActions } from 'redux-vuex'
 import { Tab, Icon as IconComponent } from '@podlove/components'
+
 import { toggleTab } from '@podlove/player-actions/tabs'
 
 import select from 'store/selectors'

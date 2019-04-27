@@ -1,7 +1,19 @@
 import { compose, propOr, includes, equals, length } from 'ramda'
 import {
-  showComponentTab,
-  hideComponentTab,
+  showInfoTab,
+  hideInfoTab,
+  showChaptersTab,
+  hideChaptersTab,
+  showFilesTab,
+  hideFilesTab,
+  showAudioTab,
+  hideAudioTab,
+  showShareTab,
+  hideShareTab,
+  showTranscriptsTab,
+  hideTranscriptsTab,
+
+  // Header
   showInfoPoster,
   hideInfoPoster,
   showShowTitle,
@@ -10,13 +22,15 @@ import {
   hideEpisodeTitle,
   showSubtitle,
   hideSubtitle,
-  hideChapterControls,
+
+  // Controls
   showChapterControls,
+  hideChapterControls,
   showSteppersControls,
   hideSteppersControls,
   showProgressBar,
   hideProgressBar
-} from '@podlove/player-actions/components'
+} from '@podlove/player-actions/visible-components'
 
 const emptyList = compose(
   equals(0),
@@ -45,39 +59,39 @@ export const setVisibleComponents = (config, store) => {
   }
 
   if (infoTab(visibleComponents)) {
-    store.dispatch(showComponentTab('info'))
+    store.dispatch(showInfoTab())
   } else {
-    store.dispatch(hideComponentTab('info'))
+    store.dispatch(hideInfoTab())
   }
 
   if (chaptersTab(visibleComponents)) {
-    store.dispatch(showComponentTab('chapters'))
+    store.dispatch(showChaptersTab())
   } else {
-    store.dispatch(hideComponentTab('chapters'))
+    store.dispatch(hideChaptersTab())
   }
 
   if (filesTab(visibleComponents)) {
-    store.dispatch(showComponentTab('files'))
+    store.dispatch(showFilesTab())
   } else {
-    store.dispatch(hideComponentTab('files'))
+    store.dispatch(hideFilesTab())
   }
 
   if (audioTab(visibleComponents)) {
-    store.dispatch(showComponentTab('audio'))
+    store.dispatch(showAudioTab())
   } else {
-    store.dispatch(hideComponentTab('audio'))
+    store.dispatch(hideAudioTab())
   }
 
   if (shareTab(visibleComponents)) {
-    store.dispatch(showComponentTab('share'))
+    store.dispatch(showShareTab())
   } else {
-    store.dispatch(hideComponentTab('share'))
+    store.dispatch(hideShareTab())
   }
 
   if (transcriptsTab(visibleComponents)) {
-    store.dispatch(showComponentTab('transcripts'))
+    store.dispatch(showTranscriptsTab())
   } else {
-    store.dispatch(hideComponentTab('transcripts'))
+    store.dispatch(hideTranscriptsTab())
   }
 
   if (poster(visibleComponents)) {

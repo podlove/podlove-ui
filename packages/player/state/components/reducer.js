@@ -37,9 +37,9 @@ export const INITIAL_STATE = {
   progressBar: false,
   chapterButtons: false,
   stepperButtons: false,
-  volumeControl: true,
-  rateControl: true,
-  poster: true,
+  volumeControl: false,
+  rateControl: false,
+  poster: false,
   error: false,
   info: {
     episodeTitle: false,
@@ -47,12 +47,12 @@ export const INITIAL_STATE = {
     subtitle: false
   },
   tabs: {
-    info: true,
-    chapters: true,
-    transcript: true,
-    share: true,
-    files: true,
-    audio: true
+    info: false,
+    chapters: false,
+    transcript: false,
+    share: false,
+    files: false,
+    audio: false
   }
 }
 
