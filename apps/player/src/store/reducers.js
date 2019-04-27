@@ -20,6 +20,7 @@ import { reducer as reference } from '@podlove/player-state/reference'
 import { reducer as audio } from '@podlove/player-state/audio'
 import { reducer as transcripts } from '@podlove/player-state/transcripts'
 import { reducer as visibleComponents } from '@podlove/player-state/visible-components'
+import { reducer as lastAction } from '@podlove/player-state/last-action'
 
 export default combineReducers({
   runtime,
@@ -43,5 +44,6 @@ export default combineReducers({
   share: combineReducers({
     content,
     embed
-  })
+  }),
+  lastAction
 })
