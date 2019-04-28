@@ -20,5 +20,6 @@ export default {
   share: prop('share'),
   reference: prop('reference'),
   audio: prop('audio'),
-  transcripts: prop('transcripts')
+  transcripts: prop('transcripts'),
+  error: prop('error')
 }

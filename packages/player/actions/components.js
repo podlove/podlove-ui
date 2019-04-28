@@ -2,7 +2,6 @@ import { createAction } from 'redux-actions'
 
 import {
   SHOW_COMPONENT_INFO,
-  SHOW_COMPONENT_ERROR,
   SHOW_COMPONENT_INFO_POSTER,
   SHOW_COMPONENT_CONTROLS_BUTTON,
   SHOW_COMPONENT_TAB,
@@ -42,7 +41,6 @@ export const showInfo = createAction(SHOW_COMPONENT_INFO)
 export const showShowTitle = createAction(SHOW_COMPONENT_SHOW_TITLE)
 export const showEpisodeTitle = createAction(SHOW_COMPONENT_EPISODE_TITLE)
 export const showSubtitle = createAction(SHOW_COMPONENT_SUBTITLE)
-export const showError = createAction(SHOW_COMPONENT_ERROR)
 export const showProgressBar = createAction(SHOW_COMPONENT_PROGRESSBAR)
 export const showInfoPoster = createAction(SHOW_COMPONENT_INFO_POSTER)
 export const showChapterControls = createAction(SHOW_COMPONENT_CONTROLS_CHAPTERS)

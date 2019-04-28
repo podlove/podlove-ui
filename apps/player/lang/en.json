@@ -13,13 +13,13 @@
     "RETRY": "Retry"
   },
   "ERROR": {
-    "LOADING": {
-      "TITLE": "Error loading audio files",
-      "MESSAGE": "Couldn't load the audio files from the server. Please try again later."
+    "NETWORK": {
+      "TITLE": "Network Issue",
+      "MESSAGE": "Couldn't load the audio files from the server. Maybe you don't have connectivity to the internet or the Podcast host is not available."
     },
-    "MISSING_FILES": {
-      "TITLE": "Required information missing",
-      "MESSAGE": "To play the podcast important references to audio files are missing."
+    "MEDIA": {
+      "TITLE": "Missing Media Files",
+      "MESSAGE": "The Player recieved an invalid configuration. Without media files the player can't be used. Please reach out to the host to fix this problem."
     }
   },
   "FILES": {

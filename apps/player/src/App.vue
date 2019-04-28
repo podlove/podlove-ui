@@ -4,6 +4,8 @@
     controls-component.controls
     progress-bar-component.progress
     tabs-component.tabs
+    transition(name="fade")
+      error-component.error(v-if="error")
 </template>
 
 <script>
@@ -11,9 +13,11 @@ import { mapState } from 'redux-vuex'
 import selectors from 'store/selectors'
 
 import WrapperComponent from './Wrapper'
+
 import HeaderComponent from './header'
 import ControlsComponent from './controls'
 import ProgressBarComponent from './progress-bar'
+import ErrorComponent from './error'
 import TabsComponent from './tabs'
 
 export default {
@@ -22,10 +26,12 @@ export default {
     HeaderComponent,
     ControlsComponent,
     ProgressBarComponent,
-    TabsComponent
+    TabsComponent,
+    ErrorComponent
   },
   data: mapState({
-    language: selectors.language
+    language: selectors.language,
+    error: selectors.error.active
   }),
   watch: {
     language() {

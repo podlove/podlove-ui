@@ -22,6 +22,7 @@ import {
   backendBuffer,
   backendError
 } from '@podlove/player-actions/play'
+import { errorMissingMedia } from '@podlove/player-actions/error'
 import { backendPlaytime, backendDuration } from '@podlove/player-actions/timepiece'
 import { millisecondsToSeconds, secondsToMilliseconds } from '@podlove/utils/time'
 
@@ -36,7 +37,7 @@ export function* initPlayer({ selectMedia, selectPlaytime }) {
   const mediaFiles = yield select(selectMedia)
 
   if (mediaFiles.length === 0) {
-    throw new Error('Missing media files in configuration')
+    yield put(errorMissingMedia())
   }
 
   const mediaElement = attatchStream(audio(mediaFiles))
