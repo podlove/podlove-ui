@@ -36,6 +36,8 @@ import TranscriptsIcon from './states/Transcripts'
 import SearchClearIcon from './states/SearchClear'
 import SearchNextIcon from './states/SearchNext'
 import SearchPreviousIcon from './states/SearchPrevious'
+import MissingConnectionIcon from './states/MissingConnection'
+import InvalidConfigurationIcon from './states/InvalidConfiguration'
 
 export const types = [
   'play',
@@ -76,7 +78,9 @@ export const types = [
   'transcripts',
   'search-clear',
   'search-previous',
-  'search-next'
+  'search-next',
+  'missing-connection',
+  'invalid-configuration'
 ]
 
 export const components = {
@@ -117,5 +121,7 @@ export const components = {
   TranscriptsIcon,
   SearchClearIcon,
   SearchNextIcon,
-  SearchPreviousIcon
+  SearchPreviousIcon,
+  MissingConnectionIcon,
+  InvalidConfigurationIcon
 }

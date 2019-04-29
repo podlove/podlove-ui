@@ -19,6 +19,7 @@ import files from './files'
 import share from './share'
 import audio from './audio'
 import transcripts from './transcripts'
+import error from './error'
 
 export default {
   ...runtime,
@@ -39,5 +40,6 @@ export default {
   contributors,
   files,
   share,
-  transcripts
+  transcripts,
+  error
 }

@@ -30,7 +30,15 @@ export default {
     episodeTitle: select.components.episodeTitle,
     subtitle: select.components.subtitle,
     poster: select.components.poster
-  })
+  }),
+
+  computed: {
+    errorWrapper() {
+      return {
+        background: this.errorStyle.background
+      }
+    }
+  }
 }
 </script>
 

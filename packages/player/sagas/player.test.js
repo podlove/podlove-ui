@@ -21,6 +21,7 @@ import {
   backendError
 } from '@podlove/player-actions/play'
 import { backendPlaytime, backendDuration } from '@podlove/player-actions/timepiece'
+import { errorMissingMedia } from '@podlove/player-actions/error'
 
 import {
   playerSaga,
@@ -97,7 +98,7 @@ describe('player', () => {
     test('should throw if no media files available', () => {
       const gen = initPlayer({ selectMedia, selectPlaytime })
       gen.next()
-      expect(() => gen.next([])).toThrow('Missing media files in configuration')
+      expect(gen.next([]).value).toEqual(put(errorMissingMedia()))
     })
 
     describe('audio actions', () => {

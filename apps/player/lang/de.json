@@ -13,13 +13,13 @@
     "RETRY": "Retry"
   },
   "ERROR": {
-    "LOADING": {
-      "TITLE": "Fehler beim Laden der Audiodatei",
-      "MESSAGE": "Die Audiodatei konnte nicht geladen werden, der Server ist nicht erreichbar. Bitte versuch es später nochmal."
+    "NETWORK": {
+      "TITLE": "Netzwerk Problem",
+      "MESSAGE": "Es konnten keine Audio Dateien vom Server geladen werden. Entweder du hast gerade keine Verbindung zum Internet oder die Dateien sind nicht auf dem Server verfügbar."
     },
-    "MISSING_FILES": {
-      "TITLE": "Benötigte Informationen fehlen",
-      "MESSAGE": "Zum abspielen des Podcasts fehlen die Referenzen zu den Audiodateien."
+    "MEDIA": {
+      "TITLE": "Fehlende Medien Dateien",
+      "MESSAGE": "Die zur Verfügung gestellte Konfiguration ist fehlerhaft. Ohne Mediendateien kann der Player nichts abspielen."
     }
   },
   "FILES": {

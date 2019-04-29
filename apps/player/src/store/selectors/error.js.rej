@@ -1,0 +1,27 @@
+diff a/apps/player/src/store/selectors/error.js b/apps/player/src/store/selectors/error.js	(rejected hunks)
+@@ -6,5 +6,20 @@ export default {
+-  active: compose(error.active, root.error),
+-  icon: compose(error.icon, root.error),
+-  title: compose(error.title, root.error),
+-  message: compose(error.message, root.error),
+-  retry: compose(error.retry, root.error)
++  active: compose(
++    error.active,
++    root.error
++  ),
++  icon: compose(
++    error.icon,
++    root.error
++  ),
++  title: compose(
++    error.title,
++    root.error
++  ),
++  message: compose(
++    error.message,
++    root.error
++  ),
++  retry: compose(
++    error.retry,
++    root.error
++  )

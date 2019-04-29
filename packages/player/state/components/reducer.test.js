@@ -1,6 +1,5 @@
 import {
   SHOW_COMPONENT_INFO_POSTER,
-  SHOW_COMPONENT_ERROR,
   SHOW_COMPONENT_TAB,
   SHOW_COMPONENT_VOLUME_SLIDER,
   SHOW_COMPONENT_RATE_SLIDER,
@@ -40,10 +39,6 @@ const expected = result => ({
 
 describe('components', () => {
   describe('error', () => {
-    test('should enable error on SHOW_COMPONENT_ERROR', () => {
-      state(SHOW_COMPONENT_ERROR).toEqual(expected({ error: true }))
-    })
-
     test('should disable error on HIDE_COMPONENT_ERROR', () => {
       state(HIDE_COMPONENT_ERROR).toEqual(expected({ error: false }))
     })

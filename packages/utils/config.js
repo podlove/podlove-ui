@@ -6,10 +6,12 @@ export const duration = compose(
   toPlayerTime,
   propOr(0, 'duration')
 )
+
 export const playtime = compose(
   toPlayerTime,
   propOr(0, 'playtime')
 )
+
 export const media = compose(
   map(
     createObject({
@@ -37,3 +39,11 @@ export const configReference = compose(
   propOr(null, 'config'),
   reference
 )
+
+export const validate = config => {
+  if (media(config).length === 0) {
+    return false
+  }
+
+  return true
+}
