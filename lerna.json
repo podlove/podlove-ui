@@ -1,7 +1,8 @@
 {
   "packages": [
     "packages/**",
-    "apps/**"
+    "apps/**",
+    "docs/**"
   ],
   "version": "4.1.3",
   "npmClient": "npm"

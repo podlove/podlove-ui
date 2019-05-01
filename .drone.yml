@@ -102,11 +102,6 @@ steps:
   commands:
     - npx eslint 'packages/player/actions/**/*.{js,vue}'
 
-# - name: test
-#   image: node:10
-#   commands:
-#     - npx jest 'packages/player/actions'
-
 - name: build
   image: node:10
   commands:
@@ -192,3 +187,20 @@ steps:
   image: node:10
   commands:
     - npx lerna run build --scope @podlove/utils
+
+---
+kind: pipeline
+name: docs/web-player
+
+steps:
+- name: bootstrap
+  image: node:10
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: build
+  image: node:10
+  commands:
+    - npx lerna run build --scope @podlove/docs-web-player
