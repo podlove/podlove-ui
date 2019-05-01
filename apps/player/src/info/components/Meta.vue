@@ -1,14 +1,14 @@
 <template lang="pug">
   p.info-meta
     span.info-tag(v-if="date")
-      icon(type="calendar")
-      span {{ date }}, {{ time }}
+      icon.info-icon(type="calendar")
+      span.info-date {{ date }}, {{ time }}
     span.info-tag(v-if="duration && episodeDuration.hours > 0")
-      icon(type="clock")
-      span {{ $t('INFO.DURATION_WITH_HOURS', episodeDuration) }}
+      icon.info-icon(type="clock")
+      span.info-date {{ $t('INFO.DURATION_WITH_HOURS', episodeDuration) }}
     span.info-tag(v-if="duration && episodeDuration.hours === 0")
-      icon(type="clock")
-      span {{ $t('INFO.DURATION', episodeDuration) }}
+      icon.info-icon(type="clock")
+      span.info-date {{ $t('INFO.DURATION', episodeDuration) }}
 </template>
 
 <script>
@@ -49,20 +49,29 @@ export default {
 @import '~styles/variables';
 
 .info-meta {
+  width: 100%;
   display: flex;
   align-items: center;
 
   .info-tag {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     margin-right: $margin;
   }
+
+  .info-date {
+    white-space: nowrap;
+  }
+
+  .info-icon {
+    margin-right: $margin / 2;
+  }
 }
 
-@media screen and (max-width: $width-m) {
+@media screen and (max-width: $width-l) {
   .info-meta {
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
   }
 }
 </style>

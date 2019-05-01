@@ -1,6 +1,7 @@
+import { init } from '@podlove/player-actions/init'
+
 import example from './example.json'
 import transcripts from './transcripts.json'
-import { init } from '@podlove/player-actions/init'
 
 window.addEventListener(
   'load',

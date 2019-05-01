@@ -4,8 +4,8 @@ module.exports = {
   mode: 'development',
 
   entry: {
-    main: './player.js',
-    example: './example/example.js'
+    example: './example/example.js',
+    bootstrap: './bootstrap.js'
   },
   output: output(),
 
@@ -35,7 +35,7 @@ module.exports = {
     plugins.html({
       filename: 'test.html',
       template: './example/index.html',
-      chunks: ['main']
+      chunks: ['bootstrap']
     }),
     plugins.copy([
       { from: './example/assets', to: 'assets' }

@@ -43,14 +43,14 @@ module.exports = {
     plugins.html({
       files: {
         styles: ['styles'],
-        scripts: ['vendor', 'styles', 'runtime', 'player']
+        scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
       },
       filename: 'share.html',
       template: '!!mustache-loader!./src/lib/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
       base: BASE
     }),
-    plugins.env({ MODE: 'development', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player'], STYLES: ['styles'] }),
+    plugins.env({ MODE: 'development', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'], STYLES: ['styles'] }),
     plugins.copy([
       {
         from: `./node_modules/@podlove/player/dist`,
