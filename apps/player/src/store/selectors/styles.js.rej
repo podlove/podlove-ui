@@ -1,7 +1,0 @@
-diff a/apps/player/src/store/selectors/styles.js b/apps/player/src/store/selectors/styles.js	(rejected hunks)
-@@ -339 +339,4 @@ export default {
--  error: compose(error, root.theme)
-+  error: compose(
-+    error,
-+    root.theme
-+  )

@@ -276,7 +276,7 @@ exports[`Channel props should render type 'facebook' with prop link 1`] = `
 <a
   class="channel-link channel-link"
   color="#2B8AC6"
-  href="https://www.facebook.com/sharer/sharer.php?u=http://foo.bar"
+  href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffoo.bar"
   target="_blank"
 >
   <span
@@ -911,7 +911,7 @@ exports[`Channel props should render type 'pinterest' with prop link 1`] = `
 <a
   class="channel-link channel-link"
   color="#2B8AC6"
-  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url=http://foo.bar"
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url=http%3A%2F%2Ffoo.bar"
   target="_blank"
 >
   <span
@@ -946,7 +946,7 @@ exports[`Channel props should render type 'pinterest' with prop poster 1`] = `
 <a
   class="channel-link channel-link"
   color="#2B8AC6"
-  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media=http://foo.bar/test.jpg&url"
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media=http%3A%2F%2Ffoo.bar%2Ftest.jpg&url"
   target="_blank"
 >
   <span

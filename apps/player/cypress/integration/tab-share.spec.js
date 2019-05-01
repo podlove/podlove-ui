@@ -4,7 +4,7 @@ const { capitalize } = require('lodash')
 const { setState } = require('../helpers/state')
 const domSelectors = require('../selectors')
 
-describe.only('Share Tab', () => {
+describe('Share Tab', () => {
   let selectors
 
   beforeEach(cy.bootstrap)
@@ -88,7 +88,7 @@ describe.only('Share Tab', () => {
             cy.tab('share')
             selectors.tabs.share.content.show().click()
             selectors.tabs.share.channels[channel]().then(link => {
-              expect(link.attr('href')).to.contain(this.show.show.link)
+              expect(decodeURIComponent(link.attr('href'))).to.contain(this.show.show.link)
             })
           })
 
@@ -99,7 +99,7 @@ describe.only('Share Tab', () => {
             cy.tab('share')
             selectors.tabs.share.content.episode().click()
             selectors.tabs.share.channels[channel]().then(link => {
-              expect(link.attr('href')).to.contain(this.episode.link)
+              expect(decodeURIComponent(link.attr('href'))).to.contain(this.episode.link)
             })
           })
 
@@ -110,7 +110,7 @@ describe.only('Share Tab', () => {
             cy.tab('share')
             selectors.tabs.share.content.chapter().click()
             selectors.tabs.share.channels[channel]().then(link => {
-              expect(link.attr('href')).to.contain(`${this.episode.link}?t=00:00,00:08`)
+              expect(decodeURIComponent(link.attr('href'))).to.contain(this.episode.link)
             })
           })
 
@@ -121,7 +121,7 @@ describe.only('Share Tab', () => {
             cy.tab('share')
             selectors.tabs.share.content.time().click()
             selectors.tabs.share.channels[channel]().then(link => {
-              expect(link.attr('href')).to.contain(`${this.episode.link}?t=00:08`)
+              expect(decodeURIComponent(link.attr('href'))).to.contain(this.episode.link)
             })
           })
         })
@@ -192,7 +192,10 @@ describe.only('Share Tab', () => {
         selectors.tabs.share.embed.container()
         selectors.tabs.share.embed
           .input()
-          .should('have.value', embedCode('episode=//localhost:8080/fixtures/example.json'))
+          .should(
+            'have.value',
+            embedCode(`episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fexample.json`)
+          )
       })
 
       it(`creates a embed link for the chapter`, function() {
@@ -213,7 +216,9 @@ describe.only('Share Tab', () => {
           .input()
           .should(
             'contain.value',
-            embedCode('episode=//localhost:8080/fixtures/example.json&t=00:00,00:08')
+            embedCode(
+              `episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fexample.json&t=00%3A00%2C00%3A08`
+            )
           )
       })
 
@@ -233,7 +238,10 @@ describe.only('Share Tab', () => {
         selectors.tabs.share.embed.container()
         selectors.tabs.share.embed
           .input()
-          .should('have.value', embedCode('episode=//localhost:8080/fixtures/example.json&t=00:08'))
+          .should(
+            'have.value',
+            embedCode(`episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fexample.json&t=00%3A08`)
+          )
       })
     })
 
@@ -261,7 +269,7 @@ describe.only('Share Tab', () => {
             .input()
             .should(
               'have.value',
-              embedCode('episode=//localhost:8080/fixtures/example.json', width, height)
+              embedCode('episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fexample.json', width, height)
             )
         })
       })
@@ -288,14 +296,16 @@ describe.only('Share Tab', () => {
         )
         cy.tab('share')
         selectors.tabs.share.content.chapter().click()
-        selectors.tabs.share.link.input().should('have.value', `${this.episode.link}?t=00:00,00:08`)
+        selectors.tabs.share.link
+          .input()
+          .should('have.value', `${this.episode.link}?t=00%3A00%2C00%3A08`)
       })
 
       it('renders episode link with current time stamp', function() {
         cy.window().then(setState(this.episode, this.audio, this.show, { playtime: 8000 }))
         cy.tab('share')
         selectors.tabs.share.content.time().click()
-        selectors.tabs.share.link.input().should('have.value', `${this.episode.link}?t=00:08`)
+        selectors.tabs.share.link.input().should('have.value', `${this.episode.link}?t=00%3A08`)
       })
 
       it('does not render the episode input if no episode url is available', function() {
