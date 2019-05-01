@@ -6,5 +6,6 @@
   "integrationFolder": "./cypress/integration",
   "supportFile": "./cypress/support",
   "videosFolder": "../../reports/player/videos",
-  "screenshotsFolder": "../../reports/player/screenshots"
+  "screenshotsFolder": "../../reports/player/screenshots",
+  "pluginsFile": false
 }
