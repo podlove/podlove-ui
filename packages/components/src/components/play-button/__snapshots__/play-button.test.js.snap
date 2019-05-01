@@ -7,7 +7,7 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: 0px;"
+    style="background-color: rgb(255, 255, 255);"
   >
     <div
       aria-hidden="true"
@@ -38,7 +38,6 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
         />
       </div>
     </div>
-     
   </div>
 </button>
 `;
@@ -50,7 +49,7 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <div
       aria-hidden="true"
@@ -81,7 +80,6 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
         />
       </div>
     </div>
-     
   </div>
 </button>
 `;
@@ -93,7 +91,7 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <div
       aria-hidden="true"
@@ -124,7 +122,6 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
         />
       </div>
     </div>
-     
   </div>
 </button>
 `;
@@ -136,7 +133,7 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: 0px;"
+    style="background-color: rgb(255, 255, 255);"
   >
     <span
       aria-hidden="true"
@@ -182,7 +179,6 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
       </svg>
        
     </span>
-     
   </div>
 </button>
 `;
@@ -194,7 +190,7 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <span
       aria-hidden="true"
@@ -240,7 +236,6 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
       </svg>
        
     </span>
-     
   </div>
 </button>
 `;
@@ -252,7 +247,7 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <span
       aria-hidden="true"
@@ -304,7 +299,6 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
         test-label
       </span>
     </span>
-     
   </div>
 </button>
 `;
@@ -316,7 +310,7 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: 0px;"
+    style="background-color: rgb(255, 255, 255);"
   >
     <span
       aria-hidden="true"
@@ -354,7 +348,6 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
       </svg>
        
     </span>
-     
   </div>
 </button>
 `;
@@ -366,7 +359,7 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <span
       aria-hidden="true"
@@ -404,7 +397,6 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
       </svg>
        
     </span>
-     
   </div>
 </button>
 `;
@@ -416,7 +408,7 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <span
       aria-hidden="true"
@@ -460,7 +452,6 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
         test-label
       </span>
     </span>
-     
   </div>
 </button>
 `;
@@ -472,7 +463,7 @@ exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: 0px;"
+    style="background-color: rgb(255, 255, 255);"
   >
     <span
       aria-hidden="true"
@@ -497,7 +488,6 @@ exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
       </svg>
        
     </span>
-     
   </div>
 </button>
 `;
@@ -509,7 +499,7 @@ exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <span
       aria-hidden="true"
@@ -534,7 +524,6 @@ exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
       </svg>
        
     </span>
-     
   </div>
 </button>
 `;
@@ -546,7 +535,7 @@ exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: 0px;"
+    style="background-color: rgb(43, 138, 198);"
   >
     <span
       aria-hidden="true"
@@ -577,7 +566,6 @@ exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
         test-label
       </span>
     </span>
-     
   </div>
 </button>
 `;

@@ -1,7 +1,7 @@
 <template>
   <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
     <div ref="wrapper" class="wrapper" :style="wrapper">
-      <transition name="component" mode="out-in" @enter="enterAnimation">
+      <transition name="component" mode="out-in">
         <component
           :is="type"
           :id="`play-button--${type}`"
@@ -14,7 +14,6 @@
           <span v-if="label" class="label" :style="{ color: color }">{{ label }}</span>
         </component>
       </transition>
-      <slot />
     </div>
   </button>
 </template>
@@ -68,8 +67,10 @@ export default {
       }
     }
   },
-  mounted() {
-    this.resize()
+  updated() {
+    if (this.$refs.component) {
+      this.width = this.$refs.component.$el.offsetWidth
+    }
   },
   methods: {
     clickHandler() {
@@ -84,12 +85,6 @@ export default {
           this.$emit('click', requestRestart())
           break
       }
-    },
-    resize() {
-      this.width = this.$refs.component.$el.offsetWidth
-    },
-    enterAnimation() {
-      this.resize()
     }
   }
 }
