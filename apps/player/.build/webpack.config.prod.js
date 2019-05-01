@@ -4,7 +4,8 @@ module.exports = {
   mode: 'production',
 
   entry: {
-    player: './player.js'
+    player: './player.js',
+    bootstrap: './bootstrap.js'
   },
 
   output: output(),
