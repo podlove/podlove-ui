@@ -7,6 +7,7 @@
     "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist",
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
+    "postinstall": "npm run build",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
     "integration:ci": "cypress run --config baseUrl=http://localhost:8080",
