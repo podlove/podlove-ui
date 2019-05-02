@@ -47,10 +47,12 @@ import store from 'store'
 
 const tabs = {
   InfoTab: () =>
-    import(/* webpackChunkName: "info-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../info')
+    import(
+      /* webpackChunkName: "info-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../info'
+    )
 }
 
 export default {
