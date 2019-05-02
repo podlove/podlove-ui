@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss">
 @import '~normalize-scss';
+@import '~theme/font';
 @import '~theme/reset';
 @import '~theme/variable';
 
@@ -58,6 +59,9 @@ export default {
   width: 500px;
   background: #fff;
   padding: 1em;
+
+  @include font();
+  font-size: 14px;
 
   img {
     height: $size-big-cover-height;
