@@ -1,5 +1,5 @@
 <template>
-  <tab-header-item :name="tab" :active="active" @click="toogle(tab)">
+  <tab-header-item :name="tab" :active="active" @click="toggleTab()">
     <span slot="title">
       {{ title }}
     </span>
@@ -7,10 +7,11 @@
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, mapActions } from 'redux-vuex'
 import { Tab } from '@podlove/components'
 
 import { tabs } from 'store/selectors'
+import { TOGGLE_TAB } from 'store/reducers/types'
 
 export default {
   components: {
@@ -33,6 +34,11 @@ export default {
     active() {
       return !!this.tabs[this.tab]
     }
-  }
+  },
+  methods: mapActions({
+    toggleTab({ dispatch }) {
+      dispatch({ type: TOGGLE_TAB, payload: { [this.tab]: true } })
+    }
+  })
 }
 </script>
