@@ -1,4 +1,6 @@
+const path = require('path')
 const { entry, output, resolve, rules, plugins, optimization } = require('@podlove/build')
+const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
 
 module.exports = {
   mode: 'production',
@@ -15,7 +17,8 @@ module.exports = {
   resolve: resolve({
     styles: './src/styles',
     store: './src/store',
-    directives: './src/directives'
+    directives: './src/directives',
+    '@podlove/components': componentAssets
   }),
 
   module: {

@@ -5,6 +5,7 @@
   "main": "index.js",
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/player/state",
   "license": "MIT",
   "dependencies": {
     "@podlove/player-actions": "4.2.3",
