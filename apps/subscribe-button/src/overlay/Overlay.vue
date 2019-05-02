@@ -62,6 +62,9 @@ export default {
   @include font();
   font-size: 14px;
 
+  @include font();
+  font-size: 14px;
+
   img {
     height: $size-big-cover-height;
   }
