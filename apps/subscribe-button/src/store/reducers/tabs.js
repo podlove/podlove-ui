@@ -12,7 +12,15 @@ export const INITIAL_STATE = {
 export const reducer = handleActions(
   {
     [INIT]: (state, { payload }) => ({ ...state, ...payload }),
-    [TOGGLE_TAB]: (state, { payload }) => ({ ...state, ...payload })
+    [TOGGLE_TAB]: (state, { payload }) => ({
+      ...{
+        apps: false,
+        cloud: false,
+        platform: false,
+        info: false
+      },
+      ...payload
+    })
   },
   INITIAL_STATE
 )
