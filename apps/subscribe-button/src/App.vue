@@ -47,12 +47,10 @@ export default {
 .background {
   background: #f5f5f5;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 100vh;
 
   @include font();
-  font-size: 14px;
+  font-size: 16px;
 
   > * {
     margin: 20px;
