@@ -58,7 +58,6 @@ export default {
 .overlay {
   width: 500px;
   background: #fff;
-  padding: 1em;
 
   @include font();
   font-size: 14px;
