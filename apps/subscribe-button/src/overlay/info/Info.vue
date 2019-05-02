@@ -11,4 +11,11 @@
 export default {}
 </script>
 
-<style></style>
+<style lang="scss">
+p {
+  text-align: justify;
+  text-justify: distribute;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+</style>
