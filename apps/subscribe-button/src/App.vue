@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss">
 @import '~normalize-scss';
+@import '~theme/font';
 @import '~theme/reset';
 @import '~theme/variable';
 
@@ -49,6 +50,9 @@ export default {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+
+  @include font();
+  font-size: 14px;
 
   > * {
     margin: 20px;
