@@ -41,6 +41,6 @@ export default {
 <style lang="scss">
 .tab-content {
   overflow: auto;
-  padding: 0 1em 1em 1em;
+  padding: 0 1.5em 1em 1.5em;
 }
 </style>
