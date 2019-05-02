@@ -38,3 +38,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.tab-content {
+  overflow: auto;
+}
+</style>
