@@ -28,6 +28,31 @@ steps:
   commands:
     - npx lerna run build --scope @podlove/player
 
+- name: release:prepare
+  image: node:10
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/player
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: apps/player/publish
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+
 ---
 kind: pipeline
 name: apps/web-player
@@ -58,6 +83,56 @@ steps:
   commands:
     - npx lerna run build --scope @podlove/web-player
 
+- name: release:prepare
+  image: node:10
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/web-player
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: apps/web-player/publish
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+- name: cdn:prepare
+  image: node:10
+  commands:
+    - npx lerna run build:cdn --scope @podlove/web-player
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+- name: deploy:cdn
+  image: drillster/drone-rsync
+  settings:
+    hosts: [ "rsync.keycdn.com" ]
+    user: podlove
+    key:
+      from_secret: CDN_KEY
+    source: ./apps/web-player/dist
+    target: applications/web-player/
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+
 ---
 kind: pipeline
 name: packages/components
@@ -85,6 +160,31 @@ steps:
   commands:
     - npx lerna run build --scope @podlove/components
 
+- name: release:prepare
+  image: node:10
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/components
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/components/publish
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+
 ---
 kind: pipeline
 name: packages/player-actions
@@ -102,10 +202,20 @@ steps:
   commands:
     - npx eslint 'packages/player/actions/**/*.{js,vue}'
 
-- name: build
-  image: node:10
-  commands:
-    - npx lerna run build --scope @podlove/player-actions
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/player/actions
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
 
 ---
 kind: pipeline
@@ -134,6 +244,21 @@ steps:
   commands:
     - npx lerna run build --scope @podlove/player-sagas
 
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/player/sagas
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
+
 ---
 kind: pipeline
 name: packages/player-state
@@ -156,10 +281,20 @@ steps:
   commands:
     - npx jest 'packages/player/state'
 
-- name: build
-  image: node:10
-  commands:
-    - npx lerna run build --scope @podlove/player-state
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/player/state
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
 
 ---
 kind: pipeline
@@ -183,10 +318,20 @@ steps:
   commands:
     - npx jest 'packages/utils'
 
-- name: build
-  image: node:10
-  commands:
-    - npx lerna run build --scope @podlove/utils
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/utils
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*
+
 
 ---
 kind: pipeline
@@ -204,3 +349,13 @@ steps:
   image: node:10
   commands:
     - npx lerna run build --scope @podlove/docs-web-player
+
+- name: deploy:github
+  image: node:10
+  commands:
+    - npx lerna run publish --scope @podlove/docs-web-player
+  when:
+    branch:
+    - master
+    ref:
+    - refs/tags/v*

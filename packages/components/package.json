@@ -2,14 +2,15 @@
   "name": "@podlove/components",
   "version": "4.2.3",
   "description": "Reusable Podlove UI Components",
-  "main": "dist/main.js",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist publish",
     "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "publish:prepare": "npm run clean && npm run build && mkdir -p publish && cp -R dist/ publish/ && cp package.json publish/"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",

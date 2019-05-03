@@ -2,16 +2,19 @@
   "name": "@podlove/web-player",
   "version": "4.2.3",
   "description": "Embedded version of Podlove Player",
+  "homepage": "https://github.com/podlove/ui/tree/development/apps/web-player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
+    "build:cdn": "npm run clean && webpack --config .build/webpack.config.cdn.js",
     "postinstall": "npm run build",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
     "integration:ci": "cypress run --config baseUrl=http://localhost:8080",
-    "integration:dev": "cypress open --config baseUrl=http://localhost:9000"
+    "integration:dev": "cypress open --config baseUrl=http://localhost:9000",
+    "publish:prepare": "npm run clean && npm run build && mkdir -p publish && cp -R dist/ publish/ && cp package.json publish/"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
