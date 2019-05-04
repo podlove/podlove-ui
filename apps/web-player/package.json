@@ -10,6 +10,7 @@
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
     "build:cdn": "npm run clean && webpack --config .build/webpack.config.cdn.js",
     "postinstall": "npm run build",
+    "postpublish": "npm run clean",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
     "integration:ci": "cypress run --config baseUrl=http://localhost:8080",
