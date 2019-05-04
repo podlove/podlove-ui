@@ -102,25 +102,26 @@ steps:
 - name: cdn:prepare
   image: node:10
   commands:
-    - npm run clean
+    - rm -rf apps/web-player/publish
     - npx lerna run build:cdn --scope @podlove/web-player
-  when:
-    ref:
-    - refs/tags/v*
+  # when:
+  #   ref:
+  #   - refs/tags/v*
 
 - name: deploy:cdn
-  image: drillster/drone-rsync
-  settings:
-    hosts: [ "rsync.keycdn.com" ]
-    user: podlove
-    key:
-      from_secret: CDN_KEY
-    source: ./apps/web-player/dist
-    target: applications/web-player/
-  when:
-    ref:
-    - refs/tags/v*
-
+  image: instrumentisto/rsync-ssh
+  environment:
+    PRIVATE_KEY:
+      from_secret: PRIVATE_CDN_KEY
+    PUBLIC_KEY:
+      from_secret: PUBLIC_CDN_KEY
+  commands:
+    - mkdir -p ~/.ssh
+    - echo "$PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - echo "$PUBLIC_KEY" >> ~/.ssh/id_rsa.pub
+    - ssh-keyscan rsync.keycdn.com >> ~/.ssh/known_hosts
+    - chmod 600 ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa.pub
+    - rsync -rvt --chmod=D2755,F644 apps/web-player/dist/ podlove@rsync.keycdn.com:applications/web-player/
 
 ---
 kind: pipeline
