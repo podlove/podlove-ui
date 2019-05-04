@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "clean": "rm -rf apps/**/dist apps/**/publish components/**/dist components/**/publish",
     "format": "eslint --fix '**/*.{js,vue}'",
     "lint": "eslint -f codeframe '**/*.{js,vue}'",
     "test": "jest",

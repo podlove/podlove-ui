@@ -102,6 +102,7 @@ steps:
 - name: cdn:prepare
   image: node:10
   commands:
+    - npm run clean
     - npx lerna run build:cdn --scope @podlove/web-player
   when:
     ref:
