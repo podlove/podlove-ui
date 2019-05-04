@@ -31,7 +31,7 @@ sagas.run(
   runtimeSaga,
   componentsSaga({
     selectChapters: selectors.chapters.list,
-    selectTranscripts: selectors.transcripts.timeline,
+    selectTranscripts: selectors.transcripts.hasTranscripts,
     selectFiles: selectors.files.audio,
     selectEpisodeCover: selectors.episode.poster,
     selectEpisodeTitle: selectors.episode.title,

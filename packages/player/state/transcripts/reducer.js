@@ -27,8 +27,7 @@ export const reducer = handleActions(
   {
     [SET_TRANSCRIPTS_TIMELINE]: (state, { payload }) => ({
       ...state,
-      hasTranscripts: payload.length > 0,
-      timeline: payload
+      ...payload
     }),
 
     [UPDATE_TRANSCRIPTS]: (state, { payload }) => ({
