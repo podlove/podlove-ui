@@ -33,8 +33,6 @@ steps:
   commands:
     - npx lerna run publish:prepare --scope @podlove/player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -47,8 +45,6 @@ steps:
     email: npm@heimbu.ch
     folder: apps/player/publish
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -88,8 +84,6 @@ steps:
   commands:
     - npx lerna run publish:prepare --scope @podlove/web-player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -102,33 +96,33 @@ steps:
     email: npm@heimbu.ch
     folder: apps/web-player/publish
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
 - name: cdn:prepare
   image: node:10
   commands:
+    - rm -rf apps/web-player/publish
     - npx lerna run build:cdn --scope @podlove/web-player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
 - name: deploy:cdn
-  image: drillster/drone-rsync
-  settings:
-    hosts: [ "rsync.keycdn.com" ]
-    user: podlove
-    key:
-      from_secret: CDN_KEY
-    source: ./apps/web-player/dist
-    target: applications/web-player/
+  image: instrumentisto/rsync-ssh
+  environment:
+    PRIVATE_KEY:
+      from_secret: PRIVATE_CDN_KEY
+    PUBLIC_KEY:
+      from_secret: PUBLIC_CDN_KEY
+  commands:
+    - mkdir -p ~/.ssh
+    - echo "$PRIVATE_KEY" >> ~/.ssh/id_rsa
+    - echo "$PUBLIC_KEY" >> ~/.ssh/id_rsa.pub
+    - ssh-keyscan rsync.keycdn.com >> ~/.ssh/known_hosts
+    - chmod 600 ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa.pub
+    - rsync -rvt --chmod=D2755,F644 apps/web-player/dist/ podlove@rsync.keycdn.com:applications/web-player/
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -165,8 +159,6 @@ steps:
   commands:
     - npx lerna run publish:prepare --scope @podlove/components
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -179,8 +171,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/components/publish
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -211,8 +201,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/player/actions
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -253,8 +241,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/player/sagas
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -290,8 +276,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/player/state
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -327,8 +311,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/utils
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -348,14 +330,15 @@ steps:
 - name: build
   image: node:10
   commands:
-    - npx lerna run build --scope @podlove/docs-web-player
+    - env BASE=/podlove-web-player/ npx lerna run build --scope @podlove/docs-web-player
 
 - name: deploy:github
   image: node:10
+  environment:
+    GH_TOKEN:
+      from_secret: GH_TOKEN
   commands:
     - npx lerna run publish --scope @podlove/docs-web-player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*

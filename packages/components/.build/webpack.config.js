@@ -16,7 +16,7 @@ const entries = glob
       [component.name]: component.file
     }),
     {
-      index: path.resolve(base, 'components', 'index.js')
+      index: path.resolve(base, 'components', 'main.js')
     }
   )
 

@@ -38,10 +38,10 @@ module.exports = {
       base: BASE
     }),
     plugins.version(),
-    plugins.env({ MODE: 'production', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player'], STYLES: ['styles'] }),
+    plugins.env({ MODE: 'production', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player', 'bootstrap'], STYLES: ['styles'] }),
     plugins.copy([
       {
-        from: `./node_modules/@podlove/player/dist`,
+        from: playerAssets,
         to: `${version}/`
       }
     ])
