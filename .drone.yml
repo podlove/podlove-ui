@@ -33,8 +33,6 @@ steps:
   commands:
     - npx lerna run publish:prepare --scope @podlove/player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -47,8 +45,6 @@ steps:
     email: npm@heimbu.ch
     folder: apps/player/publish
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -88,8 +84,6 @@ steps:
   commands:
     - npx lerna run publish:prepare --scope @podlove/web-player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -102,8 +96,6 @@ steps:
     email: npm@heimbu.ch
     folder: apps/web-player/publish
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -112,8 +104,6 @@ steps:
   commands:
     - npx lerna run build:cdn --scope @podlove/web-player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -127,8 +117,6 @@ steps:
     source: ./apps/web-player/dist
     target: applications/web-player/
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -165,8 +153,6 @@ steps:
   commands:
     - npx lerna run publish:prepare --scope @podlove/components
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -179,8 +165,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/components/publish
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -211,8 +195,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/player/actions
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -253,8 +235,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/player/sagas
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -290,8 +270,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/player/state
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -327,8 +305,6 @@ steps:
     email: npm@heimbu.ch
     folder: packages/utils
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
 
@@ -355,7 +331,5 @@ steps:
   commands:
     - npx lerna run publish --scope @podlove/docs-web-player
   when:
-    branch:
-    - master
     ref:
     - refs/tags/v*
