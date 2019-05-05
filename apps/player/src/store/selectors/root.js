@@ -21,5 +21,6 @@ export default {
   reference: prop('reference'),
   audio: prop('audio'),
   transcripts: prop('transcripts'),
-  error: prop('error')
+  error: prop('error'),
+  driver: prop('driver')
 }

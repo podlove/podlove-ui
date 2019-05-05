@@ -117,7 +117,12 @@ export function* init({ selectSpeakers, selectChapters }, { payload }) {
     transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' '))
   )
 
-  yield put(setTranscriptsTimeline(transcripts))
+  yield put(
+    setTranscriptsTimeline({
+      timeline: transcripts,
+      hasTranscripts: transcripts.length > chapters.length
+    })
+  )
   yield takeEvery(BACKEND_PLAYTIME, update, searchIndex)
   yield takeEvery(REQUEST_PLAYTIME, update, searchIndex)
   yield takeEvery(DISABLE_GHOST_MODE, debouncedUpdate, searchIndex)

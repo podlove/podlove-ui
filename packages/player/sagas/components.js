@@ -99,7 +99,7 @@ export function* init({
 }
 
 export function* transcripts({ selectTranscripts }) {
-  const transcripts = !isEmpty(yield select(selectTranscripts))
+  const transcripts = yield select(selectTranscripts)
   yield put(transcripts ? showComponentTab('transcripts') : hideComponentTab('transcripts'))
 }
 

@@ -23,7 +23,8 @@ export const reducer = handleActions(
       display: propOr(null, 'display', payload),
       browser: propOr(null, 'browser', payload),
       locale: propOr(null, 'locale', payload),
-      platform: propOr(null, 'platform', payload)
+      platform: propOr(null, 'platform', payload),
+      language: propOr(null, 'language', payload)
     }),
     [SET_VERSION]: (state, { payload }) => ({
       ...state,

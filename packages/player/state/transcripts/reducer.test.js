@@ -16,7 +16,10 @@ describe('transcripts', () => {
     expect(
       reducer(INITIAL_STATE, {
         type: SET_TRANSCRIPTS_TIMELINE,
-        payload: ['foo', 'bar']
+        payload: {
+          timeline: ['foo', 'bar'],
+          hasTranscripts: true
+        }
       })
     ).toEqual({
       ...INITIAL_STATE,

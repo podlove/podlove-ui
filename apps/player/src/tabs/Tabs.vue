@@ -122,9 +122,6 @@ export default {
         this.overflows = el.scrollWidth > el.clientWidth
         setStyles({ 'overflow-x': 'hidden' })(el)
       })
-    },
-    mounted() {
-      this.resizeHandler()
     }
   }
 }

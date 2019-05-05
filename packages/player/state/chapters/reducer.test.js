@@ -1,10 +1,4 @@
-import {
-  UPDATE_CHAPTER,
-  NEXT_CHAPTER,
-  PREVIOUS_CHAPTER,
-  SET_CHAPTERS_LIST,
-  SET_CHAPTER
-} from '@podlove/player-actions/types'
+import { UPDATE_CHAPTER, SET_CHAPTERS_LIST, SET_CHAPTER } from '@podlove/player-actions/types'
 import { reducer, INITIAL_STATE } from './reducer'
 
 const chapter1 = {
@@ -164,107 +158,6 @@ describe('chapters', () => {
         {
           ...chapter3,
           active: true
-        },
-        {
-          ...chapter4,
-          active: false
-        },
-        {
-          ...chapter5,
-          active: false
-        }
-      ]
-    })
-  })
-
-  test('should set the next chapter on NEXT_CHAPTER', () => {
-    const state = reducer(INITIAL_STATE, {
-      type: SET_CHAPTERS_LIST,
-      payload: [chapter1, chapter2, chapter3, chapter4, chapter5]
-    })
-
-    expect(
-      reducer(state, {
-        type: NEXT_CHAPTER
-      })
-    ).toEqual({
-      ...state,
-      previous: {
-        ...chapter1,
-        active: false
-      },
-      current: {
-        ...chapter2,
-        active: true
-      },
-      next: {
-        ...chapter3,
-        active: false
-      },
-      list: [
-        {
-          ...chapter1,
-          active: false
-        },
-        {
-          ...chapter2,
-          active: true
-        },
-        {
-          ...chapter3,
-          active: false
-        },
-        {
-          ...chapter4,
-          active: false
-        },
-        {
-          ...chapter5,
-          active: false
-        }
-      ]
-    })
-  })
-
-  test('should set the chapter by index on PREVIOUS_CHAPTER', () => {
-    const state = reducer(INITIAL_STATE, {
-      type: SET_CHAPTERS_LIST,
-      payload: [chapter1, chapter2, chapter3, chapter4, chapter5]
-    })
-
-    expect(
-      reducer(state, {
-        type: PREVIOUS_CHAPTER
-      })
-    ).toEqual({
-      ...state,
-      previous: {
-        end: null,
-        href: null,
-        index: -1,
-        start: null,
-        title: null
-      },
-      current: {
-        ...chapter1,
-        active: true
-      },
-      next: {
-        ...chapter2,
-        active: false
-      },
-      list: [
-        {
-          ...chapter1,
-          active: true
-        },
-        {
-          ...chapter2,
-          active: false
-        },
-        {
-          ...chapter3,
-          active: false
         },
         {
           ...chapter4,

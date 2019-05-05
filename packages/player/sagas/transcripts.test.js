@@ -121,90 +121,93 @@ describe('transcripts', () => {
       gen.next(speakers)
       expect(gen.next(chapters).value).toEqual(
         put(
-          setTranscriptsTimeline([
-            {
-              end: 2500,
-              index: 1,
-              start: 0,
-              title: 'start',
-              type: 'chapter'
-            },
-            {
-              end: 15000,
-              speaker: {
-                avatar: 'http://foo.bar/carl.jpg',
-                id: '1',
-                speaker: 'Carl'
+          setTranscriptsTimeline({
+            timeline: [
+              {
+                end: 2500,
+                index: 1,
+                start: 0,
+                title: 'start',
+                type: 'chapter'
               },
-              start: 10000,
-              texts: [
-                {
-                  end: 15000,
-                  start: 10000,
-                  text: 'transcript 1 text'
-                }
-              ],
-              type: 'transcript'
-            },
-            {
-              end: 25000,
-              speaker: {
-                avatar: 'http://foo.bar/peter.jpg',
-                id: '2',
-                speaker: 'Peter'
+              {
+                end: 15000,
+                speaker: {
+                  avatar: 'http://foo.bar/carl.jpg',
+                  id: '1',
+                  speaker: 'Carl'
+                },
+                start: 10000,
+                texts: [
+                  {
+                    end: 15000,
+                    start: 10000,
+                    text: 'transcript 1 text'
+                  }
+                ],
+                type: 'transcript'
               },
-              start: 20000,
-              texts: [
-                {
-                  end: 25000,
-                  start: 20000,
-                  text: 'transcript 2 text'
-                }
-              ],
-              type: 'transcript'
-            },
-            {
-              end: 30000,
-              speaker: {
-                avatar: 'http://foo.bar/carl.jpg',
-                id: '1',
-                speaker: 'Carl'
+              {
+                end: 25000,
+                speaker: {
+                  avatar: 'http://foo.bar/peter.jpg',
+                  id: '2',
+                  speaker: 'Peter'
+                },
+                start: 20000,
+                texts: [
+                  {
+                    end: 25000,
+                    start: 20000,
+                    text: 'transcript 2 text'
+                  }
+                ],
+                type: 'transcript'
               },
-              start: 25000,
-              texts: [
-                {
-                  end: 30000,
-                  start: 25000,
-                  text: 'transcript 3 text'
-                }
-              ],
-              type: 'transcript'
-            },
-            {
-              end: 35000,
-              speaker: {
-                avatar: 'http://foo.bar/peter.jpg',
-                id: '2',
-                speaker: 'Peter'
+              {
+                end: 30000,
+                speaker: {
+                  avatar: 'http://foo.bar/carl.jpg',
+                  id: '1',
+                  speaker: 'Carl'
+                },
+                start: 25000,
+                texts: [
+                  {
+                    end: 30000,
+                    start: 25000,
+                    text: 'transcript 3 text'
+                  }
+                ],
+                type: 'transcript'
               },
-              start: 30000,
-              texts: [
-                {
-                  end: 35000,
-                  start: 30000,
-                  text: 'transcript 4 text'
-                }
-              ],
-              type: 'transcript'
-            },
-            {
-              end: 36000,
-              index: 2,
-              start: 35000,
-              title: 'end',
-              type: 'chapter'
-            }
-          ])
+              {
+                end: 35000,
+                speaker: {
+                  avatar: 'http://foo.bar/peter.jpg',
+                  id: '2',
+                  speaker: 'Peter'
+                },
+                start: 30000,
+                texts: [
+                  {
+                    end: 35000,
+                    start: 30000,
+                    text: 'transcript 4 text'
+                  }
+                ],
+                type: 'transcript'
+              },
+              {
+                end: 36000,
+                index: 2,
+                start: 35000,
+                title: 'end',
+                type: 'chapter'
+              }
+            ],
+            hasTranscripts: true
+          })
         )
       )
     })
