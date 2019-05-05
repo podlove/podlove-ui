@@ -11,7 +11,8 @@ describe('runtime', () => {
       display: 'display',
       browser: 'browser',
       locale: 'locale',
-      platform: 'platform'
+      platform: 'platform',
+      language: 'language'
     }
 
     const result = reducer(INITIAL_STATE, {

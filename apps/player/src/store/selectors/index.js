@@ -20,6 +20,7 @@ import share from './share'
 import audio from './audio'
 import transcripts from './transcripts'
 import error from './error'
+import driver from './driver'
 
 export default {
   ...runtime,
@@ -41,5 +42,6 @@ export default {
   files,
   share,
   transcripts,
-  error
+  error,
+  driver
 }

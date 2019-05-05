@@ -540,7 +540,7 @@ describe('components', () => {
 
     test('shoud dispatch HIDE_COMPONENT_TAB with transcripts if transcripts are available', () => {
       gen.next()
-      expect(gen.next([]).value).toEqual(put(hideComponentTab('transcripts')))
+      expect(gen.next(false).value).toEqual(put(hideComponentTab('transcripts')))
     })
   })
 

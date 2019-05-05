@@ -16,6 +16,7 @@
     "mobile-detect": "1.4.3",
     "query-string": "6.2.0",
     "ramda": "0.26.1",
-    "redux-saga": "0.16.2"
+    "redux-saga": "0.16.2",
+    "keycode": "2.2.0"
   }
 }

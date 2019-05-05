@@ -129,7 +129,7 @@ describe('Controls', () => {
     describe('Back Button', () => {
       it('skips to the previous chapter on click', function() {
         cy.window().then(
-          setState(this.episode, this.audio, this.show, this.chapters, { playtime: 9000 })
+          setState(this.episode, this.audio, this.show, this.chapters, { playtime: 8000 })
         )
         cy.play()
         cy.pause()
