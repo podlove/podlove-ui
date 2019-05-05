@@ -1,7 +1,10 @@
 export default {
   bind(el, { value }) {
-    value(el)
+    el.onResize = () => value(el)
+    window.addEventListener('resize', el.onResize)
+  },
 
-    window.addEventListener('resize', () => value(el))
+  inserted(el) {
+    setTimeout(el.onResize, 100)
   }
 }
