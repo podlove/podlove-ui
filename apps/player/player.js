@@ -6,6 +6,7 @@ import VueI18n from 'vue-i18n'
 import App from './src'
 import store from './src/store'
 import './src/directives'
+import translations from './lang'
 
 Vue.use(VueI18n)
 
@@ -17,11 +18,7 @@ window.PODLOVE_STORE = store
 const i18n = new VueI18n({
   locale: 'en',
   fallbackLocale: 'en',
-  messages: {
-    en: require('./lang/en.json'),
-    de: require('./lang/de.json'),
-    eo: require('./lang/eo.json')
-  }
+  messages: translations
 })
 
 export { App, i18n }
