@@ -7,7 +7,7 @@
       <tab-header-item tab="info" :title="$t('INFO.TITLE')"></tab-header-item>
     </tab-header>
     <tab-body tab="apps">
-      <div>something</div>
+      <apps-tab></apps-tab>
     </tab-body>
     <tab-body tab="cloud">
       <div>something</div>
@@ -46,6 +46,13 @@ import { TOGGLE_TAB } from 'store/reducers/types'
 import store from 'store'
 
 const tabs = {
+  AppsTab: () =>
+    import(
+      /* webpackChunkName: "info-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../clients/Apps'
+    ),
   InfoTab: () =>
     import(
       /* webpackChunkName: "info-tab" */
