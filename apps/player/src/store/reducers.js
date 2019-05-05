@@ -22,6 +22,7 @@ import { reducer as transcripts } from '@podlove/player-state/transcripts'
 import { reducer as visibleComponents } from '@podlove/player-state/visible-components'
 import { reducer as lastAction } from '@podlove/player-state/last-action'
 import { reducer as error } from '@podlove/player-state/error'
+import { reducer as driver } from '@podlove/player-state/driver'
 
 export default combineReducers({
   runtime,
@@ -47,5 +48,6 @@ export default combineReducers({
     embed
   }),
   lastAction,
-  error
+  error,
+  driver
 })

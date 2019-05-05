@@ -75,26 +75,17 @@ export function* previousChapter({ selectPlaytime, selectCurrentChapter }) {
   const { start, index } = yield select(selectCurrentChapter)
 
   if (playtime - start <= 1000) {
-    yield put(chapter.previousChapter())
+    yield put(chapter.setChapter(index - 2 < 0 ? 0 : index - 2))
   } else {
-    yield put(chapter.setChapter(index - 1))
+    yield put(chapter.setChapter(index - 1 < 0 ? 0 : index - 1))
   }
 }
 
-export function* nextChapter({
-  selectDuration,
-  selectPlaytime,
-  selectChapterList,
-  selectCurrentChapter
-}) {
-  const duration = yield select(selectDuration)
-  const playtime = yield select(selectPlaytime)
+export function* nextChapter({ selectChapterList, selectCurrentChapter }) {
   const chapters = yield select(selectChapterList)
-  const { start, index } = yield select(selectCurrentChapter)
+  const { index } = yield select(selectCurrentChapter)
 
-  const chapterStart = index === chapters.length && playtime >= start ? duration : start
-
-  yield put(requestPlaytime(chapterStart))
+  yield put(chapter.setChapter(index > chapters.length - 1 ? chapters.length - 1 : index))
 }
 
 export function* initChapters({ selectDuration }, { payload }) {

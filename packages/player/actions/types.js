@@ -161,3 +161,7 @@ export const SHOW_ERROR = 'SHOW_ERROR'
 export const HIDE_ERROR = 'HIDE_ERROR'
 export const RETRY_PLAY = 'RETRY_PLAY'
 export const ERROR_CONFIG_MEDIA = 'ERROR_CONFIG_MEDIA'
+
+// Keyboard
+export const KEY_UP = 'KEY_UP'
+export const KEY_DOWN = 'KEY_DOWN'

@@ -171,15 +171,31 @@ describe('chapters', () => {
       expect(gen.next().value).toEqual(select(selectCurrentChapter))
     })
 
-    test('should dispatch PREVIOUS_CHAPTER if the playtime is nearly at chapters start', () => {
+    test('should dispatch SET_CHAPTER if the playtime is nearly at chapters start', () => {
       const gen = previousChapter({ selectPlaytime, selectCurrentChapter })
       gen.next()
       gen.next(22000)
-      expect(gen.next({ start: 21000, index: 1 }).value).toEqual(put(chapter.previousChapter()))
+      expect(gen.next({ start: 21000, index: 3 }).value).toEqual(put(chapter.setChapter(1)))
       expect(gen.next().done).toBeTruthy()
     })
 
     test('should dispatch SET_CHAPTER if the playtime is way above the chapters start', () => {
+      const gen = previousChapter({ selectPlaytime, selectCurrentChapter })
+      gen.next()
+      gen.next(24000)
+      expect(gen.next({ start: 20000, index: 4 }).value).toEqual(put(chapter.setChapter(3)))
+      expect(gen.next().done).toBeTruthy()
+    })
+
+    test('should prevent negative SET_CHAPTER if the playtime is nearly at chapters start', () => {
+      const gen = previousChapter({ selectPlaytime, selectCurrentChapter })
+      gen.next()
+      gen.next(22000)
+      expect(gen.next({ start: 21000, index: 1 }).value).toEqual(put(chapter.setChapter(0)))
+      expect(gen.next().done).toBeTruthy()
+    })
+
+    test('should prevent negative SET_CHAPTER if the playtime is way above the chapters start', () => {
       const gen = previousChapter({ selectPlaytime, selectCurrentChapter })
       gen.next()
       gen.next(24000)
@@ -192,72 +208,48 @@ describe('chapters', () => {
     test('should be a generator', () => {
       expect(
         typeof nextChapter({
-          selectDuration,
-          selectPlaytime,
           selectChapterList,
           selectCurrentChapter
         }).next
       ).toBe('function')
     })
 
-    test('should select the duration', () => {
-      const gen = nextChapter({
-        selectDuration,
-        selectPlaytime,
-        selectChapterList,
-        selectCurrentChapter
-      })
-      expect(gen.next().value).toEqual(select(selectDuration))
-    })
-
-    test('should select the playtime', () => {
-      const gen = nextChapter({
-        selectDuration,
-        selectPlaytime,
-        selectChapterList,
-        selectCurrentChapter
-      })
-      gen.next()
-      expect(gen.next().value).toEqual(select(selectPlaytime))
-    })
-
     test('should select the chapters list', () => {
       const gen = nextChapter({
-        selectDuration,
-        selectPlaytime,
         selectChapterList,
         selectCurrentChapter
       })
-      gen.next()
-      gen.next()
       expect(gen.next().value).toEqual(select(selectChapterList))
     })
 
     test('should select the current chapter', () => {
       const gen = nextChapter({
-        selectDuration,
-        selectPlaytime,
         selectChapterList,
         selectCurrentChapter
       })
-      gen.next()
-      gen.next()
       gen.next()
       expect(gen.next().value).toEqual(select(selectCurrentChapter))
     })
 
-    test('should dispatch REQUEST_PLAYTIME with the next chapter start', () => {
+    test('should dispatch SET_CHAPTER with the next chapter index', () => {
       const gen = nextChapter({
-        selectDuration,
-        selectPlaytime,
         selectChapterList,
         selectCurrentChapter
       })
       gen.next()
-      gen.next(50000)
-      gen.next(10000)
       gen.next([{ start: 0 }, { start: 10000 }, { start: 20000 }])
-      expect(gen.next({ start: 10000, index: 1 }).value).toEqual(put(requestPlaytime(10000)))
+      expect(gen.next({ start: 10000, index: 1 }).value).toEqual(put(chapter.setChapter(1)))
+      expect(gen.next().done).toBeTruthy()
+    })
+
+    test('should dispatch SET_CHAPTER with the next chapter index', () => {
+      const gen = nextChapter({
+        selectChapterList,
+        selectCurrentChapter
+      })
+      gen.next()
+      gen.next([{ start: 0 }, { start: 10000 }, { start: 20000 }])
+      expect(gen.next({ start: 10000, index: 4 }).value).toEqual(put(chapter.setChapter(2)))
       expect(gen.next().done).toBeTruthy()
     })
   })

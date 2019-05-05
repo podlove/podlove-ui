@@ -10,6 +10,7 @@ import { versionSaga } from '@podlove/player-sagas/version'
 import { transcriptsSaga } from '@podlove/player-sagas/transcripts'
 import { stepperSaga } from '@podlove/player-sagas/stepper'
 import { errorSaga } from '@podlove/player-sagas/error'
+import { keyboardSaga } from '@podlove/player-sagas/keyboard'
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connect } from 'redux-vuex'
@@ -57,7 +58,15 @@ sagas.run(
     selectDuration: selectors.duration,
     selectPlaytime: selectors.playtime
   }),
-  errorSaga
+  errorSaga,
+  keyboardSaga({
+    selectDuration: selectors.duration,
+    selectPlaytime: selectors.playtime,
+    selectPlaystate: selectors.driver.playing,
+    selectRate: selectors.audio.rate,
+    selectVolume: selectors.audio.volume,
+    selectMuted: selectors.audio.muted
+  })
 )
 
 export default store
