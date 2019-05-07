@@ -17,7 +17,7 @@ export const getPlatform = () => {
     return 'unix'
   }
 
-  if (platf.match(/windows/i) !== null) {
+  if (platf.match(/(windows|win)/i) !== null) {
     return 'windows'
   }
 }
