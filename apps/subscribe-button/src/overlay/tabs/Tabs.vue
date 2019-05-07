@@ -10,7 +10,7 @@
       <apps-tab></apps-tab>
     </tab-body>
     <tab-body tab="cloud">
-      <div>something</div>
+      <cloud-tab></cloud-tab>
     </tab-body>
     <tab-body tab="platform">
       <div>
@@ -52,6 +52,13 @@ const tabs = {
       /* webpackMode: "lazy" */
       /* webpackPreload: true */
       '../clients/Apps'
+    ),
+  CloudTab: () =>
+    import(
+      /* webpackChunkName: "info-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../clients/Cloud'
     ),
   InfoTab: () =>
     import(
