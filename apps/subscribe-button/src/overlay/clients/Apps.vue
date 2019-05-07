@@ -14,12 +14,12 @@
 
 <script>
 import apps from './clientlist/apps.json'
-import { getPlattform } from '@podlove/utils/useragent'
+import { getPlatform } from '@podlove/utils/useragent'
 
 export default {
   data() {
     return {
-      plat: getPlattform(),
+      plat: getPlatform(),
       client: window.navigator.platform
     }
   },

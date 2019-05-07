@@ -1,6 +1,5 @@
-export const getPlattform = () => {
+export const getPlatform = () => {
   let platf = window.navigator.platform.toLowerCase()
-  // console.log(platf)
 
   if (platf.match(/mac/i) !== null) {
     return 'osx'
