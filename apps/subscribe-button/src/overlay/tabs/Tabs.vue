@@ -13,10 +13,7 @@
       <cloud-tab></cloud-tab>
     </tab-body>
     <tab-body tab="platform">
-      <div>
-        something
-        <h1>hello</h1>
-      </div>
+      <platform-tab></platform-tab>
     </tab-body>
     <tab-body tab="info">
       <info-tab></info-tab>
@@ -59,6 +56,13 @@ const tabs = {
       /* webpackMode: "lazy" */
       /* webpackPreload: true */
       '../clients/Cloud'
+    ),
+  PlatformTab: () =>
+    import(
+      /* webpackChunkName: "info-tab" */
+      /* webpackMode: "lazy" */
+      /* webpackPreload: true */
+      '../clients/Platforms'
     ),
   InfoTab: () =>
     import(
