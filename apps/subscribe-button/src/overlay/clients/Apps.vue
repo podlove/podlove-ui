@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>{{ $t('APPS.TITLE') }}</h1>
-    <p>{{ getOS }}</p>
     <ul>
       <li v-for="(osx, index) in getOSClients" :key="index">
         <!-- <b><img :src="`/static/img/${osx.icon}`" />{{ osx.title }}</b> -->
