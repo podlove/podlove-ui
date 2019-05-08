@@ -1,4 +1,4 @@
-import { compose, propOr, map } from 'lodash/fp'
+import { compose, propOr, map, prop } from 'lodash/fp'
 import { toPlayerTime } from './time'
 import { createObject } from './helper'
 
@@ -47,3 +47,14 @@ export const validate = config => {
 
   return true
 }
+
+export const runtime = propOr({}, 'runtime')
+
+export const language = compose(
+  prop('language'),
+  runtime
+)
+export const platform = compose(
+  prop('platform'),
+  runtime
+)
