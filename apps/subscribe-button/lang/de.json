@@ -16,5 +16,8 @@
   },
   "PLATFORM": {
     "TITLE": "Plattformen"
+  },
+  "WEB": {
+    "TITLE": "Web"
   }
 }
