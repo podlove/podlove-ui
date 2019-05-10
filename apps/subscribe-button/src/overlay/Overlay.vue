@@ -1,5 +1,6 @@
 <template>
   <div class="overlay">
+    <div>headline</div>
     <div class="subscribe-top">
       <cover alt="ccc" :url="cover" :cover-color="color" />
       <div class="podcast-describtion">
@@ -9,7 +10,9 @@
         <button class="btn-copy" :style='btnColor'>Weiter</button> -->
       </div>
     </div>
-    <tabs-component></tabs-component>
+    <div></div>
+    <details-component></details-component>
+    <div>powered by podlove</div>
   </div>
 </template>
 
@@ -24,10 +27,10 @@ import {
   selectFeed
 } from 'store/selectors'
 import { Image } from '@podlove/components'
-import TabsComponent from './tabs/tabs'
+import DetailsComponent from './details/details'
 
 export default {
-  components: { Cover: Image, TabsComponent },
+  components: { Cover: Image, DetailsComponent },
   data: mapState({
     color: selectColor,
     cover: selectCover,
@@ -58,6 +61,9 @@ export default {
 .overlay {
   width: 500px;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @include font();
   font-size: 16px;
@@ -69,6 +75,8 @@ export default {
 
 .subscribe-top {
   display: flex;
+  margin: 1em;
+  align-items: center;
 
   .image-container {
     margin-right: 1em;
@@ -76,6 +84,8 @@ export default {
 }
 
 .podcast-describtion {
+  text-align: center;
+
   h1 {
     margin-top: 0px;
   }
