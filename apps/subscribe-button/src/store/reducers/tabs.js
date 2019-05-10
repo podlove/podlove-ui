@@ -3,10 +3,10 @@ import { prop } from 'ramda'
 import { INIT, TOGGLE_TAB } from './types'
 
 export const INITIAL_STATE = {
-  apps: false,
+  apps: true,
   cloud: false,
   platform: false,
-  info: true
+  info: false
 }
 
 export const reducer = handleActions(
