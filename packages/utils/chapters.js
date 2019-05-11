@@ -1,7 +1,5 @@
 import { fallbackTo } from './helper'
-import { find, findIndex, add, compose, curry } from 'lodash/fp'
-
-import { get } from 'lodash'
+import { find, propEq, compose, curry, findIndex, defaultTo, add, propOr } from 'ramda'
 
 const emptyChapter = {
   start: null,
@@ -11,15 +9,17 @@ const emptyChapter = {
   index: -1
 }
 
-export const getChapterByIndex = chapters => index => get(chapters, index, emptyChapter)
+export const getChapterByIndex = chapters => index => propOr(emptyChapter, index, chapters)
 
 export const currentChapterIndex = compose(
   fallbackTo(-1),
-  findIndex({ active: true })
+  findIndex(propEq('active', true)),
+  defaultTo([])
 )
 export const currentChapter = compose(
   fallbackTo(emptyChapter),
-  find({ active: true })
+  find(propEq('active', true)),
+  defaultTo([])
 )
 
 export const nextChapter = chapters =>
@@ -28,6 +28,7 @@ export const nextChapter = chapters =>
     add(1),
     currentChapterIndex
   )(chapters)
+
 export const previousChapter = chapters =>
   compose(
     getChapterByIndex(chapters),

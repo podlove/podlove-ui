@@ -17,9 +17,8 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "^4.5.2",
-    "@podlove/utils": "^4.5.2",
-    "lodash": "4.17.11",
+    "@podlove/player-actions": "^4.5.0",
+    "@podlove/utils": "^4.5.0",
     "normalize.css": "8.0.1",
     "v-tooltip": "2.0.0-rc.33",
     "vue": "2.6.10"

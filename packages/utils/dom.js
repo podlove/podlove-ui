@@ -1,6 +1,5 @@
 /* global MutationObserver */
-
-import { curry, compose, uniq, concat, join, filter, head, identity } from 'lodash/fp'
+import { curry, compose, uniq, concat, join, filter, identity, head } from 'ramda'
 import DOMPurify from 'dompurify'
 
 export const findNode = selector =>
@@ -13,9 +12,9 @@ export const appendNode = curry((node, child) => {
 })
 
 export const tag = curry((tag, value = '', attributes = {}) => {
-  let attr = Object.keys(attributes).map(attribute => ` ${attribute}="${attributes[attribute]}"`)
-
-  attr = attr.join('')
+  let attr = Object.keys(attributes)
+    .map(attribute => ` ${attribute}="${attributes[attribute]}"`)
+    .join('')
   return `<${tag}${attr}>${value}</${tag}>`
 })
 

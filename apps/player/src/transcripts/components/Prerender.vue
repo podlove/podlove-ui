@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { map } from 'lodash'
 import { mapState } from 'redux-vuex'
 import { asyncAnimation } from '@podlove/utils/helper'
 
@@ -47,7 +46,7 @@ export default {
   }),
   mounted() {
     this.$nextTick(() => {
-      const entries = map(this.$el.children, asyncAnimation(entry => entry.clientHeight))
+      const entries = [...this.$el.children].map(asyncAnimation(entry => entry.clientHeight))
 
       Promise.all(entries).then(resolved => {
         this.$emit('load', resolved)

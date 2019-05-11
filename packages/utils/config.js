@@ -1,4 +1,4 @@
-import { compose, propOr, map, prop } from 'lodash/fp'
+import { compose, propOr, map, prop } from 'ramda'
 import { toPlayerTime } from './time'
 import { createObject } from './helper'
 
