@@ -11,7 +11,6 @@
     "@podlove/player-actions": "^4.5.2",
     "@podlove/utils": "^4.5.2",
     "detect-browser": "3.0.1",
-    "lodash": "4.17.11",
     "redux-saga": "0.16.2"
   },
   "devDependencies": {

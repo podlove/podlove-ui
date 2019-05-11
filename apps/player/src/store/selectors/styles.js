@@ -1,4 +1,4 @@
-import { compose } from 'lodash/fp'
+import { compose } from 'ramda'
 import color from 'color'
 import { selectors as theme } from '@podlove/player-state/theme'
 import root from './root'

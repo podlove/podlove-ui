@@ -1,6 +1,5 @@
 /* eslint-env mocha */
 /* globals cy,expect */
-const { capitalize } = require('lodash')
 const { setState } = require('../helpers/state')
 const domSelectors = require('../selectors')
 
@@ -72,7 +71,7 @@ describe('Share Tab', () => {
     Object.keys(domSelectors(cy).tabs.share.channels)
       .filter(channel => channel !== 'embed')
       .forEach(channel => {
-        describe(capitalize(channel), () => {
+        describe(channel, () => {
           it('renders a link', function() {
             cy.window().then(
               setState(this.episode, this.audio, this.show, this.chapters, { playtime: 8000 })
