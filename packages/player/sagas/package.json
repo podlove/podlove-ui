@@ -1,20 +1,20 @@
 {
   "name": "@podlove/player-sagas",
-  "version": "4.5.0",
+  "version": "4.5.2",
   "description": "Sagas for Podlove Web Player",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/sagas",
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/components": "^4.5.0",
-    "@podlove/player-actions": "^4.5.0",
-    "@podlove/utils": "^4.5.0",
+    "@podlove/components": "^4.5.2",
+    "@podlove/player-actions": "^4.5.2",
+    "@podlove/utils": "^4.5.2",
     "detect-browser": "3.0.1",
     "lodash": "4.17.11",
     "redux-saga": "0.16.2"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.0"
+    "@podlove/build": "^4.5.2"
   }
 }
