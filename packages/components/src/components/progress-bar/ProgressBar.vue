@@ -190,7 +190,7 @@ export default {
       return {
         left: relativePosition(start, this.duration),
         width: relativePosition(end - start, this.duration),
-        'background-color': isNegative(this.progressColor)
+        'background-color': isNegative(this.highlightColor)
           ? color(light).fade(0.5)
           : color(dark).fade(0.7)
       }
