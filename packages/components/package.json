@@ -10,7 +10,7 @@
     "build-storybook": "build-storybook",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
     "postinstall": "npm run build",
-    "publish:prepare": "npm run clean && npm run build && mkdir -p publish && cp -R dist/ publish/ && cp package.json publish/",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
     "postpublish": "npm run clean"
   },
   "keywords": [],

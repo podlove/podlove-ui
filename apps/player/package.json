@@ -10,7 +10,7 @@
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
     "postinstall": "npm run build",
     "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && mkdir -p publish && cp -R dist/ publish/ && cp package.json publish/ && npm pack publish",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
     "integration:ci": "cypress run --config baseUrl=http://localhost:8080",

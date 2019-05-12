@@ -10,6 +10,7 @@
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "bin" : { "podlove-prepublish" : "./prepublish.js" },
   "dependencies": {
     "@babel/plugin-proposal-object-rest-spread": "7.4.4",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
@@ -44,6 +45,7 @@
     "webpack-bundle-analyzer": "3.0.3",
     "webpack-cli": "3.1.2",
     "webpack-dev-server": "3.1.11",
-    "webpack-jarvis": "0.3.2"
+    "webpack-jarvis": "0.3.2",
+    "fs-extra": "8.0.0"
   }
 }
