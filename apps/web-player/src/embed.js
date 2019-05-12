@@ -7,6 +7,7 @@ import canvas from './lib/canvas'
 import { parseConfig } from './lib/config'
 import { createSandbox } from './lib/sandbox'
 import { setVisibleComponents } from './lib/visible-components'
+import { activeTab } from './lib/active-tab'
 import { applyUrlParameters } from './lib/url-params'
 import { persistPlayer } from './lib/persist'
 
@@ -21,6 +22,7 @@ const podlovePlayer = async (selector, episode, additional = {}) => {
     store.dispatch(init(config))
 
     setVisibleComponents(config, store)
+    activeTab(config, store)
     persistPlayer(config, store)
     applyUrlParameters(store)
 
