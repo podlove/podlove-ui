@@ -30,13 +30,13 @@ export default () => ({
         ])
     },
     progressColor: {
-      default: color('color', '#f00')
+      default: color('progressColor', '#D1C477')
     },
     thumbColor: {
-      default: color('color', '#0f0')
+      default: color('thumbColor', '#000')
     },
     highlightColor: {
-      default: color('color', '#00f')
+      default: color('highlightColor', '#D1C477')
     },
     label: {
       default: text('label', '')

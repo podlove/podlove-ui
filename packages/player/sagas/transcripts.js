@@ -1,7 +1,6 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import { delay } from 'redux-saga/lib'
-import { last, find, isNumber, endsWith } from 'lodash'
-import { compose, map, orderBy, reduce, concat } from 'lodash/fp'
+import { last, propEq, find, compose, map, is, endsWith, sortBy, prop, reduce, concat } from 'ramda'
 
 import {
   INIT,
@@ -21,7 +20,7 @@ import { transcripts as getTranscripts } from '@podlove/utils/config'
 import { inAnimationFrame } from '@podlove/utils/helper'
 import { binarySearch, textSearch } from '@podlove/utils/search'
 
-const transformTime = time => (isNumber(time) ? secondsToMilliseconds(time) : toPlayerTime(time))
+const transformTime = time => (is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time))
 
 const isNewChunk = (current, last) => {
   if (last === undefined) {
@@ -30,7 +29,7 @@ const isNewChunk = (current, last) => {
 
   const differentSpeaker = current.speaker !== last.speaker
   const text = last.texts.reduce((result, item) => result + ' ' + item.text, '')
-  const endOfSentence = endsWith(text, '.') || endsWith(text, '!') || endsWith(text, '?')
+  const endOfSentence = endsWith('.', text) || endsWith('!', text) || endsWith('?', text)
 
   return differentSpeaker || (text.length > 500 && endOfSentence)
 }
@@ -87,7 +86,7 @@ const mapSpeakers = speakers =>
       return transcript
     }
 
-    const result = find(speakers, { id: transcript.speaker })
+    const result = find(propEq('id', transcript.speaker), speakers)
 
     return {
       ...transcript,
@@ -106,7 +105,7 @@ export function* init({ selectSpeakers, selectChapters }, { payload }) {
 
   const assignSpeakers = mapSpeakers(speakers)
   const transcripts = compose(
-    orderBy('start', 'asc'),
+    sortBy(prop('start')),
     concat(transformChapters(chapters)),
     assignSpeakers,
     transformTranscript,

@@ -47,7 +47,7 @@ export const reducer = handleActions(
 
     [SET_THEME]: (state, { payload }) => ({
       ...state,
-      ...update(payload)
+      ...themeColors(payload)
     })
   },
   INITIAL_STATE

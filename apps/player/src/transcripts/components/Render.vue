@@ -22,8 +22,7 @@
 </template>
 
 <script>
-import { reduce, head } from 'lodash'
-import { compose } from 'ramda'
+import { compose, head } from 'ramda'
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
 import { requestPlay } from '@podlove/player-actions/play'
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
@@ -85,7 +84,7 @@ export default {
     this.renderWindow(this.active)
 
     // Scroll to the active transcript
-    this.scrollWindow()
+    this.scrollTo(this.active)
   },
   methods: {
     onMouseOver({ start }) {
@@ -130,7 +129,7 @@ export default {
       return this.indexByHeight(search, index + 1, height + this.prerender[index])
     },
     heightByIndex(start = 0, end = -1) {
-      return reduce(this.prerender.slice(start, end), (result, element) => result + element, 0)
+      return this.prerender.slice(start, end).reduce((result, element) => result + element, 0)
     },
     slice(start = 0, end = 0) {
       // slice not includes the last end element, therefore + 1

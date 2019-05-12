@@ -1,13 +1,11 @@
-import { isNumber } from 'lodash'
-import { compose } from 'lodash/fp'
-
+import { is, compose } from 'ramda'
 import { toInt, toFloat } from './helper'
 
 const timeRegex = new RegExp(/^(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:\.(\d{1,3}))?$/)
 
 // Transforms a h:mm:ss.f or mm:ss.ffff or ss time to milliseconds
 export const toPlayerTime = (time = '0') => {
-  if (isNumber(time)) {
+  if (is(Number, time)) {
     return time
   }
 
@@ -28,7 +26,7 @@ export const toPlayerTime = (time = '0') => {
 export const localeDate = (timestamp, locale) => new Date(timestamp).toLocaleDateString(locale)
 export const localeTime = (timestamp, locale) =>
   new Date(timestamp).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })
-export const fallbackToZero = (time = 0) => (!isNumber(time) || time < 0 ? 0 : time)
+export const fallbackToZero = (time = 0) => (!is(Number, time) || time < 0 ? 0 : time)
 
 const leadingZero = time => (time > 9 ? `${time}` : `0${time}`)
 

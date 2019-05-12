@@ -4,14 +4,12 @@
       search
       follow.transcripts-follow-button
     //- Render
-    render-container.transcripts-container(:prerender="prerender" v-if="prerender && prerender.length > 0")
+    render-container.transcripts-container(:prerender="prerender" v-if="prerender.length > 0")
     //- Prerender
     prerender-container.transcripts-container(:transcripts="timeline" @load="loadPrerender" v-else)
 </template>
 
 <script>
-// import RenderContainer from './Render'
-
 import select from 'store/selectors'
 
 import Search from './components/Search'
@@ -35,7 +33,7 @@ export default {
         searchQuery: select.transcripts.searchQuery,
         timeline: select.transcripts.timeline
       }),
-      prerender: null
+      prerender: []
     }
   },
   computed: {

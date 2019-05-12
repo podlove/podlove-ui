@@ -19,11 +19,11 @@ exports[`ProgressBar props should render 'buffer' 1`] = `
    
   <span
     class="progress-buffer"
-    style="left: 0%; width: 10%; background-color: rgba(0, 0, 0, 0.30000000000000004);"
+    style="left: 0%; width: 10%; background-color: rgba(255, 255, 255, 0.5);"
   />
   <span
     class="progress-buffer"
-    style="left: 50%; width: 10%; background-color: rgba(0, 0, 0, 0.30000000000000004);"
+    style="left: 50%; width: 10%; background-color: rgba(255, 255, 255, 0.5);"
   />
     
   <div
