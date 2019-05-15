@@ -39,6 +39,7 @@ import SearchNextIcon from './states/SearchNext'
 import SearchPreviousIcon from './states/SearchPrevious'
 import MissingConnectionIcon from './states/MissingConnection'
 import InvalidConfigurationIcon from './states/InvalidConfiguration'
+import SubscribeIcon from './states/Subscribe'
 
 export const types = [
   'play',
@@ -82,7 +83,8 @@ export const types = [
   'search-previous',
   'search-next',
   'missing-connection',
-  'invalid-configuration'
+  'invalid-configuration',
+  'subscribe'
 ]
 
 export const components = {
@@ -126,5 +128,6 @@ export const components = {
   SearchNextIcon,
   SearchPreviousIcon,
   MissingConnectionIcon,
-  InvalidConfigurationIcon
+  InvalidConfigurationIcon,
+  SubscribeIcon
 }
