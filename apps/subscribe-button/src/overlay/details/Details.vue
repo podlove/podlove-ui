@@ -16,7 +16,7 @@
         <li v-for="(c, index) in web_apps" :key="index">
           <!-- <b><img :src="`/static/img/${osx.icon}`" />{{ osx.title }}</b> -->
           <!-- <a :href="`${osx.scheme}https://freakshow.fm/feed/m4a`" target="_blank">{{ osx.title }}</a> -->
-          <a :href="`${c.scheme}`" target="_blank">{{ c.title }}</a>
+          <a :href="`${c.scheme}${feed[0].url}`" target="_blank">{{ c.title }}</a>
         </li>
       </ul>
     </div>
@@ -24,13 +24,19 @@
 </template>
 
 <script>
+import { selectFeed } from 'store/selectors'
+
 import apps from './clientlist/apps.json'
 import web from './clientlist/web.json'
+
 import { getPlatform } from '@podlove/utils/useragent'
 
 export default {
   data() {
     return {
+      ...this.mapState({
+        feed: selectFeed
+      }),
       plat: getPlatform(),
       client: window.navigator.platform,
       web_apps: [...web.cloud, ...web.platform]
