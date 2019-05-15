@@ -12,7 +12,7 @@
     </div>
     <div></div>
     <details-component></details-component>
-    <div>powered by podlove</div>
+    <div>powered by <icon type="podlove"></icon> podlove</div>
   </div>
 </template>
 
@@ -26,11 +26,11 @@ import {
   selectDescription,
   selectFeed
 } from 'store/selectors'
-import { Image } from '@podlove/components'
+import { Icon, Image } from '@podlove/components'
 import DetailsComponent from './details/details'
 
 export default {
-  components: { Cover: Image, DetailsComponent },
+  components: { Icon, Cover: Image, DetailsComponent },
   data: mapState({
     color: selectColor,
     cover: selectCover,
