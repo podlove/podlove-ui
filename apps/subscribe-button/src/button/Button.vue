@@ -1,6 +1,7 @@
 <template>
   <button id="podlove-subscribe-button" :style="filling" @click="clickevent()">
-    Subscribe
+    <icon type="subscribe" :size="iconSize"></icon>
+    <span v-if="format !== 'square'">Subscribe</span>
   </button>
 </template>
 
@@ -8,7 +9,10 @@
 import { mapState } from 'redux-vuex'
 import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 
+import { Icon } from '@podlove/components'
+
 export default {
+  components: { Icon },
   props: {
     clickevent: {
       type: Function,
@@ -31,6 +35,22 @@ export default {
       } else {
         return `background: ${this.color};`
       }
+    },
+    iconSize() {
+      let size = '1em'
+
+      switch (this.size) {
+        case 'small':
+          size = '1.25em'
+          break
+        case 'medium':
+          size = '1.5em'
+          break
+        case 'big':
+          size = '1.75em'
+          break
+      }
+      return size
     }
   }
 }
@@ -49,5 +69,10 @@ button {
   transition: all 0.1s cubic-bezier(0.62, 0.28, 0.23, 0.99);
   width: 100%;
   font-size: 16px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 </style>
