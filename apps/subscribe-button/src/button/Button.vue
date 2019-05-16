@@ -1,7 +1,7 @@
 <template>
   <button id="podlove-subscribe-button" :style="filling" @click="clickevent()">
     <icon type="subscribe" :size="iconSize"></icon>
-    <span v-if="format !== 'square'">Subscribe</span>
+    <span v-if="format !== 'square'">{{ $t('SUBSCRIBE') }}</span>
   </button>
 </template>
 
@@ -74,5 +74,9 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  span {
+    margin-left: 5px;
+  }
 }
 </style>
