@@ -1,6 +1,8 @@
 <template>
   <div class="overlay">
-    <div>headline</div>
+    <div class="header">
+      headline
+    </div>
     <div class="subscribe-top">
       <cover alt="ccc" :url="cover" :cover-color="color" />
       <div class="podcast-describtion">
@@ -10,9 +12,15 @@
         <button class="btn-copy" :style='btnColor'>Weiter</button> -->
       </div>
     </div>
-    <div></div>
+    <div>
+      {{ urlText }}
+    </div>
     <details-component></details-component>
-    <div>powered by <icon type="podlove"></icon> podlove</div>
+    <div class="footer">
+      powered by
+      <icon type="podlove"></icon>
+      podlove
+    </div>
   </div>
 </template>
 
@@ -42,6 +50,9 @@ export default {
   computed: {
     btnColor() {
       return `background: ${this.color};`
+    },
+    urlText() {
+      return this.$t('URL', { title: this.podcastFeed[0].url })
     }
   },
   methods: {
