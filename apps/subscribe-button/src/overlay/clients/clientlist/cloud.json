@@ -1,0 +1,22 @@
+{
+  "cloud": [
+    {
+      "title": "gpodder.net",
+      "scheme": "http://gpodder.net/subscribe?url=",
+      "icon": "cloud/gpoddernet.png",
+      "register": "https://gpodder.net/"
+    },
+    {
+      "title": "Player.fm",
+      "scheme": "https://player.fm/subscribe?id=",
+      "icon": "cloud/playerfm.png",
+      "register": "https://player.fm/"
+    },
+    {
+      "title": "Pocket Casts",
+      "scheme": "http://pcasts.in/feed/",
+      "icon": "cloud/pocketcasts.png",
+      "register": "https://play.pocketcasts.com/"
+    }
+  ]
+}
