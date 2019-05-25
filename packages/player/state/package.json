@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-state",
-  "version": "4.5.3",
+  "version": "4.5.4",
   "description": "Reducers for Podlove Player Framework",
   "main": "index.js",
   "keywords": [],
@@ -8,16 +8,16 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/state",
   "license": "MIT",
   "dependencies": {
-    "@podlove/components": "^4.5.3",
-    "@podlove/player-actions": "^4.5.3",
-    "@podlove/player-sagas": "^4.5.3",
-    "@podlove/utils": "^4.5.3",
+    "@podlove/components": "^4.5.4",
+    "@podlove/player-actions": "^4.5.4",
+    "@podlove/player-sagas": "^4.5.4",
+    "@podlove/utils": "^4.5.4",
     "color": "3.1.0",
     "object-mapper": "5.0.0",
     "ramda": "0.26.1",
     "redux-actions": "2.6.4"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.3"
+    "@podlove/build": "^4.5.4"
   }
 }

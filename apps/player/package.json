@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player",
-  "version": "4.5.3",
+  "version": "4.5.4",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
@@ -10,7 +10,7 @@
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
     "postinstall": "npm run build",
     "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && mkdir -p publish && cp -R dist/ publish/ && cp package.json publish/ && npm pack publish",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
     "integration:ci": "cypress run --config baseUrl=http://localhost:8080",
@@ -20,12 +20,12 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/components": "^4.5.3",
+    "@podlove/components": "^4.5.4",
     "@podlove/html5-audio-driver": "1.3.7",
-    "@podlove/player-actions": "^4.5.3",
-    "@podlove/player-sagas": "^4.5.3",
-    "@podlove/player-state": "^4.5.3",
-    "@podlove/utils": "^4.5.3",
+    "@podlove/player-actions": "^4.5.4",
+    "@podlove/player-sagas": "^4.5.4",
+    "@podlove/player-state": "^4.5.4",
+    "@podlove/utils": "^4.5.4",
     "color": "3.1.0",
     "copy-to-clipboard": "3.0.8",
     "normalize-scss": "7.0.1",
@@ -36,7 +36,7 @@
     "vue-i18n": "8.4.0"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.3",
+    "@podlove/build": "^4.5.4",
     "cypress": "3.2.0",
     "http-server": "0.11.1",
     "webpack": "4.26.0",
