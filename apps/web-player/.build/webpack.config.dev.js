@@ -66,9 +66,6 @@ module.exports = {
         from: './example/chapters.json'
       },
       {
-        from: './example/example.m4a'
-      },
-      {
         from: './example/example.jpg'
       },
       { from: './example/assets', to: 'assets' }
