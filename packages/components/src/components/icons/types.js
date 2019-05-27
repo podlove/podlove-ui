@@ -31,6 +31,7 @@ import Speaker0Icon from './states/Speaker0'
 import Speaker25Icon from './states/Speaker25'
 import Speaker50Icon from './states/Speaker50'
 import Speaker75Icon from './states/Speaker75'
+import PodloveIcon from './states/Podlove'
 import PodlovePlayerIcon from './states/PodlovePlayer'
 import TranscriptsIcon from './states/Transcripts'
 import SearchClearIcon from './states/SearchClear'
@@ -38,6 +39,7 @@ import SearchNextIcon from './states/SearchNext'
 import SearchPreviousIcon from './states/SearchPrevious'
 import MissingConnectionIcon from './states/MissingConnection'
 import InvalidConfigurationIcon from './states/InvalidConfiguration'
+import SubscribeIcon from './states/Subscribe'
 
 export const types = [
   'play',
@@ -74,13 +76,15 @@ export const types = [
   'speaker-25',
   'speaker-50',
   'speaker-75',
+  'podlove',
   'podlove-player',
   'transcripts',
   'search-clear',
   'search-previous',
   'search-next',
   'missing-connection',
-  'invalid-configuration'
+  'invalid-configuration',
+  'subscribe'
 ]
 
 export const components = {
@@ -117,11 +121,13 @@ export const components = {
   Speaker25Icon,
   Speaker50Icon,
   Speaker75Icon,
+  PodloveIcon,
   PodlovePlayerIcon,
   TranscriptsIcon,
   SearchClearIcon,
   SearchNextIcon,
   SearchPreviousIcon,
   MissingConnectionIcon,
-  InvalidConfigurationIcon
+  InvalidConfigurationIcon,
+  SubscribeIcon
 }
