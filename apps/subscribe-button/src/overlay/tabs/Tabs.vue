@@ -32,17 +32,6 @@ import { TOGGLE_TAB } from 'store/reducers/types'
 import store from 'store'
 
 const tabs = {
-  InfoTab: () =>
-    import(/* webpackChunkName: "info-tab" */
-    /* webpackMode: "lazy" */
-    /* webpackPreload: true */
-    '../info')
-}
-
-import { TOGGLE_TAB } from 'store/reducers/types'
-import store from 'store'
-
-const tabs = {
   AppsTab: () =>
     import(
       /* webpackChunkName: "info-tab" */
