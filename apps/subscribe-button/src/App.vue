@@ -167,9 +167,7 @@ export default {
 
 .medium-cover {
   width: $size-medium-width;
-  height: calc(
-    $size-medium-cover-height + $size-medium-square-rectangle-height
-  );
+  height: calc($size-medium-cover-height + $size-medium-square-rectangle-height);
 
   img {
     height: $size-medium-cover-height;
