@@ -43,7 +43,7 @@ export const applyUrlParameters = store => {
   }
 
   if (starttime) {
-    store.dispatch(requestPlaytime(starttime))
+    store.dispatch(requestPlaytime(starttime + 1000))
   }
 
   if (autoplay) {
@@ -51,6 +51,6 @@ export const applyUrlParameters = store => {
   }
 
   if (stoptime) {
-    stopAt(stoptime, store)
+    stopAt(stoptime + 1000, store)
   }
 }
