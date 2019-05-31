@@ -29,7 +29,7 @@ export const sandboxDocument = compose(
 )
 
 const resize = curry((anchor, frame) => {
-  const setFrameSize = () => setAttributes({ width: anchor.offsetWidth })(frame)
+  const setFrameSize = () => setAttributes({ width: anchor.offsetWidth }, frame)
 
   setFrameSize()
 

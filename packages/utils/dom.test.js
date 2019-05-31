@@ -85,7 +85,7 @@ describe('dom', () => {
     test('adds styles to a dom node', () => {
       const testNode = createNode('div')
 
-      setStyles({ color: 'red', width: '200px' })(testNode)
+      setStyles({ color: 'red', width: '200px' }, testNode)
 
       expect(testNode.style.color).toEqual('red')
       expect(testNode.style.width).toEqual('200px')
@@ -99,7 +99,7 @@ describe('dom', () => {
 
     test(`should return the class names`, () => {
       const testNode = createNode('div')
-      addClasses(['foo', 'bar'])(testNode)
+      addClasses(['foo', 'bar'], testNode)
 
       expect(getClasses(testNode)).toEqual(['foo', 'bar'])
     })
@@ -112,7 +112,7 @@ describe('dom', () => {
 
     test(`should add classes to dom elements`, () => {
       const testNode = createNode('div')
-      addClasses(['foo', 'bar'])(testNode)
+      addClasses(['foo', 'bar'], testNode)
 
       expect(testNode.className).toEqual('foo bar')
     })
@@ -126,7 +126,7 @@ describe('dom', () => {
     test(`should remove classes to dom elements`, () => {
       const testNode = createNode('div')
       testNode.className = 'foo bar baz'
-      removeClasses(['foo', 'bar'])(testNode)
+      removeClasses(['foo', 'bar'], testNode)
 
       expect(testNode.className).toEqual('baz')
     })
@@ -139,8 +139,8 @@ describe('dom', () => {
 
     test(`should add attributes to an dom element`, () => {
       const testNode = createNode('div')
-      setAttributes()(testNode)
-      setAttributes({ title: 'foobar' })(testNode)
+      setAttributes({}, testNode)
+      setAttributes({ title: 'foobar' }, testNode)
 
       expect(testNode.getAttribute('title')).toEqual('foobar')
     })
