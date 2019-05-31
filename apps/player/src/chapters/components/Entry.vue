@@ -4,11 +4,11 @@
       icon(type="link" :size="20" :color="iconColor" v-if="linkHover")
       icon(type="play" :size="12" :color="iconColor" v-else)
 
-    span.index(aria-hidden="true" v-else) {{chapter.index}}
+    span.index(aria-hidden="true" v-else) {{ chapter.index }}
 
     chapter-progress.chapter-progress(
         :chapter="chapter"
-        :showLink="linkHover"
+        :showLink="true"
         :playtime="playtime"
         :ghost="ghost"
         :progressColor="progressChapterColor"

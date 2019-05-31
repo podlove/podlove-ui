@@ -21,32 +21,7 @@
   "poster": "//localhost:9000/example.jpg",
   "duration": "01:40:36.297",
   "link": "https://forschergeist.de/podcast/fg066-klimaneutralitaet/",
-  "audio": [
-    {
-      "url": "https://forschergeist.de/podlove/file/1734/s/webplayer/c/episode/fg064-ethik-und-genetik.m4a",
-      "size": "68715948",
-      "title": "MPEG-4 AAC Audio (m4a)",
-      "mimeType": "audio/mp4"
-    },
-    {
-      "url": "https://forschergeist.de/podlove/file/1736/s/webplayer/c/episode/fg064-ethik-und-genetik.opus",
-      "size": "60639361",
-      "title": "Opus Audio (opus)",
-      "mimeType": "audio/opus"
-    },
-    {
-      "url": "https://forschergeist.de/podlove/file/1731/s/webplayer/c/episode/fg064-ethik-und-genetik.oga",
-      "size": "93541578",
-      "title": "Ogg Vorbis Audio (oga)",
-      "mimeType": "audio/ogg"
-    },
-    {
-      "url": "https://forschergeist.de/podlove/file/1732/s/webplayer/c/episode/fg064-ethik-und-genetik.mp3",
-      "size": "90686128",
-      "title": "MP3 Audio (mp3)",
-      "mimeType": "audio/mpeg"
-    }
-  ],
+  "audio": [{"url":"https:\/\/forschergeist.de\/podlove\/file\/1781\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.m4a","size":"65728876","title":"MPEG-4 AAC Audio (m4a)","mimeType":"audio\/mp4"},{"url":"https:\/\/forschergeist.de\/podlove\/file\/1783\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.opus","size":"49217134","title":"Opus Audio (opus)","mimeType":"audio\/opus"},{"url":"https:\/\/forschergeist.de\/podlove\/file\/1774\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.oga","size":"68768334","title":"Ogg Vorbis Audio (oga)","mimeType":"audio\/ogg"},{"url":"https:\/\/forschergeist.de\/podlove\/file\/1782\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.mp3","size":"85274872","title":"MP3 Audio (mp3)","mimeType":"audio\/mpeg"}],
   "chapters": "//localhost:9000/chapters.json",
   "contributors": [
     {

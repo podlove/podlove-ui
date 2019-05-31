@@ -18,14 +18,14 @@ describe('Url Parameters', () => {
       cy.get('iframe')
         .iframe()
         .find('#progress-bar--timer-current')
-        .contains('00:02')
+        .contains('00:03')
     })
   })
 
   describe('End Time', () => {
     beforeEach(function() {
       cy.embed(Object.assign({}, this.episode, this.audio, this.show, this.chapters), {
-        t: '00:01,00:02'
+        t: '00:01,00:03'
       })
     })
 
@@ -39,7 +39,7 @@ describe('Url Parameters', () => {
       cy.get('iframe')
         .iframe()
         .find('#progress-bar--timer-current')
-        .contains('00:01')
+        .contains('00:02')
     })
 
     it('should end the player at a given time', () => {
@@ -54,7 +54,7 @@ describe('Url Parameters', () => {
       cy.get('iframe')
         .iframe()
         .find('#progress-bar--timer-current')
-        .contains('00:02')
+        .contains('00:04')
     })
   })
 

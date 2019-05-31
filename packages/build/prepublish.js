@@ -6,9 +6,11 @@ const fs = require('fs-extra')
 //  npm run clean && npm run build && mkdir -p publish && cp -R dist/ publish/ && cp package.json publish/
 const path = file => resolve('.', file)
 
-const copyPackage = () => fs.readJson(path('package.json'))
-  .then(omit(['scripts']))
-  .then(package => fs.writeJson(path('publish/package.json'), package))
+const copyPackage = () =>
+  fs
+    .readJson(path('package.json'))
+    .then(omit(['scripts']))
+    .then(pkg => fs.writeJson(path('publish/package.json'), pkg))
 
 fs.emptyDir(path('publish'))
   .then(fs.copy(path('dist'), path('publish')))

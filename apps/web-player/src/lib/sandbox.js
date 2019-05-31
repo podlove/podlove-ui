@@ -12,11 +12,14 @@ import { createLoader } from './loader'
 const setAccessibilityAttributes = curry((config, node) => {
   const title = `Podlove Web Player${prop('title', config) ? ': ' + prop('title', config) : ''}`
 
-  return setAttributes({
-    title,
-    'aria-label': title,
-    tabindex: 0
-  })(node)
+  return setAttributes(
+    {
+      title,
+      'aria-label': title,
+      tabindex: 0
+    },
+    node
+  )
 })
 
 export const createSandbox = async (config, node) => {
