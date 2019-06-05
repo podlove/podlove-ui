@@ -37,17 +37,17 @@ export default {
       }
     },
     iconSize() {
-      let size = '1em'
+      let size = 20
 
       switch (this.size) {
         case 'small':
-          size = '1.25em'
+          size = 16
           break
         case 'medium':
-          size = '1.5em'
+          size = 18
           break
         case 'big':
-          size = '1.75em'
+          size = 22
           break
       }
       return size
