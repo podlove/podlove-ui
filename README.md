@@ -8,7 +8,7 @@
 
 ### For Contribution
 
-1. Make sure you have Node 10+ and [lerna](https://lernajs.io/) installed
+1. Make sure you have Node 10+ and [lerna](https://lerna.js.org/) installed
 2. Fork this repository
 3. Run `lerna bootstrap --hoist` to setup the workspace
 
@@ -18,7 +18,7 @@ This mono repo creates a set of different packages within the `@podlove` NPM org
 
 ## Used Libraries and Frameworks
 
-- Workspace Management: [Lerna](https://lernajs.io/)
+- Workspace Management: [Lerna](https://lerna.js.org/)
 - Bundling: [Webpack](https://webpack.js.org/)
 - View Renderer: [Vue](https://vuejs.org/)
 - Statemanagenet: [Redux](https://redux.js.org/)
