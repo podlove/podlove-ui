@@ -14,6 +14,12 @@
     </div>
     <div>
       {{ urlText }}
+      <button @click="testCopy">
+        {{ $t('COPYURL') }}
+      </button>
+      <div id="copy-url-field" @focus="focusURL">
+        {{ podcastFeed[0].url }}
+      </div>
     </div>
     <details-component></details-component>
     <div class="footer">
@@ -56,8 +62,16 @@ export default {
     }
   },
   methods: {
+    focusURL() {
+      document.execCommand('selectAll', false, null)
+    },
     testCopy() {
-      // console.log('copy testing')
+      let field = document.querySelector('#copy-url-field')
+      field.setAttribute('contenteditable', true)
+      field.focus()
+      document.execCommand('copy', false, null)
+      field.blur()
+      field.setAttribute('contenteditable', false)
     }
   }
 }
@@ -108,6 +122,10 @@ export default {
 .app-liste {
   display: flex;
   align-content: flex-start;
+}
+
+#copy-url-field {
+  // visibility: hidden;
 }
 
 .btn-copy {
