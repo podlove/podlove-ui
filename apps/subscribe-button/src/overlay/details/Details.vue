@@ -5,8 +5,7 @@
       <ul>
         <li v-for="(osx, index) in getOSClients" :key="index">
           <!-- <b><img :src="`/static/img/${osx.icon}`" />{{ osx.title }}</b> -->
-          <!-- <a :href="`${osx.scheme}https://freakshow.fm/feed/m4a`" target="_blank">{{ osx.title }}</a> -->
-          <a :href="`${osx.scheme}`" target="_blank">{{ osx.title }}</a>
+          <a :href="constructURL(osx)" target="_blank">{{ osx.title }}</a>
         </li>
       </ul>
     </div>
@@ -15,8 +14,7 @@
       <ul>
         <li v-for="(c, index) in web_apps" :key="index">
           <!-- <b><img :src="`/static/img/${osx.icon}`" />{{ osx.title }}</b> -->
-          <!-- <a :href="`${osx.scheme}https://freakshow.fm/feed/m4a`" target="_blank">{{ osx.title }}</a> -->
-          <a :href="`${c.scheme}${feed[0].url}`" target="_blank">{{ c.title }}</a>
+          <a :href="constructURL(c)" target="_blank">{{ c.title }}</a>
         </li>
       </ul>
     </div>
@@ -45,6 +43,18 @@ export default {
   computed: {
     getOSClients() {
       return apps[this.plat]
+    }
+  },
+  methods: {
+    constructURL(item) {
+      const regex = /^https:\/\//gm
+      let url = ''
+      if (item.https) {
+        url = this.feed[0].url
+      } else {
+        url = this.feed[0].url.replace(regex, '')
+      }
+      return `${item.scheme}${url}`
     }
   }
 }
