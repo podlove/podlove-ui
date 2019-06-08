@@ -16,14 +16,14 @@
       "title": "Player.fm",
       "scheme": "https://player.fm/subscribe?id=",
       "icon": "android/playerfm.png",
-      "store": "https://play.google.com/store/apps/details?id=fm.player"
+      "store": "https://play.google.com/store/apps/details?id=fm.player",
+      "https": true
     },
     {
       "title": "PocketCasts",
       "scheme": "pktc://subscribe/",
       "icon": "android/pocketcasts.png",
-      "install": "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts",
-      "encodePath": true
+      "install": "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts"
     },
     {
       "title": "Podcast Addict",
@@ -84,7 +84,7 @@
       "scheme": "overcast://x-callback-url/add?url=",
       "icon": "ios/overcast.png",
       "store": "https://itunes.apple.com/de/app/overcast-podcast-player/id888422857",
-      "http": true
+      "https": true
     },
     {
       "title": "PocketCasts",
@@ -128,7 +128,8 @@
       "title": "gPodder",
       "scheme": "gpodder://",
       "icon": "unix/gpodder.png",
-      "install": "http://gpodder.org/downloads"
+      "install": "http://gpodder.org/downloads",
+      "https": true
     }
   ],
   "osx": [
@@ -148,7 +149,7 @@
       "scheme": "itpc://",
       "icon": "osx/itunes.png",
       "install": "http://www.apple.com/itunes/",
-      "customFeedType": "itunes"
+      "itunes": true
     },
     {
       "title": "PodGrasp",
@@ -162,14 +163,15 @@
       "title": "gPodder",
       "scheme": "gpodder://",
       "icon": "windows/gpodder.png",
-      "install": "http://gpodder.org/downloads"
+      "install": "http://gpodder.org/downloads",
+      "https": true
     },
     {
       "title": "iTunes",
       "scheme": "itpc://",
       "icon": "osx/itunes.png",
       "install": "http://www.apple.com/itunes/",
-      "customFeedType": "itunes-url"
+      "itunes": true
     },
     {
       "title": "Podscout",

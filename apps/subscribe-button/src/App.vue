@@ -47,7 +47,6 @@ export default {
 .background {
   background: #f5f5f5;
   display: flex;
-  height: 100vh;
 
   @include font();
   font-size: 16px;

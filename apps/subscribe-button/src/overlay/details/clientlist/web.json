@@ -4,13 +4,15 @@
       "title": "gpodder.net",
       "scheme": "http://gpodder.net/subscribe?url=",
       "icon": "cloud/gpoddernet.png",
-      "register": "https://gpodder.net/"
+      "register": "https://gpodder.net/",
+      "https": true
     },
     {
       "title": "Player.fm",
       "scheme": "https://player.fm/subscribe?id=",
       "icon": "cloud/playerfm.png",
-      "register": "https://player.fm/"
+      "register": "https://player.fm/",
+      "https": true
     },
     {
       "title": "Pocket Casts",
