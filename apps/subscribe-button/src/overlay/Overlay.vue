@@ -168,11 +168,15 @@ export default {
   align-content: flex-start;
 }
 
+<<<<<<< HEAD
 // #copy-url-field {
 // visibility: hidden;
 // }
-
-.btn-copy {
+=======
+#copy-url-field {
+  // visibility: hidden;
+}
+>>>>>>>c97b486e08aa79fc187206b3f68e9ac63fbf7f96 .btn-copy {
   width: 250px;
   height: 50px;
   background: white;
