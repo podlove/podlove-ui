@@ -1,20 +1,33 @@
 <template>
   <div class="background">
-    <div :class="dimensions">
+    <div v-if="!overlayVisible" :class="dimensions">
       <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color" />
-      <button-component :clickevent="testClick" :sb="true"></button-component>
+      <button-component :sb="true" @click="showOverlay"></button-component>
     </div>
-
-    <overlay-component></overlay-component>
+    <transition name="fade">
+      <overlay-component v-if="overlayVisible"></overlay-component>
+    </transition>
   </div>
 </template>
 <script>
+import { compose } from 'ramda'
 import ButtonComponent from './button/button'
 import OverlayComponent from './overlay/overlay'
 // import { getPlattform } from '@podlove/utils/useragent'
 import { Image } from '@podlove/components'
 import { mapState } from 'redux-vuex'
-import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
+import store from 'store'
+
+import {
+  selectColor,
+  selectCover,
+  selectFormat,
+  selectSize,
+  selectStyle,
+  selectOverlayVisible
+} from 'store/selectors'
+
+import { showOverlay } from 'store/actions'
 
 export default {
   components: { Cover: Image, ButtonComponent, OverlayComponent },
@@ -23,7 +36,8 @@ export default {
     cover: selectCover,
     format: selectFormat,
     size: selectSize,
-    style: selectStyle
+    style: selectStyle,
+    overlayVisible: selectOverlayVisible
   }),
   computed: {
     dimensions() {
@@ -31,9 +45,10 @@ export default {
     }
   },
   methods: {
-    testClick() {
-      // console.log(getPlattform())
-    }
+    showOverlay: compose(
+      store.dispatch,
+      showOverlay
+    )
   }
 }
 </script>
@@ -43,17 +58,12 @@ export default {
 @import '~theme/font';
 @import '~theme/reset';
 @import '~theme/variable';
+@import '~theme/animations';
 
 .background {
-  background: #f5f5f5;
-  display: flex;
-
   @include font();
   font-size: 16px;
-
-  > * {
-    margin: 20px;
-  }
+  display: inline-block;
 }
 
 .big-rectangle {

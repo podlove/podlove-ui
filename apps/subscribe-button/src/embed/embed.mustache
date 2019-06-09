@@ -1,0 +1,31 @@
+<script type="text/javascript">
+  window.resourceBaseUrl = '{{ base }}';
+</script>
+
+<div id="subscribe-button">
+  <subscribe-button></subscribe-button>
+</div>
+
+{{#styles}}
+<link rel="stylesheet" href="{{ base }}{{ . }}.css">
+{{/styles}}
+
+{{#scripts}}
+<script type="text/javascript" src="{{ base }}{{ . }}.js"></script>
+{{/scripts}}
+
+<script>
+  window.iFrameResizer = {
+    widthCalculationMethod: function () {
+      return document.getElementById('subscribe-button').offsetWidth
+    }
+  }
+
+  {{{ resizer }}}
+</script>
+
+<style>
+  #subscribe-button {
+    display: inline-block;
+  }
+</style>

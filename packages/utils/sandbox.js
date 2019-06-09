@@ -1,9 +1,6 @@
 import { compose, curry, prop } from 'ramda'
 import { createNode, appendNode, setAttributes, setStyles } from './dom'
 
-const SANDBOX_WIDTH = '768px'
-const SANDBOX_HEIGHT = '230px'
-
 const iframe = compose(
   setAttributes({
     'min-width': '100%',
@@ -12,9 +9,6 @@ const iframe = compose(
     frameborder: '0'
   }),
   setStyles({
-    'max-width': SANDBOX_WIDTH,
-    'min-height': SANDBOX_HEIGHT,
-    transition: 'all 500ms',
     height: 'auto'
   }),
   createNode
@@ -28,7 +22,7 @@ export const sandboxDocument = compose(
   sandboxWindow
 )
 
-const resize = curry((anchor, frame) => {
+export const resize = curry((anchor, frame) => {
   const setFrameSize = () => setAttributes({ width: anchor.offsetWidth }, frame)
 
   setFrameSize()
@@ -66,7 +60,9 @@ const inject = curry(
       doc.write('<!DOCTYPE html>')
       doc.write('<html>')
       doc.write('<head><meta charset="utf-8" /></head>')
+      doc.write('<body>')
       doc.write(content)
+      doc.write('</body>')
       doc.close()
 
       onLoad()
@@ -76,6 +72,5 @@ const inject = curry(
 export const sandbox = curry((anchor, content) =>
   createFrame()
     .then(appendNode(anchor))
-    .then(resize(anchor))
     .then(inject(content))
 )
