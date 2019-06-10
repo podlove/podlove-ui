@@ -56,7 +56,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~normalize-scss';
 @import '~theme/reset';
 @import '~theme/variable';
 

@@ -1,12 +1,11 @@
 const path = require('path')
 const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
-
 const version = require('../package').version
-const BASE = `/`
+const BASE = `//cdn.podlove.org/subscribe-button/`
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
 
   entry: {
     button: './src/subscribe-button.js',
@@ -21,34 +20,21 @@ module.exports = {
     '@podlove/components': componentAssets
   }),
 
-  devtool: 'inline-source-map',
-  devServer: devServer({ port: 9000, contentBase: './dist' }),
-
   module: {
     rules: [
       rules.vue(),
       rules.javascript(),
       rules.images(),
-      rules.vueStyles({ prod: false }),
+      rules.vueStyles({ prod: true }),
       rules.mustache()
     ]
   },
 
   plugins: [
     plugins.vue(),
-    plugins.jarvis(1337),
-    plugins.bundleAnalyzer(),
-    plugins.hmr(),
-    plugins.env({ MODE: 'development', BASE, SCRIPTS: ['button'], STYLES: [], VERSION: version }),
-    plugins.html({
-      filename: 'index.html',
-      template: './example/index.html'
-    }),
-    plugins.html({
-      filename: 'embed.html',
-      template: './example/embed.html',
-      chunks: ['embed']
-    }),
-    plugins.env({ mode: 'development' })
+    plugins.css(),
+    plugins.minifyCss(),
+    plugins.version(),
+    plugins.env({ MODE: 'production', BASE, SCRIPTS: ['button'], STYLES: ['button'], VERSION: version })
   ]
 }

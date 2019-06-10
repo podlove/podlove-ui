@@ -1,4 +1,4 @@
-/* global BASE, STYLES, SCRIPTS, MODE */
+/* global BASE, STYLES, SCRIPTS, MODE, VERSION */
 import { propOr } from 'ramda'
 import { sandbox } from '@podlove/utils/sandbox'
 import { iframeResizer } from 'iframe-resizer'
@@ -8,9 +8,10 @@ import iframeResizerContentWindow from 'raw-loader!iframe-resizer/js/iframeResiz
 import embedButtonDom from './embed.mustache'
 
 export default async (config, entry) => {
-  const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config.reference)
+  const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config)
 
   const buttonDom = embedButtonDom({
+    version: VERSION,
     base: reference,
     styles: STYLES,
     scripts: SCRIPTS,

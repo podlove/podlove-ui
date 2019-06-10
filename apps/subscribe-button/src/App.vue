@@ -77,7 +77,7 @@ export default {
 
 .big-cover {
   width: $size-big-width;
-  height: calc($size-big-cover-height + $size-big-square-rectangle-height);
+  height: calc(#{$size-big-cover-height} + #{$size-big-square-rectangle-height});
 
   img {
     height: $size-big-cover-height;
@@ -107,7 +107,7 @@ export default {
 
 .medium-cover {
   width: $size-medium-width;
-  height: calc($size-medium-cover-height + $size-medium-square-rectangle-height);
+  height: calc(#{$size-medium-cover-height} + #{$size-medium-square-rectangle-height});
 
   img {
     height: $size-medium-cover-height;
@@ -137,7 +137,7 @@ export default {
 
 .small-cover {
   width: $size-small-width;
-  height: calc($size-small-cover-height + $size-small-square-rectangle-height);
+  height: calc(#{$size-small-cover-height} + #{$size-small-square-rectangle-height});
 
   img {
     height: $size-small-cover-height;
@@ -176,7 +176,7 @@ export default {
 
 .medium-cover {
   width: $size-medium-width;
-  height: calc($size-medium-cover-height + $size-medium-square-rectangle-height);
+  height: calc(#{$size-medium-cover-height} + #{$size-medium-square-rectangle-height});
 
   img {
     height: $size-medium-cover-height;
@@ -206,7 +206,7 @@ export default {
 
 .small-cover {
   width: $size-small-width;
-  height: calc($size-small-cover-height + $size-small-square-rectangle-height);
+  height: calc(#{$size-small-cover-height} + #{$size-small-square-rectangle-height});
 
   img {
     height: $size-small-cover-height;

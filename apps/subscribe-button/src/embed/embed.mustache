@@ -7,11 +7,11 @@
 </div>
 
 {{#styles}}
-<link rel="stylesheet" href="{{ base }}{{ . }}.css">
+<link rel="stylesheet" href="{{ base }}{{ . }}.css?version={{ version }}">
 {{/styles}}
 
 {{#scripts}}
-<script type="text/javascript" src="{{ base }}{{ . }}.js"></script>
+<script type="text/javascript" src="{{ base }}{{ . }}.js?version={{ version }}"></script>
 {{/scripts}}
 
 <script>

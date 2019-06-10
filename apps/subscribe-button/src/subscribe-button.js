@@ -1,3 +1,5 @@
+/* eslint-disable no-global-assign, no-unused-vars */
+/* globals __webpack_public_path__ */
 import { head } from 'ramda'
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
@@ -8,7 +10,7 @@ import store from './store'
 Vue.use(VueI18n)
 
 // Use public path from application
-// __webpack_public_path__ = window.resourceBaseUrl || '/'
+__webpack_public_path__ = window.resourceBaseUrl || '/'
 
 window.PSB_STORE = store
 
