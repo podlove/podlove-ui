@@ -45,7 +45,7 @@ import {
   selectFeed
 } from 'store/selectors'
 import { Icon, Image } from '@podlove/components'
-import DetailsComponent from './details/details'
+import DetailsComponent from './details'
 
 export default {
   components: { Icon, Cover: Image, DetailsComponent },

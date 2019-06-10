@@ -11,8 +11,8 @@
 </template>
 <script>
 import { compose } from 'ramda'
-import ButtonComponent from './button/button'
-import OverlayComponent from './overlay/overlay'
+import ButtonComponent from './button'
+import OverlayComponent from './overlay'
 // import { getPlattform } from '@podlove/utils/useragent'
 import { Image } from '@podlove/components'
 import { mapState } from 'redux-vuex'
