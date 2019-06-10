@@ -1,3 +1,4 @@
+import { INIT } from '@podlove/player-actions/types'
 import { reducer as episode } from './reducer'
 
 describe('episode', () => {
@@ -5,7 +6,7 @@ describe('episode', () => {
 
   beforeEach(() => {
     testAction = {
-      type: 'INIT',
+      type: INIT,
       payload: {
         title: 'title',
         subtitle: 'subtitle',
@@ -31,7 +32,7 @@ describe('episode', () => {
   })
 
   test(`episode: it falls back to default state`, () => {
-    const result = episode(undefined, { type: 'INIT' })
+    const result = episode(undefined, { type: INIT })
     expect(result).toEqual({
       title: null,
       subtitle: null,

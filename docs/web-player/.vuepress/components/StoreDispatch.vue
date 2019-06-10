@@ -16,105 +16,113 @@
 
 <script>
   import example from '../public/fixtures/example.json'
+  import * as types from '@podlove/player-actions/types'
 
   const actions = [{
-    type: 'INIT',
+    type: types.INIT,
     description: 'Initializes Player',
     payload: example
   }, {
-    type: 'UI_PLAY',
+    type: types.REQUEST_PLAY,
     description: 'Plays Podcast',
     payload: {}
   }, {
-    type: 'UI_PAUSE',
+    type: types.REQUEST_PAUSE,
     description: 'Pauses Podcast',
     payload: {}
   }, {
-    type: 'UI_RESTART',
+    type: types.REQUEST_RESTART,
     description: 'Restarts the podcast',
     payload: {}
   }, {
-    type: 'SET_THEME',
+    type: types.SET_THEME,
     description: 'Sets Player Theme',
     payload: {
       main: '#9b4dca',
       highlight: '#ffffff'
     }
   }, {
-    type: 'NEXT_CHAPTER',
+    type: types.NEXT_CHAPTER,
     description: 'Jumps to the next chapter',
     payload: {}
   }, {
-    type: 'PREVIOUS_CHAPTER',
+    type: types.PREVIOUS_CHAPTER,
     description: 'Jumps to the previous chapter',
     payload: {}
   }, {
-    type: 'SET_CHAPTER',
+    type: types.SET_CHAPTER,
     description: 'Jumps to a chapter index (starting from 1)',
     payload: 5
   }, {
-    type: 'SET_DURATION',
-    description: 'Sets the duration in milliseconds',
-    payload: 10 * 1000 * 60
-  }, {
-    type: 'MUTE',
+    type: types.MUTE,
     description: 'Mutes the audio',
     payload: {}
   }, {
-    type: 'UNMUTE',
+    type: types.UNMUTE,
     description: 'Unmutes the audio',
     payload: {}
   }, {
-    type: 'SET_VOLUME',
+    type: types.SET_VOLUME,
     description: 'Sets the volume (between 0 and 1)',
     payload: 0.5
   }, {
-    type: 'SET_RATE',
+    type: types.SET_RATE,
     description: 'Sets the playback rate (between 0.5 and 4)',
     payload: 1.5
   }, {
-    type: 'UPDATE_PLAYTIME',
+    type: types.UPDATE_PLAYTIME,
     description: 'Updates the playback time in milliseconds',
     payload: 10 * 1000 * 60
   }, {
-    type: 'TOGGLE_COMPONENT_INFO',
-    description: 'Shows/Hides the info section',
-    payload: true
+    type: types.SHOW_COMPONENT_INFO,
+    description: 'Shows the info section'
   }, {
-    type: 'TOGGLE_COMPONENT_INFO_POSTER',
-    description: 'Shows/Hides the info poster section',
-    payload: true
+    type: types.HIDE_COMPONENT_INFO,
+    description: 'Hides the info section'
   }, {
-    type: 'TOGGLE_COMPONENT_CONTROLS_CHAPTERS',
-    description: 'Shows/Hides the chapter controls',
-    payload: true
+    type: types.SHOW_COMPONENT_INFO_POSTER,
+    description: 'Shows the info poster section'
   }, {
-    type: 'TOGGLE_COMPONENT_CONTROLS_STEPPERS',
-    description: 'Shows/Hides the stepper controls',
-    payload: true
+    type: types.HIDE_COMPONENT_INFO_POSTER,
+    description: 'Hides the info poster section'
   }, {
-    type: 'TOGGLE_COMPONENT_TAB',
-    description: 'Shows/Hides a tab',
-    payload: {
-      tab: 'download',
-      visibility: false
-    }
+    type: types.SHOW_COMPONENT_CONTROLS_CHAPTERS,
+    description: 'Shows the chapter controls',
   }, {
-    type: 'TOGGLE_COMPONENT_VOLUME_SLIDER',
-    description: 'Shows/Hides the volume slider',
-    payload: true
+    type: types.HIDE_COMPONENT_CONTROLS_STEPPERS,
+    description: 'Hides the stepper controls'
   }, {
-    type: 'TOGGLE_COMPONENT_RATE_SLIDER',
-    description: 'Shows/Hides the rate slider',
-    payload: true
+    type: types.SHOW_COMPONENT_TAB,
+    description: 'Shows a tab',
+    payload: 'download'
   }, {
-    type: 'TOGGLE_COMPONENT_PROGRESSBAR',
-    description: 'Shows/Hides the progress bar',
-    payload: true
+    type: types.HIDE_COMPONENT_TAB,
+    description: 'Hides a tab',
+    payload: 'download'
   }, {
-    type: 'TOGGLE_COMPONENT_CONTROLS_BUTTON',
-    description: 'Shows/hides the control button unit',
-    payload: true
+    type: types.SHOW_COMPONENT_VOLUME_SLIDER,
+    description: 'Shows the volume slider'
+  }, {
+    type: types.HIDE_COMPONENT_VOLUME_SLIDER,
+    description: 'Hides the volume slider'
+  }, {
+    type: types.SHOW_COMPONENT_RATE_SLIDER,
+    description: 'Shows the rate slider'
+  }, {
+    type: types.HIDE_COMPONENT_RATE_SLIDER,
+    description: 'Hides the rate slider'
+  }, {
+    type: types.SHOW_COMPONENT_PROGRESSBAR,
+    description: 'Shows the progress bar'
+  }, {
+    type: types.HIDE_COMPONENT_PROGRESSBAR,
+    description: 'Hides the progress bar'
+  }, {
+    type: types.SHOW_COMPONENT_CONTROLS_BUTTON,
+    description: 'Shows the control button unit'
+  }, {
+    type: types.HIDE_COMPONENT_CONTROLS_BUTTON,
+    description: 'Hides the control button unit'
   }]
 
   export default {
@@ -126,10 +134,10 @@
         editor: null,
         actions,
         action: {
-          type: 'INIT',
+          type: types.INIT,
           payload: example
         },
-        type: 'INIT'
+        type: types.INIT
       }
     },
 
