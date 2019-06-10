@@ -36,7 +36,7 @@ export const createSandbox = async (config, node) => {
     .then(
       setStyles({
         'max-width': '768px',
-        'max-height': '230px',
+        'min-height': '230px',
         transition: 'all 500ms'
       })
     )
