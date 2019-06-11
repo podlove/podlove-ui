@@ -27,6 +27,12 @@ export const setStyles = curry((attrs, el) => {
   return el
 })
 
+export const removeStyles = curry((attrs, el) => {
+  ;(attrs || []).forEach(attr => {
+    delete el.style[attr]
+  })
+})
+
 export const getClasses = compose(
   filter(identity),
   el => el.className.split(' ')

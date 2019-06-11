@@ -1,5 +1,5 @@
 <template>
-  <button id="podlove-subscribe-button" :style="filling" @click="clickevent()">
+  <button id="podlove-subscribe-button" :style="filling" @click="onClick">
     <icon type="subscribe" :size="iconSize"></icon>
     <span v-if="format !== 'square'">{{ $t('SUBSCRIBE') }}</span>
   </button>
@@ -13,12 +13,6 @@ import { Icon } from '@podlove/components'
 
 export default {
   components: { Icon },
-  props: {
-    clickevent: {
-      type: Function,
-      default: null
-    }
-  },
   data: mapState({
     color: selectColor,
     cover: selectCover,
@@ -52,12 +46,16 @@ export default {
       }
       return size
     }
+  },
+  methods: {
+    onClick() {
+      this.$emit('click')
+    }
   }
 }
 </script>
 
 <style lang="scss">
-@import '~normalize-scss';
 @import '~theme/reset';
 @import '~theme/variable';
 
