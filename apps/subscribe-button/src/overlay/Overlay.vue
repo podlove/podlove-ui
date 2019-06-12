@@ -2,7 +2,7 @@
   <div class="overlay">
     <div class="upper-part" :style="backgroundGradient">
       <div class="header">
-        <span>zurück</span>
+        <icon type="close"></icon>
         <icon type="podlove"></icon>
         <icon type="info"></icon>
       </div>
@@ -168,7 +168,7 @@ export default {
   align-content: flex-start;
 }
 
-#copy-url-field {
+.btn-copy {
   width: 250px;
   height: 50px;
   background: white;
