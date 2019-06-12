@@ -2,7 +2,9 @@
   <div class="overlay">
     <div class="upper-part" :style="backgroundGradient">
       <div class="header">
-        <icon type="close"></icon>
+        <button @click="onClick">
+          <icon id="btn-close" type="close"></icon>
+        </button>
         <icon type="podlove"></icon>
         <icon type="info"></icon>
       </div>
@@ -79,6 +81,9 @@ export default {
       document.execCommand('copy', false, null)
       field.blur()
       field.setAttribute('contenteditable', false)
+    },
+    onClick() {
+      this.$emit('click')
     }
   }
 }
@@ -127,6 +132,10 @@ export default {
     padding: 0.5em;
     align-items: center;
     justify-content: space-between;
+
+    #btn-close {
+      cursor: pointer;
+    }
   }
 
   .subscribe-top {
