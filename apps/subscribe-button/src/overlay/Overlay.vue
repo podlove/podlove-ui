@@ -27,7 +27,6 @@
         </button>
       </div>
     </div>
-    <details-component></details-component>
     <tabs-component></tabs-component>
     <div class="footer">
       powered by
@@ -48,11 +47,10 @@ import {
   selectFeed
 } from 'store/selectors'
 import { Icon, Image } from '@podlove/components'
-import DetailsComponent from './details'
 import TabsComponent from './tabs/tabs'
 
 export default {
-  components: { Icon, Cover: Image, DetailsComponent, TabsComponent },
+  components: { Icon, Cover: Image, TabsComponent },
   data: mapState({
     color: selectColor,
     cover: selectCover,
