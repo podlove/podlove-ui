@@ -3,7 +3,6 @@
     <tab-header class="overflows">
       <tab-header-item tab="apps" :title="$t('APPS.TITLE')"></tab-header-item>
       <tab-header-item tab="cloud" :title="$t('CLOUD.TITLE')"></tab-header-item>
-      <tab-header-item tab="platform" :title="$t('PLATFORM.TITLE')"></tab-header-item>
       <tab-header-item tab="info" :title="$t('INFO.TITLE')"></tab-header-item>
     </tab-header>
     <tab-body tab="apps">
@@ -11,9 +10,6 @@
     </tab-body>
     <tab-body tab="cloud">
       <cloud-tab></cloud-tab>
-    </tab-body>
-    <tab-body tab="platform">
-      <platform-tab></platform-tab>
     </tab-body>
     <tab-body tab="info">
       <info-tab></info-tab>
@@ -45,13 +41,6 @@ const tabs = {
       /* webpackMode: "lazy" */
       /* webpackPreload: true */
       '../clients/Cloud'
-    ),
-  PlatformTab: () =>
-    import(
-      /* webpackChunkName: "info-tab" */
-      /* webpackMode: "lazy" */
-      /* webpackPreload: true */
-      '../clients/Platforms'
     ),
   InfoTab: () =>
     import(
