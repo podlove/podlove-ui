@@ -2,7 +2,7 @@
   <div class="overlay">
     <div class="upper-part" :style="backgroundGradient">
       <div class="header">
-        <button @click="onClick">
+        <button @click="onClose">
           <icon id="btn-close" type="close"></icon>
         </button>
         <icon type="podlove"></icon>
@@ -82,7 +82,7 @@ export default {
       field.blur()
       field.setAttribute('contenteditable', false)
     },
-    onClick() {
+    onClose() {
       this.$emit('click')
     }
   }
