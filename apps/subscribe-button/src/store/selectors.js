@@ -62,12 +62,8 @@ export const tabs = createObject({
     tabsreducer.apps,
     tabSlice
   ),
-  cloud: compose(
-    tabsreducer.cloud,
-    tabSlice
-  ),
-  platform: compose(
-    tabsreducer.platform,
+  web: compose(
+    tabsreducer.web,
     tabSlice
   ),
   info: compose(

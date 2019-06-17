@@ -2,13 +2,13 @@
   <div class="tabs">
     <tab-header class="overflows">
       <tab-header-item tab="apps" :title="$t('APPS.TITLE')"></tab-header-item>
-      <tab-header-item tab="cloud" :title="$t('CLOUD.TITLE')"></tab-header-item>
+      <tab-header-item tab="web" :title="$t('WEB.TITLE')"></tab-header-item>
       <tab-header-item tab="info" :title="$t('INFO.TITLE')"></tab-header-item>
     </tab-header>
     <tab-body tab="apps">
       <link-list :title="$t('APPS.TITLE')" :data="getOSClients"></link-list>
     </tab-body>
-    <tab-body tab="cloud">
+    <tab-body tab="web">
       <link-list :title="$t('WEB.TITLE')" :data="web_apps"></link-list>
     </tab-body>
     <tab-body tab="info">
