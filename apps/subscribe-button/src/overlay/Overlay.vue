@@ -4,7 +4,7 @@
       <div class="header">
         <icon type="info"></icon>
         <button id="close-button" @click="onClose">
-          <icon type="close" size="10"></icon>
+          <icon type="close" :size="10"></icon>
         </button>
       </div>
       <div class="subscribe-top">
@@ -60,7 +60,8 @@ export default {
   }),
   computed: {
     backgroundGradient() {
-      return `background-image: linear-gradient(to top, red, #f06d06);`
+      // return `background-image: linear-gradient(to top, red, #f06d06);`
+      return `background: ${this.color};`
     },
     btnColor() {
       return `background: ${this.color};`
