@@ -2,11 +2,10 @@
   <div class="overlay">
     <div class="upper-part" :style="backgroundGradient">
       <div class="header">
-        <button @click="onClose">
-          <icon id="btn-close" type="close"></icon>
-        </button>
-        <icon type="podlove"></icon>
         <icon type="info"></icon>
+        <button id="close-button" @click="onClose">
+          <icon type="close" size="10"></icon>
+        </button>
       </div>
       <div class="subscribe-top">
         <cover alt="ccc" :url="cover" :cover-color="color" />
@@ -133,8 +132,12 @@ export default {
     align-items: center;
     justify-content: space-between;
 
-    #btn-close {
-      cursor: pointer;
+    #close-button {
+      width: auto;
+      margin: 2px;
+      padding: 4px;
+      border-radius: 50%;
+      border: 1px solid black;
     }
   }
 
