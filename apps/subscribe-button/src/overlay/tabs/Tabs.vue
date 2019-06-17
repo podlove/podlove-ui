@@ -7,6 +7,7 @@
     </tab-header>
     <tab-body tab="apps">
       <link-list :title="$t('APPS.TITLE')" :data="getOSClients"></link-list>
+      <finish-screen :client="iTunes"></finish-screen>
     </tab-body>
     <tab-body tab="web">
       <link-list :title="$t('WEB.TITLE')" :data="web_apps"></link-list>
@@ -24,6 +25,7 @@ import { Tab } from '@podlove/components'
 import TabHeaderItem from './components/TabHeaderItem'
 import TabBody from './components/TabBody'
 import LinkList from './components/LinkList'
+import FinishScreen from './components/FinishScreen'
 
 import apps from './clientlist/apps.json'
 import web from './clientlist/web.json'
@@ -49,6 +51,7 @@ export default {
     TabHeader: Tab.Header,
     TabHeaderItem,
     LinkList,
+    FinishScreen,
     ...tabs
   },
   data() {
