@@ -143,7 +143,7 @@ export default {
 
   .subscribe-top {
     display: flex;
-    margin: 1em;
+    margin: 0em 1em 1em 1em;
     align-items: flex-end;
 
     .image-container {
