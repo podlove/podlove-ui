@@ -6,8 +6,14 @@
       <tab-header-item tab="info" :title="$t('INFO.TITLE')"></tab-header-item>
     </tab-header>
     <tab-body tab="apps">
-      <link-list :title="$t('APPS.TITLE')" :data="getOSClients"></link-list>
-      <finish-screen :client="iTunes"></finish-screen>
+      <link-list
+        v-if="!finishScreenVisible"
+        :title="$t('APPS.TITLE')"
+        :data="getOSClients"
+        @click="showFinishScreen"
+      >
+      </link-list>
+      <finish-screen v-else :client="iTunes"></finish-screen>
     </tab-body>
     <tab-body tab="web">
       <link-list :title="$t('WEB.TITLE')" :data="web_apps"></link-list>
@@ -35,6 +41,10 @@ import { getPlatform } from '@podlove/utils/useragent'
 import { TOGGLE_TAB } from 'store/reducers/types'
 import store from 'store'
 
+import { selectFinishScreenVisible, selectFinishScreenObject } from 'store/selectors'
+
+import { closeFinishScreen, showFinishScreen } from 'store/actions'
+
 const tabs = {
   InfoTab: () =>
     import(
@@ -56,6 +66,10 @@ export default {
   },
   data() {
     return {
+      ...this.mapState({
+        finishScreenVisible: selectFinishScreenVisible,
+        finishObject: selectFinishScreenObject
+      }),
       plat: getPlatform(),
       client: window.navigator.platform,
       web_apps: [...web.cloud, ...web.platform]
@@ -67,6 +81,14 @@ export default {
     }
   },
   methods: {
+    closeFinishScreen: compose(
+      store.dispatch,
+      closeFinishScreen
+    ),
+    showFinishScreen: compose(
+      store.dispatch,
+      showFinishScreen
+    ),
     toggleTab: compose(
       store.dispatch,
       TOGGLE_TAB
