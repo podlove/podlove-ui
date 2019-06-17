@@ -16,5 +16,11 @@
   },
   "WEB": {
     "TITLE": "Web"
+  },
+  "FINISH-SCREEN": {
+    "TITLE": "Übergebe an {client}",
+    "SOMETHING-WENT-WRONG": "Funktioniert etwas nicht wie erwartet?",
+    "TRY-AGAIN": "Nochmal versuchen",
+    "INSTALL": "{client} installieren"
   }
 }
