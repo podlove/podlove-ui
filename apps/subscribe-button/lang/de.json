@@ -14,12 +14,6 @@
   "APPS" : {
     "TITLE": "Apps"
   },
-  "CLOUD" : {
-    "TITLE": "Cloud"
-  },
-  "PLATFORM": {
-    "TITLE": "Plattformen"
-  },
   "WEB": {
     "TITLE": "Web"
   }
