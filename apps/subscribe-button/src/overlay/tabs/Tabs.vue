@@ -10,10 +10,10 @@
         v-if="!finishScreenVisible"
         :title="$t('APPS.TITLE')"
         :data="getOSClients"
-        @click="showFinishScreen"
+        @click="showLastScreen"
       >
       </link-list>
-      <finish-screen v-else :client="iTunes"></finish-screen>
+      <finish-screen v-else></finish-screen>
     </tab-body>
     <tab-body tab="web">
       <link-list :title="$t('WEB.TITLE')" :data="web_apps"></link-list>
@@ -43,7 +43,7 @@ import store from 'store'
 
 import { selectFinishScreenVisible, selectFinishScreenObject } from 'store/selectors'
 
-import { closeFinishScreen, showFinishScreen } from 'store/actions'
+import { closeFinishScreen, showFinishScreen, fillFinishObject } from 'store/actions'
 
 const tabs = {
   InfoTab: () =>
@@ -85,10 +85,17 @@ export default {
       store.dispatch,
       closeFinishScreen
     ),
-    showFinishScreen: compose(
-      store.dispatch,
-      showFinishScreen
-    ),
+    showLastScreen(client, composedUrl) {
+      store.dispatch(showFinishScreen())
+      store.dispatch(
+        fillFinishObject({
+          finish_object: {
+            ...client,
+            ...{ compUrl: composedUrl }
+          }
+        })
+      )
+    },
     toggleTab: compose(
       store.dispatch,
       TOGGLE_TAB
