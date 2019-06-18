@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Subscribe Button Embed Example</title>
+</head>
+
+<body>
+  <div id="button"></div>
+
+  <script>
+    const config = {
+      size: 'big',
+      color: '#c90bd6',
+      format: 'cover',
+      style: 'filled',
+      cover:
+        'https://freakshow.fm/wp-content/cache/podlove/04/662a9d4edcf77ea2abe3c74681f509/freak-show_400x400.jpg'
+    }
+
+    window.addEventListener(
+      'load',
+      () => {
+        podloveSubscribeButton('#button', config).then(console.log)
+      },
+      false
+    )
+  </script>
+</body>
+</html>

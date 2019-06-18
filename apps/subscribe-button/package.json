@@ -1,18 +1,21 @@
 {
-  "name": "subscribe-button",
-  "version": "4.5.5",
+  "name": "@podlove/subscribe-button",
+  "version": "4.5.6",
   "description": "",
   "main": "subscribe-button.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js"
+    "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
+    "clean": "rm -rf dist publish",
+    "build": "npm run clean && webpack --config .build/webpack.config.prod.js"
   },
   "keywords": [],
   "author": "Letty",
   "license": "MIT",
   "dependencies": {
-    "@podlove/components": "^4.5.5",
-    "@podlove/utils": "^4.5.5",
+    "@podlove/components": "^4.5.6",
+    "@podlove/utils": "^4.5.6",
+    "iframe-resizer": "4.0.4",
     "normalize-scss": "7.0.1",
     "ramda": "0.26.1",
     "redux": "4.0.1",
@@ -22,7 +25,7 @@
     "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.5",
+    "@podlove/build": "^4.5.6",
     "webpack": "4.26.0",
     "webpack-dev-server": "3.1.11"
   }

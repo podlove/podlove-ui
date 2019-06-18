@@ -5,7 +5,7 @@ const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 const version = require('../package').version
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
 
-const BASE = `//cdn.podlove.org/web-player/${version}/`
+const BASE = `//cdn.podlove.org/web-player/`
 
 module.exports = {
   mode: 'production',

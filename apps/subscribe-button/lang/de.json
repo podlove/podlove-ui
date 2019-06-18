@@ -1,6 +1,7 @@
 {
   "SUBSCRIBE": "Abonnieren",
-  "URL": "Du kannst diesen Podcast auch über folgende URL {title} direkt in deinem Podcast Player abonnieren.",
+  "URL": "Feed URL:",
+  "COPYURL": "Feed URL kopieren",
   "INFO" : {
     "TITLE": "Infos",
     "HEADLINE": "Abonnieren?",

@@ -1,3 +1,4 @@
+import { INIT, SET_THEME } from '@podlove/player-actions/types'
 import { reducer as theme, INITIAL_STATE } from './reducer'
 
 describe('theme', () => {
@@ -7,7 +8,7 @@ describe('theme', () => {
 
   test(`theme: it sets the theme on INIT`, () => {
     let result = theme(undefined, {
-      type: 'INIT',
+      type: INIT,
       payload: {
         theme: {
           main: '#fff',
@@ -26,7 +27,7 @@ describe('theme', () => {
 
   test(`it has a default fallback if no theme is provided`, () => {
     let result = theme(undefined, {
-      type: 'INIT'
+      type: INIT
     })
 
     expect(result).toEqual({
@@ -39,7 +40,7 @@ describe('theme', () => {
 
   test(`it sets the theme on SET_THEME`, () => {
     let result = theme(undefined, {
-      type: 'SET_THEME',
+      type: SET_THEME,
       payload: {
         main: '#fff',
         highlight: '#b00'

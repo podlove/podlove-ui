@@ -1,19 +1,29 @@
 <template>
   <div class="overlay">
-    <div class="header">
-      headline
-    </div>
-    <div class="subscribe-top">
-      <cover alt="ccc" :url="cover" :cover-color="color" />
-      <div class="podcast-describtion">
-        <h1>{{ podcastTitle }}</h1>
-        <p>{{ podcastSubTitle }}</p>
-        <!-- <p>Bitte die URL kopieren und in deine Podcast- oder RSS-App einfügen.</p>
-        <button class="btn-copy" :style='btnColor'>Weiter</button> -->
+    <div class="upper-part" :style="backgroundGradient">
+      <div class="header">
+        <span>zurück</span>
+        <icon type="podlove"></icon>
+        <icon type="info"></icon>
       </div>
-    </div>
-    <div>
-      {{ urlText }}
+      <div class="subscribe-top">
+        <cover alt="ccc" :url="cover" :cover-color="color" />
+        <div class="podcast-describtion">
+          <h1>{{ podcastTitle }}</h1>
+          <p>{{ podcastSubTitle }}</p>
+        </div>
+      </div>
+      <div>
+        <div class="feed-details">
+          {{ urlText }}
+          <span id="copy-url-field" @focus="focusURL">
+            {{ podcastFeed[0].url }}
+          </span>
+        </div>
+        <button class="btn-copy" @click="testCopy">
+          {{ $t('COPYURL') }}
+        </button>
+      </div>
     </div>
     <details-component></details-component>
     <div class="footer">
@@ -35,7 +45,7 @@ import {
   selectFeed
 } from 'store/selectors'
 import { Icon, Image } from '@podlove/components'
-import DetailsComponent from './details/details'
+import DetailsComponent from './details'
 
 export default {
   components: { Icon, Cover: Image, DetailsComponent },
@@ -48,6 +58,9 @@ export default {
     podcastSubTitle: selectSubTitle
   }),
   computed: {
+    backgroundGradient() {
+      return `background-image: linear-gradient(to top, red, #f06d06);`
+    },
     btnColor() {
       return `background: ${this.color};`
     },
@@ -56,8 +69,16 @@ export default {
     }
   },
   methods: {
+    focusURL() {
+      document.execCommand('selectAll', false, null)
+    },
     testCopy() {
-      // console.log('copy testing')
+      let field = document.querySelector('#copy-url-field')
+      field.setAttribute('contenteditable', true)
+      field.focus()
+      document.execCommand('copy', false, null)
+      field.blur()
+      field.setAttribute('contenteditable', false)
     }
   }
 }
@@ -70,36 +91,73 @@ export default {
 @import '~theme/variable';
 
 .overlay {
-  width: 500px;
+  width: 320px;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @include font();
-  font-size: 16px;
-
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
   @include font();
   font-size: 14px;
 
-  img {
-    height: $size-big-cover-height;
-  }
-}
-
-.subscribe-top {
-  display: flex;
-  margin: 1em;
-  align-items: center;
-
   .image-container {
-    margin-right: 1em;
+    width: $size-medium-width;
   }
 }
 
-.podcast-describtion {
-  text-align: center;
+.upper-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1em;
 
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0.5em;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .subscribe-top {
+    display: flex;
+    margin: 1em;
+    align-items: flex-end;
+
+    .image-container {
+      margin-right: 1em;
+    }
+  }
+
+  .podcast-describtion {
+    text-align: left;
+
+    h1 {
+      margin-top: 0px;
+      font-size: 1.5em;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.feed-details {
+  margin-bottom: 0.5em;
+}
+
+.app-wrapper {
   h1 {
     margin-top: 0px;
   }
@@ -110,8 +168,9 @@ export default {
   align-content: flex-start;
 }
 
-.btn-copy {
+#copy-url-field {
   width: 250px;
   height: 50px;
+  background: white;
 }
 </style>
