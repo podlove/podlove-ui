@@ -5,7 +5,13 @@
       <ul>
         <li v-for="(entry, index) in data" :key="index">
           <!-- <b><img :src="`/static/img/${entry.icon}`" />{{ entry.title }}</b> -->
-          <a :href="constructURL(entry)" target="_blank" @click="onClick">{{ entry.title }}</a>
+          <a
+            :href="constructURL(entry)"
+            target="_blank"
+            @click="onClick(entry, constructURL(entry))"
+          >
+            {{ entry.title }}
+          </a>
         </li>
       </ul>
     </div>
@@ -44,8 +50,8 @@ export default {
       }
       return `${item.scheme}${url}`
     },
-    onClick() {
-      this.$emit('click')
+    onClick(client, composedUrl) {
+      this.$emit('click', client, composedUrl)
     }
   }
 }
