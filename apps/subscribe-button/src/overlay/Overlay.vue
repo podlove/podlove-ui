@@ -17,13 +17,19 @@
       <div>
         <div class="feed-details">
           {{ urlText }}
-          <span id="copy-url-field" @focus="focusURL">
+          <span>
             {{ podcastFeed[0].url }}
           </span>
         </div>
-        <button class="btn-copy" @click="testCopy">
+        <button class="btn-copy" @click="copyLink">
           {{ $t('COPYURL') }}
         </button>
+        <div id="copy-url-field">
+          {{ podcastFeed[0].url }}
+        </div>
+        <div id="copy-success">
+          {{ $t('COPYSUCESS') }}
+        </div>
       </div>
     </div>
     <tabs-component></tabs-component>
@@ -71,16 +77,15 @@ export default {
     }
   },
   methods: {
-    focusURL() {
-      document.execCommand('selectAll', false, null)
-    },
-    testCopy() {
+    copyLink() {
       let field = document.querySelector('#copy-url-field')
-      field.setAttribute('contenteditable', true)
-      field.focus()
+      let range = document.createRange()
+      range.selectNodeContents(field)
+      let selection = window.getSelection()
+      selection.removeAllRanges()
+      selection.addRange(range)
       document.execCommand('copy', false, null)
-      field.blur()
-      field.setAttribute('contenteditable', false)
+      document.getElementById('copy-success').style.visibility = 'visible'
     },
     onClose() {
       this.$emit('click')
@@ -164,6 +169,16 @@ export default {
       margin-bottom: 0px;
     }
   }
+}
+
+#copy-url-field {
+  height: 1px;
+  overflow: hidden;
+  width: 1px;
+}
+
+#copy-success {
+  visibility: hidden;
 }
 
 .feed-details {

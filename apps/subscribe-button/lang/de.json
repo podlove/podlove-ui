@@ -2,6 +2,7 @@
   "SUBSCRIBE": "Abonnieren",
   "URL": "Feed URL:",
   "COPYURL": "Feed URL kopieren",
+  "COPYSUCESS": "URL in die Zwischenablage kopiert.",
   "INFO" : {
     "TITLE": "Infos",
     "HEADLINE": "Abonnieren?",
