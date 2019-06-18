@@ -5,7 +5,7 @@ const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 const version = require('../package').version
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
 
-const BASE = `${version}/`
+const BASE = `/`
 
 module.exports = {
   mode: 'production',
@@ -41,8 +41,8 @@ module.exports = {
     plugins.env({ MODE: 'production', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player', 'bootstrap'], STYLES: ['styles'] }),
     plugins.copy([
       {
-        from: `./node_modules/@podlove/player/dist`,
-        to: BASE
+        from: playerAssets,
+        to: `${version}/`
       }
     ])
   ]

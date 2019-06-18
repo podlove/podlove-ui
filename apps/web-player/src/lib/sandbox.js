@@ -7,7 +7,9 @@ import { iframeResizer } from 'iframe-resizer'
 // eslint-disable-next-line
 import iframeResizerContentWindow from 'raw-loader!iframe-resizer/js/iframeResizer.contentWindow.min.js'
 import embedPlayerDom from './embed.mustache'
+
 import { createLoader } from './loader'
+import { version } from '../../package'
 
 const setAccessibilityAttributes = curry((config, node) => {
   const title = `Podlove Web Player${prop('title', config) ? ': ' + prop('title', config) : ''}`
@@ -25,7 +27,7 @@ const setAccessibilityAttributes = curry((config, node) => {
 export const createSandbox = async (config, node) => {
   const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config.reference)
   const playerDom = embedPlayerDom({
-    base: reference,
+    base: `${reference}${version}/`,
     styles: STYLES,
     scripts: SCRIPTS,
     resizer: iframeResizerContentWindow,
