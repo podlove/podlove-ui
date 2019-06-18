@@ -12,8 +12,11 @@
       </a>
     </p>
     <p>
-      <a :href="finishObject.install" target="_blank">
+      <a v-if="finishObject.install" :href="finishObject.install" target="_blank">
         {{ $t('FINISH-SCREEN.INSTALL', { client: finishObject.title }) }}
+      </a>
+      <a v-else :href="finishObject.register" target="_blank">
+        {{ $t('FINISH-SCREEN.REGISTER', { client: finishObject.title }) }}
       </a>
     </p>
   </div>
