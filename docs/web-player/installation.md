@@ -33,12 +33,12 @@ Please be aware to __not__ set `reference.base` because this will break the bind
 
 ## NPM
 
-If you want to serve a special player version you can find the player as the npm package [@podlove/podlove-web-player](https://www.npmjs.com/package/@podlove/podlove-web-player).
+If you want to serve a special player version you can also find the player as an npm package [@podlove/web-player](https://www.npmjs.com/package/@podlove/web-player).
 
 To integrate the player you first have to install tha package:
 
 ```javascript
-npm install @podlove/podlove-web-player --save
+npm install @podlove/web-player --save
 ```
 
-Afterwards move the player assets to a public folder of some webserver. By default the player will try to load further chunks from the webserver base. If the player files are located in a subpath you have to adapt the `reference.base` accordingly (see [config]({{ $withBase('config.html') }})
+Afterwards move the player assets to some public folder of your webserver. By default the player will try to load further chunks from the webserver base. If the player files are located in a subpath you have to adapt the `reference.base` accordingly (see [config]({{ $withBase('config.html') }})
