@@ -16,7 +16,14 @@
       <finish-screen v-else @click="hideLastScreen"></finish-screen>
     </tab-body>
     <tab-body tab="web">
-      <link-list :title="$t('WEB.TITLE')" :data="web_apps"></link-list>
+      <link-list
+        v-if="!finishScreenVisible"
+        :title="$t('WEB.TITLE')"
+        :data="web_apps"
+        @click="showLastScreen"
+      >
+      </link-list>
+      <finish-screen v-else @click="hideLastScreen"></finish-screen>
     </tab-body>
     <tab-body tab="info">
       <info-tab></info-tab>
