@@ -13,7 +13,7 @@
         @click="showLastScreen"
       >
       </link-list>
-      <finish-screen v-else></finish-screen>
+      <finish-screen v-else @click="hideLastScreen"></finish-screen>
     </tab-body>
     <tab-body tab="web">
       <link-list :title="$t('WEB.TITLE')" :data="web_apps"></link-list>
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import { compose } from 'ramda'
 import { Tab } from '@podlove/components'
 
 import TabHeaderItem from './components/TabHeaderItem'
@@ -38,12 +37,16 @@ import web from './clientlist/web.json'
 
 import { getPlatform } from '@podlove/utils/useragent'
 
-import { TOGGLE_TAB } from 'store/reducers/types'
 import store from 'store'
 
 import { selectFinishScreenVisible, selectFinishScreenObject } from 'store/selectors'
 
-import { closeFinishScreen, showFinishScreen, fillFinishObject } from 'store/actions'
+import {
+  closeFinishScreen,
+  showFinishScreen,
+  fillFinishObject,
+  resetFinishObject
+} from 'store/actions'
 
 const tabs = {
   InfoTab: () =>
@@ -81,25 +84,21 @@ export default {
     }
   },
   methods: {
-    closeFinishScreen: compose(
-      store.dispatch,
-      closeFinishScreen
-    ),
+    hideLastScreen() {
+      store.dispatch(closeFinishScreen())
+      store.dispatch(resetFinishObject())
+    },
     showLastScreen(client, composedUrl) {
       store.dispatch(showFinishScreen())
       store.dispatch(
         fillFinishObject({
           finish_object: {
             ...client,
-            ...{ compUrl: composedUrl }
+            ...{ composedUrl: composedUrl }
           }
         })
       )
-    },
-    toggleTab: compose(
-      store.dispatch,
-      TOGGLE_TAB
-    )
+    }
   }
 }
 </script>

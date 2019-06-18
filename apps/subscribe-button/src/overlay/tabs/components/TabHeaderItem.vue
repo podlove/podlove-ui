@@ -10,8 +10,8 @@
 import { mapState, mapActions } from 'redux-vuex'
 import { Tab } from '@podlove/components'
 
-import { tabs } from 'store/selectors'
-import { TOGGLE_TAB } from 'store/reducers/types'
+import { selectFinishScreenVisible, tabs } from 'store/selectors'
+import { CLOSE_FINISH_SCREEN, RESET_FINISH_OBJECT, TOGGLE_TAB } from 'store/reducers/types'
 
 export default {
   components: {
@@ -28,7 +28,8 @@ export default {
     }
   },
   data: mapState({
-    tabs: tabs
+    tabs: tabs,
+    finishScreen: selectFinishScreenVisible
   }),
   computed: {
     active() {
@@ -38,6 +39,10 @@ export default {
   methods: mapActions({
     toggleTab({ dispatch }) {
       dispatch({ type: TOGGLE_TAB, payload: { [this.tab]: true } })
+      if (this.finishScreen) {
+        dispatch({ type: RESET_FINISH_OBJECT })
+        dispatch({ type: CLOSE_FINISH_SCREEN })
+      }
     }
   })
 }
