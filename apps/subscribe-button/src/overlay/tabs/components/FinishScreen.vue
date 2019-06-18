@@ -1,11 +1,18 @@
 <template>
   <div>
+    <button @click="onClose">
+      zurück
+    </button>
     <div>logoplatzhalter</div>
     <h1>{{ $t('FINISH-SCREEN.TITLE', { client: finishObject.title }) }}</h1>
     <div>{{ $t('FINISH-SCREEN.SOMETHING-WENT-WRONG') }}</div>
-    <button>{{ $t('FINISH-SCREEN.TRY-AGAIN') }}</button>
     <p>
-      <a href="">
+      <a id="try-again-btn" :href="finishObject.composedUrl" target="_blank">
+        {{ $t('FINISH-SCREEN.TRY-AGAIN') }}
+      </a>
+    </p>
+    <p>
+      <a :href="finishObject.install" target="_blank">
         {{ $t('FINISH-SCREEN.INSTALL', { client: finishObject.title }) }}
       </a>
     </p>
@@ -22,6 +29,11 @@ export default {
         finishObject: selectFinishScreenObject
       })
     }
+  },
+  methods: {
+    onClose() {
+      this.$emit('click')
+    }
   }
 }
 </script>
@@ -29,5 +41,15 @@ export default {
 <style lang="scss" scoped>
 button {
   color: pink;
+}
+
+#try-again-btn {
+  color: pink;
+  background: white;
+  width: 90%;
+  height: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.075em;
 }
 </style>
