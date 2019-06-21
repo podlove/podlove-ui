@@ -24,10 +24,7 @@
         <button class="btn-copy" @click="copyLink">
           {{ $t('COPYURL') }}
         </button>
-        <div id="copy-url-field">
-          {{ podcastFeed[0].url }}
-        </div>
-        <div id="copy-success">
+        <div class="copy-await" :class="{ 'copy-success': success }">
           {{ $t('COPYSUCESS') }}
         </div>
       </div>
@@ -42,7 +39,8 @@
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import copy from 'copy-to-clipboard'
+
 import {
   selectColor,
   selectCover,
@@ -56,14 +54,19 @@ import TabsComponent from './tabs/tabs'
 
 export default {
   components: { Icon, Cover: Image, TabsComponent },
-  data: mapState({
-    color: selectColor,
-    cover: selectCover,
-    podcastDescription: selectDescription,
-    podcastFeed: selectFeed,
-    podcastTitle: selectTitle,
-    podcastSubTitle: selectSubTitle
-  }),
+  data() {
+    return {
+      ...this.mapState({
+        color: selectColor,
+        cover: selectCover,
+        podcastDescription: selectDescription,
+        podcastFeed: selectFeed,
+        podcastTitle: selectTitle,
+        podcastSubTitle: selectSubTitle
+      }),
+      success: false
+    }
+  },
   computed: {
     backgroundGradient() {
       // return `background-image: linear-gradient(to top, red, #f06d06);`
@@ -78,14 +81,7 @@ export default {
   },
   methods: {
     copyLink() {
-      let field = document.querySelector('#copy-url-field')
-      let range = document.createRange()
-      range.selectNodeContents(field)
-      let selection = window.getSelection()
-      selection.removeAllRanges()
-      selection.addRange(range)
-      document.execCommand('copy', false, null)
-      document.getElementById('copy-success').style.visibility = 'visible'
+      this.success = copy(this.podcastFeed[0].url)
     },
     onClose() {
       this.$emit('click')
@@ -171,14 +167,12 @@ export default {
   }
 }
 
-#copy-url-field {
-  height: 1px;
-  overflow: hidden;
-  width: 1px;
+.copy-await {
+  visibility: hidden;
 }
 
-#copy-success {
-  visibility: hidden;
+.copy-success {
+  visibility: visible;
 }
 
 .feed-details {
