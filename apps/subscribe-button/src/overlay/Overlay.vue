@@ -50,7 +50,7 @@ import {
   selectFeed
 } from 'store/selectors'
 import { Icon, Image } from '@podlove/components'
-import TabsComponent from './tabs/tabs'
+import TabsComponent from './tabs'
 
 export default {
   components: { Icon, Cover: Image, TabsComponent },
