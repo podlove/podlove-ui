@@ -2,6 +2,7 @@
   "SUBSCRIBE": "Abonnieren",
   "URL": "Feed URL:",
   "COPYURL": "Feed URL kopieren",
+  "COPYSUCESS": "URL in die Zwischenablage kopiert.",
   "INFO" : {
     "TITLE": "Infos",
     "HEADLINE": "Abonnieren?",
@@ -14,13 +15,14 @@
   "APPS" : {
     "TITLE": "Apps"
   },
-  "CLOUD" : {
-    "TITLE": "Cloud"
-  },
-  "PLATFORM": {
-    "TITLE": "Plattformen"
-  },
   "WEB": {
     "TITLE": "Web"
+  },
+  "FINISH-SCREEN": {
+    "TITLE": "Übergebe an {client}",
+    "SOMETHING-WENT-WRONG": "Funktioniert etwas nicht wie erwartet?",
+    "TRY-AGAIN": "Nochmal versuchen",
+    "INSTALL": "{client} installieren",
+    "REGISTER": "Einen Account registrieren bei {client}"
   }
 }

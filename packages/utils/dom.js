@@ -29,7 +29,7 @@ export const setStyles = curry((attrs, el) => {
 
 export const removeStyles = curry((attrs, el) => {
   ;(attrs || []).forEach(attr => {
-    delete el.style[attr]
+    el.style.removeProperty(attr)
   })
 })
 

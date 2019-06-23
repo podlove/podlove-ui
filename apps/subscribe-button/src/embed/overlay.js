@@ -16,7 +16,6 @@ const overlayStyles = {
 export default (store, entry) => {
   store.subscribe(() => {
     const state = store.getState()
-
     if (selectOverlayVisible(state)) {
       setStyles(overlayStyles, entry)
     } else {
