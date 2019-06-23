@@ -18,6 +18,8 @@
 
 <script>
   import { Chrome } from 'vue-color'
+  import { SET_THEME } from '@podlove/player-actions/types'
+
   import PodloveWebPlayer from './PodloveWebPlayer.vue'
 
   export default {
@@ -44,7 +46,7 @@
         const highlight = this.highlight.hex8
 
         this.store.dispatch({
-          type: 'SET_THEME',
+          type: SET_THEME,
           payload: {
             main,
             highlight

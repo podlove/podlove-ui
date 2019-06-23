@@ -39,4 +39,4 @@ External event handling gives you the ability to control the player from other d
 <button class="button" rel="podlove-web-player" data-ref="example-player" data-tab="download">activate download tab</button>
 <button class="button" rel="podlove-web-player" data-ref="example-player" data-action="play" data-time="00:10:00" data-tab="download">all combined</button>
 
-<podlove-web-player :config="$withBase('fixtures/example.json')" id="example-player" />
+<podlove-web-player config="https://logbuch-netzpolitik.de/?podlove_player4=1877" id="example-player" />

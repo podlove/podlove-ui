@@ -5,7 +5,7 @@ navigation: 3
 
 # Embedding
 
-<podlove-web-player :config="$withBase('fixtures/example.json')"/>
+<podlove-web-player config="https://freakshow.fm/?podlove_player4=1582"/>
 
 ## Signature
 ```javascript
@@ -34,7 +34,7 @@ The _podlovePlayer_ returns a promise with a redux store as a result that can be
 <div id="example"></div>
 <script src="embed.js"></script>
 <script>
-    podlovePlayer('#example', './fixtures/example.json');
+  podlovePlayer('#example', './fixtures/example.json');
 </script>
 ```
 
