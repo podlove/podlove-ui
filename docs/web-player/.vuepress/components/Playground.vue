@@ -8,6 +8,7 @@
 </template>
 
 <script>
+  import { INIT } from '@podlove/player-actions/types'
   import example from '../public/fixtures/example.json'
 
   export default {
@@ -25,7 +26,7 @@
 
       updateConfig (payload) {
         this.store.dispatch({
-          type: 'INIT',
+          type: INIT,
           payload
         })
       }
