@@ -1,0 +1,212 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=234"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG070 Nachhaltigkeit und die Stadt",
+  "subtitle": "Praktische Anwendung wissenschaftlicher Vorgehensweise bei der nachhaltigen Gestaltung des Zusammenlebens",
+  "summary": "Der Begriff Nachhaltigkeit ist in aller Munde. Doch was hei\u00dft das eigentlich konkret? Bedeutet R\u00fccksicht auf die Umwelt und Nachwelt zu nehmen, grunds\u00e4tzlich Verzicht? In jedem Fall sind dicke Bretter zu bohren, denn es geht um nichts weniger als einen Kulturwandel, der sich in vielen kleinen Schritten vollzieht. Einen umfassenden Ansatz probiert man nun im Ma\u00dfstab eines Karlsruher Stadtteils ganz praktisch aus.\r\n\r\nDazu wei\u00df Oliver Parodi mehr. Am Institut f\u00fcr Technikfolgenabsch\u00e4tzung und Systemanalyse (ITAS), das zum Karlsruher Institut f\u00fcr Technologie KIT geh\u00f6rt, besch\u00e4ftigt er sich vor allem mit Fragen nachhaltiger Stadtentwicklung. In einem \u201eReallabor\u201c wollen Wissenschaftler und Stadtentwickler gemeinsam mit B\u00fcrgern eine umfassende nachhaltige Entwicklung der Karlsruher Oststadt auf den Weg bringen, und zwar f\u00fcr die Themen Energie, Mobilit\u00e4t, sozialer Raum und Konsum. \r\n\r\nIn dem von Parodi geleiteten Reallabor werden also Praktiker aus Kommunen, Unternehmen und der Zivilgesellschaft von Anfang an in den Forschungsprozess einbezogen und arbeiten miteinander auf Augenh\u00f6he, um konkret die Lebensqualit\u00e4t in der Stadt zu verbessern. Das Projekt erhielt 2019 den Forschungspreis Transformative Wissenschaft, den das Wuppertal Institut gemeinsam mit der Zempelin-Stiftung im Stifterverband verleiht.\r\n\r\nOliver Parodi vereint selbst verschiedene wissenschaftliche Welten in seiner Person. Urspr\u00fcnglich hat er Bauingenieurwesen studiert und sollte eine der Familie geh\u00f6rende Baufirma \u00fcbernehmen. Doch dann schloss er lieber ein Studium der Angewandten Kulturwissenschaft an. Heute will er an der zum KIT geh\u00f6renden Karlsruher Schule der Nachhaltigkeit durch transdisziplin\u00e4re Ausbildung die Anspr\u00fcche von Mensch, Technik und Umwelt zusammenf\u00fchren.",
+  "publicationDate": "2019-07-29T11:00:56+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/ca\/175876585934359d44614c7c97a6c8\/fg070-nachhaltigkeit-und-die-stadt_500x500.jpg",
+  "duration": "01:28:03.426",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg070-nachhaltigkeit-und-die-stadt\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1970\/s\/webplayer\/c\/episode\/fg070-nachhaltigkeit-und-die-stadt.m4a",
+      "size": "58993459",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1976\/s\/webplayer\/c\/episode\/fg070-nachhaltigkeit-und-die-stadt.opus",
+      "size": "49932291",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1972\/s\/webplayer\/c\/episode\/fg070-nachhaltigkeit-und-die-stadt.oga",
+      "size": "76599291",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1967\/s\/webplayer\/c\/episode\/fg070-nachhaltigkeit-und-die-stadt.mp3",
+      "size": "75053361",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:29.648",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:17.909",
+      "title": "KIT und ITAS",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:06:11.450",
+      "title": "Pers\u00f6nliche Ausbildung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:13:04.065",
+      "title": "Einstieg in die Forschung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:17:25.109",
+      "title": "Nachhaltigkeit",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:22:16.346",
+      "title": "Reallabor 131: KIT findet Stadt",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:42:56.565",
+      "title": "Kulturwandel",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:48:49.768",
+      "title": "Transformative Wissenschaft",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:01:59.702",
+      "title": "Karlsruher Schule der Nachhaltigkeit",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:11:49.696",
+      "title": "Die nachhaltige Stadt",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:22:45.339",
+      "title": "Personale Nachhaltigkeit",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:26:35.791",
+      "title": "Ausklang",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    },
+    {
+      "id": "70",
+      "name": "Bj\u00f6rn Qu\u00e4ck",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/ff\/f03356137ff995c5203bf6a09e817c\/bjoern-quaeck_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    },
+    {
+      "id": "75",
+      "name": "Oliver Parodi",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/ce\/d2e18ae0d9ad71e9cb94946bda59cd\/oliver-parodi_150x150.jpg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg070-nachhaltigkeit-und-die-stadt\/?podlove_transcript=json"
+}

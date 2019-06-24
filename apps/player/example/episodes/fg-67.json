@@ -1,0 +1,206 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=224"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG067 Datenbasierte Konfliktforschung",
+  "subtitle": "Big Data spielt eine immer wichtigere Rolle bei der Bek\u00e4mpfung von Menschenrechtsverletzungen",
+  "summary": "Wenn es zu Unruhen kommt, knipsen Diktatoren gerne als erstes das Internet aus. Doch das ist nur die Spitze des Eisberges. Regierungen verf\u00fcgen mittlerweile \u00fcber ein gewaltiges Arsenal an Instrumenten, um den digitalen Informationsfluss in ihrem Einflussbereich zu \u00fcberwachen und zu manipulieren. Andererseits: Digitalisierung und Vernetzung k\u00f6nnen auch subversiv wirken.\r\n\r\nIn diesem Spannungsfeld forscht Anita Gohdes. Sie hat eine Stiftungsprofessur f\u00fcr International and Cyber Security an der Hertie School of Governance in Berlin inne. Als Politikwissenschaftlerin setzt sie auf die M\u00f6glichkeiten von Data Science: Ihr Interesse gilt insbesondere Ans\u00e4tzen, wie man Gewalt quantitativ messen kann \u2013 denn das Internet er\u00f6ffnet auch neue Chancen, Menschenrechtsverletzungen datenbasiert zu dokumentieren. Und dies ist die Voraussetzung, um letztlich die Verantwortlichen zur Rechenschaft zu ziehen.\r\n\r\nAm Beispiel Syrien wird deutlich, wie ambivalent der Umgang des Regimes mit der Digitalisierung ist. Aus Sicht der Machthaber kann das Blockieren sozialer Medien durchaus kontraproduktiv sein, schlie\u00dflich bieten die Online-Netzwerke auch willkommene M\u00f6glichkeiten, Andersdenkende auszuspionieren. Aber auch Demokratien nach westlichem Muster sind durchaus auch keine Unschuldsl\u00e4mmer, wenn es darum geht, sich f\u00fcr die digitale Kriegsf\u00fchrung zu r\u00fcsten. Und auf den sozialen Plattformen tobt l\u00e4ngst eine Schlacht um die \u00f6ffentliche Meinung.",
+  "publicationDate": "2019-04-26T12:17:05+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/48\/2aef9a393e304ae9100c06945ff47a\/fg067-datenbasierte-konfliktforschung_500x500.jpg",
+  "duration": "01:19:34.995",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg067-datenbasierte-konfliktforschung\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1861\/s\/webplayer\/c\/episode\/fg067-datenbasierte-konfliktforschung.m4a",
+      "size": "49988651",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1857\/s\/webplayer\/c\/episode\/fg067-datenbasierte-konfliktforschung.opus",
+      "size": "41390916",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1864\/s\/webplayer\/c\/episode\/fg067-datenbasierte-konfliktforschung.oga",
+      "size": "57805345",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1862\/s\/webplayer\/c\/episode\/fg067-datenbasierte-konfliktforschung.mp3",
+      "size": "67125078",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:42.367",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:53.647",
+      "title": "Hintergrund",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:05:38.361",
+      "title": "Human Rights Data Analysys Group",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:13:11.811",
+      "title": "Statistische Methoden",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:21:09.521",
+      "title": "Mathematik und Sozialwissenschaft",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:25:25.148",
+      "title": "Datenjournalismus und Fakten",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:30:30.737",
+      "title": "Verfolgte Journalisten",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:37:44.750",
+      "title": "Digitalisierung der Gesellschaften",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:44:04.309",
+      "title": "Der Syrien-Konflikt",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:58:35.486",
+      "title": "Cyberwar",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:08:31.839",
+      "title": "Lernf\u00e4higkeit der Gesellschaft",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "72",
+      "name": "Anita Gohdes",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/97\/0d3d930d737c21762e95a77100a5f8\/anita-gohdes_150x150.jpg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    },
+    {
+      "id": "70",
+      "name": "Bj\u00f6rn Qu\u00e4ck",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/ff\/f03356137ff995c5203bf6a09e817c\/bjoern-quaeck_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg067-datenbasierte-konfliktforschung\/?podlove_transcript=json"
+}

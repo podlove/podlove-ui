@@ -1,5 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects'
-import { delay } from 'redux-saga/lib'
+import { delay } from 'redux-saga/effects'
 import { RETRY_PLAY, BACKEND_ERROR, ERROR_CONFIG_MEDIA } from '@podlove/player-actions/types'
 import { showError, hideError } from '@podlove/player-actions/error'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'

@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 import {
-  INIT,
+  READY,
   BACKEND_DURATION,
   BACKEND_PLAYTIME,
   REQUEST_PLAYTIME
@@ -15,7 +15,7 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [INIT]: (state, { payload }) => ({
+    [READY]: (state, { payload }) => ({
       ...state,
       duration: duration(payload),
       playtime: playtime(payload)

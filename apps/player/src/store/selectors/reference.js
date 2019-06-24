@@ -12,6 +12,10 @@ export default {
     reference.config,
     root.reference
   ),
+  episode: compose(
+    reference.episode,
+    root.reference
+  ),
   origin: compose(
     reference.origin,
     root.reference

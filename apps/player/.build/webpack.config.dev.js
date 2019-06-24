@@ -12,17 +12,37 @@ module.exports = {
   output: output(),
 
   resolve: resolve({
-    styles: './src/styles',
     store: './src/store',
-    directives: './src/directives',
     '@podlove/components': componentAssets
   }),
-
   devtool: 'inline-source-map',
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 
   module: {
-    rules: [rules.vue(), rules.javascript(), rules.images(), rules.vueStyles({ prod: false }), rules.pug()]
+    rules: [
+      rules.vue(),
+      rules.javascript(),
+      rules.images(),
+      rules.style.config(rules.style.test.postcss, [
+        rules.style.loader.vue(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.tailwind({
+              theme: {
+                screens: {
+                  mobile: { min: '0px', max: '719px' },
+                  tablet: '720px',
+                  desktop: '950px'
+                }
+              }
+            }),
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        })
+      ]),
+      rules.pug()
+    ]
   },
 
   plugins: [
@@ -41,7 +61,9 @@ module.exports = {
       chunks: ['bootstrap']
     }),
     plugins.copy([
-      { from: './example/assets', to: 'assets' }
+      { from: './example/assets', to: 'assets' },
+      { from: './example/episodes', to: 'episodes'},
+      { from: './example/transcripts.json' }
     ]),
     plugins.env({ mode: 'development' })
   ]

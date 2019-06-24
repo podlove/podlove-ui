@@ -9,7 +9,7 @@
     "DEBUG_STATE": "Export Debug State"
   },
   "PLAYER": {
-    "REPLAY": "replay",
+    "REPLAY": "Replay",
     "RETRY": "Retry"
   },
   "ERROR": {
@@ -25,9 +25,7 @@
   "FILES": {
     "TITLE": "Files",
     "TYPES": {
-      "AUDIO": {
-        "HEADER": "Audio Files"
-      }
+      "AUDIO": "Audio"
     },
     "ACTIONS": {
       "DOWNLOAD": "Download",
@@ -35,7 +33,7 @@
     }
   },
   "SHARE": {
-    "TITLE": "Share",
+    "TITLE": "Share Episode",
     "CONTENT": {
       "SHOW": "Show",
       "EPISODE": "Episode",
@@ -47,6 +45,7 @@
     "ACTIONS": {
       "COPY": "copy"
     },
+    "PLAYTIME": "Also share current playtime ({playtime})",
     "EPISODE": {
       "TEXT": {
         "BEGINNING": "\"{title}\" ({link})",
@@ -64,7 +63,7 @@
       "SUBJECT": "{title}"
     },
     "EMBED": {
-      "TITLE": "Embed Episode",
+      "TITLE": "Embed Player",
       "LABEL": {
         "SIZE": "Embed Size",
         "CODE": "Embed Code"
@@ -84,13 +83,20 @@
   "TRANSCRIPTS": {
     "TITLE": "Transcript",
     "CHAPTER": "Chapter {index}: {title}",
-    "FOLLOW": "follow",
-    "SEARCH": "Search",
+    "FOLLOW": {
+      "ACTIVE": "Stop Text",
+      "INACTIVE": "Follow Text"
+    },
+    "PLACEHOLDER": "Search in text for ...",
     "NO_SEARCH_RESULTS": "No results"
   },
   "MESSAGES": {
     "COPIED": "Copied!"
   },
+  "PLAYLIST": {
+    "TITLE": "Further Episodes"
+  },
+  "SUBSCRIBE": "Subscribe",
   "A11Y": {
     "ALT_EPISODE_COVER": "Episode Cover",
     "ALT_SHOW_COVER": "Show Cover",
@@ -136,6 +142,7 @@
     "VOLUME_UNMUTE": "Unmute Audio",
     "SET_VOLUME_IN_PERCENT": "Set Volume in Percent",
     "DOWNLOAD_FILE": "Download File {url}",
-    "COPY_FILE": "Copy File {url}"
+    "COPY_FILE": "Copy File {url}",
+    "PLAYLIST_ENTRY": "Play episode {title}"
   }
 }

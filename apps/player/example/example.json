@@ -1,4 +1,5 @@
 {
+  "version": 5,
   "show": {
     "title": "Forschergeist",
     "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
@@ -8,12 +9,8 @@
   },
   "reference": {
     "share": "//localhost:9000/share.html",
-    "config": "//localhost:9000/example.json",
+    "episode": "//localhost:9000/example.json",
     "origin": "//localhost:9000"
-  },
-  "theme": {
-    "main": "#12584b",
-    "highlight": "#ffffff"
   },
   "title": "FG064 Ethik und Genetik",
   "subtitle": "Ethische Fragen und Analysen hinterfragen und leiten eine durch moderne genetische Verfahren voranschreitende Medizin",
@@ -84,7 +81,7 @@
     {
       "start": "00:00:42.181",
       "title": "Begr\u00fc\u00dfung",
-      "href": "  ",
+      "href": "http://foo.bar",
       "image": ""
     },
     {
@@ -240,5 +237,5 @@
       "id": "7"
     }
   ],
-  "transcripts": "https://forschergeist.de/podcast/fg064-ethik-und-genetik/?podlove_transcript=json"
+  "transcripts": "transcripts.json"
 }

@@ -1,9 +1,9 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { delay } from 'redux-saga/lib'
+import { delay } from 'redux-saga/effects'
 import { last, propEq, find, compose, map, is, endsWith, sortBy, prop, reduce, concat } from 'ramda'
 
 import {
-  INIT,
+  READY,
   BACKEND_PLAYTIME,
   REQUEST_PLAYTIME,
   DISABLE_GHOST_MODE,
@@ -17,7 +17,6 @@ import {
 } from '@podlove/player-actions/transcripts'
 import { secondsToMilliseconds, toPlayerTime } from '@podlove/utils/time'
 import { transcripts as getTranscripts } from '@podlove/utils/config'
-import { inAnimationFrame } from '@podlove/utils/helper'
 import { binarySearch, textSearch } from '@podlove/utils/search'
 
 const transformTime = time => (is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time))
@@ -94,12 +93,12 @@ const mapSpeakers = speakers =>
     }
   })
 
-export const transcriptsSaga = ({ selectSpeakers, selectChapters }) =>
+export const transcriptsSaga = ({ selectSpeakers, selectChapters, selectPlaytime }) =>
   function* saga() {
-    yield takeEvery(INIT, init, { selectSpeakers, selectChapters })
+    yield takeEvery(READY, init, { selectSpeakers, selectChapters, selectPlaytime })
   }
 
-export function* init({ selectSpeakers, selectChapters }, { payload }) {
+export function* init({ selectSpeakers, selectChapters, selectPlaytime }, { payload }) {
   const speakers = yield select(selectSpeakers)
   const chapters = yield select(selectChapters)
 
@@ -111,11 +110,11 @@ export function* init({ selectSpeakers, selectChapters }, { payload }) {
     transformTranscript,
     getTranscripts
   )(payload)
-  const searchIndex = inAnimationFrame(binarySearch(transcripts.map(({ start }) => start)))
+
+  const searchIndex = binarySearch(transcripts.map(({ start }) => start))
   const searchText = textSearch(
     transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' '))
   )
-
   yield put(
     setTranscriptsTimeline({
       timeline: transcripts,
@@ -124,15 +123,15 @@ export function* init({ selectSpeakers, selectChapters }, { payload }) {
   )
   yield takeEvery(BACKEND_PLAYTIME, update, searchIndex)
   yield takeEvery(REQUEST_PLAYTIME, update, searchIndex)
-  yield takeEvery(DISABLE_GHOST_MODE, debouncedUpdate, searchIndex)
   yield takeEvery(SIMULATE_PLAYTIME, debouncedUpdate, searchIndex)
+  yield takeEvery(DISABLE_GHOST_MODE, resetToPlaytime, searchIndex, selectPlaytime)
   yield takeEvery(SEARCH_TRANSCRIPTS, search, searchText)
 }
 
 export function* update(searchFn, { payload }) {
   const index = searchFn(payload)
 
-  if (index) {
+  if (index !== undefined) {
     yield put(updateTranscripts(index))
   }
 }
@@ -141,7 +140,16 @@ export function* debouncedUpdate(searchFn, { payload }) {
   const index = searchFn(payload)
   yield delay(200)
 
-  if (index) {
+  if (index !== undefined) {
+    yield put(updateTranscripts(index))
+  }
+}
+
+export function* resetToPlaytime(searchFn, selectPlaytime) {
+  const playtime = yield select(selectPlaytime)
+  const index = searchFn(playtime)
+
+  if (index !== undefined) {
     yield put(updateTranscripts(index))
   }
 }

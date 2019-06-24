@@ -16,6 +16,10 @@ const parseParameters = parameters => {
     parsed.episode = parameters.episode
   }
 
+  if (parameters.config) {
+    parsed.config = parameters.config
+  }
+
   if (parameters.autoplay) {
     parsed.autoplay = true
   }

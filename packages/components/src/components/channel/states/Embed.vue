@@ -1,7 +1,7 @@
 <template>
   <button class="channel-link">
     <span class="channel-icon" :style="iconStyle" aria-hidden="true">
-      <icon type="embed" color="#fff" />
+      <icon type="embed" :color="color" />
     </span>
     <span class="visually-hidden">{{ a11y }}</span>
   </button>
@@ -27,6 +27,10 @@ export default {
       type: String,
       default: 'transparent'
     },
+    background: {
+      type: String,
+      default: null
+    },
     a11y: {
       type: String,
       default: ''
@@ -35,7 +39,7 @@ export default {
   computed: {
     iconStyle() {
       return {
-        'background-color': this.color
+        'background-color': this.background
       }
     }
   }

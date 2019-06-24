@@ -1,20 +1,13 @@
 <template>
   <svg
     :width="size"
-    :height="size * 1.3"
-    viewBox="0 0 18 23"
-    version="1.1"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-      <g transform="translate(-16.000000, -14.000000)" :fill="color">
-        <g transform="translate(16.000000, 14.000000)">
-          <polygon points="18 23 12 23 12 0 18 0" />
-          <polygon points="6 23 0 23 0 0 6 0" />
-        </g>
-      </g>
-    </g>
+    <rect x="7" y="4" width="3" height="16" rx="1.5" :fill="color" />
+    <rect x="14" y="4" width="3" height="16" rx="1.5" :fill="color" />
   </svg>
 </template>
 
@@ -23,7 +16,7 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 18
+      default: 24
     },
     color: {
       type: String,

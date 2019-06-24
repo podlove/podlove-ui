@@ -4,6 +4,7 @@
     class="tooltip"
     :popover-class="[negative ? 'negative' : '']"
     :auto-hide="true"
+    :placement="placement"
     trigger="manual"
     delay.show="100"
     delay.hide="3000"
@@ -36,6 +37,11 @@ export default {
     negative: {
       type: Boolean,
       default: false
+    },
+    placement: {
+      type: String,
+      default: 'auto',
+      validator: pos => ['auto', 'top', 'right', 'bottom', 'left'].includes(pos)
     }
   },
 
@@ -87,8 +93,6 @@ export default {
 @import 'font';
 
 .tooltip {
-  @extend %font;
-  font-size: 12px;
   z-index: 10000;
 
   .tooltip-inner {

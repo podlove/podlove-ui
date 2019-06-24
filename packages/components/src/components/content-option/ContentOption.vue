@@ -65,8 +65,6 @@ export default {
 @import 'font';
 
 .content-option {
-  @extend %font;
-
   display: flex;
   flex-direction: column;
   align-items: center;

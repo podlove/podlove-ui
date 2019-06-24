@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm'
 import sagas from '@podlove/player-sagas'
 import { runtimeSaga } from '@podlove/player-sagas/runtime'
 import { lifeCycleSaga } from '@podlove/player-sagas/lifecycle'
@@ -11,6 +11,7 @@ import { transcriptsSaga } from '@podlove/player-sagas/transcripts'
 import { stepperSaga } from '@podlove/player-sagas/stepper'
 import { errorSaga } from '@podlove/player-sagas/error'
 import { keyboardSaga } from '@podlove/player-sagas/keyboard'
+import { playlistSaga } from '@podlove/player-sagas/playlist'
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connect } from 'redux-vuex'
@@ -31,6 +32,7 @@ sagas.run(
   lifeCycleSaga,
   runtimeSaga,
   componentsSaga({
+    selectPlaylist: selectors.playlist.list,
     selectChapters: selectors.chapters.list,
     selectTranscripts: selectors.transcripts.hasTranscripts,
     selectFiles: selectors.files.audio,
@@ -48,11 +50,17 @@ sagas.run(
     selectCurrentChapter: selectors.chapters.current,
     selectChapterList: selectors.chapters.list
   }),
-  playerSaga({ selectMedia: selectors.media, selectPlaytime: selectors.playtime }),
+  playerSaga({
+    selectMedia: selectors.media,
+    selectPlaytime: selectors.playtime,
+    selectPoster: selectors.driver.image,
+    selectTitle: selectors.driver.title
+  }),
   versionSaga({ version }),
   transcriptsSaga({
     selectChapters: selectors.chapters.list,
-    selectSpeakers: selectors.contributors
+    selectSpeakers: selectors.contributors,
+    selectPlaytime: selectors.playtime
   }),
   stepperSaga({
     selectDuration: selectors.duration,
@@ -66,6 +74,14 @@ sagas.run(
     selectRate: selectors.audio.rate,
     selectVolume: selectors.audio.volume,
     selectMuted: selectors.audio.muted
+  }),
+  playlistSaga({
+    selectEpisodeConfig: selectors.playlist.config,
+    selectPlaystate: selectors.driver.playing,
+    selectVolume: selectors.audio.volume,
+    selectRate: selectors.audio.rate,
+    selectMuted: selectors.audio.muted,
+    selectPlaylist: selectors.playlist.list
   })
 )
 

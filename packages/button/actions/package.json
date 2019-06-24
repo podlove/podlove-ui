@@ -1,0 +1,17 @@
+{
+  "name": "@podlove/button-actions",
+  "version": "5.0.0",
+  "description": "Actions for Podlove Subscribe Button Framework",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/button/actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
+  "dependencies": {
+    "@podlove/utils": "^5.0.0",
+    "redux-actions": "2.6.4"
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=206"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG063 Geothermie",
+  "subtitle": "Die W\u00e4rme aus der Tiefe als wichtiger Beitrag zur Energiewende",
+  "summary": "Mit der Geothermie will der Geologe Ingo Sass eine unersch\u00f6pfliche und vor allem klimafreundliche Energiequelle f\u00fcr den Alltagsgebrauch erkunden und erschlie\u00dfen. An seinem Lehrstuhl f\u00fcr Angewandte Geowissenschaften an der TU Darmstadt verbindet er daf\u00fcr Ingenieurtechnik und Naturwissenschaften.\r\n\r\nDas Energiepotenzial ist riesig: Unsere Erde ist im Kern 6.000 Grad Celsius hei\u00df. Sie erzeugt damit einen W\u00e4rmestrom bis hin zur Erdoberfl\u00e4che. Diese Geothermie ist eine mehr als nur alternative Energiequelle f\u00fcr die Beheizung von Wohngeb\u00e4uden, B\u00fcros und Produktionshallen. Allerdings wird sie trotz vieler positiver Eigenschaften in Mitteleuropa noch viel zu wenig eingesetzt.\r\n\r\nIngo Sass will durch seine Lehr- und Forschungst\u00e4tigkeit dazu beitragen, die Akzeptanz der Geothermie bei Immobilienbesitzern, Baubeh\u00f6rden, Energieanbietern und Unternehmen zu steigern sowie f\u00fcr die notwendige Planung zu sensibilisieren. Daf\u00fcr sieht er drei Ansatzpunkte: fundiertes Wissen \u00fcber Geothermie vermitteln, technische Risiken bei deren Nutzung minimieren, Deutschland trotz aller Widerst\u00e4nde zum wissenschaftlichen Top-Player auf diesen Gebieten machen.",
+  "publicationDate": "2018-10-12T20:49:49+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/9c\/83eecda580538bb12def45f90d0a4e\/fg063-geothermie_500x500.jpg",
+  "duration": "01:56:55.100",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg063-geothermie\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1707\/s\/webplayer\/c\/episode\/fg063-geothermie.m4a",
+      "size": "74425442",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1715\/s\/webplayer\/c\/episode\/fg063-geothermie.opus",
+      "size": "58867681",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1713\/s\/webplayer\/c\/episode\/fg063-geothermie.oga",
+      "size": "81725129",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1714\/s\/webplayer\/c\/episode\/fg063-geothermie.mp3",
+      "size": "99123967",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:42.506",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:25.508",
+      "title": "Ausbildung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:06:54.848",
+      "title": "Island",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:11:54.447",
+      "title": "Potential der Geothermie",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:23:42.159",
+      "title": "Nutzung der Geothermie",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:45:23.249",
+      "title": "Anforderungen f\u00fcr Bohrungen",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:50:59.575",
+      "title": "Risiken und politische Widerst\u00e4nde",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:57:35.258",
+      "title": "Perspektiven f\u00fcr Geothermie in Deutschland",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:06:38.376",
+      "title": "Induzierte Seismizit\u00e4t",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:17:22.436",
+      "title": "Nutzung von alten Bergbaugebieten",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:21:48.997",
+      "title": "Geothemie-Zentren und Projekte",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:24:34.820",
+      "title": "Geothermieausbau und die Energieeinsparverordnung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:36:41.164",
+      "title": "Nah- und Fernw\u00e4rme",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:43:34.092",
+      "title": "Geothermie in Europa",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:47:01.422",
+      "title": "Der richtige Energiemix",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:49:30.500",
+      "title": "Interdisziplin\u00e4re Ausbildung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:55:35.772",
+      "title": "Ausklang",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "67",
+      "name": "Ingo Sass",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/9b\/956953258f3bd315c9ecc49a0368ad\/ingo-sass_150x150.jpeg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg063-geothermie\/?podlove_transcript=json"
+}

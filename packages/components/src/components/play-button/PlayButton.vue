@@ -1,6 +1,6 @@
 <template>
   <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
-    <div ref="wrapper" class="wrapper" :style="wrapper">
+    <div v-observer="updateSize" class="wrapper" :style="wrapper">
       <transition name="component" mode="out-in">
         <component
           :is="type"
@@ -20,6 +20,7 @@
 
 <script>
 import { background, color } from 'defaults'
+import { observer } from 'vue-mutation-observer'
 
 import Play from './states/Play'
 import Pause from './states/Pause'
@@ -29,6 +30,9 @@ import Restart from './states/Restart'
 import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
 
 export default {
+  directives: {
+    observer
+  },
   components: {
     Play,
     Pause,
@@ -63,14 +67,20 @@ export default {
     wrapper() {
       return {
         'background-color': this.background,
-        width: `${this.width}px`
+        width: this.width ? `${this.width}px` : 'auto'
       }
     }
   },
-  updated() {
-    if (this.$refs.component) {
-      this.width = this.$refs.component.$el.offsetWidth
+  watch: {
+    type() {
+      this.updateSize()
+    },
+    label() {
+      this.updateSize()
     }
+  },
+  mounted() {
+    this.updateSize()
   },
   methods: {
     clickHandler() {
@@ -85,6 +95,15 @@ export default {
           this.$emit('click', requestRestart())
           break
       }
+    },
+
+    updateSize() {
+      setTimeout(() => {
+        if (!this.$refs.component) {
+          return
+        }
+        this.width = this.$refs.component.$el.clientWidth
+      }, 10)
     }
   }
 }
@@ -107,16 +126,15 @@ export default {
     height: $button-width;
     min-width: $button-width;
     border-radius: $button-width / 2;
-    transition: all $animation-duration * 2;
+    transition: all $animation-duration * 4;
   }
 
   .label {
+    font-variant-numeric: tabular-nums;
     margin-left: $margin;
     font-size: 1rem;
     font-weight: 200;
-    text-transform: uppercase;
     @extend %truncate;
-    @extend %font;
   }
 
   .has-label {
@@ -126,7 +144,7 @@ export default {
 
 .component-enter-active,
 .component-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity $animation-duration ease;
 }
 .component-enter,
 .component-leave-to {

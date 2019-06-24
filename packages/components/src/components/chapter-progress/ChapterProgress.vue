@@ -8,13 +8,13 @@
     @click.exact="progressClick"
     @click.alt="contextProgressClick"
   >
-    <span class="title truncate" aria-hidden="true">
+    <span class="title" aria-hidden="true">
       {{ chapter.title }}
     </span>
     <span v-if="hasLink" class="link">
       <icon class="icon" type="link" />
       <a
-        class="info-link truncate"
+        class="info-link"
         :href="chapter.href"
         target="_blank"
         @mouseover="linkOver"
@@ -176,10 +176,9 @@ export default {
 
 .chapter-progress {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   padding: ($padding / 2) 0;
-  @extend %font;
 
   .title {
     width: calc(100% - 4.4em);

@@ -28,5 +28,9 @@ export default createObject({
   transcripts: compose(
     tabs.transcripts,
     root.tabs
+  ),
+  playlist: compose(
+    tabs.playlist,
+    root.tabs
   )
 })

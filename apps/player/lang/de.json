@@ -25,9 +25,7 @@
   "FILES": {
     "TITLE": "Dateien",
     "TYPES": {
-      "AUDIO": {
-        "HEADER": "Audio Dateien"
-      }
+      "AUDIO": "Audio"
     },
     "ACTIONS": {
       "DOWNLOAD": "Download",
@@ -35,7 +33,7 @@
     }
   },
   "SHARE": {
-    "TITLE": "Teilen",
+    "TITLE": "Episode Teilen",
     "CONTENT": {
       "SHOW": "Show",
       "EPISODE": "Episode",
@@ -52,6 +50,7 @@
     "ACTIONS": {
       "COPY": "kopieren"
     },
+    "PLAYTIME": "Spielzeit ebenfalls teilen ({playtime})",
     "EPISODE": {
       "TEXT": {
         "BEGINNING": "\"{title}\" ({link})",
@@ -89,13 +88,20 @@
   "TRANSCRIPTS": {
     "TITLE": "Transkript",
     "CHAPTER": "Kapitel {index}: {title}",
-    "FOLLOW": "folgen",
-    "SEARCH": "Suche",
+    "FOLLOW": {
+      "ACTIVE": "Text anhalten",
+      "INACTIVE": "Text folgen"
+    },
+    "PLACEHOLDER": "Im Text suchen ...",
     "NO_SEARCH_RESULTS": "Keine Ergebnisse"
   },
   "MESSAGES": {
     "COPIED": "kopiert!"
   },
+  "PLAYLIST": {
+    "TITLE": "Weitere Folgen"
+  },
+  "SUBSCRIBE": "Abonnieren",
   "A11Y": {
     "ALT_EPISODE_COVER": "Episoden Poster",
     "ALT_SHOW_COVER": "Show Poster",
@@ -141,6 +147,7 @@
     "VOLUME_UNMUTE": "Audio aktivschalten",
     "SET_VOLUME_IN_PERCENT": "Lautheit in Prozent anpassen",
     "DOWNLOAD_FILE": "Datei herunterladen: {url}",
-    "COPY_FILE": "Url {url} in Zwischenablage legen"
+    "COPY_FILE": "Url {url} in Zwischenablage legen",
+    "PLAYLIST_ENTRY": "Episode {title} abspielen"
   }
 }

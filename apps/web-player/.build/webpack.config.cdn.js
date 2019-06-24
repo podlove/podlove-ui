@@ -23,7 +23,23 @@ module.exports = {
   }),
 
   module: {
-    rules: [rules.javascript(), rules.scss(), rules.mustache()]
+    rules: [
+      rules.javascript(),
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass()
+      ]),
+      rules.mustache(),
+      rules.html({
+        minimize: true
+      })
+    ]
   },
 
   plugins: [
@@ -38,7 +54,7 @@ module.exports = {
       base: `${BASE}${version}/`
     }),
     plugins.version(),
-    plugins.env({ MODE: 'cdn', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player', 'bootstrap'], STYLES: ['styles'] }),
+    plugins.env({ MODE: 'cdn', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'], STYLES: ['styles'] }),
     plugins.copy([
       {
         from: playerAssets,

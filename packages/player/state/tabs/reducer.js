@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions'
 import { propOr } from 'ramda'
 
-import { INIT, TOGGLE_TAB } from '@podlove/player-actions/types'
+import { TOGGLE_TAB } from '@podlove/player-actions/types'
 
 export const INITIAL_STATE = {
   chapters: false,
@@ -9,13 +9,12 @@ export const INITIAL_STATE = {
   share: false,
   files: false,
   info: false,
+  playlist: false,
   transcripts: false
 }
 
 export const reducer = handleActions(
   {
-    [INIT]: () => INITIAL_STATE,
-
     [TOGGLE_TAB]: (state, { payload }) => ({
       ...INITIAL_STATE,
       [payload]: !propOr(false, payload, state)

@@ -5,17 +5,18 @@ navigation: 3
 
 # Embedding
 
-<podlove-web-player config="https://freakshow.fm/?podlove_player4=1582"/>
+<podlove-web-player episode="episode.json" config="config.json" />
 
 ## Signature
 ```javascript
 /*
 *   Podlove Player Factory
 *   @param {string, dom node}   selector        - CSS selector or dom node
+*   @param {string, object}     configuration   - Path to JSON episode or episode object
 *   @param {string, object}     configuration   - Path to JSON config or configuration object
 *   @returns {Promise}          store           - Promise returning a redux store
 */
-podlovePlayer(selector, configuration)
+podlovePlayer(selector, episode, configuration)
 ```
 
 - Selector can be a css selector or a dom node reference
@@ -34,7 +35,7 @@ The _podlovePlayer_ returns a promise with a redux store as a result that can be
 <div id="example"></div>
 <script src="embed.js"></script>
 <script>
-  podlovePlayer('#example', './fixtures/example.json');
+  podlovePlayer('#example', './fixtures/episode.json', './fixtures/config.json');
 </script>
 ```
 

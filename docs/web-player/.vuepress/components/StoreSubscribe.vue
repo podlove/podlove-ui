@@ -1,19 +1,19 @@
 <template>
   <div>
-    <podlove-web-player :config="example" @ready="initPlayer" />
+    <podlove-web-player :episode="episode" @ready="initPlayer" />
     <json-editor @ready="initEditor" :json="{}" />
   </div>
 </template>
 
 <script>
-  import example from '../public/fixtures/example.json'
+  import episode from '../public/fixtures/episode.json'
 
   export default {
     name: 'store-subscribe',
 
     data () {
       return {
-        example,
+        episode,
         editor: null
       }
     },

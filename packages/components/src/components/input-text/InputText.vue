@@ -61,9 +61,8 @@ export default {
   padding: $padding / 4;
   border-style: solid;
   border-width: 1px;
-  border-radius: 3px;
+  border-radius: 2px;
   height: $input-height;
-  font-size: 1em;
 
   &.block {
     display: block;

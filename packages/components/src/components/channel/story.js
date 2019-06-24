@@ -1,4 +1,4 @@
-import { select, color, text } from '@storybook/addon-knobs'
+import { select, color, text, boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import Channel from '.'
@@ -15,7 +15,10 @@ export default () => ({
   components: { Channel },
   props: {
     color: {
-      default: color('color', '#000')
+      default: color('color', '#fff')
+    },
+    background: {
+      default: color('background', '#000')
     },
     type: {
       default: select('type', types, 'embed')
@@ -32,13 +35,17 @@ export default () => ({
       type: String,
       default: text('text', 'The Text')
     },
+    filled: {
+      type: Boolean,
+      default: boolean('filled', false)
+    },
     a11y: {
       type: String,
       default: text('a11y', 'The a11y text')
     }
   },
   template: `
-    <channel :type="type" :color="color" @click="action" :link="link" :subject="subject" :text="text" :a11y="a11y">
+    <channel :type="type" :color="color" @click="action" :link="link" :subject="subject" :text="text" :background="background" :a11y="a11y" :filled="filled">
     </channel>`,
   methods: { action: action('@click') }
 })

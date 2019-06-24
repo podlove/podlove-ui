@@ -32,6 +32,7 @@ import inputTextStory from './input-text/story'
 import inputSelectStory from './input-select/story'
 import inputGroupStory from './input-group/story'
 import inputSliderStory from './input-slider/story'
+import inputCheckboxStory from './input-checkbox/story'
 
 // Tooltip
 import tooltipStory from './tooltip/story'
@@ -41,6 +42,9 @@ import channelStory from './channel/story'
 
 // ContentOption
 import contentOptionStory from './content-option/story'
+
+// Divider
+import dividerStory from './divider/story'
 
 const buttons = storiesOf('Buttons', module)
 
@@ -79,6 +83,7 @@ input.add('input-text', inputTextStory)
 input.add('input-select', inputSelectStory)
 input.add('input-group', inputGroupStory)
 input.add('input-slider', inputSliderStory)
+input.add('input-checkbox', inputCheckboxStory)
 
 const tooltip = storiesOf('Tooltip', module)
 tooltip.add('tooltip', tooltipStory)
@@ -88,3 +93,6 @@ channel.add('channel', channelStory)
 
 const contentOption = storiesOf('Content Option', module)
 contentOption.add('content-option', contentOptionStory)
+
+const divider = storiesOf('Divider', module)
+divider.add('divider', dividerStory)

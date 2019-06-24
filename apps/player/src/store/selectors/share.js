@@ -35,7 +35,7 @@ const hasLink = state =>
 
 const hasEmbedLink = state =>
   type(state) !== 'show' &&
-  reference.config(state) &&
+  reference.episode(state) &&
   (reference.share(state) || reference.origin(state))
 
 const link = state => {
@@ -56,7 +56,6 @@ const link = state => {
 }
 
 const code = state => {
-  const [width, height] = embedSize(state).split('x')
   const showTitle = show.title(state)
   const episodeTitle = episode.title(state)
   const currentChapter = chapter.current(state)
@@ -66,15 +65,16 @@ const code = state => {
   }`
 
   const parameters = {
-    episode: reference.config(state),
+    episode: reference.episode(state),
+    ...(reference.config(state) ? { config: reference.config(state) } : {}),
     ...(type(state) === 'chapter'
       ? { t: `${toHumanTime(currentChapter.start)},${toHumanTime(currentChapter.end)}` }
       : {}),
     ...(type(state) === 'time' ? { t: toHumanTime(timepiece.playtime(state)) } : {})
   }
 
-  return `<iframe title="${title}" width="${width}" height="${height}" src="${addQueryParameter(
-    reference.share(state) || reference.origin(state) + '/share.html',
+  return `<iframe title="${title}" height="200" src="${addQueryParameter(
+    reference.share(state) || reference.origin(state) || '' + '/share.html',
     parameters
   )}" frameborder="0" scrolling="no" tabindex="0"></iframe>`
 }

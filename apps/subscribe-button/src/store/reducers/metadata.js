@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 import { prop } from 'ramda'
-import { SET_METADATA } from './types'
+import { INIT } from '@podlove/button-actions/types'
 
 // export const INITIAL_STATE = {
 //   title: '',
@@ -29,7 +29,7 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [SET_METADATA]: (state, { payload }) => ({
+    [INIT]: (state, { payload }) => ({
       ...state,
       ...payload
     })

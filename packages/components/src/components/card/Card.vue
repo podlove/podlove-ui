@@ -44,7 +44,6 @@ export default {
 @import 'font';
 
 .card {
-  @extend %font;
   border-radius: 4px;
   margin-bottom: $margin;
 

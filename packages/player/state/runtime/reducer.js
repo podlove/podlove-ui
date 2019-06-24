@@ -3,7 +3,7 @@ import { propOr } from 'ramda'
 import { language } from '@podlove/utils/config'
 
 import {
-  INIT,
+  READY,
   SET_LANGUAGE,
   SET_RUNTIME,
   SET_VERSION,
@@ -41,7 +41,7 @@ export const reducer = handleActions(
       ...state,
       mode: ['native', 'embed'].includes(payload) ? payload : state.mode
     }),
-    [INIT]: (state, { payload }) => ({
+    [READY]: (state, { payload }) => ({
       ...state,
       language: language(payload) || state.language
     })

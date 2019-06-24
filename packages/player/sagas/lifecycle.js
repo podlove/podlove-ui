@@ -1,12 +1,30 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { INIT } from '@podlove/player-actions/types'
-import { ready } from '@podlove/player-actions/lifecycle'
+import * as lifecycle from '@podlove/player-actions/lifecycle'
+import { json } from '@podlove/utils/request'
+import { takeOnce } from './helper'
 
 export function* lifeCycleSaga() {
-  yield takeEvery(INIT, validateConfig)
+  yield takeEvery(INIT, ready)
+  yield takeOnce(INIT, constructed)
 }
 
-export function* validateConfig({ payload }) {
+export function* ready({ payload }) {
+  const [chapters, transcripts] = yield Promise.all([
+    json(payload.chapters),
+    json(payload.transcripts)
+  ])
+
   // TODO: validate config
-  yield put(ready(payload))
+  yield put(
+    lifecycle.ready({
+      ...payload,
+      chapters,
+      transcripts
+    })
+  )
+}
+
+export function* constructed({ payload }) {
+  yield put(lifecycle.constructed(payload))
 }

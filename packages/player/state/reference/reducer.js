@@ -1,16 +1,23 @@
 import { handleActions } from 'redux-actions'
-import { INIT } from '@podlove/player-actions/types'
-import { shareReference, originReference, configReference } from '@podlove/utils/config'
+import { READY } from '@podlove/player-actions/types'
+import {
+  shareReference,
+  originReference,
+  episodeReference,
+  configReference
+} from '@podlove/utils/config'
 
 export const INITIAL_STATE = {
   config: null,
   share: null,
-  origin: null
+  origin: null,
+  epiosde: null
 }
 
 export const reducer = handleActions(
   {
-    [INIT]: (_, { payload }) => ({
+    [READY]: (_, { payload }) => ({
+      episode: episodeReference(payload),
       config: configReference(payload),
       share: shareReference(payload),
       origin: originReference(payload)

@@ -150,7 +150,6 @@ button {
   }
 
   .title {
-    @extend %font;
     margin-left: $margin / 3;
     text-transform: uppercase;
   }

@@ -1,6 +1,5 @@
 // Application Wide Selectors
-
-import styles from './styles'
+import theme from './theme'
 import runtime from './runtime'
 import timepiece from './timepiece'
 import header from './header'
@@ -21,6 +20,10 @@ import audio from './audio'
 import transcripts from './transcripts'
 import error from './error'
 import driver from './driver'
+import playstate from './playstate'
+import playlist from './playlist'
+import subscribeButton from './subscribe-button'
+import channels from './channels'
 
 export default {
   ...runtime,
@@ -30,7 +33,7 @@ export default {
   header,
   episode,
   show,
-  styles,
+  theme,
   accessibility,
   media,
   components,
@@ -43,5 +46,9 @@ export default {
   share,
   transcripts,
   error,
-  driver
+  driver,
+  playstate,
+  playlist,
+  subscribeButton,
+  channels
 }

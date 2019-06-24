@@ -4,6 +4,7 @@ const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 
 const version = require('../package').version
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
+const subscribeButtonAssets = path.resolve('./node_modules/@podlove/subscribe-button/dist')
 
 module.exports = {
   mode: 'development',
@@ -23,7 +24,21 @@ module.exports = {
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 
   module: {
-    rules: [rules.javascript(), rules.scss(), rules.mustache()]
+    rules: [
+      rules.javascript(),
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass()
+      ]),
+      rules.mustache(),
+      rules.html()
+    ]
   },
 
   plugins: [
@@ -44,18 +59,32 @@ module.exports = {
         scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
       },
       filename: 'share.html',
-      template: '!!mustache-loader!./src/lib/share.mustache',
+      template: '!!mustache-loader!./src/player/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
-      base: `${version}/`
+      base: `player/${version}/`
     }),
-    plugins.env({ MODE: 'development', BASE: '/', SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'], STYLES: ['styles'] }),
+    plugins.env({
+      MODE: 'development',
+      BASE: '/',
+      PLAYER_SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'],
+      BUTTON_SCRIPTS: ['vendor', 'styles', 'runtime', 'list'],
+      PLAYER_STYLES: ['styles'],
+      BUTTON_STYLES: ['styles']
+    }),
     plugins.copy([
       {
         from: playerAssets,
-        to: `${version}/`
+        to: `player/${version}/`
       },
       {
-        from: './example/example.json'
+        from: subscribeButtonAssets,
+        to: `button/${version}/`
+      },
+      {
+        from: './example/episode.json'
+      },
+      {
+        from: './example/config.json'
       },
       {
         from: './example/transcripts.json'
@@ -66,7 +95,12 @@ module.exports = {
       {
         from: './example/example.jpg'
       },
-      { from: './example/assets', to: 'assets' }
+      {
+        from: './example/playlist.json'
+      },
+      { from: './example/assets', to: 'assets' },
+      { from: './example/episodes', to: 'episodes' },
+      { from: './example/fonts', to: 'fonts' }
     ])
   ]
 }

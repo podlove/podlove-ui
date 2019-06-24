@@ -1,6 +1,6 @@
 <template>
   <div>
-    <podlove-web-player @ready="initPlayer" :config="action.payload" />
+    <podlove-web-player @ready="initPlayer" :episode="action.payload" />
 
     <h4>Type</h4>
     <select v-model="type">
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-  import example from '../public/fixtures/example.json'
+  import episode from '../public/fixtures/episode.json'
   import * as types from '@podlove/player-actions/types'
 
   const actions = [{
     type: types.INIT,
     description: 'Initializes Player',
-    payload: example
+    payload: episode
   }, {
     type: types.REQUEST_PLAY,
     description: 'Plays Podcast',
