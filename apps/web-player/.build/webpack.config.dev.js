@@ -48,7 +48,7 @@ module.exports = {
       filename: 'share.html',
       template: '!!mustache-loader!./src/lib/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
-      base: BASE
+      base: `${BASE}${version}/`
     }),
     plugins.env({ MODE: 'development', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'], STYLES: ['styles'] }),
     plugins.copy([

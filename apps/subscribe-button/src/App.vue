@@ -5,7 +5,7 @@
       <button-component :sb="true" @click="showOverlay"></button-component>
     </div>
     <transition name="fade">
-      <overlay-component v-if="overlayVisible"></overlay-component>
+      <overlay-component v-if="overlayVisible" @click="hideOverlay"></overlay-component>
     </transition>
   </div>
 </template>
@@ -27,7 +27,7 @@ import {
   selectOverlayVisible
 } from 'store/selectors'
 
-import { showOverlay } from 'store/actions'
+import { showOverlay, hideOverlay } from 'store/actions'
 
 export default {
   components: { Cover: Image, ButtonComponent, OverlayComponent },
@@ -45,6 +45,10 @@ export default {
     }
   },
   methods: {
+    hideOverlay: compose(
+      store.dispatch,
+      hideOverlay
+    ),
     showOverlay: compose(
       store.dispatch,
       showOverlay

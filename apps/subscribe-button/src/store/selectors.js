@@ -57,17 +57,23 @@ export const selectOverlayVisible = compose(
   viewSlice
 )
 
+export const selectFinishScreenVisible = compose(
+  view.finish,
+  viewSlice
+)
+
+export const selectFinishScreenObject = compose(
+  view.finish_object,
+  viewSlice
+)
+
 export const tabs = createObject({
   apps: compose(
     tabsreducer.apps,
     tabSlice
   ),
-  cloud: compose(
-    tabsreducer.cloud,
-    tabSlice
-  ),
-  platform: compose(
-    tabsreducer.platform,
+  web: compose(
+    tabsreducer.web,
     tabSlice
   ),
   info: compose(

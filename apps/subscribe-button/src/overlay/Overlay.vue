@@ -2,9 +2,10 @@
   <div class="overlay">
     <div class="upper-part" :style="backgroundGradient">
       <div class="header">
-        <span>zurück</span>
-        <icon type="podlove"></icon>
         <icon type="info"></icon>
+        <button id="close-button" @click="onClose">
+          <icon type="close" :size="10"></icon>
+        </button>
       </div>
       <div class="subscribe-top">
         <cover alt="ccc" :url="cover" :cover-color="color" />
@@ -16,16 +17,19 @@
       <div>
         <div class="feed-details">
           {{ urlText }}
-          <span id="copy-url-field" @focus="focusURL">
+          <span>
             {{ podcastFeed[0].url }}
           </span>
         </div>
-        <button class="btn-copy" @click="testCopy">
+        <button class="btn-copy" @click="copyLink">
           {{ $t('COPYURL') }}
         </button>
+        <div class="copy-await" :class="{ 'copy-success': success }">
+          {{ $t('COPYSUCESS') }}
+        </div>
       </div>
     </div>
-    <details-component></details-component>
+    <tabs-component></tabs-component>
     <div class="footer">
       powered by
       <icon type="podlove"></icon>
@@ -35,7 +39,8 @@
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import copy from 'copy-to-clipboard'
+
 import {
   selectColor,
   selectCover,
@@ -45,21 +50,27 @@ import {
   selectFeed
 } from 'store/selectors'
 import { Icon, Image } from '@podlove/components'
-import DetailsComponent from './details'
+import TabsComponent from './tabs'
 
 export default {
-  components: { Icon, Cover: Image, DetailsComponent },
-  data: mapState({
-    color: selectColor,
-    cover: selectCover,
-    podcastDescription: selectDescription,
-    podcastFeed: selectFeed,
-    podcastTitle: selectTitle,
-    podcastSubTitle: selectSubTitle
-  }),
+  components: { Icon, Cover: Image, TabsComponent },
+  data() {
+    return {
+      ...this.mapState({
+        color: selectColor,
+        cover: selectCover,
+        podcastDescription: selectDescription,
+        podcastFeed: selectFeed,
+        podcastTitle: selectTitle,
+        podcastSubTitle: selectSubTitle
+      }),
+      success: false
+    }
+  },
   computed: {
     backgroundGradient() {
-      return `background-image: linear-gradient(to top, red, #f06d06);`
+      // return `background-image: linear-gradient(to top, red, #f06d06);`
+      return `background: ${this.color};`
     },
     btnColor() {
       return `background: ${this.color};`
@@ -69,16 +80,11 @@ export default {
     }
   },
   methods: {
-    focusURL() {
-      document.execCommand('selectAll', false, null)
+    copyLink() {
+      this.success = copy(this.podcastFeed[0].url)
     },
-    testCopy() {
-      let field = document.querySelector('#copy-url-field')
-      field.setAttribute('contenteditable', true)
-      field.focus()
-      document.execCommand('copy', false, null)
-      field.blur()
-      field.setAttribute('contenteditable', false)
+    onClose() {
+      this.$emit('click')
     }
   }
 }
@@ -127,11 +133,19 @@ export default {
     padding: 0.5em;
     align-items: center;
     justify-content: space-between;
+
+    #close-button {
+      width: auto;
+      margin: 2px;
+      padding: 4px;
+      border-radius: 50%;
+      border: 1px solid black;
+    }
   }
 
   .subscribe-top {
     display: flex;
-    margin: 1em;
+    margin: 0em 1em 1em 1em;
     align-items: flex-end;
 
     .image-container {
@@ -153,6 +167,14 @@ export default {
   }
 }
 
+.copy-await {
+  visibility: hidden;
+}
+
+.copy-success {
+  visibility: visible;
+}
+
 .feed-details {
   margin-bottom: 0.5em;
 }
@@ -168,7 +190,7 @@ export default {
   align-content: flex-start;
 }
 
-#copy-url-field {
+.btn-copy {
   width: 250px;
   height: 50px;
   background: white;

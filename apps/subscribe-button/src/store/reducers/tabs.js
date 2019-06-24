@@ -4,8 +4,7 @@ import { INIT, TOGGLE_TAB } from './types'
 
 export const INITIAL_STATE = {
   apps: true,
-  cloud: false,
-  platform: false,
+  web: false,
   info: false
 }
 
@@ -15,8 +14,7 @@ export const reducer = handleActions(
     [TOGGLE_TAB]: (state, { payload }) => ({
       ...{
         apps: false,
-        cloud: false,
-        platform: false,
+        web: false,
         info: false
       },
       ...payload
@@ -26,6 +24,5 @@ export const reducer = handleActions(
 )
 
 export const apps = prop('apps')
-export const cloud = prop('cloud')
-export const platform = prop('platform')
+export const web = prop('web')
 export const info = prop('info')

@@ -20,5 +20,11 @@ module.exports = {
   },
   chainWebpack: config => {
     config.plugin('copy').use(CopyPlugin, [[{ from: `./node_modules/@podlove/web-player/dist` }, { from: `./.vuepress/public`}]])
+  },
+  configureWebpack: (config) => {
+    console.log(config)
+    config.devServer = {
+      https: true
+    }
   }
 }
