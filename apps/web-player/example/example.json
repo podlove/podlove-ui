@@ -7,7 +7,7 @@
     "link": "https://forschergeist.de"
   },
   "reference": {
-    "config": "http://localhost:9000/example.json",
+    "config": "example.json",
     "origin": "http://localhost:9000"
   },
   "theme": {
@@ -22,7 +22,7 @@
   "duration": "01:40:36.297",
   "link": "https://forschergeist.de/podcast/fg066-klimaneutralitaet/",
   "audio": [{"url":"https:\/\/forschergeist.de\/podlove\/file\/1781\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.m4a","size":"65728876","title":"MPEG-4 AAC Audio (m4a)","mimeType":"audio\/mp4"},{"url":"https:\/\/forschergeist.de\/podlove\/file\/1783\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.opus","size":"49217134","title":"Opus Audio (opus)","mimeType":"audio\/opus"},{"url":"https:\/\/forschergeist.de\/podlove\/file\/1774\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.oga","size":"68768334","title":"Ogg Vorbis Audio (oga)","mimeType":"audio\/ogg"},{"url":"https:\/\/forschergeist.de\/podlove\/file\/1782\/s\/webplayer\/c\/episode\/fg066-klimaneutralitaet.mp3","size":"85274872","title":"MP3 Audio (mp3)","mimeType":"audio\/mpeg"}],
-  "chapters": "//localhost:9000/chapters.json",
+  "chapters": "chapters.json",
   "contributors": [
     {
       "id": "1",
@@ -89,5 +89,5 @@
       "comment": null
     }
   ],
-  "transcripts": "//localhost:9000/transcripts.json"
+  "transcripts": "transcripts.json"
 }

@@ -12,7 +12,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        podlovePlayer('#player', '//localhost:9000/example.json', {}).then(registerExternalEvents('player'))
+        podlovePlayer('#player', 'example.json', {}).then(registerExternalEvents('player'))
       }
     })
   </script>
