@@ -27,6 +27,7 @@ export default {
   width: 100%;
   max-width: $width-xl;
   min-width: $width-xs;
+  min-height: 250px;
 
   @include font();
   font-size: 14px;
