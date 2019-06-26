@@ -85,6 +85,7 @@ export default {
   position: relative;
   max-height: $tabs-body-max-height - $transcripts-height;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 0;
 }
 
