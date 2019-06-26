@@ -30,7 +30,7 @@ module.exports = {
     plugins.html({
       files: {
         styles: ['styles'],
-        scripts: ['vendor', 'styles', 'runtime', 'player']
+        scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
       },
       filename: 'share.html',
       template: '!!mustache-loader!./src/lib/share.mustache',
