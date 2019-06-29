@@ -1,3 +1,11 @@
+function onceInteractive(cb) {
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    return cb()
+  }
+
+  setTimeout(() => onceInteractive(cb), 100)
+}
+
 export default {
   bind(el, { value }) {
     el.onResize = () => value(el)
@@ -5,6 +13,6 @@ export default {
   },
 
   inserted(el) {
-    setTimeout(el.onResize, 100)
+    onceInteractive(el.onResize)
   }
 }
