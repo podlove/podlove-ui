@@ -1,17 +1,17 @@
 <template lang="pug">
   div.tabs#tabs
     tab-header(:class="{overflows}" :backgroundActive="header.backgroundActive" v-resize="resizeHandler" ref="tabHeader")
-      tab-header-item(tab="info" :title="$t('INFO.TITLE')" v-if="infoTab")
+      tab-header-item.item(tab="info" :title="$t('INFO.TITLE')" v-if="infoTab")
         icon(type="info" slot="icon")
-      tab-header-item(tab="chapters" :title="$t('CHAPTERS.TITLE')" v-if="chaptersTab")
+      tab-header-item.item(tab="chapters" :title="$t('CHAPTERS.TITLE')" v-if="chaptersTab")
         icon(type="chapter" slot="icon")
-      tab-header-item(tab="transcripts" :title="$t('TRANSCRIPTS.TITLE')" v-if="transcriptTab")
+      tab-header-item.item(tab="transcripts" :title="$t('TRANSCRIPTS.TITLE')" v-if="transcriptTab")
         icon(type="transcripts" slot="icon")
-      tab-header-item(tab="share" :title="$t('SHARE.TITLE')" v-if="shareTab")
+      tab-header-item.item(tab="share" :title="$t('SHARE.TITLE')" v-if="shareTab")
         icon(type="share" slot="icon")
-      tab-header-item(tab="files" :title="$t('FILES.TITLE')" v-if="filesTab")
+      tab-header-item.item(tab="files" :title="$t('FILES.TITLE')" v-if="filesTab")
         icon(type="download" slot="icon")
-      tab-header-item(tab="audio" :title="$t('AUDIO.TITLE')" v-if="audioTab")
+      tab-header-item.item(tab="audio" :title="$t('AUDIO.TITLE')" v-if="audioTab")
         icon(:type="audioIcon" slot="icon")
     tab-body(tab="info" v-if="infoTab" rel="info")
       info-tab
@@ -116,10 +116,15 @@ export default {
     ),
     resizeHandler(el) {
       this.overflows = false
+      setStyles({ 'overflow-x': 'auto' }, el)
 
       this.$nextTick(() => {
-        setStyles({ 'overflow-x': 'auto' }, el)
-        this.overflows = el.scrollWidth > el.clientWidth
+        const width = [...el.querySelectorAll('.item')].reduce(
+          (result, item) => result + item.clientWidth,
+          0
+        )
+
+        this.overflows = width > el.clientWidth || width === 0
         setStyles({ 'overflow-x': 'hidden' }, el)
       })
     }
