@@ -5,8 +5,6 @@ const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 const version = require('../package').version
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
 
-const BASE = `/`
-
 module.exports = {
   mode: 'production',
 
@@ -35,10 +33,10 @@ module.exports = {
       filename: 'share.html',
       template: '!!mustache-loader!./src/lib/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
-      base: `${BASE}${version}/`
+      base: `${version}/`
     }),
     plugins.version(),
-    plugins.env({ MODE: 'production', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'player', 'bootstrap'], STYLES: ['styles'] }),
+    plugins.env({ MODE: 'production', BASE: '/', SCRIPTS: ['vendor', 'styles', 'runtime', 'player', 'bootstrap'], STYLES: ['styles'] }),
     plugins.copy([
       {
         from: playerAssets,
