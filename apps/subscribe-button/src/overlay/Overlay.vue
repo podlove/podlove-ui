@@ -13,15 +13,15 @@
             <icon type="close" :size="10"></icon>
           </button>
         </div>
-        <div class="subscribe-top">
-          <cover alt="ccc" :url="cover" :cover-color="color" />
-          <div class="podcast-describtion">
-            <h1>{{ podcastTitle }}</h1>
-            <p>{{ podcastSubTitle }}</p>
+        <div class="podcast">
+          <div class="podcast-infos">
+            <cover alt="ccc" :url="cover" :cover-color="color" />
+            <div class="podcast-describtion">
+              <h1>{{ podcastTitle }}</h1>
+              <p>{{ podcastSubTitle }}</p>
+            </div>
           </div>
-        </div>
-        <div>
-          <div class="feed-details">
+          <div class="podcast-feed">
             {{ urlText }}
             <span>
               {{ podcastFeed[0].url }}
@@ -34,16 +34,16 @@
             {{ $t('COPYSUCESS') }}
           </div>
         </div>
-        <div>
-          <link-list
-            v-if="!finishScreenVisible"
-            :data="[...getOSClients, ...web_apps]"
-            @click="showLastScreen"
-          >
-          </link-list>
-          <finish-screen v-else @click="hideLastScreen"></finish-screen>
-        </div>
       </div>
+    </div>
+    <div>
+      <link-list
+        v-if="!finishScreenVisible"
+        :data="[...getOSClients, ...web_apps]"
+        @click="showLastScreen"
+      >
+      </link-list>
+      <finish-screen v-else @click="hideLastScreen"></finish-screen>
     </div>
     <div class="footer">
       powered by
@@ -211,28 +211,33 @@ export default {
       width: auto;
     }
   }
+}
+.podcast {
+  margin: 0em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.podcast-infos {
+  display: flex;
+  margin-bottom: 1em;
+  align-items: flex-end;
 
-  .subscribe-top {
-    display: flex;
-    margin: 0em 1em 1em 1em;
-    align-items: flex-end;
+  .image-container {
+    margin-right: 1em;
+  }
+}
 
-    .image-container {
-      margin-right: 1em;
-    }
+.podcast-describtion {
+  text-align: left;
+
+  h1 {
+    margin-top: 0px;
+    font-size: 1.5em;
   }
 
-  .podcast-describtion {
-    text-align: left;
-
-    h1 {
-      margin-top: 0px;
-      font-size: 1.5em;
-    }
-
-    p {
-      margin-bottom: 0px;
-    }
+  p {
+    margin-bottom: 0px;
   }
 }
 
@@ -244,7 +249,7 @@ export default {
   visibility: visible;
 }
 
-.feed-details {
+.podcast-feed {
   margin-bottom: 0.5em;
 }
 
