@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="app-item">
-      <h1>{{ title }}</h1>
+    <div class="list-item">
+      <h1>{{ $t('PODCATCHER') }}</h1>
       <ul>
         <li v-for="(entry, index) in data" :key="index">
           <!-- <b><img :src="`/static/img/${entry.icon}`" />{{ entry.title }}</b> -->
@@ -23,10 +23,6 @@ import { selectFeed } from 'store/selectors'
 
 export default {
   props: {
-    title: {
-      type: String,
-      default: ''
-    },
     data: {
       type: Array,
       default: null
@@ -58,14 +54,7 @@ export default {
 </script>
 
 <style lang="scss">
-.app-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.app-item {
-  width: 45%;
+.list-item {
   text-align: center;
 
   ul {
@@ -77,7 +66,7 @@ export default {
       cursor: pointer;
 
       &:hover {
-        background: rgba($color: #000, $alpha: 0.7);
+        background: rgba($color: #000, $alpha: 0.3);
       }
     }
   }

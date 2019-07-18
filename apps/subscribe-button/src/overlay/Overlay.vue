@@ -2,7 +2,7 @@
   <div class="overlay">
     <div class="upper-part" :style="backgroundGradient">
       <div v-if="infoscreen">
-        <info-compontent></info-compontent>
+        <info-view></info-view>
       </div>
       <div v-else>
         <div class="header">
@@ -34,7 +34,15 @@
             {{ $t('COPYSUCESS') }}
           </div>
         </div>
-        <tabs-component></tabs-component>
+        <div>
+          <link-list
+            v-if="!finishScreenVisible"
+            :data="[...getOSClients, ...web_apps]"
+            @click="showLastScreen"
+          >
+          </link-list>
+          <finish-screen v-else @click="hideLastScreen"></finish-screen>
+        </div>
       </div>
     </div>
     <div class="footer">
@@ -55,17 +63,36 @@ import {
   selectSubTitle,
   selectDescription,
   selectFeed,
-  selectInfoVisible
+  selectInfoVisible,
+  selectFinishScreenVisible,
+  selectFinishScreenObject
 } from 'store/selectors'
-import { showInfo } from 'store/actions'
+import {
+  showInfo,
+  closeFinishScreen,
+  showFinishScreen,
+  fillFinishObject,
+  resetFinishObject
+} from 'store/actions'
 import store from 'store'
 
 import { Icon, Image } from '@podlove/components'
-import InfoCompontent from './info'
-import TabsComponent from './tabs'
+import FinishScreen from './components/FinishScreen'
+import InfoView from './info'
+import LinkList from './components/LinkList'
 
+import { getPlatform } from '@podlove/utils/useragent'
+
+import apps from './clientlist/apps.json'
+import web from './clientlist/web.json'
 export default {
-  components: { Icon, Cover: Image, InfoCompontent, TabsComponent },
+  components: {
+    Icon,
+    Cover: Image,
+    InfoView,
+    LinkList,
+    FinishScreen
+  },
   data() {
     return {
       ...this.mapState({
@@ -75,12 +102,20 @@ export default {
         podcastFeed: selectFeed,
         podcastTitle: selectTitle,
         podcastSubTitle: selectSubTitle,
-        infoscreen: selectInfoVisible
+        infoscreen: selectInfoVisible,
+        finishScreenVisible: selectFinishScreenVisible,
+        finishObject: selectFinishScreenObject
       }),
-      success: false
+      success: false,
+      plat: getPlatform(),
+      client: window.navigator.platform,
+      web_apps: [...web.cloud, ...web.platform]
     }
   },
   computed: {
+    getOSClients() {
+      return apps[this.plat]
+    },
     backgroundGradient() {
       // return `background-image: linear-gradient(to top, red, #f06d06);`
       return `background: ${this.color};`
@@ -101,6 +136,21 @@ export default {
     },
     showInfo() {
       store.dispatch(showInfo())
+    },
+    hideLastScreen() {
+      store.dispatch(closeFinishScreen())
+      store.dispatch(resetFinishObject())
+    },
+    showLastScreen(client, composedUrl) {
+      store.dispatch(showFinishScreen())
+      store.dispatch(
+        fillFinishObject({
+          finish_object: {
+            ...client,
+            ...{ composedUrl: composedUrl }
+          }
+        })
+      )
     }
   }
 }
