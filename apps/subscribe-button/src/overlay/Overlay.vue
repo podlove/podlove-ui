@@ -1,35 +1,42 @@
 <template>
   <div class="overlay">
     <div class="upper-part" :style="backgroundGradient">
-      <div class="header">
-        <icon type="info"></icon>
-        <button id="close-button" @click="onClose">
-          <icon type="close" :size="10"></icon>
-        </button>
+      <div v-if="infoscreen">
+        <info-compontent></info-compontent>
       </div>
-      <div class="subscribe-top">
-        <cover alt="ccc" :url="cover" :cover-color="color" />
-        <div class="podcast-describtion">
-          <h1>{{ podcastTitle }}</h1>
-          <p>{{ podcastSubTitle }}</p>
+      <div v-else>
+        <div class="header">
+          <button class="info-button" @click="showInfo">
+            <icon type="info"></icon>
+          </button>
+          <button id="close-button" @click="onClose">
+            <icon type="close" :size="10"></icon>
+          </button>
         </div>
-      </div>
-      <div>
-        <div class="feed-details">
-          {{ urlText }}
-          <span>
-            {{ podcastFeed[0].url }}
-          </span>
+        <div class="subscribe-top">
+          <cover alt="ccc" :url="cover" :cover-color="color" />
+          <div class="podcast-describtion">
+            <h1>{{ podcastTitle }}</h1>
+            <p>{{ podcastSubTitle }}</p>
+          </div>
         </div>
-        <button class="btn-copy" @click="copyLink">
-          {{ $t('COPYURL') }}
-        </button>
-        <div class="copy-await" :class="{ 'copy-success': success }">
-          {{ $t('COPYSUCESS') }}
+        <div>
+          <div class="feed-details">
+            {{ urlText }}
+            <span>
+              {{ podcastFeed[0].url }}
+            </span>
+          </div>
+          <button class="btn-copy" @click="copyLink">
+            {{ $t('COPYURL') }}
+          </button>
+          <div class="copy-await" :class="{ 'copy-success': success }">
+            {{ $t('COPYSUCESS') }}
+          </div>
         </div>
+        <tabs-component></tabs-component>
       </div>
     </div>
-    <tabs-component></tabs-component>
     <div class="footer">
       powered by
       <icon type="podlove"></icon>
@@ -47,13 +54,18 @@ import {
   selectTitle,
   selectSubTitle,
   selectDescription,
-  selectFeed
+  selectFeed,
+  selectInfoVisible
 } from 'store/selectors'
+import { showInfo } from 'store/actions'
+import store from 'store'
+
 import { Icon, Image } from '@podlove/components'
+import InfoCompontent from './info'
 import TabsComponent from './tabs'
 
 export default {
-  components: { Icon, Cover: Image, TabsComponent },
+  components: { Icon, Cover: Image, InfoCompontent, TabsComponent },
   data() {
     return {
       ...this.mapState({
@@ -62,7 +74,8 @@ export default {
         podcastDescription: selectDescription,
         podcastFeed: selectFeed,
         podcastTitle: selectTitle,
-        podcastSubTitle: selectSubTitle
+        podcastSubTitle: selectSubTitle,
+        infoscreen: selectInfoVisible
       }),
       success: false
     }
@@ -85,6 +98,9 @@ export default {
     },
     onClose() {
       this.$emit('click')
+    },
+    showInfo() {
+      store.dispatch(showInfo())
     }
   }
 }
@@ -140,6 +156,9 @@ export default {
       padding: 4px;
       border-radius: 50%;
       border: 1px solid black;
+    }
+    .info-button {
+      width: auto;
     }
   }
 
