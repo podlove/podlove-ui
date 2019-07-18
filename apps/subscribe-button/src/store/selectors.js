@@ -52,6 +52,11 @@ export const selectFeed = compose(
   metadataSlice
 )
 
+export const selectInfoVisible = compose(
+  view.info,
+  viewSlice
+)
+
 export const selectOverlayVisible = compose(
   view.overlay,
   viewSlice
