@@ -17,7 +17,18 @@
 <script>
   window.iFrameResizer = {
     widthCalculationMethod: function () {
+      if (document.getElementById('breakout')) {
+        return window.parent.innerWidth
+      }
+
       return document.getElementById('subscribe-button').offsetWidth
+    },
+    heightCalculationMethod: function () {
+      if (document.getElementById('breakout')) {
+        return window.parent.innerHeight
+      }
+
+      return document.getElementById('subscribe-button').offsetHeight
     }
   }
 
