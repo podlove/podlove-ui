@@ -40,6 +40,9 @@ import SearchPreviousIcon from './states/SearchPrevious'
 import MissingConnectionIcon from './states/MissingConnection'
 import InvalidConfigurationIcon from './states/InvalidConfiguration'
 import SubscribeIcon from './states/Subscribe'
+import ApplePodcastIcon from './states/ApplePodcast'
+import DowncastPodcastIcon from './states/DowncastPodcast'
+import InstacastPodcastIcon from './states/InstacastPodcast'
 
 export const types = [
   'play',
@@ -84,7 +87,10 @@ export const types = [
   'search-next',
   'missing-connection',
   'invalid-configuration',
-  'subscribe'
+  'subscribe',
+  'apple-podcast',
+  'downcast-podcast',
+  'instacast-podcast'
 ]
 
 export const components = {
@@ -129,5 +135,8 @@ export const components = {
   SearchPreviousIcon,
   MissingConnectionIcon,
   InvalidConfigurationIcon,
-  SubscribeIcon
+  SubscribeIcon,
+  ApplePodcastIcon,
+  DowncastPodcastIcon,
+  InstacastPodcastIcon
 }
