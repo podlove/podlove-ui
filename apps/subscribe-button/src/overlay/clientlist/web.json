@@ -3,21 +3,21 @@
     {
       "title": "gpodder.net",
       "scheme": "http://gpodder.net/subscribe?url=",
-      "icon": "cloud/gpoddernet.png",
+      "icon_old": "cloud/gpoddernet.png",
       "register": "https://gpodder.net/",
       "https": true
     },
     {
       "title": "Player.fm",
       "scheme": "https://player.fm/subscribe?id=",
-      "icon": "cloud/playerfm.png",
+      "icon_old": "cloud/playerfm.png",
       "register": "https://player.fm/",
       "https": true
     },
     {
       "title": "Pocket Casts",
       "scheme": "http://pcasts.in/feed/",
-      "icon": "cloud/pocketcasts.png",
+      "icon_old": "cloud/pocketcasts.png",
       "register": "https://play.pocketcasts.com/"
     }
   ],
@@ -25,25 +25,25 @@
     {
       "title": "Soundcloud",
       "scheme": "https://soundcloud.com/",
-      "icon": "platform/soundcloud.png",
+      "icon_old": "platform/soundcloud.png",
       "register": "https://soundcloud.com/"
     },
     {
       "title": "Spotify",
       "scheme": "https://open.spotify.com/show/",
-      "icon": "platform/spotify.png",
+      "icon_old": "platform/spotify.png",
       "register": "https://www.spotify.com/"
     },
     {
       "title": "Stitcher",
       "scheme": "https://www.stitcher.com/podcast",
-      "icon": "platform/stitcher.png",
+      "icon_old": "platform/stitcher.png",
       "register": "https://www.stitcher.com/"
     },
     {
       "title": "Youtube",
       "scheme": "https://www.youtube.com/channel/",
-      "icon": "platform/youtube.png",
+      "icon_old": "platform/youtube.png",
       "register": "https://www.youtube.com/"
     }
   ]
