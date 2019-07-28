@@ -24,7 +24,9 @@ export default async (config, entry) => {
     {
       checkOrigin: false,
       log: false,
-      sizeWidth: true
+      sizeWidth: true,
+      sizeHeight: true,
+      maxHeight: window.innerHeight - 20
     },
     subscribeButton
   )
