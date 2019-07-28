@@ -5,12 +5,13 @@
       <ul>
         <li v-for="(entry, index) in data" :key="index">
           <!-- <b><img :src="`/static/img/${entry.icon}`" />{{ entry.title }}</b> -->
+          <span v-if="entry.icon"><icon :type="entry.icon"></icon></span>
           <a
             :href="constructURL(entry)"
             target="_blank"
             @click="onClick(entry, constructURL(entry))"
           >
-            {{ entry.title }}
+            {{ entry.title }} {{ entry.icon }}
           </a>
         </li>
       </ul>
@@ -20,8 +21,10 @@
 
 <script>
 import { selectFeed } from 'store/selectors'
+import { Icon } from '@podlove/components'
 
 export default {
+  components: { Icon },
   props: {
     data: {
       type: Array,
@@ -66,7 +69,8 @@ export default {
 
   ul {
     list-style: none;
-    padding-left: 0px;
+    padding-left: 1em;
+    text-align: left;
 
     li {
       padding: 0.5em;
