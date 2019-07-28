@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div class="container" :class="{ extended: overlayVisible }">
     <div v-if="!overlayVisible" :class="dimensions">
       <cover v-if="format === 'cover'" alt="ccc" :url="cover" :cover-color="color" />
       <button-component :sb="true" @click="showOverlay"></button-component>
@@ -64,10 +64,19 @@ export default {
 @import '~theme/variable';
 @import '~theme/animations';
 
-.background {
+.container {
   @include font();
   font-size: 16px;
-  display: inline-block;
+  // display: inline-block;
+}
+
+.container.extended {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .big-rectangle {

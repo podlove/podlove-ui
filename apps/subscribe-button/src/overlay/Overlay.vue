@@ -1,5 +1,5 @@
 <template>
-  <div class="overlay">
+  <div id="breakout" class="overlay">
     <div class="upper-part" :style="backgroundGradient">
       <div v-if="infoscreen">
         <info-view></info-view>
@@ -36,15 +36,13 @@
         </div>
       </div>
     </div>
-    <div>
-      <link-list
-        v-if="!finishScreenVisible"
-        :data="[...getOSClients, ...web_apps]"
-        @click="showLastScreen"
-      >
-      </link-list>
-      <finish-screen v-else @click="hideLastScreen"></finish-screen>
-    </div>
+    <link-list
+      v-if="!finishScreenVisible"
+      :data="[...getOSClients, ...web_apps]"
+      @click="showLastScreen"
+    >
+    </link-list>
+    <finish-screen v-else @click="hideLastScreen"></finish-screen>
     <div class="footer">
       powered by
       <icon type="podlove"></icon>
@@ -163,6 +161,7 @@ export default {
 @import '~theme/variable';
 
 .overlay {
+  margin: 1em;
   width: 320px;
   background: #fff;
   display: flex;
@@ -186,6 +185,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding-bottom: 1em;
+  height: $upper-content-height;
 
   -moz-border-radius-topleft: 10px;
   -moz-border-radius-topright: 10px;
@@ -268,5 +268,11 @@ export default {
   width: 250px;
   height: 50px;
   background: white;
+}
+
+.footer {
+  height: $footer-content-height;
+  display: flex;
+  align-items: center;
 }
 </style>

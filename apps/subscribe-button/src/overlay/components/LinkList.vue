@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="link-list">
     <div class="list-item">
       <h1>{{ $t('PODCATCHER') }}</h1>
       <ul>
@@ -54,6 +54,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~theme/variable';
+.link-list {
+  width: 100%;
+  overflow-y: auto;
+  max-height: calc(100vh - #{$upper-content-height} - #{$footer-content-height} - 10px);
+}
+
 .list-item {
   text-align: center;
 
