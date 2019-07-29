@@ -43,6 +43,11 @@ import SubscribeIcon from './states/Subscribe'
 import ApplePodcastIcon from './states/ApplePodcast'
 import DowncastPodcastIcon from './states/DowncastPodcast'
 import InstacastPodcastIcon from './states/InstacastPodcast'
+import PodgraspPodcastIcon from './states/PodgraspPodcast'
+import GpodderPodcastIcon from './states/GpodderPodcast'
+import PlayerfmPodcastIcon from './states/PlayerfmPodcast'
+import PocketcastPodcastIcon from './states/PocketcastPodcast'
+import SpotifyPodcastIcon from './states/SpotifyPodcast'
 
 export const types = [
   'play',
@@ -90,7 +95,12 @@ export const types = [
   'subscribe',
   'apple-podcast',
   'downcast-podcast',
-  'instacast-podcast'
+  'instacast-podcast',
+  'podgrasp-podcast',
+  'gpodder-podcast',
+  'playerfm-podcast',
+  'pocketcast-podcast',
+  'spotify-podcast'
 ]
 
 export const components = {
@@ -138,5 +148,10 @@ export const components = {
   SubscribeIcon,
   ApplePodcastIcon,
   DowncastPodcastIcon,
-  InstacastPodcastIcon
+  InstacastPodcastIcon,
+  PodgraspPodcastIcon,
+  GpodderPodcastIcon,
+  PlayerfmPodcastIcon,
+  PocketcastPodcastIcon,
+  SpotifyPodcastIcon
 }

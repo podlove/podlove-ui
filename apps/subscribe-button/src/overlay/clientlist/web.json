@@ -5,20 +5,23 @@
       "scheme": "http://gpodder.net/subscribe?url=",
       "icon_old": "cloud/gpoddernet.png",
       "register": "https://gpodder.net/",
-      "https": true
+      "https": true,
+      "icon": "gpodder-podcast"
     },
     {
       "title": "Player.fm",
       "scheme": "https://player.fm/subscribe?id=",
       "icon_old": "cloud/playerfm.png",
       "register": "https://player.fm/",
-      "https": true
+      "https": true,
+      "icon": "playerfm-podcast"
     },
     {
       "title": "Pocket Casts",
       "scheme": "http://pcasts.in/feed/",
       "icon_old": "cloud/pocketcasts.png",
-      "register": "https://play.pocketcasts.com/"
+      "register": "https://play.pocketcasts.com/",
+      "icon": "pocketcast-podcast"
     }
   ],
   "platform": [
@@ -32,7 +35,8 @@
       "title": "Spotify",
       "scheme": "https://open.spotify.com/show/",
       "icon_old": "platform/spotify.png",
-      "register": "https://www.spotify.com/"
+      "register": "https://www.spotify.com/",
+      "icon": "spotify-podcast"
     },
     {
       "title": "Stitcher",

@@ -11,7 +11,7 @@
             target="_blank"
             @click="onClick(entry, constructURL(entry))"
           >
-            {{ entry.title }} {{ entry.icon }}
+            {{ entry.title }}
           </a>
         </li>
       </ul>

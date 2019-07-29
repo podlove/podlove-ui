@@ -17,13 +17,15 @@
       "scheme": "https://player.fm/subscribe?id=",
       "icon_old": "android/playerfm.png",
       "store": "https://play.google.com/store/apps/details?id=fm.player",
-      "https": true
+      "https": true,
+      "icon": "playerfm-podcast"
     },
     {
       "title": "PocketCasts",
       "scheme": "pktc://subscribe/",
       "icon_old": "android/pocketcasts.png",
-      "install": "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts"
+      "install": "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts",
+      "icon": "pocketcast-podcast"
     },
     {
       "title": "Podcast Addict",
@@ -92,7 +94,8 @@
       "title": "PocketCasts",
       "scheme": "pktc://subscribe/",
       "icon_old": "ios/pocketcasts.png",
-      "store": "https://itunes.apple.com/de/app/pocket-casts/id414834813"
+      "store": "https://itunes.apple.com/de/app/pocket-casts/id414834813",
+      "icon": "pocketcast-podcast"
     },
     {
       "title": "Podcasts",
@@ -110,7 +113,8 @@
       "title": "PodGrasp",
       "scheme": "podgrasp://subscribe/",
       "icon_old": "ios/podgrasp.png",
-      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id531648276"
+      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id531648276",
+      "icon": "podgrasp-podcast"
     },
     {
       "title": "RSSRadio",
@@ -131,7 +135,8 @@
       "scheme": "gpodder://",
       "icon_old": "unix/gpodder.png",
       "install": "http://gpodder.org/downloads",
-      "https": true
+      "https": true,
+      "icon": "gpodder-podcast"
     }
   ],
   "osx": [
@@ -160,7 +165,8 @@
       "title": "PodGrasp",
       "scheme": "podgrasp://subscribe/",
       "icon_old": "osx/podgrasp.png",
-      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id530928805"
+      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id530928805",
+      "icon": "podgrasp-podcast"
     }
   ],
   "windows": [
@@ -169,7 +175,8 @@
       "scheme": "gpodder://",
       "icon_old": "windows/gpodder.png",
       "install": "http://gpodder.org/downloads",
-      "https": true
+      "https": true,
+      "icon": "gpodder-podcast"
     },
     {
       "title": "iTunes",
