@@ -1,0 +1,51 @@
+[
+  {
+    "title": "iTunes",
+    "scheme": "itpc://",
+    "install": "http://www.apple.com/itunes/",
+    "itunes": true,
+    "os": ["osx"],
+    "icon": "apple-podcast"
+  },
+  {
+    "title": "Downcast",
+    "scheme": "downcast://",
+    "store": "https://itunes.apple.com/de/app/downcast/id668429425?mt=12&uo=4",
+    "os": ["ios", "osx"],
+    "icon": "downcast-podcast"
+  },
+  {
+    "title": "gPodder",
+    "scheme": "gpodder://",
+    "icon_old": "unix/gpodder.png",
+    "install": "http://gpodder.org/downloads",
+    "https": true,
+    "os": ["web", "windows", "unix"],
+    "icon": "gpodder-podcast"
+  },
+  {
+    "title": "Overcast",
+    "scheme": "overcast://x-callback-url/add?url=",
+    "store": "https://itunes.apple.com/de/app/overcast-podcast-player/id888422857",
+    "os": ["ios", "web"],
+    "https": true
+  },
+  {
+    "title": "Player.fm",
+    "scheme": "https://player.fm/subscribe?id=",
+    "https": true,
+    "url": "https://player.fm/",
+    "icon": "playerfm-podcast",
+    "android_store": "https://play.google.com/store/apps/details?id=fm.player",
+    "apple_store": "https://itunes.apple.com/us/app/podcast-app-by-player-fm/id940568467",
+    "os": ["ios", "android", "web"]
+  },
+  {
+    "title": "PocketCasts",
+    "scheme": "pktc://subscribe/",
+    "icon_old": "android/pocketcasts.png",
+    "install": "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts",
+    "os": ["ios", "android", "web"],
+    "icon": "pocketcast-podcast"
+  }
+]
