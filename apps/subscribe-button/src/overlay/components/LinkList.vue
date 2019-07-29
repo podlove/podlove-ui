@@ -74,7 +74,7 @@ h1 {
     padding-left: 0px;
 
     li {
-      padding: 0.5em;
+      padding: 0.75em 0;
       cursor: pointer;
       display: flex;
       align-items: center;
