@@ -28,7 +28,8 @@
             </span>
           </div>
           <button class="btn-copy" @click="copyLink">
-            {{ $t('COPYURL') }}
+            <icon type="rss-feed"></icon>
+            <span class="btn-copy-txt">{{ $t('COPYURL') }}</span>
           </button>
           <div class="copy-await" :class="{ 'copy-success': success }">
             {{ $t('COPYSUCESS') }}
@@ -267,6 +268,10 @@ export default {
   width: 250px;
   height: 50px;
   background: white;
+}
+
+.btn-copy-txt {
+  margin-left: 0.5em;
 }
 
 .footer {
