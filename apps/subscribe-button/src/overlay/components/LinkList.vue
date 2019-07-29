@@ -56,21 +56,22 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~theme/variable';
+h1 {
+  border-bottom: 1px dotted black;
+}
 .link-list {
   width: 100%;
+  padding: 0 2em;
   overflow-y: auto;
   max-height: calc(100vh - #{$upper-content-height} - #{$footer-content-height} - 10px);
 }
 
 .list-item {
-  text-align: center;
-
   ul {
     list-style: none;
-    padding: 0 2em;
-    text-align: left;
+    padding-left: 0px;
 
     li {
       padding: 0.5em;
