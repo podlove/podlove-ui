@@ -4,8 +4,7 @@
       <h1>{{ $t('PODCATCHER') }}</h1>
       <ul>
         <li v-for="(entry, index) in data" :key="index">
-          <!-- <b><img :src="`/static/img/${entry.icon}`" />{{ entry.title }}</b> -->
-          <span v-if="entry.icon"><icon :type="entry.icon"></icon></span>
+          <icon v-if="entry.icon" :type="entry.icon"></icon>
           <a
             :href="constructURL(entry)"
             target="_blank"
@@ -70,15 +69,21 @@ export default {
 
   ul {
     list-style: none;
-    padding-left: 1em;
+    padding: 0 2em;
     text-align: left;
 
     li {
       padding: 0.5em;
       cursor: pointer;
+      display: flex;
+      align-items: center;
 
       &:hover {
         background: rgba($color: #000, $alpha: 0.3);
+      }
+
+      a {
+        margin: 0 0.5em 0 1em;
       }
     }
   }
