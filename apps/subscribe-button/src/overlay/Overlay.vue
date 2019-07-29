@@ -36,12 +36,7 @@
         </div>
       </div>
     </div>
-    <link-list
-      v-if="!finishScreenVisible"
-      :data="[...getOSClients, ...web_apps]"
-      @click="showLastScreen"
-    >
-    </link-list>
+    <link-list v-if="!finishScreenVisible" :data="getClients" @click="showLastScreen"></link-list>
     <finish-screen v-else @click="hideLastScreen"></finish-screen>
     <div class="footer">
       powered by
@@ -83,6 +78,7 @@ import { getPlatform } from '@podlove/utils/useragent'
 
 import apps from './clientlist/apps.json'
 import web from './clientlist/web.json'
+import clients from './clients.json'
 export default {
   components: {
     Icon,
@@ -113,6 +109,9 @@ export default {
   computed: {
     getOSClients() {
       return apps[this.plat]
+    },
+    getClients() {
+      return clients
     },
     backgroundGradient() {
       // return `background-image: linear-gradient(to top, red, #f06d06);`
