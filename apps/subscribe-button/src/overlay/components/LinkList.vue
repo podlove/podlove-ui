@@ -13,6 +13,7 @@
           >
             {{ entry.title }}
           </a>
+          <icon type="link-arrow"></icon>
         </li>
       </ul>
     </div>
