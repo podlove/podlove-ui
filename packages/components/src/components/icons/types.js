@@ -48,6 +48,7 @@ import GpodderPodcastIcon from './states/GpodderPodcast'
 import PlayerfmPodcastIcon from './states/PlayerfmPodcast'
 import PocketcastPodcastIcon from './states/PocketcastPodcast'
 import SpotifyPodcastIcon from './states/SpotifyPodcast'
+import LinkArrowIcon from './states/LinkArrow'
 
 export const types = [
   'play',
@@ -100,7 +101,8 @@ export const types = [
   'gpodder-podcast',
   'playerfm-podcast',
   'pocketcast-podcast',
-  'spotify-podcast'
+  'spotify-podcast',
+  'link-arrow'
 ]
 
 export const components = {
@@ -153,5 +155,6 @@ export const components = {
   GpodderPodcastIcon,
   PlayerfmPodcastIcon,
   PocketcastPodcastIcon,
-  SpotifyPodcastIcon
+  SpotifyPodcastIcon,
+  LinkArrowIcon
 }
