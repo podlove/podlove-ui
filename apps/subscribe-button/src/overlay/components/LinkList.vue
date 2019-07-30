@@ -59,7 +59,7 @@ export default {
 <style lang="scss" scoped>
 @import '~theme/variable';
 h1 {
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted #626262;
 }
 .link-list {
   width: 100%;
