@@ -49,6 +49,7 @@ import PlayerfmPodcastIcon from './states/PlayerfmPodcast'
 import PocketcastPodcastIcon from './states/PocketcastPodcast'
 import SpotifyPodcastIcon from './states/SpotifyPodcast'
 import ArrowToRightIcon from './states/ArrowToRight'
+import ArrowToLeftIcon from './states/ArrowToLeft'
 import RssFeedIcon from './states/RssFeed'
 
 export const types = [
@@ -104,6 +105,7 @@ export const types = [
   'pocketcast-podcast',
   'spotify-podcast',
   'arrow-to-right',
+  'arrow-to-left',
   'rss-feed'
 ]
 
@@ -159,5 +161,6 @@ export const components = {
   PocketcastPodcastIcon,
   SpotifyPodcastIcon,
   ArrowToRightIcon,
+  ArrowToLeftIcon,
   RssFeedIcon
 }
