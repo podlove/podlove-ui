@@ -12,7 +12,7 @@
           >
             {{ entry.title }}
           </a>
-          <icon type="link-arrow"></icon>
+          <icon type="arrow-to-right"></icon>
         </li>
       </ul>
     </div>
