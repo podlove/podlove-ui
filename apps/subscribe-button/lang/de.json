@@ -21,8 +21,8 @@
   },
   "FINISH-SCREEN": {
     "TITLE": "Übergebe an {client}",
-    "SOMETHING-WENT-WRONG": "Funktioniert etwas nicht wie erwartet?",
-    "TRY-AGAIN": "Nochmal versuchen",
+    "SOMETHING-WENT-WRONG": "Sie werden gerade verbunden. Sollten Sie nicht weitergeleitet werden, ",
+    "TRY-AGAIN": "klicken Sie bitte hier.",
     "INSTALL": "{client} installieren",
     "REGISTER": "Einen Account registrieren bei {client}"
   }
