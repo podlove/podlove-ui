@@ -1,9 +1,7 @@
 <template>
   <div id="breakout" class="overlay">
     <div class="upper-part" :style="backgroundGradient">
-      <div v-if="infoscreen">
-        <info-view></info-view>
-      </div>
+      <info-view v-if="infoscreen"></info-view>
       <div v-else>
         <div class="header">
           <button class="info-button" @click="showInfo">
