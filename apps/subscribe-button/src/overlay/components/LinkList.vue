@@ -4,15 +4,15 @@
       <h1>{{ $t('PODCATCHER') }}</h1>
       <ul>
         <li v-for="(entry, index) in data" :key="index">
-          <icon v-if="entry.icon" :type="entry.icon"></icon>
           <a
             :href="constructURL(entry)"
             target="_blank"
             @click="onClick(entry, constructURL(entry))"
           >
-            {{ entry.title }}
+            <icon v-if="entry.icon" :type="entry.icon"></icon>
+            <span class="link-title">{{ entry.title }}</span>
+            <icon type="arrow-to-right"></icon>
           </a>
-          <icon type="arrow-to-right"></icon>
         </li>
       </ul>
     </div>
@@ -83,15 +83,18 @@ h1 {
     li {
       padding: 0.75em 0;
       cursor: pointer;
-      display: flex;
-      align-items: center;
 
       &:hover {
         background: rgba($color: #000, $alpha: 0.3);
       }
 
       a {
-        margin: 0 0.5em 0 1em;
+        display: flex;
+        align-items: center;
+
+        .link-title {
+          margin: 0 0.5em 0 1em;
+        }
       }
     }
   }
