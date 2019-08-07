@@ -13,17 +13,11 @@
       "Der Podlove Subscribe Button macht das Abonnieren leichter. Wähle eine App oder einen Cloud-Service aus und lasse den Button alles Weitere erledigen. Benutze den Download-Link, um die App falls nötig zu installieren."
     ]
   },
-  "APPS" : {
-    "TITLE": "Apps"
-  },
-  "WEB": {
-    "TITLE": "Web"
-  },
   "FINISH-SCREEN": {
     "TITLE": "Übergebe an {client}",
     "SOMETHING-WENT-WRONG": "Sie werden gerade verbunden. Sollten Sie nicht weitergeleitet werden, ",
     "TRY-AGAIN": "klicken Sie bitte hier.",
-    "INSTALL": "{client} installieren",
+    "INSTALL": "{client} herunterladen",
     "REGISTER": "Einen Account registrieren bei {client}"
   }
 }
