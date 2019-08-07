@@ -22,6 +22,7 @@
 <script>
 import { selectFeed } from 'store/selectors'
 import { Icon } from '@podlove/components'
+import { getPlatform } from '@podlove/utils/useragent'
 
 export default {
   components: { Icon },
@@ -35,7 +36,8 @@ export default {
     return {
       ...this.mapState({
         feed: selectFeed
-      })
+      }),
+      platform: getPlatform()
     }
   },
   methods: {
@@ -47,7 +49,12 @@ export default {
       } else {
         url = this.feed[0].url.replace(regex, '')
       }
-      return `${item.scheme}${url}`
+
+      if (item.platform[this.platform]) {
+        return `${item.platform[this.platform].scheme}${url}`
+      } else if (item.platform['web']) {
+        return `${item.platform['web'].scheme}${url}`
+      }
     },
     onClick(client, composedUrl) {
       this.$emit('click', client, composedUrl)

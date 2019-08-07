@@ -35,7 +35,11 @@
         </div>
       </div>
     </div>
-    <link-list v-if="!finishScreenVisible" :data="getClients" @click="showLastScreen"></link-list>
+    <link-list
+      v-if="!finishScreenVisible"
+      :data="filterClientsByOS"
+      @click="showLastScreen"
+    ></link-list>
     <finish-screen v-else @click="hideLastScreen"></finish-screen>
     <div class="footer">
       powered by
@@ -75,8 +79,6 @@ import LinkList from './components/LinkList'
 
 import { getPlatform } from '@podlove/utils/useragent'
 
-import apps from './clientlist/apps.json'
-import web from './clientlist/web.json'
 import clients from './clients.json'
 export default {
   components: {
@@ -101,16 +103,17 @@ export default {
       }),
       success: false,
       plat: getPlatform(),
-      client: window.navigator.platform,
-      web_apps: [...web.cloud, ...web.platform]
+      client: window.navigator.platform
     }
   },
   computed: {
-    getOSClients() {
-      return apps[this.plat]
-    },
-    getClients() {
-      return clients
+    filterClientsByOS() {
+      const c = clients.map(d => {
+        if (d.platform[this.plat] || d.platform['web']) {
+          return d
+        }
+      })
+      return c
     },
     backgroundGradient() {
       // return `background-image: linear-gradient(to top, red, #f06d06);`
