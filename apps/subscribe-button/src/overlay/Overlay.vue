@@ -146,7 +146,7 @@ export default {
         fillFinishObject({
           finish_object: {
             ...client,
-            ...{ composedUrl: composedUrl }
+            ...{ composedUrl: composedUrl, os: this.plat }
           }
         })
       )
