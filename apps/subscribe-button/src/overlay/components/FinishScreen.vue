@@ -4,8 +4,9 @@
       <icon type="arrow-to-left"></icon>
       Zurück zur Übersicht
     </h2>
-    <icon :type="finishObject.icon"></icon>
-    <div></div>
+    <h3 class="podcatcher-logo">
+      <icon :type="finishObject.icon"></icon> {{ finishObject.title }}
+    </h3>
     <p>
       {{ $t('FINISH-SCREEN.SOMETHING-WENT-WRONG') }}
       <a id="try-again" :href="finishObject.composedUrl" target="_blank">
@@ -13,10 +14,14 @@
       </a>
     </p>
     <p>
-      <a v-if="finishObject.install" :href="finishObject.install" target="_blank">
+      <a
+        v-if="finishObject.platform[finishObject.os]"
+        :href="finishObject.platform[finishObject.os].store"
+        target="_blank"
+      >
         {{ $t('FINISH-SCREEN.INSTALL', { client: finishObject.title }) }}
       </a>
-      <a v-else :href="finishObject.register" target="_blank">
+      <a v-else :href="finishObject.url" target="_blank">
         {{ $t('FINISH-SCREEN.REGISTER', { client: finishObject.title }) }}
       </a>
     </p>
@@ -48,6 +53,13 @@ h2 {
   cursor: pointer;
   border-bottom: 1px dotted #626262;
   padding-bottom: 0.5em;
+}
+
+.podcatcher-logo {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .finish-screen-container {
