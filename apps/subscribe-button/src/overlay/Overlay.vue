@@ -19,18 +19,20 @@
               <p>{{ podcastSubTitle }}</p>
             </div>
           </div>
-          <div class="podcast-feed">
-            {{ urlText }}
-            <span>
-              {{ podcastFeed[0].url }}
-            </span>
-          </div>
-          <button class="btn-copy" @click="copyLink">
-            <icon type="rss-feed"></icon>
-            <span class="btn-copy-txt">{{ $t('COPYURL') }}</span>
-          </button>
-          <div class="copy-await" :class="{ 'copy-success': success }">
-            {{ $t('COPYSUCESS') }}
+          <div class="subscribe">
+            <div class="podcast-feed">
+              {{ urlText }}
+              <span>
+                {{ podcastFeed[0].url }}
+              </span>
+            </div>
+            <button class="btn-copy" @click="copyLink">
+              <icon type="rss-feed"></icon>
+              <span class="btn-copy-txt">{{ $t('COPYURL') }}</span>
+            </button>
+            <div class="copy-await" :class="{ 'copy-success': success }">
+              {{ $t('COPYSUCESS') }}
+            </div>
           </div>
         </div>
       </div>
@@ -184,7 +186,6 @@ export default {
 .upper-part {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-bottom: 1em;
   height: $upper-content-height;
 
@@ -198,7 +199,6 @@ export default {
     flex-direction: row;
     width: 100%;
     padding: 0.5em;
-    align-items: center;
     justify-content: space-between;
 
     #close-button {
@@ -217,7 +217,6 @@ export default {
   margin: 0em 1em;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .podcast-infos {
   display: flex;
@@ -240,6 +239,12 @@ export default {
   p {
     margin-bottom: 0px;
   }
+}
+
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .copy-await {
@@ -279,5 +284,22 @@ export default {
   height: $footer-content-height;
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .overlay {
+    width: 420px;
+  }
+
+  .upper-part {
+    width: 100%;
+    height: $upper-content-height-pad;
+  }
+
+  .podcast-infos {
+    margin-bottom: 2em;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>
