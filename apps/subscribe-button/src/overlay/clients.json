@@ -6,7 +6,8 @@
     "platform": {
       "osx": {
         "scheme": "itpc://",
-        "itunes": true
+        "itunes": true,
+        "store": "https://www.apple.com/itunes/download/"
       }
     }
   },
