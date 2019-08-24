@@ -33,7 +33,7 @@ module.exports = {
       filename: 'share.html',
       template: '!!mustache-loader!./src/lib/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
-      base: `${version}/`
+      base: `./${version}/`
     }),
     plugins.version(),
     plugins.env({ MODE: 'production', BASE: '/', SCRIPTS: ['vendor', 'styles', 'runtime', 'player', 'bootstrap'], STYLES: ['styles'] }),
