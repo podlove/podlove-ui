@@ -2,7 +2,13 @@ import { compose, propOr, replace } from 'ramda'
 import queryString from 'query-string'
 import { stripr } from './helper'
 
-const url = href => new URL(href)
+const url = href => {
+  try {
+    return new URL(href)
+  } catch (e) {
+    return ''
+  }
+}
 
 export const hostname = compose(
   replace(/^(www\.)/, ''),

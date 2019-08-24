@@ -1,35 +1,48 @@
 <template>
-  <div class="overlay">
+  <div id="breakout" class="overlay">
     <div class="upper-part" :style="backgroundGradient">
-      <div class="header">
-        <icon type="info"></icon>
-        <button id="close-button" @click="onClose">
-          <icon type="close" :size="10"></icon>
-        </button>
+      <div v-if="infoscreen">
+        <info-view></info-view>
       </div>
-      <div class="subscribe-top">
-        <cover alt="ccc" :url="cover" :cover-color="color" />
-        <div class="podcast-describtion">
-          <h1>{{ podcastTitle }}</h1>
-          <p>{{ podcastSubTitle }}</p>
+      <div v-else>
+        <div class="header">
+          <button class="info-button" @click="showInfo">
+            <icon type="info"></icon>
+          </button>
+          <button id="close-button" @click="onClose">
+            <icon type="close" :size="10"></icon>
+          </button>
         </div>
-      </div>
-      <div>
-        <div class="feed-details">
-          {{ urlText }}
-          <span>
-            {{ podcastFeed[0].url }}
-          </span>
-        </div>
-        <button class="btn-copy" @click="copyLink">
-          {{ $t('COPYURL') }}
-        </button>
-        <div class="copy-await" :class="{ 'copy-success': success }">
-          {{ $t('COPYSUCESS') }}
+        <div class="podcast">
+          <div class="podcast-infos">
+            <cover alt="ccc" :url="cover" :cover-color="color" />
+            <div class="podcast-describtion">
+              <h1>{{ podcastTitle }}</h1>
+              <p>{{ podcastSubTitle }}</p>
+            </div>
+          </div>
+          <div class="podcast-feed">
+            {{ urlText }}
+            <span>
+              {{ podcastFeed[0].url }}
+            </span>
+          </div>
+          <button class="btn-copy" @click="copyLink">
+            {{ $t('COPYURL') }}
+          </button>
+          <div class="copy-await" :class="{ 'copy-success': success }">
+            {{ $t('COPYSUCESS') }}
+          </div>
         </div>
       </div>
     </div>
-    <tabs-component></tabs-component>
+    <link-list
+      v-if="!finishScreenVisible"
+      :data="[...getOSClients, ...web_apps]"
+      @click="showLastScreen"
+    >
+    </link-list>
+    <finish-screen v-else @click="hideLastScreen"></finish-screen>
     <div class="footer">
       powered by
       <icon type="podlove"></icon>
@@ -47,13 +60,37 @@ import {
   selectTitle,
   selectSubTitle,
   selectDescription,
-  selectFeed
+  selectFeed,
+  selectInfoVisible,
+  selectFinishScreenVisible,
+  selectFinishScreenObject
 } from 'store/selectors'
-import { Icon, Image } from '@podlove/components'
-import TabsComponent from './tabs'
+import {
+  showInfo,
+  closeFinishScreen,
+  showFinishScreen,
+  fillFinishObject,
+  resetFinishObject
+} from 'store/actions'
+import store from 'store'
 
+import { Icon, Image } from '@podlove/components'
+import FinishScreen from './components/FinishScreen'
+import InfoView from './info'
+import LinkList from './components/LinkList'
+
+import { getPlatform } from '@podlove/utils/useragent'
+
+import apps from './clientlist/apps.json'
+import web from './clientlist/web.json'
 export default {
-  components: { Icon, Cover: Image, TabsComponent },
+  components: {
+    Icon,
+    Cover: Image,
+    InfoView,
+    LinkList,
+    FinishScreen
+  },
   data() {
     return {
       ...this.mapState({
@@ -62,12 +99,21 @@ export default {
         podcastDescription: selectDescription,
         podcastFeed: selectFeed,
         podcastTitle: selectTitle,
-        podcastSubTitle: selectSubTitle
+        podcastSubTitle: selectSubTitle,
+        infoscreen: selectInfoVisible,
+        finishScreenVisible: selectFinishScreenVisible,
+        finishObject: selectFinishScreenObject
       }),
-      success: false
+      success: false,
+      plat: getPlatform(),
+      client: window.navigator.platform,
+      web_apps: [...web.cloud, ...web.platform]
     }
   },
   computed: {
+    getOSClients() {
+      return apps[this.plat]
+    },
     backgroundGradient() {
       // return `background-image: linear-gradient(to top, red, #f06d06);`
       return `background: ${this.color};`
@@ -85,6 +131,24 @@ export default {
     },
     onClose() {
       this.$emit('click')
+    },
+    showInfo() {
+      store.dispatch(showInfo())
+    },
+    hideLastScreen() {
+      store.dispatch(closeFinishScreen())
+      store.dispatch(resetFinishObject())
+    },
+    showLastScreen(client, composedUrl) {
+      store.dispatch(showFinishScreen())
+      store.dispatch(
+        fillFinishObject({
+          finish_object: {
+            ...client,
+            ...{ composedUrl: composedUrl }
+          }
+        })
+      )
     }
   }
 }
@@ -97,6 +161,7 @@ export default {
 @import '~theme/variable';
 
 .overlay {
+  margin: 1em;
   width: 320px;
   background: #fff;
   display: flex;
@@ -120,6 +185,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding-bottom: 1em;
+  height: $upper-content-height;
 
   -moz-border-radius-topleft: 10px;
   -moz-border-radius-topright: 10px;
@@ -141,29 +207,37 @@ export default {
       border-radius: 50%;
       border: 1px solid black;
     }
-  }
-
-  .subscribe-top {
-    display: flex;
-    margin: 0em 1em 1em 1em;
-    align-items: flex-end;
-
-    .image-container {
-      margin-right: 1em;
+    .info-button {
+      width: auto;
     }
   }
+}
+.podcast {
+  margin: 0em 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.podcast-infos {
+  display: flex;
+  margin-bottom: 1em;
+  align-items: flex-end;
 
-  .podcast-describtion {
-    text-align: left;
+  .image-container {
+    margin-right: 1em;
+  }
+}
 
-    h1 {
-      margin-top: 0px;
-      font-size: 1.5em;
-    }
+.podcast-describtion {
+  text-align: left;
 
-    p {
-      margin-bottom: 0px;
-    }
+  h1 {
+    margin-top: 0px;
+    font-size: 1.5em;
+  }
+
+  p {
+    margin-bottom: 0px;
   }
 }
 
@@ -175,7 +249,7 @@ export default {
   visibility: visible;
 }
 
-.feed-details {
+.podcast-feed {
   margin-bottom: 0.5em;
 }
 
@@ -194,5 +268,11 @@ export default {
   width: 250px;
   height: 50px;
   background: white;
+}
+
+.footer {
+  height: $footer-content-height;
+  display: flex;
+  align-items: center;
 }
 </style>

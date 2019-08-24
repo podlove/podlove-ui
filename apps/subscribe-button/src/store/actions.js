@@ -1,5 +1,7 @@
 import { createAction } from 'redux-actions'
 import {
+  HIDE_INFO,
+  SHOW_INFO,
   HIDE_OVERLAY,
   SHOW_OVERLAY,
   SHOW_FINISH_SCREEN,
@@ -9,6 +11,8 @@ import {
   INIT
 } from './reducers/types'
 
+export const hideInfo = createAction(HIDE_INFO)
+export const showInfo = createAction(SHOW_INFO)
 export const hideOverlay = createAction(HIDE_OVERLAY)
 export const showOverlay = createAction(SHOW_OVERLAY)
 export const closeFinishScreen = createAction(CLOSE_FINISH_SCREEN)
