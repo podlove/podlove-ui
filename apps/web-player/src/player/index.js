@@ -47,6 +47,7 @@ export const create = async (config, target) => {
       })
     )
     .then(resize(target.node))
+    .then(setStyles({ 'min-height': null }, target.node))
 
   setAccessibilityAttributes(config, player)
 
