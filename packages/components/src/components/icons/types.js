@@ -51,6 +51,7 @@ import SpotifyPodcastIcon from './states/SpotifyPodcast'
 import ArrowToRightIcon from './states/ArrowToRight'
 import ArrowToLeftIcon from './states/ArrowToLeft'
 import RssFeedIcon from './states/RssFeed'
+import OvercastPodcastIcon from './states/OvercastPodcast'
 
 export const types = [
   'play',
@@ -106,7 +107,8 @@ export const types = [
   'spotify-podcast',
   'arrow-to-right',
   'arrow-to-left',
-  'rss-feed'
+  'rss-feed',
+  'overcast-podcast'
 ]
 
 export const components = {
@@ -162,5 +164,6 @@ export const components = {
   SpotifyPodcastIcon,
   ArrowToRightIcon,
   ArrowToLeftIcon,
-  RssFeedIcon
+  RssFeedIcon,
+  OvercastPodcastIcon
 }

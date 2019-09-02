@@ -52,6 +52,7 @@
   {
     "title": "Overcast",
     "url": "https://overcast.fm",
+    "icon": "overcast-podcast",
     "platform": {
       "ios": {
         "https": true,
