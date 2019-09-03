@@ -40,6 +40,18 @@ import SearchPreviousIcon from './states/SearchPrevious'
 import MissingConnectionIcon from './states/MissingConnection'
 import InvalidConfigurationIcon from './states/InvalidConfiguration'
 import SubscribeIcon from './states/Subscribe'
+import ApplePodcastIcon from './states/ApplePodcast'
+import DowncastPodcastIcon from './states/DowncastPodcast'
+import InstacastPodcastIcon from './states/InstacastPodcast'
+import PodgraspPodcastIcon from './states/PodgraspPodcast'
+import GpodderPodcastIcon from './states/GpodderPodcast'
+import PlayerfmPodcastIcon from './states/PlayerfmPodcast'
+import PocketcastPodcastIcon from './states/PocketcastPodcast'
+import SpotifyPodcastIcon from './states/SpotifyPodcast'
+import ArrowToRightIcon from './states/ArrowToRight'
+import ArrowToLeftIcon from './states/ArrowToLeft'
+import RssFeedIcon from './states/RssFeed'
+import OvercastPodcastIcon from './states/OvercastPodcast'
 
 export const types = [
   'play',
@@ -84,7 +96,19 @@ export const types = [
   'search-next',
   'missing-connection',
   'invalid-configuration',
-  'subscribe'
+  'subscribe',
+  'apple-podcast',
+  'downcast-podcast',
+  'instacast-podcast',
+  'podgrasp-podcast',
+  'gpodder-podcast',
+  'playerfm-podcast',
+  'pocketcast-podcast',
+  'spotify-podcast',
+  'arrow-to-right',
+  'arrow-to-left',
+  'rss-feed',
+  'overcast-podcast'
 ]
 
 export const components = {
@@ -129,5 +153,17 @@ export const components = {
   SearchPreviousIcon,
   MissingConnectionIcon,
   InvalidConfigurationIcon,
-  SubscribeIcon
+  SubscribeIcon,
+  ApplePodcastIcon,
+  DowncastPodcastIcon,
+  InstacastPodcastIcon,
+  PodgraspPodcastIcon,
+  GpodderPodcastIcon,
+  PlayerfmPodcastIcon,
+  PocketcastPodcastIcon,
+  SpotifyPodcastIcon,
+  ArrowToRightIcon,
+  ArrowToLeftIcon,
+  RssFeedIcon,
+  OvercastPodcastIcon
 }

@@ -3,117 +3,123 @@
     {
       "title": "AntennaPod",
       "scheme": "antennapod-subscribe://",
-      "icon": "android/antennapod.png",
+      "icon_old": "android/antennapod.png",
       "store": "https://play.google.com/store/apps/details?id=de.danoeh.antennapod"
     },
     {
       "title": "BeyondPod",
       "scheme": "beyondpod://",
-      "icon": "android/beyondpod.png",
+      "icon_old": "android/beyondpod.png",
       "store": "https://play.google.com/store/apps/details?id=mobi.beyondpod"
     },
     {
       "title": "Player.fm",
       "scheme": "https://player.fm/subscribe?id=",
-      "icon": "android/playerfm.png",
+      "icon_old": "android/playerfm.png",
       "store": "https://play.google.com/store/apps/details?id=fm.player",
-      "https": true
+      "https": true,
+      "icon": "playerfm-podcast"
     },
     {
       "title": "PocketCasts",
       "scheme": "pktc://subscribe/",
-      "icon": "android/pocketcasts.png",
-      "install": "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts"
+      "icon_old": "android/pocketcasts.png",
+      "install": "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts",
+      "icon": "pocketcast-podcast"
     },
     {
       "title": "Podcast Addict",
       "scheme": "podcastaddict://",
-      "icon": "android/podcastaddict.png",
+      "icon_old": "android/podcastaddict.png",
       "store": "https://play.google.com/store/apps/details?id=com.bambuna.podcastaddict"
     },
     {
       "title": "Podcast Republic",
       "scheme": "podcastrepublic://subscribe/",
-      "icon": "android/podcastrepublic.png",
+      "icon_old": "android/podcastrepublic.png",
       "store": "https://play.google.com/store/apps/details?id=com.itunestoppodcastplayer.app"
     },
     {
       "title": "Podcatcher Deluxe",
       "scheme": "pcd://",
-      "icon": "android/podcatcher-deluxe.png",
+      "icon_old": "android/podcatcher-deluxe.png",
       "store": "https://play.google.com/store/search?q=pub:Kevin%20Hausmann"
     },
     {
       "title": "Podkicker",
       "scheme": "podkicker://subscribe/",
-      "icon": "android/podkicker.png",
+      "icon_old": "android/podkicker.png",
       "store": "https://play.google.com/store/apps/details?id=ait.podka"
     },
     {
       "title": "uPod",
       "scheme": "upod://",
-      "icon": "android/upod.png"
+      "icon_old": "android/upod.png"
     }
   ],
   "ios": [
     {
       "title": "Castro",
       "scheme": "castro://subscribe/",
-      "icon": "ios/castro.png",
+      "icon_old": "ios/castro.png",
       "store": "https://itunes.apple.com/app/castro-2/id1080840241"
     },
     {
       "title": "Downcast",
       "scheme": "downcast://",
-      "icon": "ios/downcast.png",
-      "store": "https://itunes.apple.com/de/app/downcast/id393858566"
+      "icon_old": "ios/downcast.png",
+      "store": "https://itunes.apple.com/de/app/downcast/id393858566",
+      "icon": "downcast-podcast"
     },
     {
       "title": "iCatcher",
       "scheme": "icatcher://",
-      "icon": "ios/icatcher.png",
+      "icon_old": "ios/icatcher.png",
       "store": "https://itunes.apple.com/de/app/icatcher!-podcast-app/id414419105"
     },
     {
       "title": "Instacast",
       "scheme": "instacast://",
-      "icon": "ios/instacast.png"
+      "icon_old": "ios/instacast.png",
+      "icon": "instacast-podcast"
     },
     {
       "title": "Overcast",
       "scheme": "overcast://x-callback-url/add?url=",
-      "icon": "ios/overcast.png",
+      "icon_old": "ios/overcast.png",
       "store": "https://itunes.apple.com/de/app/overcast-podcast-player/id888422857",
       "https": true
     },
     {
       "title": "PocketCasts",
       "scheme": "pktc://subscribe/",
-      "icon": "ios/pocketcasts.png",
-      "store": "https://itunes.apple.com/de/app/pocket-casts/id414834813"
+      "icon_old": "ios/pocketcasts.png",
+      "store": "https://itunes.apple.com/de/app/pocket-casts/id414834813",
+      "icon": "pocketcast-podcast"
     },
     {
       "title": "Podcasts",
       "scheme": "podcast://",
-      "icon": "ios/podcasts.png",
+      "icon_old": "ios/podcasts.png",
       "store": "https://itunes.apple.com/de/app/podcasts/id525463029"
     },
     {
       "title": "Podcat",
       "scheme": "podcat://",
-      "icon": "ios/podcat.png",
+      "icon_old": "ios/podcat.png",
       "store": "https://itunes.apple.com/app/podcat/id845960230"
     },
     {
       "title": "PodGrasp",
       "scheme": "podgrasp://subscribe/",
-      "icon": "ios/podgrasp.png",
-      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id531648276"
+      "icon_old": "ios/podgrasp.png",
+      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id531648276",
+      "icon": "podgrasp-podcast"
     },
     {
       "title": "RSSRadio",
       "scheme": "rssradio://",
-      "icon": "ios/rssradio.png",
+      "icon_old": "ios/rssradio.png",
       "store": "https://itunes.apple.com/app/rssradio-premium-podcast-downloader/id679025359"
     }
   ],
@@ -121,62 +127,69 @@
     {
       "title": "Clementine",
       "scheme": "itpc://",
-      "icon": "unix/clementine.png",
+      "icon_old": "unix/clementine.png",
       "install": "https://www.clementine-player.org/downloads"
     },
     {
       "title": "gPodder",
       "scheme": "gpodder://",
-      "icon": "unix/gpodder.png",
+      "icon_old": "unix/gpodder.png",
       "install": "http://gpodder.org/downloads",
-      "https": true
+      "https": true,
+      "icon": "gpodder-podcast"
     }
   ],
   "osx": [
     {
       "title": "Downcast",
       "scheme": "downcast://",
-      "icon": "osx/downcast.png",
-      "store": "https://itunes.apple.com/de/app/downcast/id668429425?mt=12&uo=4"
+      "icon_old": "osx/downcast.png",
+      "store": "https://itunes.apple.com/de/app/downcast/id668429425?mt=12&uo=4",
+      "icon": "downcast-podcast"
     },
     {
       "title": "Instacast",
       "scheme": "instacast://",
-      "icon": "osx/instacast.png"
+      "icon_old": "osx/instacast.png",
+      "icon": "instacast-podcast"
     },
     {
       "title": "iTunes",
       "scheme": "itpc://",
-      "icon": "osx/itunes.png",
+      "icon_old": "osx/itunes.png",
       "install": "http://www.apple.com/itunes/",
-      "itunes": true
+      "itunes": true,
+      "icon": "apple-podcast"
     },
     {
       "title": "PodGrasp",
       "scheme": "podgrasp://subscribe/",
-      "icon": "osx/podgrasp.png",
-      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id530928805"
+      "icon_old": "osx/podgrasp.png",
+      "store": "https://itunes.apple.com/de/app/podgrasp-podcast-player/id530928805",
+      "icon": "podgrasp-podcast"
     }
   ],
   "windows": [
     {
       "title": "gPodder",
       "scheme": "gpodder://",
-      "icon": "windows/gpodder.png",
+      "icon_old": "windows/gpodder.png",
       "install": "http://gpodder.org/downloads",
-      "https": true
+      "https": true,
+      "icon": "gpodder-podcast"
     },
     {
       "title": "iTunes",
       "scheme": "itpc://",
-      "icon": "osx/itunes.png",
+      "icon_old": "osx/itunes.png",
       "install": "http://www.apple.com/itunes/",
-      "itunes": true
+      "itunes": true,
+      "icon": "apple-podcast"
     },
     {
       "title": "Podscout",
       "scheme": "podscout://",
-      "icon": "windows/podscout.png",
+      "icon_old": "windows/podscout.png",
       "store": "http://apps.microsoft.com/windows/de-de/app/podscout/f4316b46-7682-4cea-948b-53d135b2df17"
     }
   ]

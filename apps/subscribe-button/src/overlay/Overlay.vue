@@ -1,9 +1,7 @@
 <template>
   <div id="breakout" class="overlay">
     <div class="upper-part" :style="backgroundGradient">
-      <div v-if="infoscreen">
-        <info-view></info-view>
-      </div>
+      <info-view v-if="infoscreen"></info-view>
       <div v-else>
         <div class="header">
           <button class="info-button" @click="showInfo">
@@ -21,27 +19,29 @@
               <p>{{ podcastSubTitle }}</p>
             </div>
           </div>
-          <div class="podcast-feed">
-            {{ urlText }}
-            <span>
-              {{ podcastFeed[0].url }}
-            </span>
-          </div>
-          <button class="btn-copy" @click="copyLink">
-            {{ $t('COPYURL') }}
-          </button>
-          <div class="copy-await" :class="{ 'copy-success': success }">
-            {{ $t('COPYSUCESS') }}
+          <div class="subscribe">
+            <div class="podcast-feed">
+              {{ urlText }}
+              <span>
+                {{ podcastFeed[0].url }}
+              </span>
+            </div>
+            <button class="btn-copy" @click="copyLink">
+              <icon type="rss-feed"></icon>
+              <span class="btn-copy-txt">{{ $t('COPYURL') }}</span>
+            </button>
+            <div class="copy-await" :class="{ 'copy-success': success }">
+              {{ $t('COPYSUCESS') }}
+            </div>
           </div>
         </div>
       </div>
     </div>
     <link-list
       v-if="!finishScreenVisible"
-      :data="[...getOSClients, ...web_apps]"
+      :data="filterClientsByOS"
       @click="showLastScreen"
-    >
-    </link-list>
+    ></link-list>
     <finish-screen v-else @click="hideLastScreen"></finish-screen>
     <div class="footer">
       powered by
@@ -81,8 +81,7 @@ import LinkList from './components/LinkList'
 
 import { getPlatform } from '@podlove/utils/useragent'
 
-import apps from './clientlist/apps.json'
-import web from './clientlist/web.json'
+import clients from './clients.json'
 export default {
   components: {
     Icon,
@@ -106,13 +105,17 @@ export default {
       }),
       success: false,
       plat: getPlatform(),
-      client: window.navigator.platform,
-      web_apps: [...web.cloud, ...web.platform]
+      client: window.navigator.platform
     }
   },
   computed: {
-    getOSClients() {
-      return apps[this.plat]
+    filterClientsByOS() {
+      const c = clients.map(d => {
+        if (d.platform[this.plat] || d.platform['web']) {
+          return d
+        }
+      })
+      return c
     },
     backgroundGradient() {
       // return `background-image: linear-gradient(to top, red, #f06d06);`
@@ -145,7 +148,7 @@ export default {
         fillFinishObject({
           finish_object: {
             ...client,
-            ...{ composedUrl: composedUrl }
+            ...{ composedUrl: composedUrl, os: this.plat }
           }
         })
       )
@@ -183,7 +186,6 @@ export default {
 .upper-part {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-bottom: 1em;
   height: $upper-content-height;
 
@@ -197,7 +199,6 @@ export default {
     flex-direction: row;
     width: 100%;
     padding: 0.5em;
-    align-items: center;
     justify-content: space-between;
 
     #close-button {
@@ -216,7 +217,6 @@ export default {
   margin: 0em 1em;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .podcast-infos {
   display: flex;
@@ -239,6 +239,12 @@ export default {
   p {
     margin-bottom: 0px;
   }
+}
+
+.subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .copy-await {
@@ -270,9 +276,30 @@ export default {
   background: white;
 }
 
+.btn-copy-txt {
+  margin-left: 0.5em;
+}
+
 .footer {
   height: $footer-content-height;
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .overlay {
+    width: 420px;
+  }
+
+  .upper-part {
+    width: 100%;
+    height: $upper-content-height-pad;
+  }
+
+  .podcast-infos {
+    margin-bottom: 2em;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>
