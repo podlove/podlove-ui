@@ -40,6 +40,13 @@ const playlist = async config => {
   }
 }
 
+const reference = ({ episode, config }, resolved) => ({
+  episode: typeof episode === 'string' ? episode : null,
+  config: typeof config === 'string' ? config : null,
+  origin: propOr(null, 'origin', resolved.config),
+  share: propOr(null, 'share', resolved.config)
+})
+
 export const parseConfig = async (episode, config) => {
   const resolved = {
     episode: {},
@@ -66,7 +73,8 @@ export const parseConfig = async (episode, config) => {
       chapters: await chapters(resolved.episode)
     }),
     Object.assign({}, resolved.config, {
-      playlist: await playlist(resolved.config)
+      playlist: await playlist(resolved.config),
+      reference: reference({ episode, config }, resolved)
     })
   )
 }

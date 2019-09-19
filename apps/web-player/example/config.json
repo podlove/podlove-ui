@@ -14,31 +14,95 @@
     "fonts": {
       "ci": {
         "name": "SpiegelSlab4UICd",
-        "family": ["SpiegelSlab4UICd", "Calibri", "Candara", "Arial", "Helvetica", "sans-serif"],
+        "family": [
+          "SpiegelSlab4UICd",
+          "Calibri",
+          "Candara",
+          "Arial",
+          "Helvetica",
+          "sans-serif"
+        ],
         "weight": 800,
-        "src": ["./fonts/SpiegelSlab4UICd-ExtraBold.woff", "./fonts/SpiegelSlab4UICd-ExtraBold.woff2"]
+        "src": [
+          "./fonts/SpiegelSlab4UICd-ExtraBold.woff",
+          "./fonts/SpiegelSlab4UICd-ExtraBold.woff2"
+        ]
       },
       "regular": {
         "name": "SpiegelSans4UIRegular",
-        "family": ["SpiegelSans4UIRegular", "Calibri", "Candara", "Arial", "Helvetica", "sans-serif"],
+        "family": [
+          "SpiegelSans4UIRegular",
+          "Calibri",
+          "Candara",
+          "Arial",
+          "Helvetica",
+          "sans-serif"
+        ],
         "weight": 300,
-        "src": ["./fonts/SpiegelSans4UI-Regular.woff", "./fonts/SpiegelSans4UI-Regular.woff2"]
+        "src": [
+          "./fonts/SpiegelSans4UI-Regular.woff",
+          "./fonts/SpiegelSans4UI-Regular.woff2"
+        ]
       },
       "bold": {
         "name": "SpiegelSans4UIBold",
-        "family": ["SpiegelSans4UIBold", "Calibri", "Candara", "Arial", "Helvetica", "sans-serif"],
+        "family": [
+          "SpiegelSans4UIBold",
+          "Calibri",
+          "Candara",
+          "Arial",
+          "Helvetica",
+          "sans-serif"
+        ],
         "weight": 700,
-        "src": ["./fonts/SpiegelSans4UI-Bold.woff", "./fonts/SpiegelSans4UI-Bold.woff2"]
+        "src": [
+          "./fonts/SpiegelSans4UI-Bold.woff",
+          "./fonts/SpiegelSans4UI-Bold.woff2"
+        ]
       }
     }
   },
   "subscribe-button": {
     "feed": "https://forschergeist.de/feed/m4a/",
     "services": {
-      "spotify": "0xkq762OekJOnosa34C8Se",
-      "youtube": "UCa8qyXCS-FTs0fHD6HJeyiw"
-    }
+      "deezer": "deezer",
+      "itunes": "itunes",
+      "pocket-casts": "pocket-casts",
+      "soundcloud": "soundcloud",
+      "spotify": "spotify",
+      "stitcher": "stitcher",
+      "youtube": "youtube"
+    },
+    "clients": [
+      "antenna-pod",
+      "apple-podcasts",
+      "beyond-pod",
+      "castro",
+      "clementine",
+      "downcast",
+      "google-podcasts",
+      "gpodder",
+      "i-catcher",
+      "instacast",
+      "itunes",
+      "overcast",
+      "player-fm",
+      "pocket-casts",
+      "pod-grasp",
+      "podcast-addict",
+      "podcast-republic",
+      "podcat",
+      "podscout",
+      "rss-radio"
+    ]
   },
   "playlist": "playlist.json",
-  "channels": ["facebook", "twitter", "mail", "link"]
+  "channels": [
+    "facebook",
+    "twitter",
+    "mail",
+    "link"
+  ],
+  "origin": "//podlove-player-next.surge.sh",
+  "share": "//podlove-player-next.surge.sh/share.html"
 }

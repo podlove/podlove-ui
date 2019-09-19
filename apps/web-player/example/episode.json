@@ -41,10 +41,6 @@
     }
   ],
   "chapters": "chapters.json",
-  "reference": {
-    "episode": "episode.json",
-    "config": "config.json"
-  },
   "contributors": [
     {
       "id": "1",

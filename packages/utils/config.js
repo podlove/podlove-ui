@@ -7,7 +7,7 @@ export const duration = compose(
   propOr(0, 'duration')
 )
 
-export const version = propOr(4, 'version')
+export const version = propOr(null, 'version')
 
 export const playtime = compose(
   toPlayerTime,
@@ -30,18 +30,18 @@ export const chapters = propOr([], 'chapters')
 export const theme = config => {
   const theme = propOr({}, 'theme', config)
 
-  if (version(config) === 4) {
+  if (version(config) === 5) {
     return {
-      tokens: {
-        brand: prop('main', theme)
-      },
-      fonts: {}
+      tokens: propOr({}, 'tokens', theme),
+      fonts: propOr({}, 'fonts', theme)
     }
   }
 
   return {
-    tokens: propOr({}, 'tokens', theme),
-    fonts: propOr({}, 'fonts', theme)
+    tokens: {
+      brand: prop('main', theme)
+    },
+    fonts: {}
   }
 }
 
@@ -58,21 +58,21 @@ export const originReference = compose(
 export const episodeReference = config => {
   const ref = reference(config)
 
-  if (version(config) === 4) {
-    return propOr(null, 'config', ref)
+  if (version(config) === 5) {
+    return propOr(null, 'episode', ref)
   }
 
-  return propOr(null, 'episode', ref)
+  return propOr(null, 'config', ref)
 }
 
 export const configReference = config => {
   const ref = reference(config)
 
-  if (version(config) === 4) {
-    return null
+  if (version(config) === 5) {
+    return propOr(null, 'config', ref)
   }
 
-  return propOr(null, 'config', ref)
+  return null
 }
 
 export const validate = config => {

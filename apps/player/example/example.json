@@ -9,6 +9,7 @@
   },
   "reference": {
     "share": "//localhost:9000/share.html",
+    "config": "//localhost:900/config.json",
     "episode": "//localhost:9000/example.json",
     "origin": "//localhost:9000"
   },
