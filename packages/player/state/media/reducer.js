@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 
-import { media } from '@podlove/utils/config'
+import { media } from '@podlove/player-config'
 import { READY } from '@podlove/player-actions/types'
 
 export const INITIAL_STATE = []

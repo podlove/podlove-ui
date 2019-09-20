@@ -18,6 +18,7 @@
     "@podlove/utils": "^5.0.0",
     "@podlove/clients": "^5.0.0",
     "@podlove/button-actions": "^5.0.0",
+    "@podlove/button-state": "^5.0.0",
     "iframe-resizer": "4.0.4",
     "normalize-scss": "7.0.1",
     "ramda": "0.26.1",

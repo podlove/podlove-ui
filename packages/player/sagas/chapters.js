@@ -9,7 +9,7 @@ import {
   PREVIOUS_CHAPTER,
   NEXT_CHAPTER
 } from '@podlove/player-actions/types'
-import * as config from '@podlove/utils/config'
+import * as config from '@podlove/player-config'
 import * as chapter from '@podlove/player-actions/chapters'
 import { requestPlaytime } from '@podlove/player-actions/timepiece'
 import { toPlayerTime } from '@podlove/utils/time'

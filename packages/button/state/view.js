@@ -18,7 +18,7 @@ export const reducer = handleActions(
   {
     [SHOW_LIST]: state => ({ ...state, finish: false, list: true }),
     [SHOW_OVERLAY]: state => ({ ...state, overlay: true }),
-    [HIDE_OVERLAY]: state => ({ ...state, overlay: false, finish: false }),
+    [HIDE_OVERLAY]: state => ({ ...state, overlay: false, finish: false, list: true }),
     [SHOW_FINISH_CARD]: state => ({ ...state, list: false, finish: true })
   },
   INITIAL_STATE

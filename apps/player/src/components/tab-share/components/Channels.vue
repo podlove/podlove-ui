@@ -16,6 +16,8 @@ import LinkChannel from './channels/Link'
 import LinkedinChannel from './channels/Linkedin'
 import PinterestChannel from './channels/Pinterest'
 import RedditChannel from './channels/Reddit'
+import XingChannel from './channels/Xing'
+import WhatsAppChannel from './channels/WhatsApp'
 
 export default {
   components: {
@@ -25,7 +27,9 @@ export default {
     LinkChannel,
     LinkedinChannel,
     PinterestChannel,
-    RedditChannel
+    RedditChannel,
+    XingChannel,
+    WhatsAppChannel
   },
   data: mapState({
     channels: select.channels

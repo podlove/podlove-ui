@@ -8,7 +8,7 @@ import {
   shareReference,
   originReference,
   configReference
-} from './config'
+} from '.'
 
 const example = {
   duration: '00:10:00',

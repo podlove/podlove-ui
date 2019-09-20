@@ -11,6 +11,7 @@
     "@podlove/components": "^5.0.0",
     "@podlove/player-actions": "^5.0.0",
     "@podlove/player-sagas": "^5.0.0",
+    "@podlove/player-config": "^5.0.0",
     "@podlove/utils": "^5.0.0",
     "color": "3.1.0",
     "object-mapper": "5.0.0",

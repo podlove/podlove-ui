@@ -2,7 +2,7 @@ import { compose, propOr, path } from 'ramda'
 import { handleActions } from 'redux-actions'
 import { createObject } from '@podlove/utils/helper'
 
-import { theme } from '@podlove/utils/config'
+import { theme } from '@podlove/player-config'
 import { SET_THEME, CONSTRUCTED } from '@podlove/player-actions/types'
 
 const TOKENS = {

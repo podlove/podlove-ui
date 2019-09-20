@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 import { propOr } from 'ramda'
-import { language } from '@podlove/utils/config'
+import { language } from '@podlove/player-config'
 
 import {
   READY,

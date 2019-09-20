@@ -3,7 +3,7 @@ import { handleActions } from 'redux-actions'
 
 import { READY } from '@podlove/player-actions/types'
 import { createObject } from '@podlove/utils/helper'
-import { files } from '@podlove/utils/config'
+import { files } from '@podlove/player-config'
 
 export const INITIAL_STATE = {
   audio: []

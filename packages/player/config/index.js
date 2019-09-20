@@ -1,6 +1,6 @@
 import { compose, map, prop, concat, propOr } from 'ramda'
-import { toPlayerTime } from './time'
-import { createObject } from './helper'
+import { toPlayerTime } from '@podlove/utils/time'
+import { createObject } from '@podlove/utils/helper'
 
 export const duration = compose(
   toPlayerTime,

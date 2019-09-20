@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { mergeDeepRight, propOr, uniqWith, concat, eqProps } from 'ramda'
 import { json } from '@podlove/utils/request'
-import * as playerConfig from '@podlove/utils/config'
+import * as playerConfig from '@podlove/player-config'
 
 const media = config => {
   const media = propOr([], 'media', config)

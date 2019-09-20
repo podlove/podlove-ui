@@ -26,6 +26,8 @@ import MailChannel from './states/Mail'
 import LinkChannel from './states/Link'
 import LinkedinChannel from './states/Linkedin'
 import FacebookChannel from './states/Facebook'
+import XingChannel from './states/Xing'
+import WhatsAppChannel from './states/WhatsApp'
 
 export default {
   components: {
@@ -36,7 +38,9 @@ export default {
     MailChannel,
     LinkChannel,
     LinkedinChannel,
-    FacebookChannel
+    FacebookChannel,
+    XingChannel,
+    WhatsAppChannel
   },
   props: {
     color: {
@@ -82,6 +86,8 @@ export default {
           'mail',
           'reddit',
           'twitter',
+          'xing',
+          'whats-app',
           'pinterest',
           'link'
         ].includes(val)

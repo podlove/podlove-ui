@@ -10,7 +10,7 @@
       </button>
     </div>
     <divider class="mb-6" :color="shadeBase"></divider>
-    <finish-card />
+    <finish-card class="text-base" />
   </div>
 </template>
 

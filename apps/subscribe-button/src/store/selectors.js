@@ -1,8 +1,7 @@
-import * as config from './reducers/config'
-import * as metadata from './reducers/metadata'
-import { selectors as viewSelectors } from './reducers/view'
-import { selectors as themeSelectors } from './reducers/theme'
-import { selectors as finishSelectors } from './reducers/finish'
+import * as config from '@podlove/button-state/config'
+import { selectors as viewSelectors } from '@podlove/button-state/view'
+import { selectors as themeSelectors } from '@podlove/button-state/theme'
+import { selectors as finishSelectors } from '@podlove/button-state/finish'
 import { propOr, compose } from 'ramda'
 import { scope } from '@podlove/utils/helper'
 
@@ -37,26 +36,6 @@ export const selectSize = compose(
 export const selectStyle = compose(
   config.style,
   configSlice
-)
-
-export const selectTitle = compose(
-  metadata.title,
-  metadataSlice
-)
-
-export const selectSubTitle = compose(
-  metadata.subtitle,
-  metadataSlice
-)
-
-export const selectDescription = compose(
-  metadata.description,
-  metadataSlice
-)
-
-export const selectFeed = compose(
-  metadata.feed,
-  metadataSlice
 )
 
 export const headless = compose(

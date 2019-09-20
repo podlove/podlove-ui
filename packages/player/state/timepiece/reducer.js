@@ -6,7 +6,7 @@ import {
   REQUEST_PLAYTIME
 } from '@podlove/player-actions/types'
 import { toInt } from '@podlove/utils/helper'
-import { duration, playtime } from '@podlove/utils/config'
+import { duration, playtime } from '@podlove/player-config'
 
 export const INITIAL_STATE = {
   duration: 0,

@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 import { READY, SELECT_PLAYLIST_ENTRY } from '@podlove/player-actions/types'
-import { playlist } from '@podlove/utils/config'
+import { playlist } from '@podlove/player-config'
 import { toPlayerTime } from '@podlove/utils/time'
 
 const INITIAL_STATE = null

@@ -25,6 +25,7 @@
     "@podlove/player-actions": "^5.0.0",
     "@podlove/button-actions": "^5.0.0",
     "@podlove/player-state": "^5.0.0",
+    "@podlove/player-config": "^5.0.0",
     "@podlove/utils": "^5.0.0",
     "color": "3.1.0",
     "hashcode": "1.0.3",

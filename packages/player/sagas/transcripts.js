@@ -16,7 +16,7 @@ import {
   setTranscriptsSearchResults
 } from '@podlove/player-actions/transcripts'
 import { secondsToMilliseconds, toPlayerTime } from '@podlove/utils/time'
-import { transcripts as getTranscripts } from '@podlove/utils/config'
+import { transcripts as getTranscripts } from '@podlove/player-config'
 import { binarySearch, textSearch } from '@podlove/utils/search'
 
 const transformTime = time => (is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time))

@@ -5,7 +5,7 @@ import {
   originReference,
   episodeReference,
   configReference
-} from '@podlove/utils/config'
+} from '@podlove/player-config'
 
 export const INITIAL_STATE = {
   config: null,

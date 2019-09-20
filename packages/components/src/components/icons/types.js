@@ -59,6 +59,8 @@ import MessengerIcon from './states/Messenger'
 import CheckMarkIcon from './states/CheckMark'
 import ChevronRightIcon from './states/ChevronRight'
 import ChevronLeftIcon from './states/ChevronLeft'
+import XingIcon from './states/Xing'
+import WhatsAppIcon from './states/WhatsApp'
 
 export const types = [
   'play',
@@ -122,7 +124,9 @@ export const types = [
   'messenger',
   'check-mark',
   'chevron-left',
-  'chevron-right'
+  'chevron-right',
+  'whats-app',
+  'xing'
 ]
 
 export const components = {
@@ -186,5 +190,7 @@ export const components = {
   MessengerIcon,
   CheckMarkIcon,
   ChevronRightIcon,
-  ChevronLeftIcon
+  ChevronLeftIcon,
+  XingIcon,
+  WhatsAppIcon
 }

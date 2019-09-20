@@ -1,11 +1,10 @@
 import { handleActions } from 'redux-actions'
+import { head, identity, prop } from 'ramda'
 import { getPlatform } from '@podlove/utils/useragent'
 import getClients from '@podlove/clients'
 import { type, platform } from '@podlove/clients/types'
-import { head, identity, prop } from 'ramda'
-
 import { INIT } from '@podlove/button-actions/types'
-import * as config from '../../config'
+import * as config from '@podlove/button-config'
 
 export const INITIAL_STATE = []
 

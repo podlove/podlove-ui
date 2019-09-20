@@ -2,7 +2,6 @@ import Vue from 'vue'
 
 import { createStore } from 'redux'
 import { connect } from 'redux-vuex'
-
 import reducers from './reducers'
 
 const store = createStore(
