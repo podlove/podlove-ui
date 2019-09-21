@@ -10,7 +10,7 @@ export const toPlayerTime = (time = '0') => {
     return time
   }
 
-  const matches = timeRegex.exec(time || '0')
+  const matches = timeRegex.exec(time)
 
   if (!matches) {
     return 0

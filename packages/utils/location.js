@@ -1,7 +1,8 @@
+import { compose } from 'ramda'
 import queryString from 'query-string'
 import { toPlayerTime } from './time'
 
-export const locationParams = queryString.parse(window.location.search)
+export const locationParams = () => queryString.parse(window.location.search)
 
 const parseParameters = parameters => {
   const parsed = {}
@@ -27,4 +28,7 @@ const parseParameters = parameters => {
   return parsed
 }
 
-export const urlParameters = { ...parseParameters(locationParams) }
+export const urlParameters = compose(
+  parseParameters,
+  locationParams
+)

@@ -33,7 +33,7 @@ const stopAt = (stoptime, store) => {
 }
 
 export const applyUrlParameters = store => {
-  const { starttime, stoptime, autoplay } = urlParameters
+  const { starttime, stoptime, autoplay } = urlParameters()
 
   if (starttime || autoplay || stoptime) {
     store.dispatch(showPauseButton())

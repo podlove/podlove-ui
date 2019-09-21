@@ -24,4 +24,4 @@ const bootstrap = async ({ episode, config }) => {
   }
 }
 
-bootstrap(urlParameters)
+bootstrap(urlParameters())
