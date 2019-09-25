@@ -37,10 +37,19 @@ export const theme = config => {
     }
   }
 
+  const brand = propOr(null, 'main', theme)
+
+  if (brand) {
+    return {
+      tokens: {
+        brand
+      },
+      fonts: {}
+    }
+  }
+
   return {
-    tokens: {
-      brand: prop('main', theme)
-    },
+    tokens: {},
     fonts: {}
   }
 }
@@ -51,10 +60,12 @@ export const shareReference = compose(
   propOr(null, 'share'),
   reference
 )
+
 export const originReference = compose(
   propOr(null, 'origin'),
   reference
 )
+
 export const episodeReference = config => {
   const ref = reference(config)
 
@@ -97,10 +108,12 @@ export const platform = compose(
 export const playlist = propOr([], 'playlist')
 
 export const files = config =>
-  concat(propOr([], 'files', config), media(config)).reduce(
-    (result, item) => [...result, ...(result.some(({ url }) => url === item.url) ? [] : [item])],
-    []
-  )
+  concat(propOr([], 'files', config), media(config))
+    .filter(({ url }) => !!url)
+    .reduce(
+      (result, item) => [...result, ...(result.some(({ url }) => url === item.url) ? [] : [item])],
+      []
+    )
 
 export const getActiveTab = prop('activeTab')
 

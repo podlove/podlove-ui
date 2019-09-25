@@ -30,17 +30,17 @@ module.exports = {
   coveragePathIgnorePatterns: ['/node_modules/'],
 
   // A list of reporter names that Jest uses when writing coverage reports
-  coverageReporters: ['text', 'clover', 'jest-html-reporters'],
+  coverageReporters: ['clover'],
 
   // An object that configures minimum threshold enforcement for coverage results
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80
-    }
-  },
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 80,
+  //     functions: 80,
+  //     lines: 80,
+  //     statements: 80
+  //   }
+  // },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: null,

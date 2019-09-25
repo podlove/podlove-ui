@@ -17,7 +17,7 @@ export const matchAction = (matchType, matchPayload) => ({ type, payload }) =>
   type === matchType && equals(matchPayload, payload)
 
 export function* takeOnce(pattern, saga, ...args) {
-  const task = yield fork(function*() {
+  const task = yield fork(function* once() {
     let done = false
     while (!done) {
       const action = yield take(pattern)

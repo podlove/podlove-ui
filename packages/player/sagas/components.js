@@ -114,6 +114,7 @@ export function* transcripts({ selectTranscripts }) {
 
 export function* chapters({ selectChapters }) {
   const chapters = !isEmpty(yield select(selectChapters))
+
   yield put(chapters ? showChapterControls() : hideChapterControls())
   yield put(chapters ? showComponentTab('chapters') : hideComponentTab('chapters'))
 }

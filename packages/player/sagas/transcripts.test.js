@@ -1,7 +1,14 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { transcriptsSaga, init, update, debouncedUpdate, search } from './transcripts'
 import {
-  INIT,
+  transcriptsSaga,
+  init,
+  update,
+  debouncedUpdate,
+  search,
+  resetToPlaytime
+} from './transcripts'
+import {
+  READY,
   BACKEND_PLAYTIME,
   REQUEST_PLAYTIME,
   DISABLE_GHOST_MODE,
@@ -20,11 +27,13 @@ describe('transcripts', () => {
     let gen
     let selectSpeakers
     let selectChapters
+    let selectPlaytime
 
     beforeEach(() => {
       selectSpeakers = jest.fn()
       selectChapters = jest.fn()
-      factory = transcriptsSaga({ selectSpeakers, selectChapters })
+      selectPlaytime = jest.fn()
+      factory = transcriptsSaga({ selectSpeakers, selectChapters, selectPlaytime })
       gen = factory()
     })
 
@@ -37,12 +46,14 @@ describe('transcripts', () => {
     })
 
     test('should register init on INIT', () => {
-      expect(gen.next().value).toEqual(takeEvery(INIT, init, { selectSpeakers, selectChapters }))
+      expect(gen.next().value).toEqual(
+        takeEvery(READY, init, { selectSpeakers, selectChapters, selectPlaytime })
+      )
     })
   })
 
   describe('init()', () => {
-    let gen, selectSpeakers, selectChapters
+    let gen, selectSpeakers, selectChapters, selectPlaytime
 
     const transcripts = [
       {
@@ -100,7 +111,8 @@ describe('transcripts', () => {
     beforeEach(() => {
       selectSpeakers = jest.fn()
       selectChapters = jest.fn()
-      gen = init({ selectSpeakers, selectChapters }, { payload: { transcripts } })
+      selectPlaytime = jest.fn()
+      gen = init({ selectSpeakers, selectChapters, selectPlaytime }, { payload: { transcripts } })
     })
 
     test('should should create a generator', () => {
@@ -216,10 +228,7 @@ describe('transcripts', () => {
       gen.next()
       gen.next(speakers)
       gen.next(chapters)
-      const [type, func] = gen.next().value.FORK.args
-
-      expect(type).toEqual(BACKEND_PLAYTIME)
-      expect(func).toEqual(update)
+      expect(gen.next().value).toEqual(takeEvery(BACKEND_PLAYTIME, update, 2))
     })
 
     test('should register update on REQUEST_PLAYTIME', () => {
@@ -227,22 +236,7 @@ describe('transcripts', () => {
       gen.next(speakers)
       gen.next(chapters)
       gen.next()
-      const [type, func] = gen.next().value.FORK.args
-
-      expect(type).toEqual(REQUEST_PLAYTIME)
-      expect(func).toEqual(update)
-    })
-
-    test('should register debouncedUpdate on DISABLE_GHOST_MODE', () => {
-      gen.next()
-      gen.next(speakers)
-      gen.next(chapters)
-      gen.next()
-      gen.next()
-      const [type, func] = gen.next().value.FORK.args
-
-      expect(type).toEqual(DISABLE_GHOST_MODE)
-      expect(func).toEqual(debouncedUpdate)
+      expect(gen.next().value).toEqual(takeEvery(REQUEST_PLAYTIME, update, 2))
     })
 
     test('should register debouncedUpdate on SIMULATE_PLAYTIME', () => {
@@ -251,11 +245,19 @@ describe('transcripts', () => {
       gen.next(chapters)
       gen.next()
       gen.next()
-      gen.next()
-      const [type, func] = gen.next().value.FORK.args
+      expect(gen.next().value).toEqual(takeEvery(SIMULATE_PLAYTIME, debouncedUpdate, 2))
+    })
 
-      expect(type).toEqual(SIMULATE_PLAYTIME)
-      expect(func).toEqual(debouncedUpdate)
+    test('should register debouncedUpdate on DISABLE_GHOST_MODE', () => {
+      gen.next()
+      gen.next(speakers)
+      gen.next(chapters)
+      gen.next()
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(
+        takeEvery(DISABLE_GHOST_MODE, resetToPlaytime, 2, selectPlaytime)
+      )
     })
 
     test('should register search on SEARCH_TRANSCRIPTS', () => {
@@ -266,10 +268,84 @@ describe('transcripts', () => {
       gen.next()
       gen.next()
       gen.next()
-      const [type, func] = gen.next().value.FORK.args
-
-      expect(type).toEqual(SEARCH_TRANSCRIPTS)
-      expect(func).toEqual(search)
+      expect(gen.next().value).toEqual(
+        takeEvery(SEARCH_TRANSCRIPTS, search, [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5
+        ])
+      )
     })
 
     test('should complete the saga', () => {

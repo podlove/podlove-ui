@@ -1,3 +1,4 @@
+import { propOr } from 'ramda'
 import { put, takeEvery } from 'redux-saga/effects'
 import { INIT } from '@podlove/player-actions/types'
 import * as lifecycle from '@podlove/player-actions/lifecycle'
@@ -11,8 +12,8 @@ export function* lifeCycleSaga() {
 
 export function* ready({ payload }) {
   const [chapters, transcripts] = yield Promise.all([
-    json(payload.chapters),
-    json(payload.transcripts)
+    json(propOr([], 'chapters', payload)),
+    json(propOr([], 'transcripts', payload))
   ])
 
   // TODO: validate config

@@ -18,6 +18,7 @@ import {
 import { secondsToMilliseconds, toPlayerTime } from '@podlove/utils/time'
 import { transcripts as getTranscripts } from '@podlove/player-config'
 import { binarySearch, textSearch } from '@podlove/utils/search'
+import { isDefinedAndNotNull } from '@podlove/utils/predicates'
 
 const transformTime = time => (is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time))
 
@@ -131,7 +132,7 @@ export function* init({ selectSpeakers, selectChapters, selectPlaytime }, { payl
 export function* update(searchFn, { payload }) {
   const index = searchFn(payload)
 
-  if (index !== undefined) {
+  if (isDefinedAndNotNull(index)) {
     yield put(updateTranscripts(index))
   }
 }
@@ -140,7 +141,7 @@ export function* debouncedUpdate(searchFn, { payload }) {
   const index = searchFn(payload)
   yield delay(200)
 
-  if (index !== undefined) {
+  if (isDefinedAndNotNull(index)) {
     yield put(updateTranscripts(index))
   }
 }
@@ -149,7 +150,7 @@ export function* resetToPlaytime(searchFn, selectPlaytime) {
   const playtime = yield select(selectPlaytime)
   const index = searchFn(playtime)
 
-  if (index !== undefined) {
+  if (isDefinedAndNotNull(index)) {
     yield put(updateTranscripts(index))
   }
 }

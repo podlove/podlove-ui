@@ -8,7 +8,7 @@ import {
   nextChapter
 } from './chapters'
 import {
-  INIT,
+  READY,
   REQUEST_PLAYTIME,
   BACKEND_PLAYTIME,
   SET_CHAPTER,
@@ -62,7 +62,7 @@ describe('chapters', () => {
       const gen = saga()
 
       expect(gen.next().value).toEqual(
-        takeEvery(INIT, initChapters, {
+        takeEvery(READY, initChapters, {
           selectDuration,
           selectPlaytime,
           selectCurrentChapter,

@@ -73,9 +73,10 @@ describe('keyboard', () => {
     })
 
     test(`should register KEY_UP on keyup channel`, () => {
+      const keydown = jest.fn()
       const keyup = jest.fn()
       gen.next()
-      gen.next()
+      gen.next(keydown)
       gen.next(keyup)
       expect(gen.next().value).toEqual(takeEvery(keyup, dispatchKeyUp))
     })

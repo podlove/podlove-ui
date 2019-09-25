@@ -4,9 +4,13 @@ import {
   media,
   chapters,
   reference,
+  theme,
+  files,
+  validate,
   transcripts,
   shareReference,
   originReference,
+  episodeReference,
   configReference
 } from '.'
 
@@ -21,6 +25,20 @@ const example = {
       mimeType: 'mpg3/audio'
     },
     {}
+  ],
+  files: [
+    {
+      url: 'http://foo.baz',
+      size: 1338,
+      title: 'file title',
+      mimeType: 'mpg4/video'
+    },
+    {
+      url: 'http://foo.bar',
+      size: 1337,
+      title: 'file title',
+      mimeType: 'mpg3/audio'
+    }
   ],
   chapters: [
     {
@@ -46,10 +64,14 @@ const example = {
       start: '00:10',
       end: '00:20'
     }
-  ]
+  ],
+  theme: {
+    main: '#a00',
+    highlight: '#0a0'
+  }
 }
 
-describe('config', () => {
+describe('config version 4', () => {
   describe('duration', () => {
     test('should be a function', () => {
       expect(typeof duration).toBe('function')
@@ -172,13 +194,27 @@ describe('config', () => {
     })
   })
 
+  describe('episodeReference', () => {
+    test('should be a function', () => {
+      expect(typeof episodeReference).toBe('function')
+    })
+
+    test('should extract from the episode', () => {
+      expect(episodeReference(example)).toEqual('http://foo.bar/config-reference')
+    })
+
+    test('should have a fallback', () => {
+      expect(episodeReference({})).toEqual(null)
+    })
+  })
+
   describe('configReference', () => {
     test('should be a function', () => {
       expect(typeof configReference).toBe('function')
     })
 
     test('should extract from the config', () => {
-      expect(configReference(example)).toEqual('http://foo.bar/config-reference')
+      expect(configReference(example)).toEqual(null)
     })
 
     test('should have a fallback', () => {
@@ -206,8 +242,71 @@ describe('config', () => {
       ])
     })
 
-    test('should extract the transcripts', () => {
+    test('should have a fallback', () => {
       expect(transcripts({})).toEqual([])
+    })
+  })
+
+  describe('theme()', () => {
+    test('should be a function', () => {
+      expect(typeof theme).toBe('function')
+    })
+
+    test('should extract the brand color', () => {
+      expect(theme(example)).toEqual({
+        tokens: {
+          brand: '#a00'
+        },
+        fonts: {}
+      })
+    })
+
+    test('should have a fallback', () => {
+      expect(theme({})).toEqual({
+        tokens: {},
+        fonts: {}
+      })
+    })
+  })
+
+  describe('files', () => {
+    test('should be a function', () => {
+      expect(typeof files).toBe('function')
+    })
+
+    test('should extract the media files', () => {
+      expect(files(example)).toEqual([
+        {
+          url: 'http://foo.baz',
+          size: 1338,
+          title: 'file title',
+          mimeType: 'mpg4/video'
+        },
+        {
+          url: 'http://foo.bar',
+          size: 1337,
+          title: 'file title',
+          mimeType: 'mpg3/audio'
+        }
+      ])
+    })
+
+    test('should have a fallback', () => {
+      expect(files({})).toEqual([])
+    })
+  })
+
+  describe('validate', () => {
+    test('should be a function', () => {
+      expect(typeof files).toBe('function')
+    })
+
+    test('should return true on vaild config', () => {
+      expect(validate(example)).toBe(true)
+    })
+
+    test('should return false by default', () => {
+      expect(validate({})).toBe(false)
     })
   })
 })
