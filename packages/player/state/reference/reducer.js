@@ -11,7 +11,7 @@ export const INITIAL_STATE = {
   config: null,
   share: null,
   origin: null,
-  epiosde: null
+  episode: null
 }
 
 export const reducer = handleActions(

@@ -4,8 +4,10 @@ import {
   SET_LANGUAGE,
   SET_VERSION,
   SET_MODE,
-  INIT
+  READY
 } from '@podlove/player-actions/types'
+
+import { language } from '@podlove/player-config'
 
 describe('runtime', () => {
   test(`it is a reducer function`, () => {
@@ -91,7 +93,7 @@ describe('runtime', () => {
   test(`it sets language and runtime on INIT`, () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: INIT,
+        type: READY,
         payload: {
           runtime: {
             language: 'es'

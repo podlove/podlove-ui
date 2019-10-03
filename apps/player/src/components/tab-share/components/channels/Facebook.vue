@@ -1,5 +1,5 @@
 <template lang="pug">
-  channel(type="facebook" :link="link" :color="color" :background="background" :filled="hover" @mouseover.native="hover = true" @mouseleave.native="hover = false")
+  channel(type="facebook" :link="link" :color="color" :background="background" :filled="hover" @mouseover.native="hover = true" @mouseleave.native="hover = false") {{ link }}
 </template>
 
 <script>
@@ -15,10 +15,7 @@ export default {
     return {
       hover: false,
       ...this.mapState({
-        content: select.share.content,
         link: select.share.link,
-        episodeTitle: select.episode.title,
-        playtime: select.playtime,
         color: select.theme.brandDark,
         background: select.theme.alt
       })

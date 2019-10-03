@@ -1,5 +1,5 @@
 <template lang="pug">
-  input-checkbox(:label="$t('SHARE.PLAYTIME', { playtime: toHumanTime(playtime) })" :value="content === 'time'" :color="color" :border-color="background" :background="background" @change="toggleContent")
+  input-checkbox(:label="$t('SHARE.PLAYTIME', { playtime: toHumanTime(playtime) })" :value="content === 'time'" :color="color" :border-color="color" :background="background" @change="toggleContent" data-test="tab-share--playtime")
 </template>
 
 <script>

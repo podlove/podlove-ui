@@ -1,23 +1,26 @@
-import { INIT } from '@podlove/player-actions/types'
+import { READY } from '@podlove/player-actions/types'
 import { INITIAL_STATE, reducer } from './reducer'
 
 describe('reference', () => {
-  test('should parse reference on INIT', () => {
+  test('should parse reference on READY', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: INIT,
+        type: READY,
         payload: {
+          version: 5,
           reference: {
             share: 'share',
             origin: 'origin',
-            config: 'config'
+            config: 'config',
+            episode: 'episode'
           }
         }
       })
     ).toEqual({
       share: 'share',
       origin: 'origin',
-      config: 'config'
+      config: 'config',
+      episode: 'episode'
     })
   })
 })

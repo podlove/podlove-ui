@@ -1,5 +1,5 @@
 <template lang="pug">
-  timer#timer-duration(:color="color" :time="duration - (ghost ? ghost : playtime)" :aria-label="a11y.current" tabindex="0" :remaining="true")
+  timer(:color="color" :time="duration - (ghost ? ghost : playtime)" :aria-label="a11y.current" tabindex="0" :remaining="true" data-test="timer-duration")
 </template>
 
 <script>

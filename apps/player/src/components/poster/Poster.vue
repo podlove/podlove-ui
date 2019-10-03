@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#poster
+  div(data-test="poster")
     lazy-image(:url="posterSrc" :alt="$t(altText)" @error="errorPosterLoad" :color="coverColor")
 </template>
 

@@ -1,5 +1,5 @@
 <template lang="pug">
-  a(download :href="file.url")
+  a(download :href="file.url" data-test="tab-files--download")
     div.flex.h-10
       span.h-full.flex.items-center.pr-4
         icon(type="download" :filled="true")

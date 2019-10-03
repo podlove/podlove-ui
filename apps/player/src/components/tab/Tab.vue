@@ -1,5 +1,5 @@
 <template lang="pug">
-  tab-body(:id="`tab-${name}`" :active="active" :name="name" :aria-selected="active" :ref="name" v-if="active" :background="background" :style="{ color }")
+  tab-body(:id="`tab-${name}`" :active="active" :name="name" :aria-selected="active" :ref="name" v-if="active" :background="background" :style="{ color }" data-test="tab")
     div.relative.overflow-hidden
       slot
 </template>

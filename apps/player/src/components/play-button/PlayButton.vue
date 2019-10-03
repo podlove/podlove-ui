@@ -1,5 +1,5 @@
 <template lang="pug">
-  play-button.overflow-hidden(v-if="button.type" :type="button.type" :color="background" :background="color" @click="dispatch" :label="button.label" @mouseover.native="mouseOver" @mouseleave.native="mouseLeave")
+  play-button.overflow-hidden(v-if="button.type" :type="button.type" :color="background" :background="color" @click="dispatch" :label="button.label" @mouseover.native="mouseOver" @mouseleave.native="mouseLeave" data-test="play-button")
     span.invisible {{ button.a11y }}
 </template>
 

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#tab-transcripts
+  div(data-test="tab-transcripts")
     div.header(class="mobile:p-4 tablet:p-6")
       tab-title(@close="closeTab") {{ $t('TRANSCRIPTS.TITLE') }}
       search.mb-6

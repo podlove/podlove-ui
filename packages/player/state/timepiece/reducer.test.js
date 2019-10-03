@@ -1,5 +1,5 @@
 import {
-  INIT,
+  READY,
   BACKEND_DURATION,
   BACKEND_PLAYTIME,
   REQUEST_PLAYTIME
@@ -7,10 +7,10 @@ import {
 import { reducer, INITIAL_STATE } from './reducer'
 
 describe('timepiece', () => {
-  test('it parses duration and playtime on INIT', () => {
+  test('it parses duration and playtime on READY', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: INIT,
+        type: READY,
         payload: {
           duration: '01:30',
           playtime: '00:10'

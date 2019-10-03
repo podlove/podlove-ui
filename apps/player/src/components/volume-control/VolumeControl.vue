@@ -7,13 +7,14 @@
     trigger="click"
     offset="15"
   )
-    button.block#audio--volume--trigger.tooltip-target(@dblclick="setVolume(1)")
+    button.block.tooltip-target(@dblclick="setVolume(1)" data-test="volume-control")
       icon(:type="icon" :color="color")
       span.hidden {{ a11y }}
 
     template(slot="popover")
       div.w-32(:style="{ background }")
-        input-slider.mr-5#audio--volume--input(
+        input-slider.mr-5(
+          data-test="volume-control--slider"
           :min="0"
           :max="1"
           :value="volume"

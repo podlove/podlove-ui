@@ -40,14 +40,8 @@ const hasEmbedLink = state =>
 
 const link = state => {
   switch (type(state)) {
-    case 'show':
-      return show.link(state)
     case 'episode':
       return episode.link(state)
-    case 'chapter':
-      return addQueryParameter(episode.link(state), {
-        t: `${toHumanTime(chapter.current(state).start)},${toHumanTime(chapter.current(state).end)}`
-      })
     case 'time':
       return addQueryParameter(episode.link(state), { t: toHumanTime(timepiece.playtime(state)) })
     default:

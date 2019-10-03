@@ -1,5 +1,5 @@
 <template lang="pug">
-  stepper-button(v-if="stepperButtons" type="backwards" :disabled="previousStepperDisabled" :color="color" @click="dispatch")
+  stepper-button(v-if="stepperButtons" type="backwards" :disabled="previousStepperDisabled" :color="color" @click="dispatch" data-test="step-backward")
 </template>
 
 <script>

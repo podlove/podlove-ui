@@ -1,8 +1,8 @@
 <template lang="pug">
-  div.flex.px-2.-mx-2.rounded-sm(:class="{'font-medium': chapter.active}" :style="style" @mouseover="mouseOverHandler" @mouseleave="mouseLeaveHandler")
+  div.flex.px-2.-mx-2.rounded-sm(:class="{'font-medium': chapter.active}" :style="style" @mouseover="mouseOverHandler" @mouseleave="mouseLeaveHandler" data-test="tab-chapters--entry")
     span.cursor-pointer.w-8.py-2.mr-2(@click="selectChapter()" aria-hidden="true")
-      icon(v-if="action.icon" :type="action.icon" :size="24")
-      span(v-else) {{ action.content }}
+      icon(v-if="action.icon" :type="action.icon" :size="24" :data-test="`tab-chapters--trigger--${action.icon}`")
+      span(v-else data-test="tab-chapters--index") {{ action.content }}
 
     chapter-progress.w-full(
       :chapter="chapter"
@@ -145,7 +145,7 @@ export default {
 
         dispatch(setChapter(this.chapter.index - 1))
         dispatch(requestPlay())
-        event.preventDefault()
+        event && event.preventDefault()
         return false
       }
     }),

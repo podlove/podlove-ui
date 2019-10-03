@@ -43,7 +43,7 @@ const playlist = async config => {
 const reference = ({ episode, config }, resolved) => ({
   episode: typeof episode === 'string' ? episode : null,
   config: typeof config === 'string' ? config : null,
-  origin: propOr(null, 'origin', resolved.config),
+  base: propOr(null, 'base', resolved.config),
   share: propOr(null, 'share', resolved.config)
 })
 

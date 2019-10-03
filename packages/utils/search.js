@@ -1,6 +1,6 @@
 import { curry } from 'ramda'
 
-export const binarySearch = curry((list = [], search) => {
+export const binarySearch = curry((list, search) => {
   let minIndex = 0
   let maxIndex = list.length - 1
   let currentIndex
@@ -22,7 +22,7 @@ export const binarySearch = curry((list = [], search) => {
   return maxIndex
 })
 
-export const textSearch = curry((input = [], query = '') => {
+export const textSearch = curry((input, query) => {
   const queryExpr = new RegExp(query, 'ig')
 
   return input.reduce((results, item, index) => {

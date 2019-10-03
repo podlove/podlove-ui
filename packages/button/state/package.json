@@ -11,6 +11,11 @@
     "@podlove/button-actions": "^5.0.0",
     "@podlove/button-config": "^5.0.0",
     "@podlove/utils": "^5.0.0",
+    "@podlove/clients": "^5.0.0",
     "redux-actions": "2.6.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:dev": "jest --watch"
   }
 }

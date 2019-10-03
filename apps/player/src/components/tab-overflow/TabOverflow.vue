@@ -1,6 +1,6 @@
 <template lang="pug">
-  div.absolute.w-full.bottom-0.inset-x-0.pointer-events-none
-    div.h-4.mx-4(:style="style")
+  div.absolute.w-full.bottom-0.inset-x-0.pointer-events-none(data-test="tab-overflow")
+    div.h-4.mx-4(:style="style" data-test="tab-overflow--shadow")
 </template>
 
 <script>

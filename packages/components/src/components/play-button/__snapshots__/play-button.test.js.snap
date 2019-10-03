@@ -7,7 +7,7 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255);"
+    style="background-color: rgb(255, 255, 255); width: auto;"
   >
     <div
       aria-hidden="true"
@@ -49,7 +49,7 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <div
       aria-hidden="true"
@@ -91,7 +91,7 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <div
       aria-hidden="true"
@@ -133,7 +133,7 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255);"
+    style="background-color: rgb(255, 255, 255); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -146,36 +146,29 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="23.400000000000002"
-        version="1.1"
-        viewBox="0 0 18 23"
-        width="18"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="none"
-          stroke-width="1"
-        >
-          <g
-            fill="#fff"
-            transform="translate(-16.000000, -14.000000)"
-          >
-            <g
-              transform="translate(16.000000, 14.000000)"
-            >
-              <polygon
-                points="18 23 12 23 12 0 18 0"
-              />
-               
-              <polygon
-                points="6 23 0 23 0 0 6 0"
-              />
-            </g>
-          </g>
-        </g>
+        <rect
+          fill="#fff"
+          height="16"
+          rx="1.5"
+          width="3"
+          x="7"
+          y="4"
+        />
+         
+        <rect
+          fill="#fff"
+          height="16"
+          rx="1.5"
+          width="3"
+          x="14"
+          y="4"
+        />
       </svg>
        
     </span>
@@ -190,7 +183,7 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -203,36 +196,29 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="23.400000000000002"
-        version="1.1"
-        viewBox="0 0 18 23"
-        width="18"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="none"
-          stroke-width="1"
-        >
-          <g
-            fill="#fff"
-            transform="translate(-16.000000, -14.000000)"
-          >
-            <g
-              transform="translate(16.000000, 14.000000)"
-            >
-              <polygon
-                points="18 23 12 23 12 0 18 0"
-              />
-               
-              <polygon
-                points="6 23 0 23 0 0 6 0"
-              />
-            </g>
-          </g>
-        </g>
+        <rect
+          fill="#fff"
+          height="16"
+          rx="1.5"
+          width="3"
+          x="7"
+          y="4"
+        />
+         
+        <rect
+          fill="#fff"
+          height="16"
+          rx="1.5"
+          width="3"
+          x="14"
+          y="4"
+        />
       </svg>
        
     </span>
@@ -247,7 +233,7 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -260,36 +246,29 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="23.400000000000002"
-        version="1.1"
-        viewBox="0 0 18 23"
-        width="18"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="none"
-          stroke-width="1"
-        >
-          <g
-            fill="#fff"
-            transform="translate(-16.000000, -14.000000)"
-          >
-            <g
-              transform="translate(16.000000, 14.000000)"
-            >
-              <polygon
-                points="18 23 12 23 12 0 18 0"
-              />
-               
-              <polygon
-                points="6 23 0 23 0 0 6 0"
-              />
-            </g>
-          </g>
-        </g>
+        <rect
+          fill="#fff"
+          height="16"
+          rx="1.5"
+          width="3"
+          x="7"
+          y="4"
+        />
+         
+        <rect
+          fill="#fff"
+          height="16"
+          rx="1.5"
+          width="3"
+          x="14"
+          y="4"
+        />
       </svg>
        
       <span
@@ -310,7 +289,7 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255);"
+    style="background-color: rgb(255, 255, 255); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -323,28 +302,16 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="23.982"
-        version="1.1"
-        viewBox="0 0 21 24"
-        width="21"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="none"
-          stroke-width="1"
-        >
-          <g
-            fill="#fff"
-            transform="translate(-17.000000, -13.000000)"
-          >
-            <polygon
-              points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096"
-            />
-          </g>
-        </g>
+        <path
+          d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
+          fill="#fff"
+        />
       </svg>
        
     </span>
@@ -359,7 +326,7 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -372,28 +339,16 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="23.982"
-        version="1.1"
-        viewBox="0 0 21 24"
-        width="21"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="none"
-          stroke-width="1"
-        >
-          <g
-            fill="#fff"
-            transform="translate(-17.000000, -13.000000)"
-          >
-            <polygon
-              points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096"
-            />
-          </g>
-        </g>
+        <path
+          d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
+          fill="#fff"
+        />
       </svg>
        
     </span>
@@ -408,7 +363,7 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -421,28 +376,16 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="23.982"
-        version="1.1"
-        viewBox="0 0 21 24"
-        width="21"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-          stroke="none"
-          stroke-width="1"
-        >
-          <g
-            fill="#fff"
-            transform="translate(-17.000000, -13.000000)"
-          >
-            <polygon
-              points="17.2886 13.0896 37.4846 24.7496 17.2886 36.4096"
-            />
-          </g>
-        </g>
+        <path
+          d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
+          fill="#fff"
+        />
       </svg>
        
       <span
@@ -463,7 +406,7 @@ exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255);"
+    style="background-color: rgb(255, 255, 255); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -499,7 +442,7 @@ exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <span
       aria-hidden="true"
@@ -535,7 +478,7 @@ exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198);"
+    style="background-color: rgb(43, 138, 198); width: auto;"
   >
     <span
       aria-hidden="true"

@@ -1,4 +1,4 @@
-import { INIT } from '@podlove/player-actions/types'
+import { READY } from '@podlove/player-actions/types'
 import { reducer, INITIAL_STATE } from './reducer'
 
 describe('show', () => {
@@ -6,7 +6,7 @@ describe('show', () => {
     expect(typeof reducer).toBe('function')
   })
 
-  test('it parses the show on INIT', () => {
+  test('it parses the show on READY', () => {
     const payload = {
       show: {
         title: 'show title',
@@ -19,7 +19,7 @@ describe('show', () => {
 
     expect(
       reducer(INITIAL_STATE, {
-        type: INIT,
+        type: READY,
         payload
       })
     ).toEqual({

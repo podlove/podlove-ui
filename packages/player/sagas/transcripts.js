@@ -112,10 +112,16 @@ export function* init({ selectSpeakers, selectChapters, selectPlaytime }, { payl
     getTranscripts
   )(payload)
 
+  // don't run transcripts logic if no transcripts are available
+  if (transcripts.length <= chapters.length) {
+    return
+  }
+
   const searchIndex = binarySearch(transcripts.map(({ start }) => start))
   const searchText = textSearch(
     transcripts.map(({ texts = [] }) => texts.map(({ text }) => text).join(' '))
   )
+
   yield put(
     setTranscriptsTimeline({
       timeline: transcripts,

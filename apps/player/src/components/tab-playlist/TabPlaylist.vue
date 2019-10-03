@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.w-full(class="mobile:p-4 tablet:p-6")
+  div.w-full(class="mobile:p-4 tablet:p-6" data-test="tab-playlist")
     tab-title(@close="closeTab") {{ $t('PLAYLIST.TITLE') }}
     entry(v-for="(episode, index) in playlist" :episode="episode" :index="index " :key="index")
 </template>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  divider(:color="color")
+  divider(:color="color" data-test="divider")
 </template>
 
 <script>

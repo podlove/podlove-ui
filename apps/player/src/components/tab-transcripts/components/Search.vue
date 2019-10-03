@@ -6,16 +6,16 @@
           button(v-if="searchQuery.length > 0" @click="reset")
             icon(type="close" :color="brandDark" :size="24")
           icon.pointer-events-none(v-else type="search" :color="brandDark" :size="24")
-        input.input.px-4.p-2.w-full.rounded-sm.text-sm.mr-2.shadow(:style="inputStyle" @input="search" :value="searchQuery" type="text" :placeholder="$t('TRANSCRIPTS.PLACEHOLDER')")
-      div.flex.items-center.p-2(v-if="searchControls")
-        div(v-if="noResults") {{ $t('TRANSCRIPTS.NO_SEARCH_RESULTS') }}
+        input.input.px-4.p-2.w-full.rounded-sm.text-sm.mr-2.shadow(:style="inputStyle" @input="search" :value="searchQuery" type="text" :placeholder="$t('TRANSCRIPTS.PLACEHOLDER')" data-test="tab-transcripts--search")
+      div.flex.items-center.p-2(v-if="searchControls" data-test="tab-transcripts--search-controls")
+        div.whitespace-no-wrap.truncate(v-if="noResults" data-test="tab-transcripts--search-controls--no-results") {{ $t('TRANSCRIPTS.NO_SEARCH_RESULTS') }}
         div.flex.flex-no-wrap.w-24(v-else)
-          button.block.px-2(@click="previousSearchResult")
+          button.block.px-2(@click="previousSearchResult" data-test="tab-transcripts--search-controls--previous")
             icon(type="chevron-left")
-          span.whitespace-no-wrap.block.stepper {{ searchSelected + 1 }} / {{ searchResults.length - 1 }}
-          button.block.px-2(@click="nextSearchResult")
+          span.whitespace-no-wrap.block.stepper(data-test="tab-transcripts--search-results") {{ searchSelected + 1 }} / {{ searchResults.length }}
+          button.block.px-2(@click="nextSearchResult" data-test="tab-transcripts--search-controls--next")
             icon(type="chevron-right")
-    button.block.rounded-sm.whitespace-no-wrap.text-sm.px-4.py-2.ml-2.border.w-32.shadow(:style="buttonStyle" @click="toggleFollow" :class="{ 'mobile:hidden': searchControls }") {{ follow ? $t('TRANSCRIPTS.FOLLOW.ACTIVE') : $t('TRANSCRIPTS.FOLLOW.INACTIVE') }}
+    button.block.rounded-sm.whitespace-no-wrap.text-sm.px-4.py-2.ml-2.border.w-32.shadow(:style="buttonStyle" @click="toggleFollow" :class="{ 'mobile:hidden': searchControls }"  data-test="tab-transcripts--follow") {{ follow ? $t('TRANSCRIPTS.FOLLOW.ACTIVE') : $t('TRANSCRIPTS.FOLLOW.INACTIVE') }}
 </template>
 
 <script>

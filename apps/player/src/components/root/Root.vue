@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.antialiased(:style="{ background, ...font }")
+  div.antialiased(:style="{ background, ...font }" data-test="root")
     slot
     font(v-for="(font, index) in fonts" :key="index" :src="font.src" :name="font.name" :weight="font.weight")
 </template>

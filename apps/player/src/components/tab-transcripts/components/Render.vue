@@ -1,5 +1,5 @@
 <template lang="pug">
-   div.overflow-auto.body(class="mobile:p-4 tablet:p-6" :style="heightByIndex(0, prerender.length - 1)" @scroll="renderWindow()" @mousewheel="disableFollow()" @DOMMouseScroll="disableFollow()")
+   div.overflow-auto.body(class="mobile:p-4 tablet:p-6" :style="heightByIndex(0, prerender.length - 1)" @scroll="renderWindow()" @mousewheel="disableFollow()" @DOMMouseScroll="disableFollow()" data-test="tab-transcripts--results")
       div(:style="{ height: heightByIndex(0, start) + 'px' }")
       div(:style="{ height: heightByIndex(start, end) + 'px' }")
         transcript-entry(
@@ -18,6 +18,7 @@
           @onClick="onClick"
           @onMouseOver="onMouseOver"
           @onMouseLeave="onMouseLeave"
+          data-test="tab-transcripts--entry"
         )
       div(:style="{ height: heightByIndex(end, prerender.length - 1) + 'px' }")
 </template>

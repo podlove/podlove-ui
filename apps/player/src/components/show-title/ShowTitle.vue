@@ -1,7 +1,7 @@
 <template lang="pug">
-  h1#show-title(:style="style")
-    a(:href="link" :target="target" v-if="link") {{ title }}
-    span(v-else) {{ title }}
+  h1(:style="style" data-test="show-title")
+    a(:href="link" :target="target" v-if="link" data-test="show-title--link") {{ title }}
+    span(v-else data-test="show-title--text") {{ title }}
 </template>
 
 <script>

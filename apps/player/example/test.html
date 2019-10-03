@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="app"></div>
+  </div>
+
+  <script>
+    const loadApplication = () => {
+      const script = document.createElement('script')
+
+      script.src = 'bootstrap.js'
+
+      return new Promise(resolve => {
+        script.addEventListener('load', () => {
+          resolve(window.PODLOVE_STORE)
+        }, false)
+
+        document.getElementsByTagName('head')[0].appendChild(script)
+      })
+    }
+
+    const initState = payload => store =>
+      new Promise(resolve => {
+        store.subscribe(() => {
+          const state = store.getState()
+
+          if (state.lastAction.type === 'PLAYER_CONSTRUCTED') {
+            resolve(store)
+          }
+        })
+
+        store.dispatch({ type: 'PLAYER_INIT', payload })
+      })
+
+    window.BOOTSTRAP = (template = '', state = {}) => {
+      const app = document.getElementById('app')
+      app.innerHTML = template
+
+      return loadApplication().then(initState(state))
+    }
+  </script>
+
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</body>

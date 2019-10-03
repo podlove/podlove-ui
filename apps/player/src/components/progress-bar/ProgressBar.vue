@@ -13,6 +13,7 @@
       :chapters="chapters"
       :quantiles="quantiles"
       :title="$t('A11Y.PROGRESSBAR_INPUT')"
+      data-test="progress-bar"
     )
 </template>
 

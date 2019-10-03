@@ -55,12 +55,8 @@ module.exports = {
       filename: 'index.html',
       template: './example/index.html'
     }),
-    plugins.html({
-      filename: 'test.html',
-      template: './example/index.html',
-      chunks: ['bootstrap']
-    }),
     plugins.copy([
+      { from: './example/test.html' },
       { from: './example/assets', to: 'assets' },
       { from: './example/episodes', to: 'episodes'},
       { from: './example/transcripts.json' }

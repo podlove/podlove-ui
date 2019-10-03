@@ -3,6 +3,7 @@
     :title="title"
     @click="toggle"
     v-if="visibleTab"
+    data-test="tab-trigger"
   )
     span.block.absolute.top-0
       slot

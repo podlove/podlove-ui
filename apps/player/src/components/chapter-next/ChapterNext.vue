@@ -1,5 +1,5 @@
 <template lang="pug">
-    chapter-button(v-if="chapterButtons" type="next" :disabled="nextChapterDisabled" :color="color" @click="dispatch")
+  chapter-button(v-if="chapterButtons" type="next" :disabled="nextChapterDisabled" :color="color" @click="dispatch" data-test="chapter-next")
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template lang="pug">
-  button(@click="nextRate" @dblclick="setRate(1)")
-    icon(:type="icon" :color="color")
+  button(@click="nextRate" @dblclick="setRate(1)" data-test="speed-control")
+    icon(:type="icon" :color="color" :data-test="`speed-control--${icon}`")
 </template>
 
 <script>

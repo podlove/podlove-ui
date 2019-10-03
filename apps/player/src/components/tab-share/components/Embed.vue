@@ -1,10 +1,10 @@
 <template lang="pug">
-  div#share-tab--share-embed
+  div(data-test="tab-share--embed")
     h3.mb-2(:style="font") {{ $t('SHARE.EMBED.TITLE') }}
     div.flex.w-full
-      input.block.text-sm.p-1.rounded-sm.mr-2.w-full#tab-share--share-embed--input(:disabled="true" :value="embedCode" :style="{ color: contrast, background }")
+      input.block.text-sm.p-1.rounded-sm.mr-2.w-full.border(:disabled="true" :value="embedCode" :style="{ color: contrast, background, 'border-color': brandColor }" data-test="tab-share--embed--input")
       tooltip(:content="$t('MESSAGES.COPIED')" trigger="click" @click="copyCode" :color="brandColor")
-        button.block.px-8.py-2.text-sm.p-1.rounded-sm.mr-2.w-full(:style="{ color: brandColor, background, ...font }")
+        button.block.px-8.py-2.text-sm.p-1.rounded-sm.mr-2.w-full.border(:style="{ color: brandColor, background, ...font, 'border-color': brandColor }")
           span(aria-hidden="true") {{ $t('SHARE.ACTIONS.COPY') }}
           span.hidden.invisible {{ $t('A11Y.COPY_SHARE_LINK') }}
 </template>
