@@ -1,10 +1,13 @@
 <template lang="pug">
-  div.contributors(v-if="contributors.length > 0")
-    h3.title {{ $t('INFO.ON_AIR') }}
-    ul.list#tab-info--contributors
-      li.contributor(v-for="(contributor, index) in contributors" :key="index")
-        img.shadowed.avatar(:src="contributor.avatar" title="contributor.name" :alt="$t('A11Y.CONTRIBUTOR_COVER', { name: contributor.name })")
-        span.name {{ contributor.name }}
+  div(v-if="Object.keys(groups).length > 0")
+    div.contributors(v-for="title in Object.keys(groups)" :key="title")
+      h3.title {{ title }}
+      ul.list#tab-info--contributors
+        li.contributor(v-for="(contributor, index) in groups[title]" :key="index")
+          img.shadowed.avatar(:src="contributor.avatar" title="contributor.name" :alt="$t('A11Y.CONTRIBUTOR_COVER', { name: contributor.name })")
+          div.personal-info
+            span.name {{ contributor.name }}
+            span.role {{ contributor.role && contributor.role.title }}
 </template>
 
 <script>
@@ -14,7 +17,21 @@ import select from 'store/selectors'
 export default {
   data: mapState({
     contributors: select.contributors
-  })
+  }),
+  computed: {
+    groups: function() {
+      const contributorList = this.contributors.map(contributor => contributor.group.title)
+      const uniqueGroups = new Set(contributorList)
+      const groupsWithContributors = {}
+      for (const groupTitle of uniqueGroups.values()) {
+        const groupContributers = this.contributors.filter(
+          contributor => contributor.group.title === groupTitle
+        )
+        groupsWithContributors[groupTitle] = groupContributers
+      }
+      return groupsWithContributors
+    }
+  }
 }
 </script>
 
@@ -42,9 +59,14 @@ export default {
     margin: $margin / 4;
   }
 
-  .name {
+  .personal-info span {
     display: block;
     margin: $margin / 4;
+
+    &.role {
+      font-style: italic;
+      font-size: smaller;
+    }
   }
 }
 
