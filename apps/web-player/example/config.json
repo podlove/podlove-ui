@@ -103,6 +103,6 @@
     "mail",
     "link"
   ],
-  "base": "//podlove-player-next.surge.sh",
-  "share": "//podlove-player-next.surge.sh/share.html"
+  "base": "/",
+  "share": "/share.html"
 }

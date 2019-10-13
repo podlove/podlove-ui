@@ -14,17 +14,20 @@ const fetchTemplate = async node => {
     return await variant(type)
   }
 
-  return node.innerHTML
+  if (node.innerHTML) {
+    return node.innerHTML
+  }
+
+  return variant('xl')
 }
 
 export default async selector => {
   const node = findNode(selector)
   const content = node.innerHTML
-  const template = (await fetchTemplate(node)) || (await variant('xl'))
 
   return {
     node,
-    template,
+    template: await fetchTemplate(node),
 
     init() {
       node.innerHTML = ''

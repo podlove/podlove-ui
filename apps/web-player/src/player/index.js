@@ -1,4 +1,4 @@
-/* global BASE, PLAYER_STYLES, PLAYER_SCRIPTS, MODE */
+/* global BASE, PLAYER_STYLES, PLAYER_SCRIPTS, MODE, resourceBaseUrl */
 
 import { propOr, prop, curry } from 'ramda'
 import { setAttributes, setStyles } from '@podlove/utils/dom'
@@ -29,9 +29,8 @@ const setAccessibilityAttributes = curry((config, node) => {
 })
 
 export const create = async (config, target) => {
-  const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config.reference)
   const playerDom = template({
-    base: `${reference}player/${version}/`,
+    base: `${window.resourceBaseUrl}player/${version}/`,
     styles: PLAYER_STYLES,
     scripts: PLAYER_SCRIPTS,
     template: target.template,

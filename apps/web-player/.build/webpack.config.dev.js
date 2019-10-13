@@ -49,11 +49,6 @@ module.exports = {
       exclude: ['share']
     }),
     plugins.html({
-      filename: 'test.html',
-      template: './example/test.html',
-      exclude: ['share', 'extensions/external-events']
-    }),
-    plugins.html({
       files: {
         styles: ['styles'],
         scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
@@ -98,9 +93,9 @@ module.exports = {
       {
         from: './example/playlist.json'
       },
-      { from: './example/assets', to: 'assets' },
       { from: './example/episodes', to: 'episodes' },
-      { from: './example/fonts', to: 'fonts' }
+      { from: './example/fonts', to: 'fonts' },
+      { from: './example/test', to: 'test' }
     ])
   ]
 }

@@ -5,7 +5,6 @@ import { TOGGLE_TAB } from '@podlove/player-actions/types'
 
 export const INITIAL_STATE = {
   chapters: false,
-  audio: false,
   share: false,
   files: false,
   info: false,

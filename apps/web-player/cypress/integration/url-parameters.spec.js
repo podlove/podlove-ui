@@ -1,74 +1,56 @@
-describe('Url Parameters', () => {
-  beforeEach(cy.bootstrap)
+describe('url-parameters', () => {
+  beforeEach(cy.setup)
 
-  describe('Start Time', () => {
-    beforeEach(function() {
-      cy.embed(Object.assign({}, this.episode, this.audio, this.show, this.chapters), {
-        t: '00:02'
+  describe('start time', () => {
+    let store
+
+    beforeEach(() => {
+      cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json', params: { t: '00:02' }}).then(app => {
+        store = app
       })
     })
 
-    it('should show the play button', () => {
-      cy.get('iframe')
-        .iframe()
-        .find('#play-button--play')
-    })
-
-    it('should start the player at a given time', () => {
-      cy.get('iframe')
-        .iframe()
-        .find('#progress-bar--timer-current')
-        .contains('00:03')
+    it('should set the start time', () => {
+      expect(store.getState().timepiece.playtime).to.equal(2000)
     })
   })
 
-  describe('End Time', () => {
-    beforeEach(function() {
-      cy.embed(Object.assign({}, this.episode, this.audio, this.show, this.chapters), {
-        t: '00:01,00:03'
+  describe('end time', () => {
+    let store
+
+    beforeEach(() => {
+      cy.embed('<div></div>', { episode: '/test/episode.json', config: '/test/config.json', params: { t: '00:01,00:02' }}).then(app => {
+        store = app
       })
     })
 
-    it('should show the play button', () => {
-      cy.get('iframe')
-        .iframe()
-        .find('#play-button--play')
+    it('should set the start time', () => {
+      expect(store.getState().timepiece.playtime).to.equal(1000)
     })
 
-    it('should start the player at a given time', () => {
-      cy.get('iframe')
-        .iframe()
-        .find('#progress-bar--timer-current')
-        .contains('00:02')
-    })
+    it('should stop at the given time', () => {
+      store.dispatch({ type: 'PLAYER_REQUEST_PLAY' })
 
-    it('should end the player at a given time', () => {
-      cy.get('iframe')
-        .iframe()
-        .find('#play-button--play')
-        .click()
-      cy.wait(2000)
-      cy.get('iframe')
-        .iframe()
-        .find('#play-button--play')
-      cy.get('iframe')
-        .iframe()
-        .find('#progress-bar--timer-current')
-        .contains('00:04')
+      cy.wait(10000).then(() => {
+        expect(store.getState().timepiece.playtime).to.be.lt(4000)
+        expect(store.getState().timepiece.playtime).to.be.gt(2000)
+      })
     })
   })
 
-  describe('Autoplay', () => {
-    beforeEach(function() {
-      cy.embed(Object.assign({}, this.episode, this.audio, this.show, this.chapters), {
-        autoplay: true
+  describe('autoplay', () => {
+    let store
+
+    beforeEach(() => {
+      cy.embed('<div></div>', { episode: '/test/episode.json', config: '/test/config.json', params: { autoplay: true }}).then(app => {
+        store = app
       })
     })
 
-    it('should play the episode instantly', () => {
-      cy.get('iframe')
-        .iframe()
-        .find('#play-button--pause')
+    it('should dispatch the play action on start', () => {
+      cy.wait(5000).then(() => {
+        expect(store.getState().timepiece.playtime).to.be.gt(0)
+      })
     })
   })
 })

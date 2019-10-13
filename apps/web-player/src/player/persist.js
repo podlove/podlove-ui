@@ -5,9 +5,10 @@ import { restore } from '@podlove/player-actions/lifecycle'
 import { showPauseButton } from '@podlove/player-actions/components'
 import { loadQuantiles } from '@podlove/player-actions/quantiles'
 import { toggleTab } from '@podlove/player-actions/tabs'
-import { compose, propOr, isEmpty } from 'ramda'
+import { compose, propOr, isEmpty, curry } from 'ramda'
 import LocalStorage from 'localstorage'
 import { hashCode } from 'hashcode'
+import { ready } from './store'
 
 const selectPlaytime = compose(
   selectors.playtime,
@@ -18,29 +19,7 @@ const selectQuantiles = propOr([], 'quantiles')
 
 const selectTabs = propOr({}, 'tabs')
 
-export const persistPlayer = (config, store) => {
-  const storage = new LocalStorage('pwp-')
-  const key = hashCode().value(config)
-  const [, existing = {}] = storage.get(key)
-
-  if (!isEmpty(existing)) {
-    store.dispatch(restore())
-    store.dispatch(showPauseButton())
-  }
-
-  if (existing.tabs) {
-    const tab = Object.keys(existing.tabs).find(tab => existing.tabs[tab])
-    store.dispatch(toggleTab(tab))
-  }
-
-  if (existing.playtime) {
-    store.dispatch(requestPlaytime(existing.playtime))
-  }
-
-  if (existing.quantiles) {
-    store.dispatch(loadQuantiles(existing.quantiles))
-  }
-
+const recordState = curry((key, storage, store) => {
   store.subscribe(
     throttle(() => {
       const state = store.getState()
@@ -51,4 +30,38 @@ export const persistPlayer = (config, store) => {
       storage.put(key, { playtime, tabs, quantiles })
     }, 1000)
   )
+})
+
+export const persistPlayer = (config, store) => {
+  const storage = new LocalStorage('pwp-')
+  const key = hashCode().value(config)
+  const [_, existing = {}] = storage.get(key)
+  const record = recordState(key, storage)
+
+  ready(() => {
+    const { tabs } = store.getState()
+
+    if (!isEmpty(existing)) {
+      store.dispatch(restore())
+      store.dispatch(showPauseButton())
+    }
+
+    if (existing.tabs) {
+      const tab = Object.keys(existing.tabs).find(tab => existing.tabs[tab])
+      // prevent double toggling
+      if (!tabs[tab]) {
+        store.dispatch(toggleTab(tab))
+      }
+    }
+
+    if (existing.playtime) {
+      store.dispatch(requestPlaytime(existing.playtime))
+    }
+
+    if (existing.quantiles) {
+      store.dispatch(loadQuantiles(existing.quantiles))
+    }
+
+    record(store)
+  }, store)
 }

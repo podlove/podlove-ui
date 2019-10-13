@@ -5,17 +5,19 @@ import { init as buttonInit } from '@podlove/button-actions/lifecycle'
 
 import { version } from '../package'
 
+import * as context from './lib/context'
 import canvas from './lib/canvas'
 import { parseConfig } from './lib/config'
 import * as player from './player'
 import * as subscribeButton from './subscribe-button'
 
 const podlovePlayer = async (selector, episode, meta) => {
+  const config = await parseConfig(episode, meta)
+  context.create(config)
   const target = await canvas(selector)
 
   try {
     target.init()
-    const config = await parseConfig(episode, meta)
     const playerStore = await player.create(config, target)
     const buttonStore = await subscribeButton.create(config, target)
 

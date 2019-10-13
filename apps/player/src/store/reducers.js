@@ -26,8 +26,10 @@ import { reducer as playstate } from '@podlove/player-state/playstate'
 import { reducer as playlist } from '@podlove/player-state/playlist'
 import { reducer as subscribeButton } from '@podlove/player-state/subscribe-button'
 import { reducer as channels } from '@podlove/player-state/channels'
+import { reducer as lifecycle } from '@podlove/player-state/lifecycle'
 
 export default combineReducers({
+  lifecycle,
   runtime,
   theme,
   show,
