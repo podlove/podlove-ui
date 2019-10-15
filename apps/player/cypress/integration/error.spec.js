@@ -6,7 +6,7 @@ describe('<error>', () => {
   let assert, dispatch
 
   beforeEach(cy.setup)
-  beforeEach(function () {
+  beforeEach(function() {
     cy.bootstrap('<error></error>', [this.audio]).then(store => {
       dispatch = store.dispatch
       assert = onUpdate(store)
@@ -14,14 +14,13 @@ describe('<error>', () => {
   })
 
   describe('render', () => {
-    it('should not render when no error is available', function () {
+    it('should not render when no error is available', function() {
       cy.select('error').should('not.exist')
     })
 
     it('should not render when an error is available', () => {
       assert('PLAYER_SHOW_ERROR', () => {
         cy.select('error').should('exist')
-
       })
 
       dispatch({
@@ -36,7 +35,9 @@ describe('<error>', () => {
 
     it('should set the background color', () => {
       assert('PLAYER_SHOW_ERROR', () => {
-        cy.select('error').should('have.css', 'background').and('be', 'rgb(35, 89, 115)')
+        cy.select('error')
+          .should('have.css', 'background')
+          .and('be', 'rgb(35, 89, 115)')
       })
 
       dispatch({
@@ -76,7 +77,7 @@ describe('<error>', () => {
       dispatch({
         type: 'PLAYER_SHOW_ERROR',
         payload: {
-          message: 'Error Message',
+          message: 'Error Message'
         }
       })
     })

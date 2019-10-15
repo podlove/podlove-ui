@@ -2,26 +2,28 @@
 /* globals cy */
 const { onUpdate } = require('../helpers/state')
 
-
 describe('<play-button>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    it('should render', function () {
+    it('should render', function() {
       cy.bootstrap('<play-button></play-button>').then(() => {
         cy.select('play-button').should('be.visible')
       })
     })
 
-    it('should render the duration', function () {
+    it('should render the duration', function() {
       cy.bootstrap('<play-button></play-button>', [{ duration: '1:11:11' }]).then(() => {
         cy.select('play-button').should('contain', '1:11:11')
       })
     })
 
-    it('should set the background color', function () {
+    it('should set the background color', function() {
       cy.bootstrap('<play-button></play-button>', [this.theme]).then(() => {
-        cy.select('play-button').find('.wrapper').should('have.css', 'background').and('be', 'rgb(35, 89, 115)')
+        cy.select('play-button')
+          .find('.wrapper')
+          .should('have.css', 'background')
+          .and('be', 'rgb(35, 89, 115)')
       })
     })
   })
@@ -29,7 +31,9 @@ describe('<play-button>', () => {
   describe('interface', () => {
     it('should set the label', () => {
       cy.bootstrap('<play-button label="Custom Label"></play-button>').then(() => {
-        cy.select('play-button').find('.label').should('contain', 'Custom Label')
+        cy.select('play-button')
+          .find('.label')
+          .should('contain', 'Custom Label')
       })
     })
   })
@@ -37,8 +41,8 @@ describe('<play-button>', () => {
   describe('logic', () => {
     let dispatch, assert
 
-    beforeEach(function () {
-      cy.bootstrap('<play-button></play-button>', [this.episode, this.audio]).then((app) => {
+    beforeEach(function() {
+      cy.bootstrap('<play-button></play-button>', [this.episode, this.audio]).then(app => {
         assert = onUpdate(app)
         dispatch = app.dispatch
       })

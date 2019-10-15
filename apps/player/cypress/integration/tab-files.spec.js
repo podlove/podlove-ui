@@ -15,17 +15,17 @@ describe('<tab-files>', () => {
     })
 
     describe('list', () => {
-      it(`shouldn't render entries if no files are available`, function () {
+      it(`shouldn't render entries if no files are available`, function() {
         cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme])
         cy.select('tab-files--download').should('have.length', 0)
       })
 
-      it(`should render entries if files are available`, function () {
+      it(`should render entries if files are available`, function() {
         cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
         cy.select('tab-files--download').should('have.length', this.audio.audio.length)
       })
 
-      it(`should render the entries in the right order`, function () {
+      it(`should render the entries in the right order`, function() {
         cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
         cy.select('tab-files--download').then(nodes => {
           this.audio.audio.forEach((audio, index) => {
@@ -40,10 +40,12 @@ describe('<tab-files>', () => {
   describe('logic', () => {
     let assert
 
-    beforeEach(function () {
-      cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio]).then(app => {
-        assert = onUpdate(app)
-      })
+    beforeEach(function() {
+      cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio]).then(
+        app => {
+          assert = onUpdate(app)
+        }
+      )
     })
 
     describe('title', () => {

@@ -5,11 +5,11 @@ describe('<root>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    beforeEach(function () {
+    beforeEach(function() {
       cy.bootstrap('<root style="width: 250px; height: 250px;"></root>', [this.theme])
     })
 
-    it('should render the root element', function () {
+    it('should render the root element', function() {
       cy.select('root').should('exist')
     })
 
@@ -24,8 +24,11 @@ describe('<root>', () => {
   })
 
   describe('slot', () => {
-    beforeEach(function () {
-      cy.bootstrap('<root style="width: 250px; height: 250px;"><div data-test="inner">Inner Element</div></root>', [this.theme])
+    beforeEach(function() {
+      cy.bootstrap(
+        '<root style="width: 250px; height: 250px;"><div data-test="inner">Inner Element</div></root>',
+        [this.theme]
+      )
     })
 
     it('should show the slot content', () => {

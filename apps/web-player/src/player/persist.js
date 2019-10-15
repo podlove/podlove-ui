@@ -35,7 +35,7 @@ const recordState = curry((key, storage, store) => {
 export const persistPlayer = (config, store) => {
   const storage = new LocalStorage('pwp-')
   const key = hashCode().value(config)
-  const [_, existing = {}] = storage.get(key)
+  const [, existing = {}] = storage.get(key)
   const record = recordState(key, storage)
 
   ready(() => {

@@ -1,6 +1,6 @@
-/* global BASE, PLAYER_STYLES, PLAYER_SCRIPTS, MODE, resourceBaseUrl */
+/* global PLAYER_STYLES, PLAYER_SCRIPTS */
 
-import { propOr, prop, curry } from 'ramda'
+import { prop, curry } from 'ramda'
 import { setAttributes, setStyles } from '@podlove/utils/dom'
 import { sandbox, sandboxWindow, resize } from '@podlove/utils/sandbox'
 import { iframeResizer } from 'iframe-resizer'

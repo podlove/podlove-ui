@@ -17,29 +17,19 @@ const fonts = {
     name: 'CiFont',
     family: ['CiFont'],
     weight: 800,
-    src: [
-      './ci/font/src'
-    ]
+    src: ['./ci/font/src']
   },
   regular: {
     name: 'RegularFont',
-    family: [
-      'RegularFont'
-    ],
+    family: ['RegularFont'],
     weight: 300,
-    src: [
-      './regular/font/src'
-    ]
+    src: ['./regular/font/src']
   },
   bold: {
     name: 'BoldFont',
-    family: [
-      'BoldFont'
-    ],
+    family: ['BoldFont'],
     weight: 700,
-    src: [
-      './bold/font/src'
-    ]
+    src: ['./bold/font/src']
   }
 }
 
@@ -50,7 +40,7 @@ describe('theme', () => {
 
   const actions = [CONSTRUCTED, SET_THEME]
 
-  actions.forEach((type) => {
+  actions.forEach(type => {
     test(`theme: it sets the fonts on ${type}`, () => {
       let result = theme(INITIAL_STATE, {
         type,

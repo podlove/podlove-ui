@@ -1,7 +1,8 @@
 const { prop } = require('ramda')
 
 const getItem = key =>
-  cy.window()
+  cy
+    .window()
     .then(win => win.localStorage)
     .then(storage => {
       let item
@@ -21,7 +22,7 @@ const getItem = key =>
     .then(item => JSON.parse(item))
     .then(prop(key))
 
-const mock = (value = {}) => cy.window()
-  .then(win => win.localStorage.getItem = () => JSON.stringify(value))
+const mock = (value = {}) =>
+  cy.window().then(win => (win.localStorage.getItem = () => JSON.stringify(value)))
 
 module.exports = { getItem, mock }

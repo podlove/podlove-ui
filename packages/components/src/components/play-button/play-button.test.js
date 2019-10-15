@@ -5,10 +5,10 @@ import PlayButton from './PlayButton'
 describe('PlayButton', () => {
   beforeEach(() => {
     global.MutationObserver = class {
-      constructor(callback) {}
+      constructor() {}
       disconnect() {}
-      observe(element, initObject) {}
-  };
+      observe() {}
+    }
   })
 
   describe('component', () => {

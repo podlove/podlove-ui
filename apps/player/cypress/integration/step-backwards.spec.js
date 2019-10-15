@@ -5,7 +5,7 @@ describe('<step-backward>', () => {
   let assert, dispatch
 
   beforeEach(cy.setup)
-  beforeEach(function () {
+  beforeEach(function() {
     cy.bootstrap('<step-backward></step-backward>', [this.theme]).then(app => {
       assert = onUpdate(app)
       dispatch = app.dispatch
@@ -36,14 +36,15 @@ describe('<step-backward>', () => {
     })
 
     it('should jump 15 seconds back', done => {
-      cy.bootstrap('<step-backward></step-backward>', [this.theme, { playtime: 15000 }]).then(app => {
-        onUpdate(app, 'PLAYER_REQUEST_PLAYTIME', (_, { payload }) => {
-          expect(payload).to.equal(0)
-          done()
-        })
-        cy.select('step-backward').click()
-      })
+      cy.bootstrap('<step-backward></step-backward>', [this.theme, { playtime: 15000 }]).then(
+        app => {
+          onUpdate(app, 'PLAYER_REQUEST_PLAYTIME', (_, { payload }) => {
+            expect(payload).to.equal(0)
+            done()
+          })
+          cy.select('step-backward').click()
+        }
+      )
     })
   })
 })
-

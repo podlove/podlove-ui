@@ -5,7 +5,11 @@ describe('url-parameters', () => {
     let store
 
     beforeEach(() => {
-      cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json', params: { t: '00:02' }}).then(app => {
+      cy.embed('<div></div>', {
+        episode: '/episode.json',
+        config: '/test/config.json',
+        params: { t: '00:02' }
+      }).then(app => {
         store = app
       })
     })
@@ -19,7 +23,11 @@ describe('url-parameters', () => {
     let store
 
     beforeEach(() => {
-      cy.embed('<div></div>', { episode: '/test/episode.json', config: '/test/config.json', params: { t: '00:01,00:02' }}).then(app => {
+      cy.embed('<div></div>', {
+        episode: '/test/episode.json',
+        config: '/test/config.json',
+        params: { t: '00:01,00:02' }
+      }).then(app => {
         store = app
       })
     })
@@ -42,7 +50,11 @@ describe('url-parameters', () => {
     let store
 
     beforeEach(() => {
-      cy.embed('<div></div>', { episode: '/test/episode.json', config: '/test/config.json', params: { autoplay: true }}).then(app => {
+      cy.embed('<div></div>', {
+        episode: '/test/episode.json',
+        config: '/test/config.json',
+        params: { autoplay: true }
+      }).then(app => {
         store = app
       })
     })

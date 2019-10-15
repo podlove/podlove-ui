@@ -1,5 +1,3 @@
-const { select } = require('../helpers/selectors')
-
 describe('embedding', () => {
   beforeEach(cy.setup)
 
@@ -9,7 +7,7 @@ describe('embedding', () => {
       cy.select('player').should('exist')
     })
 
-    it('should accept plain config objects', function () {
+    it('should accept plain config objects', function() {
       cy.embed('<div></div>', { episode: this.episode, config: this.config })
       cy.select('player').should('exist')
     })
@@ -31,17 +29,26 @@ describe('embedding', () => {
 
   describe('resolution', () => {
     it('should have a default width of 300px', () => {
-      cy.embed('<div data-test="embed-frame"></div>', { episode: '/episode.json', config: '/test/config.json' })
+      cy.embed('<div data-test="embed-frame"></div>', {
+        episode: '/episode.json',
+        config: '/test/config.json'
+      })
       cy.select('player').then(element => expect(element.width()).to.equal(300))
     })
 
     it('should have a minimal width of 260px', () => {
-      cy.embed('<div data-test="embed-frame" style="width: 240px;"></div>', { episode: '/episode.json', config: '/test/config.json' })
+      cy.embed('<div data-test="embed-frame" style="width: 240px;"></div>', {
+        episode: '/episode.json',
+        config: '/test/config.json'
+      })
       cy.select('player').then(element => expect(element.width()).to.equal(260))
     })
 
     it('should have a maximum width of 900px', () => {
-      cy.embed('<div data-test="embed-frame" style="width: 1337px;"></div>', { episode: '/episode.json', config: '/test/config.json' })
+      cy.embed('<div data-test="embed-frame" style="width: 1337px;"></div>', {
+        episode: '/episode.json',
+        config: '/test/config.json'
+      })
       cy.select('player').then(element => expect(element.width()).to.equal(900))
     })
   })

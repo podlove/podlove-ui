@@ -1,12 +1,12 @@
 /* eslint-env mocha */
-/* globals cy,expect */
+/* globals cy */
 const { onUpdate } = require('../helpers/state')
 
 describe('<timer-duration>', () => {
   let dispatch, assert
 
   beforeEach(cy.setup)
-  beforeEach(function () {
+  beforeEach(function() {
     cy.bootstrap('<timer-duration></timer-duration>', [this.theme, this.episode]).then(app => {
       dispatch = app.dispatch
       assert = onUpdate(app)

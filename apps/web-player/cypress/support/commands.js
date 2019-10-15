@@ -1,6 +1,6 @@
 const { select } = require('../helpers/selectors')
 
-Cypress.Commands.add('setup', async function () {
+Cypress.Commands.add('setup', async function() {
   this.episode = await fetch('/episode.json').then(data => data.json())
   this.chapters = await fetch('/chapters.json').then(data => data.json())
   this.transcripts = await fetch('/transcripts.json').then(data => data.json())
@@ -14,7 +14,7 @@ Cypress.Commands.add('embed', (template = '', { episode, config, params, context
     .join('&')
 
   cy.visit(`/test/embed.html${query ? '?' + query : ''}`, {
-    onBeforeLoad (win) {
+    onBeforeLoad(win) {
       if (typeof context === 'function') {
         context(win)
       }
@@ -32,7 +32,7 @@ Cypress.Commands.add('share', ({ episode, config, params, context } = {}) => {
     .join('&')
 
   cy.visit(`/share.html${query ? '?' + query : ''}`, {
-    onBeforeLoad (win) {
+    onBeforeLoad(win) {
       if (typeof context === 'function') {
         context(win)
       }
@@ -42,4 +42,11 @@ Cypress.Commands.add('share', ({ episode, config, params, context } = {}) => {
   cy.window().then(win => win.PODLOVE_STORE)
 })
 
-Cypress.Commands.add('select', (selector) => cy.get('iframe').then(iframe => iframe.contents().find('body').find(select(selector))))
+Cypress.Commands.add('select', selector =>
+  cy.get('iframe').then(iframe =>
+    iframe
+      .contents()
+      .find('body')
+      .find(select(selector))
+  )
+)

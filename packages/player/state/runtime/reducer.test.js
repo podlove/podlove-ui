@@ -7,8 +7,6 @@ import {
   READY
 } from '@podlove/player-actions/types'
 
-import { language } from '@podlove/player-config'
-
 describe('runtime', () => {
   test(`it is a reducer function`, () => {
     expect(typeof reducer).toBe('function')

@@ -19,10 +19,9 @@ Cypress.Commands.add('bootstrap', (template = '', stateFragments = []) => {
   const state = stateFragments.reduce((result, item) => Object.assign({}, result, item), {})
 
   cy.visit('/test.html')
-  cy.window().then((win) => {
+  cy.window().then(win => {
     return win.BOOTSTRAP(template, state)
   })
 })
 
-
-Cypress.Commands.add('select', (selector) => cy.get(select(selector)))
+Cypress.Commands.add('select', selector => cy.get(select(selector)))

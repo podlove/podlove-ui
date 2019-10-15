@@ -8,7 +8,7 @@ describe('<tab-share>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    beforeEach(function () {
+    beforeEach(function() {
       cy.bootstrap('<tab-share></tab-share>', [this.theme, this.episode, this.reference])
     })
 
@@ -31,17 +31,20 @@ describe('<tab-share>', () => {
         cy.select('tab-share--channels--link').should('not.exist')
         cy.bootstrap('<tab-share></tab-share>', [this.theme, this.episode, this.reference])
         cy.select('tab-share--channels--link').should('exist')
-
       })
     })
 
     describe('playtime', () => {
       it('should render the playtime checkbox', () => {
-        cy.select('tab-share--playtime').find('input').should('exist')
+        cy.select('tab-share--playtime')
+          .find('input')
+          .should('exist')
       })
 
       it('should render the playtime label', () => {
-        cy.select('tab-share--playtime').find('.label').should('contain', 'Also share current playtime (00:00)')
+        cy.select('tab-share--playtime')
+          .find('.label')
+          .should('contain', 'Also share current playtime (00:00)')
       })
     })
 
@@ -60,11 +63,13 @@ describe('<tab-share>', () => {
   describe('logic', () => {
     let assert, dispatch
 
-    beforeEach(function () {
-      cy.bootstrap(`
+    beforeEach(function() {
+      cy.bootstrap(
+        `
         <tab-share></tab-share>
       `,
-        [this.theme, this.episode, this.audio, this.reference, { playtime: 8000 }]).then(app => {
+        [this.theme, this.episode, this.audio, this.reference, { playtime: 8000 }]
+      ).then(app => {
         assert = onUpdate(app)
         dispatch = app.dispatch
       })
@@ -84,16 +89,21 @@ describe('<tab-share>', () => {
     describe('channels', () => {
       channels.forEach(channel => {
         describe(channel, () => {
-          it('should set the share link', function () {
-            cy.select(`tab-share--channels--${channel}`).find('a').should('have.attr', 'href').and('include', encodeURIComponent(this.episode.link))
+          it('should set the share link', function() {
+            cy.select(`tab-share--channels--${channel}`)
+              .find('a')
+              .should('have.attr', 'href')
+              .and('include', encodeURIComponent(this.episode.link))
           })
 
-          it('should include the playtime in the share link', function (done) {
+          it('should include the playtime in the share link', function(done) {
             assert('PLAYER_SELECT_CONTENT', () => {
-              cy.select(`tab-share--channels--${channel}`).find('a').then(link => {
-                expect(link.attr('href')).to.include(encodeURIComponent('t=00%3A08'))
-                done()
-              })
+              cy.select(`tab-share--channels--${channel}`)
+                .find('a')
+                .then(link => {
+                  expect(link.attr('href')).to.include(encodeURIComponent('t=00%3A08'))
+                  done()
+                })
             })
 
             dispatch({ type: 'PLAYER_SELECT_CONTENT', payload: 'time' })
@@ -103,14 +113,18 @@ describe('<tab-share>', () => {
 
       // Test when copy to clipboard is testable
       describe.skip('link', () => {
-        it('should copy the link', function () {
-          cy.select(`tab-share--channels--link`).find('a').click({ native: true })
+        it('should copy the link', function() {
+          cy.select(`tab-share--channels--link`)
+            .find('a')
+            .click({ native: true })
           // should include this.episode.link
         })
 
-        it('should include the playtime in the share link', function (done) {
+        it('should include the playtime in the share link', function(done) {
           assert('PLAYER_SELECT_CONTENT', () => {
-            cy.select(`tab-share--channels--link`).find('a').click()
+            cy.select(`tab-share--channels--link`)
+              .find('a')
+              .click()
             done()
           })
 
@@ -120,12 +134,18 @@ describe('<tab-share>', () => {
 
       describe('embed', () => {
         it('should contain the correct embed code', () => {
-          cy.select('tab-share--embed--input').should('have.value', '<iframe title="Podlove Web Player: - And until then, I can never die?" height="200" src="http://localhost:8080/share?config=%2F%2Flocalhost%3A8080%2Ffixtures%2Fconfig.json&episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fepisode.json" frameborder="0" scrolling="no" tabindex="0"></iframe>')
+          cy.select('tab-share--embed--input').should(
+            'have.value',
+            '<iframe title="Podlove Web Player: - And until then, I can never die?" height="200" src="http://localhost:8080/share?config=%2F%2Flocalhost%3A8080%2Ffixtures%2Fconfig.json&episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fepisode.json" frameborder="0" scrolling="no" tabindex="0"></iframe>'
+          )
         })
 
         it('should contain the playtime if enabled', () => {
           assert('PLAYER_SELECT_CONTENT', () => {
-            cy.select('tab-share--embed--input').should('have.value', '<iframe title="Podlove Web Player: - And until then, I can never die?" height="200" src="http://localhost:8080/share?config=%2F%2Flocalhost%3A8080%2Ffixtures%2Fconfig.json&episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fepisode.json&t=00%3A08" frameborder="0" scrolling="no" tabindex="0"></iframe>')
+            cy.select('tab-share--embed--input').should(
+              'have.value',
+              '<iframe title="Podlove Web Player: - And until then, I can never die?" height="200" src="http://localhost:8080/share?config=%2F%2Flocalhost%3A8080%2Ffixtures%2Fconfig.json&episode=%2F%2Flocalhost%3A8080%2Ffixtures%2Fepisode.json&t=00%3A08" frameborder="0" scrolling="no" tabindex="0"></iframe>'
+            )
           })
 
           dispatch({ type: 'PLAYER_SELECT_CONTENT', payload: 'time' })
