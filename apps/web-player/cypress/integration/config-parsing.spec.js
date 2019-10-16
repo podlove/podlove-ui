@@ -7,12 +7,16 @@ describe('config parsing', () => {
         episode: { ...this.episode, chapters: '/chapters.json' },
         config: '/test/config.json'
       })
+
       cy.select('player').should('exist')
       cy.select('tab-trigger--chapters').should('exist')
     })
 
     it('should resolve chapters from the episode', function() {
-      cy.embed('<div></div>', { ...this.episode, chapters: this.chapters }, '/test/config.json')
+      cy.embed('<div></div>', {
+        episode: { ...this.episode, chapters: this.chapters },
+        config: '/test/config.json'
+      })
       cy.select('player').should('exist')
       cy.select('tab-trigger--chapters').should('exist')
     })
@@ -67,6 +71,7 @@ describe('config parsing', () => {
           episode: '/episode.json',
           config: { ...this.config, activeTab: tab }
         })
+        cy.wait(100)
         cy.select('player').should('exist')
         cy.select(`tab-${tab}`).should('exist')
       })

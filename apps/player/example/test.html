@@ -28,7 +28,7 @@
 
     const initState = payload => store =>
       new Promise(resolve => {
-        store.subscribe(() => {
+        const subscription = store.subscribe(() => {
           const state = store.getState()
 
           if (state.lastAction.type === 'PLAYER_CONSTRUCTED') {
@@ -37,6 +37,8 @@
         })
 
         store.dispatch({ type: 'PLAYER_INIT', payload })
+        resolve(store)
+        subscription()
       })
 
     window.BOOTSTRAP = (template = '', state = {}) => {
