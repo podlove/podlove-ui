@@ -3,9 +3,7 @@ import {
   toPlayerTime,
   secondsToMilliseconds,
   millisecondsToSeconds,
-  parseDate,
-  localeDate,
-  localeTime
+  parseDate
 } from './time'
 
 describe('time', () => {
@@ -83,26 +81,6 @@ describe('time', () => {
 
     test('should return time in ms when provided a valid date', () => {
       expect(parseDate('1970-01-01T00:00:00.000Z')).toEqual(0)
-    })
-  })
-
-  describe('localeDate()', () => {
-    test('it should return the localized date portion for en', () => {
-      expect(localeDate(0, 'en')).toEqual('1/1/1970')
-    })
-
-    test('it should return the localized date portion for de', () => {
-      expect(localeDate(0, 'de')).toEqual('1.1.1970')
-    })
-  })
-
-  describe('localeTime()', () => {
-    test('it should return the localized time portion for en', () => {
-      expect(localeTime(0, 'en')).toEqual('1:00 AM')
-    })
-
-    test('it should return the localized time portion for de', () => {
-      expect(localeTime(0, 'de')).toEqual('01:00')
     })
   })
 })

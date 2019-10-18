@@ -1,3 +1,4 @@
+import { compose, prop } from 'ramda'
 import { put, takeEvery, select } from 'redux-saga/effects'
 import {
   transcriptsSaga,
@@ -20,6 +21,11 @@ import {
   updateTranscripts,
   setTranscriptsSearchResults
 } from '@podlove/player-actions/transcripts'
+
+const params = compose(
+  prop('args'),
+  prop('payload')
+)
 
 describe('transcripts', () => {
   describe('transcriptsSaga()', () => {
@@ -228,7 +234,10 @@ describe('transcripts', () => {
       gen.next()
       gen.next(speakers)
       gen.next(chapters)
-      expect(gen.next().value).toEqual(takeEvery(BACKEND_PLAYTIME, update, 2))
+
+      const [type, func] = params(gen.next().value)
+      expect(type).toEqual(BACKEND_PLAYTIME)
+      expect(func).toEqual(update)
     })
 
     test('should register update on REQUEST_PLAYTIME', () => {
@@ -236,7 +245,10 @@ describe('transcripts', () => {
       gen.next(speakers)
       gen.next(chapters)
       gen.next()
-      expect(gen.next().value).toEqual(takeEvery(REQUEST_PLAYTIME, update, 2))
+
+      const [type, func] = params(gen.next().value)
+      expect(type).toEqual(REQUEST_PLAYTIME)
+      expect(func).toEqual(update)
     })
 
     test('should register debouncedUpdate on SIMULATE_PLAYTIME', () => {
@@ -245,7 +257,10 @@ describe('transcripts', () => {
       gen.next(chapters)
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(takeEvery(SIMULATE_PLAYTIME, debouncedUpdate, 2))
+
+      const [type, func] = params(gen.next().value)
+      expect(type).toEqual(SIMULATE_PLAYTIME)
+      expect(func).toEqual(debouncedUpdate)
     })
 
     test('should register debouncedUpdate on DISABLE_GHOST_MODE', () => {
@@ -255,9 +270,10 @@ describe('transcripts', () => {
       gen.next()
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(
-        takeEvery(DISABLE_GHOST_MODE, resetToPlaytime, 2, selectPlaytime)
-      )
+
+      const [type, func] = params(gen.next().value)
+      expect(type).toEqual(DISABLE_GHOST_MODE)
+      expect(func).toEqual(resetToPlaytime)
     })
 
     test('should register search on SEARCH_TRANSCRIPTS', () => {
@@ -268,84 +284,10 @@ describe('transcripts', () => {
       gen.next()
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(
-        takeEvery(SEARCH_TRANSCRIPTS, search, [
-          0,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          3,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          4,
-          5
-        ])
-      )
+
+      const [type, func] = params(gen.next().value)
+      expect(type).toEqual(SEARCH_TRANSCRIPTS)
+      expect(func).toEqual(search)
     })
 
     test('should complete the saga', () => {

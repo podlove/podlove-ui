@@ -1,58 +1,58 @@
 {
   "playlist": [
     {
-      "title": "FG070 Nachhaltigkeit und die Stadt",
-      "config": "episodes/fg-70.json",
+      "title": "Playlist Episode 1",
+      "config": "episode.json",
       "duration": "01:28:03.426"
     },
     {
-      "title": "FG069 Islamische \u00c4sthetik",
-      "config": "episodes/fg-69.json",
+      "title": "Playlist Episode 2",
+      "config": "episode.json",
       "duration": "01:25:20.915"
     },
     {
-      "title": "FG068 Risikoforschung",
-      "config": "episodes/fg-68.json",
+      "title": "Playlist Episode 3",
+      "config": "episode.json",
       "duration": "01:38:14.708"
     },
     {
-      "title": "FG067 Datenbasierte Konfliktforschung",
-      "config": "episodes/fg-67.json",
+      "title": "Playlist Episode 4",
+      "config": "episode.json",
       "duration": "01:19:34.995"
     },
     {
-      "title": "FG066 Klimaneutralität",
-      "config": "episodes/fg-66.json",
+      "title": "Playlist Episode 5",
+      "config": "episode.json",
       "duration": "01:40:36.297"
     },
     {
-      "title": "FG065 Feuerökologie",
-      "config": "episodes/fg-65.json",
+      "title": "Playlist Episode 6",
+      "config": "episode.json",
       "duration": "02:27:10.981"
     },
     {
-      "title": "FG064 Ethik und Genetik",
-      "config": "episodes/fg-64.json",
+      "title": "Playlist Episode 7",
+      "config": "episode.json",
       "duration": "01:47:16.900"
     },
     {
-      "title": "FG063 Geothermie",
-      "config": "episodes/fg-63.json",
+      "title": "Playlist Episode 8",
+      "config": "episode.json",
       "duration": "01:56:55.100"
     },
     {
-      "title": "FG062 Leichte Sprache",
-      "config": "episodes/fg-62.json",
+      "title": "Playlist Episode 9",
+      "config": "episode.json",
       "duration": "01:32:04.621"
     },
     {
-      "title": "FG061 Persönlichkeitsentwicklung",
-      "config": "episodes/fg-61.json",
+      "title": "Playlist Episode 10",
+      "config": "episode.json",
       "duration": "00:58:26.860"
     },
     {
-      "title": "FG060 Klimawandel",
-      "config": "episodes/fg-60.json",
+      "title": "Playlist Episode 11",
+      "config": "episode.json",
       "duration": "00:58:26.860"
     }
   ]

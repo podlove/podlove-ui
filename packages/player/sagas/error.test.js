@@ -91,7 +91,6 @@ describe('error', () => {
           showError({
             title: 'ERROR.NETWORK.TITLE',
             message: 'ERROR.NETWORK.MESSAGE',
-            icon: 'missing-connection',
             retry: RETRY_PLAY
           })
         )
@@ -115,8 +114,7 @@ describe('error', () => {
         put(
           showError({
             title: 'ERROR.MEDIA.TITLE',
-            message: 'ERROR.MEDIA.MESSAGE',
-            icon: 'invalid-configuration'
+            message: 'ERROR.MEDIA.MESSAGE'
           })
         )
       )

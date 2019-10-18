@@ -135,7 +135,7 @@
         actions,
         action: {
           type: types.INIT,
-          payload: example
+          payload: episode
         },
         type: types.INIT
       }

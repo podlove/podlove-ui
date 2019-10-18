@@ -17,10 +17,6 @@ describe('search', () => {
     it('should return -1 if the element is smaller than the elements in array', () => {
       expect(binarySearch(data, -2)).toEqual(-1)
     })
-
-    it('should have a fallback for list', () => {
-      expect(binarySearch(undefined, 0)).toEqual(-1)
-    })
   })
 
   describe('textSearch()', () => {
@@ -36,10 +32,6 @@ describe('search', () => {
 
     it('should return an empty array', () => {
       expect(textSearch(data, 'blaa')).toEqual([])
-    })
-
-    it('should have a fallback for list and search', () => {
-      expect(textSearch()).toEqual([])
     })
   })
 })
