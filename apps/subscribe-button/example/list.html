@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      window.addEventListener(
+      'load',
+      () => {
+        const store = window.PODLOVE_STORE
+        store.dispatch({
+          type: 'BUTTON_INIT',
+          payload: {
+            feed: 'https://freakshow.fm/feed/m4a',
+            services: {
+              youtube: 'UCHa2JfCd6sVJQdurd6gYWkA',
+              itunes: 'id277518737'
+            }
+          }
+        })
+
+        store.dispatch({
+          type: "BUTTON_SHOW_OVERLAY"
+        })
+      },
+      false
+    )
+
+    </script>
+  </body>
+</html>

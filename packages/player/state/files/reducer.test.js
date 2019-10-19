@@ -1,11 +1,11 @@
 import { reducer, INITIAL_STATE } from './reducer'
-import { INIT } from '@podlove/player-actions/types'
+import { READY } from '@podlove/player-actions/types'
 
 describe('files', () => {
-  test('extracts files on INIT', () => {
+  test('extracts files on READY', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: INIT,
+        type: READY,
         payload: {
           files: [
             {

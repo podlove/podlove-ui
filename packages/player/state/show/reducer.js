@@ -3,7 +3,7 @@ import { handleActions } from 'redux-actions'
 import { sanitize } from '@podlove/utils/dom'
 import { createObject } from '@podlove/utils/helper'
 
-import { INIT } from '@podlove/player-actions/types'
+import { READY } from '@podlove/player-actions/types'
 
 export const INITIAL_STATE = {
   title: null,
@@ -26,7 +26,7 @@ const change = createObject({
 
 export const reducer = handleActions(
   {
-    [INIT]: (state, { payload }) => ({
+    [READY]: (state, { payload }) => ({
       ...state,
       ...change(payload)
     })

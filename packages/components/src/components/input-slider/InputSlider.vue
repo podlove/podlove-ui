@@ -115,21 +115,19 @@ export default {
 @import 'resets';
 
 .input-slider {
-  @extend %font;
   @include range($height, $thumb-width-desktop, $thumb-width-desktop-hover);
 
   width: 100%;
   position: relative;
   height: $slider-height;
-  margin: 0 1em;
 
   .track {
     display: block;
     width: 100%;
     position: absolute;
     left: 0;
-    top: calc(50% - 1px);
-    height: 3px;
+    top: 50%;
+    height: 2px;
     pointer-events: none;
     background-color: $subtile-color;
     border-radius: 2px;
@@ -140,25 +138,25 @@ export default {
     top: -10px;
     color: $subtile-color;
     font-weight: 500;
-    font-size: 1em;
+    font-size: 0.8em;
     display: block;
     width: 30px;
-    margin-left: -15px;
+    margin-left: $thumb-width-desktop / 2 * -1;
     text-align: center;
   }
 
   .thumb {
     position: absolute;
-    top: calc(50% - 12px);
+    top: calc(50% - 4px);
     border: 1px solid;
-    height: 24px;
-    width: 24px;
+    height: 10px;
+    width: 10px;
     pointer-events: none;
     border-width: 1px;
     border-style: solid;
-    border-radius: 12px;
+    border-radius: 10px;
     border-color: $subtile-color;
-    margin-left: -12px;
+    margin-left: $thumb-width-desktop / 4 * -1;
   }
 }
 </style>

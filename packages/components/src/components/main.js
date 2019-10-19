@@ -16,6 +16,9 @@ import InputText from './input-text'
 import InputGroup from './input-group'
 import InputSelect from './input-select'
 import InputSlider from './input-slider'
+import InputCheckbox from './input-checkbox'
+import Divider from './divider'
+import Font from './font'
 
 export {
   Icon,
@@ -35,5 +38,8 @@ export {
   InputText,
   InputGroup,
   InputSelect,
-  InputSlider
+  InputSlider,
+  InputCheckbox,
+  Divider,
+  Font
 }

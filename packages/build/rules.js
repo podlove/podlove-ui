@@ -1,6 +1,7 @@
-const autoprefixer = require('autoprefixer')
-const cssClean = require('postcss-clean')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const cssClean = require('postcss-clean')
+const tailwind = require('tailwindcss')
+const autoprefixer = require('autoprefixer')
 
 const { prepend } = require('./utils')
 
@@ -15,11 +16,11 @@ const javascript = () => ({
   exclude: [/node_modules/]
 })
 
-const images = prefix => ({
+const images = () => ({
   test: /\.(png|jpg|gif|jpeg|svg)$/,
   loader: 'file-loader',
   options: {
-    name: prepend('[name].[ext]?[hash]', prefix)
+    name: '[contenthash].[ext]'
   }
 })
 
@@ -28,56 +29,48 @@ const mustache = () => ({
   loader: 'mustache-loader?minify'
 })
 
-const vueStyles = ({ includePaths = [], prod = false } = {}) => ({
-  test: /\.scss$/,
-  use: [
-    {
-      loader: prod ? MiniCssExtractPlugin.loader : 'vue-style-loader'
-    },
-    {
+const style = {
+  test: {
+    scss: /\.scss$/,
+    css: /\.css$/,
+    postcss: /\.postcss$/
+  },
+  postcss: {
+    plugins: {
+      clean: cssClean({
+        inline: ['none']
+      }),
+      autoprefixer,
+      tailwind
+    }
+  },
+  loader: {
+    vue: () => ({
+      loader: 'vue-style-loader'
+    }),
+    minify: () => ({
+      loader: MiniCssExtractPlugin.loader
+    }),
+    css: () => ({
       loader: 'css-loader'
-    },
-    {
-      loader: 'postcss-loader',
-      options: {
-        plugins: () => [
-          cssClean({
-            inline: ['none']
-          }),
-          autoprefixer()
-        ]
-      }
-    },
-    {
+    }),
+    sass: ({ includePaths = [] } = {}) => ({
       loader: 'sass-loader',
       options: { includePaths }
-    }
-  ]
-})
-
-const scss = ({ includePaths = [] } = {}) => ({
-  test: /\.scss$/,
-  use: [
-    {
-      loader: 'css-loader'
-    },
-    {
+    }),
+    postcss: ({ plugins = [] } = {}) => ({
       loader: 'postcss-loader',
       options: {
-        plugins: () => [
-          cssClean({
-            inline: ['none']
-          }),
-          autoprefixer()
-        ]
+        ident: 'postcss',
+        plugins
       }
-    },
-    {
-      loader: 'sass-loader',
-      options: { includePaths }
-    }
-  ]
-})
+    })
+  },
+  config: (test, use = []) => ({
+    test,
+    use
+  })
+}
 
 const pug = () => ({
   test: /\.pug$/,
@@ -92,16 +85,37 @@ const fonts = prefix => ({
   }
 })
 
+const url = () => ({
+  test: /\.(png|jpg|gif|svg)$/,
+  loader: 'url-loader',
+  options: {
+    limit: 10000,
+    name: '[name].[ext]?[hash]'
+  }
+})
+
 const handlebars = () => ({ test: /\.hbs$/, loader: 'handlebars-loader' })
+
+const graphql = () => ({ test: /\.graphql?$/, loader: 'webpack-graphql-loader' })
+
+const html = (options = {}) => ({
+  test: /\.(html)$/,
+  use: {
+    loader: 'html-loader',
+    options
+  }
+})
 
 module.exports = {
   vue,
   javascript,
   images,
-  vueStyles,
   fonts,
   pug,
-  scss,
   mustache,
-  handlebars
+  handlebars,
+  url,
+  graphql,
+  style,
+  html
 }

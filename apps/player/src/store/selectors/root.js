@@ -22,5 +22,8 @@ export default {
   audio: prop('audio'),
   transcripts: prop('transcripts'),
   error: prop('error'),
-  driver: prop('driver')
+  driver: prop('driver'),
+  playlist: prop('playlist'),
+  subscribeButton: prop('subscribeButton'),
+  channels: prop('channels')
 }

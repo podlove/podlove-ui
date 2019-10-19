@@ -1,5 +1,6 @@
 import { equals } from 'ramda'
 import { eventChannel } from 'redux-saga'
+import { fork, take, call } from 'redux-saga/effects'
 
 export const channel = host =>
   eventChannel(emitter => {
@@ -14,3 +15,16 @@ export const channel = host =>
 
 export const matchAction = (matchType, matchPayload) => ({ type, payload }) =>
   type === matchType && equals(matchPayload, payload)
+
+export function* takeOnce(pattern, saga, ...args) {
+  const task = yield fork(function* once() {
+    let done = false
+    while (!done) {
+      const action = yield take(pattern)
+      done = true
+      yield call(saga, ...args.concat(action))
+    }
+  })
+
+  return task
+}

@@ -1,0 +1,172 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=193"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG060 Klimawandel",
+  "subtitle": "Ozeanographie und die d\u00fcstere Zukunft unseres Planeten",
+  "summary": "Stefan Rahmstorf ist Ozeanograph und Klimaforscher am renommierten Potsdamer Institut f\u00fcr Klimafolgenforschung. Einen Teil seiner Kindheit verbrachte er an der niederl\u00e4ndischen Nordsee. Die Leidenschaft f\u00fcr das Meer war also fr\u00fch geweckt. Nach dem Studium der physikalischen Ozeanographie sch\u00e4lte sich das Klima als Forschungsgegenstand schnell heraus: \u201eKlima ist letztlich Physik\u201c, sagt Rahmstorf, \u201eund der Ozean ist einer der wichtigsten Teile des Klimasystems.\u201c \r\n\r\nUnd so sprechen wir in dieser Episode \u00fcber die Folgen des Meeresspiegelanstieges, der nicht mehr gestoppt werden kann, selbst wenn es gelingen w\u00fcrde, den weiteren Anstieg der globalen Erw\u00e4rmung zu stoppen. Die gro\u00dfen Eismassen auf Gr\u00f6nland und der westantarktische Eisschild werden vermutlich noch \u00fcber Jahrhunderte weiter abschmelzen - mit unabsehbaren Folgen: Zum einen Hitzeextreme sowie zum anderen extreme Niederschl\u00e4ge, die mit dem zunehmendem Wasserdampf in der Luft deutlich \u00f6fter auftreten (werden). \r\n\r\n\u201eEs ist sehr deprimierend, wie lethargisch die Menschheit auf diese existenzielle Bedrohung reagiert\u201c, sagt Rahmstorf, der auch die Bundesregierung in Sachen Klimawandel beraten hat. Denn der Klimawandel kann ganze Staaten und das friedliche Zusammenleben der Menschheit destabilisieren. H\u00f6chste Zeit zu Handeln!\"",
+  "publicationDate": "2018-07-06T00:10:34+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/04\/68d45327073d2354808d0e0bd078ab\/fg060-klimawandel_500x500.jpg",
+  "duration": "00:58:26.860",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg060-klimawandel\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1591\/s\/webplayer\/c\/episode\/fg060-klimawandel.m4a",
+      "size": "42478479",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1594\/s\/webplayer\/c\/episode\/fg060-klimawandel.opus",
+      "size": "34805023",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1588\/s\/webplayer\/c\/episode\/fg060-klimawandel.oga",
+      "size": "51199772",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1585\/s\/webplayer\/c\/episode\/fg060-klimawandel.mp3",
+      "size": "50579854",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:43.007",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:54.639",
+      "title": "Potsdamer Institut f\u00fcr Klimafolgenforschung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:03:29.913",
+      "title": "Pers\u00f6nlicher Hintergrund",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:06:10.991",
+      "title": "Ozeanographie",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:18:55.092",
+      "title": "Datensammlung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:22:59.645",
+      "title": "Gefahren des Klimawandels",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:31:40.949",
+      "title": "Wetterextreme",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:46:44.558",
+      "title": "IPCC Klimawandel als Sicherheitsrisiko",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    },
+    {
+      "id": "62",
+      "name": "Stefan Rahmstorf",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/99\/ce0d55cfa1d5e32adaf458bbb38dae\/stefan-rahmstorf_150x150.jpg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg060-klimawandel\/?podlove_transcript=json"
+}

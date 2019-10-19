@@ -1,11 +1,11 @@
-import { INIT } from '@podlove/player-actions/types'
+import { READY } from '@podlove/player-actions/types'
 import { reducer, INITIAL_STATE } from './reducer'
 
 describe('media', () => {
-  test('it extracts the media on INIT', () => {
+  test('it extracts the media on READY', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: INIT,
+        type: READY,
         payload: {
           audio: [
             {

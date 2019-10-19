@@ -19,12 +19,17 @@ import { reducer as embed } from '@podlove/player-state/embed'
 import { reducer as reference } from '@podlove/player-state/reference'
 import { reducer as audio } from '@podlove/player-state/audio'
 import { reducer as transcripts } from '@podlove/player-state/transcripts'
-import { reducer as visibleComponents } from '@podlove/player-state/visible-components'
 import { reducer as lastAction } from '@podlove/player-state/last-action'
 import { reducer as error } from '@podlove/player-state/error'
 import { reducer as driver } from '@podlove/player-state/driver'
+import { reducer as playstate } from '@podlove/player-state/playstate'
+import { reducer as playlist } from '@podlove/player-state/playlist'
+import { reducer as subscribeButton } from '@podlove/player-state/subscribe-button'
+import { reducer as channels } from '@podlove/player-state/channels'
+import { reducer as lifecycle } from '@podlove/player-state/lifecycle'
 
 export default combineReducers({
+  lifecycle,
   runtime,
   theme,
   show,
@@ -42,12 +47,15 @@ export default combineReducers({
   reference,
   audio,
   transcripts,
-  visibleComponents,
   share: combineReducers({
     content,
     embed
   }),
   lastAction,
   error,
-  driver
+  driver,
+  playstate,
+  playlist,
+  subscribeButton,
+  channels
 })

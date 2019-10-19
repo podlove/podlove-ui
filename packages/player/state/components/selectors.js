@@ -31,6 +31,10 @@ export const filesTab = compose(
   prop('files'),
   tabs
 )
+export const playlistTab = compose(
+  prop('playlist'),
+  tabs
+)
 export const audioTab = compose(
   prop('audio'),
   tabs

@@ -8,7 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Jarvis = require('webpack-jarvis')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyPlugin = require('copy-webpack-plugin')
-
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 const { prepend } = require('./utils')
 
 const vue = () => new VueLoaderPlugin()
@@ -22,9 +23,9 @@ const minifyCss = () => new OptimizeCSSAssetsPlugin({})
 
 const version = () => new WebpackAutoInject({ SILENT: true })
 
-const base = base =>
+const base = input =>
   new webpack.DefinePlugin({
-    BASE: JSON.stringify(base)
+    BASE: JSON.stringify(input)
   })
 
 const html = ({ filename, template, chunks, exclude, base, files }) =>
@@ -61,6 +62,10 @@ const env = (data = {}) =>
 
 const copy = (patterns = []) => new CopyPlugin(patterns)
 
+const friendlyErrors = () => new FriendlyErrorsPlugin()
+
+const serviceWorkerCache = config => new SWPrecachePlugin(config)
+
 module.exports = {
   vue,
   css,
@@ -72,5 +77,7 @@ module.exports = {
   bundleAnalyzer,
   hmr,
   env,
-  copy
+  copy,
+  friendlyErrors,
+  serviceWorkerCache
 }

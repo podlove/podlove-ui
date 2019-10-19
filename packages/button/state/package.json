@@ -1,0 +1,21 @@
+{
+  "name": "@podlove/button-state",
+  "version": "5.0.0",
+  "description": "Reducers for Podlove Button Framework",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/button/state",
+  "license": "MIT",
+  "dependencies": {
+    "@podlove/button-actions": "^5.0.0",
+    "@podlove/button-config": "^5.0.0",
+    "@podlove/utils": "^5.0.0",
+    "@podlove/clients": "^5.0.0",
+    "redux-actions": "2.6.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:dev": "jest --watch"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=227"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG068 Risikoforschung",
+  "subtitle": "Wie wir Entscheidungen f\u00e4llen und der Wert einer Fehlerkultur",
+  "summary": "Kopf oder Bauch? Wir treffen jeden Tag Entscheidungen und glauben, sie beruhen auf der rationalen Abw\u00e4gung sachlicher Argumente. Doch das ist ein Irrtum! Viel \u00f6fter h\u00f6ren wir auf unser Gef\u00fchl. Und damit fahren wir meistens auch ganz gut, denn viele Risiken k\u00f6nnen wir gar nicht exakt absch\u00e4tzen.\r\n\r\nDer Umgang mit Ungewissheiten bei der Entscheidungsfindung hat den Psychologen Gerd Gigerenzer immer schon fasziniert. Er gilt als der Nestor der deutschen Risikoforschung. Der 71-J\u00e4hrige ist Direktor emeritus des Max-Planck-Instituts f\u00fcr Bildungsforschung in Berlin und hat dort das Harding-Zentrum f\u00fcr Risikokompetenz aufgebaut. \r\n\r\nGerd Gigerenzer m\u00f6chte den Menschen verst\u00e4ndlich machen, was unsere Entscheidungen beeinflusst. Die Intuition, auf die wir uns im Alltag so oft verlassen, ist gerade in F\u00fchrungspositionen geradezu verp\u00f6nt \u2013 zumindest nach au\u00dfen hin. Bauchentscheidungen l\u00e4sst ein Vorstand deshalb h\u00e4ufig im Nachhinein durch Zahlenwerk absichern. Gigerenzer warnt vor einer solchen Rechtfertigungskultur, f\u00fcr die viel Zeit und Geld zum Fenster hinausgeworfen wird.\r\n\r\nRisikokompetenz ist aktueller denn je in Zeiten von Algorithmen und Scoring-Systemen, die unser Leben immer st\u00e4rker pr\u00e4gen werden. Gigerenzer fordert mehr Risikokompetenz, um Statistiken und Zukunftsprognosen kritisch zu hinterfragen. Das f\u00e4ngt bei der Wettervorhersage an: Was bedeutet eigentlich 30 Prozent Regenwahrscheinlichkeit? Und Data Literacy betrifft auch weniger banale Fragen \u2013 wie die Schufa unsere Bonit\u00e4t einsch\u00e4tzt oder welche Therapie uns der Arzt verordnet.",
+  "publicationDate": "2019-05-30T09:00:41+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/39\/e05e536e761e8ce62a74a2a6b1e8cf\/fg068-risikoforschung_500x500.jpg",
+  "duration": "01:38:14.708",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg068-risikoforschung\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1894\/s\/webplayer\/c\/episode\/fg068-risikoforschung.m4a",
+      "size": "63310451",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1898\/s\/webplayer\/c\/episode\/fg068-risikoforschung.opus",
+      "size": "49517485",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1893\/s\/webplayer\/c\/episode\/fg068-risikoforschung.oga",
+      "size": "81364931",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1897\/s\/webplayer\/c\/episode\/fg068-risikoforschung.mp3",
+      "size": "83183719",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:42.952",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:25.937",
+      "title": "Akademische Ausbildung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:07:57.958",
+      "title": "Harding-Zentrum am MPI",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:10:04.106",
+      "title": "Statistische Information",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:20:32.078",
+      "title": "Entscheidungen und Big Data",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:28:59.940",
+      "title": "Bauchentscheidungen und Fehlerkultur",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:58:35.145",
+      "title": "Optimierung und Vereinfachung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:07:15.064",
+      "title": "Deep Learning und Risiko",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:13:23.630",
+      "title": "Ethische Fragen maschineller Entscheidungen",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:18:23.352",
+      "title": "Sozialkreditsysteme",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:29:51.430",
+      "title": "Scoring und Datenschutz",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:35:08.537",
+      "title": "Ausklang",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "73",
+      "name": "Gerd Gigerenzer",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/e9\/6b75487cd61b77f36d0d5d79c971b7\/gerd-gigerenzer_150x150.jpg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    },
+    {
+      "id": "70",
+      "name": "Bj\u00f6rn Qu\u00e4ck",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/ff\/f03356137ff995c5203bf6a09e817c\/bjoern-quaeck_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg068-risikoforschung\/?podlove_transcript=json"
+}

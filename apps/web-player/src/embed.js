@@ -1,32 +1,38 @@
 /* eslint-disable no-console */
-import { init } from '@podlove/player-actions/lifecycle'
+import { prop } from 'ramda'
+import { init as playerInit } from '@podlove/player-actions/lifecycle'
+import { init as buttonInit } from '@podlove/button-actions/lifecycle'
 
 import { version } from '../package'
 
+import * as context from './lib/context'
 import canvas from './lib/canvas'
 import { parseConfig } from './lib/config'
-import { createSandbox } from './lib/sandbox'
-import { setVisibleComponents } from './lib/visible-components'
-import { activeTab } from './lib/active-tab'
-import { applyUrlParameters } from './lib/url-params'
-import { persistPlayer } from './lib/persist'
+import * as player from './player'
+import * as subscribeButton from './subscribe-button'
 
-const podlovePlayer = async (selector, episode, additional = {}) => {
-  const target = canvas(selector)
+const podlovePlayer = async (selector, episode, meta) => {
+  const config = await parseConfig(episode, meta)
+  context.create(config)
+  const target = await canvas(selector)
 
   try {
     target.init()
-    const config = await parseConfig(episode, additional)
-    const store = await createSandbox(config, target.node)
+    const playerStore = await player.create(config, target)
+    const buttonStore = await subscribeButton.create(config, target)
 
-    store.dispatch(init(config))
+    playerStore.dispatch(playerInit(config))
+    buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
 
-    setVisibleComponents(config, store)
-    activeTab(config, store)
-    persistPlayer(config, store)
-    applyUrlParameters(store)
+    // inter store connection
+    playerStore.subscribe(() => {
+      const action = prop('lastAction', playerStore.getState())
+      action && buttonStore.dispatch(action)
+    })
 
-    return store
+    player.restore(config, playerStore)
+
+    return playerStore
   } catch (err) {
     target.reset()
 

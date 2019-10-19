@@ -1,6 +1,8 @@
 <template>
   <a :href="mailLink" class="channel-link">
-    <span class="channel-icon mail" aria-hidden="true"><icon type="mail" color="#fff"/></span>
+    <span class="channel-icon mail" aria-hidden="true" :style="style">
+      <icon type="mail" :color="color" :filled="filled" />
+    </span>
     <span class="visually-hidden">{{ a11y }}</span>
   </a>
 </template>
@@ -27,20 +29,33 @@ export default {
     a11y: {
       type: String,
       default: ''
+    },
+    color: {
+      type: String,
+      default: '#fff'
+    },
+    background: {
+      type: String,
+      default: '#888'
+    },
+    filled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     mailLink() {
       return addQueryParameter(LINK, { body: this.text, subject: this.subject })
+    },
+    style() {
+      return {
+        background: this.background
+      }
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'channel';
-
-.channel-icon.mail {
-  background-color: $channel-mail-color;
-}
 </style>

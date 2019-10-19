@@ -1,11 +1,11 @@
-import { INIT } from '@podlove/player-actions/types'
+import { READY } from '@podlove/player-actions/types'
 import { reducer, INITIAL_STATE } from './reducer'
 
 describe('contributors', () => {
-  test('should update the contributors on INIT', () => {
+  test('should update the contributors on READY', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: INIT,
+        type: READY,
         payload: {
           contributors: ['Paul', 'Hans']
         }

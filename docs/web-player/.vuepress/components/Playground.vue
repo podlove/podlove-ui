@@ -1,20 +1,20 @@
 <template>
   <div>
-    <podlove-web-player :config="example" @ready="initPlayer" />
+    <podlove-web-player :episode="episode" @ready="initPlayer" />
 
     <h4>Config</h4>
-    <json-editor :json="example" @update="updateConfig" height="500px" />
+    <json-editor :json="episode" @update="updateConfig" height="500px" />
   </div>
 </template>
 
 <script>
   import { INIT } from '@podlove/player-actions/types'
-  import example from '../public/fixtures/example.json'
+  import episode from '../public/fixtures/episode.json'
 
   export default {
     data () {
       return {
-        example,
+        episode,
         store: null
       }
     },

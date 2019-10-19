@@ -1,60 +1,62 @@
-const { setState } = require('../helpers/state')
-const domSelectors = require('../selectors')
+/* eslint-env mocha */
+/* globals cy, expect */
+const { onUpdate } = require('../helpers/state')
 
-describe('Files Tab', () => {
-  let selectors
+describe('<tab-files>', () => {
+  beforeEach(cy.setup)
 
-  beforeEach(cy.bootstrap)
-  beforeEach(() => {
-    selectors = domSelectors(cy)
+  describe('render', () => {
+    describe('title', () => {
+      it('should render the tab title', () => {
+        cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
+        cy.select('tab-title').should('exist')
+        cy.select('tab-title').should('contain', 'Files')
+      })
+    })
+
+    describe('list', () => {
+      it(`shouldn't render entries if no files are available`, function() {
+        cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme])
+        cy.select('tab-files--download').should('have.length', 0)
+      })
+
+      it(`should render entries if files are available`, function() {
+        cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
+        cy.select('tab-files--download').should('have.length', this.audio.audio.length)
+      })
+
+      it(`should render the entries in the right order`, function() {
+        cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
+        cy.select('tab-files--download').then(nodes => {
+          this.audio.audio.forEach((audio, index) => {
+            expect(nodes.get(index).textContent).to.contain(audio.title)
+            expect(nodes.get(index).getAttribute('href')).to.equal(audio.url)
+          })
+        })
+      })
+    })
   })
 
-  describe('Audio Files', () => {
-    it('renders the audio container', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.runtime, this.files))
-      cy.tab('files')
-      selectors.tabs.files.container()
-      selectors.tabs.files.audio()
+  describe('logic', () => {
+    let assert
+
+    beforeEach(function() {
+      cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio]).then(
+        app => {
+          assert = onUpdate(app)
+        }
+      )
     })
 
-    it('renders a list of audio files', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.runtime, this.files))
-      cy.tab('files')
-      selectors.tabs.files.container()
-      selectors.tabs.files
-        .audio()
-        .get('.files-entry')
-        .should('have.length', 2)
-    })
+    describe('title', () => {
+      it('should trigger the toggle tab action on close', done => {
+        assert('PLAYER_TOGGLE_TAB', (_, { payload }) => {
+          expect(payload).to.equal('files')
+          done()
+        })
 
-    it('renders a copy link button', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.runtime, this.files))
-      cy.tab('files')
-      selectors.tabs.files.container()
-      selectors.tabs.files
-        .audio()
-        .get('.files-entry a')
-        .eq(0)
-        .should('have.attr', 'href', this.audio.audio[0].url)
-      selectors.tabs.files
-        .audio()
-        .get('.files-entry a')
-        .eq(1)
-        .should('have.attr', 'href', this.audio.audio[1].url)
-    })
-
-    it('renders a copy button', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.runtime, this.files))
-      cy.tab('files')
-      selectors.tabs.files.container()
-      selectors.tabs.files
-        .audio()
-        .get('.files-entry button')
-        .eq(0)
-      selectors.tabs.files
-        .audio()
-        .get('.files-entry button')
-        .eq(1)
+        cy.select('tab-title--close').click()
+      })
     })
   })
 })

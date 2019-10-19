@@ -2,30 +2,15 @@
   <svg
     :width="size"
     :height="size"
-    viewBox="329 30 16 16"
-    version="1.1"
+    viewBox="0 0 24 24"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <rect
-      stroke="none"
-      :fill="color"
-      fill-rule="evenodd"
-      transform="translate(337.000000, 38.000000) rotate(-315.000000) translate(-337.000000, -38.000000) "
-      x="336"
-      y="28"
-      width="2"
-      height="20"
-    />
-    <rect
-      stroke="none"
-      :fill="color"
-      fill-rule="evenodd"
-      transform="translate(337.000000, 38.000000) rotate(-45.000000) translate(-337.000000, -38.000000) "
-      x="336"
-      y="28"
-      width="2"
-      height="20"
+    <path
+      d="M18 18L6.00003 6M18 6L6.00003 18"
+      :stroke="color"
+      stroke-width="1.3"
+      stroke-linecap="round"
     />
   </svg>
 </template>
@@ -35,7 +20,7 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 16
+      default: 24
     },
     color: {
       type: String,

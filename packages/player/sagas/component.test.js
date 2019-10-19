@@ -18,14 +18,13 @@ import {
   BACKEND_LOADING_END,
   SET_TRANSCRIPTS_TIMELINE,
   BACKEND_END,
-  SET_CHAPTERS_LIST
+  SET_CHAPTERS_LIST,
+  SELECT_PLAYLIST_ENTRY
 } from '@podlove/player-actions/types'
 import {
   showPlayingButton,
   showLoadingButton,
   showPauseButton,
-  showProgressBar,
-  showSteppersControls,
   showChapterControls,
   showReplayButton,
   hideComponentTab,
@@ -57,7 +56,8 @@ describe('components', () => {
       selectEpisodeSubtitle: jest.fn(),
       selectShowTitle: jest.fn(),
       selectShowCover: jest.fn(),
-      selectRuntimeMode: jest.fn()
+      selectRuntimeMode: jest.fn(),
+      selectPlaylist: jest.fn()
     }
   })
 
@@ -81,6 +81,7 @@ describe('components', () => {
       expect(gen.next().value).toEqual(
         takeEvery(READY, init, {
           selectFiles: selectors.selectFiles,
+          selectPlaylist: selectors.selectPlaylist,
           selectEpisodeCover: selectors.selectEpisodeCover,
           selectEpisodeTitle: selectors.selectEpisodeTitle,
           selectEpisodeSubtitle: selectors.selectEpisodeSubtitle,
@@ -112,12 +113,19 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(
-        takeEvery(BACKEND_PLAY, play, { selectChapters: selectors.selectChapters })
-      )
+      expect(gen.next().value).toEqual(takeEvery(BACKEND_PLAY, play))
+    })
+
+    test('should register pause on SELECT_PLAYLIST_ENTRY', () => {
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(takeEvery(SELECT_PLAYLIST_ENTRY, pause))
     })
 
     test('should register pause on BACKEND_PAUSE', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -131,20 +139,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(takeEvery(BACKEND_LOADING_START, loading))
     })
 
-    test('should register loading on BACKEND_LOADING_END', () => {
+    test('should register loaded on BACKEND_LOADING_END', () => {
       gen.next()
-      gen.next()
-      gen.next()
-      gen.next()
-      gen.next()
-      gen.next()
-      expect(gen.next().value).toEqual(takeEvery(BACKEND_LOADING_END, loaded))
-    })
-
-    test('should register loading on BACKEND_LOADING_END', () => {
       gen.next()
       gen.next()
       gen.next()
@@ -155,6 +155,7 @@ describe('components', () => {
     })
 
     test('should register replay on BACKEND_END', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -174,6 +175,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().done).toBeTruthy()
     })
   })
@@ -184,6 +186,7 @@ describe('components', () => {
     beforeEach(() => {
       gen = init({
         selectFiles: selectors.selectFiles,
+        selectPlaylist: selectors.selectPlaylist,
         selectEpisodeCover: selectors.selectEpisodeCover,
         selectEpisodeTitle: selectors.selectEpisodeTitle,
         selectEpisodeSubtitle: selectors.selectEpisodeSubtitle,
@@ -201,7 +204,13 @@ describe('components', () => {
       expect(gen.next().value).toEqual(select(selectors.selectFiles))
     })
 
+    test('should select the playlist', () => {
+      gen.next()
+      expect(gen.next().value).toEqual(select(selectors.selectPlaylist))
+    })
+
     test('should select the showCover', () => {
+      gen.next()
       gen.next()
       expect(gen.next().value).toEqual(select(selectors.selectShowCover))
     })
@@ -209,10 +218,12 @@ describe('components', () => {
     test('should select the episodeCover', () => {
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(select(selectors.selectEpisodeCover))
     })
 
     test('should select the episodeTitle', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -224,10 +235,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(select(selectors.selectEpisodeSubtitle))
     })
 
     test('should select the selectShowTitle', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -243,10 +256,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(select(selectors.selectRuntimeMode))
     })
 
     test('should dispatch SHOW_COMPONENT_INFO_POSTER if showCover is available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next('/some/show-image')
@@ -258,6 +273,7 @@ describe('components', () => {
     })
 
     test('should dispatch SHOW_COMPONENT_INFO_POSTER if episodeCover is available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -276,10 +292,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(hideInfoPoster()))
     })
 
     test('should dispatch SHOW_COMPONENT_EPISODE_TITLE if episodeTitle is available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -300,10 +318,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(hideEpisodeTitle()))
     })
 
     test('should dispatch SHOW_COMPONENT_SUBTITLE if subtitle is available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -326,10 +346,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(hideSubtitle()))
     })
 
     test('should dispatch SHOW_COMPONENT_SHOW_TITLE if showTitle is available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -344,6 +366,7 @@ describe('components', () => {
     })
 
     test('should dispatch HIDE_COMPONENT_SHOW_TITLE if showTitle is not available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -369,6 +392,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showComponentTab('files')))
     })
 
@@ -384,10 +408,47 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(hideComponentTab('files')))
     })
 
+    test('should dispatch SHOW_COMPONENT_TAB with playlist if entries are available', () => {
+      gen.next()
+      gen.next()
+      gen.next(['some playlist'])
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(put(showComponentTab('playlist')))
+    })
+
+    test('should dispatch HIDE_COMPONENT_TAB with playlist if entries are not available', () => {
+      gen.next()
+      gen.next()
+      gen.next([])
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(put(hideComponentTab('playlist')))
+    })
+
     test('should dispatch SHOW_COMPONENT_TAB with info', () => {
+      gen.next()
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -404,6 +465,8 @@ describe('components', () => {
     })
 
     test('should dispatch SHOW_COMPONENT_TAB with audio', () => {
+      gen.next()
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -435,10 +498,13 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showComponentTab('share')))
     })
 
     test('should dispatch SHOW_COMPONENT_VOLUME_SLIDER when mode is native', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -454,10 +520,13 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showVolumeSlider()))
     })
 
     test('should dispatch HIDE_COMPONENT_VOLUME_SLIDER when mode is not native', () => {
+      gen.next()
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -493,10 +562,15 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showRateSlider()))
     })
 
     test('should end the saga', () => {
+      gen.next()
+      gen.next()
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -555,18 +629,26 @@ describe('components', () => {
       expect(typeof gen.next).toBe('function')
     })
 
-    test('shoud select transcripts', () => {
-      expect(gen.next().value).toEqual(select(selectors.selectChapters))
+    test('shoud dispatch SHOW_COMPONENT_CONTROLS_CHAPTERS if chapters are available', () => {
+      gen.next()
+      expect(gen.next(['foo', 'bar']).value).toEqual(put(showChapterControls()))
     })
 
-    test('shoud dispatch SHOW_COMPONENT_TAB with chapters if chapters are available', () => {
+    test("shoud dispatch HIDE_COMPONENT_CONTROLS_CHAPTERS if chapters aren't available", () => {
       gen.next()
-      expect(gen.next(['foo', 'bar']).value).toEqual(put(showComponentTab('chapters')))
+      expect(gen.next([]).value).toEqual(put(hideChapterControls()))
     })
 
-    test('shoud dispatch HIDE_COMPONENT_TAB with chapters if chapters are available', () => {
+    test('shoud dispatch SHOW_COMPONENT_TAB if chapters are available', () => {
       gen.next()
-      expect(gen.next([]).value).toEqual(put(hideComponentTab('chapters')))
+      gen.next(['foo', 'bar'])
+      expect(gen.next().value).toEqual(put(showComponentTab('chapters')))
+    })
+
+    test("shoud dispatch HIDE_COMPONENT_TAB if chapters aren't available", () => {
+      gen.next()
+      gen.next([])
+      expect(gen.next().value).toEqual(put(hideComponentTab('chapters')))
     })
   })
 
@@ -574,56 +656,18 @@ describe('components', () => {
     let gen
 
     beforeEach(() => {
-      gen = play({ selectChapters: selectors.selectChapters })
+      gen = play()
     })
 
     test('shoud export a generator', () => {
       expect(typeof gen.next).toBe('function')
     })
 
-    test('should select the chapter list', () => {
-      expect(gen.next().value).toEqual(select(selectors.selectChapters))
-    })
-
     test('should dispatch SHOW_COMPONENT_CONTROLS_BUTTON_PLAYING', () => {
-      gen.next()
       expect(gen.next().value).toEqual(put(showPlayingButton()))
     })
 
-    test('should dispatch SHOW_COMPONENT_PROGRESSBAR', () => {
-      gen.next()
-      gen.next()
-      expect(gen.next().value).toEqual(put(showProgressBar()))
-    })
-
-    test('should dispatch SHOW_COMPONENT_CONTROLS_STEPPERS', () => {
-      gen.next()
-      gen.next()
-      gen.next()
-      expect(gen.next().value).toEqual(put(showSteppersControls()))
-    })
-
-    test('should dispatch SHOW_COMPONENT_CONTROLS_CHAPTERS if chapters are available', () => {
-      gen.next()
-      gen.next(['foo', 'bar'])
-      gen.next()
-      gen.next()
-      expect(gen.next().value).toEqual(put(showChapterControls()))
-    })
-
-    test('should dispatch HIDE_COMPONENT_CONTROLS_CHAPTERS', () => {
-      gen.next()
-      gen.next([])
-      gen.next()
-      gen.next()
-      expect(gen.next().value).toEqual(put(hideChapterControls()))
-    })
-
     test('should end the saga', () => {
-      gen.next()
-      gen.next()
-      gen.next()
-      gen.next()
       gen.next()
       expect(gen.next().done).toBeTruthy()
     })

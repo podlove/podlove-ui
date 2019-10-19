@@ -9,7 +9,6 @@
   flex-direction: column;
   margin: $margin / 2;
   cursor: pointer;
-  opacity: 1;
   @extend %button;
 
   .channel-icon {
@@ -24,9 +23,5 @@
 
   &.active .channel-icon {
     border-color: currentColor;
-  }
-
-  &:hover {
-    opacity: 0.8;
   }
 }

@@ -1,8 +1,6 @@
-import { compose, allPass, propOr, equals, lt, length } from 'ramda'
+import { compose, propOr, equals, lt, length } from 'ramda'
 import root from './root'
 import { selectors as components } from '@podlove/player-state/components'
-import { selectors as visibleComponents } from '@podlove/player-state/visible-components'
-
 import timepiece from './timepiece'
 import chapters from './chapters'
 
@@ -11,36 +9,18 @@ export default {
     components.playButton,
     root.components
   ),
-  chapterButtons: allPass([
-    compose(
-      components.chapterButtons,
-      root.components
-    ),
-    compose(
-      visibleComponents.controlChapters,
-      root.visibleComponents
-    )
-  ]),
-  stepperButtons: allPass([
-    compose(
-      components.stepperButtons,
-      root.components
-    ),
-    compose(
-      visibleComponents.controlSteppers,
-      root.visibleComponents
-    )
-  ]),
-  progressBar: allPass([
-    compose(
-      components.progressBar,
-      root.components
-    ),
-    compose(
-      visibleComponents.progressBar,
-      root.visibleComponents
-    )
-  ]),
+  chapterButtons: compose(
+    components.chapterButtons,
+    root.components
+  ),
+  stepperButtons: compose(
+    components.stepperButtons,
+    root.components
+  ),
+  progressBar: compose(
+    components.progressBar,
+    root.components
+  ),
   volumeControl: compose(
     components.volumeControl,
     root.components
@@ -49,110 +29,52 @@ export default {
     components.rateControl,
     root.components
   ),
-  poster: allPass([
-    compose(
-      components.poster,
-      root.components
-    ),
-    compose(
-      visibleComponents.poster,
-      root.visibleComponents
-    )
-  ]),
+  poster: compose(
+    components.poster,
+    root.components
+  ),
   error: compose(
     components.error,
     root.components
   ),
-  showTitle: allPass([
-    compose(
-      components.showTitle,
-      root.components
-    ),
-    compose(
-      visibleComponents.showTitle,
-      root.visibleComponents
-    )
-  ]),
-  episodeTitle: allPass([
-    compose(
-      components.episodeTitle,
-      root.components
-    ),
-    compose(
-      visibleComponents.episodeTitle,
-      root.visibleComponents
-    )
-  ]),
-  subtitle: allPass([
-    compose(
-      components.subtitle,
-      root.components
-    ),
-    compose(
-      visibleComponents.subtitle,
-      root.visibleComponents
-    )
-  ]),
-  infoTab: allPass([
-    compose(
-      components.infoTab,
-      root.components
-    ),
-    compose(
-      visibleComponents.infoTab,
-      root.visibleComponents
-    )
-  ]),
-  chaptersTab: allPass([
-    compose(
-      components.chaptersTab,
-      root.components
-    ),
-    compose(
-      visibleComponents.chaptersTab,
-      root.visibleComponents
-    )
-  ]),
-  transcriptTab: allPass([
-    compose(
-      components.transcriptTab,
-      root.components
-    ),
-    compose(
-      visibleComponents.transcriptTab,
-      root.visibleComponents
-    )
-  ]),
-  shareTab: allPass([
-    compose(
-      components.shareTab,
-      root.components
-    ),
-    compose(
-      visibleComponents.shareTab,
-      root.visibleComponents
-    )
-  ]),
-  filesTab: allPass([
-    compose(
-      components.filesTab,
-      root.components
-    ),
-    compose(
-      visibleComponents.filesTab,
-      root.visibleComponents
-    )
-  ]),
-  audioTab: allPass([
-    compose(
-      components.audioTab,
-      root.components
-    ),
-    compose(
-      visibleComponents.audioTab,
-      root.visibleComponents
-    )
-  ]),
+  showTitle: compose(
+    components.showTitle,
+    root.components
+  ),
+  episodeTitle: compose(
+    components.episodeTitle,
+    root.components
+  ),
+  subtitle: compose(
+    components.subtitle,
+    root.components
+  ),
+
+  infoTab: compose(
+    components.infoTab,
+    root.components
+  ),
+
+  chaptersTab: compose(
+    components.chaptersTab,
+    root.components
+  ),
+  transcriptTab: compose(
+    components.transcriptTab,
+    root.components
+  ),
+  shareTab: compose(
+    components.shareTab,
+    root.components
+  ),
+  filesTab: compose(
+    components.filesTab,
+    root.components
+  ),
+  playlistTab: compose(
+    components.playlistTab,
+    root.components
+  ),
   nextStepDisabled: state => timepiece.duration(state) - timepiece.playtime(state) <= 1000,
   previousStepDisabled: state => timepiece.playtime(state) <= 1000,
   nextChapterDisabled: compose(

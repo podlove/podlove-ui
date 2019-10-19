@@ -1,15 +1,16 @@
 import { is, compose } from 'ramda'
 import { toInt, toFloat } from './helper'
+import { isUndefinedOrNull } from './predicates'
 
 const timeRegex = new RegExp(/^(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:\.(\d{1,3}))?$/)
 
 // Transforms a h:mm:ss.f or mm:ss.ffff or ss time to milliseconds
 export const toPlayerTime = (time = '0') => {
-  if (is(Number, time)) {
+  if (is(Number, time) || isUndefinedOrNull(time)) {
     return time
   }
 
-  const matches = timeRegex.exec(time || '0')
+  const matches = timeRegex.exec(time)
 
   if (!matches) {
     return 0

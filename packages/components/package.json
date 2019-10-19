@@ -1,6 +1,6 @@
 {
   "name": "@podlove/components",
-  "version": "4.5.10",
+  "version": "5.0.0",
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
@@ -17,14 +17,15 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "^4.5.10",
-    "@podlove/utils": "^4.5.10",
+    "@podlove/player-actions": "^5.0.0",
+    "@podlove/utils": "^5.0.0",
     "normalize.css": "8.0.1",
-    "v-tooltip": "2.0.0-rc.33",
-    "vue": "2.6.10"
+    "v-tooltip": "2.0.2",
+    "vue": "2.6.10",
+    "vue-mutation-observer": "0.1.2"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.10",
+    "@podlove/build": "^5.0.0",
     "@storybook/addon-actions": "5.0.5",
     "@storybook/addon-centered": "5.0.5",
     "@storybook/addon-knobs": "5.0.5",

@@ -4,6 +4,7 @@
     :color="color"
     :background="background"
     :size="size"
+    :filled="filled"
     aria-hidden="true"
   />
 </template>
@@ -30,6 +31,10 @@ export default {
     size: {
       type: Number,
       default: undefined
+    },
+    filled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

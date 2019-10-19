@@ -50,7 +50,8 @@ export const INITIAL_STATE = {
     transcript: false,
     share: false,
     files: false,
-    audio: false
+    audio: false,
+    playlist: false
   }
 }
 

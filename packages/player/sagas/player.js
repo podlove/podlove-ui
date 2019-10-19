@@ -1,6 +1,8 @@
-import { audio, events as audioEvents, actions as audioActions } from '@podlove/html5-audio-driver'
+import { events as audioEvents, actions as audioActions, audio } from '@podlove/html5-audio-driver'
+import { pause as pauseAudio } from '@podlove/html5-audio-driver/actions'
 import { attatchStream } from '@podlove/html5-audio-driver/hls'
-import { select, call, put, takeEvery } from 'redux-saga/effects'
+import { createSourceNodes as sources } from '@podlove/html5-audio-driver/media'
+import { select, call, put, takeEvery, fork } from 'redux-saga/effects'
 import {
   REQUEST_PLAY,
   REQUEST_PAUSE,
@@ -11,7 +13,9 @@ import {
   SET_VOLUME,
   MUTE,
   UNMUTE,
-  REQUEST_LOAD
+  REQUEST_LOAD,
+  UPDATE_CHAPTER,
+  SET_CHAPTER
 } from '@podlove/player-actions/types'
 import {
   backendPlay,
@@ -25,23 +29,44 @@ import {
 import { errorMissingMedia } from '@podlove/player-actions/error'
 import { backendPlaytime, backendDuration } from '@podlove/player-actions/timepiece'
 import { millisecondsToSeconds, secondsToMilliseconds } from '@podlove/utils/time'
+import { setAttributes } from '@podlove/utils/dom'
 
 import { channel } from './helper'
 
-export const playerSaga = ({ selectMedia, selectPlaytime }) =>
+export const playerSaga = ({ selectMedia, selectPlaytime, selectTitle, selectPoster }) =>
   function* saga() {
-    yield takeEvery(READY, initPlayer, { selectMedia, selectPlaytime })
+    const mediaElement = attatchStream(audio([]))
+
+    yield takeEvery(READY, initPlayer, { selectMedia, selectTitle, selectPoster, mediaElement })
+    yield takeEvery(UPDATE_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
+    yield takeEvery(SET_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
+    yield fork(driver, { selectPlaytime, mediaElement })
   }
 
-export function* initPlayer({ selectMedia, selectPlaytime }) {
+export function* initPlayer({ selectMedia, selectTitle, selectPoster, mediaElement }) {
   const mediaFiles = yield select(selectMedia)
 
   if (mediaFiles.length === 0) {
     yield put(errorMissingMedia())
   }
 
-  const mediaElement = attatchStream(audio(mediaFiles))
+  // reset existing media element
+  pauseAudio(mediaElement)
+  mediaElement.setAttribute('src', null)
+  while (mediaElement.firstChild) {
+    mediaElement.removeChild(mediaElement.firstChild)
+  }
+  mediaElement.removeAttribute('src')
 
+  // add audio sources
+  sources(mediaElement)(mediaFiles)
+
+  // AudioAttributes
+  yield fork(syncAttributes, { mediaElement, selectTitle, selectPoster })
+}
+
+export function* driver({ selectPlaytime, mediaElement }) {
+  // AudioActions
   const actions = audioActions(mediaElement)
   yield takeEvery(REQUEST_PLAY, play, actions, selectPlaytime)
   yield takeEvery(REQUEST_PAUSE, pause, actions)
@@ -53,6 +78,7 @@ export function* initPlayer({ selectMedia, selectPlaytime }) {
   yield takeEvery(MUTE, mute, actions)
   yield takeEvery(UNMUTE, unmute, actions)
 
+  // AudioEvents
   const events = audioEvents(mediaElement)
   const readyEvent = yield call(channel, events.onReady)
   const playEvent = yield call(channel, events.onPlay)
@@ -73,6 +99,16 @@ export function* initPlayer({ selectMedia, selectPlaytime }) {
   yield takeEvery(bufferChangeEvent, onBufferChange)
   yield takeEvery(bufferingEvent, onBuffering)
   yield takeEvery(errorEvent, onError)
+
+  return mediaElement
+}
+
+// Attribute Bindings
+export function* syncAttributes({ mediaElement, selectTitle, selectPoster }) {
+  const title = yield select(selectTitle)
+  const poster = yield select(selectPoster)
+
+  setAttributes({ title, poster, 'x-webkit-airplay': 'allow' }, mediaElement)
 }
 
 // Actions

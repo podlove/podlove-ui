@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8" />
+
 </head>
-
 <body>
-  <h3>Embed</h3>
-  <div id="player"></div>
-
-  <h3>Share</h3>
-  <iframe src="http://localhost:9000/share.html?episode=example.json" width="320" height="480" frameborder="0" scrolling="no" tabindex="0"></iframe>
+  <div id="player" data-variant="xl"></div>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        podlovePlayer('#player', 'example.json', {}).then(registerExternalEvents('player'))
+        podlovePlayer('#player', 'episode.json', 'config.json').then(registerExternalEvents('player'))
       }
     })
   </script>

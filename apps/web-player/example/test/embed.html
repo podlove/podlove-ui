@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <div class="container" id="testbed">
+  </div>
+
+  <script>
+    const loadScript = () => {
+      const script = document.createElement('script')
+
+      script.src = '/embed.js'
+
+      return new Promise(resolve => {
+        script.addEventListener('load', () => {
+          resolve()
+        }, false)
+
+        document.getElementsByTagName('head')[0].appendChild(script)
+      })
+    }
+
+    window.BOOTSTRAP = (template = '', episode = {}, config = {}) => {
+      const testbed = document.getElementById('testbed')
+      testbed.innerHTML = template
+
+      return loadScript().then(() => window.podlovePlayer(testbed.firstChild, episode, config))
+    }
+  </script>
+
+  <style>
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 50px;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+    }
+  </style>
+</body>

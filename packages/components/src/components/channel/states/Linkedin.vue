@@ -1,7 +1,7 @@
 <template>
   <a :href="linkedinLink" class="channel-link" target="_blank">
-    <span class="channel-icon Linkedin" aria-hidden="true">
-      <icon type="linkedin" color="#fff" />
+    <span class="channel-icon Linkedin" aria-hidden="true" :style="style">
+      <icon type="linkedin" :color="color" :filled="filled" />
     </span>
     <span class="visually-hidden">{{ a11y }}</span>
   </a>
@@ -18,6 +18,10 @@ export default {
     Icon
   },
   props: {
+    link: {
+      type: String,
+      default: null
+    },
     text: {
       type: String,
       default: ''
@@ -29,20 +33,33 @@ export default {
     a11y: {
       type: String,
       default: ''
+    },
+    color: {
+      type: String,
+      default: '#fff'
+    },
+    background: {
+      type: String,
+      default: '#0077B5'
+    },
+    filled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     linkedinLink() {
       return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
+    },
+    style() {
+      return {
+        background: this.background
+      }
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'channel';
-
-.channel-icon.Linkedin {
-  background-color: $channel-linkedin-color;
-}
 </style>

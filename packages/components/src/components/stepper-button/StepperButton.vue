@@ -46,5 +46,10 @@ export default {
 
 .stepper-button {
   @extend %button;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 </style>

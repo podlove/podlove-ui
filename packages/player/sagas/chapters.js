@@ -1,7 +1,7 @@
 import { propOr, prop } from 'ramda'
 import { takeEvery, select, put } from 'redux-saga/effects'
 import {
-  INIT,
+  READY,
   REQUEST_PLAYTIME,
   BACKEND_PLAYTIME,
   SET_CHAPTER,
@@ -9,7 +9,7 @@ import {
   PREVIOUS_CHAPTER,
   NEXT_CHAPTER
 } from '@podlove/player-actions/types'
-import * as config from '@podlove/utils/config'
+import * as config from '@podlove/player-config'
 import * as chapter from '@podlove/player-actions/chapters'
 import { requestPlaytime } from '@podlove/player-actions/timepiece'
 import { toPlayerTime } from '@podlove/utils/time'
@@ -22,7 +22,7 @@ export const chaptersSaga = ({
   selectChapterList
 }) =>
   function* saga() {
-    yield takeEvery(INIT, initChapters, {
+    yield takeEvery(READY, initChapters, {
       selectDuration,
       selectPlaytime,
       selectCurrentChapter,
@@ -94,7 +94,7 @@ export function* initChapters({ selectDuration }, { payload }) {
 
   const state = chapters.reduce((result, chapter, index, chapters) => {
     const end = propOr({ start: duration }, index + 1, chapters)
-    const href = propOr(null, 'href', chapter)
+    const href = propOr(null, 'href', chapter).trim()
 
     return [
       ...result,
