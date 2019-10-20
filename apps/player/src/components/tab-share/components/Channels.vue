@@ -1,5 +1,5 @@
 <template lang="pug">
-  ul.flex.justify-space-between(data-test="tab-share--channels")
+  ul.flex.flex-wrap.justify-space-between(data-test="tab-share--channels")
     li(v-for="(channel, index) in channels" :key="index" :data-test="`tab-share--channels--${channel}`")
       component(:is="`${channel}-channel`")
 </template>

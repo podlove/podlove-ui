@@ -3,14 +3,29 @@
 </template>
 
 <script>
+  import { equals } from 'ramda'
+
   export default {
     name: 'json-editor',
+    data: {
+      value: {}
+    },
     props: ['json', 'height', 'mode'],
     methods: {
       onChange (text) {
         try {
-          this.$emit('update', JSON.parse(text))
+          this.value = JSON.parse(text)
+          this.$emit('update', this.value)
         } catch (e) {}
+      }
+    },
+    watch: {
+      json () {
+        if (equals(this.json, this.value)) {
+          return
+        }
+
+        this.editor.set(this.json)
       }
     },
     mounted () {
@@ -40,14 +55,19 @@
 
   .jsoneditor {
     border-color: $color-primary !important;
-    margin-bottom: 1.5em;
-  }
+    margin-bottom: 0;
 
-  .jsoneditor-menu {
-    display: none;
-  }
+    .jsoneditor-outer.has-main-menu-bar {
+      margin-top: 0;
+      padding-top: 0;
+    }
 
-  .ace_editor {
-    position: static;
+    .jsoneditor-menu {
+      display: none;
+    }
+
+    .ace_editor {
+      position: static;
+    }
   }
 </style>

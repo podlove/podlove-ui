@@ -12,11 +12,13 @@ import * as player from './player'
 import * as subscribeButton from './subscribe-button'
 
 const podlovePlayer = async (selector, episode, meta) => {
-  const config = await parseConfig(episode, meta)
-  context.create(config)
-  const target = await canvas(selector)
+  let target
 
   try {
+    const config = await parseConfig(episode, meta)
+    context.create(config)
+    target = await canvas(selector)
+
     target.init()
     const playerStore = await player.create(config, target)
     const buttonStore = await subscribeButton.create(config, target)
@@ -34,7 +36,7 @@ const podlovePlayer = async (selector, episode, meta) => {
 
     return playerStore
   } catch (err) {
-    target.reset()
+    target && target.reset()
 
     console.group(`Can't load Podlove Webplayer ${version}`)
     console.error('selector', selector)

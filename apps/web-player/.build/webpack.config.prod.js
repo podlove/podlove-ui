@@ -17,6 +17,8 @@ module.exports = {
 
   output: output(),
 
+  optimization: { namedModules: true, namedChunks: true, splitChunks: { cacheGroups: { default: false } } },
+
   resolve: resolve({
     '@podlove/player': playerAssets,
     '@podlove/subscribe-button': subscribeButtonAssets
@@ -43,16 +45,6 @@ module.exports = {
   },
 
   plugins: [
-    // plugins.html({
-    //   files: {
-    //     styles: ['styles'],
-    //     scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
-    //   },
-    //   filename: 'share.html',
-    //   template: '!!mustache-loader!./src/lib/share.mustache',
-    //   exclude: ['embed', 'extensions/external-events'],
-    //   base: `./${version}/`
-    // }),
     plugins.version(),
     plugins.env({
       MODE: 'production',

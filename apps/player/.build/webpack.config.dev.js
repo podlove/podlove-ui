@@ -31,8 +31,8 @@ module.exports = {
             rules.style.postcss.plugins.tailwind({
               theme: {
                 screens: {
-                  mobile: { min: '0px', max: '719px' },
-                  tablet: '720px',
+                  mobile: { min: '0px', max: '599px' },
+                  tablet: '600px',
                   desktop: '950px'
                 }
               }

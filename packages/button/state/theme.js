@@ -163,10 +163,6 @@ export const reducer = handleActions(
       tokens: extractTokens(payload),
       fonts: extractFonts(payload)
     })
-    // [SET_THEME]: (_, { payload }) => ({
-    //   tokens: extractTokens(payload),
-    //   fonts: extractFonts(payload)
-    // })
   },
   INITIAL_STATE
 )
