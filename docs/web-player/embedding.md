@@ -5,14 +5,14 @@ navigation: 3
 
 # Embedding
 
-<podlove-web-player episode="episode.json" config="config.json" />
+<podlove-web-player episode="./fixtures/episode.json" config="./fixtures/config.json" />
 
 ## Signature
 ```javascript
 /*
 *   Podlove Player Factory
 *   @param {string, dom node}   selector        - CSS selector or dom node
-*   @param {string, object}     configuration   - Path to JSON episode or episode object
+*   @param {string, object}     episode   - Path to JSON episode or episode object
 *   @param {string, object}     configuration   - Path to JSON config or configuration object
 *   @returns {Promise}          store           - Promise returning a redux store
 */
@@ -29,7 +29,7 @@ podlovePlayer(selector, episode, configuration)
 Using a selector that matches multiple elements the player will be rendered in the first matching element.
 The _podlovePlayer_ returns a promise with a redux store as a result that can be used to change the player state from outside.
 
-### Example Embedding with JSON File
+### Example Embedding with File Reference
 
 ```html
 <div id="example"></div>
