@@ -41,8 +41,6 @@ export const create = async (config, target) => {
   const player = await sandbox(target.node, playerDom)
     .then(
       setStyles({
-        'max-width': '950px',
-        'min-width': '260px',
         transition: 'all 500ms'
       })
     )

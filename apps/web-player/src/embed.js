@@ -2,6 +2,7 @@
 import { prop } from 'ramda'
 import { init as playerInit } from '@podlove/player-actions/lifecycle'
 import { init as buttonInit } from '@podlove/button-actions/lifecycle'
+import * as configParser from '@podlove/player-config'
 
 import { version } from '../package'
 
@@ -21,16 +22,19 @@ const podlovePlayer = async (selector, episode, meta) => {
 
     target.init()
     const playerStore = await player.create(config, target)
-    const buttonStore = await subscribeButton.create(config, target)
 
     playerStore.dispatch(playerInit(config))
-    buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
 
-    // inter store connection
-    playerStore.subscribe(() => {
-      const action = prop('lastAction', playerStore.getState())
-      action && buttonStore.dispatch(action)
-    })
+    if (configParser.subscribeButton(config)) {
+      const buttonStore = await subscribeButton.create(config, target)
+      buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
+
+      // inter store connection
+      playerStore.subscribe(() => {
+        const action = prop('lastAction', playerStore.getState())
+        action && buttonStore.dispatch(action)
+      })
+    }
 
     player.restore(config, playerStore)
 

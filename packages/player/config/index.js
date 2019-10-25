@@ -118,3 +118,5 @@ export const files = config =>
 export const getActiveTab = prop('activeTab')
 
 export const channels = propOr([], 'channels')
+
+export const subscribeButton = prop('subscribe-button')
