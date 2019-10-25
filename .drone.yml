@@ -19,19 +19,19 @@ steps:
   image: cypress/base:12.12.0
   commands:
     - npx cypress install
-    - npx lerna run integration:build --scope @podlove/player
-    - npx lerna run integration:server --scope @podlove/player
-    - npx lerna run integration:ci --scope @podlove/player
+    - npx lerna run integration:build --scope @podlove/player --stream
+    - npx lerna run integration:server --scope @podlove/player --stream
+    - npx lerna run integration:ci --scope @podlove/player --stream
 
 - name: build
   image: node:12
   commands:
-    - npx lerna run build --scope @podlove/player
+    - npx lerna run build --scope @podlove/player --stream
 
 - name: release:prepare
   image: node:12
   commands:
-    - npx lerna run publish:prepare --scope @podlove/player
+    - npx lerna run publish:prepare --scope @podlove/player --stream
   when:
     ref:
     - refs/tags/v*
@@ -70,19 +70,19 @@ steps:
   image: cypress/base:12.12.0
   commands:
     - npx cypress install
-    - npx lerna run integration:build --scope @podlove/web-player
-    - npx lerna run integration:server --scope @podlove/web-player
-    - npx lerna run integration:ci --scope @podlove/web-player
+    - npx lerna run integration:build --scope @podlove/web-player --stream
+    - npx lerna run integration:server --scope @podlove/web-player --stream
+    - npx lerna run integration:ci --scope @podlove/web-player --stream
 
 - name: build
   image: node:12
   commands:
-    - npx lerna run build --scope @podlove/web-player
+    - npx lerna run build --scope @podlove/web-player --stream
 
 - name: release:prepare
   image: node:12
   commands:
-    - npx lerna run publish:prepare --scope @podlove/web-player
+    - npx lerna run publish:prepare --scope @podlove/web-player --stream
   when:
     ref:
     - refs/tags/v*
@@ -103,7 +103,7 @@ steps:
   image: node:12
   commands:
     - rm -rf apps/web-player/publish
-    - npx lerna run build:cdn --scope @podlove/web-player
+    - npx lerna run build:cdn --scope @podlove/web-player --stream
   when:
     ref:
     - refs/tags/v*
@@ -146,7 +146,7 @@ steps:
 - name: build
   image: node:12
   commands:
-    - npx lerna run build --scope @podlove/subscribe-button
+    - npx lerna run build --scope @podlove/subscribe-button --stream
 
 ---
 kind: pipeline
@@ -173,12 +173,12 @@ steps:
 - name: build
   image: node:12
   commands:
-    - npx lerna run build --scope @podlove/components
+    - npx lerna run build --scope @podlove/components --stream
 
 - name: release:prepare
   image: node:12
   commands:
-    - npx lerna run publish:prepare --scope @podlove/components
+    - npx lerna run publish:prepare --scope @podlove/components --stream
   when:
     ref:
     - refs/tags/v*
@@ -251,7 +251,7 @@ steps:
 - name: build
   image: node:12
   commands:
-    - npx lerna run build --scope @podlove/player-sagas
+    - npx lerna run build --scope @podlove/player-sagas --stream
 
 - name: deploy:npm
   image: plugins/npm
@@ -351,7 +351,7 @@ steps:
 - name: build
   image: node:12
   commands:
-    - env BASE=/podlove-web-player/ npx lerna run build --scope @podlove/docs-web-player
+    - env BASE=/podlove-web-player/ npx lerna run build --scope @podlove/docs-web-player --stream
 
 - name: deploy:github
   image: node:12
@@ -359,7 +359,7 @@ steps:
     GH_TOKEN:
       from_secret: GH_TOKEN
   commands:
-    - npx lerna run publish --scope @podlove/docs-web-player
+    - npx lerna run publish --scope @podlove/docs-web-player --stream
   when:
     ref:
     - refs/tags/v*
