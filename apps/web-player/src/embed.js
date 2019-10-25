@@ -2,6 +2,7 @@
 import { prop } from 'ramda'
 import { init as playerInit } from '@podlove/player-actions/lifecycle'
 import { init as buttonInit } from '@podlove/button-actions/lifecycle'
+import * as configParser from '@podlove/player-config'
 
 import { version } from '../package'
 
@@ -12,29 +13,34 @@ import * as player from './player'
 import * as subscribeButton from './subscribe-button'
 
 const podlovePlayer = async (selector, episode, meta) => {
-  const config = await parseConfig(episode, meta)
-  context.create(config)
-  const target = await canvas(selector)
+  let target
 
   try {
+    const config = await parseConfig(episode, meta)
+    context.create(config)
+    target = await canvas(selector)
+
     target.init()
     const playerStore = await player.create(config, target)
-    const buttonStore = await subscribeButton.create(config, target)
 
     playerStore.dispatch(playerInit(config))
-    buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
 
-    // inter store connection
-    playerStore.subscribe(() => {
-      const action = prop('lastAction', playerStore.getState())
-      action && buttonStore.dispatch(action)
-    })
+    if (configParser.subscribeButton(config)) {
+      const buttonStore = await subscribeButton.create(config, target)
+      buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
+
+      // inter store connection
+      playerStore.subscribe(() => {
+        const action = prop('lastAction', playerStore.getState())
+        action && buttonStore.dispatch(action)
+      })
+    }
 
     player.restore(config, playerStore)
 
     return playerStore
   } catch (err) {
-    target.reset()
+    target && target.reset()
 
     console.group(`Can't load Podlove Webplayer ${version}`)
     console.error('selector', selector)

@@ -2,9 +2,10 @@
   div(class="mobile:p-4 tablet:p-6" data-test="tab-share")
     tab-title(@close="closeTab") {{ $t('SHARE.TITLE') }}
     div.mb-4.block.items-center.justify-between(class="tablet:flex")
-      playtime.mx-2.mb-4(class="tablet:mx-0 tablet:mb-0")
       channels
-    embed-code.mb-4(v-if="hasEmbedLink")
+    div.mx-2.mb-4
+      playtime.mx-2.mb-4(class="tablet:mx-0 tablet:mb-0")
+    embed-code.mx-2.mb-4(v-if="hasEmbedLink")
 
 </template>
 

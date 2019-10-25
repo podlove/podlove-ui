@@ -1,4 +1,4 @@
-import { compose, map, prop, concat, propOr } from 'ramda'
+import { compose, map, prop, propOr } from 'ramda'
 import { toPlayerTime } from '@podlove/utils/time'
 import { createObject } from '@podlove/utils/helper'
 
@@ -108,7 +108,7 @@ export const platform = compose(
 export const playlist = propOr([], 'playlist')
 
 export const files = config =>
-  concat(propOr([], 'files', config), media(config))
+  propOr(media(config), 'files', config)
     .filter(({ url }) => !!url)
     .reduce(
       (result, item) => [...result, ...(result.some(({ url }) => url === item.url) ? [] : [item])],
@@ -118,3 +118,5 @@ export const files = config =>
 export const getActiveTab = prop('activeTab')
 
 export const channels = propOr([], 'channels')
+
+export const subscribeButton = prop('subscribe-button')

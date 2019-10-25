@@ -4,7 +4,7 @@ const { select } = require('../helpers/selectors')
 describe('sharing', () => {
   beforeEach(cy.setup)
 
-  it.only('should generate the correct embed code', () => {
+  it('should generate the correct embed code', () => {
     cy.embed('<div></div>', { episode: '/test/episode.json', config: '/test/config.json' })
     cy.select('tab-trigger--share').click()
     cy.select('tab-share--embed--input').should('exist')

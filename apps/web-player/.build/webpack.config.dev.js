@@ -20,6 +20,8 @@ module.exports = {
     '@podlove/player': playerAssets
   }),
 
+  optimization: { namedModules: true, namedChunks: true, splitChunks: { cacheGroups: { default: false } } },
+
   devtool: 'inline-source-map',
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 
