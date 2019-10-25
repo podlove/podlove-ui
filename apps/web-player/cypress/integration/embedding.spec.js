@@ -36,12 +36,12 @@ describe('embedding', () => {
       cy.select('player').then(element => expect(element.width()).to.equal(300))
     })
 
-    it('should have a minimal width of 260px', () => {
+    it('should have a minimal width of 240px', () => {
       cy.embed('<div data-test="embed-frame" style="width: 240px;"></div>', {
         episode: '/episode.json',
         config: '/test/config.json'
       })
-      cy.select('player').then(element => expect(element.width()).to.equal(260))
+      cy.select('player').then(element => expect(element.width()).to.equal(240))
     })
 
     it('should have a maximum width of 900px', () => {
