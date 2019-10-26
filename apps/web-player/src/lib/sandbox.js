@@ -43,6 +43,7 @@ export const createSandbox = async (config, node) => {
       })
     )
     .then(resize(node))
+    .then(setStyles({ 'min-height': null }))
 
   setAccessibilityAttributes(config, player)
 
