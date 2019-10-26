@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-/* globals cy */
 
 describe('<root>', () => {
   beforeEach(cy.setup)

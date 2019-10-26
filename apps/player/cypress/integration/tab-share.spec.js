@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-/* globals cy,expect */
+
 const { onUpdate } = require('../helpers/state')
 
 const channels = ['facebook', 'twitter', 'whats-app', 'linkedin', 'pinterest', 'xing', 'mail']
@@ -98,6 +98,7 @@ describe('<tab-share>', () => {
 
           it('should include the playtime in the share link', function(done) {
             assert('PLAYER_SELECT_CONTENT', () => {
+              cy.wait(50)
               cy.select(`tab-share--channels--${channel}`)
                 .find('a')
                 .then(link => {

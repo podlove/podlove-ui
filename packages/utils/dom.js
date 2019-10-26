@@ -1,4 +1,3 @@
-/* global MutationObserver */
 import { curry, compose, uniq, concat, join, filter, identity, head } from 'ramda'
 import DOMPurify from 'dompurify'
 

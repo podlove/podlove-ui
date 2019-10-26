@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-/* globals cy */
+
 const { onUpdate } = require('../helpers/state')
 describe('<step-forward>', () => {
   let assert, dispatch

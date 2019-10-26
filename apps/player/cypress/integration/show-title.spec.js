@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-/* globals cy */
+
 describe('<show-title>', () => {
   beforeEach(cy.setup)
 

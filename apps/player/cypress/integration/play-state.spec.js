@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-/* globals cy */
 
 const { onUpdate } = require('../helpers/state')
 

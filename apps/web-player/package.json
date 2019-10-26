@@ -27,17 +27,17 @@
     "@podlove/player-state": "^5.0.0",
     "@podlove/player-config": "^5.0.0",
     "@podlove/utils": "^5.0.0",
-    "color": "3.1.0",
+    "color": "3.1.2",
     "hashcode": "1.0.3",
-    "iframe-resizer": "4.0.4",
+    "iframe-resizer": "4.2.2",
     "localstorage": "1.0.1",
     "ramda": "0.26.1"
   },
   "devDependencies": {
     "@podlove/build": "^5.0.0",
-    "cypress": "3.4.1",
+    "cypress": "3.5.0",
     "http-server": "0.11.1",
-    "webpack": "4.26.0",
-    "webpack-dev-server": "3.1.11"
+    "webpack": "4.41.2",
+    "webpack-dev-server": "3.9.0"
   }
 }
