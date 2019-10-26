@@ -12,8 +12,8 @@
     "@podlove/player-actions": "^5.0.0",
     "@podlove/player-config": "^5.0.0",
     "@podlove/utils": "^5.0.0",
-    "detect-browser": "3.0.1",
-    "redux-saga": "1.0.5"
+    "detect-browser": "4.8.0",
+    "redux-saga": "1.1.1"
   },
   "devDependencies": {
     "@podlove/build": "^5.0.0"

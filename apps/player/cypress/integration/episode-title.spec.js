@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-/* globals cy */
+
 describe('<episode-title>', () => {
   beforeEach(cy.setup)
 

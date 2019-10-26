@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-/* globals cy */
 
 describe('<divider>', () => {
   beforeEach(cy.setup)

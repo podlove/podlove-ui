@@ -56,7 +56,7 @@ const style = {
     }),
     sass: ({ includePaths = [] } = {}) => ({
       loader: 'sass-loader',
-      options: { includePaths }
+      options: { sassOptions: { includePaths } }
     }),
     postcss: ({ plugins = [] } = {}) => ({
       loader: 'postcss-loader',

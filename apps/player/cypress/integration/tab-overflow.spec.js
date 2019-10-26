@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-/* globals cy */
+
 describe('<tab-overflow>', () => {
   beforeEach(cy.setup)
 

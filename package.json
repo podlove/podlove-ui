@@ -7,46 +7,47 @@
     "lint": "eslint -f codeframe '**/*.{js,vue}'",
     "test": "jest",
     "test:dev": "jest --watchAll",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "update": "lernaupdate"
   },
   "devDependencies": {
-    "@babel/core": "7.4.4",
-    "@babel/runtime": "7.4.4",
-    "@babel/preset-env": "7.4.4",
-    "@babel/plugin-proposal-object-rest-spread": "7.4.4",
+    "@babel/core": "7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "7.6.2",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
-    "@babel/plugin-transform-modules-commonjs": "7.4.4",
-    "@babel/plugin-transform-runtime": "7.4.4",
-    "@types/jest": "24.0.11",
-    "eslint-plugin-cypress": "2.2.1",
-    "@vue/eslint-config-prettier": "4.0.1",
+    "@babel/plugin-transform-modules-commonjs": "7.6.0",
+    "@babel/plugin-transform-runtime": "7.6.2",
+    "@babel/preset-env": "7.6.3",
+    "@babel/runtime": "7.6.3",
+    "@types/jest": "24.0.20",
+    "@vue/eslint-config-prettier": "5.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-bridge": "1.12.11",
-    "babel-eslint": "10.0.1",
-    "babel-jest": "24.6.0",
-    "eslint": "5.15.3",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-jest": "22.4.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-vue": "^5.2.2",
-    "husky": "1.3.1",
-    "jest": "24.6.0",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
+    "cypress": "3.5.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "6.4.0",
+    "eslint-plugin-cypress": "2.7.0",
+    "eslint-plugin-jest": "22.20.1",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-vue": "5.2.3",
+    "fs-extra": "8.1.0",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "jest-html-reporters": "1.2.0",
     "jest-serializer-vue": "2.0.2",
-    "lerna": "3.4.3",
-    "lint-staged": "8.1.5",
-    "prettier": "^1.17.0",
-    "vue-jest": "4.0.0-beta.2",
-    "cypress": "3.4.1",
+    "lerna": "3.18.3",
+    "lerna-update-wizard": "0.16.0",
+    "lint-staged": "9.4.2",
+    "prettier": "1.18.2",
     "save-remote-file-webpack-plugin": "1.0.2",
-    "jest-html-reporters": "1.1.9"
+    "vue-jest": "4.0.0-beta.2"
   },
   "lint-staged": {
-    "linters": {
-      "**/*.{js,vue}": [
-        "eslint --fix '**/*.{js,vue}'",
-        "git add"
-      ]
-    }
+    "**/*.{js,vue}": [
+      "eslint --fix '**/*.{js,vue}'",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {

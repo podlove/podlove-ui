@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@podlove/utils": "^5.0.0",
-    "redux-actions": "2.6.4"
+    "redux-actions": "2.6.5"
   },
   "devDependencies": {
     "@podlove/build": "^5.0.0"

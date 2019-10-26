@@ -1,5 +1,5 @@
 /* eslint-env mocha */
-/* globals cy, expect */
+
 const { onUpdate } = require('../helpers/state')
 const { select } = require('../helpers/selectors')
 

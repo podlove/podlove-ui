@@ -14,6 +14,6 @@
   "license": "MIT",
   "devDependencies": {
     "@podlove/build": "^5.0.0",
-    "webpack": "4.26.0"
+    "webpack": "4.41.2"
   }
 }
