@@ -94,7 +94,7 @@ export function* initChapters({ selectDuration }, { payload }) {
 
   const state = chapters.reduce((result, chapter, index, chapters) => {
     const end = propOr({ start: duration }, index + 1, chapters)
-    const href = propOr(null, 'href', chapter).trim()
+    const href = propOr('', 'href', chapter).trim()
 
     return [
       ...result,
