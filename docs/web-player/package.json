@@ -1,7 +1,7 @@
 {
   "name": "@podlove/docs-web-player",
   "private": true,
-  "version": "4.5.10",
+  "version": "4.5.11",
   "description": "Documentation for Podlove Web Player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "@podlove/player-actions": "^4.5.10",
-    "@podlove/web-player": "^4.5.10",
+    "@podlove/web-player": "^4.5.11",
     "jsoneditor": "5.32.5",
     "vue-color": "2.7.0"
   },

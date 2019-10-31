@@ -1,6 +1,6 @@
 {
   "name": "@podlove/web-player",
-  "version": "4.5.10",
+  "version": "4.5.11",
   "description": "Embedded version of Podlove Player",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/web-player",
   "scripts": {
