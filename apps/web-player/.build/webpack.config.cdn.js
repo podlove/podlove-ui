@@ -4,8 +4,9 @@ const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 
 const version = require('../package').version
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
+const subscribeButtonAssets = path.resolve('./node_modules/@podlove/subscribe-button/dist')
 
-const BASE = `//cdn.podlove.org/web-player/`
+const BASE = `//cdn.podlove.org/web-player/5.x/`
 
 module.exports = {
   mode: 'production',
@@ -17,6 +18,8 @@ module.exports = {
   },
 
   output: output(),
+
+  optimization: { namedModules: true, namedChunks: true, splitChunks: { cacheGroups: { default: false } } },
 
   resolve: resolve({
     '@podlove/player': playerAssets
@@ -43,23 +46,34 @@ module.exports = {
   },
 
   plugins: [
+    plugins.version(),
+    plugins.env({
+      MODE: 'cdn',
+      BASE,
+      PLAYER_SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'],
+      BUTTON_SCRIPTS: ['vendor', 'styles', 'runtime', 'list'],
+      PLAYER_STYLES: ['styles'],
+      BUTTON_STYLES: ['styles']
+    }),
+    plugins.copy([
+      {
+        from: playerAssets,
+        to: `${version}/player`
+      },
+      {
+        from: subscribeButtonAssets,
+        to: `${version}/button`
+      }
+    ]),
     plugins.html({
       files: {
         styles: ['styles'],
         scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
       },
       filename: 'share.html',
-      template: '!!mustache-loader!./src/lib/share.mustache',
+      template: '!!mustache-loader!./src/player/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
-      base: `${BASE}${version}/`
-    }),
-    plugins.version(),
-    plugins.env({ MODE: 'cdn', BASE, SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'], STYLES: ['styles'] }),
-    plugins.copy([
-      {
-        from: playerAssets,
-        to: `${version}/`
-      }
-    ])
+      base: `${version}/player/`
+    })
   ]
 }

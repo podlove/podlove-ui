@@ -1,14 +1,19 @@
 import { curry } from 'ramda'
 
-export const ready = curry((cb, store) => {
+const lifecycle = curry((event, cb, store) => {
   const unsubscribe = store.subscribe(() => {
     const { lifecycle } = store.getState()
 
-    if (lifecycle !== 'ready') {
+    if (lifecycle !== event) {
       return
     }
 
     unsubscribe()
     cb(store)
   })
+
+  store.dispatch({ type: 'PLUGIN_CONNECT' })
 })
+
+export const ready = lifecycle('ready')
+export const constructed = lifecycle('constructed')

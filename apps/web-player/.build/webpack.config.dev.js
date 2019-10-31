@@ -58,7 +58,7 @@ module.exports = {
       filename: 'share.html',
       template: '!!mustache-loader!./src/player/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
-      base: `player/${version}/`
+      base: `${version}/player/`
     }),
     plugins.env({
       MODE: 'development',
@@ -71,11 +71,11 @@ module.exports = {
     plugins.copy([
       {
         from: playerAssets,
-        to: `player/${version}/`
+        to: `${version}/player/`
       },
       {
         from: subscribeButtonAssets,
-        to: `button/${version}/`
+        to: `${version}/button/`
       },
       {
         from: './example/episode.json'

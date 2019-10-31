@@ -11,7 +11,7 @@ export const create = async (config, target) => {
   const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config.reference)
 
   const dom = template({
-    base: `${reference}button/${version}/`,
+    base: `${reference}${version}/button/`,
     styles: BUTTON_STYLES,
     scripts: BUTTON_SCRIPTS
   })
