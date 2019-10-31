@@ -30,7 +30,7 @@ const setAccessibilityAttributes = curry((config, node) => {
 
 export const create = async (config, target) => {
   const playerDom = template({
-    base: `${window.resourceBaseUrl}player/${version}/`,
+    base: `${window.resourceBaseUrl}${version}/player/`,
     styles: PLAYER_STYLES,
     scripts: PLAYER_SCRIPTS,
     template: target.template,
