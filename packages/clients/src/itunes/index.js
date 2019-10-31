@@ -12,7 +12,7 @@ export default [
     icon
   }),
   client({
-    title: 'iTunes',
+    title: 'iTunes Web',
     scheme: id => `https://podcasts.apple.com/podcast/${id}`,
     platform: platform.web,
     type: type.service,

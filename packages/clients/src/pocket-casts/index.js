@@ -19,7 +19,7 @@ export default [
     icon
   }),
   client({
-    title: 'PocketCasts',
+    title: 'PocketCasts Web',
     scheme: feed => `http://pcasts.in/feed/${feed}`,
     install: 'https://play.pocketcasts.com/',
     platform: platform.web,
