@@ -35,7 +35,7 @@ sagas.run(
     selectPlaylist: selectors.playlist.list,
     selectChapters: selectors.chapters.list,
     selectTranscripts: selectors.transcripts.hasTranscripts,
-    selectFiles: selectors.files.audio,
+    selectFiles: selectors.files.files,
     selectEpisodeCover: selectors.episode.poster,
     selectEpisodeTitle: selectors.episode.title,
     selectEpisodeSubtitle: selectors.episode.subtitle,

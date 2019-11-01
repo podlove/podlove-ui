@@ -13,20 +13,29 @@
 
 <script>
 import { mapState } from 'redux-vuex'
+import { compose, includes, defaultTo, toLower } from 'ramda'
 import { Icon } from '@podlove/components'
 import { toMegabyte } from '@podlove/utils/math'
 
 import select from 'store/selectors'
+
+const isType = type =>
+  compose(
+    includes(type),
+    toLower,
+    defaultTo('')
+  )
+const audio = isType('audio')
+const video = isType('video')
+const pdf = isType('pdf')
+const text = isType('text')
+
 export default {
   components: {
     Icon
   },
 
   props: {
-    type: {
-      type: String,
-      default: null
-    },
     file: {
       type: Object,
       default: () => ({
@@ -41,6 +50,28 @@ export default {
   data: mapState({
     font: select.theme.fontBold
   }),
+
+  computed: {
+    type() {
+      if (audio(this.file.mimeType)) {
+        return this.$t('FILES.TYPES.AUDIO')
+      }
+
+      if (video(this.file.mimeType)) {
+        return this.$t('FILES.TYPES.VIDEO')
+      }
+
+      if (text(this.file.mimeType)) {
+        return this.$t('FILES.TYPES.TEXT')
+      }
+
+      if (pdf(this.file.mimeType)) {
+        return this.$t('FILES.TYPES.PDF')
+      }
+
+      return ''
+    }
+  },
 
   methods: {
     toMegabyte

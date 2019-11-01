@@ -25,7 +25,10 @@
   "FILES": {
     "TITLE": "Dateien",
     "TYPES": {
-      "AUDIO": "Audio"
+      "AUDIO": "Audio",
+      "PDF": "PDF",
+      "TEXT": "Text",
+      "VIDEO": "Video"
     },
     "ACTIONS": {
       "DOWNLOAD": "Download",

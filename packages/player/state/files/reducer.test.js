@@ -17,18 +17,26 @@ describe('files', () => {
               url: 'url',
               length: 1337,
               mimeType: 'mp4/video'
+            },
+            {
+              url: 'url1',
+              length: 1337,
+              mimeType: 'mp4/video'
             }
           ]
         }
       })
-    ).toEqual({
-      audio: [
-        {
-          url: 'url',
-          length: 1337,
-          mimeType: 'mp4/audio'
-        }
-      ]
-    })
+    ).toEqual([
+      {
+        url: 'url',
+        length: 1337,
+        mimeType: 'mp4/audio'
+      },
+      {
+        url: 'url1',
+        length: 1337,
+        mimeType: 'mp4/video'
+      }
+    ])
   })
 })
