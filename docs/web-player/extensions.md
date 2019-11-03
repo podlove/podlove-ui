@@ -1,42 +1,12 @@
 ---
-navigation: 7
+navigation: 6
 ---
 
 # Extensions
 
-## External Event Handling
+Every player interaction is reflected in the [redux store](http://redux.js.org/docs/api/Store.html).
+Accessing the players store enables the full control of the player while running. Reacting to player events can be done by attatching to the latest action. 
 
-External event handling gives you the ability to control the player from other dom elements.
+A full list of available types can be found in the [@podlove/player-actions](https://github.com/podlove/podlove-ui/blob/development/packages/player/actions/types.js) package. 
 
-### Installation
-
-```javascript
-  <script src="extensions/external-events.js"></script>
-  <div id="player-id"></div>
-  <script>
-    podlovePlayer('#player-id', 'path/to/config')
-      .then(registerExternalEvents('player-id'));
-  </script>
-```
-
-### Usage
-
-```javascript
-  <a
-    href="javascript:void(0)"
-    rel="podlove-web-player" // Registeres event handler
-    data-ref="player-id"     // ID of player to control, if undefined all players without an ID are controlled
-    data-action="play|pause" // Action that is triggered on click (optional)
-    data-time="00:10:10.500" // Time in simple time format that is selected (optional)
-    data-tab="info|chapters|transcripts|share|download|audio" // Tab that is selected on interaction (optional)
-  >External Element</a>
-```
-### Example
-
-<button class="button" rel="podlove-web-player" data-ref="example-player" data-action="play">play</button>
-<button class="button" rel="podlove-web-player" data-ref="example-player" data-action="pause">pause</button>
-<button class="button" rel="podlove-web-player" data-ref="example-player" data-time="00:10:00">set time</button>
-<button class="button" rel="podlove-web-player" data-ref="example-player" data-tab="download">activate download tab</button>
-<button class="button" rel="podlove-web-player" data-ref="example-player" data-action="play" data-time="00:10:00" data-tab="download">all combined</button>
-
-<podlove-web-player config="https://logbuch-netzpolitik.de/?podlove_player4=1877" id="example-player" />
+<store />

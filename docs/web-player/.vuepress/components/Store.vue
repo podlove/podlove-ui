@@ -2,13 +2,16 @@
   <div>
     <podlove-web-player @ready="initPlayer" :episode="action.payload" />
 
+    <h4>Last Action</h4>
+    <json-editor @ready="subscribeEditorReady" :json="{}" />
+
     <h4>Type</h4>
     <select v-model="type">
       <option v-for="(action, index) in actions" :key="index" :value="action.type">{{ action.type }} - {{ action.description }}</option>
     </select>
 
-    <h4>Example Payload</h4>
-    <json-editor class="editor" @ready="initEditor" @update="updateAction" :json="action" />
+    <h4>Payload</h4>
+    <json-editor class="editor" @ready="dispatchEditorReady" @update="updateAction" :json="action" />
 
     <button class="dispatch-button" @click="dispatch()">Dispatch</button>
   </div>
@@ -16,6 +19,7 @@
 
 <script>
   import episode from '../public/fixtures/episode.json'
+  import config from '../public/fixtures/config.json'
   import * as types from '@podlove/player-actions/types'
 
   const actions = [{
@@ -37,10 +41,7 @@
   }, {
     type: types.SET_THEME,
     description: 'Sets Player Theme',
-    payload: {
-      main: '#9b4dca',
-      highlight: '#ffffff'
-    }
+    payload: { version: 5, theme: config.theme }
   }, {
     type: types.NEXT_CHAPTER,
     description: 'Jumps to the next chapter',
@@ -73,56 +74,6 @@
     type: types.UPDATE_PLAYTIME,
     description: 'Updates the playback time in milliseconds',
     payload: 10 * 1000 * 60
-  }, {
-    type: types.SHOW_COMPONENT_INFO,
-    description: 'Shows the info section'
-  }, {
-    type: types.HIDE_COMPONENT_INFO,
-    description: 'Hides the info section'
-  }, {
-    type: types.SHOW_COMPONENT_INFO_POSTER,
-    description: 'Shows the info poster section'
-  }, {
-    type: types.HIDE_COMPONENT_INFO_POSTER,
-    description: 'Hides the info poster section'
-  }, {
-    type: types.SHOW_COMPONENT_CONTROLS_CHAPTERS,
-    description: 'Shows the chapter controls',
-  }, {
-    type: types.HIDE_COMPONENT_CONTROLS_STEPPERS,
-    description: 'Hides the stepper controls'
-  }, {
-    type: types.SHOW_COMPONENT_TAB,
-    description: 'Shows a tab',
-    payload: 'download'
-  }, {
-    type: types.HIDE_COMPONENT_TAB,
-    description: 'Hides a tab',
-    payload: 'download'
-  }, {
-    type: types.SHOW_COMPONENT_VOLUME_SLIDER,
-    description: 'Shows the volume slider'
-  }, {
-    type: types.HIDE_COMPONENT_VOLUME_SLIDER,
-    description: 'Hides the volume slider'
-  }, {
-    type: types.SHOW_COMPONENT_RATE_SLIDER,
-    description: 'Shows the rate slider'
-  }, {
-    type: types.HIDE_COMPONENT_RATE_SLIDER,
-    description: 'Hides the rate slider'
-  }, {
-    type: types.SHOW_COMPONENT_PROGRESSBAR,
-    description: 'Shows the progress bar'
-  }, {
-    type: types.HIDE_COMPONENT_PROGRESSBAR,
-    description: 'Hides the progress bar'
-  }, {
-    type: types.SHOW_COMPONENT_CONTROLS_BUTTON,
-    description: 'Shows the control button unit'
-  }, {
-    type: types.HIDE_COMPONENT_CONTROLS_BUTTON,
-    description: 'Hides the control button unit'
   }]
 
   export default {
@@ -131,7 +82,8 @@
     data () {
       return {
         store: null,
-        editor: null,
+        dispatchEditor: null,
+        subscribeEditor: null,
         actions,
         action: {
           type: types.INIT,
@@ -147,21 +99,35 @@
 
         this.action = { type, payload }
 
-        this.updateEditor()
+        this.updateDispatchEditor()
       }
     },
 
     methods: {
       initPlayer (store) {
         this.store = store
+
+        store.subscribe(() => {
+          const { lastAction } = store.getState()
+
+          this.subscribeEditor && this.subscribeEditor.set(lastAction)
+        })
       },
 
-      initEditor (editor) {
-        this.editor = editor
+      dispatchEditorReady (editor) {
+        this.dispatchEditor = editor
       },
 
-      updateEditor () {
-        this.editor.set(this.action)
+      subscribeEditorReady (editor) {
+        this.subscribeEditor = editor
+      },
+
+      updateDispatchEditor () {
+        this.dispatchEditor.set(this.action)
+      },
+
+      updateSubscribeEditor () {
+        this.subscribeEditor.set(this.action)
       },
 
       updateAction (action) {

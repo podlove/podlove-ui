@@ -1,5 +1,5 @@
 <template>
-  <div class="editor-container" :style="{ height: height || '150px' }"></div>
+  <div class="editor-container" :style="{ height: height }"></div>
 </template>
 
 <script>
@@ -52,6 +52,10 @@
 <style lang="scss">
   @import '~jsoneditor/dist/jsoneditor.min.css';
   @import '~milligram-scss/src/Color';
+
+  .editor-container {
+    margin-bottom: 30px;
+  }
 
   .jsoneditor {
     border-color: $color-primary !important;
