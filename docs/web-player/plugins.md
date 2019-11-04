@@ -1,5 +1,5 @@
 ---
-navigation: 5
+navigation: 6
 ---
 
 # Plugins
