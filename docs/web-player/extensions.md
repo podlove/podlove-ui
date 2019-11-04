@@ -1,5 +1,5 @@
 ---
-navigation: 6
+navigation: 7
 ---
 
 # Extensions

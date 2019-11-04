@@ -1,5 +1,5 @@
 <template>
-  <div class="player" :id="id" :data-variant="variant" :data-template="template"></div>
+  <div class="player" :id="id" :data-variant="variant" :data-template="template"><slot></slot></div>
 </template>
 
 <script>

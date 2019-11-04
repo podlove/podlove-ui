@@ -8,20 +8,20 @@ The podlove web player relies on the provided meta data and doesn't parse any me
 
 ### Episode
 
-<code-sandbox id="player-configuration-otvys" title="Episode" module="/example/episode.js" view="editor"></code-sandbox>
+<code-sandbox id="player-configuration-p9obe" title="Episode" module="/example/episode.js" view="editor"></code-sandbox>
   
 ### Config
 
-<code-sandbox id="player-configuration-otvys" title="Player" module="/example/config.js" view="editor"></code-sandbox>
+<code-sandbox id="player-configuration-p9obe" title="Player" module="/example/config.js" view="editor"></code-sandbox>
   
 ### Chapters
 
-<code-sandbox id="player-configuration-otvys" title="Chapters" module="/example/chapters.js" view="editor"></code-sandbox>
+<code-sandbox id="player-configuration-p9obe" title="Chapters" module="/example/chapters.js" view="editor"></code-sandbox>
 
 ### Transcripts
 
-<code-sandbox id="player-configuration-otvys" title="Transcripts" module="/example/transcripts.js" view="editor"></code-sandbox>
+<code-sandbox id="player-configuration-p9obe" title="Transcripts" module="/example/transcripts.js" view="editor"></code-sandbox>
 
 ### Playlist
 
-<code-sandbox id="player-configuration-otvys" title="Playlist" module="/example/playlist.js" view="editor"></code-sandbox>
+<code-sandbox id="player-configuration-p9obe" title="Playlist" module="/example/playlist.js" view="editor"></code-sandbox>
