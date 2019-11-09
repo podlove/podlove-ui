@@ -1,17 +1,7 @@
 /* eslint-disable no-console */
-import { mergeDeepRight, propOr, uniqWith, concat, eqProps } from 'ramda'
+import { mergeDeepRight, propOr } from 'ramda'
 import { json } from '@podlove/utils/request'
 import * as playerConfig from '@podlove/player-config'
-
-const media = config => {
-  const media = propOr([], 'media', config)
-  const audio = propOr([], 'audio', config)
-  const video = propOr([], 'video', config)
-
-  return uniqWith(eqProps('url'), concat(media, audio, video, audio))
-}
-
-const files = media
 
 const chapters = async config => {
   try {
@@ -67,8 +57,6 @@ export const parseConfig = async (episode, config) => {
 
   return mergeDeepRight(
     Object.assign({}, resolved.episode, {
-      media: media(resolved.episode),
-      files: files(resolved.episode),
       transcripts: await transcripts(resolved.episode),
       chapters: await chapters(resolved.episode)
     }),
