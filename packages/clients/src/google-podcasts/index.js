@@ -9,5 +9,12 @@ export default [
     platform: platform.android,
     type: type.app,
     icon
+  }),
+  client({
+    title: 'Google Podcasts Web',
+    scheme: feed => `https://podcasts.google.com/?feed=${btoa(feed)}`,
+    platform: platform.web,
+    type: type.service,
+    icon
   })
 ]

@@ -67,11 +67,13 @@
     "services": {
       "deezer": "deezer",
       "itunes": "itunes",
+      "apple-podcasts": "apple-podcasts",
       "pocket-casts": "pocket-casts",
       "soundcloud": "soundcloud",
       "spotify": "spotify",
       "stitcher": "stitcher",
-      "youtube": "youtube"
+      "youtube": "youtube",
+      "google-podcasts": "google"
     },
     "clients": [
       "antenna-pod",

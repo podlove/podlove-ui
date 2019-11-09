@@ -9,5 +9,19 @@ export default [
     platform: platform.ios,
     type: type.app,
     icon
+  }),
+  client({
+    title: 'Apple Podcasts',
+    scheme: feed => `pcast://${feed}`,
+    platform: platform.osx,
+    type: type.app,
+    icon
+  }),
+  client({
+    title: 'Apple Podcasts Web',
+    scheme: id => `https://podcasts.apple.com/podcast/${id}`,
+    platform: platform.web,
+    type: type.service,
+    icon
   })
 ]
