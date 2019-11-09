@@ -5,13 +5,15 @@ import { fork, take, call } from 'redux-saga/effects'
 export const channel = host =>
   eventChannel(emitter => {
     const pipe = args => {
-      emitter(args)
+      emitter(args || {})
     }
 
     host(pipe)
 
     return () => {}
   })
+
+export const mediaControl = event => cb => navigator.mediaSession.setActionHandler(event, cb)
 
 export const matchAction = (matchType, matchPayload) => ({ type, payload }) =>
   type === matchType && equals(matchPayload, payload)

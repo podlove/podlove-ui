@@ -12,6 +12,7 @@ import { stepperSaga } from '@podlove/player-sagas/stepper'
 import { errorSaga } from '@podlove/player-sagas/error'
 import { keyboardSaga } from '@podlove/player-sagas/keyboard'
 import { playlistSaga } from '@podlove/player-sagas/playlist'
+import { mediaSessionSaga } from '@podlove/player-sagas/media-session'
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connect } from 'redux-vuex'
@@ -82,6 +83,14 @@ sagas.run(
     selectRate: selectors.audio.rate,
     selectMuted: selectors.audio.muted,
     selectPlaylist: selectors.playlist.list
+  }),
+  mediaSessionSaga({
+    selectPoster: selectors.driver.image,
+    selectDuration: selectors.duration,
+    selectPlaytime: selectors.playtime,
+    selectShow: selectors.show.title,
+    selectTitle: selectors.episode.title,
+    selectChapterTitle: selectors.chapters.title
   })
 )
 
