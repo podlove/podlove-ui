@@ -14,10 +14,12 @@
     "webpack": "4.41.2",
     "vue": "2.6.10",
     "@babel/core": "7.6.4",
+    "@babel/polyfill": "7.7.0",
     "@babel/plugin-proposal-object-rest-spread": "7.6.2",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/plugin-transform-modules-commonjs": "7.6.0",
     "@babel/plugin-transform-runtime": "7.6.2",
+    "@babel/plugin-transform-regenerator": "7.7.0",
     "@babel/preset-env": "7.6.3",
     "@babel/runtime": "7.6.3",
     "@types/jest": "24.0.20",
@@ -44,7 +46,9 @@
     "lint-staged": "9.4.2",
     "prettier": "1.18.2",
     "save-remote-file-webpack-plugin": "1.0.2",
-    "vue-jest": "4.0.0-beta.2"
+    "vue-jest": "4.0.0-beta.2",
+    "core-js": "3.4.2",
+    "regenerator-transform": "0.14.1"
   },
   "lint-staged": {
     "**/*.{js,vue}": [

@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime'
 import { Icon } from '@podlove/components'
 
 import Root from './root'

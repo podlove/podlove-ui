@@ -15,6 +15,7 @@ module.exports = {
     store: './src/store',
     '@podlove/components': componentAssets
   }),
+
   devtool: 'inline-source-map',
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 

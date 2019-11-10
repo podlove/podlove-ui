@@ -11,13 +11,29 @@
       overflow: hidden;
     }
   </style>
+
+  <script type="text/javascript">
+    window.resourceBaseUrl = '{{ htmlWebpackPlugin.options.root }}{{ htmlWebpackPlugin.options.base }}';
+  </script>
+
+  <script>
+    const modernBrowser = (
+      'fetch' in window &&
+      'assign' in Object
+    );
+
+    if ( !modernBrowser ) {
+      const scriptElement = document.createElement('script');
+
+      scriptElement.async = false;
+      scriptElement.src = '{{ htmlWebpackPlugin.options.root }}polyfills.js';
+      document.head.appendChild(scriptElement);
+    }
+  </script>
 </head>
 
 <body>
 
-  <script type="text/javascript">
-    window.resourceBaseUrl = '{{ htmlWebpackPlugin.options.base }}';
-  </script>
 
   <div id="app">
     <root data-test="player--share">
@@ -44,11 +60,11 @@
   </div>
 
   {{#htmlWebpackPlugin.options.files.styles}}
-  <link rel="stylesheet" href="{{ htmlWebpackPlugin.options.base }}{{ . }}.css">
+  <link rel="stylesheet" href="{{ htmlWebpackPlugin.options.root }}{{ htmlWebpackPlugin.options.base }}{{ . }}.css">
   {{/htmlWebpackPlugin.options.files.styles}}
 
   {{#htmlWebpackPlugin.options.files.scripts}}
-  <script type="text/javascript" src="{{ htmlWebpackPlugin.options.base }}{{ . }}.js"></script>
+  <script type="text/javascript" src="{{ htmlWebpackPlugin.options.root }}{{ htmlWebpackPlugin.options.base }}{{ . }}.js"></script>
   {{/htmlWebpackPlugin.options.files.scripts}}
 </body>
 

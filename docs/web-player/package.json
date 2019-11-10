@@ -25,7 +25,8 @@
     "github-pages": "3.0.2",
     "node-sass": "4.13.0",
     "sass-loader": "8.0.0",
-    "vuepress": "0.14.11",
-    "vuepress-theme-millidocs": "0.5.4"
+    "vuepress": "1.2.0",
+    "vuepress-theme-millidocs": "0.5.4",
+    "core-js": "2.6.10"
   }
 }

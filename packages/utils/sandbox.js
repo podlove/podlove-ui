@@ -57,12 +57,7 @@ const inject = curry(
       }
 
       doc.open()
-      doc.write('<!DOCTYPE html>')
-      doc.write('<html>')
-      doc.write('<head><meta charset="utf-8" /></head>')
-      doc.write('<body>')
       doc.write(content)
-      doc.write('</body>')
       doc.close()
 
       onLoad()

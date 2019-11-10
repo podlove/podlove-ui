@@ -28,14 +28,15 @@ const base = input =>
     BASE: JSON.stringify(input)
   })
 
-const html = ({ filename, template, chunks, exclude, base, files }) =>
+const html = ({ filename, template, chunks, exclude, base, files, sort, inject }) =>
   new HtmlWebpackPlugin({
     filename,
     template,
-    chunksSortMode: 'none',
+    chunksSortMode: sort || 'none',
     chunks,
     base,
     files,
+    inject: inject || true,
     excludeChunks: exclude
   })
 

@@ -1,4 +1,5 @@
 /* eslint no-console: 0 */
+import fetch from 'unfetch'
 
 export const json = async url => {
   if (typeof url !== 'string') {

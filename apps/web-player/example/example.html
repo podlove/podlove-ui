@@ -8,11 +8,7 @@
 <body>
   <div id="player" data-variant="xl"></div>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        podlovePlayer('#player', 'episode.json', 'config.json').then(registerExternalEvents('player'))
-      }
-    })
+    podlovePlayer('#player', 'episode.json', 'config.json').then(registerExternalEvents('player'))
   </script>
 </body>
 

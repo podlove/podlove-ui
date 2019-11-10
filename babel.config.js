@@ -1,15 +1,6 @@
 module.exports = {
   sourceType: 'unambiguous',
-  presets: [
-    [
-      '@babel/env',
-      {
-        targets: {
-          browsers: ['last 2 versions', 'safari >= 7']
-        }
-      }
-    ]
-  ],
+  presets: ['@babel/preset-env'],
   plugins: [
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-syntax-dynamic-import',

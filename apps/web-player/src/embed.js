@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-empty */
 import { prop } from 'ramda'
 import { init as playerInit } from '@podlove/player-actions/lifecycle'
 import { init as buttonInit } from '@podlove/button-actions/lifecycle'
@@ -27,25 +27,29 @@ const podlovePlayer = async (selector, episode, meta) => {
 
     if (configParser.subscribeButton(config)) {
       const buttonStore = await subscribeButton.create(config, target)
+
       buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
 
       // inter store connection
       playerStore.subscribe(() => {
         const action = prop('lastAction', playerStore.getState())
-        action && buttonStore.dispatch(action)
+
+        try {
+          buttonStore.dispatch(action)
+        } catch (err) {}
       })
     }
 
-    player.restore(config, playerStore)
+    try {
+      player.restore(config, playerStore)
+    } catch (e) {}
 
     return playerStore
   } catch (err) {
-    target && target.reset()
-
-    console.group(`Can't load Podlove Webplayer ${version}`)
-    console.error('selector', selector)
-    console.error('config', episode)
-    console.error(err)
+    console.group(`Error in Podlove Webplayer ${version}`)
+    console.warn('selector', selector)
+    console.warn('config', episode)
+    console.warn(err)
     console.groupEnd()
   }
 }

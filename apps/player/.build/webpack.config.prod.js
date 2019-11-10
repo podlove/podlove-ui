@@ -13,6 +13,8 @@ module.exports = {
 
   optimization: optimization(),
 
+  devtool: 'source-map',
+
   resolve: resolve({
     store: './src/store',
     '@podlove/components': componentAssets
