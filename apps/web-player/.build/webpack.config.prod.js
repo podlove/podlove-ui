@@ -1,6 +1,6 @@
 const path = require('path')
 
-const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
+const { output, resolve, rules, plugins } = require('@podlove/build')
 
 const version = require('../package').version
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
@@ -12,6 +12,7 @@ module.exports = {
   entry: {
     embed: './src/embed.js',
     share: './src/share.js',
+    polyfills: './src/polyfills.js',
     'extensions/external-events': './src/extensions/external-events.js'
   },
 
@@ -72,6 +73,7 @@ module.exports = {
       filename: 'share.html',
       template: '!!mustache-loader!./src/player/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
+      root: '',
       base: `${version}/player/`
     })
   ]

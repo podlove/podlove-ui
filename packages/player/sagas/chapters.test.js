@@ -63,42 +63,29 @@ describe('chapters', () => {
 
       expect(gen.next().value).toEqual(
         takeEvery(READY, initChapters, {
-          selectDuration,
-          selectPlaytime,
-          selectCurrentChapter,
-          selectChapterList
+          selectDuration
         })
       )
       expect(gen.next().value).toEqual(takeEvery(REQUEST_PLAYTIME, chapterUpdate))
       expect(gen.next().value).toEqual(takeEvery(BACKEND_PLAYTIME, chapterUpdate))
       expect(gen.next().value).toEqual(
         takeEvery(SET_CHAPTER, setChapter, {
-          selectDuration,
-          selectPlaytime,
-          selectCurrentChapter,
-          selectChapterList
+          selectCurrentChapter
         })
       )
       expect(gen.next().value).toEqual(
         takeEvery(DISABLE_GHOST_MODE, resetChapter, {
-          selectDuration,
-          selectPlaytime,
-          selectCurrentChapter,
-          selectChapterList
+          selectPlaytime
         })
       )
       expect(gen.next().value).toEqual(
         takeEvery(PREVIOUS_CHAPTER, previousChapter, {
-          selectDuration,
           selectPlaytime,
-          selectCurrentChapter,
-          selectChapterList
+          selectCurrentChapter
         })
       )
       expect(gen.next().value).toEqual(
         takeEvery(NEXT_CHAPTER, nextChapter, {
-          selectDuration,
-          selectPlaytime,
           selectCurrentChapter,
           selectChapterList
         })

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --progress --config .build/webpack.config.dev.js",
+    "build:dev": "webpack --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
     "postinstall": "npm run build",
@@ -32,10 +33,12 @@
     "normalize-scss": "7.0.1",
     "ramda": "0.26.1",
     "redux": "4.0.4",
-    "redux-vuex": "0.2.1",
+    "redux-vuex": "0.3.2",
     "v-tooltip": "2.0.2",
     "vue": "2.6.10",
-    "vue-i18n": "8.15.0"
+    "vue-i18n": "8.15.0",
+    "core-js": "3.4.0",
+    "regenerator-runtime": "0.13.3"
   },
   "devDependencies": {
     "@podlove/build": "^5.0.0",

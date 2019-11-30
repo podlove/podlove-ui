@@ -13,7 +13,7 @@ const vue = () => ({
 const javascript = () => ({
   test: /\.js?$/,
   loader: 'babel-loader',
-  exclude: [/node_modules/]
+  exclude: /node_modules/
 })
 
 const images = () => ({

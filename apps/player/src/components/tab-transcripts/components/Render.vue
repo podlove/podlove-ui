@@ -199,11 +199,11 @@ export default {
         // Header + buffer ~> 190px height
         const scrollPosition = activeNode.offsetTop - activeNode.clientHeight - 190
 
-        this.$el.scroll({ behavior: 'smooth', top: scrollPosition })
+        this.$el.scroll && this.$el.scroll({ behavior: 'smooth', top: scrollPosition })
       })
     },
     scrollTo(index) {
-      this.$el.scroll({ top: this.heightByIndex(0, index) })
+      this.$el.scroll && this.$el.scroll({ top: this.heightByIndex(0, index) })
     }
   }
 }

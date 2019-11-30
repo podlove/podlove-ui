@@ -1,5 +1,4 @@
 /* eslint no-undef: 0 */
-
 import Vue from 'vue/dist/vue.esm'
 
 // Store

@@ -24,7 +24,7 @@
     "ramda": "0.26.1",
     "redux": "4.0.4",
     "redux-actions": "2.6.5",
-    "redux-vuex": "0.2.1",
+    "redux-vuex": "0.3.2",
     "vue": "2.6.10",
     "vue-i18n": "8.15.0"
   },

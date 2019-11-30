@@ -1,21 +1,43 @@
-<script type="text/javascript">
-  window.resourceBaseUrl = '{{ base }}';
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript">
+    window.resourceBaseUrl = '{{ root }}{{ base }}';
+  </script>
 
-<div id="app" data-test="player">
-  {{{ template }}}
-</div>
+  <script>
+    const modernBrowser = (
+      'fetch' in window &&
+      'assign' in Object
+    );
 
-{{#styles}}
-<link rel="stylesheet" href="{{ base }}{{ . }}.css">
-{{/styles}}
+    if ( !modernBrowser ) {
+      const scriptElement = document.createElement('script');
 
-{{#scripts}}
-<script type="text/javascript" src="{{ base }}{{ . }}.js"></script>
-{{/scripts}}
+      scriptElement.async = false;
+      scriptElement.src = '{{ root }}polyfills.js';
+      document.head.appendChild(scriptElement);
+    }
+  </script>
+</head>
+<body>
+  <div id="app" data-test="player">
+    {{{ template }}}
+  </div>
 
-<script>
-  {{{ resizer }}}
-</script>
+  {{#styles}}
+  <link rel="stylesheet" href="{{ root }}{{ base }}{{ . }}.css">
+  {{/styles}}
 
-{{{ loader }}}
+  {{#scripts}}
+  <script type="text/javascript" src="{{ root }}{{ base }}{{ . }}.js"></script>
+  {{/scripts}}
+
+  <script>
+    {{{ resizer }}}
+  </script>
+
+  {{{ loader }}}
+</body>
+</html>

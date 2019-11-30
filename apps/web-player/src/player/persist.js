@@ -6,7 +6,7 @@ import { showPauseButton } from '@podlove/player-actions/components'
 import { loadQuantiles } from '@podlove/player-actions/quantiles'
 import { toggleTab } from '@podlove/player-actions/tabs'
 import { compose, propOr, isEmpty, curry } from 'ramda'
-import LocalStorage from 'localstorage'
+import LocalStorage from '@podlove/utils/localstorage'
 import { hashCode } from 'hashcode'
 import { ready } from './store'
 
@@ -33,7 +33,7 @@ const recordState = curry((key, storage, store) => {
 })
 
 export const persistPlayer = (config, store) => {
-  const storage = new LocalStorage('pwp-')
+  const storage = LocalStorage('pwp')
   const key = hashCode().value(config)
   const [, existing = {}] = storage.get(key)
   const record = recordState(key, storage)

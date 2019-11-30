@@ -23,34 +23,21 @@ export const chaptersSaga = ({
 }) =>
   function* saga() {
     yield takeEvery(READY, initChapters, {
-      selectDuration,
-      selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+      selectDuration
     })
     yield takeEvery(REQUEST_PLAYTIME, chapterUpdate)
     yield takeEvery(BACKEND_PLAYTIME, chapterUpdate)
     yield takeEvery(SET_CHAPTER, setChapter, {
-      selectDuration,
-      selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+      selectCurrentChapter
     })
     yield takeEvery(DISABLE_GHOST_MODE, resetChapter, {
-      selectDuration,
-      selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+      selectPlaytime
     })
     yield takeEvery(PREVIOUS_CHAPTER, previousChapter, {
-      selectDuration,
       selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+      selectCurrentChapter
     })
     yield takeEvery(NEXT_CHAPTER, nextChapter, {
-      selectDuration,
-      selectPlaytime,
       selectCurrentChapter,
       selectChapterList
     })

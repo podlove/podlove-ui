@@ -9,6 +9,7 @@
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
     "build:cdn": "npm run clean && webpack --config .build/webpack.config.cdn.js",
+    "build:dev": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "postinstall": "npm run build",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
@@ -30,7 +31,6 @@
     "color": "3.1.2",
     "hashcode": "1.0.3",
     "iframe-resizer": "4.2.2",
-    "localstorage": "1.0.1",
     "ramda": "0.26.1"
   },
   "devDependencies": {
