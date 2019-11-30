@@ -8,7 +8,7 @@ const getItem = key =>
       let item
 
       for (let i = 0; i < storage.length; i++) {
-        if (storage.key(i).startsWith('pwp-')) {
+        if (storage.key(i).startsWith('pwp')) {
           item = storage.getItem(storage.key(i))
         }
       }

@@ -25,18 +25,6 @@ describe('lifecycle', () => {
     let gen
 
     beforeEach(() => {
-      global.fetch = jest.fn().mockImplementation(() =>
-        Promise.resolve({
-          status: 200,
-          headers: {
-            get: () => ['application/json']
-          },
-          json() {
-            return 'result'
-          }
-        })
-      )
-
       gen = ready({ payload: { chapters: 'some url', transcripts: 'some url' } })
     })
 

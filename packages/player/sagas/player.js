@@ -1,5 +1,9 @@
-import { events as audioEvents, actions as audioActions, audio } from '@podlove/html5-audio-driver'
-import { pause as pauseAudio, reset as resetAudio } from '@podlove/html5-audio-driver/actions'
+import {
+  events as audioEventFactory,
+  actions as audioActionFactory,
+  audio
+} from '@podlove/html5-audio-driver'
+import * as audioActions from '@podlove/html5-audio-driver/actions'
 import { attatchStream } from '@podlove/html5-audio-driver/hls'
 import { createSourceNodes as sources } from '@podlove/html5-audio-driver/media'
 import { select, call, put, takeEvery, fork } from 'redux-saga/effects'
@@ -51,8 +55,8 @@ export function* initPlayer({ selectMedia, selectTitle, selectPoster, mediaEleme
   }
 
   // reset existing media element
-  pauseAudio(mediaElement)
-  resetAudio(mediaElement)
+  audioActions.pause(mediaElement)
+  audioActions.reset(mediaElement)
 
   // add audio sources
   sources(mediaElement)(mediaFiles)
@@ -146,7 +150,7 @@ export function* onError(type) {
 
 export function* driver({ selectPlaytime, mediaElement }) {
   // AudioActions
-  const actions = audioActions(mediaElement)
+  const actions = audioActionFactory(mediaElement)
 
   yield takeEvery(REQUEST_PLAY, play, actions, selectPlaytime)
   yield takeEvery(REQUEST_PAUSE, pause, actions)
@@ -159,7 +163,7 @@ export function* driver({ selectPlaytime, mediaElement }) {
   yield takeEvery(UNMUTE, unmute, actions)
 
   // AudioEvents
-  const events = audioEvents(mediaElement)
+  const events = audioEventFactory(mediaElement)
   const readyEvent = yield call(channel, events.onReady)
   const loadedEvent = yield call(channel, events.onLoaded)
   const playEvent = yield call(channel, events.onPlay)
