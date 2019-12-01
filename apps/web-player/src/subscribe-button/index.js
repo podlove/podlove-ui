@@ -7,7 +7,7 @@ import template from './template.mustache'
 
 import { version } from '../../package'
 
-export const create = async (config, target) => {
+export const create = async config => {
   const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config.reference)
 
   const dom = template({
@@ -17,8 +17,16 @@ export const create = async (config, target) => {
     scripts: BUTTON_SCRIPTS
   })
 
-  const button = await sandbox(target.node, dom).then(
-    setStyles({ position: 'fixed', width: 0, height: 0, top: 0, left: 0, overflow: 'hidden' })
+  const button = await sandbox(document.body, dom).then(
+    setStyles({
+      position: 'fixed',
+      width: 0,
+      height: 0,
+      top: 0,
+      left: 0,
+      overflow: 'hidden',
+      'z-index': 2147483647
+    })
   )
   const store = prop('PODLOVE_STORE', sandboxWindow(button))
 
