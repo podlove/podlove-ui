@@ -34,7 +34,7 @@ describe('lifecycle', () => {
 
     test('should call apis', async () => {
       const result = await gen.next().value
-      expect(result).toEqual(['result', 'result'])
+      expect(result).toEqual([{ json: 'result' }, { json: 'result' }])
     })
 
     test('should put READY', async () => {

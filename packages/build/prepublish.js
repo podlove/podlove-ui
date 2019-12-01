@@ -9,7 +9,7 @@ const path = file => resolve('.', file)
 const copyPackage = () =>
   fs
     .readJson(path('package.json'))
-    .then(omit(['scripts']))
+    .then(omit(['scripts', 'dependencies', 'devDependencies']))
     .then(pkg => fs.writeJson(path('publish/package.json'), pkg))
 
 fs.emptyDir(path('publish'))
