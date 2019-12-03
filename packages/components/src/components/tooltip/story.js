@@ -1,4 +1,4 @@
-import { select, boolean, text } from '@storybook/addon-knobs'
+import { select, text, color } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import Tooltip from '.'
@@ -21,15 +21,18 @@ export default () => ({
     content: {
       default: text('content', 'Tooltip Content')
     },
-    negative: {
-      default: boolean('negative', false)
+    color: {
+      default: color('color', '#fff')
+    },
+    background: {
+      default: color('background', '#000')
     },
     placement: {
       default: select('placement', positions, 'bottom')
     }
   },
   template: `
-    <tooltip :content="content" :trigger="trigger" :negative="negative" :placement="placement" @click="action">
+    <tooltip :content="content" :trigger="trigger" :color="color" :background="background" :placement="placement" @click="action">
       <span>Tooltip trigger</span>
     </tooltip>`,
   methods: { action: action('@click') }
