@@ -12,6 +12,7 @@ import { createLoader } from './loader'
 import { applyUrlParameters } from './url-params'
 import { persistPlayer } from './persist'
 import { activeTab } from './active-tab'
+import { visibleComponents } from './components'
 
 import { version } from '../../package'
 
@@ -65,5 +66,6 @@ export const create = async (config, target) => {
 export const restore = (config, store) => {
   persistPlayer(config, store)
   activeTab(config, store)
+  visibleComponents(config, store)
   applyUrlParameters(store)
 }

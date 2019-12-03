@@ -99,12 +99,15 @@
     ]
   },
   "playlist": "playlist.json",
-  "channels": [
-    "facebook",
-    "twitter",
-    "mail",
-    "link"
-  ],
-  "base": "/",
-  "share": "/share.html"
+  "share": {
+    "channels": [
+      "facebook",
+      "twitter",
+      "mail",
+      "link"
+    ],
+    "outlet": "/share.html",
+    "sharePlaytime": true
+  },
+  "base": "/"
 }

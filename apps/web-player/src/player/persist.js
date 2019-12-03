@@ -38,7 +38,7 @@ export const persistPlayer = (config, store) => {
   const [, existing = {}] = storage.get(key)
   const record = recordState(key, storage)
 
-  ready(() => {
+  ready(store).then(() => {
     const { tabs } = store.getState()
 
     if (!isEmpty(existing)) {
@@ -63,5 +63,5 @@ export const persistPlayer = (config, store) => {
     }
 
     record(store)
-  }, store)
+  })
 }

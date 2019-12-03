@@ -54,3 +54,5 @@ export const subtitle = compose(
   prop('subtitle'),
   info
 )
+
+export const sharePlaytime = prop('sharePlaytime')

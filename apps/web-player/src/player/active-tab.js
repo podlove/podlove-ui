@@ -1,5 +1,5 @@
 import { toggleTab } from '@podlove/player-actions/tabs'
-import { getActiveTab } from '@podlove/player-config'
+import { activeTab as getActiveTab } from '@podlove/player-config'
 import { ready } from './store'
 
 export const activeTab = (config, store) => {
@@ -9,11 +9,11 @@ export const activeTab = (config, store) => {
     return
   }
 
-  ready(() => {
+  ready(store).then(() => {
     if (store.getState().tabs[tab]) {
       return
     }
 
     store.dispatch(toggleTab(tab))
-  }, store)
+  })
 }

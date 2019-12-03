@@ -24,7 +24,7 @@ const stopAt = (stoptime, store) => {
 }
 
 export const applyUrlParameters = store => {
-  ready(() => {
+  ready(store).then(() => {
     const { starttime, stoptime, autoplay } = urlParameters()
     if (starttime || autoplay || stoptime) {
       store.dispatch(restore())
@@ -42,5 +42,5 @@ export const applyUrlParameters = store => {
     if (stoptime) {
       stopAt(stoptime, store)
     }
-  }, store)
+  })
 }

@@ -91,5 +91,9 @@ export default {
     lt(0),
     length,
     chapters.list
+  ),
+  sharePlaytime: compose(
+    components.sharePlaytime,
+    root.components
   )
 }

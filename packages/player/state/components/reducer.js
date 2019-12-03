@@ -17,6 +17,7 @@ import {
   SHOW_COMPONENT_SHOW_TITLE,
   SHOW_COMPONENT_EPISODE_TITLE,
   SHOW_COMPONENT_SUBTITLE,
+  SHOW_SHARE_PLAYTIME,
   HIDE_COMPONENT_INFO_POSTER,
   HIDE_COMPONENT_ERROR,
   HIDE_COMPONENT_CONTROLS_CHAPTERS,
@@ -28,7 +29,8 @@ import {
   HIDE_COMPONENT_RATE_SLIDER,
   HIDE_COMPONENT_SHOW_TITLE,
   HIDE_COMPONENT_EPISODE_TITLE,
-  HIDE_COMPONENT_SUBTITLE
+  HIDE_COMPONENT_SUBTITLE,
+  HIDE_SHARE_PLAYTIME
 } from '@podlove/player-actions/types'
 
 export const INITIAL_STATE = {
@@ -52,7 +54,8 @@ export const INITIAL_STATE = {
     files: false,
     audio: false,
     playlist: false
-  }
+  },
+  sharePlaytime: true
 }
 
 export const reducer = handleActions(
@@ -196,6 +199,14 @@ export const reducer = handleActions(
         ...state.info,
         subtitle: false
       }
+    }),
+    [SHOW_SHARE_PLAYTIME]: state => ({
+      ...state,
+      sharePlaytime: true
+    }),
+    [HIDE_SHARE_PLAYTIME]: state => ({
+      ...state,
+      sharePlaytime: false
     })
   },
   INITIAL_STATE
