@@ -23,7 +23,6 @@ const fetchTemplate = async node => {
 
 export default async selector => {
   const node = findNode(selector)
-  const content = node.innerHTML
 
   return {
     node,
@@ -31,10 +30,6 @@ export default async selector => {
 
     init() {
       node.innerHTML = ''
-    },
-
-    reset() {
-      node.innerHTML = content
     }
   }
 }

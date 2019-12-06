@@ -12,7 +12,6 @@ module.exports = (exclude = []) => ({
           }
           // But not node modules that contain these key words in the path
           if (exclude.some(str => mod.context.includes(str))) {
-            console.log(mod.context)
             return false
           }
 

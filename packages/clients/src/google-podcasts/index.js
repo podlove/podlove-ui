@@ -11,7 +11,7 @@ export default [
     icon
   }),
   client({
-    title: 'Google Podcasts Web',
+    title: 'Google Podcasts',
     scheme: feed => `https://podcasts.google.com/?feed=${btoa(feed)}`,
     platform: platform.web,
     type: type.service,
