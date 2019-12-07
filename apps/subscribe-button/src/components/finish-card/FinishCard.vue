@@ -24,19 +24,20 @@
       {{ $t('FINISH_SCREEN.COPY_MESSAGE') }}
     </div>
     <a
-      :href="link"
+      :href="feed"
       :style="{ color }"
       class="underline mb-6 block truncate"
       rel="noopener"
-      :title="link"
+      :title="feed"
       target="_blank"
     >
-      {{ link }}
+      {{ feed }}
     </a>
     <tooltip
       trigger="click"
       :content="$t('MESSAGES.COPIED')"
-      :negative="true"
+      :color="alt"
+      :background="color"
       placement="top"
       @click="copyLink"
     >
@@ -72,11 +73,12 @@ export default {
     install: select.finish.install,
     os: select.finish.os,
     rss: select.finish.rss,
-    font: select.theme.fontBold
+    font: select.theme.fontBold,
+    feed: select.feed
   }),
   methods: {
     copyLink() {
-      copy(this.link)
+      copy(this.feed)
     }
   }
 }

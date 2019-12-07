@@ -2,7 +2,6 @@
   <v-popover
     ref="popover"
     class="tooltip"
-    :popover-class="[negative ? 'negative' : '']"
     :auto-hide="true"
     :placement="placement"
     trigger="manual"
@@ -58,7 +57,7 @@ export default {
     },
 
     hide() {
-      // this.$refs.popover.hide()
+      this.$refs.popover.hide()
     },
 
     mouseLeave() {
