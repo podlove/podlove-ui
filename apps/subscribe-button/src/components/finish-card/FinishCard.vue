@@ -23,7 +23,14 @@
     <div class="mb-4">
       {{ $t('FINISH_SCREEN.COPY_MESSAGE') }}
     </div>
-    <a :href="link" :style="{ color }" class="underline mb-6 block" rel="noopener" target="_blank">
+    <a
+      :href="link"
+      :style="{ color }"
+      class="underline mb-6 block truncate"
+      rel="noopener"
+      :title="link"
+      target="_blank"
+    >
       {{ link }}
     </a>
     <tooltip

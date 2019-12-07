@@ -115,8 +115,18 @@ export const files = config =>
       []
     )
 
-export const getActiveTab = prop('activeTab')
-
-export const channels = propOr([], 'channels')
+export const activeTab = prop('activeTab')
 
 export const subscribeButton = prop('subscribe-button')
+
+export const share = propOr({}, 'share')
+
+export const channels = compose(
+  propOr([], 'channels'),
+  share
+)
+
+export const sharePlaytime = compose(
+  propOr(false, 'sharePlaytime'),
+  share
+)

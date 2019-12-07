@@ -16,10 +16,18 @@
           type: 'BUTTON_INIT',
           payload: {
             feed: 'https://freakshow.fm/feed/m4a',
-            services: {
-              youtube: 'UCHa2JfCd6sVJQdurd6gYWkA',
-              itunes: 'id277518737'
-            }
+            clients: [{
+              id: 'youtube',
+              service: 'UCHa2JfCd6sVJQdurd6gYWkA'
+            }, {
+              id: 'itunes',
+              service: 'id277518737'
+            }, {
+              id: 'castro'
+            }, {
+              id: 'apple-podcasts',
+              service: 'id277518737'
+            }]
           }
         })
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { mergeDeepRight, propOr } from 'ramda'
+import { mergeDeepRight, propOr, pathOr } from 'ramda'
 import { json } from '@podlove/utils/request'
 import * as playerConfig from '@podlove/player-config'
 
@@ -34,7 +34,7 @@ const reference = ({ episode, config }, resolved) => ({
   episode: typeof episode === 'string' ? episode : null,
   config: typeof config === 'string' ? config : null,
   base: propOr(null, 'base', resolved.config),
-  share: propOr(null, 'share', resolved.config)
+  share: pathOr(null, ['share', 'outlet'], resolved.config)
 })
 
 export const parseConfig = async (episode, config) => {

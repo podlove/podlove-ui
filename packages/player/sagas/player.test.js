@@ -109,7 +109,6 @@ describe('player', () => {
 
   describe('initPlayer()', () => {
     let gen, selectMedia, selectTitle, selectPoster, mediaElement
-
     beforeEach(() => {
       selectMedia = jest.fn()
       selectTitle = jest.fn()
@@ -117,11 +116,11 @@ describe('player', () => {
 
       mediaElement = {
         setAttribute: jest.fn(),
-        removeChild: jest.fn(),
         removeAttribute: jest.fn(),
         appendChild: jest.fn(),
         initialized: true
       }
+
       gen = initPlayer({ selectMedia, selectTitle, selectPoster, mediaElement })
     })
 
@@ -136,12 +135,6 @@ describe('player', () => {
     test('should throw if no media files available', () => {
       gen.next()
       expect(gen.next([]).value).toEqual(put(errorMissingMedia()))
-    })
-
-    test('should reset the audio', () => {
-      gen.next()
-      gen.next(['foo', 'bar'])
-      expect(mediaElement.setAttribute).toHaveBeenCalledWith('src', null)
     })
 
     test('should call syncAttributes', () => {

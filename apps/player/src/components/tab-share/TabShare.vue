@@ -3,7 +3,7 @@
     tab-title(@close="closeTab") {{ $t('SHARE.TITLE') }}
     div.mb-4.block.items-center.justify-between(class="tablet:flex")
       channels
-    div.mx-2.mb-4
+    div.mx-2.mb-4(v-if="sharePlaytime")
       playtime.mx-2.mb-4(class="tablet:mx-0 tablet:mb-0")
     embed-code.mx-2.mb-4(v-if="hasEmbedLink")
 
@@ -28,7 +28,8 @@ export default {
     EmbedCode
   },
   data: mapState({
-    hasEmbedLink: select.share.hasEmbedLink
+    hasEmbedLink: select.share.hasEmbedLink,
+    sharePlaytime: select.components.sharePlaytime
   }),
   methods: {
     closeTab() {

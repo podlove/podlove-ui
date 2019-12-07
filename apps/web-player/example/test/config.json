@@ -18,6 +18,9 @@
     "mail",
     "link"
   ],
-  "base": "/",
-  "share": "/share.html"
+  "share": {
+    "outlet": "/share.html",
+    "sharePlaytime": true
+  },
+  "base": "/"
 }

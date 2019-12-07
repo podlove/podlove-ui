@@ -14,14 +14,7 @@
     "fonts": {
       "ci": {
         "name": "SpiegelSlab4UICd",
-        "family": [
-          "SpiegelSlab4UICd",
-          "Calibri",
-          "Candara",
-          "Arial",
-          "Helvetica",
-          "sans-serif"
-        ],
+        "family": ["SpiegelSlab4UICd", "Calibri", "Candara", "Arial", "Helvetica", "sans-serif"],
         "weight": 800,
         "src": [
           "./fonts/SpiegelSlab4UICd-ExtraBold.woff",
@@ -39,72 +32,115 @@
           "sans-serif"
         ],
         "weight": 300,
-        "src": [
-          "./fonts/SpiegelSans4UI-Regular.woff",
-          "./fonts/SpiegelSans4UI-Regular.woff2"
-        ]
+        "src": ["./fonts/SpiegelSans4UI-Regular.woff", "./fonts/SpiegelSans4UI-Regular.woff2"]
       },
       "bold": {
         "name": "SpiegelSans4UIBold",
-        "family": [
-          "SpiegelSans4UIBold",
-          "Calibri",
-          "Candara",
-          "Arial",
-          "Helvetica",
-          "sans-serif"
-        ],
+        "family": ["SpiegelSans4UIBold", "Calibri", "Candara", "Arial", "Helvetica", "sans-serif"],
         "weight": 700,
-        "src": [
-          "./fonts/SpiegelSans4UI-Bold.woff",
-          "./fonts/SpiegelSans4UI-Bold.woff2"
-        ]
+        "src": ["./fonts/SpiegelSans4UI-Bold.woff", "./fonts/SpiegelSans4UI-Bold.woff2"]
       }
     }
   },
   "subscribe-button": {
     "feed": "https://forschergeist.de/feed/m4a/",
-    "services": {
-      "deezer": "deezer",
-      "itunes": "itunes",
-      "apple-podcasts": "apple-podcasts",
-      "pocket-casts": "pocket-casts",
-      "soundcloud": "soundcloud",
-      "spotify": "spotify",
-      "stitcher": "stitcher",
-      "youtube": "youtube",
-      "google-podcasts": "google"
-    },
     "clients": [
-      "antenna-pod",
-      "apple-podcasts",
-      "beyond-pod",
-      "castro",
-      "clementine",
-      "downcast",
-      "google-podcasts",
-      "gpodder",
-      "i-catcher",
-      "instacast",
-      "itunes",
-      "overcast",
-      "player-fm",
-      "pocket-casts",
-      "pod-grasp",
-      "podcast-addict",
-      "podcast-republic",
-      "podcat",
-      "podscout",
-      "rss-radio"
+      {
+        "id": "apple-podcasts",
+        "service": "apple-podcasts-id"
+      },
+      {
+        "id": "antenna-pod"
+      },
+      {
+        "id": "beyond-pod"
+      },
+      {
+        "id": "castro"
+      },
+      {
+        "id": "clementine"
+      },
+      {
+        "id": "deezer",
+        "service": "deezer-id"
+      },
+      {
+        "id": "downcast"
+      },
+      {
+        "id": "google-podcasts",
+        "service": "google-podcasts-id"
+      },
+      {
+        "id": "gpodder"
+      },
+      {
+        "id": "itunes"
+      },
+      {
+        "id": "i-catcher"
+      },
+      {
+        "id": "instacast"
+      },
+      {
+        "id": "overcast"
+      },
+      {
+        "id": "player-fm"
+      },
+      {
+        "id": "pocket-casts"
+      },
+      {
+        "id": "pocket-casts",
+        "service": "pocket-casts-id"
+      },
+      {
+        "id": "pod-grasp"
+      },
+      {
+        "id": "podcast-addict"
+      },
+      {
+        "id": "podcast-republic"
+      },
+      {
+        "id": "podcat"
+      },
+      {
+        "id": "podscout"
+      },
+      {
+        "id": "rss-radio"
+      },
+      {
+        "id": "soundcloud",
+        "service": "soundcloud-id"
+      },
+      {
+        "id": "spotify",
+        "service": "spotify-id"
+      },
+      {
+        "id": "stitcher",
+        "service": "stitcher-id"
+      },
+      {
+        "id": "youtube",
+        "service": "youtube-id"
+      },
+      {
+        "id": "rss"
+      }
     ]
   },
   "playlist": "playlist.json",
-  "channels": [
-    "facebook",
-    "twitter",
-    "mail",
-    "link"
-  ],
-  "base": "/",
-  "share": "/share.html"
+  "share": {
+    "channels": ["facebook", "twitter", "mail", "link"],
+    "outlet": "/share.html",
+    "sharePlaytime": true
+  },
+  "base": "/"
 }

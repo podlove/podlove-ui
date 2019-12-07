@@ -1,5 +1,5 @@
 <template lang="pug">
-  tooltip(trigger="click" :content="$t('MESSAGES.COPIED')" @click="copyLink")
+  tooltip(trigger="click" :content="$t('MESSAGES.COPIED')" @click="copyLink" :color="color" :background="background")
     channel(type="link" :color="color" :background="background" :filled="hover" @mouseover.native="hover = true" @mouseleave.native="hover = false")
 </template>
 

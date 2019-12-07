@@ -13,7 +13,9 @@
       <slot />
     </span>
     <template slot="popover">
-      {{ content }}
+      <span :style="{ color }">
+        {{ content }}
+      </span>
     </template>
   </v-popover>
 </template>
@@ -34,9 +36,13 @@ export default {
       type: String,
       default: ''
     },
-    negative: {
-      type: Boolean,
-      default: false
+    color: {
+      type: String,
+      default: '#fff'
+    },
+    background: {
+      type: String,
+      default: '#000'
     },
     placement: {
       type: String,
@@ -47,11 +53,12 @@ export default {
 
   methods: {
     show() {
+      this.$refs.popover.$refs.popover.style.color = this.background
       this.$refs.popover.show()
     },
 
     hide() {
-      this.$refs.popover.hide()
+      // this.$refs.popover.hide()
     },
 
     mouseLeave() {
@@ -95,9 +102,11 @@ export default {
 .tooltip {
   z-index: 10000;
 
+  .wrapper {
+    background: currentColor;
+  }
+
   .tooltip-inner {
-    background: $background-color;
-    color: $overlay-color;
     border-radius: 3px;
     padding: 5px 10px 4px;
     text-align: center;
@@ -109,7 +118,7 @@ export default {
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: $overlay-color;
+    border-color: currentColor;
     z-index: 1;
   }
 
@@ -170,17 +179,6 @@ export default {
       top: calc(50% - 5px);
       margin-left: 0;
       margin-right: 0;
-    }
-  }
-
-  &.negative {
-    .tooltip-inner {
-      background: $overlay-color;
-      color: $background-color;
-    }
-
-    .tooltip-arrow {
-      border-color: $overlay-color;
     }
   }
 }
