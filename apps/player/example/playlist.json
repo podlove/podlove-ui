@@ -31,7 +31,7 @@
   },
   {
     "title": "FG064 Ethik und Genetik",
-    "config": "episodes/fg-64.json",
+    "config": "//localhost:9000/example.json",
     "duration": "01:47:16.900"
   },
   {

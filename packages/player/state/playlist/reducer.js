@@ -1,5 +1,9 @@
 import { handleActions } from 'redux-actions'
-import { READY, SELECT_PLAYLIST_ENTRY } from '@podlove/player-actions/types'
+import {
+  READY,
+  SELECT_PLAYLIST_ENTRY,
+  MARK_PLAYLIST_ENTRY_ACTIVE
+} from '@podlove/player-actions/types'
 import { playlist } from '@podlove/player-config'
 import { toPlayerTime } from '@podlove/utils/time'
 
@@ -17,7 +21,9 @@ export const reducer = handleActions(
         duration: toPlayerTime(item.duration),
         active: false
       })),
-    [SELECT_PLAYLIST_ENTRY]: (state, { payload: { index: index } }) => state && active(state, index)
+    [SELECT_PLAYLIST_ENTRY]: (state, { payload: { index: index } }) =>
+      state && active(state, index),
+    [MARK_PLAYLIST_ENTRY_ACTIVE]: (state, { payload }) => state && active(state, payload)
   },
   INITIAL_STATE
 )

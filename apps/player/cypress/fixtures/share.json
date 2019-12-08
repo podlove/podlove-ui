@@ -1,0 +1,15 @@
+{
+  "share": {
+    "channels": [
+      "facebook",
+      "twitter",
+      "whats-app",
+      "linkedin",
+      "pinterest",
+      "xing",
+      "mail",
+      "link"
+    ],
+    "sharePlaytime": true
+  }
+}

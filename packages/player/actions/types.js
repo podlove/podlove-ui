@@ -195,6 +195,7 @@ export const SHOW_ERROR = type('SHOW_ERROR')
 export const HIDE_ERROR = type('HIDE_ERROR')
 export const RETRY_PLAY = type('RETRY_PLAY')
 export const ERROR_CONFIG_MEDIA = type('ERROR_CONFIG_MEDIA')
+export const ERROR_CONFIG_MISSING = type('ERROR_CONFIG_MISSING')
 
 // Keyboard
 export const KEY_UP = type('KEY_UP')
@@ -203,3 +204,4 @@ export const KEY_DOWN = type('KEY_DOWN')
 // Playlist
 export const NEXT_PLAYLIST_ENTRY = type('NEXT_PLAYLIST_ENTRY')
 export const SELECT_PLAYLIST_ENTRY = type('SELECT_PLAYLIST_ENTRY')
+export const MARK_PLAYLIST_ENTRY_ACTIVE = type('MARK_PLAYLIST_ENTRY_ACTIVE')

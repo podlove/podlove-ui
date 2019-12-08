@@ -15,11 +15,15 @@
   "ERROR": {
     "NETWORK": {
       "TITLE": "Network Issue",
-      "MESSAGE": "Couldn't load the audio files from the server. Maybe you don't have connectivity to the internet or the Podcast host is not available."
+      "MESSAGE": "Couldn't load the audio files from the server. Maybe you don't have connectivity to the internet or the host is not available."
     },
     "MEDIA": {
       "TITLE": "Missing Media Files",
       "MESSAGE": "The Player recieved an invalid configuration. Without media files the player can't be used. Please reach out to the host to fix this problem."
+    },
+    "CONFIG": {
+      "TITLE": "Missing Episode Configuration",
+      "MESSAGE": "The Player couldn't fetched the episode configuration. Please reach out to the host to fix this problem."
     }
   },
   "FILES": {

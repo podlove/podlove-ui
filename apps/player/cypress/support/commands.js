@@ -13,6 +13,7 @@ Cypress.Commands.add('setup', () => {
   cy.fixture('playlist').as('playlist')
   cy.fixture('reference').as('reference')
   cy.fixture('transcripts').as('transcripts')
+  cy.fixture('share').as('share')
 })
 
 Cypress.Commands.add('bootstrap', (template = '', stateFragments = []) => {

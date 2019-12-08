@@ -5,6 +5,10 @@ const { select } = require('../helpers/selectors')
 
 describe('<tab-playlist>', () => {
   beforeEach(cy.setup)
+  beforeEach(() => {
+    cy.server()
+    cy.route('GET', '/episode.json', 'fixture:episode.json')
+  })
 
   describe('render', () => {
     describe('title', () => {

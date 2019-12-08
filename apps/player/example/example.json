@@ -238,5 +238,18 @@
       "id": "7"
     }
   ],
-  "transcripts": "transcripts.json"
+  "transcripts": "transcripts.json",
+  "share": {
+    "channels": [
+      "facebook",
+      "twitter",
+      "whats-app",
+      "linkedin",
+      "pinterest",
+      "xing",
+      "mail",
+      "link"
+    ],
+    "sharePlaytime": true
+  }
 }

@@ -1,5 +1,5 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
-
+import { propOr } from 'ramda'
 import {
   READY,
   BACKEND_LOADING_START,
@@ -8,8 +8,9 @@ import {
   BACKEND_END
 } from '@podlove/player-actions/types'
 import { init } from '@podlove/player-actions/lifecycle'
-import { requestPlay } from '@podlove/player-actions/play'
+import * as player from '@podlove/player-actions/play'
 import * as playlist from '@podlove/player-actions/playlist'
+import { errorConfigMissing } from '@podlove/player-actions/error'
 import { json } from '@podlove/utils/request'
 import { setRate, setVolume, mute, unmute } from '@podlove/player-actions/audio'
 
@@ -20,7 +21,8 @@ export const playlistSaga = ({
   selectRate,
   selectVolume,
   selectMuted,
-  selectPlaylist
+  selectPlaylist,
+  selectReference
 }) =>
   function* saga() {
     yield takeEvery(NEXT_PLAYLIST_ENTRY, nextEpisode, { selectPlaylist })
@@ -31,6 +33,7 @@ export const playlistSaga = ({
       selectMuted
     })
     yield takeEvery(BACKEND_END, episodeEnd)
+    yield takeOnce(READY, setActiveEntry, { selectPlaylist, selectReference })
   }
 
 export function* loadEpisode(
@@ -45,15 +48,13 @@ export function* loadEpisode(
   const muted = yield select(selectMuted)
 
   if (!config) {
-    // @TODO: throw an error
+    return yield put(errorConfigMissing())
   }
 
   yield put(init(config))
 
   if (play) {
-    yield takeOnce(READY, function*() {
-      yield put(requestPlay())
-    })
+    yield takeOnce(READY, requestPlay)
   }
 
   yield takeOnce(BACKEND_LOADING_START, resetMeta, { rate, volume, muted })
@@ -81,12 +82,6 @@ export function* nextEpisode({ selectPlaylist }, { payload: { play } }) {
   return yield put(playlist.selectEpisode({ index: next, play }))
 }
 
-export function* resetPlaystate({ playing }) {
-  if (playing) {
-    yield put(requestPlay())
-  }
-}
-
 export function* episodeEnd() {
   yield put(playlist.nextEpisode({ play: true }))
 }
@@ -96,4 +91,19 @@ export function* resetMeta({ rate, volume, muted }) {
   yield put(setVolume(volume))
 
   yield put(muted ? mute() : unmute())
+}
+
+export function* setActiveEntry({ selectPlaylist, selectReference }) {
+  const entries = yield select(selectPlaylist)
+  const reference = yield select(selectReference)
+
+  const index = entries.findIndex(entry => propOr('', 'config', entry).endsWith(reference))
+
+  if (index > -1) {
+    yield put(playlist.markActive(index))
+  }
+}
+
+export function* requestPlay() {
+  yield put(player.requestPlay())
 }

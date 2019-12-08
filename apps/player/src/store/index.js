@@ -42,7 +42,9 @@ sagas.run(
     selectEpisodeSubtitle: selectors.episode.subtitle,
     selectShowTitle: selectors.show.title,
     selectShowCover: selectors.show.poster,
-    selectRuntimeMode: selectors.mode
+    selectRuntimeMode: selectors.mode,
+    selectChannels: selectors.channels,
+    selectEmbedLink: selectors.share.hasEmbedLink
   }),
   quantilesSaga,
   chaptersSaga({
@@ -82,7 +84,8 @@ sagas.run(
     selectVolume: selectors.audio.volume,
     selectRate: selectors.audio.rate,
     selectMuted: selectors.audio.muted,
-    selectPlaylist: selectors.playlist.list
+    selectPlaylist: selectors.playlist.list,
+    selectReference: selectors.reference.episode
   }),
   mediaSessionSaga({
     selectPoster: selectors.driver.image,

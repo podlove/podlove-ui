@@ -100,6 +100,7 @@ export default {
 
 .tooltip {
   z-index: 10000;
+  font-size: 0.9em;
 
   .wrapper {
     background: currentColor;
