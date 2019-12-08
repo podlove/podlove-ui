@@ -20,6 +20,10 @@
     "MEDIA": {
       "TITLE": "Fehlende Medien Dateien",
       "MESSAGE": "Die zur Verfügung gestellte Konfiguration ist fehlerhaft. Ohne Mediendateien kann der Player nichts abspielen."
+    },
+    "CONFIG": {
+      "TITLE": "Fehlende Episoden Konfiguration",
+      "MESSAGE": "Es konnte keine Konfiguration für diese Episode gefunden werden. Entweder du hast gerade keine Verbindung zum Internet oder die Dateien sind nicht auf dem Server verfügbar."
     }
   },
   "FILES": {
@@ -104,7 +108,7 @@
   "PLAYLIST": {
     "TITLE": "Weitere Folgen"
   },
-  "SUBSCRIBE": "Abonnieren",
+  "SUBSCRIBE": "Abonnieren bei",
   "A11Y": {
     "ALT_EPISODE_COVER": "Episoden Poster",
     "ALT_SHOW_COVER": "Show Poster",

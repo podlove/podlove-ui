@@ -9,7 +9,12 @@ describe('<tab-share>', () => {
 
   describe('render', () => {
     beforeEach(function() {
-      cy.bootstrap('<tab-share></tab-share>', [this.theme, this.episode, this.reference])
+      cy.bootstrap('<tab-share></tab-share>', [
+        this.theme,
+        this.episode,
+        this.reference,
+        this.share
+      ])
     })
 
     describe('title', () => {
@@ -24,13 +29,6 @@ describe('<tab-share>', () => {
         it(`should render ${channel} share`, () => {
           cy.select(`tab-share--channels--${channel}`).should('exist')
         })
-      })
-
-      it('should render the link if a reference is available', () => {
-        cy.bootstrap('<tab-share></tab-share>', [this.theme, this.episode])
-        cy.select('tab-share--channels--link').should('not.exist')
-        cy.bootstrap('<tab-share></tab-share>', [this.theme, this.episode, this.reference])
-        cy.select('tab-share--channels--link').should('exist')
       })
     })
 
@@ -68,7 +66,7 @@ describe('<tab-share>', () => {
         `
         <tab-share></tab-share>
       `,
-        [this.theme, this.episode, this.audio, this.reference, { playtime: 8000 }]
+        [this.theme, this.episode, this.audio, this.reference, this.share, { playtime: 8000 }]
       ).then(app => {
         assert = onUpdate(app)
         dispatch = app.dispatch

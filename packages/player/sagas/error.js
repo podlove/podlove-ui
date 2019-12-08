@@ -1,6 +1,11 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { delay } from 'redux-saga/effects'
-import { RETRY_PLAY, BACKEND_ERROR, ERROR_CONFIG_MEDIA } from '@podlove/player-actions/types'
+import {
+  RETRY_PLAY,
+  BACKEND_ERROR,
+  ERROR_CONFIG_MEDIA,
+  ERROR_CONFIG_MISSING
+} from '@podlove/player-actions/types'
 import { showError, hideError } from '@podlove/player-actions/error'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'
 
@@ -8,6 +13,7 @@ export function* errorSaga() {
   yield takeEvery(BACKEND_ERROR, networkError)
   yield takeEvery(RETRY_PLAY, retryPlay)
   yield takeEvery(ERROR_CONFIG_MEDIA, configMediaError)
+  yield takeEvery(ERROR_CONFIG_MISSING, configMissingError)
 }
 
 export function* retryPlay() {
@@ -32,6 +38,15 @@ export function* configMediaError() {
     showError({
       title: 'ERROR.MEDIA.TITLE',
       message: 'ERROR.MEDIA.MESSAGE'
+    })
+  )
+}
+
+export function* configMissingError() {
+  yield put(
+    showError({
+      title: 'ERROR.CONFIG.TITLE',
+      message: 'ERROR.CONFIG.MESSAGE'
     })
   )
 }

@@ -15,15 +15,7 @@ export const INITIAL_STATE = [
 
 export const reducer = handleActions(
   {
-    [READY]: (state, { payload }) => {
-      const available = channels(payload)
-
-      if (available.length > 0) {
-        return available
-      }
-
-      return state
-    }
+    [READY]: (_, { payload }) => channels(payload)
   },
   INITIAL_STATE
 )

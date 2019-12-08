@@ -14,7 +14,8 @@ export const slices = {
   config: propOr({}, 'config'),
   theme: propOr({}, 'theme'),
   view: propOr({}, 'view'),
-  finish: propOr({}, 'finish')
+  finish: propOr({}, 'finish'),
+  feed: propOr({}, 'feed')
 }
 
 export const selectColor = compose(
@@ -78,3 +79,5 @@ export const theme = {
 export const view = scope(viewSelectors, slices.view)
 
 export const finish = scope(finishSelectors, slices.finish)
+
+export const feed = slices.feed

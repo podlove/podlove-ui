@@ -44,7 +44,9 @@ export const componentsSaga = ({
   selectEpisodeSubtitle,
   selectShowTitle,
   selectShowCover,
-  selectRuntimeMode
+  selectRuntimeMode,
+  selectChannels,
+  selectEmbedLink
 }) =>
   function* saga() {
     yield takeEvery(READY, init, {
@@ -55,7 +57,9 @@ export const componentsSaga = ({
       selectEpisodeSubtitle,
       selectShowTitle,
       selectShowCover,
-      selectRuntimeMode
+      selectRuntimeMode,
+      selectChannels,
+      selectEmbedLink
     })
     yield takeEvery(SET_TRANSCRIPTS_TIMELINE, transcripts, { selectTranscripts })
     yield takeEvery(SET_CHAPTERS_LIST, chapters, { selectChapters })
@@ -75,7 +79,9 @@ export function* init({
   selectEpisodeSubtitle,
   selectShowCover,
   selectRuntimeMode,
-  selectShowTitle
+  selectShowTitle,
+  selectChannels,
+  selectEmbedLink
 }) {
   const files = yield select(selectFiles)
   const playlist = yield select(selectPlaylist)
@@ -85,6 +91,8 @@ export function* init({
   const subtitle = yield select(selectEpisodeSubtitle)
   const showTitle = yield select(selectShowTitle)
   const mode = yield select(selectRuntimeMode)
+  const channels = yield select(selectChannels)
+  const embedLink = yield select(selectEmbedLink)
 
   // Header
   yield put(!!showCover || !!episodeCover ? showInfoPoster() : hideInfoPoster())
@@ -97,7 +105,7 @@ export function* init({
   yield put(!isEmpty(playlist) ? showComponentTab('playlist') : hideComponentTab('playlist'))
   yield put(showComponentTab('info'))
   yield put(showComponentTab('audio'))
-  yield put(showComponentTab('share'))
+  yield put(!isEmpty(channels) || embedLink ? showComponentTab('share') : hideComponentTab('share'))
 
   // Audio Inputs
   yield put(mode === 'native' ? showVolumeSlider() : hideVolumeSlider())

@@ -24,6 +24,7 @@ import playstate from './playstate'
 import playlist from './playlist'
 import subscribeButton from './subscribe-button'
 import channels from './channels'
+import reference from './reference'
 
 export default {
   ...runtime,
@@ -50,5 +51,6 @@ export default {
   playstate,
   playlist,
   subscribeButton,
-  channels
+  channels,
+  reference
 }

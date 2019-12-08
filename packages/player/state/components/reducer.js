@@ -49,7 +49,7 @@ export const INITIAL_STATE = {
   tabs: {
     info: false,
     chapters: false,
-    transcript: false,
+    transcripts: false,
     share: false,
     files: false,
     audio: false,

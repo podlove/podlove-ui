@@ -34,9 +34,11 @@ const hasLink = state =>
   (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))
 
 const hasEmbedLink = state =>
-  type(state) !== 'show' &&
-  reference.episode(state) &&
-  (reference.share(state) || reference.origin(state))
+  !!(
+    type(state) !== 'show' &&
+    reference.episode(state) &&
+    (reference.share(state) || reference.origin(state))
+  )
 
 const link = state => {
   switch (type(state)) {

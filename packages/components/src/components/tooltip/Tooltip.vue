@@ -2,7 +2,6 @@
   <v-popover
     ref="popover"
     class="tooltip"
-    :popover-class="[negative ? 'negative' : '']"
     :auto-hide="true"
     :placement="placement"
     trigger="manual"
@@ -58,7 +57,7 @@ export default {
     },
 
     hide() {
-      // this.$refs.popover.hide()
+      this.$refs.popover.hide()
     },
 
     mouseLeave() {
@@ -101,6 +100,7 @@ export default {
 
 .tooltip {
   z-index: 10000;
+  font-size: 0.9em;
 
   .wrapper {
     background: currentColor;
