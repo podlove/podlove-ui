@@ -22,7 +22,8 @@
     "normalize.css": "8.0.1",
     "v-tooltip": "2.0.2",
     "vue": "2.6.10",
-    "vue-mutation-observer": "0.1.2"
+    "vue-mutation-observer": "0.1.2",
+    "rangetouch": "2.0.0"
   },
   "devDependencies": {
     "@podlove/build": "^5.0.0",
