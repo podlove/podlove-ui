@@ -52,7 +52,7 @@
     "ACTIONS": {
       "COPY": "copy"
     },
-    "PLAYTIME": "Also share current playtime ({playtime})",
+    "PLAYTIME": "Share current position ({playtime})",
     "EPISODE": {
       "TEXT": {
         "BEGINNING": "\"{title}\" ({link})",

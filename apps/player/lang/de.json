@@ -57,7 +57,7 @@
     "ACTIONS": {
       "COPY": "kopieren"
     },
-    "PLAYTIME": "Spielzeit ebenfalls teilen ({playtime})",
+    "PLAYTIME": "Aktuelle Position teilen ({playtime})",
     "EPISODE": {
       "TEXT": {
         "BEGINNING": "\"{title}\" ({link})",

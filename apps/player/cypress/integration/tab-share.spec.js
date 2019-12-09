@@ -42,7 +42,7 @@ describe('<tab-share>', () => {
       it('should render the playtime label', () => {
         cy.select('tab-share--playtime')
           .find('.label')
-          .should('contain', 'Also share current playtime (00:00)')
+          .should('contain', 'Share current position (00:00)')
       })
     })
 

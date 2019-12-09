@@ -2,6 +2,7 @@
   <div id="progress-bar" class="progress">
     <input
       v-if="isMobile"
+      ref="input"
       type="range"
       min="0"
       :max="interpolate(duration)"
@@ -12,6 +13,7 @@
     />
     <input
       v-else
+      ref="input"
       type="range"
       min="0"
       :max="interpolate(duration)"
@@ -50,6 +52,7 @@
 
 <script>
 import color from 'color'
+import RangeTouch from 'rangetouch/dist/rangetouch'
 import { mapActions } from 'redux-vuex'
 import { interpolate, relativePosition } from '@podlove/utils/math'
 import { isNegative, light, dark } from '@podlove/utils/color'
@@ -132,6 +135,9 @@ export default {
         'border-color': this.highlightColor
       }
     }
+  },
+  mounted() {
+    new RangeTouch(this.$refs.input, { watch: false })
   },
   methods: {
     ...mapActions({
