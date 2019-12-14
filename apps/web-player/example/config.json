@@ -56,6 +56,10 @@
         "id": "beyond-pod"
       },
       {
+        "id": "castbox",
+        "service": "castbox-id"
+      },
+      {
         "id": "castro"
       },
       {
