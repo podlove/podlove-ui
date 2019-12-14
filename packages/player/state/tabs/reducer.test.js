@@ -11,13 +11,13 @@ describe('tabs', () => {
   })
 
   test(`it toggles a tab on TOGGLE_TAB`, () => {
-    expect(reducer(INITIAL_STATE, { type: TOGGLE_TAB, payload: 'info' })).toEqual({
+    expect(reducer(INITIAL_STATE, { type: TOGGLE_TAB, payload: 'shownotes' })).toEqual({
       ...INITIAL_STATE,
-      info: true
+      shownotes: true
     })
 
     expect(
-      reducer({ ...INITIAL_STATE, info: true }, { type: TOGGLE_TAB, payload: 'info' })
+      reducer({ ...INITIAL_STATE, shownotes: true }, { type: TOGGLE_TAB, payload: 'shownotes' })
     ).toEqual(INITIAL_STATE)
   })
 })
