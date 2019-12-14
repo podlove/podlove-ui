@@ -2,16 +2,27 @@
   <svg
     :width="size"
     :height="size"
-    viewBox="0 0 50 50"
+    viewBox="0 0 24 24"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    stroke-linejoin="round"
-    stroke-miterlimit="1.414"
   >
-    <circle cx="25" cy="25" r="18.05" fill="none" :stroke="color" stroke-width="2" />
-    <circle cx="25" cy="16.6" r="2.749" :fill="color" />
-    <path d="M21 22h6v12h2v2h-8v-2h2V24h-2v-2z" :fill="color" />
+    <circle
+      cx="12"
+      cy="12"
+      r="8.45"
+      stroke="black"
+      stroke-width="1.1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M12 8.6C12.718 8.6 13.3 8.01797 13.3 7.3C13.3 6.58203 12.718 6 12 6C11.282 6 10.7 6.58203 10.7 7.3C10.7 8.01797 11.282 8.6 12 8.6Z"
+      :fill="color"
+    />
+    <path
+      d="M9.6321 10.5066C9.4413 10.8758 9.59597 11.3247 9.97757 11.5093L10.7206 11.8687C10.9504 11.9798 11.0955 12.0515 11.0955 12.3V15.3C11.0955 15.5486 10.9504 15.6203 10.7206 15.7314L9.84561 16.1547C9.53689 16.304 9.41176 16.6672 9.56612 16.9658C9.67198 17.1707 9.88838 17.3 10.1251 17.3H13.8749C14.1116 17.3 14.328 17.1707 14.4339 16.9658C14.5882 16.6672 14.4631 16.304 14.1544 16.1547L13.2794 15.7314C13.0496 15.6203 12.9045 15.5486 12.9045 15.3V10.9563C12.9045 10.5939 12.6008 10.3 12.2261 10.3H9.97757C9.83127 10.3 9.69752 10.38 9.6321 10.5066Z"
+      :fill="color"
+    />
   </svg>
 </template>
 
@@ -20,7 +31,7 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 25
+      default: 24
     },
     color: {
       type: String,

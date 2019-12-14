@@ -24,7 +24,8 @@ const CLIENTS = {
   soundcloud: require('./soundcloud').default,
   spotify: require('./spotify').default,
   stitcher: require('./stitcher').default,
-  youtube: require('./youtube').default
+  youtube: require('./youtube').default,
+  castbox: require('./castbox').default
 }
 
 const search = ({ id = null, platform = null, title = null, type = null } = {}) => client => {

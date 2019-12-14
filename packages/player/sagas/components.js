@@ -103,7 +103,7 @@ export function* init({
   // Tabs
   yield put(!isEmpty(files) ? showComponentTab('files') : hideComponentTab('files'))
   yield put(!isEmpty(playlist) ? showComponentTab('playlist') : hideComponentTab('playlist'))
-  yield put(showComponentTab('info'))
+  yield put(showComponentTab('shownotes'))
   yield put(showComponentTab('audio'))
   yield put(!isEmpty(channels) || embedLink ? showComponentTab('share') : hideComponentTab('share'))
 

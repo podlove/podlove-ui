@@ -62,7 +62,7 @@ sagas.run(
   versionSaga({ version }),
   transcriptsSaga({
     selectChapters: selectors.chapters.list,
-    selectSpeakers: selectors.contributors,
+    selectSpeakers: selectors.contributors.list,
     selectPlaytime: selectors.playtime
   }),
   stepperSaga({

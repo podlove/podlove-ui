@@ -503,7 +503,7 @@ describe('components', () => {
       expect(gen.next().value).toEqual(put(hideComponentTab('playlist')))
     })
 
-    test('should dispatch SHOW_COMPONENT_TAB with info', () => {
+    test('should dispatch SHOW_COMPONENT_TAB with shownotes', () => {
       gen.next()
       gen.next()
       gen.next()
@@ -520,7 +520,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(put(showComponentTab('info')))
+      expect(gen.next().value).toEqual(put(showComponentTab('shownotes')))
     })
 
     test('should dispatch SHOW_COMPONENT_TAB with audio', () => {

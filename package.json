@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "webpack": "4.41.2",
-    "vue": "2.6.10",
+    "vue": "2.6.11",
     "@babel/core": "7.6.4",
     "@babel/polyfill": "7.7.0",
     "@babel/plugin-proposal-object-rest-spread": "7.6.2",
@@ -24,7 +24,7 @@
     "@babel/runtime": "7.6.3",
     "@types/jest": "24.0.20",
     "@vue/eslint-config-prettier": "5.0.0",
-    "vue-template-compiler": "2.6.10",
+    "vue-template-compiler": "2.6.11",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-bridge": "1.12.11",
     "babel-eslint": "10.0.3",
