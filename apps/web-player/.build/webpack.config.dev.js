@@ -99,7 +99,6 @@ module.exports = {
         from: './example/playlist.json'
       },
       { from: './example/episodes', to: 'episodes' },
-      { from: './example/fonts', to: 'fonts' },
       { from: './example/test', to: 'test' }
     ])
   ]
