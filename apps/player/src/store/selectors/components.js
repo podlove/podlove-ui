@@ -49,12 +49,10 @@ export default {
     components.subtitle,
     root.components
   ),
-
-  infoTab: compose(
-    components.infoTab,
+  shownotesTab: compose(
+    components.shownotesTab,
     root.components
   ),
-
   chaptersTab: compose(
     components.chaptersTab,
     root.components

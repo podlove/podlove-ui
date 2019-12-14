@@ -80,12 +80,11 @@
       }
     }
   },
-  "INFO": {
-    "TITLE": "Info",
+  "SHOWNOTES": {
+    "TITLE": "Shownotes",
     "PUBLICATION_DATE": "Published: {month}/{day}/{year}",
     "DURATION_WITH_HOURS": "{hours} hours {minutes} minutes",
-    "DURATION": "{minutes} minutes",
-    "ON_AIR": "On Air"
+    "DURATION": "{minutes} minutes"
   },
   "TRANSCRIPTS": {
     "TITLE": "Transcript",

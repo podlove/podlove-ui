@@ -47,7 +47,7 @@ export const INITIAL_STATE = {
     subtitle: false
   },
   tabs: {
-    info: false,
+    shownotes: false,
     chapters: false,
     transcripts: false,
     share: false,

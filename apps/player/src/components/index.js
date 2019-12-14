@@ -52,5 +52,6 @@ export default {
   TabTranscripts: () => import('./tab-transcripts'),
   TabFiles: () => import('./tab-files'),
   TabShare: () => import('./tab-share'),
-  TabPlaylist: () => import('./tab-playlist')
+  TabPlaylist: () => import('./tab-playlist'),
+  TabShownotes: () => import('./tab-shownotes')
 }

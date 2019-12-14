@@ -21,7 +21,7 @@ import { toggleTab } from '@podlove/player-actions/tabs'
 import store from 'store'
 import select from 'store/selectors'
 
-const availableTabs = ['chapters', 'files', 'info', 'transcripts', 'share', 'playlist']
+const availableTabs = ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist']
 
 export default {
   components: {
@@ -45,7 +45,7 @@ export default {
   data: mapState({
     tabs: select.tabs,
     color: select.theme.brandDark,
-    info: select.components.infoTab,
+    shownotes: select.components.shownotesTab,
     chapters: select.components.chaptersTab,
     transcripts: select.components.transcriptTab,
     share: select.components.shareTab,
