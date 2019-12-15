@@ -12,12 +12,12 @@ The easiest way to integrate the player is to simply integrate this script in yo
 
 For https context:
 ```html
-<script src="https://cdn.podlove.org/web-player/5/embed.js"></script>
+<script src="https://cdn.podlove.org/web-player/5.x/embed.js"></script>
 ```
 
 For http context:
 ```html
-<script src="http://cdn.podlove.org/web-player/5/embed.js"></script>
+<script src="http://cdn.podlove.org/web-player/5.x/embed.js"></script>
 ```
 
 Afterwards `podlovePlayer` should be available on the window object:

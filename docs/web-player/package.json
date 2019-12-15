@@ -27,6 +27,7 @@
     "sass-loader": "8.0.0",
     "vuepress": "1.2.0",
     "vuepress-theme-millidocs": "0.5.4",
-    "core-js": "2.6.10"
+    "core-js": "2.6.10",
+    "vue-server-renderer": "2.6.11"
   }
 }
