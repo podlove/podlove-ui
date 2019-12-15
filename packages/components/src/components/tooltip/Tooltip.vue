@@ -12,7 +12,7 @@
       <slot />
     </span>
     <template slot="popover">
-      <span :style="{ color }">
+      <span class="tooltip-inner" :style="{ color, background }">
         {{ content }}
       </span>
     </template>
@@ -101,10 +101,6 @@ export default {
 .tooltip {
   z-index: 10000;
   font-size: 0.9em;
-
-  .wrapper {
-    background: currentColor;
-  }
 
   .tooltip-inner {
     border-radius: 3px;

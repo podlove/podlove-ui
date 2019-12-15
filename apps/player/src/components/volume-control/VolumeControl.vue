@@ -12,7 +12,7 @@
       span.hidden {{ a11y }}
 
     template(slot="popover")
-      div.w-32(:style="{ background }")
+      div.w-40.px-2.rounded.shadow(:style="{ background, color: background }")
         input-slider.mr-5(
           data-test="volume-control--slider"
           :min="0"
@@ -52,7 +52,7 @@ export default {
     muted: select.audio.muted,
     icon: select.audio.icon,
     color: select.theme.brandDark,
-    background: select.theme.brandLight,
+    background: select.theme.brandLightest,
     visible: select.components.volumeControl
   }),
   computed: {
