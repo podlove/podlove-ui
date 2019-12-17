@@ -44,7 +44,6 @@ export default {
 
 // Timer
 .timer {
-  display: block;
   font-variant-numeric: tabular-nums;
 }
 </style>

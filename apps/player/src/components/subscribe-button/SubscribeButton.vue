@@ -1,5 +1,5 @@
 <template lang="pug">
-  button.h-6.px-2.flex.items-center.text-xs.rounded-sm.border(v-if="available" @click="show" :style="style" data-test="subscribe-button")
+  button.h-6.px-2.flex.items-center.text-xs.rounded-sm.border.whitespace-no-wrap(v-if="available" @click="show" :style="style" data-test="subscribe-button")
     icon.mr-1(type="plus")
     span {{ $t('SUBSCRIBE') }}
 </template>
