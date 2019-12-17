@@ -100,6 +100,8 @@ export const transcriptsSaga = ({ selectSpeakers, selectChapters, selectPlaytime
   }
 
 export function* init({ selectSpeakers, selectChapters, selectPlaytime }, { payload }) {
+  // Bump one cycle so chapters and speakers are available
+  yield delay(0)
   const speakers = yield select(selectSpeakers)
   const chapters = yield select(selectChapters)
 
