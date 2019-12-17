@@ -10,7 +10,7 @@
       cx="12"
       cy="12"
       r="8.45"
-      stroke="black"
+      :stroke="color"
       stroke-width="1.1"
       stroke-linecap="round"
       stroke-linejoin="round"

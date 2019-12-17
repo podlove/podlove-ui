@@ -1,5 +1,5 @@
 <template lang="pug">
-  span.truncate(:aria-label="a11y" tabindex="0" v-if="title" data-test="current-chapter") {{ title }}
+  span.truncate(:aria-label="a11y" tabindex="0" v-if="title" data-test="current-chapter" :style="{ color }") {{ title }}
 </template>
 
 <script>
@@ -11,7 +11,8 @@ export default {
   data: mapState({
     currentGhostChapter: select.ghost.chapter,
     currentChapter: select.chapters.current,
-    ghost: select.ghost.time
+    ghost: select.ghost.time,
+    color: select.theme.contrast
   }),
   computed: {
     chapter() {
