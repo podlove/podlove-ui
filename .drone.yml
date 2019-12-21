@@ -121,7 +121,7 @@ steps:
     - echo "$PUBLIC_KEY" >> ~/.ssh/id_rsa.pub
     - ssh-keyscan rsync.keycdn.com >> ~/.ssh/known_hosts
     - chmod 600 ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa.pub
-    - rsync -rvt --chmod=D2755,F644 apps/web-player/dist/ podlove@rsync.keycdn.com:applications/web-player/
+    - rsync -rvt --chmod=D2755,F644 apps/web-player/dist/ podlove@rsync.keycdn.com:applications/web-player/5.x/
   when:
     ref:
     - refs/tags/v*
@@ -351,13 +351,15 @@ steps:
 - name: build
   image: node:12
   commands:
-    - env BASE=/podlove-web-player/ npx lerna run build --scope @podlove/docs-web-player --stream
+    - env BASE=/ npx lerna run build --scope @podlove/docs-web-player --stream
 
-- name: deploy:github
+- name: deploy:surge
   image: node:12
   environment:
-    GH_TOKEN:
-      from_secret: GH_TOKEN
+    SURGE_LOGIN:
+      from_secret: SURGE_LOGIN
+    SURGE_TOKEN:
+      from_secret: SURGE_TOKEN
   commands:
     - npx lerna run publish --scope @podlove/docs-web-player --stream
   when:
