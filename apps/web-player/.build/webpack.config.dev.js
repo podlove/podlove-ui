@@ -4,6 +4,7 @@ const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 
 const version = require('../package').version
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
+const subscribeButtonAssets = path.resolve('./node_modules/@podlove/subscribe-button/dist')
 
 module.exports = {
   mode: 'development',
@@ -11,19 +12,35 @@ module.exports = {
   entry: {
     embed: './src/embed.js',
     share: './src/share.js',
+    polyfills: './src/polyfills.js',
     'extensions/external-events': './src/extensions/external-events.js'
   },
   output: output(),
 
   resolve: resolve({
-    '@podlove/player': playerAssets
+    '@podlove/player': playerAssets,
+    '@podlove/subscribe-button': subscribeButtonAssets
   }),
 
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: devServer({ port: 9000, contentBase: './dist' }),
 
   module: {
-    rules: [rules.javascript(), rules.scss(), rules.mustache()]
+    rules: [
+      rules.javascript(),
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass()
+      ]),
+      rules.mustache(),
+      rules.html()
+    ]
   },
 
   plugins: [
@@ -31,12 +48,9 @@ module.exports = {
     plugins.html({
       filename: 'index.html',
       template: './example/example.html',
-      exclude: ['share']
-    }),
-    plugins.html({
-      filename: 'test.html',
-      template: './example/test.html',
-      exclude: ['share', 'extensions/external-events']
+      inject: 'head',
+      sort: 'manual',
+      chunks: ['polyfills', 'embed', 'extensions/external-events']
     }),
     plugins.html({
       files: {
@@ -44,18 +58,33 @@ module.exports = {
         scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
       },
       filename: 'share.html',
-      template: '!!mustache-loader!./src/lib/share.mustache',
+      template: '!!mustache-loader!./src/player/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
-      base: `${version}/`
+      root: '',
+      base: `${version}/player/`
     }),
-    plugins.env({ MODE: 'development', BASE: '/', SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'], STYLES: ['styles'] }),
+    plugins.env({
+      MODE: 'development',
+      BASE: '/',
+      PLAYER_SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'],
+      BUTTON_SCRIPTS: ['vendor', 'styles', 'runtime', 'list'],
+      PLAYER_STYLES: ['styles'],
+      BUTTON_STYLES: ['styles']
+    }),
     plugins.copy([
       {
         from: playerAssets,
-        to: `${version}/`
+        to: `${version}/player/`
       },
       {
-        from: './example/example.json'
+        from: subscribeButtonAssets,
+        to: `${version}/button/`
+      },
+      {
+        from: './example/episode.json'
+      },
+      {
+        from: './example/config.json'
       },
       {
         from: './example/transcripts.json'
@@ -66,7 +95,11 @@ module.exports = {
       {
         from: './example/example.jpg'
       },
-      { from: './example/assets', to: 'assets' }
+      {
+        from: './example/playlist.json'
+      },
+      { from: './example/episodes', to: 'episodes' },
+      { from: './example/test', to: 'test' }
     ])
   ]
 }

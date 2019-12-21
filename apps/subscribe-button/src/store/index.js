@@ -1,18 +1,20 @@
 import Vue from 'vue'
 
-import { createStore } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import { connect } from 'redux-vuex'
-
 import reducers from './reducers'
+import sagas from '../sagas'
+import runtimeSaga from '../sagas/runtime'
 
-const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducers, composeEnhancers(applyMiddleware(sagas.middleware)))
+
+sagas.run(runtimeSaga)
 
 connect({
   Vue,
-  store
+  store,
+  binding: 'appStore'
 })
 
 export default store

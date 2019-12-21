@@ -3,6 +3,14 @@ import { requestPlay, requestPause, requestRestart } from '@podlove/player-actio
 import PlayButton from './PlayButton'
 
 describe('PlayButton', () => {
+  beforeEach(() => {
+    global.MutationObserver = class {
+      constructor() {}
+      disconnect() {}
+      observe() {}
+    }
+  })
+
   describe('component', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(PlayButton, {

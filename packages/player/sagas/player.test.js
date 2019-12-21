@@ -1,4 +1,4 @@
-import { select, put, takeEvery } from 'redux-saga/effects'
+import { select, put, takeEvery, fork } from 'redux-saga/effects'
 import {
   REQUEST_PLAY,
   REQUEST_PAUSE,
@@ -9,7 +9,9 @@ import {
   SET_VOLUME,
   MUTE,
   UNMUTE,
-  REQUEST_LOAD
+  REQUEST_LOAD,
+  UPDATE_CHAPTER,
+  SET_CHAPTER
 } from '@podlove/player-actions/types'
 import {
   backendPlay,
@@ -22,6 +24,8 @@ import {
 } from '@podlove/player-actions/play'
 import { backendPlaytime, backendDuration } from '@podlove/player-actions/timepiece'
 import { errorMissingMedia } from '@podlove/player-actions/error'
+import { audio } from '@podlove/html5-audio-driver'
+import { attatchStream } from '@podlove/html5-audio-driver/hls'
 
 import {
   playerSaga,
@@ -43,161 +47,208 @@ import {
   onDurationChange,
   onBufferChange,
   onBuffering,
-  onError
+  onError,
+  syncAttributes,
+  driver
 } from './player'
 
 describe('player', () => {
-  let selectMedia
-  let selectPlaytime
-  let actions
-
-  beforeEach(() => {
-    selectMedia = jest.fn()
-    selectPlaytime = jest.fn()
-    actions = {
-      setPlaytime: jest.fn(),
-      play: jest.fn(),
-      pause: jest.fn(),
-      restart: jest.fn(),
-      load: jest.fn(),
-      setRate: jest.fn(),
-      setVolume: jest.fn(),
-      mute: jest.fn(),
-      unmute: jest.fn()
-    }
-  })
-
   describe('playerSaga()', () => {
-    test('shoud export a generator', () => {
-      const factory = playerSaga({ selectMedia, selectPlaytime })
-      expect(typeof factory().next).toBe('function')
+    let selectMedia, selectPlaytime, selectTitle, selectPoster, mediaElement, factory, gen
+
+    beforeEach(() => {
+      selectMedia = jest.fn()
+      selectPlaytime = jest.fn()
+      selectTitle = jest.fn()
+      selectPoster = jest.fn()
+      mediaElement = attatchStream(audio([]))
+      factory = playerSaga({ selectMedia, selectPlaytime, selectTitle, selectPoster })
+      gen = factory()
     })
 
-    test('should register init on READY', () => {
-      const factory = playerSaga({ selectMedia, selectPlaytime })
-      const gen = factory()
+    test('shoud export a generator', () => {
+      expect(typeof gen.next).toBe('function')
+    })
+
+    test('should register initPlayer on READY', () => {
       expect(gen.next().value).toEqual(
-        takeEvery(READY, initPlayer, { selectMedia, selectPlaytime })
+        takeEvery(READY, initPlayer, { selectMedia, selectTitle, selectPoster, mediaElement })
       )
-      expect(gen.next().done).toBeTruthy()
+    })
+
+    test('should register syncAttributes on UPDATE_CHAPTER', () => {
+      gen.next()
+      expect(gen.next().value).toEqual(
+        takeEvery(UPDATE_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
+      )
+    })
+
+    test('should register syncAttributes on SET_CHAPTER', () => {
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(
+        takeEvery(SET_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
+      )
+    })
+
+    test('should fork the driver', () => {
+      gen.next()
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(fork(driver, { selectPlaytime, mediaElement }))
+    })
+
+    test('should end the saga', () => {
+      gen.next()
+      gen.next()
+      gen.next()
+      gen.next()
+      expect(gen.next().done).toBe(true)
     })
   })
 
   describe('initPlayer()', () => {
+    let gen, selectMedia, selectTitle, selectPoster, mediaElement
+    beforeEach(() => {
+      selectMedia = jest.fn()
+      selectTitle = jest.fn()
+      selectPoster = jest.fn()
+
+      mediaElement = {
+        setAttribute: jest.fn(),
+        removeAttribute: jest.fn(),
+        appendChild: jest.fn(),
+        initialized: true
+      }
+
+      gen = initPlayer({ selectMedia, selectTitle, selectPoster, mediaElement })
+    })
+
     test('shoud export a generator', () => {
-      const gen = initPlayer({ selectMedia, selectPlaytime })
       expect(typeof gen.next).toBe('function')
     })
 
-    test('shoud select media', () => {
-      const gen = initPlayer({ selectMedia, selectPlaytime })
-
+    test('shoud select mediaFiles', () => {
       expect(gen.next().value).toEqual(select(selectMedia))
     })
 
     test('should throw if no media files available', () => {
-      const gen = initPlayer({ selectMedia, selectPlaytime })
       gen.next()
       expect(gen.next([]).value).toEqual(put(errorMissingMedia()))
     })
 
+    test('should call syncAttributes', () => {
+      gen.next()
+      expect(gen.next(['foo', 'bar']).value).toEqual(
+        fork(syncAttributes, { mediaElement, selectTitle, selectPoster })
+      )
+    })
+
+    test('should end the saga', () => {
+      gen.next()
+      gen.next(['foo', 'bar'])
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('driver', () => {
+    let gen, selectPlaytime, mediaElement
+
+    beforeEach(() => {
+      selectPlaytime = jest.fn()
+
+      mediaElement = {
+        setAttribute: jest.fn(),
+        removeChild: jest.fn(),
+        removeAttribute: jest.fn(),
+        appendChild: jest.fn()
+      }
+
+      gen = driver({ selectPlaytime, mediaElement })
+    })
+
+    test('shoud export a generator', () => {
+      expect(typeof gen.next).toBe('function')
+    })
+
     describe('audio actions', () => {
       test('should register play on REQUEST_PLAY', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
-        gen.next()
-        const [type, saga] = gen.next(['foo', 'bar']).value.FORK.args
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(REQUEST_PLAY)
         expect(saga).toEqual(play)
       })
 
       test('should register pause on REQUEST_PAUSE', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
         gen.next()
-        gen.next(['foo', 'bar'])
-        const [type, saga] = gen.next().value.FORK.args
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(REQUEST_PAUSE)
         expect(saga).toEqual(pause)
       })
 
       test('should register restart on REQUEST_RESTART', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
         gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
-        const [type, saga] = gen.next().value.FORK.args
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(REQUEST_RESTART)
         expect(saga).toEqual(restart)
       })
 
       test('should register load on REQUEST_LOAD', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
-        gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
         gen.next()
-        const [type, saga] = gen.next().value.FORK.args
+        gen.next()
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(REQUEST_LOAD)
         expect(saga).toEqual(load)
       })
 
       test('should register playtime on REQUEST_PLAYTIME', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
-        gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
         gen.next()
         gen.next()
-        const [type, saga] = gen.next().value.FORK.args
+        gen.next()
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(REQUEST_PLAYTIME)
         expect(saga).toEqual(playtime)
       })
 
       test('should register rate on SET_RATE', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
-        gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
         gen.next()
         gen.next()
         gen.next()
-        const [type, saga] = gen.next().value.FORK.args
+        gen.next()
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(SET_RATE)
         expect(saga).toEqual(rate)
       })
 
       test('should register rate on SET_VOLUME', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
-        gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
         gen.next()
         gen.next()
         gen.next()
         gen.next()
-        const [type, saga] = gen.next().value.FORK.args
+        gen.next()
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(SET_VOLUME)
         expect(saga).toEqual(volume)
       })
 
       test('should register mute on MUTE', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
-        gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
         gen.next()
         gen.next()
         gen.next()
         gen.next()
         gen.next()
-        const [type, saga] = gen.next().value.FORK.args
+        gen.next()
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(MUTE)
         expect(saga).toEqual(mute)
       })
 
       test('should register unmute on UNMUTE', () => {
-        const gen = initPlayer({ selectMedia, selectPlaytime })
-        gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
         gen.next()
         gen.next()
@@ -205,7 +256,8 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
-        const [type, saga] = gen.next().value.FORK.args
+        gen.next()
+        const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(UNMUTE)
         expect(saga).toEqual(unmute)
       })
@@ -214,6 +266,10 @@ describe('player', () => {
     describe('audio events', () => {
       const readyEvent = {
         type: 'READY'
+      }
+
+      const loadedEvent = {
+        type: 'LOADED'
       }
 
       const playEvent = {
@@ -248,12 +304,9 @@ describe('player', () => {
         type: 'ERROR'
       }
 
-      let gen
       beforeEach(() => {
-        // INIT
-        gen = initPlayer({ selectMedia, selectPlaytime })
+        // Init
         gen.next()
-        gen.next(['foo', 'bar'])
         gen.next()
         gen.next()
         gen.next()
@@ -266,6 +319,7 @@ describe('player', () => {
 
         // Events
         gen.next(readyEvent)
+        gen.next(loadedEvent)
         gen.next(playEvent)
         gen.next(pauseEvent)
         gen.next(endEvent)
@@ -277,15 +331,18 @@ describe('player', () => {
 
       test('should create a ready event binding', () => {
         expect(gen.next(errorEvent).value).toEqual(takeEvery(readyEvent, onReady))
+        expect(gen.next().value).toEqual(takeEvery(loadedEvent, onReady))
       })
 
       test('should create a play event binding', () => {
         gen.next(errorEvent)
+        gen.next()
         expect(gen.next().value).toEqual(takeEvery(playEvent, onPlay))
       })
 
       test('should create a pause event binding', () => {
         gen.next(errorEvent)
+        gen.next()
         gen.next()
         expect(gen.next().value).toEqual(takeEvery(pauseEvent, onPause))
       })
@@ -294,11 +351,13 @@ describe('player', () => {
         gen.next(errorEvent)
         gen.next()
         gen.next()
+        gen.next()
         expect(gen.next().value).toEqual(takeEvery(endEvent, onEnd))
       })
 
       test('should create a playtime event binding', () => {
         gen.next(errorEvent)
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -311,11 +370,13 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
+        gen.next()
         expect(gen.next().value).toEqual(takeEvery(durationEvent, onDurationChange))
       })
 
       test('should create a bufferChange event binding', () => {
         gen.next(errorEvent)
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -332,11 +393,13 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
+        gen.next()
         expect(gen.next().value).toEqual(takeEvery(bufferingEvent, onBuffering))
       })
 
       test('should create a error event binding', () => {
         gen.next(errorEvent)
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -357,15 +420,21 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
+        gen.next()
         expect(gen.next().done).toBeTruthy()
       })
     })
   })
 
   describe('play()', () => {
-    let gen
+    let gen, actions, selectPlaytime
 
     beforeEach(() => {
+      actions = {
+        setPlaytime: jest.fn(),
+        play: jest.fn()
+      }
+      selectPlaytime = jest.fn()
       gen = play(actions, selectPlaytime)
     })
 
@@ -397,9 +466,12 @@ describe('player', () => {
   })
 
   describe('pause()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        pause: jest.fn()
+      }
       gen = pause(actions)
     })
 
@@ -419,9 +491,13 @@ describe('player', () => {
   })
 
   describe('restart()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        setPlaytime: jest.fn(),
+        play: jest.fn()
+      }
       gen = restart(actions)
     })
 
@@ -445,9 +521,12 @@ describe('player', () => {
   })
 
   describe('load()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        load: jest.fn()
+      }
       gen = load(actions)
     })
 
@@ -467,9 +546,12 @@ describe('player', () => {
   })
 
   describe('playtime()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        setPlaytime: jest.fn()
+      }
       gen = playtime(actions, { payload: 1337 })
     })
 
@@ -489,9 +571,12 @@ describe('player', () => {
   })
 
   describe('rate()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        setRate: jest.fn()
+      }
       gen = rate(actions, { payload: 2 })
     })
 
@@ -511,9 +596,12 @@ describe('player', () => {
   })
 
   describe('volume()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        setVolume: jest.fn()
+      }
       gen = volume(actions, { payload: 2 })
     })
 
@@ -533,9 +621,12 @@ describe('player', () => {
   })
 
   describe('mute()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        mute: jest.fn()
+      }
       gen = mute(actions)
     })
 
@@ -555,9 +646,12 @@ describe('player', () => {
   })
 
   describe('unmute()', () => {
-    let gen
+    let gen, actions
 
     beforeEach(() => {
+      actions = {
+        unmute: jest.fn()
+      }
       gen = unmute(actions)
     })
 

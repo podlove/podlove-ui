@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const base = process.env.BASE || ''
 
 module.exports = {
-  title: 'Podlove Web Player 4.0',
+  title: 'Podlove Web Player 5',
   base,
   description: 'The fast, flexible and responsive podcast player powered by podlove meta data.',
   theme: 'millidocs',
@@ -22,7 +22,6 @@ module.exports = {
     config.plugin('copy').use(CopyPlugin, [[{ from: `./node_modules/@podlove/web-player/dist` }, { from: `./.vuepress/public`}]])
   },
   configureWebpack: (config) => {
-    console.log(config)
     config.devServer = {
       https: true
     }

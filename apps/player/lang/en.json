@@ -9,25 +9,31 @@
     "DEBUG_STATE": "Export Debug State"
   },
   "PLAYER": {
-    "REPLAY": "replay",
+    "PLAY_EPISODE": "Play Podcast",
+    "REPLAY": "Replay",
     "RETRY": "Retry"
   },
   "ERROR": {
     "NETWORK": {
       "TITLE": "Network Issue",
-      "MESSAGE": "Couldn't load the audio files from the server. Maybe you don't have connectivity to the internet or the Podcast host is not available."
+      "MESSAGE": "Couldn't load the audio files from the server. Maybe you don't have connectivity to the internet or the host is not available."
     },
     "MEDIA": {
       "TITLE": "Missing Media Files",
       "MESSAGE": "The Player recieved an invalid configuration. Without media files the player can't be used. Please reach out to the host to fix this problem."
+    },
+    "CONFIG": {
+      "TITLE": "Missing Episode Configuration",
+      "MESSAGE": "The Player couldn't fetched the episode configuration. Please reach out to the host to fix this problem."
     }
   },
   "FILES": {
     "TITLE": "Files",
     "TYPES": {
-      "AUDIO": {
-        "HEADER": "Audio Files"
-      }
+      "AUDIO": "Audio",
+      "PDF": "PDF",
+      "TEXT": "Text",
+      "VIDEO": "Video"
     },
     "ACTIONS": {
       "DOWNLOAD": "Download",
@@ -35,7 +41,7 @@
     }
   },
   "SHARE": {
-    "TITLE": "Share",
+    "TITLE": "Share Episode",
     "CONTENT": {
       "SHOW": "Show",
       "EPISODE": "Episode",
@@ -47,6 +53,7 @@
     "ACTIONS": {
       "COPY": "copy"
     },
+    "PLAYTIME": "Share current position ({playtime})",
     "EPISODE": {
       "TEXT": {
         "BEGINNING": "\"{title}\" ({link})",
@@ -64,7 +71,7 @@
       "SUBJECT": "{title}"
     },
     "EMBED": {
-      "TITLE": "Embed Episode",
+      "TITLE": "Embed Player",
       "LABEL": {
         "SIZE": "Embed Size",
         "CODE": "Embed Code"
@@ -74,23 +81,29 @@
       }
     }
   },
-  "INFO": {
-    "TITLE": "Info",
+  "SHOWNOTES": {
+    "TITLE": "Shownotes",
     "PUBLICATION_DATE": "Published: {month}/{day}/{year}",
     "DURATION_WITH_HOURS": "{hours} hours {minutes} minutes",
-    "DURATION": "{minutes} minutes",
-    "ON_AIR": "On Air"
+    "DURATION": "{minutes} minutes"
   },
   "TRANSCRIPTS": {
     "TITLE": "Transcript",
     "CHAPTER": "Chapter {index}: {title}",
-    "FOLLOW": "follow",
-    "SEARCH": "Search",
+    "FOLLOW": {
+      "ACTIVE": "Stop Text",
+      "INACTIVE": "Follow Text"
+    },
+    "PLACEHOLDER": "Search in text for ...",
     "NO_SEARCH_RESULTS": "No results"
   },
   "MESSAGES": {
     "COPIED": "Copied!"
   },
+  "PLAYLIST": {
+    "TITLE": "Related Episodes"
+  },
+  "SUBSCRIBE": "Subscribe",
   "A11Y": {
     "ALT_EPISODE_COVER": "Episode Cover",
     "ALT_SHOW_COVER": "Show Cover",
@@ -136,6 +149,7 @@
     "VOLUME_UNMUTE": "Unmute Audio",
     "SET_VOLUME_IN_PERCENT": "Set Volume in Percent",
     "DOWNLOAD_FILE": "Download File {url}",
-    "COPY_FILE": "Copy File {url}"
+    "COPY_FILE": "Copy File {url}",
+    "PLAYLIST_ENTRY": "Play episode {title}"
   }
 }

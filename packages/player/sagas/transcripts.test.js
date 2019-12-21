@@ -1,7 +1,15 @@
+import { compose, prop } from 'ramda'
 import { put, takeEvery, select } from 'redux-saga/effects'
-import { transcriptsSaga, init, update, debouncedUpdate, search } from './transcripts'
 import {
-  INIT,
+  transcriptsSaga,
+  init,
+  update,
+  debouncedUpdate,
+  search,
+  resetToPlaytime
+} from './transcripts'
+import {
+  READY,
   BACKEND_PLAYTIME,
   REQUEST_PLAYTIME,
   DISABLE_GHOST_MODE,
@@ -14,17 +22,24 @@ import {
   setTranscriptsSearchResults
 } from '@podlove/player-actions/transcripts'
 
+const params = compose(
+  prop('args'),
+  prop('payload')
+)
+
 describe('transcripts', () => {
   describe('transcriptsSaga()', () => {
     let factory
     let gen
     let selectSpeakers
     let selectChapters
+    let selectPlaytime
 
     beforeEach(() => {
       selectSpeakers = jest.fn()
       selectChapters = jest.fn()
-      factory = transcriptsSaga({ selectSpeakers, selectChapters })
+      selectPlaytime = jest.fn()
+      factory = transcriptsSaga({ selectSpeakers, selectChapters, selectPlaytime })
       gen = factory()
     })
 
@@ -37,12 +52,14 @@ describe('transcripts', () => {
     })
 
     test('should register init on INIT', () => {
-      expect(gen.next().value).toEqual(takeEvery(INIT, init, { selectSpeakers, selectChapters }))
+      expect(gen.next().value).toEqual(
+        takeEvery(READY, init, { selectSpeakers, selectChapters, selectPlaytime })
+      )
     })
   })
 
   describe('init()', () => {
-    let gen, selectSpeakers, selectChapters
+    let gen, selectSpeakers, selectChapters, selectPlaytime
 
     const transcripts = [
       {
@@ -100,7 +117,8 @@ describe('transcripts', () => {
     beforeEach(() => {
       selectSpeakers = jest.fn()
       selectChapters = jest.fn()
-      gen = init({ selectSpeakers, selectChapters }, { payload: { transcripts } })
+      selectPlaytime = jest.fn()
+      gen = init({ selectSpeakers, selectChapters, selectPlaytime }, { payload: { transcripts } })
     })
 
     test('should should create a generator', () => {
@@ -108,15 +126,18 @@ describe('transcripts', () => {
     })
 
     test('should select speakers', () => {
+      gen.next()
       expect(gen.next().value).toEqual(select(selectSpeakers))
     })
 
     test('should select chapters', () => {
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(select(selectChapters))
     })
 
     test('should create transcripts timeline', () => {
+      gen.next()
       gen.next()
       gen.next(speakers)
       expect(gen.next(chapters).value).toEqual(
@@ -214,51 +235,56 @@ describe('transcripts', () => {
 
     test('should register update on BACKEND_PLAYTIME', () => {
       gen.next()
+      gen.next()
       gen.next(speakers)
       gen.next(chapters)
-      const [type, func] = gen.next().value.FORK.args
 
+      const [type, func] = params(gen.next().value)
       expect(type).toEqual(BACKEND_PLAYTIME)
       expect(func).toEqual(update)
     })
 
     test('should register update on REQUEST_PLAYTIME', () => {
       gen.next()
+      gen.next()
       gen.next(speakers)
       gen.next(chapters)
       gen.next()
-      const [type, func] = gen.next().value.FORK.args
 
+      const [type, func] = params(gen.next().value)
       expect(type).toEqual(REQUEST_PLAYTIME)
       expect(func).toEqual(update)
     })
 
-    test('should register debouncedUpdate on DISABLE_GHOST_MODE', () => {
-      gen.next()
-      gen.next(speakers)
-      gen.next(chapters)
-      gen.next()
-      gen.next()
-      const [type, func] = gen.next().value.FORK.args
-
-      expect(type).toEqual(DISABLE_GHOST_MODE)
-      expect(func).toEqual(debouncedUpdate)
-    })
-
     test('should register debouncedUpdate on SIMULATE_PLAYTIME', () => {
       gen.next()
+      gen.next()
       gen.next(speakers)
       gen.next(chapters)
       gen.next()
       gen.next()
-      gen.next()
-      const [type, func] = gen.next().value.FORK.args
 
+      const [type, func] = params(gen.next().value)
       expect(type).toEqual(SIMULATE_PLAYTIME)
       expect(func).toEqual(debouncedUpdate)
     })
 
+    test('should register debouncedUpdate on DISABLE_GHOST_MODE', () => {
+      gen.next()
+      gen.next()
+      gen.next(speakers)
+      gen.next(chapters)
+      gen.next()
+      gen.next()
+      gen.next()
+
+      const [type, func] = params(gen.next().value)
+      expect(type).toEqual(DISABLE_GHOST_MODE)
+      expect(func).toEqual(resetToPlaytime)
+    })
+
     test('should register search on SEARCH_TRANSCRIPTS', () => {
+      gen.next()
       gen.next()
       gen.next(speakers)
       gen.next(chapters)
@@ -266,13 +292,14 @@ describe('transcripts', () => {
       gen.next()
       gen.next()
       gen.next()
-      const [type, func] = gen.next().value.FORK.args
 
+      const [type, func] = params(gen.next().value)
       expect(type).toEqual(SEARCH_TRANSCRIPTS)
       expect(func).toEqual(search)
     })
 
     test('should complete the saga', () => {
+      gen.next()
       gen.next()
       gen.next(speakers)
       gen.next(chapters)

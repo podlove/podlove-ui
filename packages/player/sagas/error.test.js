@@ -1,6 +1,11 @@
-import { errorSaga, retryPlay, networkError, configMediaError } from './error'
+import { errorSaga, retryPlay, networkError, configMediaError, configMissingError } from './error'
 import { put, takeEvery } from 'redux-saga/effects'
-import { RETRY_PLAY, BACKEND_ERROR, ERROR_CONFIG_MEDIA } from '@podlove/player-actions/types'
+import {
+  RETRY_PLAY,
+  BACKEND_ERROR,
+  ERROR_CONFIG_MEDIA,
+  ERROR_CONFIG_MISSING
+} from '@podlove/player-actions/types'
 import { showError, hideError } from '@podlove/player-actions/error'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'
 
@@ -25,13 +30,21 @@ describe('error', () => {
       expect(gen.next().value).toEqual(takeEvery(RETRY_PLAY, retryPlay))
     })
 
-    it('shoud register retryPlay on RETRY_PLAY', () => {
+    it('shoud register retryPlay on ERROR_CONFIG_MEDIA', () => {
       gen.next()
       gen.next()
       expect(gen.next().value).toEqual(takeEvery(ERROR_CONFIG_MEDIA, configMediaError))
     })
 
+    it('shoud register configMissingError on ERROR_CONFIG_MISSING', () => {
+      gen.next()
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(takeEvery(ERROR_CONFIG_MISSING, configMissingError))
+    })
+
     it('should end the saga', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -91,7 +104,6 @@ describe('error', () => {
           showError({
             title: 'ERROR.NETWORK.TITLE',
             message: 'ERROR.NETWORK.MESSAGE',
-            icon: 'missing-connection',
             retry: RETRY_PLAY
           })
         )
@@ -115,8 +127,30 @@ describe('error', () => {
         put(
           showError({
             title: 'ERROR.MEDIA.TITLE',
-            message: 'ERROR.MEDIA.MESSAGE',
-            icon: 'invalid-configuration'
+            message: 'ERROR.MEDIA.MESSAGE'
+          })
+        )
+      )
+    })
+  })
+
+  describe('configMissingError()', () => {
+    let gen
+
+    beforeEach(() => {
+      gen = configMissingError()
+    })
+
+    it('should export a generator', () => {
+      expect(typeof gen.next).toBe('function')
+    })
+
+    it('should dispatch SHOW_ERROR', () => {
+      expect(gen.next().value).toEqual(
+        put(
+          showError({
+            title: 'ERROR.CONFIG.TITLE',
+            message: 'ERROR.CONFIG.MESSAGE'
           })
         )
       )

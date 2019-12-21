@@ -4,7 +4,7 @@ import { handleActions } from 'redux-actions'
 import { parseDate } from '@podlove/utils/time'
 import { sanitize } from '@podlove/utils/dom'
 import { createObject } from '@podlove/utils/helper'
-import { INIT } from '@podlove/player-actions/types'
+import { READY } from '@podlove/player-actions/types'
 
 export const INIT_STATE = {
   title: null,
@@ -32,7 +32,7 @@ const update = createObject({
 
 export const reducer = handleActions(
   {
-    [INIT]: (state, { payload }) => ({
+    [READY]: (state, { payload }) => ({
       ...state,
       ...update(payload)
     })

@@ -1,88 +1,171 @@
 /* eslint-env mocha */
-/* globals cy, expect */
-const { setState } = require('../helpers/state')
-const domSelectors = require('../selectors')
 
-describe('Chapters Tab', () => {
-  let selectors
+const { onUpdate } = require('../helpers/state')
+const { select } = require('../helpers/selectors')
 
-  beforeEach(cy.bootstrap)
-  beforeEach(() => {
-    selectors = domSelectors(cy)
-  })
+describe('<tab-chapters>', () => {
+  beforeEach(cy.setup)
 
-  describe('Container', () => {
-    it(`doesn't render the tab if no chapters are available`, function() {
-      cy.window().then(setState(this.episode, this.audio, this.show))
-      cy.get(`#tabs [rel="chapters"]`).should('not', 'exist')
-    })
-  })
-
-  describe('List', () => {
-    it('renders a list of chapters', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.chapters))
-      cy.tab('chapters')
-      selectors.tabs.chapters.entries().should('have.length', this.chapters.chapters.length)
-    })
-
-    it('renders the chapter indices in the correct order', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.chapters))
-      cy.tab('chapters')
-      selectors.tabs.chapters.indices().then(nodes => {
-        this.chapters.chapters.forEach((chapter, index) => {
-          expect(nodes.get(index).textContent).to.equal(`${index + 1}`)
-        })
+  describe('render', () => {
+    describe('title', () => {
+      it('should render the tab title', () => {
+        cy.bootstrap('<tab-chapters style="width: 400px;"></tab-chapters>', [this.theme])
+        cy.select('tab-title').should('exist')
+        cy.select('tab-title').should('contain', 'Chapters')
       })
     })
 
-    it('renders the chapter title in the correct order', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.chapters))
-      cy.tab('chapters')
-      selectors.tabs.chapters.titles().then(nodes => {
-        this.chapters.chapters.forEach((chapter, index) => {
-          expect(nodes.get(index).textContent.trim()).to.equal(chapter.title)
+    describe('list', () => {
+      it(`shouldn't render entries if no chapters are available`, function() {
+        cy.bootstrap('<tab-chapters style="width: 400px;"></tab-chapters>', [this.theme])
+        cy.select('tab-chapters--entry').should('have.length', 0)
+      })
+
+      it(`should render entries if chapters are available`, function() {
+        cy.bootstrap('<tab-chapters style="width: 400px;"></tab-chapters>', [
+          this.theme,
+          this.chapters
+        ])
+        cy.select('tab-chapters--entry').should('have.length', this.chapters.chapters.length)
+      })
+
+      it(`should render the entries in the right order`, function() {
+        cy.bootstrap('<tab-chapters style="width: 400px;"></tab-chapters>', [
+          this.theme,
+          this.chapters
+        ])
+        cy.select('tab-chapters--entry').then(nodes => {
+          this.chapters.chapters.forEach((chapter, index) => {
+            expect(nodes.get(index).textContent).to.contain(chapter.title)
+          })
         })
       })
     })
   })
 
-  describe('Timers', () => {
-    it('renders the remaining time on the active chapter', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.chapters))
-      cy.tab('chapters')
-      selectors.tabs.chapters.activeTimer().contains('-00:08')
+  describe('logic', () => {
+    let assert, dispatch
+
+    beforeEach(function() {
+      cy.bootstrap('<tab-chapters style="width: 400px;"></tab-chapters>', [
+        this.theme,
+        this.chapters
+      ]).then(app => {
+        assert = onUpdate(app)
+        dispatch = app.dispatch
+      })
     })
 
-    it('renders the runtime on inactive chapters', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.chapters))
-      cy.tab('chapters')
-      selectors.tabs.chapters
-        .timers()
-        .not('.active')
-        .should('contain', '00:02')
-    })
-  })
+    describe('title', () => {
+      it('should trigger the toggle tab action on close', done => {
+        assert('PLAYER_TOGGLE_TAB', (_, { payload }) => {
+          expect(payload).to.equal('chapters')
+          done()
+        })
 
-  describe('Interactions', () => {
-    it('plays the chapter on click', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.chapters))
-      cy.tab('chapters')
-      selectors.tabs.chapters
-        .entries()
-        .first()
-        .click()
-      selectors.controls.playButton.pause()
+        cy.select('tab-title--close').click()
+      })
     })
 
-    it('starts playing the chapter on players start time', function() {
-      cy.window().then(setState(this.episode, this.audio, this.show, this.chapters))
-      cy.tab('chapters')
-      selectors.tabs.chapters
-        .entries()
-        .eq(1)
-        .click()
-        .then(cy.pause)
-      selectors.timers.current().contains('00:08')
+    describe('list', () => {
+      describe('interactions', () => {
+        it('should render a play icon on the active chapter', () => {
+          cy.select('tab-chapters--entry')
+            .eq(0)
+            .find(select('tab-chapters--trigger--menu-play'))
+            .should('exist')
+          cy.select('tab-chapters--entry')
+            .eq(1)
+            .find(select('tab-chapters--index'))
+            .should('exist')
+          cy.select('tab-chapters--entry')
+            .eq(2)
+            .find(select('tab-chapters--index'))
+            .should('exist')
+        })
+
+        it('should render a pause icon on the active chapter', () => {
+          assert('PLAYER_REQUEST_PLAY', () => {
+            cy.select('tab-chapters--entry')
+              .eq(0)
+              .find(select('tab-chapters--trigger--menu-pause'))
+              .should('exist')
+          })
+
+          dispatch({ type: 'PLAYER_REQUEST_PLAY' })
+        })
+
+        it('should dispatch the REQUEST_PLAY action on click', done => {
+          assert('PLAYER_REQUEST_PLAY', () => done())
+
+          cy.select('tab-chapters--entry')
+            .eq(0)
+            .find(select('tab-chapters--trigger--menu-play'))
+            .click()
+        })
+
+        it('should dispatch the REQUEST_PAUSE action on click', done => {
+          assert('PLAYER_REQUEST_PAUSE', () => done())
+
+          cy.select('tab-chapters--entry')
+            .eq(0)
+            .find(select('tab-chapters--trigger--menu-play'))
+            .click()
+          cy.select('tab-chapters--entry')
+            .eq(0)
+            .find(select('tab-chapters--trigger--menu-pause'))
+            .click()
+        })
+
+        it('starts the playback on chapter start time', done => {
+          assert('PLAYER_REQUEST_PLAY', state => {
+            expect(state.timepiece.playtime).to.equal(6000)
+            done()
+          })
+
+          cy.select('tab-chapters--entry')
+            .eq(1)
+            .trigger('mouseover')
+          cy.select('tab-chapters--entry')
+            .eq(1)
+            .find(select('tab-chapters--trigger--menu-play'))
+            .click()
+        })
+
+        it('should display the link if available', function() {
+          cy.select('tab-chapters--entry')
+            .eq(2)
+            .find('a')
+            .should('have.attr', 'href', this.chapters.chapters[2].href)
+        })
+
+        it('should show the link icon on interaction', function() {
+          cy.select('tab-chapters--entry')
+            .eq(2)
+            .find('a')
+            .trigger('mouseover')
+          cy.select('tab-chapters--entry')
+            .eq(2)
+            .select('tab-chapters--trigger--link')
+            .should('exist')
+        })
+      })
+
+      describe('timers', () => {
+        it('should show the remaining time on the active chapter', () => {
+          cy.select('tab-chapters--entry')
+            .eq(0)
+            .find('.timer')
+            .should('contain', '-00:06')
+        })
+
+        it('should show the remaining time on the inactive chapter', () => {
+          cy.select('tab-chapters--entry')
+            .eq(1)
+            .find('.timer')
+            .should('contain', '00:02')
+        })
+      })
     })
   })
 })

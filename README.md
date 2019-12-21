@@ -106,4 +106,10 @@ Have a look on the Github project to watch the status and progress of your issue
 [github.com/podlove/ui/projects](https://github.com/podlove/ui/projects/1)
 
 ## Support
+
+### CDN sponsored by
 <a href="https://keycdn.com"><img src="https://logos.keycdn.com/keycdn-logo-black.svg" alt="KeyCDN" width="200px"></a>
+
+### Cross Browser Testing powered by
+<a href="https://www.browserstack.com/"><img src="https://d2ogrdw2mh0rsl.cloudfront.net/production/images/static/header/header-logo.svg" alt="Bowserstack Logo" width="300px">
+</a>

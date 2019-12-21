@@ -1,58 +1,87 @@
-import { INIT, SET_THEME } from '@podlove/player-actions/types'
+import { CONSTRUCTED, SET_THEME } from '@podlove/player-actions/types'
 import { reducer as theme, INITIAL_STATE } from './reducer'
+
+const tokens = {
+  brand: '#E64415',
+  brandDark: '#235973',
+  brandDarkest: '#1A3A4A',
+  brandLightest: '#E9F1F5',
+  shadeDark: '#807E7C',
+  shadeBase: '#807E7C',
+  contrast: '#000',
+  alt: '#fff'
+}
+
+const fonts = {
+  ci: {
+    name: 'CiFont',
+    family: ['CiFont'],
+    weight: 800,
+    src: ['./ci/font/src']
+  },
+  regular: {
+    name: 'RegularFont',
+    family: ['RegularFont'],
+    weight: 300,
+    src: ['./regular/font/src']
+  },
+  bold: {
+    name: 'BoldFont',
+    family: ['BoldFont'],
+    weight: 700,
+    src: ['./bold/font/src']
+  }
+}
 
 describe('theme', () => {
   test(`theme: is a reducer function`, () => {
     expect(typeof theme).toBe('function')
   })
 
-  test(`theme: it sets the theme on INIT`, () => {
-    let result = theme(undefined, {
-      type: INIT,
-      payload: {
-        theme: {
-          main: '#fff',
-          highlight: '#000'
+  const actions = [CONSTRUCTED, SET_THEME]
+
+  actions.forEach(type => {
+    test(`theme: it sets the fonts on ${type}`, () => {
+      let result = theme(INITIAL_STATE, {
+        type,
+        payload: {
+          version: 5,
+          theme: {
+            fonts
+          }
         }
-      }
+      })
+
+      expect(result).toEqual({
+        ...INITIAL_STATE,
+        fonts
+      })
     })
 
-    expect(result).toEqual({
-      ...INITIAL_STATE,
-      main: '#fff',
-      highlight: '#000',
-      luminosity: 1
+    test(`theme: it sets the tokens on ${type}`, () => {
+      let result = theme(INITIAL_STATE, {
+        type,
+        payload: {
+          version: 5,
+          theme: {
+            tokens
+          }
+        }
+      })
+
+      expect(result).toEqual({
+        ...INITIAL_STATE,
+        tokens
+      })
     })
   })
 
   test(`it has a default fallback if no theme is provided`, () => {
     let result = theme(undefined, {
-      type: INIT
+      type: CONSTRUCTED
     })
 
-    expect(result).toEqual({
-      ...INITIAL_STATE,
-      highlight: undefined,
-      negative: true,
-      luminosity: 0.2276776612358553
-    })
-  })
-
-  test(`it sets the theme on SET_THEME`, () => {
-    let result = theme(undefined, {
-      type: SET_THEME,
-      payload: {
-        main: '#fff',
-        highlight: '#b00'
-      }
-    })
-
-    expect(result).toEqual({
-      ...INITIAL_STATE,
-      main: '#fff',
-      highlight: '#b00',
-      luminosity: 1
-    })
+    expect(result).toEqual(INITIAL_STATE)
   })
 
   test(`it does nothing if a unknown action is dispatched`, () => {

@@ -1,5 +1,5 @@
 import { compose, propOr, replace } from 'ramda'
-import queryString from 'query-string'
+import queryString from 'query-string-for-all'
 import { stripr } from './helper'
 
 const url = href => {

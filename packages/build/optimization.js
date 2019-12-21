@@ -1,11 +1,22 @@
-module.exports = () => ({
+module.exports = (exclude = []) => ({
   runtimeChunk: {
     name: 'runtime'
   },
   splitChunks: {
     cacheGroups: {
       vendor: {
-        test: /node_modules/,
+        test(mod) {
+          // Only node_modules are needed
+          if (!mod.context.includes('node_modules')) {
+            return false
+          }
+          // But not node modules that contain these key words in the path
+          if (exclude.some(str => mod.context.includes(str))) {
+            return false
+          }
+
+          return true
+        },
         name: 'vendor',
         chunks: 'initial',
         enforce: true

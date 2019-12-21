@@ -4,34 +4,34 @@ name: apps/player
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'apps/player/**/*.{js,vue}'
 
 - name: integration
-  image: cypress/base:10
+  image: cypress/base:12.12.0
   commands:
     - npx cypress install
-    - npx lerna run integration:build --scope @podlove/player
-    - npx lerna run integration:server --scope @podlove/player
-    - npx lerna run integration:ci --scope @podlove/player
+    - npx lerna run integration:build --scope @podlove/player --stream
+    - npx lerna run integration:server --scope @podlove/player --stream
+    - npx lerna run integration:ci --scope @podlove/player --stream
 
 - name: build
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run build --scope @podlove/player
+    - npx lerna run build --scope @podlove/player --stream
 
 - name: release:prepare
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run publish:prepare --scope @podlove/player
+    - npx lerna run publish:prepare --scope @podlove/player --stream
   when:
     ref:
     - refs/tags/v*
@@ -55,34 +55,34 @@ name: apps/web-player
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'apps/web-player/**/*.{js,vue}'
 
 - name: integration
-  image: cypress/base:10
+  image: cypress/base:12.12.0
   commands:
     - npx cypress install
-    - npx lerna run integration:build --scope @podlove/web-player
-    - npx lerna run integration:server --scope @podlove/web-player
-    - npx lerna run integration:ci --scope @podlove/web-player
+    - npx lerna run integration:build --scope @podlove/web-player --stream
+    - npx lerna run integration:server --scope @podlove/web-player --stream
+    - npx lerna run integration:ci --scope @podlove/web-player --stream
 
 - name: build
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run build --scope @podlove/web-player
+    - npx lerna run build --scope @podlove/web-player --stream
 
 - name: release:prepare
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run publish:prepare --scope @podlove/web-player
+    - npx lerna run publish:prepare --scope @podlove/web-player --stream
   when:
     ref:
     - refs/tags/v*
@@ -100,10 +100,10 @@ steps:
     - refs/tags/v*
 
 - name: cdn:prepare
-  image: node:10
+  image: node:12
   commands:
     - rm -rf apps/web-player/publish
-    - npx lerna run build:cdn --scope @podlove/web-player
+    - npx lerna run build:cdn --scope @podlove/web-player --stream
   when:
     ref:
     - refs/tags/v*
@@ -121,7 +121,7 @@ steps:
     - echo "$PUBLIC_KEY" >> ~/.ssh/id_rsa.pub
     - ssh-keyscan rsync.keycdn.com >> ~/.ssh/known_hosts
     - chmod 600 ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa.pub
-    - rsync -rvt --chmod=D2755,F644 apps/web-player/dist/ podlove@rsync.keycdn.com:applications/web-player/
+    - rsync -rvt --chmod=D2755,F644 apps/web-player/dist/ podlove@rsync.keycdn.com:applications/web-player/5.x/
   when:
     ref:
     - refs/tags/v*
@@ -132,21 +132,21 @@ name: apps/subscribe-button
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'apps/subscribe-button/**/*.{js,vue}'
 
 - name: build
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run build --scope @podlove/subscribe-button
+    - npx lerna run build --scope @podlove/subscribe-button --stream
 
 ---
 kind: pipeline
@@ -154,31 +154,31 @@ name: packages/components
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'packages/components/**/*.{js,vue}'
 
 - name: test
-  image: node:10
+  image: node:12
   commands:
     - npx jest packages/components
 
 - name: build
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run build --scope @podlove/components
+    - npx lerna run build --scope @podlove/components --stream
 
 - name: release:prepare
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run publish:prepare --scope @podlove/components
+    - npx lerna run publish:prepare --scope @podlove/components --stream
   when:
     ref:
     - refs/tags/v*
@@ -202,14 +202,14 @@ name: packages/player-actions
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'packages/player/actions/**/*.{js,vue}'
 
@@ -232,26 +232,26 @@ name: packages/player-sagas
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'packages/player/sagas/**/*.{js,vue}'
 
 - name: test
-  image: node:10
+  image: node:12
   commands:
     - npx jest 'packages/player/sagas'
 
 - name: build
-  image: node:10
+  image: node:12
   commands:
-    - npx lerna run build --scope @podlove/player-sagas
+    - npx lerna run build --scope @podlove/player-sagas --stream
 
 - name: deploy:npm
   image: plugins/npm
@@ -272,19 +272,19 @@ name: packages/player-state
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'packages/player/state/**/*.{js,vue}'
 
 - name: test
-  image: node:10
+  image: node:12
   commands:
     - npx jest 'packages/player/state'
 
@@ -307,19 +307,19 @@ name: packages/utils
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: lint
-  image: node:10
+  image: node:12
   commands:
     - npx eslint 'packages/utils/**/*.{js,vue}'
 
 - name: test
-  image: node:10
+  image: node:12
   commands:
     - npx jest 'packages/utils'
 
@@ -342,24 +342,26 @@ name: docs/web-player
 
 steps:
 - name: bootstrap
-  image: node:10
+  image: node:12
   commands:
     - npm set unsafe-perm true
     - npm i
     - npx lerna bootstrap --hoist
 
 - name: build
-  image: node:10
+  image: node:12
   commands:
-    - env BASE=/podlove-web-player/ npx lerna run build --scope @podlove/docs-web-player
+    - env BASE=/ npx lerna run build --scope @podlove/docs-web-player --stream
 
-- name: deploy:github
-  image: node:10
+- name: deploy:surge
+  image: node:12
   environment:
-    GH_TOKEN:
-      from_secret: GH_TOKEN
+    SURGE_LOGIN:
+      from_secret: SURGE_LOGIN
+    SURGE_TOKEN:
+      from_secret: SURGE_TOKEN
   commands:
-    - npx lerna run publish --scope @podlove/docs-web-player
+    - npx lerna run publish --scope @podlove/docs-web-player --stream
   when:
     ref:
     - refs/tags/v*

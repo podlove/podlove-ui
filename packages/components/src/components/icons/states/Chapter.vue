@@ -2,19 +2,40 @@
   <svg
     :width="size"
     :height="size"
-    viewBox="0 0 50 50"
+    viewBox="0 0 24 24"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    stroke-linejoin="round"
-    stroke-miterlimit="1.5"
   >
-    <path
-      d="M8 15h5m4 0h25M8 25h5m4 0h25M8 35h5m4 0h25"
-      fill="none"
+    <line
+      x1="19.45"
+      y1="6.55"
+      x2="9.55"
+      y2="6.55"
       :stroke="color"
-      stroke-width="2"
+      stroke-width="1.1"
+      stroke-linecap="round"
     />
+    <line
+      x1="19.45"
+      y1="11.55"
+      x2="9.55"
+      y2="11.55"
+      :stroke="color"
+      stroke-width="1.1"
+      stroke-linecap="round"
+    />
+    <line
+      x1="19.45"
+      y1="16.55"
+      x2="9.55"
+      y2="16.55"
+      :stroke="color"
+      stroke-width="1.1"
+      stroke-linecap="round"
+    />
+    <circle cx="5.5" cy="6.5" r="1" :fill="color" />
+    <circle cx="5.5" cy="11.5" r="1" :fill="color" />
+    <circle cx="5.5" cy="16.5" r="1" :fill="color" />
   </svg>
 </template>
 
@@ -23,7 +44,7 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 25
+      default: 24
     },
     color: {
       type: String,

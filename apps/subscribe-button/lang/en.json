@@ -1,0 +1,14 @@
+{
+  "SUBSCRIBE": "Subscribe to",
+  "BACK_TO_LIST": "Back to overview",
+  "FINISH_SCREEN": {
+    "REDIRECT_MESSAGE": "You're being connected now. If you are not forwarded, ",
+    "REDIRECT_LINK": "please click here.",
+    "DOWNLOAD_APP": "Or download the App:",
+    "COPY_MESSAGE": "Copy and paste the following URL into a podcast or RSS app of your choice.",
+    "COPY_URL": "Copy Url"
+  },
+  "MESSAGES": {
+    "COPIED": "copied!"
+  }
+}

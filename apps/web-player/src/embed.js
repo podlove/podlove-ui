@@ -1,39 +1,52 @@
-/* eslint-disable no-console */
-import { init } from '@podlove/player-actions/lifecycle'
+/* eslint-disable no-console, no-empty */
+import { init as playerInit } from '@podlove/player-actions/lifecycle'
+import { init as buttonInit } from '@podlove/button-actions/lifecycle'
+import * as configParser from '@podlove/player-config'
 
 import { version } from '../package'
 
+import * as context from './lib/context'
 import canvas from './lib/canvas'
+import connect from './lib/connect'
 import { parseConfig } from './lib/config'
-import { createSandbox } from './lib/sandbox'
-import { setVisibleComponents } from './lib/visible-components'
-import { activeTab } from './lib/active-tab'
-import { applyUrlParameters } from './lib/url-params'
-import { persistPlayer } from './lib/persist'
+import * as player from './player'
+import * as subscribeButton from './subscribe-button'
 
-const podlovePlayer = async (selector, episode, additional = {}) => {
-  const target = canvas(selector)
+const podlovePlayer = async (selector, episode, meta) => {
+  let target
 
   try {
+    const config = await parseConfig(episode, meta)
+    context.create(config)
+    target = await canvas(selector)
+
     target.init()
-    const config = await parseConfig(episode, additional)
-    const store = await createSandbox(config, target.node)
+    const playerStore = await player.create(config, target)
 
-    store.dispatch(init(config))
+    playerStore.dispatch(playerInit(config))
 
-    setVisibleComponents(config, store)
-    activeTab(config, store)
-    persistPlayer(config, store)
-    applyUrlParameters(store)
+    if (configParser.subscribeButton(config)) {
+      const buttonStore = await subscribeButton.create(config, target)
 
-    return store
+      buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
+
+      // inter store connection
+      connect(
+        { store: playerStore, prefix: 'PLAYER' },
+        { store: buttonStore, prefix: 'BUTTON' }
+      )
+    }
+
+    try {
+      player.restore(config, playerStore)
+    } catch (e) {}
+
+    return playerStore
   } catch (err) {
-    target.reset()
-
-    console.group(`Can't load Podlove Webplayer ${version}`)
-    console.error('selector', selector)
-    console.error('config', episode)
-    console.error(err)
+    console.group(`Error in Podlove Webplayer ${version}`)
+    console.warn('selector', selector)
+    console.warn('config', episode)
+    console.warn(err)
     console.groupEnd()
   }
 }

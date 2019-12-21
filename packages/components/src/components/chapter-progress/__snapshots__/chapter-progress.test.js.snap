@@ -7,7 +7,7 @@ exports[`ChapterProgress props should render 'chapter' 1`] = `
 >
   <span
     aria-hidden="true"
-    class="title truncate"
+    class="title"
   >
     
     chapter title
@@ -42,7 +42,7 @@ exports[`ChapterProgress props should render 'playtime' 1`] = `
 >
   <span
     aria-hidden="true"
-    class="title truncate"
+    class="title"
   >
     
     
@@ -76,7 +76,7 @@ exports[`ChapterProgress props should render 'progressColor' 1`] = `
 >
   <span
     aria-hidden="true"
-    class="title truncate"
+    class="title"
   >
     
     
@@ -110,7 +110,7 @@ exports[`ChapterProgress props should render 'showLink' 1`] = `
 >
   <span
     aria-hidden="true"
-    class="title truncate"
+    class="title"
   >
     
     
@@ -144,7 +144,7 @@ exports[`ChapterProgress props should render without props 1`] = `
 >
   <span
     aria-hidden="true"
-    class="title truncate"
+    class="title"
   >
     
     

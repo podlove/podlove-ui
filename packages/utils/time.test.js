@@ -1,4 +1,10 @@
-import { toHumanTime, toPlayerTime, secondsToMilliseconds, millisecondsToSeconds } from './time'
+import {
+  toHumanTime,
+  toPlayerTime,
+  secondsToMilliseconds,
+  millisecondsToSeconds,
+  parseDate
+} from './time'
 
 describe('time', () => {
   describe('toHumanTime()', () => {
@@ -27,8 +33,8 @@ describe('time', () => {
     test('tolerates invalid inputs', () => {
       expect(toPlayerTime()).toBe(0)
       expect(toPlayerTime(undefined)).toBe(0)
-      expect(toPlayerTime(null)).toBe(0)
       expect(toPlayerTime('foo:oo')).toBe(0)
+      expect(toPlayerTime(null)).toBe(null)
     })
 
     test(`parses hours from hh:mm:ss.f`, () => {
@@ -65,6 +71,16 @@ describe('time', () => {
 
     test(`transforms milliseconds to seconds`, () => {
       expect(millisecondsToSeconds(1200)).toBe(1.2)
+    })
+  })
+
+  describe('parseDate()', () => {
+    test('should return null if a falsy value was provided', () => {
+      expect(parseDate()).toEqual(null)
+    })
+
+    test('should return time in ms when provided a valid date', () => {
+      expect(parseDate('1970-01-01T00:00:00.000Z')).toEqual(0)
     })
   })
 })

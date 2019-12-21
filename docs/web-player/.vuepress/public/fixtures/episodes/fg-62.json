@@ -1,0 +1,232 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=204"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG062 Leichte Sprache",
+  "subtitle": "Neue Zug\u00e4nglichkeit f\u00fcr die Deutsche Sprache",
+  "summary": "Leichte Sprache wendet sich an Menschen mit Behinderungen oder anderen Einschr\u00e4nkungen und \u00f6ffnet das Tor auch f\u00fcr Fremdsprachler und bessere Erkl\u00e4rungen komplizierter Sachverhalte. Leichte Sprache vermittelt die Inhalte vereinfacht, aber getragen durch eine andere Strukturierung der Inhalte und nicht nur durch das Verwenden einfacher und wenigerer Worte. Wir sprechen mit Isabel Rink, Gesch\u00e4ftsf\u00fchrerin der Forschungsstelle Leichte Sprache im Institut f\u00fcr \u00dcbersetzungswissenschaft und Fachkommunikation an der Universit\u00e4t in Hildesheim \u00fcber die kurze, aber lebhafte Geschichte der Leichten Sprache, ihrer gesetzlichen Verankerung, den Zielen und Methoden der Leichten Sprache und f\u00fcr welche Zielgruppen Leichte Sprache hilfreich sein kann.",
+  "publicationDate": "2018-08-17T10:00:06+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/94\/e31eb4be0abfe600a5b0ec38292223\/fg062-leichte-sprache_500x500.jpg",
+  "duration": "01:32:04.621",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg062-leichte-sprache\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1687\/s\/webplayer\/c\/episode\/fg062-leichte-sprache.m4a",
+      "size": "58591980",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1685\/s\/webplayer\/c\/episode\/fg062-leichte-sprache.opus",
+      "size": "51877678",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1684\/s\/webplayer\/c\/episode\/fg062-leichte-sprache.oga",
+      "size": "75411685",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1692\/s\/webplayer\/c\/episode\/fg062-leichte-sprache.mp3",
+      "size": "77623879",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:42.842",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:02:46.052",
+      "title": "Pers\u00f6nlicher Hintergrund",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:04:04.504",
+      "title": "Universit\u00e4t Hildesheim",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:06:26.763",
+      "title": "Forschungsstelle Leichte Sprache",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:10:15.845",
+      "title": "Was ist Leichte Sprache?",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:18:47.147",
+      "title": "F\u00fcr wen ist Leichte Sprache?",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:21:52.816",
+      "title": "Gesetzliche Verankerung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:28:04.155",
+      "title": "Wie gut funktioniert Leichte Sprache?",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:42:54.099",
+      "title": "Regeln der Leichten Sprache",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:57:19.105",
+      "title": "Publikationshilfen",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:01:16.117",
+      "title": "Mehrdeutigkeite Begriffe",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:06:01.809",
+      "title": "Mi\u00dfverst\u00e4ndnisse und Vorurteile",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:13:42.680",
+      "title": "Interdisziplin\u00e4re Forschung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:16:42.127",
+      "title": "Wer sollte Leichte Sprache anwenden?",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:18:21.185",
+      "title": "Leichte Sprache in anderen Sprachen",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:26:20.727",
+      "title": "Online-W\u00f6rterbuchen und der Duden",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:30:10.165",
+      "title": "Andere Forschungsstandorte in Deutschland",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:30:53.212",
+      "title": "Ausklang",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "65",
+      "name": "Isabel Rink",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/e3\/4a63aaf0fb584d929c28a2f2d108d2\/isabel-rink_150x150.jpg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg062-leichte-sprache\/?podlove_transcript=json"
+}

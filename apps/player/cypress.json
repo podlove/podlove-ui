@@ -7,5 +7,10 @@
   "supportFile": "./cypress/support",
   "videosFolder": "../../reports/player/videos",
   "screenshotsFolder": "../../reports/player/screenshots",
-  "pluginsFile": false
+  "pluginsFile": false,
+  "video": false,
+
+  "env": {
+    "RETRIES": 3
+  }
 }

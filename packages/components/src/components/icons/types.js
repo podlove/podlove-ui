@@ -1,4 +1,5 @@
 import PlayIcon from './states/Play'
+import PlusIcon from './states/Plus'
 import PauseIcon from './states/Pause'
 import RestartIcon from './states/Restart'
 import LoadingIcon from './states/Loading'
@@ -40,9 +41,30 @@ import SearchPreviousIcon from './states/SearchPrevious'
 import MissingConnectionIcon from './states/MissingConnection'
 import InvalidConfigurationIcon from './states/InvalidConfiguration'
 import SubscribeIcon from './states/Subscribe'
+import ArrowToRightIcon from './states/ArrowToRight'
+import ArrowToLeftIcon from './states/ArrowToLeft'
+import Speed050Icon from './states/Speed050'
+import Speed075Icon from './states/Speed075'
+import Speed100Icon from './states/Speed100'
+import Speed125Icon from './states/Speed125'
+import Speed150Icon from './states/Speed150'
+import Speed175Icon from './states/Speed175'
+import Speed200Icon from './states/Speed200'
+import ActiveTabIcon from './states/ActiveTab'
+import PlaylistIcon from './states/Playlist'
+import SearchIcon from './states/Search'
+import MenuPlayIcon from './states/MenuPlay'
+import MenuPauseIcon from './states/MenuPause'
+import MessengerIcon from './states/Messenger'
+import CheckMarkIcon from './states/CheckMark'
+import ChevronRightIcon from './states/ChevronRight'
+import ChevronLeftIcon from './states/ChevronLeft'
+import XingIcon from './states/Xing'
+import WhatsAppIcon from './states/WhatsApp'
 
 export const types = [
   'play',
+  'plus',
   'pause',
   'loading',
   'restart',
@@ -84,11 +106,32 @@ export const types = [
   'search-next',
   'missing-connection',
   'invalid-configuration',
-  'subscribe'
+  'subscribe',
+  'arrow-to-right',
+  'arrow-to-left',
+  'speed-050',
+  'speed-075',
+  'speed-100',
+  'speed-125',
+  'speed-150',
+  'speed-175',
+  'speed-200',
+  'active-tab',
+  'playlist',
+  'search',
+  'menu-play',
+  'menu-pause',
+  'messenger',
+  'check-mark',
+  'chevron-left',
+  'chevron-right',
+  'whats-app',
+  'xing'
 ]
 
 export const components = {
   PlayIcon,
+  PlusIcon,
   PauseIcon,
   RestartIcon,
   LoadingIcon,
@@ -129,5 +172,25 @@ export const components = {
   SearchPreviousIcon,
   MissingConnectionIcon,
   InvalidConfigurationIcon,
-  SubscribeIcon
+  SubscribeIcon,
+  ArrowToRightIcon,
+  ArrowToLeftIcon,
+  Speed050Icon,
+  Speed075Icon,
+  Speed100Icon,
+  Speed125Icon,
+  Speed150Icon,
+  Speed175Icon,
+  Speed200Icon,
+  ActiveTabIcon,
+  PlaylistIcon,
+  SearchIcon,
+  MenuPlayIcon,
+  MenuPauseIcon,
+  MessengerIcon,
+  CheckMarkIcon,
+  ChevronRightIcon,
+  ChevronLeftIcon,
+  XingIcon,
+  WhatsAppIcon
 }

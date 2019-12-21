@@ -1,0 +1,22 @@
+{
+  "transcripts": [
+    {
+      "start": "00:00:00.000",
+      "end": "00:00:2.000",
+      "end_ms": 45100,
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr,",
+      "speaker": "1"
+    },
+    {
+      "start": "00:00:02.000",
+      "end": "00:00:04.000",
+      "speaker": "1",
+      "text": "sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    },
+    {
+      "start": "00:00:04.001",
+      "end": "00:00:08.000",
+      "text": "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. "
+    }
+  ]
+}

@@ -4,6 +4,6 @@
     "docs/**",
     "packages/**"
   ],
-  "version": "4.5.10",
+  "version": "5.0.1-beta.0",
   "npmClient": "npm"
 }

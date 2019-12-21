@@ -21,12 +21,16 @@ export default createObject({
     tabs.files,
     root.tabs
   ),
-  info: compose(
-    tabs.info,
+  shownotes: compose(
+    tabs.shownotes,
     root.tabs
   ),
   transcripts: compose(
     tabs.transcripts,
+    root.tabs
+  ),
+  playlist: compose(
+    tabs.playlist,
     root.tabs
   )
 })

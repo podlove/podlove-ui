@@ -1,7 +1,7 @@
 import { propOr, prop } from 'ramda'
 import { takeEvery, select, put } from 'redux-saga/effects'
 import {
-  INIT,
+  READY,
   REQUEST_PLAYTIME,
   BACKEND_PLAYTIME,
   SET_CHAPTER,
@@ -9,7 +9,7 @@ import {
   PREVIOUS_CHAPTER,
   NEXT_CHAPTER
 } from '@podlove/player-actions/types'
-import * as config from '@podlove/utils/config'
+import * as config from '@podlove/player-config'
 import * as chapter from '@podlove/player-actions/chapters'
 import { requestPlaytime } from '@podlove/player-actions/timepiece'
 import { toPlayerTime } from '@podlove/utils/time'
@@ -22,35 +22,22 @@ export const chaptersSaga = ({
   selectChapterList
 }) =>
   function* saga() {
-    yield takeEvery(INIT, initChapters, {
-      selectDuration,
-      selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+    yield takeEvery(READY, initChapters, {
+      selectDuration
     })
     yield takeEvery(REQUEST_PLAYTIME, chapterUpdate)
     yield takeEvery(BACKEND_PLAYTIME, chapterUpdate)
     yield takeEvery(SET_CHAPTER, setChapter, {
-      selectDuration,
-      selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+      selectCurrentChapter
     })
     yield takeEvery(DISABLE_GHOST_MODE, resetChapter, {
-      selectDuration,
-      selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+      selectPlaytime
     })
     yield takeEvery(PREVIOUS_CHAPTER, previousChapter, {
-      selectDuration,
       selectPlaytime,
-      selectCurrentChapter,
-      selectChapterList
+      selectCurrentChapter
     })
     yield takeEvery(NEXT_CHAPTER, nextChapter, {
-      selectDuration,
-      selectPlaytime,
       selectCurrentChapter,
       selectChapterList
     })
@@ -94,7 +81,7 @@ export function* initChapters({ selectDuration }, { payload }) {
 
   const state = chapters.reduce((result, chapter, index, chapters) => {
     const end = propOr({ start: duration }, index + 1, chapters)
-    const href = propOr(null, 'href', chapter)
+    const href = propOr('', 'href', chapter).trim()
 
     return [
       ...result,

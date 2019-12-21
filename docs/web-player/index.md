@@ -3,10 +3,10 @@ title: Overview
 navigation: 1
 ---
 
-# Podlove Web Player 4.0
+# Podlove Web Player 5
 ### The fast, flexible and responsive podcast player powered by podlove meta data.
 
-<podlove-web-player config="https://forschergeist.de/?podlove_player4=227"/>
+<podlove-web-player episode="fixtures/episode.json" config="fixtures/config.json" />
 
 ## Features
 
@@ -18,5 +18,6 @@ navigation: 1
 
 ## Previous Versions
 
+- [Podlove Web Player v4 Docs](docs.podlove.org/podlove-web-player-v4/)
 - [Podlove Web Player v3 Docs](docs.podlove.org/podlove-web-player-v3/)
 - [Podlove Web Player v2 Docs](docs.podlove.org/podlove-web-player-v3/versions/v2.html)

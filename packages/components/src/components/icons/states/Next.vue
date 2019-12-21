@@ -2,22 +2,17 @@
   <svg
     :width="size"
     :height="size"
-    viewBox="0 0 14 15"
-    version="1.1"
+    viewBox="0 0 24 24"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <polygon
-      stroke="none"
+    <path
+      d="M10 5.75263C10 5.18583 10.6045 4.82386 11.1042 5.09152L22.7659 11.3389C23.2937 11.6216 23.2937 12.3784 22.7659 12.6611L11.1042 18.9085C10.6045 19.1761 10 18.8142 10 18.2474V5.75263Z"
       :fill="color"
-      fill-rule="evenodd"
-      points="0 0.4245 0 14.9995 12.6225 7.712"
     />
-    <polygon
-      stroke="none"
+    <path
+      d="M22 5.75C22 5.33579 22.3358 5 22.75 5H23.25C23.6642 5 24 5.33579 24 5.75V18.25C24 18.6642 23.6642 19 23.25 19H22.75C22.3358 19 22 18.6642 22 18.25V5.75Z"
       :fill="color"
-      fill-rule="evenodd"
-      points="10.435 15 13.87125 15 13.87125 0.425 10.435 0.425"
     />
   </svg>
 </template>
@@ -27,7 +22,7 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 15
+      default: 24
     },
     color: {
       type: String,

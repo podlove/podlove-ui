@@ -12,24 +12,21 @@ The easiest way to integrate the player is to simply integrate this script in yo
 
 For https context:
 ```html
-<script src="https://cdn.podlove.org/web-player/embed.js"></script>
+<script src="https://cdn.podlove.org/web-player/5.x/embed.js"></script>
 ```
 
 For http context:
 ```html
-<script src="http://cdn.podlove.org/web-player/embed.js"></script>
+<script src="http://cdn.podlove.org/web-player/5.x/embed.js"></script>
 ```
 
 Afterwards `podlovePlayer` should be available on the window object:
 
 ```html
 <script>
-  podlovePlayer('#example', '/path/to/podcast/definition/or/object');
+  podlovePlayer('#example', '/path/to/episode/definition/or/object', '/path/to/configuration/or/object');
 </script>
 ```
-
-Please be aware to __not__ set `reference.base` because this will break the binding to the cdn.
-
 
 ## NPM
 
@@ -41,4 +38,4 @@ To integrate the player you first have to install tha package:
 npm install @podlove/web-player --save
 ```
 
-Afterwards move the player assets to some public folder of your webserver. By default the player will try to load further chunks from the webserver base. If the player files are located in a subpath you have to adapt the `reference.base` accordingly (see [config]({{ $withBase('config.html') }})
+Move the player assets to some public folder of your webserver. By default the player will try to load further chunks from the webserver base. If the player files are located in a subpath you have to adapt the `base` accordingly (see [config](config.html)

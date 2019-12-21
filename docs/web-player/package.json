@@ -1,29 +1,34 @@
 {
   "name": "@podlove/docs-web-player",
   "private": true,
-  "version": "4.5.10",
+  "version": "5.0.1-beta.0",
   "description": "Documentation for Podlove Web Player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev",
     "build": "vuepress build",
-    "publish": "github-pages -r podlove/podlove-web-player -t $GH_TOKEN ./.vuepress/dist"
+    "publish": "surge ./.vuepress/dist podlove-player.surge.sh"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "^4.5.10",
-    "@podlove/web-player": "^4.5.10",
+    "@podlove/player-actions": "^5.0.1-beta.0",
+    "@podlove/utils": "^5.0.1-beta.0",
+    "@podlove/web-player": "^5.0.1-beta.0",
     "jsoneditor": "5.32.5",
+    "ramda": "0.26.1",
     "vue-color": "2.7.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "5.0.1",
+    "copy-webpack-plugin": "5.0.4",
+    "core-js": "2.6.10",
     "github-pages": "3.0.2",
-    "node-sass": "4.12.0",
-    "sass-loader": "7.1.0",
-    "vuepress": "0.14.11",
+    "node-sass": "4.13.0",
+    "sass-loader": "8.0.0",
+    "surge": "0.21.3",
+    "vue-server-renderer": "2.6.11",
+    "vuepress": "1.2.0",
     "vuepress-theme-millidocs": "0.5.4"
   }
 }

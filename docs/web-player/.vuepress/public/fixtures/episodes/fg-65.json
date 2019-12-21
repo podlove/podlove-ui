@@ -1,0 +1,206 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=213"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG065 Feuer\u00f6kologie",
+  "subtitle": "\u00dcber die Natur des Feuers und die Auswirkungen des Klimawandels auf Natur und Feuerwehr",
+  "summary": "Feuer \u2013 das ist f\u00fcr die meisten Menschen ein Teufel, den es zu bek\u00e4mpfen gilt. Br\u00e4nde legen nicht nur St\u00e4dte in Schutt und Asche, sondern hinterlassen auch verw\u00fcstete Landschaften. Doch das ist nur die eine Seite von Feuer. Wenn ein Wald oder die Heide entflammt, ist das nicht per se eine Katastrophe. Br\u00e4nde haben ihren festen Platz in der Natur und formen den Lebensraum auch im positiven Sinne. Ohne Feuer drohen \u00d6kosysteme zu \u00fcberaltern, weil sich sonst abgestorbene Biomasse ansammelt. Solange er nicht au\u00dfer Kontrolle ger\u00e4t, kann ein Brand also nicht nur Vernichtung bedeuten, sondern auch den Beginn eines neuen Lebenszyklus.\r\n\r\nDas sagt Johann Georg Goldammer. Er ist einer der wenigen Wissenschaftler, die sich gewisserma\u00dfen ihre eigene Forschungsdisziplin geschaffen haben: In der Feuer\u00f6kologie ist er heute ein weltweit gefragter Experte. Er leitet das in Freiburg beheimatete Global Fire Monitoring Center, das dem Max-Planck-Institut f\u00fcr Chemie angeschlossen ist. Er wird gerufen, wenn es darum geht, der Gefahr von Waldbr\u00e4nden zu begegnen, und zwar m\u00f6glichst, bevor sie ausbrechen. Denn dass ein Feuer so extreme Folgen hat, geht oft auf Eingriffe des Menschen in die Natur zur\u00fcck. Und der Klimawandel wird die Risiken noch steigern.\r\n\r\nIn dieser Episode erz\u00e4hlt Goldammer, weshalb die j\u00fcngsten Waldbr\u00e4nde in Griechenland, Kalifornien und auch in Deutschland so verheerende Folgen hatten, warum Kiefern einen Waldbrand \u00fcberstehen k\u00f6nnen und welche Probleme Kampfmittel im Wald mit sich bringen, wenn es einmal zu brennen beginnt.",
+  "publicationDate": "2019-01-30T15:19:34+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/41\/6a1ae7baf3e27ce9cdde5ae49f7d93\/fg065-feueroekologie_500x500.jpg",
+  "duration": "02:27:10.981",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg065-feueroekologie\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1754\/s\/webplayer\/c\/episode\/fg065-feueroekologie.m4a",
+      "size": "117843043",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1753\/s\/webplayer\/c\/episode\/fg065-feueroekologie.opus",
+      "size": "81605493",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1757\/s\/webplayer\/c\/episode\/fg065-feueroekologie.oga",
+      "size": "120571487",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1755\/s\/webplayer\/c\/episode\/fg065-feueroekologie.mp3",
+      "size": "125433974",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:43.410",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:33.463",
+      "title": "Der Tower",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:04:49.981",
+      "title": "Feuer\u00f6kologie",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:06:40.903",
+      "title": "Pers\u00f6nlicher Werdegang",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:40:44.861",
+      "title": "Br\u00e4nde",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:42:45.196",
+      "title": "Global Fire Monitoring Center",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:10:52.613",
+      "title": "Gro\u00dfe Br\u00e4nde: Portugal und Griechenland",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:30:49.420",
+      "title": "Br\u00e4nde in ehemaligen Milit\u00e4rgebieten",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:53:36.731",
+      "title": "Feuerwehr",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "02:13:27.268",
+      "title": "Lehren f\u00fcr die Waldwirtschaft",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "02:23:57.413",
+      "title": "Ausklang",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "69",
+      "name": "Johann Goldammer",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/02\/28c6cf50b15eb257717cc0f012b54d\/johann-goldammer_150x150.jpg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    },
+    {
+      "id": "70",
+      "name": "Bj\u00f6rn Qu\u00e4ck",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/ff\/f03356137ff995c5203bf6a09e817c\/bjoern-quaeck_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg065-feueroekologie\/?podlove_transcript=json"
+}

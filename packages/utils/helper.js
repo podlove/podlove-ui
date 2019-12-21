@@ -1,4 +1,4 @@
-import { curry, map, compose, join, toUpper, juxt, head, tail } from 'ramda'
+import { curry, map, compose, join, toUpper, juxt, head, tail, identity } from 'ramda'
 import { isUndefinedOrNull } from './predicates'
 
 /**
@@ -22,6 +22,18 @@ export const toFloat = (input = 0) => (isNaN(parseFloat(input)) ? 0 : parseFloat
 // Functional Helper
 export const fallbackTo = fallback => value => (isUndefinedOrNull(value) ? fallback : value)
 export const createObject = curry((specification, value) => map(f => f(value), specification))
+export const scope = curry((selectors = {}, context = identity) =>
+  Object.keys(selectors).reduce(
+    (result, key) => ({
+      ...result,
+      [key]: compose(
+        selectors[key],
+        context
+      )
+    }),
+    {}
+  )
+)
 export const startsWith = curry((q, str) => str.startsWith(q))
 export const endsWith = curry((q, str) => str.endsWith(q))
 export const stripl = curry((q, str) => (startsWith(q, str) ? str.slice(q.length) : str))

@@ -6,7 +6,6 @@ module.exports = {
   mode: 'production',
 
   entry: {
-    player: './player.js',
     bootstrap: './bootstrap.js'
   },
 
@@ -14,15 +13,38 @@ module.exports = {
 
   optimization: optimization(),
 
+  devtool: 'source-map',
+
   resolve: resolve({
-    styles: './src/styles',
     store: './src/store',
-    directives: './src/directives',
     '@podlove/components': componentAssets
   }),
 
   module: {
-    rules: [rules.vue(), rules.javascript(), rules.images(), rules.vueStyles({ prod: true }), rules.pug()]
+    rules: [
+      rules.vue(),
+      rules.javascript(),
+      rules.images(),
+      rules.style.config(rules.style.test.postcss, [
+        rules.style.loader.minify(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.tailwind({
+              theme: {
+                screens: {
+                  mobile: { min: '0px', max: '599px' },
+                  tablet: '600px',
+                  desktop: '950px'
+                }
+              }
+            }),
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        })
+      ]),
+      rules.pug()
+    ]
   },
 
   plugins: [

@@ -9,6 +9,7 @@
     "DEBUG_STATE": "Debug State exportieren"
   },
   "PLAYER": {
+    "PLAY_EPISODE": "Podcast abspielen",
     "REPLAY": "Wiederholen",
     "RETRY": "Retry"
   },
@@ -20,14 +21,19 @@
     "MEDIA": {
       "TITLE": "Fehlende Medien Dateien",
       "MESSAGE": "Die zur Verfügung gestellte Konfiguration ist fehlerhaft. Ohne Mediendateien kann der Player nichts abspielen."
+    },
+    "CONFIG": {
+      "TITLE": "Fehlende Episoden Konfiguration",
+      "MESSAGE": "Es konnte keine Konfiguration für diese Episode gefunden werden. Entweder du hast gerade keine Verbindung zum Internet oder die Dateien sind nicht auf dem Server verfügbar."
     }
   },
   "FILES": {
     "TITLE": "Dateien",
     "TYPES": {
-      "AUDIO": {
-        "HEADER": "Audio Dateien"
-      }
+      "AUDIO": "Audio",
+      "PDF": "PDF",
+      "TEXT": "Text",
+      "VIDEO": "Video"
     },
     "ACTIONS": {
       "DOWNLOAD": "Download",
@@ -35,7 +41,7 @@
     }
   },
   "SHARE": {
-    "TITLE": "Teilen",
+    "TITLE": "Episode Teilen",
     "CONTENT": {
       "SHOW": "Show",
       "EPISODE": "Episode",
@@ -52,6 +58,7 @@
     "ACTIONS": {
       "COPY": "kopieren"
     },
+    "PLAYTIME": "Aktuelle Position teilen ({playtime})",
     "EPISODE": {
       "TEXT": {
         "BEGINNING": "\"{title}\" ({link})",
@@ -79,8 +86,8 @@
       }
     }
   },
-  "INFO": {
-    "TITLE": "Info",
+  "SHOWNOTES": {
+    "TITLE": "Shownotes",
     "PUBLICATION_DATE": "Veröffentlicht: {day}.{month}.{year}",
     "ON_AIR": "On Air",
     "DURATION_WITH_HOURS": "{hours} Stunden {minutes} Minuten",
@@ -89,13 +96,20 @@
   "TRANSCRIPTS": {
     "TITLE": "Transkript",
     "CHAPTER": "Kapitel {index}: {title}",
-    "FOLLOW": "folgen",
-    "SEARCH": "Suche",
+    "FOLLOW": {
+      "ACTIVE": "Text anhalten",
+      "INACTIVE": "Text folgen"
+    },
+    "PLACEHOLDER": "Im Text suchen ...",
     "NO_SEARCH_RESULTS": "Keine Ergebnisse"
   },
   "MESSAGES": {
     "COPIED": "kopiert!"
   },
+  "PLAYLIST": {
+    "TITLE": "Ähnliche Folgen"
+  },
+  "SUBSCRIBE": "Abonnieren",
   "A11Y": {
     "ALT_EPISODE_COVER": "Episoden Poster",
     "ALT_SHOW_COVER": "Show Poster",
@@ -141,6 +155,7 @@
     "VOLUME_UNMUTE": "Audio aktivschalten",
     "SET_VOLUME_IN_PERCENT": "Lautheit in Prozent anpassen",
     "DOWNLOAD_FILE": "Datei herunterladen: {url}",
-    "COPY_FILE": "Url {url} in Zwischenablage legen"
+    "COPY_FILE": "Url {url} in Zwischenablage legen",
+    "PLAYLIST_ENTRY": "Episode {title} abspielen"
   }
 }

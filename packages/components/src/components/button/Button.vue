@@ -92,7 +92,6 @@ export default {
   text-transform: uppercase;
 
   .inner {
-    @extend %font;
     @extend %truncate;
     width: 100%;
     height: 100%;

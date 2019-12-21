@@ -55,7 +55,7 @@ export default {
   overflow: hidden;
 
   &.active {
-    max-height: $tabs-body-max-height;
+    max-height: 100%;
     overflow-y: auto;
   }
 

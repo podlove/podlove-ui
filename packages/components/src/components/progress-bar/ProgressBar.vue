@@ -2,6 +2,7 @@
   <div id="progress-bar" class="progress">
     <input
       v-if="isMobile"
+      ref="input"
       type="range"
       min="0"
       :max="interpolate(duration)"
@@ -12,6 +13,7 @@
     />
     <input
       v-else
+      ref="input"
       type="range"
       min="0"
       :max="interpolate(duration)"
@@ -50,6 +52,7 @@
 
 <script>
 import color from 'color'
+import RangeTouch from 'rangetouch/dist/rangetouch'
 import { mapActions } from 'redux-vuex'
 import { interpolate, relativePosition } from '@podlove/utils/math'
 import { isNegative, light, dark } from '@podlove/utils/color'
@@ -132,6 +135,9 @@ export default {
         'border-color': this.highlightColor
       }
     }
+  },
+  mounted() {
+    new RangeTouch(this.$refs.input, { watch: false })
   },
   methods: {
     ...mapActions({
@@ -253,18 +259,20 @@ export default {
   position: absolute;
   border: 1px solid;
   // border offset
-  margin-left: -2px;
-  height: $thumb-height;
-  top: calc(50% - #{$thumb-height / 2});
-  width: $thumb-width;
+  margin-left: -1px;
+  height: $thumb-size;
+  border-radius: $thumb-size;
+  top: calc(50% - #{$thumb-size / 2});
+  width: $thumb-size;
   pointer-events: none;
 
   transition: left $animation-duration / 2;
 
   &.active {
-    width: $thumb-active-width;
-    height: $thumb-active-height;
-    top: calc(50% - #{$thumb-active-height / 2});
+    width: $thumb-active-size;
+    height: $thumb-active-size;
+    border-radius: $thumb-active-size;
+    top: calc(50% - #{$thumb-active-size / 2});
   }
 }
 
@@ -273,10 +281,11 @@ export default {
   position: absolute;
   border: 1px solid transparent;
   opacity: 0.8;
-  margin-left: -2px;
-  height: $thumb-height;
-  top: calc(50% - #{$thumb-height / 2});
-  width: $thumb-width;
+  margin-left: -1px;
+  height: $thumb-size;
+  border-radius: $thumb-size;
+  top: calc(50% - #{$thumb-size / 2});
+  width: $thumb-size;
   pointer-events: none;
 }
 

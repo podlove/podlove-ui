@@ -1,20 +1,22 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" :width="size" :height="size / 1.3" viewBox="0 0 24.8 21">
-    <g
-      stroke="none"
-      stroke-width="1"
-      fill="none"
-      fill-rule="evenodd"
+  <svg
+    :width="size"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15 13C15.2989 12.8004 15.5 12.4273 15.5 12C15.5 11.5727 15.2989 11.1996 15 11"
+      :stroke="color"
+      stroke-width="1.3"
       stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <g :stroke="color">
-        <path
-          d="M5.5,7.5H2C1.2,7.5,0.5,8.2,0.5,9v3c0,0.8,0.7,1.5,1.5,1.5h3.5l7,7v-20L5.5,7.5L5.5,7.5z"
-        />
-        <path d="M15.5,7c1.1,0.8,2,2,2,3.5s-0.9,2.7-2,3.5" />
-      </g>
-    </g>
+    />
+    <path
+      d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
+      :stroke="color"
+      stroke-width="1.3"
+    />
   </svg>
 </template>
 
@@ -23,7 +25,7 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 23
+      default: 24
     },
     color: {
       type: String,

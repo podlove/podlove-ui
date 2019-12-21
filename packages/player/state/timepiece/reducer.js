@@ -1,12 +1,12 @@
 import { handleActions } from 'redux-actions'
 import {
-  INIT,
+  READY,
   BACKEND_DURATION,
   BACKEND_PLAYTIME,
   REQUEST_PLAYTIME
 } from '@podlove/player-actions/types'
 import { toInt } from '@podlove/utils/helper'
-import { duration, playtime } from '@podlove/utils/config'
+import { duration, playtime } from '@podlove/player-config'
 
 export const INITIAL_STATE = {
   duration: 0,
@@ -15,7 +15,7 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [INIT]: (state, { payload }) => ({
+    [READY]: (state, { payload }) => ({
       ...state,
       duration: duration(payload),
       playtime: playtime(payload)

@@ -1,6 +1,6 @@
 {
   "name": "@podlove/components",
-  "version": "4.5.10",
+  "version": "5.0.1-beta.0",
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
@@ -17,22 +17,24 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "^4.5.10",
-    "@podlove/utils": "^4.5.10",
+    "@podlove/player-actions": "^5.0.1-beta.0",
+    "@podlove/utils": "^5.0.1-beta.0",
     "normalize.css": "8.0.1",
-    "v-tooltip": "2.0.0-rc.33",
-    "vue": "2.6.10"
+    "rangetouch": "2.0.0",
+    "v-tooltip": "2.0.2",
+    "vue": "2.6.11",
+    "vue-mutation-observer": "0.1.2"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.10",
-    "@storybook/addon-actions": "5.0.5",
-    "@storybook/addon-centered": "5.0.5",
-    "@storybook/addon-knobs": "5.0.5",
-    "@storybook/addon-options": "5.0.5",
-    "@storybook/addons": "5.0.5",
-    "@storybook/vue": "5.0.5",
-    "terser": "3.14.1",
-    "webpack": "4.26.0",
-    "webpack-dev-server": "3.1.11"
+    "@podlove/build": "^5.0.1-beta.0",
+    "@storybook/addon-actions": "5.2.5",
+    "@storybook/addon-centered": "5.2.5",
+    "@storybook/addon-knobs": "5.2.5",
+    "@storybook/addon-options": "5.2.5",
+    "@storybook/addons": "5.2.5",
+    "@storybook/vue": "5.2.5",
+    "terser": "4.3.9",
+    "webpack": "4.41.2",
+    "webpack-dev-server": "3.9.0"
   }
 }

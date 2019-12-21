@@ -1,0 +1,24 @@
+<root data-test="player--m" style="max-width:950px;min-width:260px;">
+  <div class="p-4 flex flex-col">
+    <div class="flex flex-grow mb-3">
+      <div class="w-20 mr-4">
+        <poster class="rounded-sm shadow overflow-hidden"></poster>
+      </div>
+      <div class="w-full tablet:my-2">
+        <show-title class="text-sm"></show-title>
+        <episode-title class="text-base"></episode-title>
+      </div>
+    </div>
+    <div class="flex items-center justify-center">
+      <subscribe-button></subscribe-button>
+    </div>
+    <divider class="w-full my-4"></divider>
+    <div class="flex w-full items-center justify-center">
+      <play-button class="block mr-5" variant="simple"></play-button>
+      <timer-current class="text-sm mr-5 hidden tablet:block"></timer-current>
+      <progress-bar class="mr-5"></progress-bar>
+      <timer-duration class="text-sm"></timer-duration>
+    </div>
+  </div>
+  <error></error>
+</root>

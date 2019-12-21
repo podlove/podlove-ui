@@ -8,13 +8,13 @@ import {
   BACKEND_LOADING_END,
   BACKEND_END,
   SET_TRANSCRIPTS_TIMELINE,
-  SET_CHAPTERS_LIST
+  SET_CHAPTERS_LIST,
+  SELECT_PLAYLIST_ENTRY
 } from '@podlove/player-actions/types'
 import {
   showPlayingButton,
   showLoadingButton,
   showPauseButton,
-  showProgressBar,
   showSteppersControls,
   showChapterControls,
   showReplayButton,
@@ -36,6 +36,7 @@ import {
 
 export const componentsSaga = ({
   selectTranscripts,
+  selectPlaylist,
   selectChapters,
   selectFiles,
   selectEpisodeCover,
@@ -43,21 +44,27 @@ export const componentsSaga = ({
   selectEpisodeSubtitle,
   selectShowTitle,
   selectShowCover,
-  selectRuntimeMode
+  selectRuntimeMode,
+  selectChannels,
+  selectEmbedLink
 }) =>
   function* saga() {
     yield takeEvery(READY, init, {
       selectFiles,
+      selectPlaylist,
       selectEpisodeCover,
       selectEpisodeTitle,
       selectEpisodeSubtitle,
       selectShowTitle,
       selectShowCover,
-      selectRuntimeMode
+      selectRuntimeMode,
+      selectChannels,
+      selectEmbedLink
     })
     yield takeEvery(SET_TRANSCRIPTS_TIMELINE, transcripts, { selectTranscripts })
     yield takeEvery(SET_CHAPTERS_LIST, chapters, { selectChapters })
-    yield takeEvery(BACKEND_PLAY, play, { selectChapters })
+    yield takeEvery(BACKEND_PLAY, play)
+    yield takeEvery(SELECT_PLAYLIST_ENTRY, pause)
     yield takeEvery(BACKEND_PAUSE, pause)
     yield takeEvery(BACKEND_LOADING_START, loading)
     yield takeEvery(BACKEND_LOADING_END, loaded)
@@ -66,20 +73,26 @@ export const componentsSaga = ({
 
 export function* init({
   selectFiles,
+  selectPlaylist,
   selectEpisodeCover,
   selectEpisodeTitle,
   selectEpisodeSubtitle,
   selectShowCover,
   selectRuntimeMode,
-  selectShowTitle
+  selectShowTitle,
+  selectChannels,
+  selectEmbedLink
 }) {
   const files = yield select(selectFiles)
+  const playlist = yield select(selectPlaylist)
   const showCover = yield select(selectShowCover)
   const episodeCover = yield select(selectEpisodeCover)
   const episodeTitle = yield select(selectEpisodeTitle)
   const subtitle = yield select(selectEpisodeSubtitle)
   const showTitle = yield select(selectShowTitle)
   const mode = yield select(selectRuntimeMode)
+  const channels = yield select(selectChannels)
+  const embedLink = yield select(selectEmbedLink)
 
   // Header
   yield put(!!showCover || !!episodeCover ? showInfoPoster() : hideInfoPoster())
@@ -89,13 +102,17 @@ export function* init({
 
   // Tabs
   yield put(!isEmpty(files) ? showComponentTab('files') : hideComponentTab('files'))
-  yield put(showComponentTab('info'))
+  yield put(!isEmpty(playlist) ? showComponentTab('playlist') : hideComponentTab('playlist'))
+  yield put(showComponentTab('shownotes'))
   yield put(showComponentTab('audio'))
-  yield put(showComponentTab('share'))
+  yield put(!isEmpty(channels) || embedLink ? showComponentTab('share') : hideComponentTab('share'))
 
   // Audio Inputs
   yield put(mode === 'native' ? showVolumeSlider() : hideVolumeSlider())
   yield put(showRateSlider())
+
+  // Steppers
+  yield put(showSteppersControls())
 }
 
 export function* transcripts({ selectTranscripts }) {
@@ -105,16 +122,13 @@ export function* transcripts({ selectTranscripts }) {
 
 export function* chapters({ selectChapters }) {
   const chapters = !isEmpty(yield select(selectChapters))
+
+  yield put(chapters ? showChapterControls() : hideChapterControls())
   yield put(chapters ? showComponentTab('chapters') : hideComponentTab('chapters'))
 }
 
-export function* play({ selectChapters }) {
-  const chapters = !isEmpty(yield select(selectChapters))
-
+export function* play() {
   yield put(showPlayingButton())
-  yield put(showProgressBar())
-  yield put(showSteppersControls())
-  yield put(chapters ? showChapterControls() : hideChapterControls())
 }
 
 export function* pause() {

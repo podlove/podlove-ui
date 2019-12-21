@@ -1,7 +1,8 @@
-import queryString from 'query-string'
+import { compose } from 'ramda'
+import queryString from 'query-string-for-all'
 import { toPlayerTime } from './time'
 
-export const locationParams = queryString.parse(window.location.search)
+export const locationParams = () => queryString.parse(window.location.search)
 
 const parseParameters = parameters => {
   const parsed = {}
@@ -16,6 +17,10 @@ const parseParameters = parameters => {
     parsed.episode = parameters.episode
   }
 
+  if (parameters.config) {
+    parsed.config = parameters.config
+  }
+
   if (parameters.autoplay) {
     parsed.autoplay = true
   }
@@ -23,4 +28,7 @@ const parseParameters = parameters => {
   return parsed
 }
 
-export const urlParameters = { ...parseParameters(locationParams) }
+export const urlParameters = compose(
+  parseParameters,
+  locationParams
+)

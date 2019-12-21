@@ -1,0 +1,36 @@
+{
+  "subscribe-button": {
+    "feed": "https://forschergeist.de/feed/m4a/",
+    "services": {
+      "deezer": "deezer",
+      "itunes": "itunes",
+      "pocket-casts": "pocket-casts",
+      "soundcloud": "soundcloud",
+      "spotify": "spotify",
+      "stitcher": "stitcher",
+      "youtube": "youtube"
+    },
+    "clients": [
+      "antenna-pod",
+      "apple-podcasts",
+      "beyond-pod",
+      "castro",
+      "clementine",
+      "downcast",
+      "google-podcasts",
+      "gpodder",
+      "i-catcher",
+      "instacast",
+      "itunes",
+      "overcast",
+      "player-fm",
+      "pocket-casts",
+      "pod-grasp",
+      "podcast-addict",
+      "podcast-republic",
+      "podcat",
+      "podscout",
+      "rss-radio"
+    ]
+  }
+}

@@ -2,8 +2,8 @@
   <v-popover
     ref="popover"
     class="tooltip"
-    :popover-class="[negative ? 'negative' : '']"
     :auto-hide="true"
+    :placement="placement"
     trigger="manual"
     delay.show="100"
     delay.hide="3000"
@@ -12,7 +12,9 @@
       <slot />
     </span>
     <template slot="popover">
-      {{ content }}
+      <span class="tooltip-inner" :style="{ color, background }">
+        {{ content }}
+      </span>
     </template>
   </v-popover>
 </template>
@@ -33,14 +35,24 @@ export default {
       type: String,
       default: ''
     },
-    negative: {
-      type: Boolean,
-      default: false
+    color: {
+      type: String,
+      default: '#fff'
+    },
+    background: {
+      type: String,
+      default: '#000'
+    },
+    placement: {
+      type: String,
+      default: 'auto',
+      validator: pos => ['auto', 'top', 'right', 'bottom', 'left'].includes(pos)
     }
   },
 
   methods: {
     show() {
+      this.$refs.popover.$refs.popover.style.color = this.background
       this.$refs.popover.show()
     },
 
@@ -87,13 +99,10 @@ export default {
 @import 'font';
 
 .tooltip {
-  @extend %font;
-  font-size: 12px;
   z-index: 10000;
+  font-size: 0.9em;
 
   .tooltip-inner {
-    background: $background-color;
-    color: $overlay-color;
     border-radius: 3px;
     padding: 5px 10px 4px;
     text-align: center;
@@ -105,7 +114,7 @@ export default {
     border-style: solid;
     position: absolute;
     margin: 5px;
-    border-color: $overlay-color;
+    border-color: currentColor;
     z-index: 1;
   }
 
@@ -166,17 +175,6 @@ export default {
       top: calc(50% - 5px);
       margin-left: 0;
       margin-right: 0;
-    }
-  }
-
-  &.negative {
-    .tooltip-inner {
-      background: $overlay-color;
-      color: $background-color;
-    }
-
-    .tooltip-arrow {
-      border-color: $overlay-color;
     }
   }
 }

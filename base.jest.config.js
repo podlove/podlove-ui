@@ -30,17 +30,17 @@ module.exports = {
   coveragePathIgnorePatterns: ['/node_modules/'],
 
   // A list of reporter names that Jest uses when writing coverage reports
-  coverageReporters: ['text', 'clover'],
+  coverageReporters: ['clover'],
 
   // An object that configures minimum threshold enforcement for coverage results
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80
-    }
-  },
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 80,
+  //     functions: 80,
+  //     lines: 80,
+  //     statements: 80
+  //   }
+  // },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: null,
@@ -90,7 +90,7 @@ module.exports = {
   // reporters: undefined,
 
   // Automatically reset mock state between every test
-  // resetMocks: false,
+  resetMocks: true,
 
   // Reset the module registry before running each individual test
   // resetModules: false,
@@ -134,7 +134,7 @@ module.exports = {
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: ['/node_modules/', '/integration/'],
+  testPathIgnorePatterns: ['/node_modules/', '/integration/', '/apps/'],
   modulePathIgnorePatterns: ['cypress'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files

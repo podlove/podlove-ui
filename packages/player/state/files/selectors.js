@@ -1,3 +1,3 @@
-import { prop } from 'ramda'
+import { identity } from 'ramda'
 
-export const audio = prop('audio')
+export const files = identity

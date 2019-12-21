@@ -1,0 +1,206 @@
+{
+  "show": {
+    "title": "Forschergeist",
+    "subtitle": "Horizonte f\u00fcr Bildung und Forschung",
+    "summary": "Moderator Tim Pritlove spricht mit Wissenschaftlern und anderen Aktiven des Wissenschaftssystems \u00fcber aktuelle und zuk\u00fcnftige Trends und Praktiken f\u00fcr die Bildung, der Forschung und der Organisation und Kommunikation der Wissenschaft.\r\n\r\nDie ausf\u00fchrlichen Interviews wenden sich vor allem an junge und angehende Wissenschaftler, die nach M\u00f6glichkeiten suchen, ihre Forschung und Lehre den neuen Bed\u00fcrfnissen der Zeit anzupassen und weiter zu entwickeln.\r\n\r\nForschergeist ist ein Projekt des Stifterverbands f\u00fcr die Deutsche Wissenschaft und erscheint im Schnitt alle drei Wochen neu.",
+    "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/56\/919e28c4f31fedd72bcd78569f81bc\/forschergeist_500x500.jpg",
+    "link": "https:\/\/forschergeist.de"
+  },
+  "reference": {
+    "share": "share.html",
+    "config": "https:\/\/forschergeist.de\/?podlove_player4=229"
+  },
+  "theme": {
+    "main": "#12584b",
+    "highlight": "#ffffff"
+  },
+  "visibleComponents": [
+    "controlChapters",
+    "controlSteppers",
+    "episodeTitle",
+    "poster",
+    "progressbar",
+    "showTitle",
+    "subtitle",
+    "tabAudio",
+    "tabChapters",
+    "tabFiles",
+    "tabShare",
+    "tabInfo",
+    "tabTranscripts"
+  ],
+  "title": "FG069 Islamische \u00c4sthetik",
+  "subtitle": "\u00dcber die \u00c4sthetik der modernen Produktwelt in der islamischen Welt",
+  "summary": "Waren mit explizit christlichem Bezug findet man in deutschen Kaufh\u00e4usern keine. Deswegen mag in den Augen des s\u00e4kularisierten Westens die Kultur islamischer L\u00e4nder so fremdartig wirken, denn dort ist die Produktgestaltung stark mit Religiosit\u00e4t und moralischen Vorstellungen durchflochten. Eines der auff\u00e4lligsten Beispiele daf\u00fcr: eine Barbie-Puppe mit Verschleierungs-Outfit. Doch wer genauer hinschaut, entdeckt im Orient eine schillernde Warenwelt, in der es nicht die ganze Zeit um Entsagung geht und an der die Globalisierung keineswegs spurlos vor\u00fcbergegangen ist.\r\n\r\nDie Islamwissenschaftlerin Dr. Alina Kokoschka besch\u00e4ftigt sich in ihrer Forschung mit der Rolle von Dingen des Alltags in islamisch gepr\u00e4gten L\u00e4ndern. Auf ihren Reisen durch Syrien, den Libanon und in die T\u00fcrkei hat sie viele Beispiele f\u00fcr Konsumgegenst\u00e4nde gesammelt. Es sind Waren, die als \u201emade for Muslims\u201c auch im Design eine soziale Funktion besitzen. Mode kann zum Beispiel traditionalistisch sein \u2013 oder aber fast subversiv, wenn ein Hijab mit opulenten Mustern bedruckt ist und damit gerade ins Auge sticht.\r\n\r\nKokoschka ist Postdoctoral Research Fellow an der Berlin Graduate School Muslim Cultures and Societies. Aus ihrer Dissertation ist das Web-Projekt \u201eHawass\u201c entstanden, das die \u00c4sthetik des zeitgen\u00f6ssischen Islams in Bildern zeigt \u2013 von Plakaten \u00fcber Spielzeug und K\u00fcchengeschirr bis hin zu Verpackungen, Schildern und urbanen Szenen. Die Online-Plattform soll auch qualitative Feldforschung transparent machen, indem sie f\u00fcr die Forschungsobjekte einen virtuellen Showroom schafft und im Sinne von Open Science zum Austausch mit anderen Wissenschaftlern einl\u00e4dt. Alina Kokoschka wurde f\u00fcr \u201eHawass\u201c mit einem Fellowship im Programm \u201eFreies Wissen\u201c von Stifterverband und Wikimedia Deutschland gef\u00f6rdert.",
+  "publicationDate": "2019-06-30T11:00:46+02:00",
+  "poster": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d4\/39bf4435f94c37a5b445e1b927b7dd\/fg069-islamische-aesthetik_500x500.jpg",
+  "duration": "01:25:20.915",
+  "link": "https:\/\/forschergeist.de\/podcast\/fg069-islamische-aesthetik\/",
+  "audio": [
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1915\/s\/webplayer\/c\/episode\/fg069-islamische-aesthetik.m4a",
+      "size": "58946768",
+      "title": "MPEG-4 AAC Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1914\/s\/webplayer\/c\/episode\/fg069-islamische-aesthetik.opus",
+      "size": "45338813",
+      "title": "Opus Audio (opus)",
+      "mimeType": "audio\/opus"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1918\/s\/webplayer\/c\/episode\/fg069-islamische-aesthetik.oga",
+      "size": "63548159",
+      "title": "Ogg Vorbis Audio (oga)",
+      "mimeType": "audio\/ogg"
+    },
+    {
+      "url": "https:\/\/forschergeist.de\/podlove\/file\/1912\/s\/webplayer\/c\/episode\/fg069-islamische-aesthetik.mp3",
+      "size": "73375722",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Intro",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:44.170",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:43.325",
+      "title": "Vorstellung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:04:49.746",
+      "title": "Pers\u00f6nlicher Hintergrund",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:09:36.531",
+      "title": "Islamwissenschaft",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:13:49.762",
+      "title": "Rechtstheorie und gelebte Praxis",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:20:31.629",
+      "title": "Spannungsfeld Islam und Moderne",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:29:38.982",
+      "title": "Unterschiede in arabischen L\u00e4ndern",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:37:09.885",
+      "title": "Tradition, Kunst und die Warenwelt",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:03:12.666",
+      "title": "Mode und Frauen",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:10:31.115",
+      "title": "Hawass: Contemporary Islamic Aesthetics",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:23:59.090",
+      "title": "Ausklang",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Tim Pritlove",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/47\/08928e3c26dcb1141d67ad75869619\/tim-pritlove_150x150.jpg",
+      "role": {
+        "id": "1",
+        "slug": "moderation",
+        "title": "Moderation"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "74",
+      "name": "Alina Kokoschka",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/9d\/d51c02e692b8d74a19a5010946a615\/alina-kokoschka_150x150.jpg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "1",
+        "slug": "onair",
+        "title": "On Air"
+      },
+      "comment": null
+    },
+    {
+      "id": "7",
+      "name": "Michael Sonnabend",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/d8\/c6e28abc443e76cdd6bc2ea102d5cc\/michael-sonnabend_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    },
+    {
+      "id": "70",
+      "name": "Bj\u00f6rn Qu\u00e4ck",
+      "avatar": "https:\/\/forschergeist.de\/wp-content\/cache\/podlove\/ff\/f03356137ff995c5203bf6a09e817c\/bjoern-quaeck_150x150.jpg",
+      "role": {
+        "id": "3",
+        "slug": "redaktion",
+        "title": "Redaktion"
+      },
+      "group": {
+        "id": "2",
+        "slug": "support",
+        "title": "Support"
+      },
+      "comment": null
+    }
+  ],
+  "transcripts": "https:\/\/forschergeist.de\/podcast\/fg069-islamische-aesthetik\/?podlove_transcript=json"
+}

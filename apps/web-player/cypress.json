@@ -4,8 +4,13 @@
   "fixturesFolder": "./cypress/fixtures",
   "integrationFolder": "./cypress/integration",
   "pluginsFolder": false,
+  "defaultCommandTimeout": 10000,
   "supportFile": "./cypress/support",
   "videosFolder": "../../reports/web-player/videos",
   "screenshotsFolder": "../../reports/web-player/screenshots",
-  "projectId": "tz4idp"
+  "projectId": "tz4idp",
+
+  "env": {
+    "RETRIES": 3
+  }
 }

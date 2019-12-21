@@ -29,7 +29,7 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
-            options: { includePaths: [path.resolve(base, 'theme')] }
+            options: { sassOptions: { includePaths: [path.resolve(base, 'theme')] } }
           }
         ]
       },

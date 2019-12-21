@@ -1,7 +1,7 @@
 <template>
   <a :href="pinterestLink" class="channel-link" target="_blank">
-    <span class="channel-icon pinterest" aria-hidden="true">
-      <icon type="pinterest" color="#fff" />
+    <span class="channel-icon pinterest" aria-hidden="true" :style="style">
+      <icon type="pinterest" :color="color" :filled="filled" />
     </span>
     <span class="visually-hidden">{{ a11y }}</span>
   </a>
@@ -33,6 +33,18 @@ export default {
     a11y: {
       type: String,
       default: ''
+    },
+    color: {
+      type: String,
+      default: '#fff'
+    },
+    background: {
+      type: String,
+      default: '#BD081C'
+    },
+    filled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -43,15 +55,16 @@ export default {
         is_video: false,
         description: this.text
       })
+    },
+    style() {
+      return {
+        background: this.background
+      }
     }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import 'channel';
-
-.channel-icon.pinterest {
-  background-color: $channel-pinterest-color;
-}
 </style>

@@ -46,9 +46,17 @@ module.exports = {
       rules.vue(),
       rules.javascript(),
       rules.images(),
-      rules.vueStyles({
-        includePaths: [path.resolve(base, 'theme')]
-      }),
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.vue(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass({ includePaths: [path.resolve(base, 'theme')] })
+      ]),
       rules.fonts()
     ]
   },
