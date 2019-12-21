@@ -8,5 +8,9 @@
   "videosFolder": "../../reports/player/videos",
   "screenshotsFolder": "../../reports/player/screenshots",
   "pluginsFile": false,
-  "video": false
+  "video": false,
+
+  "env": {
+    "RETRIES": 3
+  }
 }
