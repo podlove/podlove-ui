@@ -126,15 +126,18 @@ describe('transcripts', () => {
     })
 
     test('should select speakers', () => {
+      gen.next()
       expect(gen.next().value).toEqual(select(selectSpeakers))
     })
 
     test('should select chapters', () => {
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(select(selectChapters))
     })
 
     test('should create transcripts timeline', () => {
+      gen.next()
       gen.next()
       gen.next(speakers)
       expect(gen.next(chapters).value).toEqual(
@@ -232,6 +235,7 @@ describe('transcripts', () => {
 
     test('should register update on BACKEND_PLAYTIME', () => {
       gen.next()
+      gen.next()
       gen.next(speakers)
       gen.next(chapters)
 
@@ -241,6 +245,7 @@ describe('transcripts', () => {
     })
 
     test('should register update on REQUEST_PLAYTIME', () => {
+      gen.next()
       gen.next()
       gen.next(speakers)
       gen.next(chapters)
@@ -253,6 +258,7 @@ describe('transcripts', () => {
 
     test('should register debouncedUpdate on SIMULATE_PLAYTIME', () => {
       gen.next()
+      gen.next()
       gen.next(speakers)
       gen.next(chapters)
       gen.next()
@@ -264,6 +270,7 @@ describe('transcripts', () => {
     })
 
     test('should register debouncedUpdate on DISABLE_GHOST_MODE', () => {
+      gen.next()
       gen.next()
       gen.next(speakers)
       gen.next(chapters)
@@ -278,6 +285,7 @@ describe('transcripts', () => {
 
     test('should register search on SEARCH_TRANSCRIPTS', () => {
       gen.next()
+      gen.next()
       gen.next(speakers)
       gen.next(chapters)
       gen.next()
@@ -291,6 +299,7 @@ describe('transcripts', () => {
     })
 
     test('should complete the saga', () => {
+      gen.next()
       gen.next()
       gen.next(speakers)
       gen.next(chapters)

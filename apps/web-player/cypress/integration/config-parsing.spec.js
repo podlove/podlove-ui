@@ -28,6 +28,7 @@ describe('config parsing', () => {
         episode: { ...this.episode, transcripts: '/transcripts.json' },
         config: '/test/config.json'
       })
+      cy.wait(100)
       cy.select('player').should('exist')
       cy.select('tab-trigger--transcripts').should('exist')
     })
@@ -37,6 +38,7 @@ describe('config parsing', () => {
         episode: { ...this.episode, transcripts: this.transcripts },
         config: '/test/config.json'
       })
+      cy.wait(100)
       cy.select('player').should('exist')
       cy.select('tab-trigger--transcripts').should('exist')
     })

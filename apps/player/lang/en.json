@@ -9,6 +9,7 @@
     "DEBUG_STATE": "Export Debug State"
   },
   "PLAYER": {
+    "PLAY_EPISODE": "Play Podcast",
     "REPLAY": "Replay",
     "RETRY": "Retry"
   },
@@ -100,9 +101,9 @@
     "COPIED": "Copied!"
   },
   "PLAYLIST": {
-    "TITLE": "Further Episodes"
+    "TITLE": "Related Episodes"
   },
-  "SUBSCRIBE": "Subscribe to",
+  "SUBSCRIBE": "Subscribe",
   "A11Y": {
     "ALT_EPISODE_COVER": "Episode Cover",
     "ALT_SHOW_COVER": "Show Cover",

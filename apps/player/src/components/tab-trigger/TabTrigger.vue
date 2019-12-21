@@ -5,9 +5,9 @@
     v-if="visibleTab"
     :data-test="`tab-trigger--${tab}`"
   )
-    span.block.absolute.top-0
+    span.block.absolute.top-0(:style="{ color: contrast }")
       slot
-    span.block.absolute.w-full.bottom-0(v-if="activeTab" :style="{ color }")
+    span.block.absolute.w-full.bottom-0(v-if="activeTab" :style="{ color: brandDark }")
       icon.block.m-auto(type="active-tab")
 </template>
 
@@ -44,7 +44,8 @@ export default {
   },
   data: mapState({
     tabs: select.tabs,
-    color: select.theme.brandDark,
+    contrast: select.theme.contrast,
+    brandDark: select.theme.brandDark,
     shownotes: select.components.shownotesTab,
     chapters: select.components.chaptersTab,
     transcripts: select.components.transcriptTab,

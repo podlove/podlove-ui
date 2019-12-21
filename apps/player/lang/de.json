@@ -9,6 +9,7 @@
     "DEBUG_STATE": "Debug State exportieren"
   },
   "PLAYER": {
+    "PLAY_EPISODE": "Podcast abspielen",
     "REPLAY": "Wiederholen",
     "RETRY": "Retry"
   },
@@ -106,9 +107,9 @@
     "COPIED": "kopiert!"
   },
   "PLAYLIST": {
-    "TITLE": "Weitere Folgen"
+    "TITLE": "Ähnliche Folgen"
   },
-  "SUBSCRIBE": "Abonnieren bei",
+  "SUBSCRIBE": "Abonnieren",
   "A11Y": {
     "ALT_EPISODE_COVER": "Episoden Poster",
     "ALT_SHOW_COVER": "Show Poster",

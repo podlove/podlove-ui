@@ -49,7 +49,7 @@ describe('<tab-transcripts>', () => {
 
     describe('transcripts', () => {
       it('should render the transcripts', function() {
-        cy.select('tab-transcripts--entry').should('have.length', 2)
+        cy.select('tab-transcripts--entry').should('have.length', 5)
       })
     })
   })
