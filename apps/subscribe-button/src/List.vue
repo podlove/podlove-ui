@@ -46,8 +46,17 @@ export default {
   data: mapState({
     overlay: select.view.overlay,
     listView: select.view.list,
-    finishView: select.view.finish
+    finishView: select.view.finish,
+    language: select.runtime.language
   }),
+  watch: {
+    language() {
+      this.$i18n.locale = this.language
+    }
+  },
+  mounted() {
+    this.$i18n.locale = this.language
+  },
   methods: {
     close: compose(
       store.dispatch,

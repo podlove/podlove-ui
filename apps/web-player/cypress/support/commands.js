@@ -22,6 +22,7 @@ Cypress.Commands.add('embed', (template = '', { episode, config, params, context
   })
 
   cy.window().then(win => win.BOOTSTRAP(template, episode, config))
+  cy.wait(100)
 })
 
 Cypress.Commands.add('share', ({ episode, config, params, context } = {}) => {

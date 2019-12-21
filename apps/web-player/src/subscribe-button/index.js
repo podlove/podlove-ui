@@ -50,9 +50,11 @@ export const create = async config => {
 export const config = config => {
   const theme = propOr({}, 'theme', config)
   const button = propOr({}, 'subscribe-button', config)
+  const runtime = propOr({}, 'runtime', config)
 
   return {
     theme,
+    runtime,
     ...button
   }
 }

@@ -1,10 +1,18 @@
-export const INIT = 'BUTTON_INIT'
+export const PREFIX = `BUTTON`
 
-export const SHOW_LIST = 'BUTTON_SHOW_LIST'
-export const HIDE_LIST = 'BUTTON_HIDE_LIST'
+const type = name => `${PREFIX}_${name}`
 
-export const SHOW_OVERLAY = 'BUTTON_SHOW_OVERLAY'
-export const HIDE_OVERLAY = 'BUTTON_HIDE_OVERLAY'
+export const INIT = type('INIT')
 
-export const SHOW_FINISH_CARD = 'BUTTON_SHOW_FINISH_CARD'
-export const HIDE_FINISH_CARD = 'BUTTON_HIDE_FINISH_CARD'
+export const SHOW_LIST = type('SHOW_LIST')
+export const HIDE_LIST = type('HIDE_LIST')
+
+export const SHOW_OVERLAY = type('SHOW_OVERLAY')
+export const HIDE_OVERLAY = type('HIDE_OVERLAY')
+
+export const SHOW_FINISH_CARD = type('SHOW_FINISH_CARD')
+export const HIDE_FINISH_CARD = type('HIDE_FINISH_CARD')
+
+export const SET_RUNTIME = type('SET_RUNTIME')
+export const SET_LANGUAGE = type('SET_LANGUAGE')
+export const SET_VERSION = type('SET_VERSION')

@@ -8,7 +8,6 @@ module.exports = {
   mode: 'production',
 
   entry: {
-    button: './src/subscribe-button.js',
     embed: './src/embed.js'
   },
   output: output(),

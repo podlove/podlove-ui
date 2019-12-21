@@ -1,5 +1,5 @@
 <template>
-  <div class="m-6 p-6 mobile:p-4 max-w-xl w-full max-h-full bg-white overflow-y-scroll rounded-sm">
+  <div class="m-6 p-6 mobile:p-4 max-w-xl w-full max-h-full bg-white overflow-y-auto rounded-sm">
     <div class="mb-6 mobile:mb-4 flex justify-between items-center">
       <h1 class="tablet:text-2xl mobile:text-xl" :style="font">
         {{ $t('SUBSCRIBE') }}

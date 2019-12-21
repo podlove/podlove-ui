@@ -10,7 +10,6 @@ module.exports = {
   mode: 'development',
 
   entry: {
-    button: './button.js',
     list: './list.js',
     embed: './embed.js'
   },

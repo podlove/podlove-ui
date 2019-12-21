@@ -18,7 +18,7 @@ describe('<tab-playlist>', () => {
           this.playlist
         ])
         cy.select('tab-title').should('exist')
-        cy.select('tab-title').should('contain', 'Further Episodes')
+        cy.select('tab-title').should('contain', 'Related Episodes')
       })
     })
 

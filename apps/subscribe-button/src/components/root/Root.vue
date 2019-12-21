@@ -22,15 +22,7 @@ export default {
   data: mapState({
     font: select.theme.fontRegular,
     fonts: select.theme.fonts
-  }),
-  watch: {
-    language() {
-      this.$i18n.locale = this.language
-    }
-  },
-  mounted() {
-    this.$i18n.locale = this.language
-  }
+  })
 }
 </script>
 

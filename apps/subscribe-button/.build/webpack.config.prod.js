@@ -12,7 +12,6 @@ module.exports = {
   devtool: 'source-map',
 
   entry: {
-    button: './button.js',
     embed: './embed.js',
     list: './list'
   },

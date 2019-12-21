@@ -10,7 +10,6 @@ const CLIENTS = {
   gpodder: require('./gpodder').default,
   'i-catcher': require('./i-catcher').default,
   instacast: require('./instacast').default,
-  itunes: require('./itunes').default,
   overcast: require('./overcast').default,
   'player-fm': require('./player-fm').default,
   'pocket-casts': require('./pocket-casts').default,

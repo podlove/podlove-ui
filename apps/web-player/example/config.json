@@ -42,100 +42,11 @@
     }
   },
   "subscribe-button": {
-    "feed": "https://forschergeist.de/feed/m4a/",
+    "feed": "http://feeds.soundcloud.com/users/soundcloud:users:319180361/sounds.rss",
     "clients": [
       {
         "id": "apple-podcasts",
-        "service": "apple-podcasts-id"
-      },
-      {
-        "id": "antenna-pod"
-      },
-      {
-        "id": "beyond-pod"
-      },
-      {
-        "id": "castbox",
-        "service": "castbox-id"
-      },
-      {
-        "id": "castro"
-      },
-      {
-        "id": "clementine"
-      },
-      {
-        "id": "deezer",
-        "service": "deezer-id"
-      },
-      {
-        "id": "downcast"
-      },
-      {
-        "id": "google-podcasts",
-        "service": "google-podcasts-id"
-      },
-      {
-        "id": "gpodder"
-      },
-      {
-        "id": "itunes"
-      },
-      {
-        "id": "i-catcher"
-      },
-      {
-        "id": "instacast"
-      },
-      {
-        "id": "overcast"
-      },
-      {
-        "id": "player-fm"
-      },
-      {
-        "id": "pocket-casts"
-      },
-      {
-        "id": "pocket-casts",
-        "service": "pocket-casts-id"
-      },
-      {
-        "id": "pod-grasp"
-      },
-      {
-        "id": "podcast-addict"
-      },
-      {
-        "id": "podcast-republic"
-      },
-      {
-        "id": "podcat"
-      },
-      {
-        "id": "podscout"
-      },
-      {
-        "id": "rss-radio"
-      },
-      {
-        "id": "soundcloud",
-        "service": "soundcloud-id"
-      },
-      {
-        "id": "spotify",
-        "service": "spotify-id"
-      },
-      {
-        "id": "stitcher",
-        "service": "stitcher-id"
-      },
-      {
-        "id": "youtube",
-        "service": "youtube-id"
-      },
-      {
-        "id": "rss"
+        "service": "lobo-der-debatten-podcast/id1259142707"
       }
     ]
   },
@@ -145,5 +56,8 @@
     "outlet": "/share.html",
     "sharePlaytime": true
   },
-  "base": "/"
+  "base": "/",
+  "runtime": {
+    "language": "de"
+  }
 }
