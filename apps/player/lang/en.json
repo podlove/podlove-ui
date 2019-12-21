@@ -9,6 +9,7 @@
     "DEBUG_STATE": "Export Debug State"
   },
   "PLAYER": {
+    "PLAY_EPISODE": "Play Podcast",
     "REPLAY": "Replay",
     "RETRY": "Retry"
   },

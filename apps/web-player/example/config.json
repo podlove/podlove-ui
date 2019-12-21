@@ -56,8 +56,5 @@
     "outlet": "/share.html",
     "sharePlaytime": true
   },
-  "base": "/",
-  "runtime": {
-    "language": "de"
-  }
+  "base": "/"
 }
