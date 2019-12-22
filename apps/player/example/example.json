@@ -70,6 +70,24 @@
       "size": "90686128",
       "title": "MP3 Audio (mp3)",
       "mimeType": "audio/mpeg"
+    },
+    {
+      "url": "https://forschergeist.de/podlove/file/1738/s/website/c/page-footer/fg064-ethik-und-genetik.pdf",
+      "size": "238576",
+      "title": "PDF mit Inhaltsangabe",
+      "mimeType": "application/pdf"
+    },
+    {
+      "url": "https://forschergeist.de/podlove/file/1733/s/website/c/page-footer/fg064-ethik-und-genetik.txt",
+      "size": "132090",
+      "title": "Transkript",
+      "mimeType": "text/plain"
+    },
+    {
+      "url": "https://forschergeist.de/podlove/file/1732/s/webplayer/c/episode/fg064-ethik-und-genetik.mp3",
+      "size": "90686128",
+      "title": "Video",
+      "mimeType": "video/mpeg"
     }
   ],
   "chapters": [

@@ -1,8 +1,8 @@
 <template lang="pug">
-  a(download :href="file.url" data-test="tab-files--download")
+  a(download :href="file.url" data-test="tab-files--download" @mouseover="hover(file)" @mouseout="hover()" @click="select(file)")
     div.flex.h-10
       span.h-full.flex.items-center.pr-4
-        icon(type="download" :filled="true")
+        icon(:type="icon" :filled="true")
       div.w-full
         h3(:style="font") {{ file.title }}
         div.opacity-50.text-sm
@@ -16,8 +16,10 @@ import { mapState } from 'redux-vuex'
 import { compose, includes, defaultTo, toLower } from 'ramda'
 import { Icon } from '@podlove/components'
 import { toMegabyte } from '@podlove/utils/math'
+import { hoverFile, selectFile } from '@podlove/player-actions/files'
 
 import select from 'store/selectors'
+import store from 'store'
 
 const isType = type =>
   compose(
@@ -42,7 +44,8 @@ export default {
         title: null,
         size: null,
         mimeType: null,
-        url: null
+        url: null,
+        hover: false
       })
     }
   },
@@ -70,11 +73,42 @@ export default {
       }
 
       return ''
+    },
+    icon() {
+      if (this.file.hover) {
+        return 'download'
+      }
+
+      if (audio(this.file.mimeType)) {
+        return 'audio-file'
+      }
+
+      if (video(this.file.mimeType)) {
+        return 'video-file'
+      }
+
+      if (text(this.file.mimeType)) {
+        return 'text-file'
+      }
+
+      if (pdf(this.file.mimeType)) {
+        return 'pdf-file'
+      }
+
+      return 'download'
     }
   },
 
   methods: {
-    toMegabyte
+    toMegabyte,
+    hover: compose(
+      store.dispatch,
+      hoverFile
+    ),
+    select: compose(
+      store.dispatch,
+      selectFile
+    )
   }
 }
 </script>

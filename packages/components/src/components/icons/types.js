@@ -15,6 +15,10 @@ import LinkIcon from './states/Link'
 import ChapterIcon from './states/Chapter'
 import DownloadIcon from './states/Download'
 import AudioFileIcon from './states/AudioFile'
+import ImageFileIcon from './states/ImageFile'
+import PdfFileIcon from './states/PdfFile'
+import TextFileIcon from './states/TextFile'
+import VideoFileIcon from './states/VideoFile'
 import EmbedIcon from './states/Embed'
 import TwitterIcon from './states/Twitter'
 import RedditIcon from './states/Reddit'
@@ -81,6 +85,10 @@ export const types = [
   'chapter',
   'download',
   'audio-file',
+  'image-file',
+  'pdf-file',
+  'text-file',
+  'video-file',
   'embed',
   'twitter',
   'reddit',
@@ -147,6 +155,10 @@ export const components = {
   ChapterIcon,
   DownloadIcon,
   AudioFileIcon,
+  ImageFileIcon,
+  PdfFileIcon,
+  TextFileIcon,
+  VideoFileIcon,
   EmbedIcon,
   TwitterIcon,
   RedditIcon,
