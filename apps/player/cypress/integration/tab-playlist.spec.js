@@ -47,18 +47,6 @@ describe('<tab-playlist>', () => {
           })
         })
       })
-
-      it(`should render the entries indizes`, function() {
-        cy.bootstrap('<tab-playlist style="width: 400px;"></tab-playlist>', [
-          this.theme,
-          this.playlist
-        ])
-        cy.select('tab-playlist--entry--interaction').then(nodes => {
-          this.playlist.playlist.forEach((_, index) => {
-            expect(nodes.get(index).textContent).to.contain(index + 1)
-          })
-        })
-      })
     })
   })
 
