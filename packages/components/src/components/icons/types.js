@@ -59,6 +59,7 @@ import PlaylistIcon from './states/Playlist'
 import SearchIcon from './states/Search'
 import MenuPlayIcon from './states/MenuPlay'
 import MenuPauseIcon from './states/MenuPause'
+import MenuEmptyIcon from './states/MenuEmpty'
 import MessengerIcon from './states/Messenger'
 import CheckMarkIcon from './states/CheckMark'
 import ChevronRightIcon from './states/ChevronRight'
@@ -129,6 +130,7 @@ export const types = [
   'search',
   'menu-play',
   'menu-pause',
+  'menu-empty',
   'messenger',
   'check-mark',
   'chevron-left',
@@ -199,6 +201,7 @@ export const components = {
   SearchIcon,
   MenuPlayIcon,
   MenuPauseIcon,
+  MenuEmptyIcon,
   MessengerIcon,
   CheckMarkIcon,
   ChevronRightIcon,

@@ -2418,6 +2418,72 @@ exports[`Icon props should render type 'mail' with prop size 1`] = `
 </svg>
 `;
 
+exports[`Icon props should render type 'menu-empty' with prop background 1`] = `
+<svg
+  aria-hidden="true"
+  background="#fff"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="12"
+    cy="12"
+    r="11.45"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'menu-empty' with prop color 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="12"
+    cy="12"
+    r="11.45"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'menu-empty' with prop size 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="12"
+    cy="12"
+    r="11.45"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+</svg>
+`;
+
 exports[`Icon props should render type 'menu-pause' with prop background 1`] = `
 <svg
   aria-hidden="true"
