@@ -205,3 +205,7 @@ export const KEY_DOWN = type('KEY_DOWN')
 export const NEXT_PLAYLIST_ENTRY = type('NEXT_PLAYLIST_ENTRY')
 export const SELECT_PLAYLIST_ENTRY = type('SELECT_PLAYLIST_ENTRY')
 export const MARK_PLAYLIST_ENTRY_ACTIVE = type('MARK_PLAYLIST_ENTRY_ACTIVE')
+
+// Files
+export const FILE_HOVER = type('FILE_HOVER')
+export const FILE_SELECT = type('FILE_SELECT')

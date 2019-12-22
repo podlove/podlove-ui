@@ -2,14 +2,30 @@
   <svg
     :width="size"
     :height="size"
-    viewBox="0 0 32 32"
+    viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="16" cy="16" r="16" :fill="color" />
     <path
-      d="M16 8.5V16.2333C15.6083 16.0917 15.1917 16 14.75 16C12.675 16 11 17.675 11 19.75C11 21.825 12.675 23.5 14.75 23.5C16.675 23.5 18.25 22.0417 18.4583 20.1667H18.5V11H21.8333V8.5H16Z"
-      :fill="background"
+      d="M20.001 12.3711C20.001 7.74786 16.4193 4 12.001 4C7.5827 4 4.00098 7.74786 4.00098 12.3711"
+      :stroke="color"
+      stroke-width="1.1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M7.10647 15.9112V20.5166C4.56293 20.5166 2.50098 18.4547 2.50098 15.9112C2.50098 13.3676 4.56293 11.3057 7.10647 11.3057V15.9112Z"
+      :stroke="color"
+      stroke-width="1.1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M16.8955 15.9112L16.8955 20.5166C19.439 20.5166 21.501 18.4547 21.501 15.9112C21.501 13.3676 19.439 11.3057 16.8955 11.3057V15.9112Z"
+      :stroke="color"
+      stroke-width="1.1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </svg>
 </template>
@@ -19,13 +35,9 @@ export default {
   props: {
     size: {
       type: Number,
-      default: 25
+      default: 24
     },
     color: {
-      type: String,
-      default: 'currentColor'
-    },
-    background: {
       type: String,
       default: 'currentColor'
     }
