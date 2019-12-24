@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-state",
-  "version": "4.5.10",
+  "version": "4.5.12",
   "description": "Reducers for Podlove Player Framework",
   "main": "index.js",
   "keywords": [],
@@ -8,9 +8,9 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/state",
   "license": "MIT",
   "dependencies": {
-    "@podlove/components": "^4.5.10",
-    "@podlove/player-actions": "^4.5.10",
-    "@podlove/player-sagas": "^4.5.10",
+    "@podlove/components": "^4.5.12",
+    "@podlove/player-actions": "^4.5.12",
+    "@podlove/player-sagas": "^4.5.12",
     "@podlove/utils": "^4.5.10",
     "color": "3.1.0",
     "object-mapper": "5.0.0",
@@ -19,6 +19,6 @@
     "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.10"
+    "@podlove/build": "^4.5.12"
   }
 }
