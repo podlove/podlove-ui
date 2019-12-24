@@ -1,6 +1,6 @@
 {
   "name": "@podlove/subscribe-button",
-  "version": "4.5.10",
+  "version": "4.5.12",
   "description": "",
   "main": "subscribe-button.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Letty",
   "license": "MIT",
   "dependencies": {
-    "@podlove/components": "^4.5.10",
+    "@podlove/components": "^4.5.12",
     "@podlove/utils": "^4.5.10",
     "iframe-resizer": "4.0.4",
     "normalize-scss": "7.0.1",
@@ -25,7 +25,7 @@
     "vue-i18n": "^8.11.1"
   },
   "devDependencies": {
-    "@podlove/build": "^4.5.10",
+    "@podlove/build": "^4.5.12",
     "webpack": "4.26.0",
     "webpack-dev-server": "3.1.11"
   }
