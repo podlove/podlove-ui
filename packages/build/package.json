@@ -43,7 +43,7 @@
     "sass-loader": "7.1.0",
     "vue-i18n": "^8.11.1",
     "vue-loader": "15.4.2",
-    "vue-template-compiler": "2.6.10",
+    "vue-template-compiler": "2.6.11",
     "webpack": "4.26.0",
     "webpack-auto-inject-version": "1.2.2",
     "webpack-bundle-analyzer": "3.0.3",
