@@ -17,6 +17,7 @@ export const INITIAL_STATE = {
   follow: true,
   hasTranscripts: false,
   search: {
+    searching: false,
     query: '',
     selected: -1,
     results: []
@@ -44,6 +45,8 @@ export const reducer = handleActions(
       ...state,
       search: {
         ...state.search,
+        searching: true,
+        selected: -1,
         query: payload
       }
     }),
@@ -52,6 +55,7 @@ export const reducer = handleActions(
       ...state,
       search: {
         ...state.search,
+        searching: false,
         selected: payload.length > 0 ? 1 : -1,
         results: payload
       }

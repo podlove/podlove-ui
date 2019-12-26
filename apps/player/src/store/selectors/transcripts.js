@@ -31,5 +31,9 @@ export default {
   searchResults: compose(
     transcripts.searchResults,
     root.transcripts
+  ),
+  searching: compose(
+    transcripts.searching,
+    root.transcripts
   )
 }

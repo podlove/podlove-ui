@@ -72,6 +72,7 @@ describe('transcripts', () => {
       ...INITIAL_STATE,
       search: {
         ...INITIAL_STATE.search,
+        searching: true,
         query: 'foo'
       }
     })

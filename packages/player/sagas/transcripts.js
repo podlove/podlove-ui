@@ -1,4 +1,4 @@
-import { put, takeEvery, select } from 'redux-saga/effects'
+import { put, takeEvery, select, debounce } from 'redux-saga/effects'
 import { delay } from 'redux-saga/effects'
 import { last, propEq, find, compose, map, is, endsWith, sortBy, prop, reduce, concat } from 'ramda'
 
@@ -134,7 +134,7 @@ export function* init({ selectSpeakers, selectChapters, selectPlaytime }, { payl
   yield takeEvery(REQUEST_PLAYTIME, update, searchIndex)
   yield takeEvery(SIMULATE_PLAYTIME, debouncedUpdate, searchIndex)
   yield takeEvery(DISABLE_GHOST_MODE, resetToPlaytime, searchIndex, selectPlaytime)
-  yield takeEvery(SEARCH_TRANSCRIPTS, search, searchText)
+  yield debounce(400, SEARCH_TRANSCRIPTS, search, searchText)
 }
 
 export function* update(searchFn, { payload }) {
@@ -165,8 +165,5 @@ export function* resetToPlaytime(searchFn, selectPlaytime) {
 
 export function* search(searchFn, { payload }) {
   const results = searchFn(payload)
-
-  if (results) {
-    yield put(setTranscriptsSearchResults(results))
-  }
+  yield put(setTranscriptsSearchResults(results || []))
 }
