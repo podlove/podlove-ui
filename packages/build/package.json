@@ -19,7 +19,7 @@
     "@babel/preset-env": "7.6.3",
     "@csstools/postcss-sass": "4.0.0",
     "@podlove/utils": "^5.0.1-beta.0",
-    "autoprefixer": "9.7.0",
+    "autoprefixer": "9.7.3",
     "babel-loader": "8.0.6",
     "babel-preset-vue": "2.0.2",
     "copy-webpack-plugin": "5.0.4",
