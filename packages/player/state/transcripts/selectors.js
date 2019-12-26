@@ -17,3 +17,7 @@ export const searchResults = compose(
   prop('results'),
   search
 )
+export const searching = compose(
+  prop('searching'),
+  search
+)
