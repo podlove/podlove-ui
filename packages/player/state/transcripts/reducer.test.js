@@ -87,7 +87,7 @@ describe('transcripts', () => {
       ...INITIAL_STATE,
       search: {
         ...INITIAL_STATE.search,
-        selected: 0,
+        selected: 1,
         results: ['foo', 'bar']
       }
     })
@@ -175,7 +175,7 @@ describe('transcripts', () => {
       search: {
         ...INITIAL_STATE.search,
         results: ['foo', 'bar', 'baz'],
-        selected: 0
+        selected: 1
       }
     })
 

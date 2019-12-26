@@ -12,7 +12,7 @@
         div.flex.flex-no-wrap.w-24(v-else)
           button.block.px-2(@click="previousSearchResult" data-test="tab-transcripts--search-controls--previous")
             icon(type="chevron-left")
-          span.whitespace-no-wrap.block.stepper(data-test="tab-transcripts--search-results") {{ searchSelected + 1 }} / {{ searchResults.length }}
+          span.whitespace-no-wrap.block.stepper(data-test="tab-transcripts--search-results") {{ searchSelected }} / {{ searchResults.length }}
           button.block.px-2(@click="nextSearchResult" data-test="tab-transcripts--search-controls--next")
             icon(type="chevron-right")
     button.block.rounded-sm.whitespace-no-wrap.text-sm.px-4.py-2.ml-2.border.w-32.shadow(:style="buttonStyle" @click="toggleFollow" :class="{ 'mobile:hidden': searchControls }"  data-test="tab-transcripts--follow") {{ follow ? $t('TRANSCRIPTS.FOLLOW.ACTIVE') : $t('TRANSCRIPTS.FOLLOW.INACTIVE') }}

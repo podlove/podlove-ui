@@ -103,7 +103,7 @@ export default {
         return
       }
 
-      this.scrollTo(this.searchResults[this.selected])
+      this.scrollTo(this.searchResults[this.selected - 1])
     }
   },
   mounted() {

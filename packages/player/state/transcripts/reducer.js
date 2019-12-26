@@ -52,7 +52,7 @@ export const reducer = handleActions(
       ...state,
       search: {
         ...state.search,
-        selected: payload.length > 0 ? 0 : -1,
+        selected: payload.length > 0 ? 1 : -1,
         results: payload
       }
     }),
@@ -72,7 +72,7 @@ export const reducer = handleActions(
       ...state,
       search: {
         ...state.search,
-        selected: state.search.selected - 1 < 0 ? 0 : state.search.selected - 1
+        selected: state.search.selected - 1 < 1 ? 1 : state.search.selected - 1
       }
     }),
 
