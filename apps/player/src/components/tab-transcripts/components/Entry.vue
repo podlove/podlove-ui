@@ -27,7 +27,7 @@ const chapter = (h, c) => (children = []) =>
   )
 
 const speaker = (h, c) =>
-  h('div', { class: {}, style: c.speakerStyle }, [
+  h('div', { class: { '-ml-6': true }, style: c.speakerStyle }, [
     c.entry.speaker.avatar
       ? h('img', {
           class: {
@@ -53,7 +53,10 @@ const speaker = (h, c) =>
   ])
 
 const transcript = (h, c) => (children = []) =>
-  h('span', { class: { transcript: true } }, [c.entry.speaker ? speaker(h, c) : null, ...children])
+  h('div', { class: { transcript: true, 'ml-6': c.entry.speaker } }, [
+    c.entry.speaker ? speaker(h, c) : null,
+    ...children
+  ])
 
 const highlightText = (h, c, text) => {
   if (!c.query) {
