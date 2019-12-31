@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
     "postinstall": "npm run build"
   },
   "keywords": [],

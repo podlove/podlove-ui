@@ -338,6 +338,44 @@ steps:
 
 ---
 kind: pipeline
+name: packages/clients
+
+steps:
+- name: bootstrap
+  image: node:12
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node:12
+  commands:
+    - npx eslint 'packages/clients/**/*.js'
+
+- name: release:prepare
+  image: node:12
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/clients --stream
+  when:
+    ref:
+    - refs/tags/v*
+
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/clients/publish
+  when:
+    ref:
+    - refs/tags/v*
+
+
+---
+kind: pipeline
 name: docs/web-player
 
 steps:

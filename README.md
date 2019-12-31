@@ -113,10 +113,11 @@ Used CI: [DroneCI](https://cloud.drone.io/podlove/podlove-ui) with the following
 - `apps/web-player`
 - `apps/subscribe-button`
 - `apps/components`
-- `apps/player-actions`
-- `apps/player-sagas`
-- `apps/player-state`
-- `apps/player-utils`
+- `packages/player-actions`
+- `packages/player-sagas`
+- `packages/player-state`
+- `packages/player-utils`
+- `packages/clients`
 - `docs/web-player`
 
 Steps:
