@@ -11,10 +11,11 @@
 1. Make sure you have Node 10+ and [lerna](https://lerna.js.org/) installed
 2. Fork this repository
 3. Run `lerna bootstrap --hoist` to setup the workspace
+4. Run npm scripts in each application/package
 
 ### For Usage
 
-This mono repo creates a set of different packages within the `@podlove` NPM orgainzation. Once released you can use each package by simply installing it as an 
+This mono repo creates a set of different packages within the `@podlove` NPM orgainzation. Once released you can use each package by simply installing it as a dependency.
 
 ## Used Libraries and Frameworks
 
@@ -23,23 +24,18 @@ This mono repo creates a set of different packages within the `@podlove` NPM org
 - View Renderer: [Vue](https://vuejs.org/)
 - Statemanagenet: [Redux](https://redux.js.org/)
 - Helpers: [Ramda](https://ramdajs.com/)
+- Styling: [Tailwind](https://tailwindcss.com/)
+- Testing: [Jest](https://jestjs.io/) and [Cypress](https://www.cypress.io/)
 
 Note: These are recommendend and well supported libraries. The usage within each application/package may vary.
 
 ## Applications
 
-### @podlove/player 
+### [@podlove/player](apps/player/README.md) 
 
-Core Podlove Player with the following features:
+Core Podlove Player State Bound Components. Building blocks with state bindings to create the web player 
 
-- Player Controls + Progressbar
-- Chapters Tab
-- Transcripts Tab
-- Share Tab
-- Files Tab
-- Audio Tab
-
-### @podlove/web-player
+### [@podlove/web-player](apps/web-player/README.md) 
 
 Embedded version of Podlove Player with the following features:
 
@@ -47,41 +43,103 @@ Embedded version of Podlove Player with the following features:
 - Persistance
 - Configuration Resolving
 - Share Endpoint
+- Templating
+
+### [@podlove/subscribe-button](apps/subscribe-button/README.md)
+
+Embedded Subscribe Button with client detection:
+
+- Podcatcher Services
+- Podcatcher Clients
+- Install and RSS Feed Endcard
 
 ## Packages
 
-### @podlove/build [internal]
+### [@podlove/build [internal]](packages/build/README.md)
 
-Webpack Tooling for UI Projects.
+Webpack Tooling for all projects. Building blocks for bundling.
 
-### @podlove/components
+### [@podlove/button-actions](packages/button/actions/README.md)
 
-Shared Representational Podlove Components.
+Button actions API, types and events that are used in state and subscribe-button.
 
-### @podlove/player-actions
+### [@podlove/button-config](packages/button/config/README.md)
 
-Player Actions API, defining every event that happens within the player.
+Parser for subscribe-button configuration.
 
-### @podlove/player-sagas
+### [@podlove/button-state](packages/button/state/README.md)
+
+Subscribe Button reducers and selectors for creating and maintaining the subscribe-button state.
+
+### [@podlove/clients](packages/clients/README.md)
+
+Library containing up to date podcatcher clients and uri schema.
+
+### [@podlove/components](packages/components/README.md)
+
+Shared Representational Podlove Components. Stateless components that dispatch podlove events.
+
+### [@podlove/player-actions](packages/player/actions/README.md)
+
+Player actions API, types and events that are used in state, sagas and player.
+
+### [@podlove/player-config](packages/player/config/README.md)
+
+Parser for player configuration.
+
+### [@podlove/player-sagas](packages/player/sagas/README.md)
 
 Player Side Effects Management, abstracting Player eventing and lifecycle.
 
-### @podlove/player-state
+### [@podlove/player-state](packages/player/state/README.md)
 
-Player Reducers and Selectors for creating and maintaining the Player State.
+Player reducers and selectors for creating and maintaining the player state.
 
-### @podlove/utils
+### [@podlove/utils](packages/utils/README.md)
 
-Collection of helper utils for dealing with time, transforming chapters according to the Simple Chapters Specification or 
+Collection of helper utils for dealing with time, transforming chapters according to the Simple Chapters Specification or making requests.
+
+## Docs
+
+### [web-player](docs/web-player/index.md)
+
+Documentation for Podlove Web Player
 
 ## Build Environment
 
-TBD: Description of our CI environment (DroneCi)
+Used CI: [DroneCI](https://cloud.drone.io/podlove/podlove-ui) with the following [pipelines](.drone.yml):
+
+- `apps/player`
+- `apps/web-player`
+- `apps/subscribe-button`
+- `apps/components`
+- `apps/player-actions`
+- `apps/player-sagas`
+- `apps/player-state`
+- `apps/player-utils`
+- `docs/web-player`
+
+Steps:
+
+- `lint`
+- `test`
+- `build`
+- `integration`
+- `release`
 
 ## Releasing
 
-TBD: Instructions on how to create mono repo releases to npm and the cdn
+Podlove Web Player follows the git flow convention with support branches. Please read the [documentation to follow this pattern](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) if you want to contribute.
 
+To create a release you have to:
+
+1. Create a release branch from the `master` or `support` branch 
+2. Run the following lerna command in the release branch: `lerna version --no-git-tag-version`
+  - Select a major/minor/patch/custom version (please see [semantic versioning documentation](https://semver.org))
+3. Create a PR against master/support branch and merge it if the release/review was successfull
+4. Tag the master/support commit with the release version (e.g. `v5.0.2`)
+5. Create an integration branch by branching from develop and merge master into the integration branch
+6. Create a PR with develop as the target branch and merge it if the release/review was successfull
 
 ### Join the conversation
 

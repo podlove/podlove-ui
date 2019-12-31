@@ -1,30 +1,44 @@
 # Podlove Player
 
-![Preview](screenshot.png)
-
-## About
-
-HTML5 Goodness for Podcasting
-
-**Podlove** Web Player is a Podcast-optimized, HTML5-based video and audio player.
-It can be used as a WordPress plugin or within a static HTML/JavaScript context.
-
-The **Podlove** Web Player supports almost every modern browser (Edge, Firefox, Chrome, Safari) and also does captions, chapters, transcripts and much more. 
-
-* [Web Player Documentation](http://docs.podlove.org/podlove-web-player/)
-* [Official site on podlove.org](http://podlove.org/podlove-web-player/)
-
-## Used Technologies
-
-- Package Manager: [npm](https://npmjs.org)
-- Media Library: [Podlove Pure HTML5 Audio Driver](https://github.com/podlove/html5-audio-driver/)
-- View Renderer: [VueJS](https://github.com/vuejs/vue)
-- Bundler: [Webpack](https://github.com/webpack/webpack)
-- State Management: [Redux](https://github.com/reactjs/redux) & [redux-vuex](https://github.com/alexander-heimbuch/redux-vuex#readme)
+> State Bound Building Blocks to create Podcast Player UIs
 
 ## Architecture
 
 ![Architecture](architecture.svg)
+
+## Available Components
+
+| *name*              | *properties*                          | *use case*                                            |
+| --------------------|---------------------------------------|-------------------------------------------------------|
+| `chapter-next`      | -                                     | jump to next chapter                                  |
+| `chapter-previous`  | -                                     | jump to previous chapter                              |
+| `current-chapter`   | -                                     | current chapter                                       |
+| `divider`           | -                                     | visual divider                                        |
+| `episode-title`     | -                                     | episode title                                         |
+| `error`             | -                                     | error overlay                                         |
+| `play-button`       | _variant:_ `simple`, `details`        | play button with states                               |
+| `play-state`        | _on:_ `initialize`, `active`, `ended` | play state conditional closure                        |
+| `poster`            | -                                     | show, episode or chapter cover                        |
+| `progress-bar`      | -                                     | episode progress with chapter and progress indicators |
+| `root`              | -                                     | font and theme closure element                        |
+| `show-title`        | -                                     | show title                                            |
+| `speed-control`     | -                                     | audio speed stepper                                   |
+| `step-backward`     | -                                     | 15 seconds back stepper                               |
+| `step-forward`      | -                                     | 30 seconds forward stepper                            |
+| `subscribe-button`  | -                                     | subscribe button trigger                              |
+| `tab`               | _name:_ tab name                      | conditional tab closure                               |
+| `tab-chapters`      | -                                     | chapters tab element                                  |
+| `tab-files`         | -                                     | files tab element                                     |
+| `tab-overflow`      | -                                     | tab bottom transition                                 |
+| `tab-playlist`      | -                                     | playlist tab element                                  |
+| `tab-share`         | -                                     | share tab element                                     |
+| `tab-shownotes`     | -                                     | shownotes tab element                                 |
+| `tab-title`         | -                                     | tab title with close button                           |
+| `tab-transcripts`   | -                                     | title tab element                                     |
+| `tab-trigger`       | -                                     | trigger element for tabs                              |
+| `timer-current`     | -                                     | timer with current playtime                           |
+| `timer-duration`    | -                                     | timer with duration left                              |
+| `volume-control`    | -                                     | volume control                                        |
 
 ## Getting Started
 
