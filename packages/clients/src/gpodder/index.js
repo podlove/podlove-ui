@@ -20,7 +20,7 @@ export default [
     icon
   }),
   client({
-    title: 'gpodder.net',
+    title: 'gPodder',
     scheme: feed => `http://gpodder.net/subscribe?url=${encodeURIComponent(removeHttps(feed))}`,
     install: 'https://gpodder.net/',
     platform: platform.web,

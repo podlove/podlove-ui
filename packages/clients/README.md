@@ -1,22 +1,54 @@
 # Client Package
 
-## List of Podcast Clients active and dead
+## List of Podcast Clients active
 
-| Name | Platforms | Status |
-|---|---|---|
-| [Apple Podcast](https://apps.apple.com/de/app/apple-podcasts/id525463029) | ios | active |
-| [iTunes](https://www.apple.com/de/itunes/) | windows, osx | active |
-| [Clementine](https://www.clementine-player.org/) | unix | dead ? |
-| [Castro](http://supertop.co/castro/) | ios | active ? |
-| [Deezer](https://www.deezer.com/en/) | android, ios, osx, windows | active |
-| [Downcast](http://downcast.fm/) | ios, osx | last update february 2019 - dead? |
-| [gPodder](https://www.gpodder.net/) | web, unix, windows | active on github |
-| [Google Podcast](https://podcasts.google.com/about) | android | ? |
-| Instacast |   | dead |
-| [Overcast](https://overcast.fm/) | ios, web | active |
-| [PlayerFM](https://player.fm/) | web, android | active |
-| [Pocket Casts](https://www.pocketcasts.com/) | web, android, ios | active |
-| PodGrasp |   | dead |
-| [Soundcloud](https://soundcloud.com/) | ios, web, windows | active |
-| [Spotify](https://www.spotify.com/) | android, ios, osx, web, windows  | active |
-| [Stitcher](https://www.stitcher.com/) | android, ios, web | active |
+| id                    | name                | app  | service  | android | ios | osx | windows | unix | web |
+|-----------------------|---------------------|------|----------|---------|-----|-----|---------|------|-----|
+| `antenna-pod`         | Antenna Pod         |  ☑   | ☐        | ☑       | ☐   | ☐   | ☐       | ☐    | ☐   |
+| `apple-podcasts`      | Apple Podcasts      |  ☑   | ☑        | ☐       | ☑   | ☑   | ☐       | ☐    | ☑   |
+| `beyond-pod`          | BeyondPod           |  ☑   | ☐        | ☑       | ☐   | ☐   | ☐       | ☐    | ☐   |
+| `castbox`             | Castbox             |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `castro`              | Castro              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
+| `clementine`          | Clementine          |  ☑   | ☐        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `deezer`              | Deezer              |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `downcast`            | Downcast            |  ☑   | ☐        | ☐       | ☑   | ☑   | ☐       | ☐    | ☐   |
+| `google-podcasts`     | Google Podcasts     |  ☑   | ☑        | ☑       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `gpodder`             | gPodder             |  ☑   | ☑        | ☐       | ☐   | ☐   | ☑       | ☑    | ☑   |
+| `i-catcher`           | iCatcher            |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
+| `instacast`           | Instacast           |  ☑   | ☐        | ☐       | ☑   | ☑   | ☐       | ☐    | ☐   |
+| `instacast`           | Instacast           |  ☑   | ☐        | ☐       | ☑   | ☑   | ☐       | ☐    | ☐   |
+| `overcast`            | Overcast            |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
+| `player-fm`           | Player.fm           |  ☑   | ☑        | ☑       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `pocket-casts`        | PocketCasts         |  ☑   | ☑        | ☑       | ☑   | ☐   | ☐       | ☐    | ☑   |
+| `pod-grasp`           | PodGrasp            |  ☑   | ☐        | ☐       | ☑   | ☑   | ☐       | ☐    | ☐   |
+| `podcast-republic`    | Podcast Republic    |  ☑   | ☐        | ☑       | ☐   | ☐   | ☐       | ☐    | ☐   |
+| `podcat`              | Podcat              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
+| `podcat`              | Podcat              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
+| `podscout`            | Podscout            |  ☑   | ☐        | ☐       | ☐   | ☐   | ☑       | ☐    | ☐   |
+| `rss`                 | RSS                 |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `rss-radio`           | RSSRadio            |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
+| `soundcloud`          | Soundcloud          |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `spotify`             | Spotify             |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `stitcher`            | Stitcher            |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+| `youtube`             | Youtube             |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
+
+## Usage
+
+```javascript
+import clients from '@podlove/clients'
+import { type, platform } from '@podlove/clients/types'
+
+clients() // will return all clients
+
+// Additive filtering for id, title (match), type and platform
+clients({ id: 'apple-podcasts', title: 'Apple', type: type.service, platform: platform.web })
+/**
+ * [{
+    title: 'Apple Podcasts',
+    scheme: id => `https://podcasts.apple.com/podcast/${id}`,
+    platform: platform.web,
+    type: type.service,
+    icon
+ * }] 
+ * / 
+```

@@ -16,7 +16,7 @@ export default [
     scheme: feed => `https://player.fm/subscribe?id=${encodeURIComponent(removeHttps(feed))}`,
     install: 'https://player.fm/',
     platform: platform.web,
-    type: type.app,
+    type: type.service,
     icon
   })
 ]

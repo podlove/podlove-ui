@@ -1,6 +1,20 @@
 # Podlove Web Player
 
-> Sandboxed Podlove Player with the ability to embed and share a specific episode
+> Sandboxed Podlove Player Templates with the ability to embed and share episodes
+
+![Preview](screenshot.png)
+
+## About
+
+HTML5 Goodness for Podcasting
+
+**Podlove** Web Player is a Podcast-optimized, HTML5-based video and audio player.
+It can be used as a WordPress plugin or within a static HTML/JavaScript context.
+
+The **Podlove** Web Player supports almost every modern browser (Edge, Firefox, Chrome, Safari) and also does captions, chapters, transcripts and much more. 
+
+* [Web Player Documentation](http://docs.podlove.org/podlove-web-player/)
+* [Official site on podlove.org](http://podlove.org/podlove-web-player/)
 
 ## Features
 
