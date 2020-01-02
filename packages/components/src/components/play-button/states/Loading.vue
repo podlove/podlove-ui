@@ -1,6 +1,6 @@
 <template>
   <div class="loading-indicator" aria-hidden="true">
-    <icon :color="color" type="loading" />
+    <icon :color="color" type="loading" :size="size" />
   </div>
 </template>
 
@@ -16,6 +16,10 @@ export default {
     color: {
       type: String,
       default: color
+    },
+    size: {
+      type: Number,
+      default: 25
     }
   }
 }

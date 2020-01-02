@@ -17,15 +17,15 @@ export default {
     },
     size: {
       type: Number,
-      default: 12
+      default: 25
     }
   },
   computed: {
     bubbleStyle() {
       return {
         background: this.color,
-        width: `${this.size}px`,
-        height: `${this.size}px`
+        width: `${this.size / 2}px`,
+        height: `${this.size / 2}px`
       }
     }
   }

@@ -9,6 +9,7 @@
           class="component"
           :color="color"
           :label="label"
+          :size="size / 2"
           :class="{ 'has-label': label && type !== 'loading' }"
         >
           <span v-if="label" class="label" :style="{ color: color }">{{ label }}</span>
@@ -56,6 +57,10 @@ export default {
     label: {
       type: String,
       default: ''
+    },
+    size: {
+      type: Number,
+      default: 50
     }
   },
   data() {
@@ -67,7 +72,10 @@ export default {
     wrapper() {
       return {
         'background-color': this.background,
-        width: this.width ? `${this.width}px` : 'auto'
+        width: this.width ? `${this.width}px` : 'auto',
+        height: `${this.size}px`,
+        'min-width': `${this.size}px`,
+        'border-radius': `${this.size / 2}px`
       }
     }
   },
@@ -123,9 +131,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: $button-width;
-    min-width: $button-width;
-    border-radius: $button-width / 2;
     transition: all $animation-duration * 4;
   }
 
