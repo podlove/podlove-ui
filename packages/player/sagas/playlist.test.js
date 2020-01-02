@@ -352,6 +352,12 @@ describe('playlist', () => {
       expect(gen.next('episode/3').value).toEqual(put(playlist.markActive(2)))
     })
 
+    test('should end the saga if no reference was found', () => {
+      gen.next()
+      gen.next(list(0))
+      expect(gen.next(null).done).toBe(true)
+    })
+
     test('shouldnt mark an episode active if not present in the list', () => {
       gen.next()
       gen.next(list(0))

@@ -97,6 +97,10 @@ export function* setActiveEntry({ selectPlaylist, selectReference }) {
   const entries = yield select(selectPlaylist)
   const reference = yield select(selectReference)
 
+  if (!reference) {
+    return
+  }
+
   const index = entries.findIndex(entry => propOr('', 'config', entry).endsWith(reference))
 
   if (index > -1) {
