@@ -1,5 +1,5 @@
 <template lang="pug">
-  play-button.overflow-hidden(v-if="button.type" :type="button.type" :color="background" :background="color" @click="dispatch" :label="button.label" @mouseover.native="mouseOver" @mouseleave.native="mouseLeave" data-test="play-button")
+  play-button.overflow-hidden(v-if="button.type" :type="button.type" :color="background" :background="color" :size="size" @click="dispatch" :label="button.label" @mouseover.native="mouseOver" @mouseleave.native="mouseLeave" data-test="play-button")
     span.invisible {{ button.a11y }}
 </template>
 
@@ -18,6 +18,10 @@ export default {
     label: {
       type: String,
       default: null
+    },
+    size: {
+      type: Number,
+      default: 50
     },
     variant: {
       type: String,

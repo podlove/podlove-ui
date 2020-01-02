@@ -171,22 +171,35 @@ exports[`Icon props should render type 'arrow-to-right' with prop size 1`] = `
 exports[`Icon props should render type 'audio-file' with prop background 1`] = `
 <svg
   aria-hidden="true"
+  background="#fff"
   fill="none"
-  height="25"
-  viewBox="0 0 32 32"
-  width="25"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <circle
-    cx="16"
-    cy="16"
-    fill="currentColor"
-    r="16"
+  <path
+    d="M20.001 12.3711C20.001 7.74786 16.4193 4 12.001 4C7.5827 4 4.00098 7.74786 4.00098 12.3711"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
    
   <path
-    d="M16 8.5V16.2333C15.6083 16.0917 15.1917 16 14.75 16C12.675 16 11 17.675 11 19.75C11 21.825 12.675 23.5 14.75 23.5C16.675 23.5 18.25 22.0417 18.4583 20.1667H18.5V11H21.8333V8.5H16Z"
-    fill="#fff"
+    d="M7.10647 15.9112V20.5166C4.56293 20.5166 2.50098 18.4547 2.50098 15.9112C2.50098 13.3676 4.56293 11.3057 7.10647 11.3057V15.9112Z"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M16.8955 15.9112L16.8955 20.5166C19.439 20.5166 21.501 18.4547 21.501 15.9112C21.501 13.3676 19.439 11.3057 16.8955 11.3057V15.9112Z"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
 </svg>
 `;
@@ -194,22 +207,35 @@ exports[`Icon props should render type 'audio-file' with prop background 1`] = `
 exports[`Icon props should render type 'audio-file' with prop color 1`] = `
 <svg
   aria-hidden="true"
+  background="currentColor"
   fill="none"
-  height="25"
-  viewBox="0 0 32 32"
-  width="25"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <circle
-    cx="16"
-    cy="16"
-    fill="#fff"
-    r="16"
+  <path
+    d="M20.001 12.3711C20.001 7.74786 16.4193 4 12.001 4C7.5827 4 4.00098 7.74786 4.00098 12.3711"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
    
   <path
-    d="M16 8.5V16.2333C15.6083 16.0917 15.1917 16 14.75 16C12.675 16 11 17.675 11 19.75C11 21.825 12.675 23.5 14.75 23.5C16.675 23.5 18.25 22.0417 18.4583 20.1667H18.5V11H21.8333V8.5H16Z"
-    fill="currentColor"
+    d="M7.10647 15.9112V20.5166C4.56293 20.5166 2.50098 18.4547 2.50098 15.9112C2.50098 13.3676 4.56293 11.3057 7.10647 11.3057V15.9112Z"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M16.8955 15.9112L16.8955 20.5166C19.439 20.5166 21.501 18.4547 21.501 15.9112C21.501 13.3676 19.439 11.3057 16.8955 11.3057V15.9112Z"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
 </svg>
 `;
@@ -217,22 +243,35 @@ exports[`Icon props should render type 'audio-file' with prop color 1`] = `
 exports[`Icon props should render type 'audio-file' with prop size 1`] = `
 <svg
   aria-hidden="true"
+  background="currentColor"
   fill="none"
   height="20"
-  viewBox="0 0 32 32"
+  viewBox="0 0 24 24"
   width="20"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <circle
-    cx="16"
-    cy="16"
-    fill="currentColor"
-    r="16"
+  <path
+    d="M20.001 12.3711C20.001 7.74786 16.4193 4 12.001 4C7.5827 4 4.00098 7.74786 4.00098 12.3711"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
    
   <path
-    d="M16 8.5V16.2333C15.6083 16.0917 15.1917 16 14.75 16C12.675 16 11 17.675 11 19.75C11 21.825 12.675 23.5 14.75 23.5C16.675 23.5 18.25 22.0417 18.4583 20.1667H18.5V11H21.8333V8.5H16Z"
-    fill="currentColor"
+    d="M7.10647 15.9112V20.5166C4.56293 20.5166 2.50098 18.4547 2.50098 15.9112C2.50098 13.3676 4.56293 11.3057 7.10647 11.3057V15.9112Z"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M16.8955 15.9112L16.8955 20.5166C19.439 20.5166 21.501 18.4547 21.501 15.9112C21.501 13.3676 19.439 11.3057 16.8955 11.3057V15.9112Z"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
 </svg>
 `;
@@ -1734,6 +1773,105 @@ exports[`Icon props should render type 'forward' with prop size 1`] = `
 </svg>
 `;
 
+exports[`Icon props should render type 'image-file' with prop background 1`] = `
+<svg
+  aria-hidden="true"
+  background="#fff"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    clip-rule="evenodd"
+    d="M6.80384 15L6.54189 17.4923C6.49859 17.9042 6.79744 18.2733 7.20938 18.3166L19.6409 19.6232C20.0529 19.6665 20.4219 19.3676 20.4652 18.9557L21.4582 9.50774C21.5015 9.0958 21.2027 8.72675 20.7907 8.68345L18 8.39014V9.39565L20.4376 9.65184L19.4968 18.6025L7.56254 17.3482L7.80935 15H6.80384Z"
+    fill="currentColor"
+    fill-rule="evenodd"
+  />
+   
+  <path
+    clip-rule="evenodd"
+    d="M5 5V12L8 8.5C8 8.5 8.5 8 9 8.5C9.5 9 12 12 12 12L14 10.5C14 10.5 14.5 10 15 10.5C15.5 11 17 12 17 12V5H5ZM4.75 4C4.33579 4 4 4.33579 4 4.75V14.25C4 14.6642 4.33579 15 4.75 15H17.25C17.6642 15 18 14.6642 18 14.25V4.75C18 4.33579 17.6642 4 17.25 4H4.75Z"
+    fill="currentColor"
+    fill-rule="evenodd"
+  />
+   
+  <circle
+    cx="13"
+    cy="7"
+    fill="currentColor"
+    r="1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'image-file' with prop color 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    clip-rule="evenodd"
+    d="M6.80384 15L6.54189 17.4923C6.49859 17.9042 6.79744 18.2733 7.20938 18.3166L19.6409 19.6232C20.0529 19.6665 20.4219 19.3676 20.4652 18.9557L21.4582 9.50774C21.5015 9.0958 21.2027 8.72675 20.7907 8.68345L18 8.39014V9.39565L20.4376 9.65184L19.4968 18.6025L7.56254 17.3482L7.80935 15H6.80384Z"
+    fill="#fff"
+    fill-rule="evenodd"
+  />
+   
+  <path
+    clip-rule="evenodd"
+    d="M5 5V12L8 8.5C8 8.5 8.5 8 9 8.5C9.5 9 12 12 12 12L14 10.5C14 10.5 14.5 10 15 10.5C15.5 11 17 12 17 12V5H5ZM4.75 4C4.33579 4 4 4.33579 4 4.75V14.25C4 14.6642 4.33579 15 4.75 15H17.25C17.6642 15 18 14.6642 18 14.25V4.75C18 4.33579 17.6642 4 17.25 4H4.75Z"
+    fill="#fff"
+    fill-rule="evenodd"
+  />
+   
+  <circle
+    cx="13"
+    cy="7"
+    fill="#fff"
+    r="1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'image-file' with prop size 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    clip-rule="evenodd"
+    d="M6.80384 15L6.54189 17.4923C6.49859 17.9042 6.79744 18.2733 7.20938 18.3166L19.6409 19.6232C20.0529 19.6665 20.4219 19.3676 20.4652 18.9557L21.4582 9.50774C21.5015 9.0958 21.2027 8.72675 20.7907 8.68345L18 8.39014V9.39565L20.4376 9.65184L19.4968 18.6025L7.56254 17.3482L7.80935 15H6.80384Z"
+    fill="currentColor"
+    fill-rule="evenodd"
+  />
+   
+  <path
+    clip-rule="evenodd"
+    d="M5 5V12L8 8.5C8 8.5 8.5 8 9 8.5C9.5 9 12 12 12 12L14 10.5C14 10.5 14.5 10 15 10.5C15.5 11 17 12 17 12V5H5ZM4.75 4C4.33579 4 4 4.33579 4 4.75V14.25C4 14.6642 4.33579 15 4.75 15H17.25C17.6642 15 18 14.6642 18 14.25V4.75C18 4.33579 17.6642 4 17.25 4H4.75Z"
+    fill="currentColor"
+    fill-rule="evenodd"
+  />
+   
+  <circle
+    cx="13"
+    cy="7"
+    fill="currentColor"
+    r="1"
+  />
+</svg>
+`;
+
 exports[`Icon props should render type 'info' with prop background 1`] = `
 <svg
   aria-hidden="true"
@@ -2093,17 +2231,17 @@ exports[`Icon props should render type 'loading' with prop background 1`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2116,17 +2254,17 @@ exports[`Icon props should render type 'loading' with prop background 2`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2139,17 +2277,17 @@ exports[`Icon props should render type 'loading' with prop color 1`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2162,17 +2300,17 @@ exports[`Icon props should render type 'loading' with prop color 2`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2185,17 +2323,17 @@ exports[`Icon props should render type 'loading' with prop size 1`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
 </div>
 `;
@@ -2208,17 +2346,17 @@ exports[`Icon props should render type 'loading' with prop size 2`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
 </div>
 `;
@@ -2276,6 +2414,72 @@ exports[`Icon props should render type 'mail' with prop size 1`] = `
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'menu-empty' with prop background 1`] = `
+<svg
+  aria-hidden="true"
+  background="#fff"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="12"
+    cy="12"
+    r="11.45"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'menu-empty' with prop color 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="12"
+    cy="12"
+    r="11.45"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'menu-empty' with prop size 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="12"
+    cy="12"
+    r="11.45"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
 </svg>
 `;
@@ -2747,6 +2951,123 @@ exports[`Icon props should render type 'pause' with prop size 1`] = `
     width="3"
     x="14"
     y="4"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'pdf-file' with prop background 1`] = `
+<svg
+  aria-hidden="true"
+  background="#fff"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M14.7722 3.55L18.45 7.22782V19.45H5.55V3.55H14.7722Z"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M7 16H7.87324V14.6306H8.28848C9.36323 14.6306 9.98 14.0961 9.98 13.2492C9.98 12.3964 9.48537 12.018 8.41061 12.018H7V16ZM8.32512 12.6667C8.82586 12.6667 9.08844 12.8529 9.08844 13.3153C9.08844 13.7778 8.81975 13.988 8.28848 13.988H7.87324V12.6667H8.32512Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M10.4886 16H11.8015C13.2732 16 13.835 15.1712 13.835 13.8979C13.835 12.6006 13.1816 12 11.9175 12C11.4779 12 10.9161 12.012 10.4886 12.018V16ZM11.8687 12.6787C12.6992 12.6787 12.9373 13.2192 12.9373 13.976C12.9373 14.8288 12.6442 15.3393 11.8748 15.3393H11.3618V12.6787H11.8687Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M15.3573 16V14.4204H16.7496V13.7477H15.3573V12.6907H16.9389L17 12.018H14.4841V16H15.3573Z"
+    fill="currentColor"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'pdf-file' with prop color 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M14.7722 3.55L18.45 7.22782V19.45H5.55V3.55H14.7722Z"
+    stroke="#fff"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
+    stroke="#fff"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M7 16H7.87324V14.6306H8.28848C9.36323 14.6306 9.98 14.0961 9.98 13.2492C9.98 12.3964 9.48537 12.018 8.41061 12.018H7V16ZM8.32512 12.6667C8.82586 12.6667 9.08844 12.8529 9.08844 13.3153C9.08844 13.7778 8.81975 13.988 8.28848 13.988H7.87324V12.6667H8.32512Z"
+    fill="#fff"
+  />
+   
+  <path
+    d="M10.4886 16H11.8015C13.2732 16 13.835 15.1712 13.835 13.8979C13.835 12.6006 13.1816 12 11.9175 12C11.4779 12 10.9161 12.012 10.4886 12.018V16ZM11.8687 12.6787C12.6992 12.6787 12.9373 13.2192 12.9373 13.976C12.9373 14.8288 12.6442 15.3393 11.8748 15.3393H11.3618V12.6787H11.8687Z"
+    fill="#fff"
+  />
+   
+  <path
+    d="M15.3573 16V14.4204H16.7496V13.7477H15.3573V12.6907H16.9389L17 12.018H14.4841V16H15.3573Z"
+    fill="#fff"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'pdf-file' with prop size 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M14.7722 3.55L18.45 7.22782V19.45H5.55V3.55H14.7722Z"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M7 16H7.87324V14.6306H8.28848C9.36323 14.6306 9.98 14.0961 9.98 13.2492C9.98 12.3964 9.48537 12.018 8.41061 12.018H7V16ZM8.32512 12.6667C8.82586 12.6667 9.08844 12.8529 9.08844 13.3153C9.08844 13.7778 8.81975 13.988 8.28848 13.988H7.87324V12.6667H8.32512Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M10.4886 16H11.8015C13.2732 16 13.835 15.1712 13.835 13.8979C13.835 12.6006 13.1816 12 11.9175 12C11.4779 12 10.9161 12.012 10.4886 12.018V16ZM11.8687 12.6787C12.6992 12.6787 12.9373 13.2192 12.9373 13.976C12.9373 14.8288 12.6442 15.3393 11.8748 15.3393H11.3618V12.6787H11.8687Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M15.3573 16V14.4204H16.7496V13.7477H15.3573V12.6907H16.9389L17 12.018H14.4841V16H15.3573Z"
+    fill="currentColor"
   />
 </svg>
 `;
@@ -5964,6 +6285,123 @@ exports[`Icon props should render type 'subscribe' with prop size 1`] = `
 </svg>
 `;
 
+exports[`Icon props should render type 'text-file' with prop background 1`] = `
+<svg
+  aria-hidden="true"
+  background="#fff"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M14.7722 3.55L18.45 7.22782V19.45H5.55V3.55H14.7722Z"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M10.076 12.6998L10.133 12H7V12.6998H8.10129V16H9.00638V12.6998H10.076Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M12.7652 12C12.6913 12.1586 12.0374 13.4842 12.0374 13.4842L11.3032 12.0181L10.2841 12.0181L11.3411 13.9548C10.9677 14.5641 10.531 15.3424 10.1892 16H11.1449C11.2104 15.856 11.9741 14.3107 11.9741 14.3107L12.8222 16L13.8222 15.9819L12.664 13.8643C12.9994 13.3092 13.4171 12.5732 13.7146 12H12.7652Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M16.943 12.6998L17 12H13.867V12.6998H14.9683V16H15.8734V12.6998H16.943Z"
+    fill="currentColor"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'text-file' with prop color 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M14.7722 3.55L18.45 7.22782V19.45H5.55V3.55H14.7722Z"
+    stroke="#fff"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
+    stroke="#fff"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M10.076 12.6998L10.133 12H7V12.6998H8.10129V16H9.00638V12.6998H10.076Z"
+    fill="#fff"
+  />
+   
+  <path
+    d="M12.7652 12C12.6913 12.1586 12.0374 13.4842 12.0374 13.4842L11.3032 12.0181L10.2841 12.0181L11.3411 13.9548C10.9677 14.5641 10.531 15.3424 10.1892 16H11.1449C11.2104 15.856 11.9741 14.3107 11.9741 14.3107L12.8222 16L13.8222 15.9819L12.664 13.8643C12.9994 13.3092 13.4171 12.5732 13.7146 12H12.7652Z"
+    fill="#fff"
+  />
+   
+  <path
+    d="M16.943 12.6998L17 12H13.867V12.6998H14.9683V16H15.8734V12.6998H16.943Z"
+    fill="#fff"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'text-file' with prop size 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M14.7722 3.55L18.45 7.22782V19.45H5.55V3.55H14.7722Z"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
+    stroke="currentColor"
+    stroke-width="1.1"
+  />
+   
+  <path
+    d="M10.076 12.6998L10.133 12H7V12.6998H8.10129V16H9.00638V12.6998H10.076Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M12.7652 12C12.6913 12.1586 12.0374 13.4842 12.0374 13.4842L11.3032 12.0181L10.2841 12.0181L11.3411 13.9548C10.9677 14.5641 10.531 15.3424 10.1892 16H11.1449C11.2104 15.856 11.9741 14.3107 11.9741 14.3107L12.8222 16L13.8222 15.9819L12.664 13.8643C12.9994 13.3092 13.4171 12.5732 13.7146 12H12.7652Z"
+    fill="currentColor"
+  />
+   
+  <path
+    d="M16.943 12.6998L17 12H13.867V12.6998H14.9683V16H15.8734V12.6998H16.943Z"
+    fill="currentColor"
+  />
+</svg>
+`;
+
 exports[`Icon props should render type 'transcripts' with prop background 1`] = `
 <svg
   aria-hidden="true"
@@ -6209,6 +6647,90 @@ exports[`Icon props should render type 'twitter' with prop size 1`] = `
     fill="transparent"
     stroke="currentColor"
     stroke-linejoin="round"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'video-file' with prop background 1`] = `
+<svg
+  aria-hidden="true"
+  background="#fff"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect
+    height="15"
+    rx="1"
+    stroke="currentColor"
+    width="19"
+    x="2.5"
+    y="4.5"
+  />
+   
+  <path
+    d="M9.55 15.1101V8.88992L15.7702 12L9.55 15.1101Z"
+    stroke="currentColor"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'video-file' with prop color 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="24"
+  viewBox="0 0 24 24"
+  width="24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect
+    height="15"
+    rx="1"
+    stroke="#fff"
+    width="19"
+    x="2.5"
+    y="4.5"
+  />
+   
+  <path
+    d="M9.55 15.1101V8.88992L15.7702 12L9.55 15.1101Z"
+    stroke="#fff"
+    stroke-linejoin="round"
+    stroke-width="1.1"
+  />
+</svg>
+`;
+
+exports[`Icon props should render type 'video-file' with prop size 1`] = `
+<svg
+  aria-hidden="true"
+  background="currentColor"
+  fill="none"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect
+    height="15"
+    rx="1"
+    stroke="currentColor"
+    width="19"
+    x="2.5"
+    y="4.5"
+  />
+   
+  <path
+    d="M9.55 15.1101V8.88992L15.7702 12L9.55 15.1101Z"
+    stroke="currentColor"
+    stroke-linejoin="round"
+    stroke-width="1.1"
   />
 </svg>
 `;

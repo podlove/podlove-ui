@@ -1,6 +1,6 @@
 <template>
   <span class="play-inner" aria-hidden="true">
-    <icon type="play" :color="color" />
+    <icon type="play" :color="color" :size="size" />
     <slot />
   </span>
 </template>
@@ -17,6 +17,10 @@ export default {
     color: {
       type: String,
       default: color
+    },
+    size: {
+      type: Number,
+      default: 25
     }
   }
 }

@@ -15,6 +15,10 @@ import LinkIcon from './states/Link'
 import ChapterIcon from './states/Chapter'
 import DownloadIcon from './states/Download'
 import AudioFileIcon from './states/AudioFile'
+import ImageFileIcon from './states/ImageFile'
+import PdfFileIcon from './states/PdfFile'
+import TextFileIcon from './states/TextFile'
+import VideoFileIcon from './states/VideoFile'
 import EmbedIcon from './states/Embed'
 import TwitterIcon from './states/Twitter'
 import RedditIcon from './states/Reddit'
@@ -55,6 +59,7 @@ import PlaylistIcon from './states/Playlist'
 import SearchIcon from './states/Search'
 import MenuPlayIcon from './states/MenuPlay'
 import MenuPauseIcon from './states/MenuPause'
+import MenuEmptyIcon from './states/MenuEmpty'
 import MessengerIcon from './states/Messenger'
 import CheckMarkIcon from './states/CheckMark'
 import ChevronRightIcon from './states/ChevronRight'
@@ -81,6 +86,10 @@ export const types = [
   'chapter',
   'download',
   'audio-file',
+  'image-file',
+  'pdf-file',
+  'text-file',
+  'video-file',
   'embed',
   'twitter',
   'reddit',
@@ -121,6 +130,7 @@ export const types = [
   'search',
   'menu-play',
   'menu-pause',
+  'menu-empty',
   'messenger',
   'check-mark',
   'chevron-left',
@@ -147,6 +157,10 @@ export const components = {
   ChapterIcon,
   DownloadIcon,
   AudioFileIcon,
+  ImageFileIcon,
+  PdfFileIcon,
+  TextFileIcon,
+  VideoFileIcon,
   EmbedIcon,
   TwitterIcon,
   RedditIcon,
@@ -187,6 +201,7 @@ export const components = {
   SearchIcon,
   MenuPlayIcon,
   MenuPauseIcon,
+  MenuEmptyIcon,
   MessengerIcon,
   CheckMarkIcon,
   ChevronRightIcon,

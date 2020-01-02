@@ -293,7 +293,8 @@ describe('transcripts', () => {
       gen.next()
       gen.next()
 
-      const [type, func] = params(gen.next().value)
+      const [delay, type, func] = params(gen.next().value)
+      expect(delay).toEqual(400)
       expect(type).toEqual(SEARCH_TRANSCRIPTS)
       expect(func).toEqual(search)
     })
@@ -408,9 +409,9 @@ describe('transcripts', () => {
       expect(gen.next().value).toEqual(put(setTranscriptsSearchResults(10)))
     })
 
-    test('should not call SET_SEARCH_TRANSCRIPTS_RESULTS when searchIndex returns falsy', () => {
+    test('should call with empty array SET_SEARCH_TRANSCRIPTS_RESULTS ', () => {
       searchFn.mockReturnValue(null)
-      expect(gen.next().done).toBeTruthy()
+      expect(gen.next().value).toEqual(put(setTranscriptsSearchResults([])))
     })
 
     test('should end the saga', () => {

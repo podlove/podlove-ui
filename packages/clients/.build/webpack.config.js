@@ -1,6 +1,4 @@
-const path = require('path')
-const glob = require('glob')
-const { resolve, rules, plugins } = require('@podlove/build')
+const { rules, plugins } = require('@podlove/build')
 
 module.exports = {
   mode: 'production',

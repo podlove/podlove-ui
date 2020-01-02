@@ -1,11 +1,12 @@
 <template lang="pug">
   div.flex.px-2.-mx-2.cursor-pointer.rounded-sm(:class="{'font-medium': episode.active}" :style="style" @mouseover="mouseOverHandler" @mouseleave="mouseLeaveHandler" :data-test="`tab-playlist--entry${episode.active ? '--active' : ''}`")
-    span.w-8.py-2.mr-2(v-if="episode.active" @click="play()" aria-hidden="true" data-test="tab-playlist--entry--interaction")
+
+    span.w-8.py-2.mr-2.flex.justify-center.items-center(v-if="episode.active" @click="play()" aria-hidden="true" data-test="tab-playlist--entry--interaction")
       icon(:type="playing ? 'menu-pause' : 'menu-play'" :size="24")
 
-    span.w-8.py-2.mr-2(v-else @click="select({ index, play: true })" aria-hidden="true" data-test="tab-playlist--entry--interaction")
+    span.w-8.py-2.mr-2.flex.justify-center.items-center(v-else @click="select({ index, play: true })" aria-hidden="true" data-test="tab-playlist--entry--interaction")
       icon(v-if="hover" type="menu-play" :size="24")
-      span(v-else) {{ index + 1 }}
+      icon(v-else type="menu-empty" :size="12")
 
     span.block.w-full.py-2.mr-2(@click="select({ index, play: true })" data-test="tab-playlist--entry--title") {{ episode.title }}
 

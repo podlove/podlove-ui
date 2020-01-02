@@ -1,19 +1,20 @@
 {
   "name": "@podlove/clients",
-  "version": "5.0.1-beta.0",
+  "version": "5.0.1-beta.1",
   "description": "A comprehensive list of podcast clients",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
     "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "devDependencies": {
-    "@podlove/build": "^5.0.1-beta.0",
+    "@podlove/build": "^5.0.1-beta.1",
     "webpack": "4.41.2"
   }
 }

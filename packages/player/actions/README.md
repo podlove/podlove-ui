@@ -1,17 +1,17 @@
-# Player Actions
+# Player Actions [PLAYER_]
 
 > Player API/Events that establish side effects and state changes based on [redux-actions](https://github.com/redux-utilities/redux-actions)
 
 ```javascript
 {
-  type: 'SET_PLAYTIME',
+  type: 'PLAYER_SHOW_LIST',
   payload: 102020
 }
 ```
 
 ## Types
 
-All Player action tyoes are defined within `@podlove/player-action/types` which is the foundation for all actions.
+All Player action types are defined within `@podlove/player-action/types` which is the foundation for all actions.
 
 ## Actions
 
