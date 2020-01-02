@@ -7,7 +7,7 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: auto;"
+    style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <div
       aria-hidden="true"
@@ -24,17 +24,17 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
       >
         <div
           class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
          
         <div
           class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
          
         <div
           class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
       </div>
     </div>
@@ -49,7 +49,7 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <div
       aria-hidden="true"
@@ -66,17 +66,17 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
       >
         <div
           class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
          
         <div
           class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
          
         <div
           class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
       </div>
     </div>
@@ -91,7 +91,7 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <div
       aria-hidden="true"
@@ -108,17 +108,17 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
       >
         <div
           class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
          
         <div
           class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
          
         <div
           class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
         />
       </div>
     </div>
@@ -133,7 +133,7 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: auto;"
+    style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -147,9 +147,9 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
         aria-hidden="true"
         background="currentColor"
         fill="none"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect
@@ -183,7 +183,7 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -197,9 +197,9 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
         aria-hidden="true"
         background="currentColor"
         fill="none"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect
@@ -233,7 +233,7 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -247,9 +247,9 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
         aria-hidden="true"
         background="currentColor"
         fill="none"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect
@@ -289,7 +289,7 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: auto;"
+    style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -303,9 +303,9 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
         aria-hidden="true"
         background="currentColor"
         fill="none"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -326,7 +326,7 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -340,9 +340,9 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
         aria-hidden="true"
         background="currentColor"
         fill="none"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -363,7 +363,7 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -377,9 +377,9 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
         aria-hidden="true"
         background="currentColor"
         fill="none"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -406,7 +406,7 @@ exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(255, 255, 255); width: auto;"
+    style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -419,9 +419,9 @@ exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -442,7 +442,7 @@ exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -455,9 +455,9 @@ exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -478,7 +478,7 @@ exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
 >
   <div
     class="wrapper"
-    style="background-color: rgb(43, 138, 198); width: auto;"
+    style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
     <span
       aria-hidden="true"
@@ -491,9 +491,9 @@ exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
       <svg
         aria-hidden="true"
         background="currentColor"
-        height="24"
+        height="25"
         viewBox="0 0 24 24"
-        width="24"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

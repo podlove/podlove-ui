@@ -2231,17 +2231,17 @@ exports[`Icon props should render type 'loading' with prop background 1`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2254,17 +2254,17 @@ exports[`Icon props should render type 'loading' with prop background 2`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 12px; height: 12px;"
+    style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2277,17 +2277,17 @@ exports[`Icon props should render type 'loading' with prop color 1`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2300,17 +2300,17 @@ exports[`Icon props should render type 'loading' with prop color 2`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: rgb(255, 255, 255); width: 12px; height: 12px;"
+    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
 </div>
 `;
@@ -2323,17 +2323,17 @@ exports[`Icon props should render type 'loading' with prop size 1`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
 </div>
 `;
@@ -2346,17 +2346,17 @@ exports[`Icon props should render type 'loading' with prop size 2`] = `
 >
   <div
     class="loading-bubble first"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble second"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
    
   <div
     class="loading-bubble third"
-    style="background: currentColor; width: 20px; height: 20px;"
+    style="background: currentColor; width: 10px; height: 10px;"
   />
 </div>
 `;

@@ -1,6 +1,6 @@
 <template>
   <span class="pause-inner" aria-hidden="true">
-    <icon type="pause" :color="color" />
+    <icon type="pause" :color="color" :size="size" />
     <slot />
   </span>
 </template>
@@ -17,6 +17,10 @@ export default {
     color: {
       type: String,
       default: color
+    },
+    size: {
+      type: Number,
+      default: 25
     }
   }
 }

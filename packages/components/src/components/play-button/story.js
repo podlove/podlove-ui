@@ -1,4 +1,4 @@
-import { select, color, text } from '@storybook/addon-knobs'
+import { select, color, text, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 
 import PlayButton from '.'
@@ -21,6 +21,9 @@ export default () => ({
     },
     label: {
       default: text('label', '')
+    },
+    size: {
+      default: number('size', 50)
     }
   },
   template: `
@@ -29,6 +32,7 @@ export default () => ({
       :color="color"
       :background="background"
       :label="label"
+      :size="size"
       @click="action"
     >
     </play-button>`,
