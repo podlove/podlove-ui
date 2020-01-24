@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@podlove/build": "^5.0.1-beta.1",
+    "awesome-typescript-loader": "5.2.1",
     "cypress": "3.5.0",
     "cypress-plugin-retries": "1.5.2",
     "http-server": "0.11.1",
