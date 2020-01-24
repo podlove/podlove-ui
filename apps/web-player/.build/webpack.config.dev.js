@@ -10,9 +10,9 @@ module.exports = {
   mode: 'development',
 
   entry: {
-    embed: './src/embed.js',
-    share: './src/share.js',
-    polyfills: './src/polyfills.js',
+    embed: './src/embed.ts',
+    share: './src/share.ts',
+    polyfills: './src/polyfills.ts',
     'extensions/external-events': './src/extensions/external-events.js'
   },
   output: output(),
@@ -28,6 +28,7 @@ module.exports = {
   module: {
     rules: [
       rules.javascript(),
+      rules.typescript(),
       rules.style.config(rules.style.test.scss, [
         rules.style.loader.css(),
         rules.style.loader.postcss({

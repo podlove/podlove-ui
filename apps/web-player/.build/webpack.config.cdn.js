@@ -12,9 +12,9 @@ module.exports = {
   mode: 'production',
 
   entry: {
-    embed: './src/embed.js',
-    share: './src/share.js',
-    polyfills: './src/polyfills.js',
+    embed: './src/embed.ts',
+    share: './src/share.ts',
+    polyfills: './src/polyfills.ts',
     'extensions/external-events': './src/extensions/external-events.js'
   },
 
@@ -30,6 +30,7 @@ module.exports = {
   module: {
     rules: [
       rules.javascript(),
+      rules.typescript(),
       rules.style.config(rules.style.test.scss, [
         rules.style.loader.css(),
         rules.style.loader.postcss({

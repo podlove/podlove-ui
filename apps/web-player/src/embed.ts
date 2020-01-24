@@ -3,7 +3,7 @@ import { init as playerInit } from '@podlove/player-actions/lifecycle'
 import { init as buttonInit } from '@podlove/button-actions/lifecycle'
 import * as configParser from '@podlove/player-config'
 
-import { version } from '../package'
+import { version } from '../package.json'
 
 import * as context from './lib/context'
 import canvas from './lib/canvas'
@@ -26,7 +26,7 @@ const podlovePlayer = async (selector, episode, meta) => {
     playerStore.dispatch(playerInit(config))
 
     if (configParser.subscribeButton(config)) {
-      const buttonStore = await subscribeButton.create(config, target)
+      const buttonStore = await subscribeButton.create(config)
 
       buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
 
@@ -51,6 +51,6 @@ const podlovePlayer = async (selector, episode, meta) => {
   }
 }
 
-if (typeof window.podlovePlayer === 'undefined') {
-  window.podlovePlayer = podlovePlayer
+if (typeof (window as any).podlovePlayer === 'undefined') {
+  (window as any).podlovePlayer = podlovePlayer
 }

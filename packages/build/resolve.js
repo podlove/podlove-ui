@@ -10,6 +10,6 @@ const resolveAlias = (alias = {}) =>
   )
 
 module.exports = (alias = {}) => ({
-  extensions: ['*', '.js', '.vue', '.json'],
+  extensions: ['*', '.js', '.vue', '.json', '.ts'],
   alias: resolveAlias(alias)
 })

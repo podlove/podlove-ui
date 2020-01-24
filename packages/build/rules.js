@@ -106,6 +106,12 @@ const html = (options = {}) => ({
   }
 })
 
+const typescript = () => ({
+  test: /\.tsx?$/,
+  use: 'ts-loader',
+  exclude: /node_modules/
+})
+
 module.exports = {
   vue,
   javascript,
@@ -117,5 +123,6 @@ module.exports = {
   url,
   graphql,
   style,
-  html
+  html,
+  typescript
 }

@@ -10,9 +10,9 @@ module.exports = {
   mode: 'production',
 
   entry: {
-    embed: './src/embed.js',
-    share: './src/share.js',
-    polyfills: './src/polyfills.js',
+    embed: './src/embed.ts',
+    share: './src/share.ts',
+    polyfills: './src/polyfills.ts',
     'extensions/external-events': './src/extensions/external-events.js'
   },
 
@@ -22,12 +22,13 @@ module.exports = {
 
   resolve: resolve({
     '@podlove/player': playerAssets,
-    '@podlove/subscribe-button': subscribeButtonAssets
+    '@podlove/subscribe-button': subscribeButtonAssets    
   }),
 
   module: {
     rules: [
       rules.javascript(),
+      rules.typescript(),
       rules.style.config(rules.style.test.scss, [
         rules.style.loader.css(),
         rules.style.loader.postcss({
@@ -41,7 +42,7 @@ module.exports = {
       rules.mustache(),
       rules.html({
         minimize: true
-      })
+      }),
     ]
   },
 
