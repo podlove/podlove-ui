@@ -2,9 +2,9 @@ import { findNode } from '@podlove/utils/dom'
 import { html } from '@podlove/utils/request'
 import variant from '../templates'
 
-const fetchTemplate = async node => {
-  const templateUrl = node.getAttribute('data-template')
-  const type = node.getAttribute('data-variant')
+const fetchTemplate = async (node: HTMLElement): Promise<string> => {
+  const templateUrl: string = node.getAttribute('data-template')
+  const type: string = node.getAttribute('data-variant')
 
   if (templateUrl) {
     return await html(templateUrl)

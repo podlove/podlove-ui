@@ -35,6 +35,8 @@
   },
   "devDependencies": {
     "@podlove/build": "^5.0.1-beta.1",
+    "@types/node": "13.5.0",
+    "@types/ramda": "0.26.40",
     "awesome-typescript-loader": "5.2.1",
     "cypress": "3.5.0",
     "cypress-plugin-retries": "1.5.2",
