@@ -4,7 +4,10 @@
         "allowJs": true,
         "target": "es5",
         "resolveJsonModule": true,
-        "preserveSymlinks": true,
+        "moduleResolution": "node",
+        "module": "esnext",
+        "importHelpers": true,
+        "lib": ["es2017", "dom"]
     },
     "include": [
         "./src/**/*"
