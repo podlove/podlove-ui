@@ -1,8 +1,9 @@
 import { findNode } from '@podlove/utils/dom'
 import { html } from '@podlove/utils/request'
 import variant from '../templates'
+import { curry } from 'ramda'
 
-const fetchTemplate = async (node: HTMLElement): Promise<string> => {
+const fetchTemplate = async (node: HTMLElement): Promise<string|null> => {
   const templateUrl: string = node.getAttribute('data-template')
   const type: string = node.getAttribute('data-variant')
 
@@ -20,6 +21,8 @@ const fetchTemplate = async (node: HTMLElement): Promise<string> => {
 
   return variant('xl')
 }
+
+export const x = curry((a,b) => {return a + b});
 
 export default async selector => {
   const node = findNode(selector)

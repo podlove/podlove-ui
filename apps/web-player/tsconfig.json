@@ -4,6 +4,7 @@
         "allowJs": true,
         "target": "es5",
         "resolveJsonModule": true,
+        "preserveSymlinks": true,
     },
     "include": [
         "./src/**/*"

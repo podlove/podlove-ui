@@ -16,7 +16,7 @@ const podlovePlayer = async (selector, episode, meta) => {
   let target
 
   try {
-    const config = await parseConfig(episode, meta)
+    const config:any = await parseConfig(episode, meta)
     context.create(config)
     target = await canvas(selector)
 
@@ -39,7 +39,7 @@ const podlovePlayer = async (selector, episode, meta) => {
 
     try {
       player.restore(config, playerStore)
-    } catch (e) {}
+    } catch (e) { }
 
     return playerStore
   } catch (err) {
