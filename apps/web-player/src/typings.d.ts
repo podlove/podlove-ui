@@ -1,4 +1,122 @@
 declare module '*.html' {
-    const value: string;
-    export default value;
+  const value: string;
+  export default value;
+}
+
+interface CompleteConfig {
+  episode: Episode.Config | {};
+  config: Player.Config | {};
+}
+
+declare namespace Episode {
+
+  interface Show {
+    title: string;
+    subtitle: string;
+    summary: string;
+    poster: string;
+    link: string;
   }
+
+  type AudioMimeType = "audio\/mp4" | "audio\/opus" | "audio\/ogg" | "audio\/mpeg";
+
+  interface AudioFileMeta {
+    url: string;
+    size: string;
+    title: string;
+    mimeType: AudioMimeType;
+  }
+
+  interface ContributorRole {
+    id: string;
+    slug: string;
+    title: string;
+  }
+
+  interface ContributorGroup {
+    id: string;
+    slug: string;
+    title: string;
+  }
+
+  interface Contributor {
+    id: string;
+    name: string;
+    avatar: string
+    role: ContributorRole;
+    group: ContributorGroup;
+    comment?: string;
+  }
+
+  interface Config {
+    version: number;
+    show: Show;
+    title: string;
+    subtitle: string;
+    summary: string;
+    publicationDate: string;
+    poster: string;
+    duration: string;
+    link: string;
+    audio: AudioFileMeta[];
+    chapters: string;
+    contributors: Contributor[];
+    transcripts: string;
+  }
+}
+
+
+
+declare namespace Player {
+  interface Token {
+    brand: string;
+    brandDark: string;
+    brandDarkest: string;
+    brandLightest: string;
+    shadeDark: string;
+    shadeBase: string;
+    contrast: string;
+    alt: string;
+  }
+
+  interface Font {
+    name: string;
+    family: string[];
+    weight: number;
+    src: string[];
+  }
+
+
+  interface Theme {
+    tokens: Token
+    fonts: { [key: string]: Font }
+  }
+
+  interface Share {
+    channels: string[];
+    outlet: string;
+    sharePlayTime: boolean;
+  }
+
+
+  interface Config {
+    activeTab: string;
+    theme: Theme;
+    "subscribe-button": SubscribeButton.Button;
+    playlist: string;
+    share: Share;
+    base: string;
+  }
+}
+
+declare namespace SubscribeButton {
+  interface Client {
+    id: string;
+    service: string;
+  }
+
+  interface Button {
+    feed: string;
+    clients: Client[];
+  }
+}
