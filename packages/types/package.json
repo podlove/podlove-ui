@@ -1,0 +1,16 @@
+{
+  "name": "@podlove/types",
+  "version": "5.0.1-beta.1",
+  "description": "Shared Types for podlove-ui",
+  "keywords": [
+    "typescript",
+    "types"
+  ],
+  "author": "Andreas Houben <andreas.houben@googlemail.com>",
+  "homepage": "https://github.com/podlove/podlove-ui#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/podlove/podlove-ui.git"
+  }
+}

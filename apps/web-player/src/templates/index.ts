@@ -1,7 +1,8 @@
 import { toUpper, prop } from 'ramda'
+import { config } from '../subscribe-button'
 
 export default async (type = ''):Promise<string> => {
-  switch (toUpper(type)) {
+  switch (toUpper(type)) {  
     case 'XL':
       return await import(/* webpackChunkName: 'variant-xl' */ './variant-xl.html').then(
         prop('default')

@@ -1,14 +1,7 @@
 {
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "./dist",
-        "allowJs": true,
-        "target": "es5",
-        "resolveJsonModule": true,
-        "moduleResolution": "node",
-        "module": "esnext",
-        "importHelpers": true,
-        "lib": ["es2017", "dom"],
-        "sourceMap": true
+        "outDir": "./dist",        
     },
     "include": [
         "./src/**/*"
