@@ -10,6 +10,13 @@ interface CompleteConfig {
 
 declare namespace Episode {
 
+  interface Chapter {
+    start: string;
+    title: string;
+    href: string;
+    image: string;
+  }
+
   interface Show {
     title: string;
     subtitle: string;
@@ -59,7 +66,7 @@ declare namespace Episode {
     duration: string;
     link: string;
     audio: AudioFileMeta[];
-    chapters: string;
+    chapters: string | Chapter[];
     contributors: Contributor[];
     transcripts: string;
   }
@@ -98,12 +105,19 @@ declare namespace Player {
     sharePlayTime: boolean;
   }
 
+  interface PlaylistItem {
+    title: string;
+    config: string | Episode.Config;
+    duration: string;
+  }
+
+  type Playlist = PlaylistItem[];
 
   interface Config {
     activeTab: string;
     theme: Theme;
     "subscribe-button": SubscribeButton.Button;
-    playlist: string;
+    playlist: string | Playlist;
     share: Share;
     base: string;
   }
