@@ -3,7 +3,7 @@ import { mergeDeepRight, propOr, pathOr } from 'ramda'
 import { json } from '@podlove/utils/request'
 import * as playerConfig from '@podlove/player-config'
 
-const chapters = async (config: playerConfig.Episode.Config): Promise<playerConfig.Episode.Chapter[]> => {
+const chapters = async (config: playerConfig.Episode.Config): Promise<playerConfig.Episode.Chapters> => {
   try {
     return json<playerConfig.Episode.Chapter[]>(playerConfig.chapters(config))
   } catch (err) {
@@ -12,7 +12,7 @@ const chapters = async (config: playerConfig.Episode.Config): Promise<playerConf
   }
 }
 
-const transcripts = async (config: playerConfig.Episode.Config): Promise<playerConfig.Episode.Transcript[]> => {
+const transcripts = async (config: playerConfig.Episode.Config): Promise<playerConfig.Episode.Transcripts> => {
   try {
     return json(playerConfig.transcripts(config))
   } catch (err) {

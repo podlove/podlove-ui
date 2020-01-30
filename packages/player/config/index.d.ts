@@ -60,6 +60,10 @@ export declare namespace Episode {
     text: string
   }
 
+  type Chapters = Chapter[]
+
+  type Transcripts = Transcript[]
+
   interface Config {
     version: number;
     show: Show;
@@ -71,9 +75,9 @@ export declare namespace Episode {
     duration: string;
     link: string;
     audio: AudioFileMeta[];
-    chapters: string | Chapter[];
+    chapters: string | Chapters;
     contributors: Contributor[];
-    transcripts: string;
+    transcripts: string | Transcripts;
   }
 }
 
