@@ -30,15 +30,20 @@ const playlist = async (config: playerConfig.Player.Config): Promise<playerConfi
   }
 }
 
-const reference = ({ episode, config }, resolved) => ({
+const reference = ({ episode, config }, resolved: Resolved) => ({
   episode: typeof episode === 'string' ? episode : null,
   config: typeof config === 'string' ? config : null,
-  base: propOr(null, 'base', resolved.config),
+  base: propOr<null, playerConfig.Player.Config, string>(null, 'base', resolved.config),
   share: pathOr(null, ['share', 'outlet'], resolved.config)
 })
 
-export const parseConfig = async (episode: string, config: string) => {
-  const resolved: playerConfig.CompleteConfig = {
+type Resolved = {
+  episode: playerConfig.Episode.Config;
+  config: playerConfig.Player.Config;
+}
+
+export const parseConfig = async (episode: string, config: string): Promise<playerConfig.CompleteConfig> => {
+  const resolved: Resolved = {
     episode: undefined,
     config: undefined
   }
@@ -64,5 +69,5 @@ export const parseConfig = async (episode: string, config: string) => {
       playlist: await playlist(resolved.config),
       reference: reference({ episode, config }, resolved)
     })
-  )
+  );
 }

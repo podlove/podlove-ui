@@ -1,6 +1,12 @@
-export interface CompleteConfig {
-  episode: Episode.Config;
-  config: Player.Config;
+
+type CombinedConfig = Player.Config & Episode.Config;
+export interface CompleteConfig extends CombinedConfig {
+  reference?: {
+    episode: string;
+    config: string;
+    base: string;
+    share: string;
+  }
 }
 
 export declare namespace Episode {
