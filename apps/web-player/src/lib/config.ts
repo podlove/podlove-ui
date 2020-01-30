@@ -3,9 +3,9 @@ import { mergeDeepRight, propOr, pathOr } from 'ramda'
 import { json } from '@podlove/utils/request'
 import * as playerConfig from '@podlove/player-config'
 
-const chapters = async config => {
+const chapters = async (config: playerConfig.Episode.Config): Promise<playerConfig.Episode.Chapter[]> => {
   try {
-    return json(playerConfig.chapters(config))
+    return json<playerConfig.Episode.Chapter[]>(playerConfig.chapters(config))
   } catch (err) {
     console.warn(`Couldn't parse chapters "${chapters}", falling back to empty list`)
     return []

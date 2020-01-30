@@ -4,7 +4,7 @@
  * 
  * @param templateUrl The url to fetch
  */
-export function html(templateUrl: string): Promise<string|null>;
+export function html(templateUrl: string): Promise<string | null>;
 
 
 /**
@@ -12,4 +12,4 @@ export function html(templateUrl: string): Promise<string|null>;
  * @returns{Promise<T>} A promise of the json object typed by T
  * @param url The url to fetch
  */
-export function json<T>(url: string): Promise<T>;
+export function json<T>(url: string | any): Promise<T | any>;
