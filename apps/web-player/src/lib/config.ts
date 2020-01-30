@@ -12,7 +12,7 @@ const chapters = async (config: playerConfig.Episode.Config): Promise<playerConf
   }
 }
 
-const transcripts = async config => {
+const transcripts = async (config: playerConfig.Episode.Config): Promise<playerConfig.Episode.Transcript[]> => {
   try {
     return json(playerConfig.transcripts(config))
   } catch (err) {
@@ -21,7 +21,7 @@ const transcripts = async config => {
   }
 }
 
-const playlist = async config => {
+const playlist = async (config: playerConfig.Player.Config): Promise<playerConfig.Player.Playlist> => {
   try {
     return json(playerConfig.playlist(config))
   } catch (err) {
@@ -37,20 +37,20 @@ const reference = ({ episode, config }, resolved) => ({
   share: pathOr(null, ['share', 'outlet'], resolved.config)
 })
 
-export const parseConfig = async (episode, config) => {
-  const resolved = {
-    episode: {},
-    config: {}
+export const parseConfig = async (episode: string, config: string) => {
+  const resolved: playerConfig.CompleteConfig = {
+    episode: undefined,
+    config: undefined
   }
 
   try {
-    resolved.episode = await json(episode)
+    resolved.episode = await json<playerConfig.Episode.Config>(episode)
   } catch (err) {
     throw new Error(`Couldn't parse episode configuration "${episode}"`)
   }
 
   try {
-    resolved.config = await json(config)
+    resolved.config = await json<playerConfig.Player.Config>(config)
   } catch (err) {
     throw new Error(`Couldn't parse player configuration  "${config}"`)
   }

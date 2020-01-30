@@ -1,6 +1,6 @@
 export interface CompleteConfig {
-  episode: Episode.Config | {};
-  config: Player.Config | {};
+  episode: Episode.Config;
+  config: Player.Config;
 }
 
 export declare namespace Episode {
@@ -48,6 +48,16 @@ export declare namespace Episode {
     role: ContributorRole;
     group: ContributorGroup;
     comment?: string;
+  }
+
+  interface Transcript {
+    start: string;
+    start_ms: string;
+    end: string;
+    end_ms: number,
+    speaker: string,
+    voice: string,
+    text: string
   }
 
   interface Config {
@@ -130,3 +140,9 @@ export declare namespace SubscribeButton {
 
 
 export function chapters(config: Episode.Config): string | Episode.Chapter[]
+
+export function transcripts(config: Episode.Config): string | Episode.Transcript[]
+
+export function playlist(config: Player.Config): string | Player.Playlist;
+
+export function subscribeButton(config: CompleteConfig): SubscribeButton.Button; 
