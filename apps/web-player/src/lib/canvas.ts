@@ -3,7 +3,7 @@ import { html } from '@podlove/utils/request'
 import variant from '../templates'
 import { curry } from 'ramda'
 
-const fetchTemplate = async (node: HTMLElement): Promise<string|null> => {
+const fetchTemplate = async (node: HTMLElement): Promise<string | null> => {
   const templateUrl: string = node.getAttribute('data-template')
   const type: string = node.getAttribute('data-variant')
 
@@ -22,9 +22,13 @@ const fetchTemplate = async (node: HTMLElement): Promise<string|null> => {
   return variant('xl')
 }
 
-export const x = curry((a,b) => {return a + b});
+export interface Canvas {
+  node: HTMLElement,
+  template: string,
+  init: () => void;
+}
 
-export default async selector => {
+export default async (selector: string): Promise<Canvas> => {
   const node = findNode(selector)
 
   return {

@@ -6,14 +6,14 @@ import * as configParser from '@podlove/player-config'
 import { version } from '../package.json'
 
 import * as context from './lib/context'
-import canvas from './lib/canvas'
+import canvas, { Canvas } from './lib/canvas'
 import connect from './lib/connect'
 import { parseConfig } from './lib/config'
 import * as player from './player'
 import * as subscribeButton from './subscribe-button'
 
-const podlovePlayer = async (selector, episode, meta) => {
-  let target
+const podlovePlayer = async (selector: string, episode: string, meta: string) => {
+  let target: Canvas;
 
   try {
     const config: configParser.CompleteConfig = await parseConfig(episode, meta)    

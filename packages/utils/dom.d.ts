@@ -1,5 +1,5 @@
 export type AttributesObj = {
-  [key: string]: 'string'
+  [key: string]: string | number
 }
 
 export function findNode(selector:string):HTMLElement;
@@ -26,6 +26,6 @@ export function removeClasses(classes: string[]):(el:HTMLElement) => HTMLElement
 
 export function sanitize(input: string| Node): string;
 
-export function setAttributes(arrs: AttributesObj):(el:HTMLElement)=> HTMLElement;
+export function setAttributes(...arrs: AttributesObj[]):(el:HTMLElement)=> HTMLElement;
 
 export function resizeObserver(element:HTMLElement):(cb:MutationCallback) => void;

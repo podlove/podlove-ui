@@ -5,6 +5,7 @@ import { setAttributes, setStyles } from '@podlove/utils/dom'
 import { sandbox, sandboxWindow, resize } from '@podlove/utils/sandbox'
 import { iframeResizer } from 'iframe-resizer'
 // eslint-disable-next-line
+// @ts-ignore
 import iframeResizerContentWindow from 'raw-loader!iframe-resizer/js/iframeResizer.contentWindow.min.js'
 import template from './template.mustache'
 
@@ -14,9 +15,10 @@ import { persistPlayer } from './persist'
 import { activeTab } from './active-tab'
 import { visibleComponents } from './components'
 
-import { version } from '../../package'
+import { version } from '../../package.json'
+import { CompleteConfig } from '@podlove/player-config'
 
-const setAccessibilityAttributes = curry((config, node) => {
+const setAccessibilityAttributes = curry((config: CompleteConfig, node: any) => {
   const title = `Podlove Web Player${prop('title', config) ? ': ' + prop('title', config) : ''}`
 
   return setAttributes(
@@ -31,13 +33,13 @@ const setAccessibilityAttributes = curry((config, node) => {
 
 export const create = async (config, target) => {
   const playerDom = template({
-    root: window.resourceBaseUrl,
+    root: window['resourceBaseUrl'],
     base: `${version}/player/`,
     styles: PLAYER_STYLES,
     scripts: PLAYER_SCRIPTS,
     template: target.template,
     resizer: iframeResizerContentWindow,
-    loader: createLoader(config)
+    loader: createLoader()
   })
 
   const player = await sandbox(target.node, playerDom)
