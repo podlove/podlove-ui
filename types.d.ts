@@ -3,6 +3,7 @@ declare module '*.html' {
   export default value;
 }
 
+
 interface CompleteConfig {
   episode: Episode.Config | {};
   config: Player.Config | {};
