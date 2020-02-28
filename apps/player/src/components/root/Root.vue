@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { identity } from 'ramda'
 import { mapState } from 'redux-vuex'
 import { Font } from '@podlove/components'
 import select from 'store/selectors'
