@@ -42,7 +42,7 @@
                     <step-backward class="mx-2 block"></step-backward>
                   </play-state>
 
-                  <play-button class="mx-2 block" label="Podcast abspielen"></play-button>
+                  <play-button class="mx-2 block" :label="state.duration"></play-button>
 
                   <play-state on="active">
                     <step-forward class="mx-2 block"></step-forward>

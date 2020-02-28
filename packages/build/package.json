@@ -16,7 +16,7 @@
   "dependencies": {
     "@babel/plugin-proposal-object-rest-spread": "7.6.2",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
-    "@babel/preset-env": "7.6.3",
+    "@babel/preset-env": "7.8.6",
     "@csstools/postcss-sass": "4.0.0",
     "@podlove/utils": "^5.0.1-beta.1",
     "autoprefixer": "9.7.3",
