@@ -9,6 +9,7 @@
     "DEBUG_STATE": "Elporti sencimigan staton"
   },
   "PLAYER": {
+    "PLAY_EPISODE": "Ludigi podkaston",
     "REPLAY": "Ripeti",
     "RETRY": "Reprovi"
   },
@@ -20,14 +21,19 @@
     "MEDIA": {
       "TITLE": "Mankantaj sondosieroj",
       "MESSAGE": "La disponebla agordo estas erara. Sen sondosieroj nenio povas esti ludigata."
+    },
+    "CONFIG": {
+      "TITLE": "Mankantaj epizodaj agordoj",
+      "MESSAGE": "Ne eblis trovi la epizodaj agordoj. Aŭ ili mankas sur la servilo aŭ mankas al vi la konekto tien."
     }
   },
   "FILES": {
     "TITLE": "Dosieroj",
     "TYPES": {
-      "AUDIO": {
-        "HEADER": "Sondosieroj"
-      }
+      "AUDIO": "Sondosieroj",
+      "PDF": "PDF",
+      "TEXT": "Teksto",
+      "VIDEO": "Videaĵo"
     },
     "ACTIONS": {
       "DOWNLOAD": "Elŝuti",
@@ -52,21 +58,22 @@
     "ACTIONS": {
       "COPY": "kopii"
     },
+    "PLAYTIME": "Konigi nunan posicion ({playtime})",
     "EPISODE": {
       "TEXT": {
-        "BEGINNING": "\"{title}\" ({link}",
-        "CHAPTER": "\"{title}\" ({link}",
-        "PLAYTIME": "\"{title}\" ({link}"
+        "BEGINNING": "\"{title}\" ({link})",
+        "CHAPTER": "\"{title}\" ({link})",
+        "PLAYTIME": "\"{title}\" ({link})"
       },
     "SUBJECT": {
-      "BEGINNING": "\"{title}\" ({link}",
-      "CHAPTER": "\"{title}\" ({link}",
-      "PLAYTIME": "\"{title}\" ({link}"
+      "BEGINNING": "\"{title}\" ({link})",
+      "CHAPTER": "\"{title}\" ({link})",
+      "PLAYTIME": "\"{title}\" ({link})"
       }
     },
     "SHOW": {
-      "TEXT": "\"{title}\" ({link}",
-      "SUBJECT": "\"{title}\" ({link}"
+      "TEXT": "\"{title}\" ({link})",
+      "SUBJECT": "\"{title}\" ({link})"
     },
     "EMBED": {
       "TITLE": "Enigi epizodon",
@@ -79,7 +86,7 @@
       }
     }
   },
-  "INFO": {
+  "SHOWNOTES": {
     "TITLE": "Informoj",
     "PUBLICATION_DATE": "Publikigita: {day}.{month}.{year}",
     "ON_AIR": "Aŭdebla(j)",
@@ -89,13 +96,17 @@
   "TRANSCRIPTS": {
     "TITLE": "Transskribaĵo",
     "CHAPTER": "Ĉapitro {index}: {title}",
-    "FOLLOW": "Sekvi",
-    "SEARCH": "Serĉi",
+    "FOLLOW": {
+      "ACTIVE": "Haltigi tekston",
+      "INACTIVE": "Sekvi tekston"
+    }
+    "PLACEHOLDER": "Serĉi en la teksto",
     "NO_SEARCH_RESULTS": "Nenia rezulto"
   },
   "MESSAGES": {
     "COPIED": "Kopiite!"
   },
+  "SUBSCRIBE": "Aboni",
   "A11Y": {
     "ALT_EPISODE_COVER": "Epizoda bildo",
     "ALT_SHOW_COVER": "Seria bildo",
@@ -141,6 +152,7 @@
     "VOLUME_UNMUTE": "Malmutigi",
     "SET_VOLUME_IN_PERCENT": "Agordi laŭtecon je elcentoj",
     "DOWNLOAD_FILE": "Elŝuti dosieron: {url}",
-    "COPY_FILE": "Kopii URLn {url}"
+    "COPY_FILE": "Kopii URLn {url}",
+    "PAYLIST_ENTRY": "Ludigi epizodon {title}"
   }
 }
