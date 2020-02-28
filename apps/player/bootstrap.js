@@ -16,6 +16,10 @@ Vue.use(VTooltip)
 // Components
 import components from './src/components'
 
+// Mixins
+import registerMixins from './src/mixins'
+registerMixins(Vue)
+
 // Use public path from application
 __webpack_public_path__ = window.resourceBaseUrl || '/'
 
