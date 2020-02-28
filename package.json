@@ -13,7 +13,7 @@
   "devDependencies": {
     "webpack": "4.41.2",
     "vue": "2.6.11",
-    "@babel/core": "7.6.4",
+    "@babel/core": "7.8.6",
     "@babel/polyfill": "7.7.0",
     "@babel/plugin-proposal-object-rest-spread": "7.6.2",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
