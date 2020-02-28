@@ -16,7 +16,7 @@
     "@podlove/player-actions": "^5.0.1-beta.1",
     "@podlove/utils": "^5.0.1-beta.1",
     "@podlove/web-player": "^5.0.1-beta.1",
-    "jsoneditor": "5.32.5",
+    "jsoneditor": "8.5.2",
     "ramda": "0.26.1",
     "vue-color": "2.7.0"
   },
