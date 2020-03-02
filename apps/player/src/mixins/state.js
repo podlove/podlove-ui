@@ -19,7 +19,8 @@ export default Vue =>
           summary: selectors.show.summary(state),
           poster: selectors.show.poster(state),
           link: selectors.show.link(state)
-        }
+        },
+        playstate: selectors.playstate(state)
       })
     })
   })

@@ -20,6 +20,10 @@ import components from './src/components'
 import registerMixins from './src/mixins'
 registerMixins(Vue)
 
+// Filters
+import registerFilters from './src/filters'
+registerFilters(Vue)
+
 // Use public path from application
 __webpack_public_path__ = window.resourceBaseUrl || '/'
 

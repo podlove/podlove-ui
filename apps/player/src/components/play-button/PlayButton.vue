@@ -8,7 +8,7 @@ import { calcHours, calcMinutes, calcSeconds, toHumanTime } from '@podlove/utils
 import store from 'store'
 
 import select from 'store/selectors'
-import { PlayButton } from '@podlove/components'
+import PlayButton from '@podlove/components/play-button'
 
 export default {
   components: {

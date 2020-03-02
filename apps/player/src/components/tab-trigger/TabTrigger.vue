@@ -13,7 +13,7 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 import { prop } from 'ramda'
 
 import { toggleTab } from '@podlove/player-actions/tabs'

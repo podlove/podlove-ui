@@ -5,7 +5,7 @@
 
 <script>
 import { mapState, mapActions } from 'redux-vuex'
-import { Image } from '@podlove/components'
+import Image from '@podlove/components/image'
 
 import select from 'store/selectors'
 

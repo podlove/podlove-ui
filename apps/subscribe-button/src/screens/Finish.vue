@@ -16,7 +16,8 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Icon, Divider } from '@podlove/components'
+import Icon from '@podlove/components/icons'
+import Divider from '@podlove/components/divider'
 import { compose } from 'ramda'
 import FinishCard from 'components/finish-card'
 import store from 'store'

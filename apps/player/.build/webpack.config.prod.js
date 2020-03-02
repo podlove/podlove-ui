@@ -1,5 +1,5 @@
 const path = require('path')
-const { entry, output, resolve, rules, plugins, optimization } = require('@podlove/build')
+const { output, resolve, rules, plugins, optimization } = require('@podlove/build')
 const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
 
 module.exports = {
@@ -50,6 +50,7 @@ module.exports = {
   plugins: [
     plugins.vue(),
     plugins.css(),
+    plugins.bundleAnalyzer(),
     plugins.minifyCss(),
     plugins.version(),
     plugins.base('.'),

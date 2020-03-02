@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { InputCheckbox } from '@podlove/components'
+import InputCheckbox from '@podlove/components/input-checkbox'
 import { selectContent } from '@podlove/player-actions/share'
 import { toHumanTime } from '@podlove/utils/time'
 import { mapState } from 'redux-vuex'

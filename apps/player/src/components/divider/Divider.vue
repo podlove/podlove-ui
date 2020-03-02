@@ -4,7 +4,7 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Divider } from '@podlove/components'
+import Divider from '@podlove/components/divider'
 import select from 'store/selectors'
 
 export default {

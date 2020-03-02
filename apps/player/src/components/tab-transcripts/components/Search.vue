@@ -24,7 +24,7 @@
 <script>
 import { compose } from 'ramda'
 import { mapState } from 'redux-vuex'
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 
 import {
   searchTranscripts,

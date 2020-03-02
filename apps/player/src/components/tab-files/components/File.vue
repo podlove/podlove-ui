@@ -14,7 +14,7 @@
 <script>
 import { mapState } from 'redux-vuex'
 import { compose, includes, defaultTo, toLower } from 'ramda'
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 import { toMegabyte } from '@podlove/utils/math'
 import { hoverFile, selectFile } from '@podlove/player-actions/files'
 

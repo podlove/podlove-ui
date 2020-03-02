@@ -7,7 +7,7 @@ import { mapState } from 'redux-vuex'
 import store from 'store'
 
 import select from 'store/selectors'
-import { StepperButton } from '@podlove/components'
+import StepperButton from '@podlove/components/stepper-button'
 
 export default {
   components: {

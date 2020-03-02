@@ -7,7 +7,10 @@ import { mapState } from 'redux-vuex'
 import store from 'store'
 
 import select from 'store/selectors'
-import { PlayButton, ChapterButton, StepperButton } from '@podlove/components'
+
+import PlayButton from '@podlove/components/play-button'
+import ChapterButton from '@podlove/components/chapter-button'
+import StepperButton from '@podlove/components/stepper-button'
 
 export default {
   components: {
