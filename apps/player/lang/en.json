@@ -24,7 +24,7 @@
     },
     "CONFIG": {
       "TITLE": "Missing Episode Configuration",
-      "MESSAGE": "The Player couldn't fetched the episode configuration. Please reach out to the host to fix this problem."
+      "MESSAGE": "The Player couldn't fetch the episode configuration. Please reach out to the host to fix this problem."
     }
   },
   "FILES": {
