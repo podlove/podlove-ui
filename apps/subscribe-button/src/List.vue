@@ -58,10 +58,7 @@ export default {
     this.$i18n.locale = this.language
   },
   methods: {
-    close: compose(
-      store.dispatch,
-      overlay.hide
-    )
+    close: compose(store.dispatch, overlay.hide)
   }
 }
 </script>

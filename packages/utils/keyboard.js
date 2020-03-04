@@ -20,22 +20,6 @@ const parseKey = evt => ({
 })
 
 export const keydown = callback =>
-  document.addEventListener(
-    'keydown',
-    filterGlobal(
-      compose(
-        callback,
-        parseKey
-      )
-    )
-  )
+  document.addEventListener('keydown', filterGlobal(compose(callback, parseKey)))
 export const keyup = callback =>
-  document.addEventListener(
-    'keyup',
-    filterGlobal(
-      compose(
-        callback,
-        parseKey
-      )
-    )
-  )
+  document.addEventListener('keyup', filterGlobal(compose(callback, parseKey)))

@@ -32,20 +32,12 @@ export const removeStyles = curry((attrs, el) => {
   })
 })
 
-export const getClasses = compose(
-  filter(identity),
-  el => el.className.split(' ')
-)
+export const getClasses = compose(filter(identity), el => el.className.split(' '))
 
 export const hasOverflow = el => el.scrollWidth > el.clientWidth
 
 export const addClasses = curry((classes = [], el) => {
-  el.className = compose(
-    join(' '),
-    uniq,
-    concat(classes),
-    getClasses
-  )(el)
+  el.className = compose(join(' '), uniq, concat(classes), getClasses)(el)
 
   return el
 })

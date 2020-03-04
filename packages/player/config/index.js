@@ -2,17 +2,11 @@ import { compose, map, prop, propOr } from 'ramda'
 import { toPlayerTime } from '@podlove/utils/time'
 import { createObject } from '@podlove/utils/helper'
 
-export const duration = compose(
-  toPlayerTime,
-  propOr(0, 'duration')
-)
+export const duration = compose(toPlayerTime, propOr(0, 'duration'))
 
 export const version = propOr(null, 'version')
 
-export const playtime = compose(
-  toPlayerTime,
-  propOr(0, 'playtime')
-)
+export const playtime = compose(toPlayerTime, propOr(0, 'playtime'))
 
 export const media = compose(
   map(
@@ -56,15 +50,9 @@ export const theme = config => {
 
 export const reference = propOr({}, 'reference')
 export const transcripts = propOr([], 'transcripts')
-export const shareReference = compose(
-  propOr(null, 'share'),
-  reference
-)
+export const shareReference = compose(propOr(null, 'share'), reference)
 
-export const originReference = compose(
-  propOr(null, 'origin'),
-  reference
-)
+export const originReference = compose(propOr(null, 'origin'), reference)
 
 export const episodeReference = config => {
   const ref = reference(config)
@@ -96,14 +84,8 @@ export const validate = config => {
 
 export const runtime = propOr({}, 'runtime')
 
-export const language = compose(
-  prop('language'),
-  runtime
-)
-export const platform = compose(
-  prop('platform'),
-  runtime
-)
+export const language = compose(prop('language'), runtime)
+export const platform = compose(prop('platform'), runtime)
 
 export const playlist = propOr([], 'playlist')
 
@@ -121,12 +103,6 @@ export const subscribeButton = prop('subscribe-button')
 
 export const share = propOr({}, 'share')
 
-export const channels = compose(
-  propOr([], 'channels'),
-  share
-)
+export const channels = compose(propOr([], 'channels'), share)
 
-export const sharePlaytime = compose(
-  propOr(false, 'sharePlaytime'),
-  share
-)
+export const sharePlaytime = compose(propOr(false, 'sharePlaytime'), share)

@@ -3,10 +3,7 @@ import { selectors } from '@podlove/player-state/contributors'
 
 import root from './root'
 
-const list = compose(
-  selectors.contributors,
-  root.contributors
-)
+const list = compose(selectors.contributors, root.contributors)
 
 const groups = state => {
   const contributors = list(state)

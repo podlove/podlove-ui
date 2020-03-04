@@ -14,21 +14,9 @@ import timepiece from './timepiece'
 
 const contentSlice = prop('content')
 const embedSlice = prop('embed')
-const type = compose(
-  content.content,
-  contentSlice,
-  root.share
-)
-const embedSize = compose(
-  embed.size,
-  embedSlice,
-  root.share
-)
-const availableEmbedSizes = compose(
-  embed.available,
-  embedSlice,
-  root.share
-)
+const type = compose(content.content, contentSlice, root.share)
+const embedSize = compose(embed.size, embedSlice, root.share)
+const availableEmbedSizes = compose(embed.available, embedSlice, root.share)
 
 const hasLink = state =>
   (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))

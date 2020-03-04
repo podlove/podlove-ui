@@ -26,10 +26,7 @@ export default {
     }
   },
   methods: {
-    hideOverlay: compose(
-      store.dispatch,
-      hide
-    )
+    hideOverlay: compose(store.dispatch, hide)
   }
 }
 </script>

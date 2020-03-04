@@ -93,63 +93,21 @@ const extractFonts = createObject({
     propOr({}, 'fonts'),
     theme
   ),
-  bold: compose(
-    normalizeFont('bold'),
-    propOr(FONTS.bold, 'bold'),
-    propOr({}, 'fonts'),
-    theme
-  ),
-  ci: compose(
-    normalizeFont('ci'),
-    propOr(FONTS.ci, 'ci'),
-    propOr({}, 'fonts'),
-    theme
-  )
+  bold: compose(normalizeFont('bold'), propOr(FONTS.bold, 'bold'), propOr({}, 'fonts'), theme),
+  ci: compose(normalizeFont('ci'), propOr(FONTS.ci, 'ci'), propOr({}, 'fonts'), theme)
 })
 
 const getTokens = propOr({}, 'tokens')
 
 const extractTokens = createObject({
-  brand: compose(
-    tokens.brand,
-    getTokens,
-    theme
-  ),
-  brandDark: compose(
-    tokens.brandDark,
-    getTokens,
-    theme
-  ),
-  brandDarkest: compose(
-    tokens.brandDarkest,
-    getTokens,
-    theme
-  ),
-  brandLightest: compose(
-    tokens.brandLightest,
-    getTokens,
-    theme
-  ),
-  shadeDark: compose(
-    tokens.shadeDark,
-    getTokens,
-    theme
-  ),
-  shadeBase: compose(
-    tokens.shadeBase,
-    getTokens,
-    theme
-  ),
-  contrast: compose(
-    tokens.contrast,
-    getTokens,
-    theme
-  ),
-  alt: compose(
-    tokens.alt,
-    getTokens,
-    theme
-  )
+  brand: compose(tokens.brand, getTokens, theme),
+  brandDark: compose(tokens.brandDark, getTokens, theme),
+  brandDarkest: compose(tokens.brandDarkest, getTokens, theme),
+  brandLightest: compose(tokens.brandLightest, getTokens, theme),
+  shadeDark: compose(tokens.shadeDark, getTokens, theme),
+  shadeBase: compose(tokens.shadeBase, getTokens, theme),
+  contrast: compose(tokens.contrast, getTokens, theme),
+  alt: compose(tokens.alt, getTokens, theme)
 })
 
 export const INITIAL_STATE = {

@@ -38,14 +38,8 @@ export default {
     finishView: select.view.finish
   }),
   methods: {
-    close: compose(
-      store.dispatch,
-      overlay.hide
-    ),
-    back: compose(
-      store.dispatch,
-      list.show
-    )
+    close: compose(store.dispatch, overlay.hide),
+    back: compose(store.dispatch, list.show)
   }
 }
 </script>

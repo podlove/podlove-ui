@@ -23,18 +23,10 @@ export const currentChapter = compose(
 )
 
 export const nextChapter = chapters =>
-  compose(
-    getChapterByIndex(chapters),
-    add(1),
-    currentChapterIndex
-  )(chapters)
+  compose(getChapterByIndex(chapters), add(1), currentChapterIndex)(chapters)
 
 export const previousChapter = chapters =>
-  compose(
-    getChapterByIndex(chapters),
-    add(-1),
-    currentChapterIndex
-  )(chapters)
+  compose(getChapterByIndex(chapters), add(-1), currentChapterIndex)(chapters)
 
 export const currentChapterByPlaytime = curry((chapters, playtime) =>
   find(chapter => {

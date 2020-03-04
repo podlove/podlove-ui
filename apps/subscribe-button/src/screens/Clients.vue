@@ -34,14 +34,8 @@ export default {
     shadeBase: select.theme.shadeBase
   }),
   methods: {
-    close: compose(
-      store.dispatch,
-      overlay.hide
-    ),
-    finish: compose(
-      store.dispatch,
-      finishCard.show
-    )
+    close: compose(store.dispatch, overlay.hide),
+    finish: compose(store.dispatch, finishCard.show)
   }
 }
 </script>

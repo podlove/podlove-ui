@@ -18,16 +18,10 @@ export const INIT_STATE = {
 const update = createObject({
   title: propOr(null, 'title'),
   subtitle: propOr(null, 'subtitle'),
-  summary: compose(
-    sanitize,
-    propOr(null, 'summary')
-  ),
+  summary: compose(sanitize, propOr(null, 'summary')),
   link: propOr(null, 'link'),
   poster: propOr(null, 'poster'),
-  publicationDate: compose(
-    parseDate,
-    propOr(null, 'publicationDate')
-  )
+  publicationDate: compose(parseDate, propOr(null, 'publicationDate'))
 })
 
 export const reducer = handleActions(

@@ -31,10 +31,7 @@ const podlovePlayer = async (selector, episode, meta) => {
       buttonStore.dispatch(buttonInit(subscribeButton.config(config)))
 
       // inter store connection
-      connect(
-        { store: playerStore, prefix: 'PLAYER' },
-        { store: buttonStore, prefix: 'BUTTON' }
-      )
+      connect({ store: playerStore, prefix: 'PLAYER' }, { store: buttonStore, prefix: 'BUTTON' })
     }
 
     try {

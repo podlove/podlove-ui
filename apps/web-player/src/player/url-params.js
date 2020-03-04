@@ -7,10 +7,7 @@ import { showPauseButton } from '@podlove/player-actions/components'
 import { restore } from '@podlove/player-actions/lifecycle'
 import { ready } from './store'
 
-const selectPlaytime = compose(
-  selectors.playtime,
-  propOr({}, 'timepiece')
-)
+const selectPlaytime = compose(selectors.playtime, propOr({}, 'timepiece'))
 
 const stopAt = (stoptime, store) => {
   const unsubscribe = store.subscribe(() => {

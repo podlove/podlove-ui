@@ -45,7 +45,7 @@
     "lerna": "3.20.2",
     "lerna-update-wizard": "0.17.7",
     "lint-staged": "9.5.0",
-    "prettier": "1.18.2",
+    "prettier": "1.19.1",
     "save-remote-file-webpack-plugin": "1.0.2",
     "vue-jest": "4.0.0-beta.2",
     "core-js": "3.4.2",

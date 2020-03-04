@@ -6,7 +6,4 @@ export const theme = propOr({}, 'theme')
 
 export const runtime = propOr({}, 'runtime')
 
-export const language = compose(
-  prop('language'),
-  runtime
-)
+export const language = compose(prop('language'), runtime)
