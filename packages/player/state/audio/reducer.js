@@ -12,14 +12,8 @@ export const INITIAL_STATE = {
   rate: 1
 }
 
-const inVolumeRange = compose(
-  inRange(0, INITIAL_STATE.volume),
-  toFloat
-)
-const inRateRange = compose(
-  inRange(0.5, 4),
-  toFloat
-)
+const inVolumeRange = compose(inRange(0, INITIAL_STATE.volume), toFloat)
+const inRateRange = compose(inRange(0.5, 4), toFloat)
 
 export const reducer = handleActions(
   {

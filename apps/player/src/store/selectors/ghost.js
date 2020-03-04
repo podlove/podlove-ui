@@ -5,14 +5,8 @@ import { currentChapterByPlaytime } from '@podlove/utils/chapters'
 
 import chapters from './chapters'
 
-const time = compose(
-  ghost.time,
-  root.ghost
-)
-const active = compose(
-  ghost.active,
-  root.ghost
-)
+const time = compose(ghost.time, root.ghost)
+const active = compose(ghost.active, root.ghost)
 
 export default {
   time,

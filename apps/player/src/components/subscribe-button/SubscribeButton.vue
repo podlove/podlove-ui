@@ -31,10 +31,7 @@ export default {
     }
   },
   methods: {
-    show: compose(
-      store.dispatch,
-      overlay.show
-    )
+    show: compose(store.dispatch, overlay.show)
   }
 }
 </script>

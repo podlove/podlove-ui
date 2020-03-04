@@ -26,10 +26,7 @@ export const scope = curry((selectors = {}, context = identity) =>
   Object.keys(selectors).reduce(
     (result, key) => ({
       ...result,
-      [key]: compose(
-        selectors[key],
-        context
-      )
+      [key]: compose(selectors[key], context)
     }),
     {}
   )
@@ -41,13 +38,4 @@ export const stripr = curry((q, str) =>
   endsWith(q, str) ? str.slice(0, str.length - q.length) : str
 )
 export const strip = curry((q, str) => stripl(q, stripr(q, str)))
-export const capitalize = compose(
-  join(''),
-  juxt([
-    compose(
-      toUpper,
-      head
-    ),
-    tail
-  ])
-)
+export const capitalize = compose(join(''), juxt([compose(toUpper, head), tail]))

@@ -3,18 +3,9 @@ import { selectors as audio } from '@podlove/player-state/audio'
 
 import root from './root'
 
-const volume = compose(
-  audio.volume,
-  root.audio
-)
-const muted = compose(
-  audio.muted,
-  root.audio
-)
-const rate = compose(
-  audio.rate,
-  root.audio
-)
+const volume = compose(audio.volume, root.audio)
+const muted = compose(audio.muted, root.audio)
+const rate = compose(audio.rate, root.audio)
 
 const icon = state => {
   if (muted(state)) {

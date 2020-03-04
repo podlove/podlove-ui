@@ -22,10 +22,7 @@ import {
   setTranscriptsSearchResults
 } from '@podlove/player-actions/transcripts'
 
-const params = compose(
-  prop('args'),
-  prop('payload')
-)
+const params = compose(prop('args'), prop('payload'))
 
 describe('transcripts', () => {
   describe('transcriptsSaga()', () => {

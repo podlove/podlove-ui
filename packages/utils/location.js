@@ -28,7 +28,4 @@ const parseParameters = parameters => {
   return parsed
 }
 
-export const urlParameters = compose(
-  parseParameters,
-  locationParams
-)
+export const urlParameters = compose(parseParameters, locationParams)

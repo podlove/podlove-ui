@@ -61,10 +61,7 @@ export default {
     }
   },
   methods: {
-    setVolume: compose(
-      store.dispatch,
-      setVolume
-    )
+    setVolume: compose(store.dispatch, setVolume)
   }
 }
 </script>

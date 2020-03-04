@@ -821,7 +821,10 @@ describe('player', () => {
     let gen
 
     beforeEach(() => {
-      gen = onBufferChange([[0, 10], [10, 20]])
+      gen = onBufferChange([
+        [0, 10],
+        [10, 20]
+      ])
     })
 
     test('shoud export a generator', () => {
@@ -829,7 +832,14 @@ describe('player', () => {
     })
 
     test('should dispatch BACKEND_BUFFER', () => {
-      expect(gen.next().value).toEqual(put(backendBuffer([[0, 10000], [10000, 20000]])))
+      expect(gen.next().value).toEqual(
+        put(
+          backendBuffer([
+            [0, 10000],
+            [10000, 20000]
+          ])
+        )
+      )
     })
 
     test('should end the saga', () => {

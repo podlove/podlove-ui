@@ -82,18 +82,9 @@ export default {
     toggleFollow() {
       store.dispatch(followTranscripts(!this.follow))
     },
-    reset: compose(
-      store.dispatch,
-      resetSearchTranscription
-    ),
-    previousSearchResult: compose(
-      store.dispatch,
-      previousTranscriptsSearchResult
-    ),
-    nextSearchResult: compose(
-      store.dispatch,
-      nextTranscriptsSearchResult
-    )
+    reset: compose(store.dispatch, resetSearchTranscription),
+    previousSearchResult: compose(store.dispatch, previousTranscriptsSearchResult),
+    nextSearchResult: compose(store.dispatch, nextTranscriptsSearchResult)
   }
 }
 </script>

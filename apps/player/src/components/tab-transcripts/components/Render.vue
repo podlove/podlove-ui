@@ -118,10 +118,7 @@ export default {
       store.dispatch(enableGhost())
       store.dispatch(simulatePlaytime(start))
     },
-    onMouseLeave: compose(
-      store.dispatch,
-      disableGhost
-    ),
+    onMouseLeave: compose(store.dispatch, disableGhost),
     onClick({ start }) {
       store.dispatch(requestPlaytime(start))
       store.dispatch(requestPlay())

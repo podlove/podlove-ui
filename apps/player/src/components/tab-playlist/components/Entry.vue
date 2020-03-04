@@ -98,10 +98,7 @@ export default {
       }
     },
 
-    select: compose(
-      store.dispatch,
-      selectEpisode
-    )
+    select: compose(store.dispatch, selectEpisode)
   }
 }
 </script>
