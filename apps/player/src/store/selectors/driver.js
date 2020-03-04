@@ -7,10 +7,7 @@ import episode from './episode'
 import chapters from './chapters'
 
 export default {
-  playing: compose(
-    driver.playing,
-    root.driver
-  ),
+  playing: compose(driver.playing, root.driver),
   title: either(episode.title, show.title),
   image: either(chapters.image, episode.poster, show.poster)
 }

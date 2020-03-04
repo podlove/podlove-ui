@@ -29,6 +29,11 @@ import TabTitle from '../tab-title'
 import Divider from '../divider'
 
 export default {
+  components: {
+    TabTitle,
+    Divider
+  },
+
   data: mapState({
     showTitle: select.show.title,
     episodeTitle: select.episode.title,
@@ -36,11 +41,6 @@ export default {
     summary: select.episode.summary,
     groups: select.contributors.groups
   }),
-
-  components: {
-    TabTitle,
-    Divider
-  },
 
   methods: {
     closeTab() {

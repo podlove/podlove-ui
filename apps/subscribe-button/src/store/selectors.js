@@ -20,31 +20,13 @@ export const slices = {
   runtime: propOr({}, 'runtime')
 }
 
-export const selectColor = compose(
-  config.color,
-  configSlice
-)
-export const selectCover = compose(
-  config.cover,
-  configSlice
-)
-export const selectFormat = compose(
-  config.format,
-  configSlice
-)
-export const selectSize = compose(
-  config.size,
-  configSlice
-)
-export const selectStyle = compose(
-  config.style,
-  configSlice
-)
+export const selectColor = compose(config.color, configSlice)
+export const selectCover = compose(config.cover, configSlice)
+export const selectFormat = compose(config.format, configSlice)
+export const selectSize = compose(config.size, configSlice)
+export const selectStyle = compose(config.style, configSlice)
 
-export const headless = compose(
-  config.headless,
-  configSlice
-)
+export const headless = compose(config.headless, configSlice)
 
 const fontString = ({ weight = 300, family = [] } = {}) => ({
   'font-family': family.map(font => `"${font}"`).join(', '),
@@ -61,21 +43,9 @@ export const theme = {
     ],
     slices.theme
   ),
-  fontRegular: compose(
-    fontString,
-    themeSelectors.fontRegular,
-    slices.theme
-  ),
-  fontBold: compose(
-    fontString,
-    themeSelectors.fontBold,
-    slices.theme
-  ),
-  fontCi: compose(
-    fontString,
-    themeSelectors.fontCi,
-    slices.theme
-  )
+  fontRegular: compose(fontString, themeSelectors.fontRegular, slices.theme),
+  fontBold: compose(fontString, themeSelectors.fontBold, slices.theme),
+  fontCi: compose(fontString, themeSelectors.fontCi, slices.theme)
 }
 
 export const view = scope(viewSelectors, slices.view)

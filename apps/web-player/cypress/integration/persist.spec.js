@@ -80,23 +80,41 @@ describe('persist', () => {
         cy.wait(1000)
 
         storage.getItem('quantiles').then(val => {
-          expect(val).to.deep.equal([[0, 10], [100, 200]])
+          expect(val).to.deep.equal([
+            [0, 10],
+            [100, 200]
+          ])
           done()
         })
       })
 
-      store.dispatch({ type: 'PLAYER_LOAD_QUANTILES', payload: [[0, 10], [100, 200]] })
+      store.dispatch({
+        type: 'PLAYER_LOAD_QUANTILES',
+        payload: [
+          [0, 10],
+          [100, 200]
+        ]
+      })
     })
 
     it('should restore the persisted playtime', () => {
-      store.dispatch({ type: 'PLAYER_LOAD_QUANTILES', payload: [[0, 10], [100, 200]] })
+      store.dispatch({
+        type: 'PLAYER_LOAD_QUANTILES',
+        payload: [
+          [0, 10],
+          [100, 200]
+        ]
+      })
 
       // throttled time
       cy.wait(1000)
 
       cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
         app => {
-          expect(app.getState().quantiles).to.deep.equal([[0, 10], [100, 200]])
+          expect(app.getState().quantiles).to.deep.equal([
+            [0, 10],
+            [100, 200]
+          ])
         }
       )
     })

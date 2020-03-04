@@ -61,10 +61,7 @@ export default {
 
       return this.setRate(steps[0])
     },
-    setRate: compose(
-      store.dispatch,
-      setRate
-    )
+    setRate: compose(store.dispatch, setRate)
   }
 }
 </script>

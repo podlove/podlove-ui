@@ -20,7 +20,10 @@ describe('quantiles', () => {
           end: 20
         }
       })
-    ).toEqual([[0, 10], [11, 20]])
+    ).toEqual([
+      [0, 10],
+      [11, 20]
+    ])
 
     expect(
       reducer([[0, 10]], {

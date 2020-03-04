@@ -33,21 +33,9 @@ const leadingZero = time => (time > 9 ? `${time}` : `0${time}`)
 
 // Transforms milliseconds to (hh:)mm:ss
 export const toHumanTime = (time = 0) => {
-  let hours = compose(
-    calcHours,
-    fallbackToZero,
-    toInt
-  )(time)
-  let minutes = compose(
-    calcMinutes,
-    fallbackToZero,
-    toInt
-  )(time)
-  let seconds = compose(
-    calcSeconds,
-    fallbackToZero,
-    toInt
-  )(time)
+  let hours = compose(calcHours, fallbackToZero, toInt)(time)
+  let minutes = compose(calcMinutes, fallbackToZero, toInt)(time)
+  let seconds = compose(calcSeconds, fallbackToZero, toInt)(time)
 
   let result = `${leadingZero(minutes)}:${leadingZero(seconds)}`
 
@@ -58,27 +46,10 @@ export const toHumanTime = (time = 0) => {
   return result
 }
 
-export const secondsToMilliseconds = compose(
-  toInt,
-  input => input * 1000,
-  toFloat
-)
-export const millisecondsToSeconds = compose(
-  toFloat,
-  input => input / 1000,
-  toInt
-)
+export const secondsToMilliseconds = compose(toInt, input => input * 1000, toFloat)
+export const millisecondsToSeconds = compose(toFloat, input => input / 1000, toInt)
 export const parseDate = utcDate => (utcDate ? new Date(utcDate).getTime() : null)
 
-export const calcSeconds = compose(
-  (time = 0) => parseInt(time % 60),
-  millisecondsToSeconds
-)
-export const calcMinutes = compose(
-  (time = 0) => parseInt(time / 60) % 60,
-  millisecondsToSeconds
-)
-export const calcHours = compose(
-  (time = 0) => parseInt(time / 3600) % 24,
-  millisecondsToSeconds
-)
+export const calcSeconds = compose((time = 0) => parseInt(time % 60), millisecondsToSeconds)
+export const calcMinutes = compose((time = 0) => parseInt(time / 60) % 60, millisecondsToSeconds)
+export const calcHours = compose((time = 0) => parseInt(time / 3600) % 24, millisecondsToSeconds)

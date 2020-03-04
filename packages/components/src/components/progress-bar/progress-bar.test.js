@@ -30,11 +30,17 @@ describe('ProgressBar', () => {
       },
       {
         prop: 'buffer',
-        value: [[0, 1000], [5000, 6000]]
+        value: [
+          [0, 1000],
+          [5000, 6000]
+        ]
       },
       {
         prop: 'quantiles',
-        value: [[0, 300], [5500, 6000]]
+        value: [
+          [0, 300],
+          [5500, 6000]
+        ]
       },
       {
         prop: 'progressColor',
