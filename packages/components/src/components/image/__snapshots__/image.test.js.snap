@@ -6,7 +6,6 @@ exports[`Image props should render with prop alt 1`] = `
 >
   <div
     class="cover"
-    name="fade"
     style="background-color: rgb(43, 138, 198);"
   />
    
@@ -20,7 +19,6 @@ exports[`Image props should render with prop color 1`] = `
 >
   <div
     class="cover"
-    name="fade"
     style="background-color: rgb(255, 255, 255);"
   />
    
@@ -34,7 +32,6 @@ exports[`Image props should render with prop url 1`] = `
 >
   <div
     class="cover"
-    name="fade"
     style="background-color: rgb(43, 138, 198);"
   />
    
@@ -52,7 +49,6 @@ exports[`Image props should render without props 1`] = `
 >
   <div
     class="cover"
-    name="fade"
     style="background-color: rgb(43, 138, 198);"
   />
    
