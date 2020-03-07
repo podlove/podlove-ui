@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions'
 import { getPlatform } from '@podlove/utils/useragent'
 import getClients from '@podlove/clients'
-import { platform } from '@podlove/clients/types'
+import { platform, type } from '@podlove/clients/types'
 import { INIT } from '@podlove/button-actions/types'
 import * as config from '@podlove/button-config'
 
@@ -15,11 +15,12 @@ const clients = payload => {
   return provided
     .map(client =>
       getClients({ id: client.id, platform: [currentPlatform, platform.web] })
-        .filter(item => (item.type === 'service' ? !!client.service : true))
+        .filter(item => (item.type === type.service ? !!client.service : true))
         .map(item => ({
           ...item,
-          link: item.type === 'service' ? item.scheme(client.service) : item.scheme(feed)
+          link: item.type === type.service ? item.scheme(client.service) : item.scheme(feed)
         }))
+        .sort(item => (item.type === type.service ? -1 : 0))
         .shift()
     )
     .flat()

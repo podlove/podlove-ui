@@ -20,7 +20,8 @@ export default [
   }),
   client({
     title: 'Apple Podcasts',
-    scheme: id => `https://podcasts.apple.com/podcast/${id}`,
+    scheme: (id = '') =>
+      `https://podcasts.apple.com/podcast/${id.startsWith('id') ? id : 'id' + id}`,
     platform: platform.web,
     type: type.service,
     icon
