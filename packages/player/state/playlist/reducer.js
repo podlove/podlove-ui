@@ -19,7 +19,7 @@ export const reducer = handleActions(
       playlist(payload).map(item => ({
         ...item,
         duration: toPlayerTime(item.duration),
-        active: false
+        active: !!item.active
       })),
     [SELECT_PLAYLIST_ENTRY]: (state, { payload: { index: index } }) =>
       state && active(state, index),
