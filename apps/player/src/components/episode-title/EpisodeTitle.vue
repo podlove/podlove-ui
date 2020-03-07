@@ -1,7 +1,7 @@
 <template lang="pug">
-  h1.episode-title(:style="style" data-test="episode-title")
-    a(:href="link" :target="target" v-if="link" data-test="episode-title--link") {{ title }}
-    span(v-else data-test="episode-title--text") {{ title }}
+  h1(:style="style" data-test="episode-title")
+    a.episode-title(:href="link" :target="target" v-if="link" data-test="episode-title--link") {{ title }}
+    span.episode-title(v-else data-test="episode-title--text") {{ title }}
 </template>
 
 <script>
@@ -29,6 +29,7 @@ export default {
 
 <style lang="postcss" scoped>
 .episode-title {
+  display: block;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
