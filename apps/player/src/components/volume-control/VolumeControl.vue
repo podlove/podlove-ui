@@ -28,7 +28,8 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Icon, InputSlider } from '@podlove/components'
+import Icon from '@podlove/components/icons'
+import InputSlider from '@podlove/components/input-slider'
 import { setVolume } from '@podlove/player-actions/audio'
 import { compose } from 'ramda'
 

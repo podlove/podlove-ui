@@ -31,7 +31,8 @@ import { toHumanTime } from '@podlove/utils/time'
 import select from 'store/selectors'
 import store from 'store'
 
-import { ChapterProgress, Icon } from '@podlove/components'
+import ChapterProgress from '@podlove/components/chapter-progress'
+import Icon from '@podlove/components/icons'
 
 export default {
   components: {

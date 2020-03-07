@@ -39,7 +39,6 @@
     "postcss-loader": "3.0.0",
     "postcss-scss": "2.0.0",
     "pug": "2.0.4",
-    "pug-loader": "2.4.0",
     "pug-plain-loader": "1.0.0",
     "ramda": "0.26.1",
     "sass-loader": "8.0.0",

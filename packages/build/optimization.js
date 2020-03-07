@@ -1,7 +1,11 @@
-module.exports = (exclude = []) => ({
-  runtimeChunk: {
-    name: 'runtime'
-  },
+module.exports = ({ vendors = [], runtimeChunk } = {}) => ({
+  ...(runtimeChunk
+    ? {
+        runtimeChunk: {
+          name: runtimeChunk
+        }
+      }
+    : {}),
   splitChunks: {
     cacheGroups: {
       vendor: {
@@ -10,8 +14,9 @@ module.exports = (exclude = []) => ({
           if (!mod.context.includes('node_modules')) {
             return false
           }
+
           // But not node modules that contain these key words in the path
-          if (exclude.some(str => mod.context.includes(str))) {
+          if (vendors.concat(vendors).some(str => mod.context.includes(str))) {
             return false
           }
 

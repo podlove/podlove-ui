@@ -5,7 +5,8 @@
 
 <script>
 import copy from 'copy-to-clipboard'
-import { Channel, Tooltip } from '@podlove/components'
+import Channel from '@podlove/components/channel'
+import Tooltip from '@podlove/components/tooltip'
 
 import select from 'store/selectors'
 

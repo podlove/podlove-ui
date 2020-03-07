@@ -11,7 +11,11 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Button, InputText, InputSelect, InputGroup, Tooltip } from '@podlove/components'
+import Button from '@podlove/components/button'
+import InputText from '@podlove/components/input-text'
+import InputSelect from '@podlove/components/input-select'
+import InputGroup from '@podlove/components/input-group'
+import Tooltip from '@podlove/components/tooltip'
 import { selectEmbedSize } from '@podlove/player-actions/embed'
 import copy from 'copy-to-clipboard'
 

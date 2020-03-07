@@ -7,9 +7,9 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
+import Icon from '@podlove/components/icons'
 
-import { Icon } from '@podlove/components'
+import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 
 export default {
   components: { Icon },

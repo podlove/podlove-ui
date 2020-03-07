@@ -52,8 +52,8 @@ module.exports = {
     plugins.env({
       MODE: 'cdn',
       BASE,
-      PLAYER_SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'],
-      BUTTON_SCRIPTS: ['vendor', 'styles', 'runtime', 'list'],
+      PLAYER_SCRIPTS: ['vendor', 'styles', 'bootstrap'],
+      BUTTON_SCRIPTS: ['vendor', 'styles', 'list'],
       PLAYER_STYLES: ['styles'],
       BUTTON_STYLES: ['styles']
     }),
