@@ -62,7 +62,9 @@
       "pre-commit": "lint-staged"
     }
   },
-  "engines" : { "node" : ">=12" },
+  "engines": {
+    "node": ">=12"
+  },
   "dependencies": {},
   "jest": {
     "projects": [

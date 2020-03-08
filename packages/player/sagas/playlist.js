@@ -51,6 +51,10 @@ export function* loadEpisode(
     return yield put(errorConfigMissing())
   }
 
+  if (play) {
+    yield put(player.requestPause())
+  }
+
   yield put(init(config))
 
   if (play) {
