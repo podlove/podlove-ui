@@ -24,7 +24,7 @@
 <script>
 import { compose } from 'ramda'
 import { mapState } from 'redux-vuex'
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 
 import {
   searchTranscripts,
@@ -82,18 +82,9 @@ export default {
     toggleFollow() {
       store.dispatch(followTranscripts(!this.follow))
     },
-    reset: compose(
-      store.dispatch,
-      resetSearchTranscription
-    ),
-    previousSearchResult: compose(
-      store.dispatch,
-      previousTranscriptsSearchResult
-    ),
-    nextSearchResult: compose(
-      store.dispatch,
-      nextTranscriptsSearchResult
-    )
+    reset: compose(store.dispatch, resetSearchTranscription),
+    previousSearchResult: compose(store.dispatch, previousTranscriptsSearchResult),
+    nextSearchResult: compose(store.dispatch, nextTranscriptsSearchResult)
   }
 }
 </script>

@@ -7,7 +7,7 @@
 <script>
 import { compose } from 'ramda'
 import ButtonComponent from './components/Button'
-import { Image } from '@podlove/components'
+import Image from '@podlove/components/image'
 import { mapState } from 'redux-vuex'
 import store from 'store'
 
@@ -29,14 +29,8 @@ export default {
     }
   },
   methods: {
-    hideOverlay: compose(
-      store.dispatch,
-      hide
-    ),
-    showOverlay: compose(
-      store.dispatch,
-      show
-    )
+    hideOverlay: compose(store.dispatch, hide),
+    showOverlay: compose(store.dispatch, show)
   }
 }
 </script>

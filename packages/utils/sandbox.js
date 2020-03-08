@@ -17,10 +17,7 @@ const iframe = compose(
 const createFrame = () => new Promise(resolve => resolve(iframe('iframe')))
 
 export const sandboxWindow = prop('contentWindow')
-export const sandboxDocument = compose(
-  prop('document'),
-  sandboxWindow
-)
+export const sandboxDocument = compose(prop('document'), sandboxWindow)
 
 export const resize = curry((anchor, frame) => {
   const setFrameSize = () => setAttributes({ width: anchor.offsetWidth }, frame)

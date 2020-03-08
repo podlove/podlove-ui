@@ -5,7 +5,7 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 import { setRate } from '@podlove/player-actions/audio'
 import { compose } from 'ramda'
 
@@ -61,10 +61,7 @@ export default {
 
       return this.setRate(steps[0])
     },
-    setRate: compose(
-      store.dispatch,
-      setRate
-    )
+    setRate: compose(store.dispatch, setRate)
   }
 }
 </script>

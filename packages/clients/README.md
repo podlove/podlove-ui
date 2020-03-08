@@ -8,7 +8,7 @@
 | `apple-podcasts`      | Apple Podcasts      |  ☑   | ☑        | ☐       | ☑   | ☑   | ☐       | ☐    | ☑   |
 | `beyond-pod`          | BeyondPod           |  ☑   | ☐        | ☑       | ☐   | ☐   | ☐       | ☐    | ☐   |
 | `castbox`             | Castbox             |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
-| `castro`              | Castro              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
+| `castro`              | Castro              |  ☐   | ☑        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
 | `clementine`          | Clementine          |  ☑   | ☐        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
 | `deezer`              | Deezer              |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
 | `downcast`            | Downcast            |  ☑   | ☐        | ☐       | ☑   | ☑   | ☐       | ☐    | ☐   |

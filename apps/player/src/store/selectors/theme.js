@@ -14,19 +14,7 @@ export default {
     state => [theme.fontRegular(state), theme.fontBold(state), theme.fontCi(state)],
     root.theme
   ),
-  fontRegular: compose(
-    fontStyle,
-    theme.fontRegular,
-    root.theme
-  ),
-  fontBold: compose(
-    fontStyle,
-    theme.fontBold,
-    root.theme
-  ),
-  fontCi: compose(
-    fontStyle,
-    theme.fontCi,
-    root.theme
-  )
+  fontRegular: compose(fontStyle, theme.fontRegular, root.theme),
+  fontBold: compose(fontStyle, theme.fontBold, root.theme),
+  fontCi: compose(fontStyle, theme.fontCi, root.theme)
 }

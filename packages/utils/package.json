@@ -1,6 +1,6 @@
 {
   "name": "@podlove/utils",
-  "version": "5.0.1-beta.1",
+  "version": "5.0.1-beta.2",
   "description": "Utils for Podlove Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/utils",
   "scripts": {
@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "color": "3.1.2",
-    "dompurify": "2.0.7",
+    "dompurify": "2.0.8",
     "keycode": "2.2.0",
     "mobile-detect": "1.4.4",
     "query-string-for-all": "6.9.0",

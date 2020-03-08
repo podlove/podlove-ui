@@ -16,7 +16,8 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Icon, Divider } from '@podlove/components'
+import Icon from '@podlove/components/icons'
+import Divider from '@podlove/components/divider'
 import { compose } from 'ramda'
 import FinishCard from 'components/finish-card'
 import store from 'store'
@@ -38,14 +39,8 @@ export default {
     finishView: select.view.finish
   }),
   methods: {
-    close: compose(
-      store.dispatch,
-      overlay.hide
-    ),
-    back: compose(
-      store.dispatch,
-      list.show
-    )
+    close: compose(store.dispatch, overlay.hide),
+    back: compose(store.dispatch, list.show)
   }
 }
 </script>

@@ -10,10 +10,7 @@ import LocalStorage from '@podlove/utils/localstorage'
 import { hashCode } from 'hashcode'
 import { ready } from './store'
 
-const selectPlaytime = compose(
-  selectors.playtime,
-  propOr({}, 'timepiece')
-)
+const selectPlaytime = compose(selectors.playtime, propOr({}, 'timepiece'))
 
 const selectQuantiles = propOr([], 'quantiles')
 

@@ -6,7 +6,7 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Tab } from '@podlove/components'
+import Tab from '@podlove/components/tab'
 
 import select from 'store/selectors'
 

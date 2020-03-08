@@ -11,7 +11,7 @@
 <script>
 import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 
 export default {
   components: { Icon },

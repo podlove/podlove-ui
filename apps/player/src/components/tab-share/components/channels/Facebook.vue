@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { Channel } from '@podlove/components'
+import Channel from '@podlove/components/channel'
 
 import select from 'store/selectors'
 

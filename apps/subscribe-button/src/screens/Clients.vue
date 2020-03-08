@@ -15,7 +15,8 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import { Icon, Divider } from '@podlove/components'
+import Icon from '@podlove/components/icons'
+import Divider from '@podlove/components/divider'
 import { compose } from 'ramda'
 import ClientList from 'components/client-list'
 import store from 'store'
@@ -34,14 +35,8 @@ export default {
     shadeBase: select.theme.shadeBase
   }),
   methods: {
-    close: compose(
-      store.dispatch,
-      overlay.hide
-    ),
-    finish: compose(
-      store.dispatch,
-      finishCard.show
-    )
+    close: compose(store.dispatch, overlay.hide),
+    finish: compose(store.dispatch, finishCard.show)
   }
 }
 </script>

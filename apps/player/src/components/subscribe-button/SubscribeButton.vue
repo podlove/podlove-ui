@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 import { mapState } from 'redux-vuex'
 import { compose } from 'ramda'
 import store from 'store'
@@ -31,10 +31,7 @@ export default {
     }
   },
   methods: {
-    show: compose(
-      store.dispatch,
-      overlay.show
-    )
+    show: compose(store.dispatch, overlay.show)
   }
 }
 </script>

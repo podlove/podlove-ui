@@ -8,6 +8,7 @@ import {
 import { put, takeEvery, select } from 'redux-saga/effects'
 import { json } from '@podlove/utils/request'
 import { init } from '@podlove/player-actions/lifecycle'
+import { requestPause } from '@podlove/player-actions/play'
 import * as playlist from '@podlove/player-actions/playlist'
 import {
   playlistSaga,
@@ -174,10 +175,20 @@ describe('playlist', () => {
       expect(gen.next().done).toBe(true)
     })
 
+    test('should pause the existing episode if a play was requested', () => {
+      gen.next()
+      gen.next()
+      gen.next({ my: 'config' })
+      gen.next()
+      gen.next()
+      expect(gen.next().value).toEqual(put(requestPause()))
+    })
+
     test('should initialize the player store with the fetched config', () => {
       gen.next()
       gen.next()
       gen.next({ my: 'config' })
+      gen.next()
       gen.next()
       gen.next()
       expect(gen.next().value).toEqual(put(init({ my: 'config' })))
@@ -187,6 +198,7 @@ describe('playlist', () => {
       gen.next()
       gen.next()
       gen.next({ my: 'config' })
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -201,6 +213,7 @@ describe('playlist', () => {
       gen.next(1)
       gen.next(0.5)
       gen.next(true)
+      gen.next()
       gen.next()
       gen.next()
       expect(helpers.takeOnce).toHaveBeenCalledWith(BACKEND_LOADING_START, resetMeta, {

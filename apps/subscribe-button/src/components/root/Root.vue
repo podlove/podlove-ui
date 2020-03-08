@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { Font } from '@podlove/components'
+import Font from '@podlove/components/font'
 import { mapState } from 'redux-vuex'
 import * as select from 'store/selectors'
 

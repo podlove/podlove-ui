@@ -93,63 +93,21 @@ const extractFonts = createObject({
     propOr({}, 'fonts'),
     theme
   ),
-  bold: compose(
-    normalizeFont('bold'),
-    propOr(FONTS.bold, 'bold'),
-    propOr({}, 'fonts'),
-    theme
-  ),
-  ci: compose(
-    normalizeFont('ci'),
-    propOr(FONTS.ci, 'ci'),
-    propOr({}, 'fonts'),
-    theme
-  )
+  bold: compose(normalizeFont('bold'), propOr(FONTS.bold, 'bold'), propOr({}, 'fonts'), theme),
+  ci: compose(normalizeFont('ci'), propOr(FONTS.ci, 'ci'), propOr({}, 'fonts'), theme)
 })
 
 const getTokens = propOr({}, 'tokens')
 
 const extractTokens = createObject({
-  brand: compose(
-    tokens.brand,
-    getTokens,
-    theme
-  ),
-  brandDark: compose(
-    tokens.brandDark,
-    getTokens,
-    theme
-  ),
-  brandDarkest: compose(
-    tokens.brandDarkest,
-    getTokens,
-    theme
-  ),
-  brandLightest: compose(
-    tokens.brandLightest,
-    getTokens,
-    theme
-  ),
-  shadeDark: compose(
-    tokens.shadeDark,
-    getTokens,
-    theme
-  ),
-  shadeBase: compose(
-    tokens.shadeBase,
-    getTokens,
-    theme
-  ),
-  contrast: compose(
-    tokens.contrast,
-    getTokens,
-    theme
-  ),
-  alt: compose(
-    tokens.alt,
-    getTokens,
-    theme
-  )
+  brand: compose(tokens.brand, getTokens, theme),
+  brandDark: compose(tokens.brandDark, getTokens, theme),
+  brandDarkest: compose(tokens.brandDarkest, getTokens, theme),
+  brandLightest: compose(tokens.brandLightest, getTokens, theme),
+  shadeDark: compose(tokens.shadeDark, getTokens, theme),
+  shadeBase: compose(tokens.shadeBase, getTokens, theme),
+  contrast: compose(tokens.contrast, getTokens, theme),
+  alt: compose(tokens.alt, getTokens, theme)
 })
 
 export const INITIAL_STATE = {
@@ -171,48 +129,15 @@ const themeColors = propOr({}, 'tokens')
 const themeFonts = propOr({}, 'fonts')
 
 export const selectors = {
-  brand: compose(
-    prop('brand'),
-    themeColors
-  ),
-  brandDark: compose(
-    prop('brandDark'),
-    themeColors
-  ),
-  brandDarkest: compose(
-    prop('brandDarkest'),
-    themeColors
-  ),
-  brandLightest: compose(
-    prop('brandLightest'),
-    themeColors
-  ),
-  shadeDark: compose(
-    prop('shadeDark'),
-    themeColors
-  ),
-  shadeBase: compose(
-    prop('shadeBase'),
-    themeColors
-  ),
-  contrast: compose(
-    prop('contrast'),
-    themeColors
-  ),
-  alt: compose(
-    prop('alt'),
-    themeColors
-  ),
-  fontRegular: compose(
-    prop('regular'),
-    themeFonts
-  ),
-  fontBold: compose(
-    prop('bold'),
-    themeFonts
-  ),
-  fontCi: compose(
-    prop('ci'),
-    themeFonts
-  )
+  brand: compose(prop('brand'), themeColors),
+  brandDark: compose(prop('brandDark'), themeColors),
+  brandDarkest: compose(prop('brandDarkest'), themeColors),
+  brandLightest: compose(prop('brandLightest'), themeColors),
+  shadeDark: compose(prop('shadeDark'), themeColors),
+  shadeBase: compose(prop('shadeBase'), themeColors),
+  contrast: compose(prop('contrast'), themeColors),
+  alt: compose(prop('alt'), themeColors),
+  fontRegular: compose(prop('regular'), themeFonts),
+  fontBold: compose(prop('bold'), themeFonts),
+  fontCi: compose(prop('ci'), themeFonts)
 }

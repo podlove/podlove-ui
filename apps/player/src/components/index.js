@@ -1,5 +1,4 @@
 import 'regenerator-runtime/runtime'
-import { Icon } from '@podlove/components'
 
 import Root from './root'
 import EpisodeTitle from './episode-title'
@@ -22,7 +21,6 @@ import Divider from './divider'
 import TabTrigger from './tab-trigger'
 import TabOverflow from './tab-overflow'
 import Error from './error'
-import SubscribeButton from './subscribe-button'
 
 export default {
   Root,
@@ -41,17 +39,19 @@ export default {
   PlayState,
   VolumeControl,
   SpeedControl,
-  Icon,
   Tab,
   TabTrigger,
   TabOverflow,
   Divider,
   Error,
-  SubscribeButton,
+
+  SubscribeButton: () => import('./subscribe-button'),
   TabChapters: () => import('./tab-chapters'),
   TabTranscripts: () => import('./tab-transcripts'),
   TabFiles: () => import('./tab-files'),
   TabShare: () => import('./tab-share'),
   TabPlaylist: () => import('./tab-playlist'),
-  TabShownotes: () => import('./tab-shownotes')
+  TabShownotes: () => import('./tab-shownotes'),
+
+  Icon: () => import('@podlove/components/icons')
 }

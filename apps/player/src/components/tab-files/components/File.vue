@@ -14,19 +14,14 @@
 <script>
 import { mapState } from 'redux-vuex'
 import { compose, includes, defaultTo, toLower } from 'ramda'
-import { Icon } from '@podlove/components'
+import Icon from '@podlove/components/icons'
 import { toMegabyte } from '@podlove/utils/math'
 import { hoverFile, selectFile } from '@podlove/player-actions/files'
 
 import select from 'store/selectors'
 import store from 'store'
 
-const isType = type =>
-  compose(
-    includes(type),
-    toLower,
-    defaultTo('')
-  )
+const isType = type => compose(includes(type), toLower, defaultTo(''))
 const audio = isType('audio')
 const video = isType('video')
 const pdf = isType('pdf')
@@ -101,14 +96,8 @@ export default {
 
   methods: {
     toMegabyte,
-    hover: compose(
-      store.dispatch,
-      hoverFile
-    ),
-    select: compose(
-      store.dispatch,
-      selectFile
-    )
+    hover: compose(store.dispatch, hoverFile),
+    select: compose(store.dispatch, selectFile)
   }
 }
 </script>
