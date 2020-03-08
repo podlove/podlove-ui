@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-actions",
-  "version": "5.0.1-beta.1",
+  "version": "5.0.1-beta.2",
   "description": "Actions for Podlove Player Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/actions",
   "main": "index.js",
@@ -11,10 +11,10 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/utils": "^5.0.1-beta.1",
+    "@podlove/utils": "^5.0.1-beta.2",
     "redux-actions": "2.6.5"
   },
   "devDependencies": {
-    "@podlove/build": "^5.0.1-beta.1"
+    "@podlove/build": "^5.0.1-beta.2"
   }
 }

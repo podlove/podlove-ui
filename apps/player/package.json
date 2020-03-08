@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player",
-  "version": "5.0.1-beta.1",
+  "version": "5.0.1-beta.2",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
@@ -21,13 +21,13 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.0.1-beta.1",
-    "@podlove/components": "^5.0.1-beta.1",
-    "@podlove/player-actions": "^5.0.1-beta.1",
-    "@podlove/player-config": "^5.0.1-beta.1",
-    "@podlove/player-sagas": "^5.0.1-beta.1",
-    "@podlove/player-state": "^5.0.1-beta.1",
-    "@podlove/utils": "^5.0.1-beta.1",
+    "@podlove/button-actions": "^5.0.1-beta.2",
+    "@podlove/components": "^5.0.1-beta.2",
+    "@podlove/player-actions": "^5.0.1-beta.2",
+    "@podlove/player-config": "^5.0.1-beta.2",
+    "@podlove/player-sagas": "^5.0.1-beta.2",
+    "@podlove/player-state": "^5.0.1-beta.2",
+    "@podlove/utils": "^5.0.1-beta.2",
     "color": "3.1.2",
     "copy-to-clipboard": "3.2.0",
     "core-js": "3.4.0",
@@ -41,7 +41,7 @@
     "vue-i18n": "8.15.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.0.1-beta.1",
+    "@podlove/build": "^5.0.1-beta.2",
     "cypress": "3.5.0",
     "cypress-plugin-retries": "1.5.2",
     "http-server": "0.11.1",

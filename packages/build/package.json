@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@podlove/build",
-  "version": "5.0.1-beta.1",
+  "version": "5.0.1-beta.2",
   "description": "Webpack building blocks for podlove player framework",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/preset-env": "7.8.7",
     "@csstools/postcss-sass": "4.0.0",
-    "@podlove/utils": "^5.0.1-beta.1",
+    "@podlove/utils": "^5.0.1-beta.2",
     "autoprefixer": "9.7.3",
     "babel-loader": "8.0.6",
     "babel-preset-vue": "2.0.2",

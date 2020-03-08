@@ -1,6 +1,6 @@
 {
   "name": "@podlove/utils",
-  "version": "5.0.1-beta.1",
+  "version": "5.0.1-beta.2",
   "description": "Utils for Podlove Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/utils",
   "scripts": {
