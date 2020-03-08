@@ -24,8 +24,7 @@ import {
 } from '@podlove/player-actions/play'
 import { backendPlaytime, backendDuration } from '@podlove/player-actions/timepiece'
 import { errorMissingMedia } from '@podlove/player-actions/error'
-import { audio } from '@podlove/html5-audio-driver'
-import { attatchStream } from '@podlove/html5-audio-driver/hls'
+import { audio } from '@podlove/html5-audio-driver/connect'
 
 import {
   playerSaga,
@@ -54,14 +53,14 @@ import {
 
 describe('player', () => {
   describe('playerSaga()', () => {
-    let selectMedia, selectPlaytime, selectTitle, selectPoster, mediaElement, factory, gen
+    let selectMedia, selectPlaytime, selectTitle, selectPoster, connector, factory, gen
 
     beforeEach(() => {
       selectMedia = jest.fn()
       selectPlaytime = jest.fn()
       selectTitle = jest.fn()
       selectPoster = jest.fn()
-      mediaElement = attatchStream(audio([]))
+      connector = audio()
       factory = playerSaga({ selectMedia, selectPlaytime, selectTitle, selectPoster })
       gen = factory()
     })
@@ -71,23 +70,29 @@ describe('player', () => {
     })
 
     test('should register initPlayer on READY', () => {
-      expect(gen.next().value).toEqual(
-        takeEvery(READY, initPlayer, { selectMedia, selectTitle, selectPoster, mediaElement })
+      expect(JSON.stringify(gen.next().value)).toEqual(
+        JSON.stringify(
+          takeEvery(READY, initPlayer, { selectMedia, selectTitle, selectPoster, connector })
+        )
       )
     })
 
     test('should register syncAttributes on UPDATE_CHAPTER', () => {
       gen.next()
-      expect(gen.next().value).toEqual(
-        takeEvery(UPDATE_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
+      expect(JSON.stringify(gen.next().value)).toEqual(
+        JSON.stringify(
+          takeEvery(UPDATE_CHAPTER, syncAttributes, { connector, selectTitle, selectPoster })
+        )
       )
     })
 
     test('should register syncAttributes on SET_CHAPTER', () => {
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(
-        takeEvery(SET_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
+      expect(JSON.stringify(gen.next().value)).toEqual(
+        JSON.stringify(
+          takeEvery(SET_CHAPTER, syncAttributes, { connector, selectTitle, selectPoster })
+        )
       )
     })
 
@@ -95,7 +100,9 @@ describe('player', () => {
       gen.next()
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(fork(driver, { selectPlaytime, mediaElement }))
+      expect(JSON.stringify(gen.next().value)).toEqual(
+        JSON.stringify(fork(driver, { selectPlaytime, connector }))
+      )
     })
 
     test('should end the saga', () => {
@@ -108,20 +115,17 @@ describe('player', () => {
   })
 
   describe('initPlayer()', () => {
-    let gen, selectMedia, selectTitle, selectPoster, mediaElement
+    let gen, selectMedia, selectTitle, selectPoster, connector
     beforeEach(() => {
       selectMedia = jest.fn()
       selectTitle = jest.fn()
       selectPoster = jest.fn()
 
-      mediaElement = {
-        setAttribute: jest.fn(),
-        removeAttribute: jest.fn(),
-        appendChild: jest.fn(),
-        initialized: true
+      connector = {
+        load: jest.fn()
       }
 
-      gen = initPlayer({ selectMedia, selectTitle, selectPoster, mediaElement })
+      gen = initPlayer({ selectMedia, selectTitle, selectPoster, connector })
     })
 
     test('shoud export a generator', () => {
@@ -140,7 +144,7 @@ describe('player', () => {
     test('should call syncAttributes', () => {
       gen.next()
       expect(gen.next(['foo', 'bar']).value).toEqual(
-        fork(syncAttributes, { mediaElement, selectTitle, selectPoster })
+        fork(syncAttributes, { connector, selectTitle, selectPoster })
       )
     })
 
@@ -152,19 +156,47 @@ describe('player', () => {
   })
 
   describe('driver', () => {
-    let gen, selectPlaytime, mediaElement
+    let gen, selectPlaytime, connector
 
     beforeEach(() => {
       selectPlaytime = jest.fn()
 
-      mediaElement = {
-        setAttribute: jest.fn(),
-        removeChild: jest.fn(),
-        removeAttribute: jest.fn(),
-        appendChild: jest.fn()
+      connector = {
+        mediaElement: {
+          setAttribute: jest.fn(),
+          removeChild: jest.fn(),
+          removeAttribute: jest.fn(),
+          appendChild: jest.fn()
+        },
+        actions: {
+          play: jest.fn(),
+          pause: jest.fn(),
+          load: jest.fn(),
+          setPlaytime: jest.fn(),
+          mute: jest.fn(),
+          unmute: jest.fn(),
+          setVolume: jest.fn(),
+          setRate: jest.fn()
+        },
+        events: {
+          onLoading: jest.fn(),
+          onLoaded: jest.fn(),
+          onPause: jest.fn(),
+          onBufferChange: jest.fn(),
+          onEnd: jest.fn(),
+          onPlaytimeUpdate: jest.fn(),
+          onVolumeChange: jest.fn(),
+          onError: jest.fn(),
+          onDurationChange: jest.fn(),
+          onRateChange: jest.fn(),
+          onPlay: jest.fn(),
+          onBuffering: jest.fn(),
+          onReady: jest.fn(),
+          onFilterUpdate: jest.fn()
+        }
       }
 
-      gen = driver({ selectPlaytime, mediaElement })
+      gen = driver({ selectPlaytime, connector })
     })
 
     test('shoud export a generator', () => {

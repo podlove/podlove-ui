@@ -1,11 +1,4 @@
-import {
-  events as audioEventFactory,
-  actions as audioActionFactory,
-  audio
-} from '@podlove/html5-audio-driver'
-import * as audioActions from '@podlove/html5-audio-driver/actions'
-import { attatchStream } from '@podlove/html5-audio-driver/hls'
-import { createSourceNodes as sources } from '@podlove/html5-audio-driver/media'
+import { audio } from '@podlove/html5-audio-driver/connect'
 import { select, call, put, takeEvery, fork } from 'redux-saga/effects'
 import {
   REQUEST_PLAY,
@@ -39,30 +32,25 @@ import { channel } from './helper'
 
 export const playerSaga = ({ selectMedia, selectPlaytime, selectTitle, selectPoster }) =>
   function* saga() {
-    const mediaElement = attatchStream(audio([]))
+    const connector = audio()
 
-    yield takeEvery(READY, initPlayer, { selectMedia, selectTitle, selectPoster, mediaElement })
-    yield takeEvery(UPDATE_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
-    yield takeEvery(SET_CHAPTER, syncAttributes, { mediaElement, selectTitle, selectPoster })
-    yield fork(driver, { selectPlaytime, mediaElement })
+    yield takeEvery(READY, initPlayer, { selectMedia, selectTitle, selectPoster, connector })
+    yield takeEvery(UPDATE_CHAPTER, syncAttributes, { connector, selectTitle, selectPoster })
+    yield takeEvery(SET_CHAPTER, syncAttributes, { connector, selectTitle, selectPoster })
+    yield fork(driver, { selectPlaytime, connector })
   }
 
-export function* initPlayer({ selectMedia, selectTitle, selectPoster, mediaElement }) {
+export function* initPlayer({ selectMedia, selectTitle, selectPoster, connector }) {
   const mediaFiles = yield select(selectMedia)
 
   if (mediaFiles.length === 0) {
     yield put(errorMissingMedia())
   }
 
-  // reset existing media element
-  audioActions.pause(mediaElement)
-  audioActions.reset(mediaElement)
-
-  // add audio sources
-  sources(mediaElement)(mediaFiles)
+  connector.load(mediaFiles)
 
   // AudioAttributes
-  yield fork(syncAttributes, { mediaElement, selectTitle, selectPoster })
+  yield fork(syncAttributes, { connector, selectTitle, selectPoster })
 }
 
 // Actions
@@ -148,32 +136,29 @@ export function* onError(type) {
   yield put(backendError(type))
 }
 
-export function* driver({ selectPlaytime, mediaElement }) {
+export function* driver({ selectPlaytime, connector }) {
   // AudioActions
-  const actions = audioActionFactory(mediaElement)
-
-  yield takeEvery(REQUEST_PLAY, play, actions, selectPlaytime)
-  yield takeEvery(REQUEST_PAUSE, pause, actions)
-  yield takeEvery(REQUEST_RESTART, restart, actions)
-  yield takeEvery(REQUEST_LOAD, load, actions)
-  yield takeEvery(REQUEST_PLAYTIME, playtime, actions)
-  yield takeEvery(SET_RATE, rate, actions)
-  yield takeEvery(SET_VOLUME, volume, actions)
-  yield takeEvery(MUTE, mute, actions)
-  yield takeEvery(UNMUTE, unmute, actions)
+  yield takeEvery(REQUEST_PLAY, play, connector.actions, selectPlaytime)
+  yield takeEvery(REQUEST_PAUSE, pause, connector.actions)
+  yield takeEvery(REQUEST_RESTART, restart, connector.actions)
+  yield takeEvery(REQUEST_LOAD, load, connector.actions)
+  yield takeEvery(REQUEST_PLAYTIME, playtime, connector.actions)
+  yield takeEvery(SET_RATE, rate, connector.actions)
+  yield takeEvery(SET_VOLUME, volume, connector.actions)
+  yield takeEvery(MUTE, mute, connector.actions)
+  yield takeEvery(UNMUTE, unmute, connector.actions)
 
   // AudioEvents
-  const events = audioEventFactory(mediaElement)
-  const readyEvent = yield call(channel, events.onReady)
-  const loadedEvent = yield call(channel, events.onLoaded)
-  const playEvent = yield call(channel, events.onPlay)
-  const pauseEvent = yield call(channel, events.onPause)
-  const endEvent = yield call(channel, events.onEnd)
-  const playtimeEvent = yield call(channel, events.onPlaytimeUpdate)
-  const bufferingEvent = yield call(channel, events.onBuffering)
-  const durationEvent = yield call(channel, events.onDurationChange)
-  const bufferChangeEvent = yield call(channel, events.onBufferChange)
-  const errorEvent = yield call(channel, events.onError)
+  const readyEvent = yield call(channel, connector.events.onReady)
+  const loadedEvent = yield call(channel, connector.events.onLoaded)
+  const playEvent = yield call(channel, connector.events.onPlay)
+  const pauseEvent = yield call(channel, connector.events.onPause)
+  const endEvent = yield call(channel, connector.events.onEnd)
+  const playtimeEvent = yield call(channel, connector.events.onPlaytimeUpdate)
+  const bufferingEvent = yield call(channel, connector.events.onBuffering)
+  const durationEvent = yield call(channel, connector.events.onDurationChange)
+  const bufferChangeEvent = yield call(channel, connector.events.onBufferChange)
+  const errorEvent = yield call(channel, connector.events.onError)
 
   yield takeEvery(readyEvent, onReady)
   yield takeEvery(loadedEvent, onReady)
@@ -186,13 +171,14 @@ export function* driver({ selectPlaytime, mediaElement }) {
   yield takeEvery(bufferingEvent, onBuffering)
   yield takeEvery(errorEvent, onError)
 
-  return mediaElement
+  return connector
 }
 
 // Attribute Bindings
-export function* syncAttributes({ mediaElement, selectTitle, selectPoster }) {
+export function* syncAttributes({ connector, selectTitle, selectPoster }) {
   const title = yield select(selectTitle)
   const poster = yield select(selectPoster)
 
-  setAttributes({ title, poster, 'x-webkit-airplay': 'allow' }, mediaElement)
+  connector.mediaElement &&
+    setAttributes({ title, poster, 'x-webkit-airplay': 'allow' }, connector.mediaElement)
 }
