@@ -21,7 +21,7 @@
     "vue-color": "2.7.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "5.0.4",
+    "copy-webpack-plugin": "5.1.1",
     "core-js": "2.6.10",
     "github-pages": "3.0.2",
     "node-sass": "4.13.0",
