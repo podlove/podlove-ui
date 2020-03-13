@@ -16,7 +16,25 @@ export default {
     background: select.theme.brandLightest,
     font: select.theme.fontRegular,
     fonts: select.theme.fonts,
-    language: select.language
+    language: select.language,
+    state: state => ({
+      title: select.episode.title(state),
+      subtitle: select.episode.subtitle(state),
+      summary: select.episode.summary(state),
+      publicationDate: select.episode.publicationDate(state),
+      poster: select.episode.poster(state),
+      link: select.episode.link(state),
+      duration: select.duration(state),
+      playtime: select.playtime(state),
+      show: {
+        title: select.show.title(state),
+        subtitle: select.show.subtitle(state),
+        summary: select.show.summary(state),
+        poster: select.show.poster(state),
+        link: select.show.link(state)
+      },
+      playstate: select.playstate(state)
+    })
   }),
   watch: {
     language() {
