@@ -11,7 +11,7 @@
         <div class="tablet:px-6 tablet:pt-6 mobile:px-4 mobile:pt-4 flex flex-col">
           <div class="flex-col items-center mobile:flex tablet:hidden">
             <show-title class="text-sm"></show-title>
-            <episode-title class="text-base mb-2"></episode-title>
+
             <subscribe-button class="mb-4 mobile:flex tablet:hidden"></subscribe-button>
             <poster class="rounded-sm w-48 shadow overflow-hidden"></poster>
             <divider class="w-full my-6"></divider>
@@ -42,7 +42,7 @@
                     <step-backward class="mx-2 block"></step-backward>
                   </play-state>
 
-                  <play-button class="mx-2 block" :label="state.duration | toHumanTime"></play-button>
+                  <play-button v-state class="mx-2 block"></play-button>
 
                   <play-state on="active">
                     <step-forward class="mx-2 block"></step-forward>
@@ -105,9 +105,7 @@
           <tab name="shownotes">
             <tab-shownotes></tab-shownotes>
           </tab>
-          <tab name="chapters">
-            <tab-chapters></tab-chapters>
-          </tab>
+
           <tab name="transcripts">
             <tab-transcripts></tab-transcripts>
           </tab>
