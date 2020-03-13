@@ -23,7 +23,6 @@ const clients = payload => {
         .sort(item => (item.type === type.service ? -1 : 0))
         .shift()
     )
-    .flat()
     .filter(Boolean)
 }
 

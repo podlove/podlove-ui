@@ -351,7 +351,6 @@ describe('player', () => {
 
         // Events
         gen.next(readyEvent)
-        gen.next(loadedEvent)
         gen.next(playEvent)
         gen.next(pauseEvent)
         gen.next(endEvent)
@@ -363,25 +362,21 @@ describe('player', () => {
 
       test('should create a ready event binding', () => {
         expect(gen.next(errorEvent).value).toEqual(takeEvery(readyEvent, onReady))
-        expect(gen.next().value).toEqual(takeEvery(loadedEvent, onReady))
       })
 
       test('should create a play event binding', () => {
         gen.next(errorEvent)
-        gen.next()
         expect(gen.next().value).toEqual(takeEvery(playEvent, onPlay))
       })
 
       test('should create a pause event binding', () => {
         gen.next(errorEvent)
         gen.next()
-        gen.next()
         expect(gen.next().value).toEqual(takeEvery(pauseEvent, onPause))
       })
 
       test('should create a end event binding', () => {
         gen.next(errorEvent)
-        gen.next()
         gen.next()
         gen.next()
         expect(gen.next().value).toEqual(takeEvery(endEvent, onEnd))
@@ -392,13 +387,11 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
-        gen.next()
         expect(gen.next().value).toEqual(takeEvery(playtimeEvent, onPlaytimeUpdate))
       })
 
       test('should create a duration event binding', () => {
         gen.next(errorEvent)
-        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -413,13 +406,11 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
-        gen.next()
         expect(gen.next().value).toEqual(takeEvery(bufferChangeEvent, onBufferChange))
       })
 
       test('should create a buffering event binding', () => {
         gen.next(errorEvent)
-        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -438,13 +429,11 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
-        gen.next()
         expect(gen.next().value).toEqual(takeEvery(errorEvent, onError))
       })
 
       test('should finish the generator', () => {
         gen.next(errorEvent)
-        gen.next()
         gen.next()
         gen.next()
         gen.next()

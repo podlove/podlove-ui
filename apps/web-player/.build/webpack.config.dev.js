@@ -55,7 +55,7 @@ module.exports = {
     plugins.html({
       files: {
         styles: ['styles'],
-        scripts: ['vendor', 'styles', 'runtime', 'bootstrap']
+        scripts: ['vendor', 'styles', 'bootstrap']
       },
       filename: 'share.html',
       template: '!!mustache-loader!./src/player/share.mustache',
@@ -66,8 +66,8 @@ module.exports = {
     plugins.env({
       MODE: 'development',
       BASE: '/',
-      PLAYER_SCRIPTS: ['vendor', 'styles', 'runtime', 'bootstrap'],
-      BUTTON_SCRIPTS: ['vendor', 'styles', 'runtime', 'list'],
+      PLAYER_SCRIPTS: ['vendor', 'styles', 'bootstrap'],
+      BUTTON_SCRIPTS: ['vendor', 'styles', 'list'],
       PLAYER_STYLES: ['styles'],
       BUTTON_STYLES: ['styles']
     }),
