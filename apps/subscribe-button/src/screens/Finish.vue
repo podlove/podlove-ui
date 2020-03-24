@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 mobile:p-4 mobile:text-xl max-w-xl bg-white">
+  <div class="p-6 mobile:p-4 mobile:text-xl max-w-xl w-full max-h-full bg-white">
     <div class="mb-6 mobile:mb-4 flex justify-between items-center rounded-sm">
       <button class="text-xl flex items-center" @click="back">
         <icon type="arrow-to-left" class="mr-2" />
