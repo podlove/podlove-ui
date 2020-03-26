@@ -347,12 +347,12 @@ exports[`ProgressBar props should render with default props 1`] = `
    
   <span
     class="ghost-thumb"
-    style="display: none; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
+    style="display: none; left: 100%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
     class="progress-thumb"
-    style="display: block; background-color: rgb(255, 255, 255); border-color: #a00;"
+    style="display: block; left: 100%; background-color: rgb(255, 255, 255); border-color: #a00;"
   />
 </div>
 `;
