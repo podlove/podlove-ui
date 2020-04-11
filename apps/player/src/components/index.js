@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime'
 
 import Root from './root'
 import EpisodeTitle from './episode-title'
+import EpisodeSubtitle from './episode-subtitle'
 import ShowTitle from './show-title'
 import Poster from './poster'
 import StepForward from './step-forward'
@@ -25,6 +26,7 @@ import Error from './error'
 export default {
   Root,
   EpisodeTitle,
+  EpisodeSubtitle,
   ShowTitle,
   Poster,
   StepForward,
