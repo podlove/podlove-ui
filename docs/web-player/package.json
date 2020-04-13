@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev",
     "build": "vuepress build",
-    "publish": "surge ./.vuepress/dist podlove-player.surge.sh"
+    "publish:development": "surge ./.vuepress/dist podlove-player.surge.sh",
+    "publish:tag": "github-pages -r podlove/podlove-web-player -t $GH_TOKEN ./.vuepress/dist"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
