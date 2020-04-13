@@ -15,8 +15,3 @@ navigation: 1
 - Sharing
 - State Persistance
 - Deep Linking
-
-## Previous Versions
-
-- [Podlove Web Player v3 Docs](docs.podlove.org/podlove-web-player-v3/)
-- [Podlove Web Player v2 Docs](docs.podlove.org/podlove-web-player-v3/versions/v2.html)

@@ -351,7 +351,7 @@ steps:
 - name: build
   image: node:10
   commands:
-    - env BASE=/podlove-web-player/ npx lerna run build --scope @podlove/docs-web-player
+    - env BASE=/podlove-web-player-v4/ npx lerna run build --scope @podlove/docs-web-player
 
 - name: deploy:github
   image: node:10
