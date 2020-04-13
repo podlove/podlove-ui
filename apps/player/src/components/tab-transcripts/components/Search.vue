@@ -47,21 +47,22 @@ export default {
     searchSelected: select.transcripts.searchSelected,
     searching: select.transcripts.searching,
     follow: select.transcripts.follow,
-    altColor: select.theme.alt,
-    brandDark: select.theme.brandDark
+    contrastColor: select.theme.contrast,
+    brandDark: select.theme.brandDark,
+    brandLightest: select.theme.brandLightest
   }),
   computed: {
     inputStyle() {
       return {
-        color: this.brandDark,
-        background: this.altColor
+        color: this.contrastColor,
+        background: this.brandLightest
       }
     },
     buttonStyle() {
       return {
-        color: this.follow ? this.altColor : this.brandDark,
-        background: this.follow ? 'transparent' : this.altColor,
-        'border-color': this.altColor
+        color: this.follow ? this.contrastColor : this.brandLightest,
+        background: this.follow ? this.brandLightest : this.brandDark,
+        'border-color': this.brandLightest
       }
     },
     searchControls() {

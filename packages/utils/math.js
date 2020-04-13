@@ -17,7 +17,8 @@ export const roundUp = (base, number) => {
   return (number + (base - (number % base))) / 100
 }
 
-export const relativePosition = (current = 0, maximum = 0) => (current * 100) / maximum + '%'
+export const relativePosition = (current = 0, maximum = 0) =>
+  current < maximum ? (current * 100) / maximum + '%' : '100%'
 
 export const inRange = (lower = 0, upper = 0) => (value = 0) => {
   if (value < lower) {

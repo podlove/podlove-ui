@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex mobile:flex-no-wrap mobile:flex-col tablet:flex-row tablet:flex-wrap w-full">
+  <ul class="flex mobile:flex-col tablet:flex-row flex-wrap w-full">
     <li
       v-for="(entry, index) in clients"
       :key="index"

@@ -373,7 +373,6 @@ steps:
     ref:
     - refs/tags/v*
 
-
 ---
 kind: pipeline
 name: docs/web-player
@@ -386,12 +385,15 @@ steps:
     - npm i
     - npx lerna bootstrap --hoist
 
-- name: build
+- name: build:development
   image: node:12
   commands:
     - env BASE=/ npx lerna run build --scope @podlove/docs-web-player --stream
+  when:
+    ref:
+    - refs/heads/development
 
-- name: deploy:surge
+- name: deploy:development
   image: node:12
   environment:
     SURGE_LOGIN:
@@ -399,7 +401,26 @@ steps:
     SURGE_TOKEN:
       from_secret: SURGE_TOKEN
   commands:
-    - npx lerna run publish --scope @podlove/docs-web-player --stream
+    - npx lerna run publish:development --scope @podlove/docs-web-player --stream
+  when:
+    ref:
+    - refs/heads/development
+
+- name: build:tag
+  image: node:12
+  commands:
+    - env BASE=/podlove-web-player/ npx lerna run build --scope @podlove/docs-web-player
+  when:
+    ref:
+    - refs/tags/v*
+
+- name: deploy:tag
+  image: node:12
+  environment:
+    GH_TOKEN:
+      from_secret: GH_TOKEN
+  commands:
+    - npx lerna run publish:tag --scope @podlove/docs-web-player --stream
   when:
     ref:
     - refs/tags/v*
