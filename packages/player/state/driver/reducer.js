@@ -1,3 +1,4 @@
+import { propOr } from 'ramda'
 import { handleActions } from 'redux-actions'
 
 import {
@@ -17,7 +18,6 @@ export const reducer = handleActions(
       ...state,
       playing: false
     }),
-
     [BACKEND_ERROR]: state => ({
       ...state,
       playing: false
@@ -26,9 +26,9 @@ export const reducer = handleActions(
       ...state,
       playing: true
     }),
-    [BACKEND_LOADING_END]: state => ({
+    [BACKEND_LOADING_END]: (state, { payload }) => ({
       ...state,
-      playing: true
+      playing: propOr(false, 'playing', payload)
     })
   },
   INITIAL_STATE
