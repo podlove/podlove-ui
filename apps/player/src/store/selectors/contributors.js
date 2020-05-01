@@ -1,4 +1,4 @@
-import { compose, pathOr, values } from 'ramda'
+import { compose, pathOr, values, prop } from 'ramda'
 import { selectors } from '@podlove/player-state/contributors'
 
 import root from './root'
@@ -10,12 +10,17 @@ const groups = state => {
 
   return values(
     contributors.reduce((result, contributor) => {
-      const group = contributor.group
-      const existing = pathOr([], [group.id, 'contributors'], result)
+      const group = prop('group', contributor)
+      const existing = pathOr([], [prop('id', group), 'contributors'], result)
+      const id = prop('id', group)
+
+      if (!group) {
+        return result
+      }
 
       return {
         ...result,
-        [group.id]: {
+        [id]: {
           ...group,
           contributors: [...existing, contributor]
         }
