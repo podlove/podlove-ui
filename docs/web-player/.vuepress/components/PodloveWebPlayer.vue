@@ -19,7 +19,7 @@
       },
       variant: {
         type: String,
-        default: 'xl',
+        default: null,
         validator: (val) => ['xl', 'l', 'm'].includes(val)
       },
       template: {

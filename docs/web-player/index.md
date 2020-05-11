@@ -6,7 +6,7 @@ navigation: 1
 # Podlove Web Player 5
 ### The fast, flexible and responsive podcast player powered by podlove meta data.
 
-<podlove-web-player episode="fixtures/episode.json" config="fixtures/config.json" />
+<podlove-web-player episode="fixtures/episode.json" config="fixtures/config.json" variant="xl"/>
 
 ## Features
 
