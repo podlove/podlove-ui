@@ -39,4 +39,4 @@ External event handling gives you the ability to control the player from other d
 <button class="button" rel="podlove-web-player" data-ref="example-player" data-tab="files">activate files tab</button>
 <button class="button" rel="podlove-web-player" data-ref="example-player" data-action="play" data-time="00:10:00" data-tab="files">all combined</button>
 
-<podlove-web-player episode="fixtures/episode.json" config="fixtures/config.json" id="example-player" />
+<podlove-web-player episode="fixtures/episode.json" config="fixtures/config.json" id="example-player" variant="xl" />
