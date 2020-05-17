@@ -1,0 +1,155 @@
+{
+  "CHAPTERS": {
+    "TITLE": "Chapitres"
+  },
+  "AUDIO": {
+    "TITLE": "Audio",
+    "VOLUME": "Volume",
+    "SPEED": "Vitesse",
+    "DEBUG_STATE": "Exporter l'état de débogage"
+  },
+  "PLAYER": {
+    "PLAY_EPISODE": "Lire l'Épisode",
+    "REPLAY": "Rejouer",
+    "RETRY": "Réessayer"
+  },
+  "ERROR": {
+    "NETWORK": {
+      "TITLE": "Erreur de réseau",
+      "MESSAGE": "Nous n'avons pas pu charger les fichiers audio depuis le serveur. Peut-être que vous n'avez pas d'accès internet ou que l'hôte n'est pas disponible."
+    },
+    "MEDIA": {
+      "TITLE": "Fichiers médias manquants",
+      "MESSAGE": "Le lecteur à reçu une configuration invalide. Sans les fichiers audios, le lecteur ne peut être utilisé. Merci de contacter le propriétaire du site pour réparer ce souci."
+    },
+    "CONFIG": {
+      "TITLE": "Configuration de l'Épisode manquant",
+      "MESSAGE": "Le lecteur n'a pas pu récupérer la configuration de l'Épisode. Merci de contacter le propriétaire du site pour régler ce souci."
+    }
+  },
+  "FILES": {
+    "TITLE": "Fichiers",
+    "TYPES": {
+      "AUDIO": "Audio",
+      "PDF": "PDF",
+      "TEXT": "Texte",
+      "VIDEO": "Vidéo"
+    },
+    "ACTIONS": {
+      "DOWNLOAD": "Télécharger",
+      "COPY": "Copier l'URL"
+    }
+  },
+  "SHARE": {
+    "TITLE": "Partager l'Épisode",
+    "CONTENT": {
+      "SHOW": "Émission",
+      "EPISODE": "Épisode",
+      "CHAPTER": "Chapitre",
+      "TIME": "Avancement"
+    },
+    "SHARE_CHANNEL": "Partager dans...",
+    "SHARE_LINK": "Lien",
+    "ACTIONS": {
+      "COPY": "copier"
+    },
+    "PLAYTIME": "Partager l'avancement actuel ({playtime})",
+    "EPISODE": {
+      "TEXT": {
+        "BEGINNING": "\"{title}\" ({link})",
+        "CHAPTER": "\"{chapter}\" of \"{title}\" ({link})",
+        "PLAYTIME": "\"{title}\" ({link})"
+      },
+      "SUBJECT": {
+        "BEGINNING": "{title}",
+        "CHAPTER": "{title} - {chapter}",
+        "PLAYTIME": "{title}"
+      }
+    },
+    "SHOW": {
+      "TEXT": "\"{title}\" ({link})",
+      "SUBJECT": "{title}"
+    },
+    "EMBED": {
+      "TITLE": "Intégrer le lecteur",
+      "LABEL": {
+        "SIZE": "Taille d'Intégration",
+        "CODE": "Code d'Intégration"
+      },
+      "ACTIONS": {
+        "COPY": "Copier le code"
+      }
+    }
+  },
+  "SHOWNOTES": {
+    "TITLE": "Notes",
+    "PUBLICATION_DATE": "Publié: {month}/{day}/{year}",
+    "DURATION_WITH_HOURS": "{hours} heures {minutes} minutes",
+    "DURATION": "{minutes} minutes"
+  },
+  "TRANSCRIPTS": {
+    "TITLE": "Transcription",
+    "CHAPTER": "Chapitre {index}: {title}",
+    "FOLLOW": {
+      "ACTIVE": "Arrêter le Texte",
+      "INACTIVE": "Suivre le Texte"
+    },
+    "PLACEHOLDER": "Rechercher dans le Texte ...",
+    "NO_SEARCH_RESULTS": "Aucun Résultat"
+  },
+  "MESSAGES": {
+    "COPIED": "Copié!"
+  },
+  "PLAYLIST": {
+    "TITLE": "Épisodes liés"
+  },
+  "SUBSCRIBE": "S'abonner",
+  "A11Y": {
+    "ALT_EPISODE_COVER": "Couverture d'Épisode",
+    "ALT_SHOW_COVER": "Couverture de l'Émission",
+    "PLAYER_PLAY": "Jouer l'Épisode",
+    "PLAYER_START": "Démarrer Épisode, durée {hours} heures {minutes} minutes {seconds} secondes",
+    "PLAYER_RESTART": "Rejouer l'Épisode",
+    "PLAYER_ERROR": "Réessayer la Lecture de l'Épisode",
+    "PLAYER_PAUSE": "Mettre en pause l'Épisode",
+    "PLAYER_LOADING": "Chargement de l'Épisode",
+    "PLAYER_CHAPTER_NEXT": "Aller au prochain chapitre: {index} - {title}",
+    "PLAYER_CHAPTER_END": "Aller à la fin de l'Épisode",
+    "PLAYER_CHAPTER_PREVIOUS": "Aller au Chapitre précédent: {index} - {title}",
+    "PLAYER_CHAPTER_CURRENT": "Aller au début du Chapitre actuel: {index} - {title}",
+    "PLAYER_STEPPER_BACK": "Rembobiner de {seconds} Secondes",
+    "PLAYER_STEPPER_FORWARD": "Avancer de {seconds} Secondes",
+    "PROGRESSBAR_INPUT": "Changer l'Avancement en Millisecondes",
+    "TIMER_CURRENT": "Avancement actuel: {hours} heures {minutes} minutes {seconds} secondes",
+    "TIMER_LEFT": "Durée restante: {hours} heures {minutes} minutes {seconds} secondes",
+    "TIMER_CHAPTER": "Chapitre actuel: {index} - {title}",
+    "CONTRIBUTOR_COVER": "Orateur {name}",
+    "CHAPTER_ENTRY": "{index} - {title} (Duration: {duration}, Restant: {remaining})",
+    "SHARE_CONTENT_SHOW": "Partager l'Émission {title}",
+    "SHARE_CONTENT_EPISODE": "Partager l'Épisode {title}",
+    "SHARE_CONTENT_CHAPTER": "Partager le Chapitre {title}",
+    "SHARE_CONTENT_PLAYTIME": "Partager l'avancement {playtime}",
+    "SHARE_CHANNEL": "Partager sur {channel}",
+    "SHARE_EMBED": "Créer un code d'Intégration",
+    "COPY_SHARE_LINK": "Copier le lien de partage",
+    "SHARE_OVERLAY": "Partager dialogue",
+    "OVERLAY_CLOSE": "Fermer dialogue",
+    "COPY_EMBED_CODE": "Copier le code d'intégration",
+    "DOWNLOAD_EPISODE": "Télécharger l'Épisode",
+    "SELECT_EPISODE_FILETYPE": "Choisir le type de fichier de l'Épisode",
+    "COPY_DOWNLOAD_URL": "Copier l'URL de Téléchargement",
+    "RATE": "Vitesse de lecture",
+    "RATE_CURRENT": "Actuelle: {rate}%",
+    "RATE_INCREASE": "Augmenter la vitesse de lecture",
+    "RATE_DECREASE": "Diminuer la vitesse de lecture",
+    "SET_RATE_IN_PERCENT": "Définir la vitesse de lecture en pourcent",
+    "VOLUME": "Volume Audio",
+    "VOLUME_CURRENT": "Acutel: {volume}%",
+    "VOLUME_MUTE": "Désactiver le son",
+    "VOLUME_UNMUTE": "Ré-activer le son",
+    "SET_VOLUME_IN_PERCENT": "Définir le volume en pourcent",
+    "DOWNLOAD_FILE": "Télécharger le fichier {url}",
+    "COPY_FILE": "Copier le fichier {url}",
+    "PLAYLIST_ENTRY": "Lire l'Épisode {title}"
+  }
+}
