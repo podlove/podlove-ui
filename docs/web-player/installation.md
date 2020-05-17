@@ -32,7 +32,7 @@ Afterwards `podlovePlayer` should be available on the window object:
 
 If you want to serve a special player version you can also find the player as an npm package [@podlove/web-player](https://www.npmjs.com/package/@podlove/web-player).
 
-To integrate the player you first have to install tha package:
+To integrate the player you first have to install the package:
 
 ```javascript
 npm install @podlove/web-player --save
