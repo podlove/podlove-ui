@@ -38,4 +38,4 @@ To integrate the player you first have to install tha package:
 npm install @podlove/web-player --save
 ```
 
-Move the player assets to some public folder of your webserver. By default the player will try to load further chunks from the webserver base. If the player files are located in a subpath you have to adapt the `base` accordingly (see [config](config.html)
+Move the player assets to some public folder of your webserver. By default the player will try to load further chunks from the webserver base. If the player files are located in a subpath you have to adapt the `base` accordingly (see [config](config.html))
