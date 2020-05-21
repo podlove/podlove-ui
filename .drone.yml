@@ -300,6 +300,39 @@ steps:
     ref:
     - refs/tags/v*
 
+---
+  kind: pipeline
+  name: packages/player-config
+
+  steps:
+  - name: bootstrap
+    image: node:12
+    commands:
+      - npm set unsafe-perm true
+      - npm i
+      - npx lerna bootstrap --hoist
+
+  - name: lint
+    image: node:12
+    commands:
+      - npx eslint 'packages/player/config/**/*.{js,vue}'
+
+  - name: test
+    image: node:12
+    commands:
+      - npx jest 'packages/player/config'
+
+  - name: deploy:npm
+    image: plugins/npm
+    settings:
+      username: alexander-heimbuch
+      token:
+        from_secret: NPM_TOKEN
+      email: npm@heimbu.ch
+      folder: packages/player/config
+    when:
+      ref:
+      - refs/tags/v*
 
 ---
 kind: pipeline
@@ -334,7 +367,6 @@ steps:
   when:
     ref:
     - refs/tags/v*
-
 
 ---
 kind: pipeline
