@@ -22,12 +22,12 @@ This mono repo creates a set of different packages within the `@podlove` NPM org
 - Workspace Management: [Lerna](https://lerna.js.org/)
 - Bundling: [Webpack](https://webpack.js.org/)
 - View Renderer: [Vue](https://vuejs.org/)
-- Statemanagenet: [Redux](https://redux.js.org/)
+- Statemanagement: [Redux](https://redux.js.org/)
 - Helpers: [Ramda](https://ramdajs.com/)
 - Styling: [Tailwind](https://tailwindcss.com/)
 - Testing: [Jest](https://jestjs.io/) and [Cypress](https://www.cypress.io/)
 
-Note: These are recommendend and well supported libraries. The usage within each application/package may vary.
+Note: These are recommended and well supported libraries. The usage within each application/package may vary.
 
 ## Applications
 
