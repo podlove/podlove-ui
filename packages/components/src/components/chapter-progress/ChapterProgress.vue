@@ -191,6 +191,7 @@ export default {
 
   .info-link {
     font-weight: 500;
+    white-space: nowrap;
   }
 
   .link {
