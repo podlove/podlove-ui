@@ -64,11 +64,11 @@ exports[`ProgressBar props should render 'chapters' 1`] = `
   >
     <span
       class="indicator"
-      style="background: rgb(170, 0, 0);"
+      style="border-right: 2px solid #a00; height: 2px; background: transparent;"
     />
     <span
       class="indicator"
-      style="background: rgb(170, 0, 0);"
+      style="border-right: 2px solid #a00; height: 2px; background: transparent;"
     />
   </div>
    
