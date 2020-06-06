@@ -140,49 +140,47 @@ export default {
     new RangeTouch(this.$refs.input, { watch: false })
   },
   methods: {
-    ...mapActions({
-      onChange(_, event) {
-        this.$emit('input', requestPlaytime(event.target.value))
-      },
+    onChange(event) {
+      this.$emit('input', requestPlaytime(event.target.value))
+    },
 
-      onInput(_, event) {
-        this.thumbAnimated = false
-        this.$emit('input', requestPlaytime(event.target.value))
-        this.$emit('ghost', disableGhost())
-      },
+    onInput(event) {
+      this.thumbAnimated = false
+      this.$emit('input', requestPlaytime(event.target.value))
+      this.$emit('ghost', disableGhost())
+    },
 
-      onMouseMove(_, event) {
-        if (
-          (event.offsetY < 13 && event.offsetY > 31) ||
-          event.offsetX < 0 ||
-          event.offsetX > event.target.clientWidth
-        ) {
-          this.thumbActive = false
-          this.$emit('ghost', disableGhost())
-          return false
-        }
-
-        this.thumbAnimated = true
-        this.thumbActive = true
-
-        this.$emit(
-          'simulate',
-          simulatePlaytime((this.duration * event.offsetX) / event.target.clientWidth)
-        )
-        this.$emit('ghost', enableGhost())
-
-        return false
-      },
-
-      onMouseOut() {
+    onMouseMove(event) {
+      if (
+        (event.offsetY < 13 && event.offsetY > 31) ||
+        event.offsetX < 0 ||
+        event.offsetX > event.target.clientWidth
+      ) {
         this.thumbActive = false
-
         this.$emit('ghost', disableGhost())
-        this.$emit('simulate', simulatePlaytime(this.time))
-
         return false
       }
-    }),
+
+      this.thumbAnimated = true
+      this.thumbActive = true
+
+      this.$emit(
+        'simulate',
+        simulatePlaytime((this.duration * event.offsetX) / event.target.clientWidth)
+      )
+      this.$emit('ghost', enableGhost())
+
+      return false
+    },
+
+    onMouseOut() {
+      this.thumbActive = false
+
+      this.$emit('ghost', disableGhost())
+      this.$emit('simulate', simulatePlaytime(this.time))
+
+      return false
+    },
 
     trackStyle([start, end]) {
       return {
@@ -202,14 +200,16 @@ export default {
       }
     },
 
-    isLast(index) {
-      return this.chapters.length - 1 === index
-    },
-
     chapterStyle(chapter) {
+      const isActive = chapter.start <= this.ghost && chapter.end >= this.ghost
+
       return {
-        left: (chapter.end * 100) / this.duration + '%',
-        background: this.highlightColor
+        left: (chapter.start * 100) / this.duration + '%',
+        width: ((chapter.end - chapter.start) * 100) / this.duration + '%',
+        'border-right': `2px solid ${this.highlightColor}`,
+        height: isActive ? '4px' : '2px',
+        background: isActive ? this.progressColor : 'transparent',
+        top: isActive ? 'calc(50% - 2px)' : 'calc(50% - 1px)'
       }
     },
 
@@ -302,9 +302,6 @@ export default {
 .chapters-progress {
   .indicator {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    top: calc(50% - 1px);
     pointer-events: none;
   }
 }
