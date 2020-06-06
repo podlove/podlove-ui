@@ -13,7 +13,7 @@ export default () => ({
       default: number('duration', 1000)
     },
     ghost: {
-      default: number('ghost')
+      default: number('ghost', 450)
     },
     buffer: {
       default: () => object('buffer', [[0, 500]])
@@ -25,7 +25,20 @@ export default () => ({
       default: () =>
         object('chapters', [
           {
-            end: 400
+            start: 0,
+            end: 250
+          },
+          {
+            start: 250,
+            end: 500
+          },
+          {
+            start: 500,
+            end: 750
+          },
+          {
+            start: 750,
+            end: 1000
           }
         ])
     },
@@ -47,7 +60,7 @@ export default () => ({
   },
   template: `
     <progress-bar
-      style="width: 200px"
+      style="width: 400px"
       :title="title"
       :time="time"
       :duration="duration"
