@@ -12,7 +12,7 @@
     "@podlove/player-actions": "^5.1.7",
     "@podlove/player-config": "^5.1.7",
     "@podlove/utils": "^5.1.7",
-    "detect-browser": "4.8.0",
+    "detect-browser": "5.1.0",
     "redux-saga": "1.1.1"
   },
   "devDependencies": {
