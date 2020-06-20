@@ -1,6 +1,6 @@
 <template lang="pug">
-  button(@click="nextRate" @dblclick="setRate(1)" data-test="speed-control")
-    icon(:type="icon" :color="color" :data-test="`speed-control--${icon}`")
+  button(@click="setRate" @dblclick="setRate(1)" data-test="speed-control" :title="$t(a11y(nextRate * 100).key, a11y(nextRate * 100).attr)")
+    icon(aria-hidden="true" :type="icon" :color="color" :data-test="`speed-control--${icon}`")
 </template>
 
 <script>
@@ -20,7 +20,8 @@ export default {
   },
   data: mapState({
     rate: select.audio.rate,
-    color: select.theme.brandDark
+    color: select.theme.brandDark,
+    a11y: select.accessibility.speedControl
   }),
   computed: {
     icon() {
@@ -49,19 +50,23 @@ export default {
       }
 
       return 'speed-200'
-    }
-  },
-  methods: {
+    },
+
     nextRate() {
       const next = steps.indexOf(this.rate) + 1
 
       if (next < steps.length) {
-        return this.setRate(steps[next])
+        return steps[next]
       }
 
-      return this.setRate(steps[0])
-    },
-    setRate: compose(store.dispatch, setRate)
+      return steps[0]
+    }
+  },
+  methods: {
+    setRate() {
+      console.log(this.nextRate)
+      store.dispatch(setRate(this.nextRate))
+    }
   }
 }
 </script>

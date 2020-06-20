@@ -1,5 +1,5 @@
 <template lang="pug">
-  timer(:color="color" :time="ghost ? ghost: playtime" :aria-label="a11y.current" tabindex="0" data-test="timer-current")
+  timer(role="timer" :color="color" :time="ghost ? ghost: playtime" :aria-label="$t(a11y.key, a11y.attr)" tabindex="0" data-test="timer-current")
 </template>
 
 <script>
@@ -15,17 +15,8 @@ export default {
   data: mapState({
     playtime: select.playtime,
     ghost: select.ghost.time,
-    color: select.theme.contrast
-  }),
-
-  computed: {
-    a11y() {
-      return this.$t('A11Y.TIMER_CURRENT', {
-        hours: calcHours(this.playtime),
-        minutes: calcMinutes(this.playtime),
-        seconds: calcSeconds(this.playtime)
-      })
-    }
-  }
+    color: select.theme.contrast,
+    a11y: select.accessibility.timerRemaining
+  })
 }
 </script>

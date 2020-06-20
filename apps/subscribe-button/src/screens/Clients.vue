@@ -4,8 +4,8 @@
       <h1 class="tablet:text-2xl mobile:text-xl" :style="font">
         {{ $t('SUBSCRIBE') }}
       </h1>
-      <button @click="close">
-        <icon type="close" />
+      <button :title="$t('A11Y.CLOSE')" @click="close">
+        <icon aria-hidden="true" type="close" />
       </button>
     </div>
     <divider class="mb-6" :color="shadeBase"></divider>

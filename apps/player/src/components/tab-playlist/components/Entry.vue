@@ -11,8 +11,6 @@
     span.block.w-full.py-2.mr-2(@click="select({ index, play: true })" data-test="tab-playlist--entry--title") {{ episode.title }}
 
     timer.block.w-18.py-2(v-if="episode.duration" :time="episode.duration"  data-test="tab-playlist--entry--timer")
-
-    button.invisible.hidden(@click="select({ index, play: true })") {{ $t('A11Y.PLAYLIST_ENTRY', episode) }}
 </template>
 
 <script>
@@ -56,21 +54,8 @@ export default {
 
   computed: {
     active() {
-      return this.chapter.active || this.hover
+      return this.episode.active || this.hover
     },
-
-    a11y() {
-      const remaining = this.chapter.active
-        ? this.chapter.end - this.playtime
-        : this.chapter.end - this.chapter.start
-
-      return {
-        ...this.chapter,
-        remaining: toHumanTime(remaining > 0 ? remaining : 0),
-        duration: toHumanTime(this.chapter.end - this.chapter.start)
-      }
-    },
-
     style() {
       return this.hover
         ? {

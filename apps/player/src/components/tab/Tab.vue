@@ -1,5 +1,5 @@
 <template lang="pug">
-  tab-body(:id="`tab-${name}`" :active="active" :name="name" :aria-selected="active" :ref="name" v-if="active" :background="background" :style="{ color }" data-test="tab")
+  tab-body(:id="`tab-${name}`" :active="active" :name="name" :aria-label="$t(a11y.key, { name })" :aria-selected="active" :ref="name" v-if="active" :background="background" :style="{ color }" data-test="tab" tabindex="1")
     div.relative.overflow-hidden
       slot
 </template>
@@ -23,7 +23,8 @@ export default {
   data: mapState({
     background: select.theme.brandDark,
     tabs: select.tabs,
-    color: select.theme.alt
+    color: select.theme.alt,
+    a11y: select.accessibility.tabPanel
   }),
   computed: {
     active() {

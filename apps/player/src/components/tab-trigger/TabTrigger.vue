@@ -3,7 +3,12 @@
     :title="title"
     @click="toggle"
     v-if="visibleTab"
+    role="tab"
+    :aria-label="$t(a11y.key, { name: tab })"
+    :aria-selected="activeTab"
+    :id="`trigger-${tab}`"
     :data-test="`tab-trigger--${tab}`"
+    :aria-controls="`tab-${tab}`"
   )
     span.block.absolute.top-0(:style="{ color: contrast }")
       slot
@@ -36,10 +41,6 @@ export default {
     title: {
       type: String,
       default: ''
-    },
-    active: {
-      type: String,
-      default: () => 'inactive'
     }
   },
   data: mapState({
@@ -51,7 +52,8 @@ export default {
     transcripts: select.components.transcriptTab,
     share: select.components.shareTab,
     files: select.components.filesTab,
-    playlist: select.components.playlistTab
+    playlist: select.components.playlistTab,
+    a11y: select.accessibility.tabTrigger
   }),
   computed: {
     activeTab() {

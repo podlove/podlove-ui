@@ -1,5 +1,5 @@
 <template lang="pug">
-  timer(:color="color" :time="duration - (ghost ? ghost : playtime)" :aria-label="a11y.current" tabindex="0" :remaining="true" data-test="timer-duration")
+  timer(role="timer" :color="color" :time="duration - (ghost ? ghost : playtime)" :aria-label="$t(a11y.key, a11y.attr)" tabindex="0" :remaining="true" data-test="timer-duration")
 </template>
 
 <script>
@@ -16,17 +16,8 @@ export default {
     playtime: select.playtime,
     duration: select.duration,
     ghost: select.ghost.time,
-    color: select.theme.contrast
-  }),
-
-  computed: {
-    a11y() {
-      return this.$t('A11Y.TIMER_LEFT', {
-        hours: calcHours(this.duration - this.playtime),
-        minutes: calcMinutes(this.duration - this.playtime),
-        seconds: calcSeconds(this.duration - this.playtime)
-      })
-    }
-  }
+    color: select.theme.contrast,
+    a11y: select.accessibility.timerDuration
+  })
 }
 </script>

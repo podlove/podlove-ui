@@ -10,5 +10,13 @@
   },
   "MESSAGES": {
     "COPIED": "copied!"
+  },
+  "A11Y": {
+    "CLIENT": "Subscribe with {title}",
+    "CLOSE": "Close",
+    "BACK": "Go back to client list",
+    "DOWNLOAD_APP": "Download Application",
+    "COPY_FEED": "Copy Podcast Feed",
+    "FEED": "Podcast Feed"
   }
 }
