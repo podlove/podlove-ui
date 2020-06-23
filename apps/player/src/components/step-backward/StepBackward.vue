@@ -1,5 +1,5 @@
 <template lang="pug">
-  stepper-button(v-if="stepperButtons" type="backwards" :disabled="previousStepperDisabled" :color="color" @click="dispatch" data-test="step-backward")
+  stepper-button(v-if="stepperButtons" type="backwards" :title="$t(title.key, title.attr)" :disabled="previousStepperDisabled" :color="color" @click="dispatch" data-test="step-backward")
 </template>
 
 <script>
@@ -16,7 +16,8 @@ export default {
   data: mapState({
     stepperButtons: select.components.stepperButtons,
     previousStepperDisabled: select.components.previousStepDisabled,
-    color: select.theme.brandDark
+    color: select.theme.brandDark,
+    title: select.accessibility.stepperBackwards
   }),
   methods: {
     dispatch: store.dispatch

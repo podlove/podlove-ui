@@ -1,6 +1,5 @@
 <template lang="pug">
-  play-button.overflow-hidden(v-if="button.type" :type="button.type" :color="background" :background="color" :size="size" @click="dispatch" :label="button.label" @mouseover.native="mouseOver" @mouseleave.native="mouseLeave" data-test="play-button")
-    span.invisible {{ button.a11y }}
+  play-button.overflow-hidden(v-if="button.type" :type="button.type" :title="button.a11y" :color="background" :background="color" :size="size" @click="dispatch" :label="button.label" @mouseover.native="mouseOver" @mouseleave.native="mouseLeave" data-test="play-button")
 </template>
 
 <script>
@@ -38,7 +37,12 @@ export default {
         brandLightest: select.theme.brandLightest,
         playButton: select.components.playButton,
         duration: select.duration,
-        playtime: select.playtime
+        playtime: select.playtime,
+        pauseA11y: select.accessibility.playButtonPause,
+        durationA11y: select.accessibility.playButtonDuration,
+        replayA11y: select.accessibility.playButtonReplay,
+        playA11y: select.accessibility.playButtonPlay,
+        errorA11y: select.accessibility.playButtonError
       })
     }
   },
@@ -56,18 +60,14 @@ export default {
         case 'paused':
           return {
             type: 'play',
-            a11y: this.$t('A11Y.PLAYER_PAUSE'),
+            a11y: this.$t(this.pauseA11y.key, this.pauseA11y.attr),
             width: '50px'
           }
         default:
         case 'duration':
           return {
             type: 'play',
-            a11y: this.$t('A11Y.PLAYER_START', {
-              hours: calcHours(this.playtime > 0 ? this.playtime : this.duration),
-              minutes: calcMinutes(this.playtime > 0 ? this.playtime : this.duration),
-              seconds: calcSeconds(this.playtime > 0 ? this.playtime : this.duration)
-            }),
+            a11y: this.$t(this.durationA11y.key, this.durationA11y.attr),
             label:
               this.variant === 'details'
                 ? this.label || toHumanTime(this.playtime > 0 ? this.playtime : this.duration)
@@ -81,7 +81,7 @@ export default {
         case 'replay':
           return {
             type: 'restart',
-            a11y: this.$t('A11Y.PLAYER_LOADING'),
+            a11y: this.$t(this.replayA11y.key, this.replayA11y.attr),
             label: this.$t('PLAYER.REPLAY')
           }
         case 'loading':
@@ -91,12 +91,12 @@ export default {
         case 'playing':
           return {
             type: 'pause',
-            a11y: this.$t('A11Y.PLAYER_PLAY')
+            a11y: this.$t(this.playA11y.key, this.playA11y.attr)
           }
         case 'error':
           return {
             type: 'restart',
-            a11y: this.$t('A11Y.PLAYER_ERROR')
+            a11y: this.$t(this.errorA11y.key, this.errorA11y.attr)
           }
         case 'retry':
           return {

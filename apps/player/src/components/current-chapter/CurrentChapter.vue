@@ -1,5 +1,5 @@
 <template lang="pug">
-  span.truncate(:aria-label="a11y" tabindex="0" v-if="title" data-test="current-chapter" :style="{ color }") {{ title }}
+  span.truncate(:aria-label="$t(label.key, label.attr)" tabindex="0" v-if="title" data-test="current-chapter" :style="{ color }") {{ title }}
 </template>
 
 <script>
@@ -12,7 +12,8 @@ export default {
     currentGhostChapter: select.ghost.chapter,
     currentChapter: select.chapters.current,
     ghost: select.ghost.time,
-    color: select.theme.contrast
+    color: select.theme.contrast,
+    label: select.accessibility.currentChapter
   }),
   computed: {
     chapter() {
@@ -24,9 +25,6 @@ export default {
     },
     title() {
       return prop('title', this.chapter)
-    },
-    a11y() {
-      return this.$t('A11Y.TIMER_CHAPTER', this.chapter)
     }
   }
 }

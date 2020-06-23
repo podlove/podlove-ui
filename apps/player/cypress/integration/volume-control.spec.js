@@ -29,7 +29,7 @@ describe('<volume-control>', () => {
       assert('PLAYER_SET_VOLUME', () => {
         cy.select('volume-control--slider')
           .find('input')
-          .should('have.value', '0.5')
+          .should('have.value', '50')
       })
 
       cy.select('volume-control').click()

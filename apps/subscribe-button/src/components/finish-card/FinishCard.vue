@@ -2,7 +2,14 @@
   <div v-if="install">
     <div class="mb-4">
       {{ $t('FINISH_SCREEN.REDIRECT_MESSAGE') }}
-      <a :href="link" :style="{ color }" class="underline" rel="noopener" target="_blank">
+      <a
+        :href="link"
+        :aria-label="$t('A11Y.DOWNLOAD_APP')"
+        :style="{ color }"
+        class="underline"
+        rel="noopener"
+        target="_blank"
+      >
         {{ $t('FINISH_SCREEN.REDIRECT_LINK') }}
       </a>
     </div>
@@ -28,7 +35,7 @@
       :style="{ color }"
       class="underline mb-6 block truncate"
       rel="noopener"
-      :title="feed"
+      :aria-label="$t('A11Y.FEED')"
       target="_blank"
     >
       {{ feed }}
@@ -42,6 +49,7 @@
       @click="copyLink"
     >
       <button
+        :title="$t('A11Y.COPY_FEED')"
         class="py-2 px-4 rounded-sm text-sm"
         :style="{ background: color, color: alt, ...font }"
       >
