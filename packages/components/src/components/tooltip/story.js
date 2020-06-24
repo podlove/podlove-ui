@@ -32,8 +32,10 @@ export default () => ({
     }
   },
   template: `
-    <tooltip :content="content" :trigger="trigger" :color="color" :background="background" :placement="placement" @click="action">
-      <span>Tooltip trigger</span>
-    </tooltip>`,
+    <div style="height: 150px; display: flex; align-items: center; justify-content: center;">
+      <tooltip :content="content" :trigger="trigger" :color="color" :background="background" :placement="placement" @click="action">
+        <span>Tooltip trigger</span>
+      </tooltip>
+    </div>`,
   methods: { action: action('@click') }
 })

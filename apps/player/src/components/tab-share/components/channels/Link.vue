@@ -21,7 +21,7 @@ export default {
       ...this.mapState({
         link: select.share.link,
         color: select.theme.brandDark,
-        background: select.theme.alt
+        background: select.theme.brandLightest
       })
     }
   },
