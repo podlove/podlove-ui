@@ -186,6 +186,7 @@ export default {
   }
 
   .icon {
+    margin-top: -2px;
     flex-shrink: 0;
   }
 
@@ -196,7 +197,6 @@ export default {
 
   .link {
     display: flex;
-    align-items: flex-end;
     max-width: calc(40%);
   }
 
