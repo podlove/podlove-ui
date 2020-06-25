@@ -122,11 +122,11 @@ export default {
     margin-bottom: 8px;
 
     .tooltip-arrow {
-      border-width: 3px 3px 0 3px;
+      border-width: 5px 5px 0 5px;
       border-left-color: transparent !important;
       border-right-color: transparent !important;
       border-bottom-color: transparent !important;
-      bottom: -3px;
+      bottom: -5px;
       left: calc(50% - 5px);
       margin-top: 0;
       margin-bottom: 0;
@@ -134,7 +134,7 @@ export default {
   }
 
   &[x-placement^='bottom'] {
-    margin-top: 5px;
+    margin-top: 8px;
 
     .tooltip-arrow {
       border-width: 0 5px 5px 5px;
@@ -149,14 +149,14 @@ export default {
   }
 
   &[x-placement^='right'] {
-    margin-left: 5px;
+    margin-left: 8px;
 
     .tooltip-arrow {
       border-width: 5px 5px 5px 0;
       border-left-color: transparent !important;
       border-top-color: transparent !important;
       border-bottom-color: transparent !important;
-      left: -5px;
+      left: 5px;
       top: calc(50% - 5px);
       margin-left: 0;
       margin-right: 0;
@@ -164,14 +164,14 @@ export default {
   }
 
   &[x-placement^='left'] {
-    margin-right: 5px;
+    margin-right: 8px;
 
     .tooltip-arrow {
       border-width: 5px 0 5px 5px;
       border-top-color: transparent !important;
       border-right-color: transparent !important;
       border-bottom-color: transparent !important;
-      right: -5px;
+      right: 5px;
       top: calc(50% - 5px);
       margin-left: 0;
       margin-right: 0;

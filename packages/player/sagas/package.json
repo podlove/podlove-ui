@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@podlove/components": "^5.1.7",
-    "@podlove/html5-audio-driver": "1.4.7",
+    "@podlove/html5-audio-driver": "1.4.8",
     "@podlove/player-actions": "^5.1.7",
     "@podlove/player-config": "^5.1.7",
     "@podlove/utils": "^5.1.7",
