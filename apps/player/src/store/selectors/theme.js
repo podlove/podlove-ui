@@ -4,7 +4,7 @@ import { selectors as theme } from '@podlove/player-state/theme'
 import root from './root'
 
 const fontStyle = ({ weight = 300, family = [] } = {}) => ({
-  'font-family': family.map(font => `"${font}"`).join(', '),
+  'font-family': family.map(font => `${font}`).join(', '),
   'font-weight': weight
 })
 
