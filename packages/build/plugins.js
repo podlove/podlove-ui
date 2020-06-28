@@ -61,7 +61,7 @@ const env = (data = {}) =>
     )
   )
 
-const copy = (patterns = []) => new CopyPlugin(patterns)
+const copy = (patterns = [], options = {}) => new CopyPlugin({ patterns, options })
 
 const friendlyErrors = () => new FriendlyErrorsPlugin()
 
