@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@podlove/build",
-  "version": "5.1.7",
+  "version": "5.1.8",
   "description": "Webpack building blocks for podlove player framework",
   "main": "index.js",
   "scripts": {
@@ -14,20 +14,20 @@
     "podlove-prepublish": "./prepublish.js"
   },
   "dependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "7.6.2",
+    "@babel/plugin-proposal-object-rest-spread": "7.10.3",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/preset-env": "7.8.7",
     "@csstools/postcss-sass": "4.0.0",
-    "@podlove/utils": "^5.1.7",
+    "@podlove/utils": "^5.1.8",
     "autoprefixer": "9.7.3",
     "babel-loader": "8.0.6",
     "babel-preset-vue": "2.0.2",
-    "copy-webpack-plugin": "5.0.4",
+    "copy-webpack-plugin": "6.0.2",
     "css-loader": "3.4.2",
     "file-loader": "5.1.0",
     "friendly-errors-webpack-plugin": "1.7.0",
     "fs-extra": "8.1.0",
-    "glob": "7.1.5",
+    "glob": "7.1.6",
     "handlebars-loader": "1.7.1",
     "html-loader": "0.5.5",
     "html-webpack-plugin": "4.0.0-beta.2",

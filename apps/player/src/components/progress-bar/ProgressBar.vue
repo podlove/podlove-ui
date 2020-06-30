@@ -12,7 +12,7 @@
       :buffer="buffer"
       :chapters="chapters"
       :quantiles="quantiles"
-      :title="$t('A11Y.PROGRESSBAR_INPUT')"
+      :title="$t(title.key, title.attr)"
       data-test="progress-bar"
     )
 </template>
@@ -38,7 +38,8 @@ export default {
     ghost: select.ghost.time,
     buffer: select.network.buffer,
     chapters: select.chapters.list,
-    quantiles: select.quantiles
+    quantiles: select.quantiles,
+    title: select.accessibility.progressBar
   }),
   methods: {
     dispatch: store.dispatch,

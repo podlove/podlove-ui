@@ -17,8 +17,6 @@
       @playtime="dispatch"
       @hover="linkMouseover"
     )
-
-    button.invisible.hidden(@click="selectChapter") {{ $t('A11Y.CHAPTER_ENTRY', a11y) }}
 </template>
 
 <script>
@@ -65,18 +63,6 @@ export default {
   computed: {
     active() {
       return this.chapter.active || this.hover
-    },
-
-    a11y() {
-      const remaining = this.chapter.active
-        ? this.chapter.end - this.playtime
-        : this.chapter.end - this.chapter.start
-
-      return {
-        ...this.chapter,
-        remaining: toHumanTime(remaining > 0 ? remaining : 0),
-        duration: toHumanTime(this.chapter.end - this.chapter.start)
-      }
     },
 
     progressColor() {
@@ -133,23 +119,22 @@ export default {
       this.linkHover = state
     },
 
-    ...mapActions({
-      selectChapter: function({ dispatch }, event) {
-        if (this.linkHover) {
-          return false
-        }
-
-        if (this.current.index === this.chapter.index) {
-          dispatch(this.playing ? requestPause() : requestPlay())
-          return false
-        }
-
-        dispatch(setChapter(this.chapter.index - 1))
-        dispatch(requestPlay())
-        event && event.preventDefault()
+    selectChapter(event) {
+      if (this.linkHover) {
         return false
       }
-    }),
+
+      if (this.current.index === this.chapter.index) {
+        store.dispatch(this.playing ? requestPause() : requestPlay())
+        return false
+      }
+
+      store.dispatch(setChapter(this.chapter.index - 1))
+      store.dispatch(requestPlay())
+      event && event.preventDefault()
+      return false
+    },
+
     dispatch: store.dispatch
   }
 }

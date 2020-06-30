@@ -4,6 +4,7 @@
       v-for="(entry, index) in clients"
       :key="index"
       class="block mb-2 mobile:w-full tablet:w-1/2"
+      :aria-label="$t('A11Y.CLIENT', entry)"
     >
       <a
         class="flex items-center w-full p-2 hover:bg-gray-200 rounded-sm cursor-pointer"
@@ -14,7 +15,7 @@
         @click="onClick(entry)"
       >
         <span class="block w-6 mr-2">
-          <img v-if="entry.icon" :src="entry.icon" />
+          <img v-if="entry.icon" aria-hidden="true" :src="entry.icon" />
         </span>
         <span class="mr-2">{{ entry.title }}</span>
         <icon type="arrow-to-right"></icon>

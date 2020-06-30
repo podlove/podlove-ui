@@ -7,22 +7,21 @@
     trigger="click"
     offset="15"
   )
-    button.block.tooltip-target(@dblclick="setVolume(1)" data-test="volume-control")
-      icon(:type="icon" :color="color")
-      span.hidden {{ a11y }}
+    button.block.tooltip-target(:title="$t(buttonTitle.key, buttonTitle.attr)" @dblclick="setVolume(1)" data-test="volume-control")
+      icon(aria-hidden="true" :type="icon" :color="color")
 
     template(slot="popover")
       div.w-40.px-2.rounded.shadow(:style="{ background, color: background }")
         input-slider.mr-5(
           data-test="volume-control--slider"
           :min="0"
-          :max="1"
-          :value="volume"
-          :step="0.001"
+          :max="100"
+          :value="volume * 100"
+          :step="1"
           :background="color"
           :borderColor="color"
           @input="setVolume"
-          :aria-label="$t('A11Y.SET_VOLUME_IN_PERCENT')"
+          :aria-label="$t(volumeLabel.key, volumeLabel.attr)"
         )
 </template>
 
@@ -54,15 +53,14 @@ export default {
     icon: select.audio.icon,
     color: select.theme.brandDark,
     background: select.theme.brandLightest,
-    visible: select.components.volumeControl
+    visible: select.components.volumeControl,
+    buttonTitle: select.accessibility.volumeButton,
+    volumeLabel: select.accessibility.volumeControl
   }),
-  computed: {
-    a11y() {
-      return this.muted ? this.$t('A11Y.VOLUME_UNMUTE') : this.$t('A11Y.VOLUME_MUTE')
-    }
-  },
   methods: {
-    setVolume: compose(store.dispatch, setVolume)
+    setVolume(val) {
+      store.dispatch(setVolume(val / 100))
+    }
   }
 }
 </script>

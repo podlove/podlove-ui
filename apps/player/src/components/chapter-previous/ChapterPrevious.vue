@@ -1,5 +1,5 @@
 <template lang="pug">
-  chapter-button(v-if="chapterButtons" type="previous" :disabled="previousChapterDisabled" :color="color" @click="dispatch" data-test="chapter-previous")
+  chapter-button(v-if="chapterButtons" type="previous" :disabled="previousChapterDisabled" :color="color" @click="dispatch" :title="$t(title.key, title.attr)" data-test="chapter-previous")
 </template>
 
 <script>
@@ -21,7 +21,8 @@ export default {
   data: mapState({
     previousChapterDisabled: select.components.previousChapterDisabled,
     chapterButtons: select.components.chapterButtons,
-    color: select.theme.brandDark
+    color: select.theme.brandDark,
+    title: select.accessibility.chapterPrevious
   }),
   methods: {
     dispatch: store.dispatch
