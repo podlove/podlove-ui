@@ -468,4 +468,4 @@ Localization files:
 
 ### Full Example
 
-<code-sandbox id="player-templating-73ixe" title="Templating" view />
+<code-sandbox id="player-templating-2e3ql" title="Templating" view />
