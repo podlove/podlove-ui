@@ -18,7 +18,7 @@ const fetchTemplate = async node => {
     return node.innerHTML
   }
 
-  return variant('xl')
+  return await variant('xl')
 }
 
 export default async selector => {

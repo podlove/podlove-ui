@@ -18,6 +18,6 @@ navigation: 1
 
 ## Previous Versions
 
-- [Podlove Web Player v4 Docs](//docs.podlove.org/podlove-web-player-v4/)
-- [Podlove Web Player v3 Docs](//docs.podlove.org/podlove-web-player-v3/)
-- [Podlove Web Player v2 Docs](//docs.podlove.org/podlove-web-player-v3/versions/v2.html)
+- [Podlove Web Player v4 Docs](https://docs.podlove.org/podlove-web-player-v4/)
+- [Podlove Web Player v3 Docs](https://docs.podlove.org/podlove-web-player-v3/)
+- [Podlove Web Player v2 Docs](https://docs.podlove.org/podlove-web-player-v3/versions/v2.html)

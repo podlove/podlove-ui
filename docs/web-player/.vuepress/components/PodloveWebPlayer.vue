@@ -27,8 +27,10 @@
         default: null
       }
     },
-    mounted: function () {
-      window.podlovePlayer(this.$el, this.episode, this.config).then(store => {
+    async mounted() {
+      const config = await fetch(this.config).then(response => response.json())
+      const base = this.$site.base
+      window.podlovePlayer(this.$el, this.episode, { ...config, base }).then(store => {
         this.$emit('ready', store)
         return store
       }).then(window.registerExternalEvents(this.id))
