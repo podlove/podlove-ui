@@ -41,7 +41,6 @@ export default {
     toHumanTime,
 
     selectEpisode() {
-      console.log(this.episode)
       if (!this.episode.active) {
         return store.dispatch(selectEpisode({ index: this.index, play: true }))
       }

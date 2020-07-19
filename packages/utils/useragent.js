@@ -1,23 +1,25 @@
-export const getPlatform = () => {
-  let platf = window.navigator.platform.toLowerCase()
+import MobileDetect from 'mobile-detect'
 
-  if (platf.match(/mac/i) !== null) {
+export const getPlatform = () => {
+  const device = new MobileDetect(window.navigator.userAgent)
+
+  if (device.match('mac')) {
     return 'osx'
   }
 
-  if (platf.match(/(ipod|ipad|iphone)/i) !== null) {
+  if (device.match('ipod|ipad|iphone')) {
     return 'ios'
   }
 
-  if (platf.match(/android/i) !== null) {
+  if (device.match('android')) {
     return 'android'
   }
 
-  if (platf.match(/(linux|openbsd|freebsd|netbsd)/i) !== null) {
+  if (device.match('linux|openbsd|freebsd|netbsd')) {
     return 'unix'
   }
 
-  if (platf.match(/(windows|win)/i) !== null) {
+  if (device.match('windows|win')) {
     return 'windows'
   }
 }
