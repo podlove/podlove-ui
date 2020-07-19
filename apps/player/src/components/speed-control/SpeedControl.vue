@@ -64,7 +64,6 @@ export default {
   },
   methods: {
     setRate() {
-      console.log(this.nextRate)
       store.dispatch(setRate(this.nextRate))
     }
   }
