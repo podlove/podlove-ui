@@ -6,9 +6,10 @@ exports[`ProgressBar props should render 'buffer' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -18,12 +19,16 @@ exports[`ProgressBar props should render 'buffer' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="progress-buffer"
     style="left: 0%; width: 10%; background-color: rgba(255, 255, 255, 0.5);"
+    tabindex="-1"
   />
   <span
+    aria-hidden="true"
     class="progress-buffer"
     style="left: 50%; width: 10%; background-color: rgba(255, 255, 255, 0.5);"
+    tabindex="-1"
   />
     
   <div
@@ -31,13 +36,25 @@ exports[`ProgressBar props should render 'buffer' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -48,9 +65,10 @@ exports[`ProgressBar props should render 'chapters' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -63,23 +81,39 @@ exports[`ProgressBar props should render 'chapters' 1`] = `
     class="chapters-progress"
   >
     <span
+      aria-hidden="true"
       class="indicator"
       style="border-right: 2px solid #a00; height: 2px; background: transparent;"
+      tabindex="-1"
     />
     <span
+      aria-hidden="true"
       class="indicator"
       style="border-right: 2px solid #a00; height: 2px; background: transparent;"
+      tabindex="-1"
     />
   </div>
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -90,9 +124,10 @@ exports[`ProgressBar props should render 'ghost' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -106,13 +141,25 @@ exports[`ProgressBar props should render 'ghost' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: block; left: 0.3%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -123,9 +170,10 @@ exports[`ProgressBar props should render 'highlightColor' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -139,13 +187,25 @@ exports[`ProgressBar props should render 'highlightColor' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #fff;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #fff;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -156,9 +216,10 @@ exports[`ProgressBar props should render 'progressColor' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -172,13 +233,25 @@ exports[`ProgressBar props should render 'progressColor' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -189,9 +262,10 @@ exports[`ProgressBar props should render 'quantiles' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -201,12 +275,16 @@ exports[`ProgressBar props should render 'quantiles' 1`] = `
   />
     
   <span
+    aria-hidden="true"
     class="progress-track"
     style="left: 0%; width: 3%; background-color: rgb(255, 255, 255);"
+    tabindex="-1"
   />
   <span
+    aria-hidden="true"
     class="progress-track"
     style="left: 55%; width: 5%; background-color: rgb(255, 255, 255);"
+    tabindex="-1"
   />
    
   <div
@@ -214,13 +292,25 @@ exports[`ProgressBar props should render 'quantiles' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -231,9 +321,10 @@ exports[`ProgressBar props should render 'thumbColor' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -247,13 +338,25 @@ exports[`ProgressBar props should render 'thumbColor' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -264,9 +367,10 @@ exports[`ProgressBar props should render 'time' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -280,13 +384,25 @@ exports[`ProgressBar props should render 'time' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 50%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;
@@ -297,9 +413,10 @@ exports[`ProgressBar props should render 'title' 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="10000"
     min="0"
-    title="title"
+    tabindex="-1"
     type="range"
   />
    
@@ -313,13 +430,25 @@ exports[`ProgressBar props should render 'title' 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 0%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 0%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title="title"
+    type="range"
   />
 </div>
 `;
@@ -330,9 +459,10 @@ exports[`ProgressBar props should render with default props 1`] = `
   id="progress-bar"
 >
   <input
+    aria-hidden="true"
     max="0"
     min="0"
-    title=""
+    tabindex="-1"
     type="range"
   />
    
@@ -346,13 +476,25 @@ exports[`ProgressBar props should render with default props 1`] = `
   />
    
   <span
+    aria-hidden="true"
     class="ghost-thumb"
     style="display: none; left: 100%; background-color: rgba(255, 255, 255, 0.8); border-color: #a00;"
   />
    
   <span
+    aria-hidden="true"
     class="progress-thumb"
     style="display: block; left: 100%; background-color: rgb(255, 255, 255); border-color: #a00;"
+    tabindex="-1"
+  />
+   
+  <input
+    class="visually-hidden"
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
   />
 </div>
 `;

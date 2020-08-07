@@ -1,7 +1,7 @@
 <template lang="pug">
-  li(:aria-label="episode.title")
-    button(@click="selectEpisode") {{ $t(buttonText.key, buttonText.attr) }}
-    span(role="timer" :aria-label="$t(timerDuration.key, timerDuration.attr)") {{ toHumanTime(episode.duration) }}
+  li
+    button(@click="selectEpisode") {{ $t(playText.key, playText.attr) }}
+    time(role="timer" tabindex="0" :aria-label="$t(timerDuration.key, timerDuration.attr)")
 
 </template>
 
@@ -25,16 +25,12 @@ export default {
     }
   },
 
-  data: mapState({
-    playing: select.driver.playing,
-    playText: select.accessibility.episodePlay,
-    timerDuration: select.accessibility.timerDuration
-  }),
-
-  computed: {
-    buttonText() {
-      return this.playText(this.episode)
-    }
+  data() {
+    return this.mapState({
+      playing: select.driver.playing,
+      playText: select.accessibility.episodePlay(this.episode),
+      timerDuration: select.accessibility.episodeDuration(this.episode)
+    })
   },
 
   methods: {

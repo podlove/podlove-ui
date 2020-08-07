@@ -1,6 +1,6 @@
 <template lang="pug">
   div(data-test="poster")
-    lazy-image(:url="posterSrc" :alt="$t(altText.key, altText.attr)" @error="errorPosterLoad" :color="coverColor")
+    lazy-image(:url="posterSrc" alt="" @error="errorPosterLoad" :color="coverColor")
 </template>
 
 <script>
@@ -13,7 +13,6 @@ export default {
   components: { LazyImage: Image },
   data: mapState({
     posterSrc: select.header.posterSrc,
-    altText: select.accessibility.poster,
     coverColor: select.theme.brandLightest
   }),
   methods: mapActions('errorPosterLoad')

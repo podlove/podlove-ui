@@ -60,7 +60,7 @@ export default {
         case 'paused':
           return {
             type: 'play',
-            a11y: this.$t(this.pauseA11y.key, this.pauseA11y.attr),
+            a11y: this.$t(this.playA11y.key, this.playA11y.attr),
             width: '50px'
           }
         default:
@@ -91,7 +91,7 @@ export default {
         case 'playing':
           return {
             type: 'pause',
-            a11y: this.$t(this.playA11y.key, this.playA11y.attr)
+            a11y: this.$t(this.pauseA11y.key, this.pauseA11y.attr)
           }
         case 'error':
           return {

@@ -16,11 +16,12 @@ exports[`ChapterProgress props should render 'chapter' 1`] = `
    
   <!---->
    
-  <span
+  <time
     class="timer timer"
+    datetime="00:00"
   >
     -00:00
-  </span>
+  </time>
    
   <span
     aria-hidden="true"
@@ -51,11 +52,12 @@ exports[`ChapterProgress props should render 'playtime' 1`] = `
    
   <!---->
    
-  <span
+  <time
     class="timer timer"
+    datetime="00:00"
   >
     00:00
-  </span>
+  </time>
    
   <span
     aria-hidden="true"
@@ -85,11 +87,12 @@ exports[`ChapterProgress props should render 'progressColor' 1`] = `
    
   <!---->
    
-  <span
+  <time
     class="timer timer"
+    datetime="00:00"
   >
     00:00
-  </span>
+  </time>
    
   <span
     aria-hidden="true"
@@ -119,11 +122,12 @@ exports[`ChapterProgress props should render 'showLink' 1`] = `
    
   <!---->
    
-  <span
+  <time
     class="timer timer"
+    datetime="00:00"
   >
     00:00
-  </span>
+  </time>
    
   <span
     aria-hidden="true"
@@ -153,11 +157,12 @@ exports[`ChapterProgress props should render without props 1`] = `
    
   <!---->
    
-  <span
+  <time
     class="timer timer"
+    datetime="00:00"
   >
     00:00
-  </span>
+  </time>
    
   <span
     aria-hidden="true"
