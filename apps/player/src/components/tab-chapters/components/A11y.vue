@@ -1,8 +1,7 @@
 <template lang="pug">
-  li(:aria-label="chapter.title")
+  li
     button(@click="selectChapter") {{ $t(buttonText.key, buttonText.attr) }}
-    span(role="timer" :aria-label="$t(timerRemaining.key, timerRemaining.attr)") {{ remaining }}
-    span(role="timer" :aria-label="$t(timerDuration.key, timerDuration.attr)") {{ duration }}
+    time(role="timer" tabindex="0" :title="$t(timerRemaining.key, timerRemaining.attr)")
 
 </template>
 
@@ -22,19 +21,17 @@ export default {
     }
   },
 
-  data: mapState({
-    playText: select.accessibility.chapterPlay,
-    timerRemaining: select.accessibility.timerRemaining,
-    timerDuration: select.accessibility.timerDuration,
-    current: select.chapters.current,
-    playtime: select.playtime,
-    playing: select.driver.playing
-  }),
+  data() {
+    return this.mapState({
+      buttonText: select.accessibility.chapterPlay(this.chapter),
+      timerRemaining: select.accessibility.chapterTimerRemaining(this.chapter),
+      current: select.chapters.current,
+      playtime: select.playtime,
+      playing: select.driver.playing
+    })
+  },
 
   computed: {
-    buttonText() {
-      return this.playText(this.chapter)
-    },
     remaining() {
       return toHumanTime(
         this.chapter.active

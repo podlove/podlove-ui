@@ -1,5 +1,5 @@
 import { prop } from 'ramda'
-import { calcHours, calcMinutes, calcSeconds, toHumanTime } from '@podlove/utils/time'
+import { calcHours, calcMinutes, calcSeconds } from '@podlove/utils/time'
 
 import episode from './episode'
 import show from './show'
@@ -7,29 +7,10 @@ import chapters from './chapters'
 import timepiece from './timepiece'
 import driver from './driver'
 import transcripts from './transcripts'
-import audio from './audio'
 
 const translation = (key, attr = {}) => ({ key, attr })
 
 export default {
-  poster: state => {
-    const chapter = chapters.current(state)
-
-    if (prop('image', chapter)) {
-      return translation('A11Y.ALT_CHAPTER_COVER')
-    }
-
-    if (episode.poster(state)) {
-      return translation('A11Y.ALT_EPISODE_COVER')
-    }
-
-    if (show.poster(state)) {
-      return translation('A11Y.ALT_SHOW_COVER')
-    }
-
-    return translation()
-  },
-
   chapterNext: state => {
     const next = chapters.next(state)
 
@@ -107,35 +88,62 @@ export default {
     return translation('A11Y.TAB_PANEL')
   },
 
-  chapterPlay: state => chapter => {
+  chapterPlay: chapter => state => {
     const playing = driver.playing(state)
     const current = chapters.current(state)
-
-    if (!playing) {
-      return translation('A11Y.CHAPTER_PLAY')
-    }
 
     if (chapter.index === current.index && playing) {
       return translation('A11Y.CHAPTER_PAUSE')
     }
 
-    return translation('A11Y.CHAPTER_PLAY')
+    return translation('A11Y.CHAPTER_PLAY', chapter)
   },
 
-  timerRemaining: () => {
-    return translation('A11Y.TIMER_REMAINING')
+  chapterTimerRemaining: chapter => state => {
+    const playtime = timepiece.playtime(state)
+    const left = chapter.end - playtime
+
+    if (chapter.start > playtime) {
+      return translation('A11Y.TIMER_REMAINING', {
+        hours: calcHours(chapter.end - chapter.start),
+        minutes: calcMinutes(chapter.end - chapter.start),
+        seconds: calcSeconds(chapter.end - chapter.start)
+      })
+    }
+
+    return translation('A11Y.TIMER_REMAINING', {
+      hours: calcHours(left >= 0 ? left : 0),
+      minutes: calcMinutes(left >= 0 ? left : 0),
+      seconds: calcSeconds(left >= 0 ? left : 0)
+    })
   },
 
-  timerDuration: () => {
-    return translation('A11Y.TIMER_REMAINING')
+  timerCurrent: state => {
+    const playtime = timepiece.playtime(state)
+
+    return translation('A11Y.TIMER_CURRENT', {
+      hours: calcHours(playtime),
+      minutes: calcMinutes(playtime),
+      seconds: calcSeconds(playtime)
+    })
+  },
+
+  timerDuration: state => {
+    const duration = timepiece.duration(state)
+
+    return translation('A11Y.TIMER_REMAINING', {
+      hours: calcHours(duration),
+      minutes: calcMinutes(duration),
+      seconds: calcSeconds(duration)
+    })
   },
 
   chapterList: () => {
     return translation('A11Y.CHAPTER_LIST')
   },
 
-  closeTab: () => {
-    return translation('A11Y.TAB_CLOSE')
+  closeTab: tab => () => {
+    return translation('A11Y.TAB_CLOSE.' + tab.toUpperCase())
   },
 
   transcriptsSearch: () => {
@@ -166,18 +174,22 @@ export default {
     return translation('A11Y.EPISODE_LIST')
   },
 
-  episodePlay: state => episode => {
+  episodePlay: episode => state => {
     const playing = driver.playing(state)
 
-    if (!episode.active) {
-      return translation('A11Y.EPISODE_PLAY')
-    }
-
     if (episode.active && playing) {
-      return translation('A11Y.EPISODE_PAUSE')
+      return translation('A11Y.EPISODE_PAUSE', episode)
     }
 
-    return translation('A11Y.EPISODE_PLAY')
+    return translation('A11Y.EPISODE_PLAY', episode)
+  },
+
+  episodeDuration: episode => () => {
+    return translation('A11Y.TIMER_DURATION', {
+      hours: calcHours(episode.duration),
+      minutes: calcMinutes(episode.duration),
+      seconds: calcSeconds(episode.duration)
+    })
   },
 
   shareChannel: () => channel => {

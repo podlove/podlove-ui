@@ -7,9 +7,10 @@
       min="0"
       :max="interpolate(duration)"
       :value="interpolate(time)"
-      :title="title"
-      @change="onChange"
-      @input="onInput"
+      tabindex="-1"
+      aria-hidden="true"
+      @change="onChange($event.target.value)"
+      @input="onInput($event.target.value)"
     />
     <input
       v-else
@@ -18,9 +19,10 @@
       min="0"
       :max="interpolate(duration)"
       :value="interpolate(time)"
-      :title="title"
-      @change="onChange"
-      @input="onInput"
+      tabindex="-1"
+      aria-hidden="true"
+      @change="onChange($event.target.value)"
+      @input="onInput($event.target.value)"
       @mousemove="onMouseMove"
       @mouseout="onMouseOut"
     />
@@ -28,12 +30,16 @@
     <span
       v-for="(buffering, index) in buffer"
       :key="`buffer-${index}`"
+      tabindex="-1"
+      aria-hidden="true"
       class="progress-buffer"
       :style="bufferStyle(buffering)"
     />
     <span
       v-for="(quantile, index) in quantiles"
       :key="`track-${index}`"
+      tabindex="-1"
+      aria-hidden="true"
       class="progress-track"
       :style="trackStyle(quantile)"
     />
@@ -41,12 +47,31 @@
       <span
         v-for="(chapter, index) in chapters"
         :key="index"
+        tabindex="-1"
+        aria-hidden="true"
         class="indicator"
         :style="chapterStyle(chapter)"
       />
     </div>
-    <span class="ghost-thumb" :style="ghostStyle" />
-    <span class="progress-thumb" :class="{ active: thumbActive }" :style="thumbStyle" />
+    <span class="ghost-thumb" aria-hidden="true" :style="ghostStyle" />
+    <span
+      class="progress-thumb"
+      tabindex="-1"
+      aria-hidden="true"
+      :class="{ active: thumbActive }"
+      :style="thumbStyle"
+    />
+    <input
+      type="range"
+      class="visually-hidden"
+      :title="title"
+      min="0"
+      max="100"
+      steps="1"
+      :value="(time / duration) * 100"
+      @change="onChange(($event.target.value / 100) * duration)"
+      @input="onInput(($event.target.value / 100) * duration)"
+    />
   </div>
 </template>
 
@@ -140,13 +165,13 @@ export default {
     new RangeTouch(this.$refs.input, { watch: false })
   },
   methods: {
-    onChange(event) {
-      this.$emit('input', requestPlaytime(event.target.value))
+    onChange(value) {
+      this.$emit('input', requestPlaytime(value))
     },
 
-    onInput(event) {
+    onInput(value) {
       this.thumbAnimated = false
-      this.$emit('input', requestPlaytime(event.target.value))
+      this.$emit('input', requestPlaytime(value))
       this.$emit('ghost', disableGhost())
     },
 
@@ -221,6 +246,7 @@ export default {
 <style lang="scss" scoped>
 @import 'boot';
 @import 'resets';
+@import 'a11y';
 @import 'tokens/progress';
 @import 'tokens/animation';
 @import 'tokens/color';

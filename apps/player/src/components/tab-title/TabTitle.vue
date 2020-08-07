@@ -9,16 +9,23 @@
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
 import Icon from '@podlove/components/icons'
 
 export default {
   components: { Icon },
-  data: mapState({
-    font: select.theme.fontCi,
-    title: select.accessibility.closeTab
-  }),
+  props: {
+    tab: {
+      type: String,
+      default: null
+    }
+  },
+  data() {
+    return this.mapState({
+      font: select.theme.fontCi,
+      title: select.accessibility.closeTab(this.tab)
+    })
+  },
   methods: {
     close() {
       this.$emit('close')

@@ -1,6 +1,6 @@
 <template lang="pug">
   div(class="mobile:p-4 tablet:p-6" data-test="tab-share")
-    tab-title(@close="closeTab") {{ $t('SHARE.TITLE') }}
+    tab-title(@close="closeTab" tab="share") {{ $t('SHARE.TITLE') }}
     div.mb-4.block.items-center.justify-between(class="tablet:flex")
       channels
     div.mx-2.mb-4(v-if="sharePlaytime")

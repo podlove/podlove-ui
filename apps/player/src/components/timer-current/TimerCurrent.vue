@@ -16,7 +16,7 @@ export default {
     playtime: select.playtime,
     ghost: select.ghost.time,
     color: select.theme.contrast,
-    a11y: select.accessibility.timerRemaining
+    a11y: select.accessibility.timerCurrent
   })
 }
 </script>

@@ -1,6 +1,6 @@
 <template lang="pug">
   div.w-full(class="mobile:p-4 tablet:p-6" data-test="tab-shownotes")
-    tab-title(@close="closeTab") {{ $t('SHOWNOTES.TITLE') }}
+    tab-title(@close="closeTab" tab="shownotes") {{ $t('SHOWNOTES.TITLE') }}
 
     h4.text-sm.font-bold {{ showTitle }}
     h3.text-lg.font-bold.mb-4 {{ episodeTitle }}
