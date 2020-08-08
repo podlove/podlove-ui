@@ -28,16 +28,17 @@ const base = input =>
     BASE: JSON.stringify(input)
   })
 
-const html = ({ filename, template, chunks, exclude, base, files, sort, inject }) =>
+const html = ({ filename, template, chunks, exclude, base, files, sort, inject, params }) =>
   new HtmlWebpackPlugin({
     filename,
     template,
     chunksSortMode: sort || 'none',
     chunks,
-    base,
+    ...(base ? { base } : {}),
     files,
     inject: inject || true,
-    excludeChunks: exclude
+    excludeChunks: exclude,
+    ...(params ? { templateParameters: params } : {})
   })
 
 const jarvis = (port = 1337) => new Jarvis({ port })

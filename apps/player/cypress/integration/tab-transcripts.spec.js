@@ -71,7 +71,7 @@ describe('<tab-transcripts>', () => {
           dispatch({ type: 'PLAYER_SEARCH_TRANSCRIPTS', payload: 'lorem' })
         })
 
-        it.only('should show the search results', () => {
+        it('should show the search results', () => {
           cy.select('tab-transcripts--search-controls').should('exist')
           cy.select('tab-transcripts--search-controls--current-result').should('contain', '1')
           cy.select('tab-transcripts--search-controls--total-result').should('contain', '6')
