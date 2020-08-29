@@ -5,15 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [5.2.0](https://github.com/podlove/podlove-ui/compare/v5.1.12...v5.2.0) (2020-08-29)
 
-**Note:** Version bump only for package @podlove/button-actions
 
+### Bug Fixes
 
-
-
-
-## 5.1.12 (2020-08-23)
-
-
-### Features
-
-* **web-player:** web player 5 stock ([454d6de](https://github.com/podlove/podlove-ui/commit/454d6dead15ba4813d68e306ebc6f01a254651ed))
+* **webpack:** adapt html webpack plugin api ([ac47970](https://github.com/podlove/podlove-ui/commit/ac479708be7fa18060ac0cfe4b66b3ccaaa43d26))

@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [5.2.0](https://github.com/podlove/podlove-ui/compare/v5.1.12...v5.2.0) (2020-08-29)
+
+**Note:** Version bump only for package @podlove/clients
+
+
+
+
+
 ## 5.1.12 (2020-08-23)
 
 
@@ -12,6 +25,3 @@
 
 * **podlove-clients:** example for podlove clients ([4fe9bc3](https://github.com/podlove/podlove-ui/commit/4fe9bc3b3c80a2f63dc33e8a9b7c85ff87ae1713))
 * **web-player:** web player 5 stock ([454d6de](https://github.com/podlove/podlove-ui/commit/454d6dead15ba4813d68e306ebc6f01a254651ed))
-
-
-

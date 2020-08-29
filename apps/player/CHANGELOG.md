@@ -1,3 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [5.2.0](https://github.com/podlove/podlove-ui/compare/v5.1.12...v5.2.0) (2020-08-29)
+
+
+### Bug Fixes
+
+* **webpack:** adapt html webpack plugin api ([ac47970](https://github.com/podlove/podlove-ui/commit/ac479708be7fa18060ac0cfe4b66b3ccaaa43d26))
+
+
+
+
+
 ## 5.1.12 (2020-08-23)
 
 
@@ -63,6 +79,3 @@
 * **web-player:** add dist bundling ([205797a](https://github.com/podlove/podlove-ui/commit/205797abb57a8263b3649685e623cba4eb4aa3e1))
 * **web-player:** add share possiblity ([37ee929](https://github.com/podlove/podlove-ui/commit/37ee9291f512d30018ced950be3059fd4643bb95))
 * web-player app ([2f3f1a8](https://github.com/podlove/podlove-ui/commit/2f3f1a8902c4d263650cc7ff28b1be62084ba969))
-
-
-
