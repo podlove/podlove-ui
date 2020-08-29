@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [5.2.0](https://github.com/podlove/podlove-ui/compare/v5.1.12...v5.2.0) (2020-08-29)
+
+**Note:** Version bump only for package @podlove/player-config
+
+
+
+
+
 ## 5.1.12 (2020-08-23)
 
 
@@ -5,6 +18,3 @@
 
 * **files:** don't join files and media ([11ea28e](https://github.com/podlove/podlove-ui/commit/11ea28e9c7082b75e84f7b6cb1dde722c3a18868))
 * **size:** add size calculation to template ([fd6975a](https://github.com/podlove/podlove-ui/commit/fd6975a43bb55359db6d4d85dfa6abc3c577d1fb))
-
-
-

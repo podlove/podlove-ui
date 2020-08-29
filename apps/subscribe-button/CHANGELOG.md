@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [5.2.0](https://github.com/podlove/podlove-ui/compare/v5.1.12...v5.2.0) (2020-08-29)
+
+**Note:** Version bump only for package @podlove/subscribe-button
+
+
+
+
+
 ## 5.1.12 (2020-08-23)
 
 
@@ -20,6 +33,3 @@
 * **subscribe-button:** add subscribe-button embedding logic ([239d174](https://github.com/podlove/podlove-ui/commit/239d1748abb89a515476d9d0e7f26e72c9191ca1))
 * **web-player:** web player 5 stock ([454d6de](https://github.com/podlove/podlove-ui/commit/454d6dead15ba4813d68e306ebc6f01a254651ed))
 * reducer for info overlay ([e341c58](https://github.com/podlove/podlove-ui/commit/e341c5860282cd3109300bd4c2f5149765c99448))
-
-
-

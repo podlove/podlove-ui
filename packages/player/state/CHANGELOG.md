@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [5.2.0](https://github.com/podlove/podlove-ui/compare/v5.1.12...v5.2.0) (2020-08-29)
+
+**Note:** Version bump only for package @podlove/player-state
+
+
+
+
+
 ## 5.1.12 (2020-08-23)
 
 
@@ -25,6 +38,3 @@
 * **web-player:** add shownote tab ([978d8b0](https://github.com/podlove/podlove-ui/commit/978d8b05f2676ef9851c0ad24a19a8ec7e3ebdb5)), closes [#141](https://github.com/podlove/podlove-ui/issues/141)
 * **web-player:** persist quantiles ([363c6bd](https://github.com/podlove/podlove-ui/commit/363c6bd3301f3c6fc53e5d3d6b370a73c9fb7462))
 * **web-player:** web player 5 stock ([454d6de](https://github.com/podlove/podlove-ui/commit/454d6dead15ba4813d68e306ebc6f01a254651ed))
-
-
-
