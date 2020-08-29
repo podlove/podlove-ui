@@ -1,0 +1,34 @@
+## 5.1.12 (2020-08-23)
+
+
+### Bug Fixes
+
+* **ie11:** fixes crashes in IE11 ([d2b9ea0](https://github.com/podlove/podlove-ui/commit/d2b9ea0243cf1e36eace8e399eeead35496fe6fd))
+* **player:** add chapters to transcripts ([45f739e](https://github.com/podlove/podlove-ui/commit/45f739e5df8999e6cdab544270e5b90389c10b5f)), closes [#175](https://github.com/podlove/podlove-ui/issues/175)
+* **player:** reflect playstate in component update ([48376eb](https://github.com/podlove/podlove-ui/commit/48376ebb52db54f257f439cb2701bdb6a5baa170)), closes [#2](https://github.com/podlove/podlove-ui/issues/2)
+* **player-saga:** fix chpater parsing ([fd6e2f3](https://github.com/podlove/podlove-ui/commit/fd6e2f3b58f99349dbde4e28184540f464cbd09f))
+* **player-saga:** fix chpater parsing ([#130](https://github.com/podlove/podlove-ui/issues/130)) ([1114bff](https://github.com/podlove/podlove-ui/commit/1114bff66b24655e334686b8835bbcc4e3073608))
+* **player-sagas:** hide transcript tab if no transcripts available ([d983b3a](https://github.com/podlove/podlove-ui/commit/d983b3a706124d3ee4411418228d4da1a3077f76))
+* **player-sagas:** update html5 audio driver to fix audio preloading ([2448079](https://github.com/podlove/podlove-ui/commit/2448079e782628d30fe1934068227f0108b4b682))
+* **playlists:** don't try to identify the selected entry on bootstrap ([fa1920e](https://github.com/podlove/podlove-ui/commit/fa1920efe536482528488d5a4b51f3b74ab134be))
+* **tests:** fix integration and unit tests ([89f388e](https://github.com/podlove/podlove-ui/commit/89f388e45edf485435597f5102eb065e05d9be34))
+* **tests:** fix integration and unit tests ([cb31562](https://github.com/podlove/podlove-ui/commit/cb31562f600f20b4728a70667c45ed162ab9f556))
+* **tests:** fix tests ([d676eb5](https://github.com/podlove/podlove-ui/commit/d676eb5afd20020a7d33dda323d0149d4eeb5fe1))
+* **tests:** fix unit tests ([3fa58e0](https://github.com/podlove/podlove-ui/commit/3fa58e0322d4956c2bd5a8b4d59e7aedc685eccb))
+* **tests:** remove the runtime tests ([813b700](https://github.com/podlove/podlove-ui/commit/813b70003a5abcda09d440f88c3ddba4445efe77))
+
+
+### Features
+
+* **ie11:** add IE11+ compatibility ([60472d4](https://github.com/podlove/podlove-ui/commit/60472d442647ad838feb74b4980cc837f3a96853))
+* **player:** add error handling ([1320241](https://github.com/podlove/podlove-ui/commit/132024103288d0c39a128eea219b3b01edac8730))
+* **player:** add last action reducer ([a5c2746](https://github.com/podlove/podlove-ui/commit/a5c27467e1b2a64ff43eed32718dbb574ad02ad2))
+* **player:** add media session api hooks ([545ecc8](https://github.com/podlove/podlove-ui/commit/545ecc853288ecee67f6b9d59774f79ec06d7a68))
+* **player:** implements stepping ([2ef993b](https://github.com/podlove/podlove-ui/commit/2ef993b81f811a8d3ed9ca21f1eb6649c8ddcee2))
+* **player-saga:** add keyboard saga ([69036f6](https://github.com/podlove/podlove-ui/commit/69036f6f012d1e4963ceb56c712fc598f287137c))
+* **web-player:** add share possiblity ([37ee929](https://github.com/podlove/podlove-ui/commit/37ee9291f512d30018ced950be3059fd4643bb95))
+* **web-player:** add shownote tab ([978d8b0](https://github.com/podlove/podlove-ui/commit/978d8b05f2676ef9851c0ad24a19a8ec7e3ebdb5)), closes [#141](https://github.com/podlove/podlove-ui/issues/141)
+* **web-player:** web player 5 stock ([454d6de](https://github.com/podlove/podlove-ui/commit/454d6dead15ba4813d68e306ebc6f01a254651ed))
+
+
+

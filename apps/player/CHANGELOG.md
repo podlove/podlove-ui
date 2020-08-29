@@ -1,0 +1,68 @@
+## 5.1.12 (2020-08-23)
+
+
+### Bug Fixes
+
+* **embedding:** ignore configured base on cdn scenario ([1b8a948](https://github.com/podlove/podlove-ui/commit/1b8a9488abdb4ba31148f96ffb3b5c6aaaeb444e))
+* **ie11:** fixes crashes in IE11 ([d2b9ea0](https://github.com/podlove/podlove-ui/commit/d2b9ea0243cf1e36eace8e399eeead35496fe6fd))
+* **linting:** fixes linting issues ([bd4f7d6](https://github.com/podlove/podlove-ui/commit/bd4f7d6304770d1f4d68c2432ce34dc8e50b933a))
+* **math:** fallback to 100% on relative position calculation ([1b2a49f](https://github.com/podlove/podlove-ui/commit/1b2a49f9e377a133366bbd7d30f8753544ac8acf))
+* **player:** bring back marquee effect ([a2f271d](https://github.com/podlove/podlove-ui/commit/a2f271db754b6a6d055dd41fd242a8d3fe133cb8))
+* **player:** center chapter index ([100e40d](https://github.com/podlove/podlove-ui/commit/100e40d05e66a689c66f4875ed0e4996a4599930)), closes [#173](https://github.com/podlove/podlove-ui/issues/173)
+* **player:** fix color issue in transcripts search ([9a95525](https://github.com/podlove/podlove-ui/commit/9a9552519fb261b28e65c349105575d0a5814983))
+* **player:** fix component imports ([89fca2f](https://github.com/podlove/podlove-ui/commit/89fca2f4934a68d885055467a4c8977c24ac1ad8))
+* **player:** fix episode title line truncation ([8f4f4d9](https://github.com/podlove/podlove-ui/commit/8f4f4d94544119883ec1bde64f949461753c45ab))
+* **player:** fix tabs and share styles ([17b34bd](https://github.com/podlove/podlove-ui/commit/17b34bdefd84cff15aa3b6a2f89cd1f7b545c63f))
+* **player:** fix transcripts search navigation ([630829b](https://github.com/podlove/podlove-ui/commit/630829bb4b0f1372c75d068a604e73bd41b5f5b6)), closes [#122](https://github.com/podlove/podlove-ui/issues/122)
+* **player:** fixes tab resize handling on init ([1c87dc5](https://github.com/podlove/podlove-ui/commit/1c87dc57d5658130ebc00482d6020f92c46c4ce0))
+* **player:** harden url parser ([3c659c7](https://github.com/podlove/podlove-ui/commit/3c659c7666ec4628cfe961128494a479c28c6961))
+* **player:** improve overflow calculation ([c928adc](https://github.com/podlove/podlove-ui/commit/c928adcc54c66bafcc0391c7ba7f1c0ab019e55b))
+* **player:** show chapter links ([1a734b5](https://github.com/podlove/podlove-ui/commit/1a734b51f4799406614652cdca397d9c356138fb))
+* **player:** stabilise tab-shownotes selectors ([94b1a91](https://github.com/podlove/podlove-ui/commit/94b1a91f0d295bc714ecf83ad56198f8feff21d1))
+* **player:** use navigator locale ([951ef4a](https://github.com/podlove/podlove-ui/commit/951ef4ad22cf37cfd5d07e4f31d4009547f2e4cd))
+* **player-sagas:** hide transcript tab if no transcripts available ([d983b3a](https://github.com/podlove/podlove-ui/commit/d983b3a706124d3ee4411418228d4da1a3077f76))
+* **player-state:** fix player state tests ([ae24da4](https://github.com/podlove/podlove-ui/commit/ae24da45cf5e460c272a798be58149971f55f36a))
+* **tests:** fix integration tests ([550c91c](https://github.com/podlove/podlove-ui/commit/550c91c9d0f4cf4cd6a9f4ba77e48bd1d4c51deb))
+* **tests:** fix tests ([d676eb5](https://github.com/podlove/podlove-ui/commit/d676eb5afd20020a7d33dda323d0149d4eeb5fe1))
+* **tests:** fix unit tests ([3fa58e0](https://github.com/podlove/podlove-ui/commit/3fa58e0322d4956c2bd5a8b4d59e7aedc685eccb))
+* **tests:** remove the runtime tests ([813b700](https://github.com/podlove/podlove-ui/commit/813b70003a5abcda09d440f88c3ddba4445efe77))
+* **theme:** use contrast for chapter and icons ([f6b88c6](https://github.com/podlove/podlove-ui/commit/f6b88c607802d72a2dc31da8351f5abb16740d95)), closes [#183](https://github.com/podlove/podlove-ui/issues/183)
+* **utils:** use correct mobile detection ([3b87286](https://github.com/podlove/podlove-ui/commit/3b87286fdabbb7d8891baea5d913aa4a876a093a))
+* **web-player:** fix share embed path ([dd91100](https://github.com/podlove/podlove-ui/commit/dd91100351e55106d11392357f217a2448d018c0))
+* **webpack:** adapt html webpack plugin api ([ac47970](https://github.com/podlove/podlove-ui/commit/ac479708be7fa18060ac0cfe4b66b3ccaaa43d26))
+* **webplayer-docs:** fix base path and file references ([71ea711](https://github.com/podlove/podlove-ui/commit/71ea711b5b9571610b6433f3eab0022c0fdd5f3c))
+
+
+### Features
+
+* **ie11:** add IE11+ compatibility ([60472d4](https://github.com/podlove/podlove-ui/commit/60472d442647ad838feb74b4980cc837f3a96853))
+* **player:** add media session api hooks ([545ecc8](https://github.com/podlove/podlove-ui/commit/545ecc853288ecee67f6b9d59774f79ec06d7a68))
+* **player:** provide episode title as component ([23e2aae](https://github.com/podlove/podlove-ui/commit/23e2aae5c87551766d831984a1e13c402130ba94))
+* **player-saga:** add keyboard saga ([69036f6](https://github.com/podlove/podlove-ui/commit/69036f6f012d1e4963ceb56c712fc598f287137c))
+* **tooltip:** set color and background ([18a11f1](https://github.com/podlove/podlove-ui/commit/18a11f12524a582c520d555ab24c47d69683f7cf))
+* **web-player:** add shownote tab ([978d8b0](https://github.com/podlove/podlove-ui/commit/978d8b05f2676ef9851c0ad24a19a8ec7e3ebdb5)), closes [#141](https://github.com/podlove/podlove-ui/issues/141)
+* **web-player:** web player 5 stock ([454d6de](https://github.com/podlove/podlove-ui/commit/454d6dead15ba4813d68e306ebc6f01a254651ed))
+
+
+
+# 4.5.0 (2019-05-04)
+
+
+### Bug Fixes
+
+* **player:** encode url parameters for embedding ([05c13ed](https://github.com/podlove/podlove-ui/commit/05c13edcaa8e4fd4de82045a6e16c8d95b48c927))
+* **player:** reflect playstate in component update ([48376eb](https://github.com/podlove/podlove-ui/commit/48376ebb52db54f257f439cb2701bdb6a5baa170)), closes [#2](https://github.com/podlove/podlove-ui/issues/2)
+
+
+### Features
+
+* **player:** add error handling ([1320241](https://github.com/podlove/podlove-ui/commit/132024103288d0c39a128eea219b3b01edac8730))
+* **player:** add last action reducer ([a5c2746](https://github.com/podlove/podlove-ui/commit/a5c27467e1b2a64ff43eed32718dbb574ad02ad2))
+* **player:** implements stepping ([2ef993b](https://github.com/podlove/podlove-ui/commit/2ef993b81f811a8d3ed9ca21f1eb6649c8ddcee2))
+* **tabs:** hides item labels if width is not sufficient to show all ([07eebbb](https://github.com/podlove/podlove-ui/commit/07eebbb4d2ef73249eda0a32bbde596687b29a37))
+* **web-player:** add dist bundling ([205797a](https://github.com/podlove/podlove-ui/commit/205797abb57a8263b3649685e623cba4eb4aa3e1))
+* **web-player:** add share possiblity ([37ee929](https://github.com/podlove/podlove-ui/commit/37ee9291f512d30018ced950be3059fd4643bb95))
+* web-player app ([2f3f1a8](https://github.com/podlove/podlove-ui/commit/2f3f1a8902c4d263650cc7ff28b1be62084ba969))
+
+
+

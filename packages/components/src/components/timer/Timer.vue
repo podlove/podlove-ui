@@ -1,5 +1,7 @@
 <template>
-  <span class="timer" :style="timerStyle">{{ `${remaining ? '-' : ''}${toHumanTime(time)}` }}</span>
+  <time class="timer" :style="timerStyle" :datetime="toHumanTime(time)">{{
+    `${remaining ? '-' : ''}${toHumanTime(time)}`
+  }}</time>
 </template>
 
 <script>

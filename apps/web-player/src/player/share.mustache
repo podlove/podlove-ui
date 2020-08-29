@@ -13,7 +13,7 @@
   </style>
 
   <script type="text/javascript">
-    window.resourceBaseUrl = '{{ htmlWebpackPlugin.options.root }}{{ htmlWebpackPlugin.options.base }}';
+    window.resourceBaseUrl = '{{ htmlWebpackPlugin.options.root }}{{ baseHref }}';
   </script>
 
   <script>
@@ -33,8 +33,6 @@
 </head>
 
 <body>
-
-
   <div id="app">
     <root data-test="player--share">
       <div class="p-4 flex flex-col">
@@ -60,11 +58,11 @@
   </div>
 
   {{#htmlWebpackPlugin.options.files.styles}}
-  <link rel="stylesheet" href="{{ htmlWebpackPlugin.options.root }}{{ htmlWebpackPlugin.options.base }}{{ . }}.css">
+  <link rel="stylesheet" href="{{ htmlWebpackPlugin.options.root }}{{ baseHref }}{{ . }}.css">
   {{/htmlWebpackPlugin.options.files.styles}}
 
   {{#htmlWebpackPlugin.options.files.scripts}}
-  <script type="text/javascript" src="{{ htmlWebpackPlugin.options.root }}{{ htmlWebpackPlugin.options.base }}{{ . }}.js"></script>
+  <script type="text/javascript" src="{{ htmlWebpackPlugin.options.root }}{{ baseHref }}{{ . }}.js"></script>
   {{/htmlWebpackPlugin.options.files.scripts}}
 </body>
 

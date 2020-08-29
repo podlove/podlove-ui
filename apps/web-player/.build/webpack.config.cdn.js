@@ -76,7 +76,9 @@ module.exports = {
       template: '!!mustache-loader!./src/player/share.mustache',
       exclude: ['embed', 'extensions/external-events'],
       root: '',
-      base: `${version}/player/`
+      params: {
+        baseHref: `${version}/player/`
+      }
     })
   ]
 }

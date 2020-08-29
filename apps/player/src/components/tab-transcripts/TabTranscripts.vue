@@ -1,7 +1,7 @@
 <template lang="pug">
   div(data-test="tab-transcripts")
     div.header(class="mobile:p-4 tablet:p-6")
-      tab-title(@close="closeTab") {{ $t('TRANSCRIPTS.TITLE') }}
+      tab-title(@close="closeTab" tab="transcripts") {{ $t('TRANSCRIPTS.TITLE') }}
       search.mb-6
     //- Render
     render-container(:prerender="prerender" v-if="prerender.length > 0")
