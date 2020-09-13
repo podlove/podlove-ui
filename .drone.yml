@@ -329,7 +329,7 @@ steps:
       token:
         from_secret: NPM_TOKEN
       email: npm@heimbu.ch
-      folder: packages/player/config
+      folder: packages/player/config/publish
     when:
       ref:
       - refs/tags/v*
@@ -355,6 +355,14 @@ steps:
   image: node:12
   commands:
     - npx jest 'packages/utils'
+
+- name: release:prepare
+  image: node:12
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/utils --stream
+  when:
+    ref:
+    - refs/tags/v*
 
 - name: deploy:npm
   image: plugins/npm
