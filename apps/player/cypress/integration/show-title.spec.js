@@ -25,23 +25,12 @@ describe('<show-title>', () => {
 
     it('should render the show link if available', function() {
       cy.bootstrap('<show-title></show-title>', [this.show])
-      cy.select('show-title--link')
-        .its('href')
-        .should('be', 'http://link/to/show')
+      cy.select('show-title--link').should('have.attr', 'href', 'http://link/to/show')
     })
 
     it('should render the target to _parent when in native mode', function() {
       cy.bootstrap('<show-title></show-title>', [this.show])
-      cy.select('show-title--link')
-        .its('target')
-        .should('be', '_parent')
-    })
-
-    it('should render the target to _blank when in native mode', function() {
-      cy.bootstrap('<show-title></show-title>', [this.show, { runtime: { mode: 'embed' } }])
-      cy.select('show-title--link')
-        .its('target')
-        .should('be', '_blank')
+      cy.select('show-title--link').should('have.attr', 'target', '_parent')
     })
   })
 })

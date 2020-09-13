@@ -22,7 +22,7 @@ describe('embedding', () => {
     it(`should hide the content till it's loaded`, () => {
       cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' })
       cy.select('player').should('not.have.class', 'loaded')
-      cy.wait(600)
+      cy.wait(1000)
       cy.select('player').should('have.class', 'loaded')
     })
   })

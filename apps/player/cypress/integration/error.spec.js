@@ -35,9 +35,7 @@ describe('<error>', () => {
 
     it('should set the background color', () => {
       assert('PLAYER_SHOW_ERROR', () => {
-        cy.select('error')
-          .should('have.css', 'background')
-          .and('be', 'rgb(35, 89, 115)')
+        cy.select('error').should('have.css', 'background-color', 'rgb(233, 241, 245)')
       })
 
       dispatch({

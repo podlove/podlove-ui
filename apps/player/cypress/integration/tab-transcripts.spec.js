@@ -48,8 +48,13 @@ describe('<tab-transcripts>', () => {
     })
 
     describe('transcripts', () => {
-      it('should render the transcripts', function() {
-        cy.select('tab-transcripts--entry').should('have.length', 5)
+      it('should render the transcripts', done => {
+        assert('PLAYER_SEARCH_TRANSCRIPTS', () => {
+          cy.select('tab-transcripts--entry').should('have.length', 5)
+          done()
+        })
+
+        dispatch({ type: 'PLAYER_SEARCH_TRANSCRIPTS', payload: 'lorem' })
       })
     })
   })
@@ -102,11 +107,12 @@ describe('<tab-transcripts>', () => {
       })
 
       describe('results', () => {
-        it('should highlight all results', () => {
+        it('should highlight all results', done => {
           assert('PLAYER_SEARCH_TRANSCRIPTS', () => {
             cy.select('tab-transcripts--results')
               .find('span[style*="background: rgb(128, 126, 124)"]')
               .should('have.length', 6)
+            done()
           })
 
           dispatch({ type: 'PLAYER_SEARCH_TRANSCRIPTS', payload: 'lorem' })

@@ -18,7 +18,7 @@
     "@podlove/utils": "^5.2.1",
     "@podlove/web-player": "^5.2.1",
     "jsoneditor": "9.0.3",
-    "ramda": "0.26.1",
+    "ramda": "0.27.1",
     "vue-color": "2.7.0"
   },
   "devDependencies": {
