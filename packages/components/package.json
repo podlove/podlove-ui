@@ -4,14 +4,13 @@
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf dist publish",
     "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
     "postinstall": "npm run build",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
-    "postpublish": "npm run clean"
+    "postpublish": "npm run clean",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",

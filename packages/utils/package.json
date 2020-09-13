@@ -4,7 +4,11 @@
   "description": "Utils for Podlove Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/utils",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf dist publish",
+    "build": "npm run clean && webpack --config .build/webpack.config.js",
+    "postinstall": "npm run build",
+    "postpublish": "npm run clean",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -17,5 +21,9 @@
     "query-string-for-all": "6.9.0",
     "ramda": "0.26.1",
     "unfetch": "4.1.0"
+  },
+  "devDependencies": {
+    "@podlove/build": "^5.2.0",
+    "webpack": "4.41.2"
   }
 }
