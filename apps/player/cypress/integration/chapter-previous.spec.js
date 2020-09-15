@@ -44,7 +44,7 @@ describe('<chapter-previous>', () => {
       cy.select('chapter-previous').click()
     })
 
-    it('should be disabled on last chapter', function() {
+    it('should be disabled on first chapter', function() {
       store.dispatch({
         type: 'PLAYER_SET_CHAPTER',
         payload: 0

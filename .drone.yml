@@ -16,7 +16,7 @@ steps:
     - npx eslint 'apps/player/**/*.{js,vue}'
 
 - name: integration
-  image: cypress/base:12.12.0
+  image: cypress/included:5.1.0
   commands:
     - npx cypress install
     - npx lerna run integration:build --scope @podlove/player --stream
@@ -67,7 +67,7 @@ steps:
     - npx eslint 'apps/web-player/**/*.{js,vue}'
 
 - name: integration
-  image: cypress/base:12.12.0
+  image: cypress/included:5.1.0
   commands:
     - npx cypress install
     - npx lerna run integration:build --scope @podlove/web-player --stream

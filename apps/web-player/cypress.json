@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:8080",
+  "baseUrl": "http://localhost:9000",
   "fileServerFolder": "./cypress/testbed",
   "fixturesFolder": "./cypress/fixtures",
   "integrationFolder": "./cypress/integration",
@@ -10,7 +10,8 @@
   "screenshotsFolder": "../../reports/web-player/screenshots",
   "projectId": "tz4idp",
 
-  "env": {
-    "RETRIES": 3
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
   }
 }

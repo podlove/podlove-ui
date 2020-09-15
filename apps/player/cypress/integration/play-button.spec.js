@@ -22,8 +22,7 @@ describe('<play-button>', () => {
       cy.bootstrap('<play-button></play-button>', [this.theme]).then(() => {
         cy.select('play-button')
           .find('.wrapper')
-          .should('have.css', 'background')
-          .and('be', 'rgb(35, 89, 115)')
+          .should('have.css', 'background-color', 'rgb(35, 89, 115)')
       })
     })
   })
@@ -70,11 +69,9 @@ describe('<play-button>', () => {
     })
 
     it('should show the replay button on end', () => {
-      assert('PLAYER_REQUEST_PLAY', () => {
-        cy.get('#play-button--restart').should('be.visible')
-      })
       dispatch({ type: 'PLAYER_REQUEST_PLAYTIME', payload: 12000 })
       dispatch({ type: 'PLAYER_REQUEST_PLAY', payload: 12000 })
+      cy.get('#play-button--restart').should('be.visible')
     })
   })
 })
