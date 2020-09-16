@@ -329,7 +329,7 @@ steps:
       token:
         from_secret: NPM_TOKEN
       email: npm@heimbu.ch
-      folder: packages/player/config/publish
+      folder: packages/player/config
     when:
       ref:
       - refs/tags/v*
@@ -371,7 +371,7 @@ steps:
     token:
       from_secret: NPM_TOKEN
     email: npm@heimbu.ch
-    folder: packages/utils
+    folder: packages/utils/publish
   when:
     ref:
     - refs/tags/v*
