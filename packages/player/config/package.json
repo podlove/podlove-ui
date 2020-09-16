@@ -12,6 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "@podlove/utils": "^5.2.1",
-    "ramda": "0.26.1"
+    "ramda": "0.27.1"
   }
 }

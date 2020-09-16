@@ -15,7 +15,7 @@
     "@podlove/utils": "^5.2.1",
     "color": "3.1.2",
     "object-mapper": "6.0.1",
-    "ramda": "0.26.1",
+    "ramda": "0.27.1",
     "redux-actions": "2.6.5",
     "vue-i18n": "8.15.0"
   },

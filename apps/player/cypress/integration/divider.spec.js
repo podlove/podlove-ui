@@ -12,9 +12,11 @@ describe('<divider>', () => {
 
     it('should have a color gradient', function() {
       cy.bootstrap('<divider style="width: 200px;"></divider>').then(() => {
-        cy.select('divider')
-          .should('have.css', 'background-image')
-          .and('be', 'linear-gradient(90deg, rgb(128, 126, 124) 25%, rgba(128, 126, 124, 0) 0px)')
+        cy.select('divider').should(
+          'have.css',
+          'background-image',
+          'linear-gradient(90deg, rgb(128, 126, 124) 25%, rgba(128, 126, 124, 0) 0px)'
+        )
       })
     })
   })

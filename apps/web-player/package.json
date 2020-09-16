@@ -12,9 +12,9 @@
     "build:dev": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "postinstall": "npm run build",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
-    "integration:server": "http-server -p 8080 dist/ > http.log 2>&1 &",
-    "integration:ci": "cypress run --config baseUrl=http://localhost:8080",
-    "integration:dev": "cypress open --config baseUrl=http://localhost:9000",
+    "integration:server": "http-server -p 9000 dist/ > http.log 2>&1 &",
+    "integration:ci": "cypress run --browser chrome",
+    "integration:dev": "cypress open --browser chrome",
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
   },
   "keywords": [],
@@ -31,12 +31,11 @@
     "color": "3.1.2",
     "hashcode": "1.0.3",
     "iframe-resizer": "4.2.2",
-    "ramda": "0.26.1"
+    "ramda": "0.27.1"
   },
   "devDependencies": {
     "@podlove/build": "^5.2.1",
-    "cypress": "3.5.0",
-    "cypress-plugin-retries": "1.5.2",
+    "cypress": "5.1.0",
     "http-server": "0.11.1",
     "webpack": "4.41.2",
     "webpack-dev-server": "3.9.0"

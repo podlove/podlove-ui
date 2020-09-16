@@ -16,7 +16,7 @@ steps:
     - npx eslint 'apps/player/**/*.{js,vue}'
 
 - name: integration
-  image: cypress/base:12.12.0
+  image: cypress/included:5.1.0
   commands:
     - npx cypress install
     - npx lerna run integration:build --scope @podlove/player --stream
@@ -67,7 +67,7 @@ steps:
     - npx eslint 'apps/web-player/**/*.{js,vue}'
 
 - name: integration
-  image: cypress/base:12.12.0
+  image: cypress/included:5.1.0
   commands:
     - npx cypress install
     - npx lerna run integration:build --scope @podlove/web-player --stream
@@ -329,7 +329,7 @@ steps:
       token:
         from_secret: NPM_TOKEN
       email: npm@heimbu.ch
-      folder: packages/player/config
+      folder: packages/player/config/publish
     when:
       ref:
       - refs/tags/v*
@@ -355,6 +355,14 @@ steps:
   image: node:12
   commands:
     - npx jest 'packages/utils'
+
+- name: release:prepare
+  image: node:12
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/utils --stream
+  when:
+    ref:
+    - refs/tags/v*
 
 - name: deploy:npm
   image: plugins/npm

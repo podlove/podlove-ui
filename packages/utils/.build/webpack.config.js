@@ -28,7 +28,7 @@ module.exports = {
   entry: entries.reduce(
     (result, entry) => ({
       ...result,
-      entry: resolve(entry)
+      [entry]: resolve(entry)
     }),
     {}
   ),

@@ -1,5 +1,5 @@
 import { fallbackTo } from './helper'
-import { find, propEq, compose, curry, findIndex, defaultTo, add, propOr } from 'ramda'
+import { find, propEq, compose, curry, findIndex, defaultTo, add, prop } from 'ramda'
 
 const emptyChapter = {
   start: null,
@@ -9,7 +9,8 @@ const emptyChapter = {
   index: -1
 }
 
-export const getChapterByIndex = chapters => index => propOr(emptyChapter, index, chapters)
+export const getChapterByIndex = chapters => index =>
+  index < 0 ? emptyChapter : prop(index, chapters)
 
 export const currentChapterIndex = compose(
   fallbackTo(-1),
