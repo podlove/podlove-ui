@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.3](https://github.com/podlove/podlove-ui/compare/v5.2.2...v5.2.3) (2020-09-16)
+
+
+### Bug Fixes
+
+* **player-config:** fix config publish part ([cc1a928](https://github.com/podlove/podlove-ui/commit/cc1a928bea6de7704be9cdc9db2b501a2d96ea2c))
+
+
+
+
+
 ## [5.2.2](https://github.com/podlove/podlove-ui/compare/v5.2.1...v5.2.2) (2020-09-16)
 
 
