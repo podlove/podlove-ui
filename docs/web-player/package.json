@@ -28,8 +28,9 @@
     "node-sass": "4.14.1",
     "sass-loader": "8.0.0",
     "surge": "0.21.3",
-    "vue-server-renderer": "2.6.11",
-    "vuepress": "1.4.0",
-    "vuepress-theme-millidocs": "0.5.4"
+    "vue-server-renderer": "2.6.12",
+    "vuepress": "1.6.0",
+    "vuepress-theme-millidocs": "0.5.4",
+    "@babel/runtime": "7.11.2"
   }
 }
