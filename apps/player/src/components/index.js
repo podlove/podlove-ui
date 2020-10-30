@@ -4,6 +4,7 @@ import Root from './root'
 import EpisodeTitle from './episode-title'
 import EpisodeSubtitle from './episode-subtitle'
 import ShowTitle from './show-title'
+import PublicationDate from './publication-date'
 import Poster from './poster'
 import StepForward from './step-forward'
 import StepBackward from './step-backward'
@@ -28,6 +29,7 @@ export default {
   EpisodeTitle,
   EpisodeSubtitle,
   ShowTitle,
+  PublicationDate,
   Poster,
   StepForward,
   StepBackward,
