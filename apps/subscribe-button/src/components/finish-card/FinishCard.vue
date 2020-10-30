@@ -32,7 +32,6 @@
     </div>
     <a
       :href="feed"
-      :style="{ color }"
       class="underline mb-6 block truncate"
       rel="noopener"
       :aria-label="$t('A11Y.FEED')"
