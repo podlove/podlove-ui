@@ -60,4 +60,11 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
 </style>

@@ -2,6 +2,8 @@ const path = require('path')
 const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
 
+const tailwind = require('./tailwind.config')
+
 module.exports = {
   mode: 'development',
 
@@ -29,15 +31,7 @@ module.exports = {
         rules.style.loader.css(),
         rules.style.loader.postcss({
           plugins: [
-            rules.style.postcss.plugins.tailwind({
-              theme: {
-                screens: {
-                  mobile: { min: '0px', max: '599px' },
-                  tablet: '600px',
-                  desktop: '950px'
-                }
-              }
-            }),
+            rules.style.postcss.plugins.tailwind(tailwind),
             rules.style.postcss.plugins.autoprefixer
           ]
         })
