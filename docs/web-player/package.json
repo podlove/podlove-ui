@@ -1,7 +1,7 @@
 {
   "name": "@podlove/docs-web-player",
   "private": true,
-  "version": "5.2.3",
+  "version": "5.3.0",
   "description": "Documentation for Podlove Web Player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,14 +14,15 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "^5.2.3",
-    "@podlove/utils": "^5.2.3",
-    "@podlove/web-player": "^5.2.3",
+    "@podlove/player-actions": "^5.3.0",
+    "@podlove/utils": "^5.3.0",
+    "@podlove/web-player": "^5.3.0",
     "jsoneditor": "9.0.3",
     "ramda": "0.27.1",
     "vue-color": "2.7.0"
   },
   "devDependencies": {
+    "@babel/runtime": "7.11.2",
     "copy-webpack-plugin": "6.0.2",
     "core-js": "2.6.10",
     "github-pages": "3.0.2",
@@ -30,7 +31,6 @@
     "surge": "0.21.3",
     "vue-server-renderer": "2.6.12",
     "vuepress": "1.6.0",
-    "vuepress-theme-millidocs": "0.5.4",
-    "@babel/runtime": "7.11.2"
+    "vuepress-theme-millidocs": "0.5.4"
   }
 }

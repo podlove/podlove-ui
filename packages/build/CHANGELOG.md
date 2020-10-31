@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/podlove/podlove-ui/compare/v5.2.3...v5.3.0) (2020-10-31)
+
+
+### Bug Fixes
+
+* player documentation build ([908e878](https://github.com/podlove/podlove-ui/commit/908e878c6a312bb11c6a0b4ba5d44e605263d2ea))
+
+
+
+
+
 ## [5.2.3](https://github.com/podlove/podlove-ui/compare/v5.2.2...v5.2.3) (2020-09-16)
 
 **Note:** Version bump only for package @podlove/build

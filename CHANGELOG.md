@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/podlove/podlove-ui/compare/v5.2.3...v5.3.0) (2020-10-31)
+
+
+### Bug Fixes
+
+* player documentation build ([908e878](https://github.com/podlove/podlove-ui/commit/908e878c6a312bb11c6a0b4ba5d44e605263d2ea))
+* **subscribe-button:** remove custom color on finish card rss link ([fba0f5e](https://github.com/podlove/podlove-ui/commit/fba0f5e1c7312444eaffb7152b13797bca70b7bc)), closes [#592](https://github.com/podlove/podlove-ui/issues/592)
+
+
+### Features
+
+* **publication-date:** add publication date as a new element ([ee93753](https://github.com/podlove/podlove-ui/commit/ee93753bbfee9744eead093919670aa23efaeb3e)), closes [#634](https://github.com/podlove/podlove-ui/issues/634)
+
+
+
+
+
 ## [5.2.3](https://github.com/podlove/podlove-ui/compare/v5.2.2...v5.2.3) (2020-09-16)
 
 
