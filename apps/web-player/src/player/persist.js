@@ -37,8 +37,9 @@ export const persistPlayer = (config, store) => {
 
   ready(store).then(() => {
     const { tabs } = store.getState()
+    const quantiles = propOr([], 'quantiles', existing)
 
-    if (!isEmpty(existing)) {
+    if (quantiles.length > 0) {
       store.dispatch(restore())
       store.dispatch(showPauseButton())
     }

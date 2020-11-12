@@ -2,7 +2,7 @@
 import fetch from 'unfetch'
 
 export const json = async url => {
-  if (typeof url !== 'string') {
+  if (!url || typeof url !== 'string') {
     return url
   }
 

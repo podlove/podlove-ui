@@ -3,25 +3,25 @@ import { mergeDeepRight, propOr, pathOr } from 'ramda'
 import { json } from '@podlove/utils/request'
 import * as playerConfig from '@podlove/player-config'
 
-const chapters = async config => {
+const fetchChapters = async config => {
   try {
-    return json(playerConfig.chapters(config))
+    return await json(playerConfig.chapters(config))
   } catch (err) {
     console.warn(`Couldn't parse chapters "${chapters}", falling back to empty list`)
     return []
   }
 }
 
-const transcripts = async config => {
+const fetchTranscripts = async config => {
   try {
-    return json(playerConfig.transcripts(config))
+    return await json(playerConfig.transcripts(config))
   } catch (err) {
     console.warn(`Couldn't parse transcripts "${transcripts}", falling back to empty list`)
     return []
   }
 }
 
-const playlist = async config => {
+const fetchPlaylist = async config => {
   try {
     return json(playerConfig.playlist(config))
   } catch (err) {
@@ -37,32 +37,35 @@ const reference = ({ episode, config }, resolved) => ({
   share: pathOr(null, ['share', 'outlet'], resolved.config)
 })
 
-export const parseConfig = async (episode, config) => {
-  const resolved = {
-    episode: {},
-    config: {}
-  }
-
+const resolve = async url => {
   try {
-    resolved.episode = await json(episode)
+    return await json(url)
   } catch (err) {
-    throw new Error(`Couldn't parse episode configuration "${episode}"`)
+    throw new Error(`Couldn't parse configuration "${url}"`)
   }
-
-  try {
-    resolved.config = await json(config)
-  } catch (err) {
-    throw new Error(`Couldn't parse player configuration  "${config}"`)
-  }
-
-  return mergeDeepRight(
-    Object.assign({}, resolved.episode, {
-      transcripts: await transcripts(resolved.episode),
-      chapters: await chapters(resolved.episode)
-    }),
-    Object.assign({}, resolved.config, {
-      playlist: await playlist(resolved.config),
-      reference: reference({ episode, config }, resolved)
-    })
-  )
 }
+
+export const parseConfig = (episode, config) =>
+  Promise.all([resolve(episode), resolve(config)]).then(
+    async ([resolvedEpisode, resolvedConfig]) => {
+      const [transcripts, chapters, playlist] = await Promise.all([
+        fetchTranscripts(resolvedEpisode),
+        fetchChapters(resolvedEpisode),
+        fetchPlaylist(resolvedConfig)
+      ])
+
+      return mergeDeepRight(
+        Object.assign({}, resolvedEpisode, {
+          transcripts,
+          chapters
+        }),
+        Object.assign({}, resolvedConfig, {
+          playlist,
+          reference: reference(
+            { episode, config },
+            { episode: resolvedEpisode, config: resolvedConfig }
+          )
+        })
+      )
+    }
+  )
