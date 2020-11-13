@@ -19,8 +19,8 @@ const podlovePlayer = async (selector, episode, meta) => {
     const config = await parseConfig(episode, meta)
     context.create(config)
     target = await canvas(selector)
-
     target.init()
+
     const playerStore = await player.create(config, target)
 
     playerStore.dispatch(playerInit(config))
