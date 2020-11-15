@@ -5,7 +5,6 @@
       <a
         :href="link"
         :aria-label="$t('A11Y.DOWNLOAD_APP')"
-        :style="{ color }"
         class="underline"
         rel="noopener"
         target="_blank"
