@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/podlove/podlove-ui/compare/v5.3.0...v5.3.1) (2020-11-23)
+
+
+### Bug Fixes
+
+* **subscribe-button:** remove custom color on end card link ([240627f](https://github.com/podlove/podlove-ui/commit/240627f0dbe8605c0cbad4b67071e44c0a0b2387))
+
+
+
+
+
 # [5.3.0](https://github.com/podlove/podlove-ui/compare/v5.2.3...v5.3.0) (2020-10-31)
 
 
