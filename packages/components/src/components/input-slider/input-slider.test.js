@@ -45,6 +45,10 @@ describe('InputSlider', () => {
       {
         prop: 'borderColor',
         value: '#fff'
+      },
+      {
+        prop: 'progressColor',
+        value: '#fff'
       }
     ]
 
