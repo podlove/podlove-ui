@@ -10,7 +10,7 @@
       @change="handleChange"
       @dblclick="handleDblclick"
     />
-    <span class="track" />
+    <span class="track" :style="trackStyle" />
     <span
       v-for="(pin, index) in pins"
       :key="index"
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import color from 'color'
 import { pluck } from 'ramda'
 import { round } from '@podlove/utils/math'
 
@@ -65,10 +66,20 @@ export default {
     borderColor: {
       type: String,
       default: defaultColors.color
+    },
+    progressColor: {
+      type: String,
+      default: defaultColors.color
     }
   },
 
   computed: {
+    trackStyle() {
+      return {
+        'background-color': color(this.progressColor).fade(0.7)
+      }
+    },
+
     thumbStyle() {
       const left = relativePosition(this.value, this.min, this.max)
       return {
