@@ -9,7 +9,8 @@
     "test:dev": "jest --watchAll",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "update": "lernaupdate",
-    "version": "lerna version --conventional-commits --changelog-preset angular"
+    "version": "lerna version --conventional-commits --changelog-preset angular",
+    "postinstall": "lerna bootstrap --hoist"
   },
   "devDependencies": {
     "@babel/core": "7.10.3",
