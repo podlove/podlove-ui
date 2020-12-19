@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.2](https://github.com/podlove/podlove-ui/compare/v5.3.1...v5.3.2) (2020-12-19)
+
+
+### Bug Fixes
+
+* Volume bar is not customizable ([84d4e86](https://github.com/podlove/podlove-ui/commit/84d4e86e0c16870072d977f876463cee1c7621d7)), closes [#653](https://github.com/podlove/podlove-ui/issues/653)
+
+
+
+
+
 ## [5.3.1](https://github.com/podlove/podlove-ui/compare/v5.3.0...v5.3.1) (2020-11-23)
 
 

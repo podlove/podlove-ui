@@ -1,6 +1,6 @@
 {
   "name": "@podlove/subscribe-button",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "description": "",
   "main": "subscribe-button.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "@podlove/button-actions": "^5.3.1",
     "@podlove/button-state": "^5.3.1",
     "@podlove/clients": "^5.3.1",
-    "@podlove/components": "^5.3.1",
+    "@podlove/components": "^5.3.2",
     "@podlove/utils": "^5.3.1",
     "iframe-resizer": "4.2.2",
     "normalize-scss": "7.0.1",
