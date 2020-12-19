@@ -22,6 +22,7 @@
           :step="1"
           :background="color"
           :borderColor="color"
+          :progressColor="progressColor"
           @input="setVolume"
           :aria-label="$t(volumeLabel.key, volumeLabel.attr)"
         )
@@ -54,6 +55,7 @@ export default {
     muted: select.audio.muted,
     icon: select.audio.icon,
     color: select.theme.brandDark,
+    progressColor: select.theme.brandDark,
     background: select.theme.brandLightest,
     buttonTitle: select.accessibility.volumeButton,
     volumeLabel: select.accessibility.volumeControl

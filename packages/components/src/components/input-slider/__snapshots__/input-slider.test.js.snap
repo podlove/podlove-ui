@@ -13,6 +13,7 @@ exports[`InputSlider props should render type 'background' 1`] = `
    
   <span
     class="track"
+    style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
     
   <span
@@ -36,6 +37,7 @@ exports[`InputSlider props should render type 'borderColor' 1`] = `
    
   <span
     class="track"
+    style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
     
   <span
@@ -59,6 +61,7 @@ exports[`InputSlider props should render type 'pins' 1`] = `
    
   <span
     class="track"
+    style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
    
   <span
@@ -86,6 +89,30 @@ exports[`InputSlider props should render type 'pins' 1`] = `
 </div>
 `;
 
+exports[`InputSlider props should render type 'progressColor' 1`] = `
+<div
+  class="input-slider"
+>
+  <input
+    max="20"
+    min="1"
+    step="0.1"
+    type="range"
+  />
+   
+  <span
+    class="track"
+    style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
+  />
+    
+  <span
+    class="thumb"
+    style="left: -5.2631578947368425%; background-color: rgb(43, 138, 198); border-color: #fff;"
+  />
+   
+</div>
+`;
+
 exports[`InputSlider props should render type 'step' 1`] = `
 <div
   class="input-slider"
@@ -99,6 +126,7 @@ exports[`InputSlider props should render type 'step' 1`] = `
    
   <span
     class="track"
+    style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
     
   <span
@@ -122,6 +150,7 @@ exports[`InputSlider props should render type 'value' 1`] = `
    
   <span
     class="track"
+    style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
     
   <span
@@ -145,6 +174,7 @@ exports[`InputSlider props should render without props 1`] = `
    
   <span
     class="track"
+    style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
     
   <span
