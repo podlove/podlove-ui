@@ -1,5 +1,17 @@
 <template lang="pug">
-  play-button.overflow-hidden(v-if="button.type" :type="button.type" :title="button.a11y" :color="background" :background="color" :size="size" @click="dispatch" :label="button.label" @mouseover.native="mouseOver" @mouseleave.native="mouseLeave" data-test="play-button")
+play-button.overflow-hidden(
+  v-if='button.type',
+  :type='button.type',
+  :title='button.a11y',
+  :color='background',
+  :background='color',
+  :size='size',
+  @click='dispatch',
+  :label='button.label',
+  @mouseover.native='mouseOver',
+  @mouseleave.native='mouseLeave',
+  data-test='play-button'
+)
 </template>
 
 <script>

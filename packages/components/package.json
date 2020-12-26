@@ -8,7 +8,6 @@
     "build-storybook": "build-storybook",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "postinstall": "npm run build",
     "postpublish": "npm run clean",
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
   },
