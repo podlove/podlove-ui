@@ -10,7 +10,12 @@
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "update": "lernaupdate",
     "version": "lerna version --conventional-commits --changelog-preset angular",
-    "postinstall": "lerna bootstrap --hoist"
+    "postinstall": "lerna bootstrap --hoist",
+    "dev:player": "lerna run dev --scope @podlove/player --stream",
+    "dev:web-player": "lerna run dev --scope @podlove/web-player --stream",
+    "dev:subscribe-button": "lerna run dev --scope @podlove/subscribe-button --stream",
+    "dev:components": "lerna run dev --scope @podlove/components --stream",
+    "dev:docs-web-player": "lerna run dev --scope @podlove/docs-web-player --stream"
   },
   "devDependencies": {
     "@babel/core": "7.10.3",
@@ -21,7 +26,7 @@
     "@babel/plugin-transform-runtime": "7.8.3",
     "@babel/polyfill": "7.7.0",
     "@babel/preset-env": "7.8.7",
-    "@babel/runtime": "7.7.7",
+    "@babel/runtime": "7.11.2",
     "@types/jest": "26.0.3",
     "@vue/eslint-config-prettier": "6.0.0",
     "@vue/test-utils": "1.0.0-beta.31",

@@ -10,8 +10,8 @@
 
 1. Make sure you have Node 10+ and [lerna](https://lerna.js.org/) installed
 2. Fork this repository
-3. Run `lerna bootstrap --hoist` to setup the workspace
-4. Run npm scripts in each application/package
+3. Run `npm install` to setup the workspace
+4. Run npm scripts for development (e.g. `npm run dev:web-player`)
 
 ### For Usage
 

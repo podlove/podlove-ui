@@ -5,8 +5,9 @@
   "description": "Documentation for Podlove Web Player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev",
-    "build": "vuepress build",
+    "dev": "npm run build:dependencies && vuepress dev",
+    "build": "build:dependencies && vuepress build",
+    "build:dependencies": "lerna run build --scope @podlove/web-player",
     "publish:development": "surge ./.vuepress/dist podlove-player.surge.sh",
     "publish:tag": "github-pages -r podlove/podlove-web-player -t $GH_TOKEN ./.vuepress/dist"
   },
@@ -24,7 +25,7 @@
   "devDependencies": {
     "@babel/runtime": "7.11.2",
     "copy-webpack-plugin": "6.0.2",
-    "core-js": "2.6.10",
+    "core-js": "3.4.2",
     "github-pages": "3.0.2",
     "node-sass": "4.14.1",
     "sass-loader": "8.0.0",
