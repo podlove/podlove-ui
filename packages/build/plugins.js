@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const WebpackAutoInject = require('webpack-auto-inject-version')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const Jarvis = require('webpack-jarvis')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyPlugin = require('copy-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
@@ -41,8 +40,6 @@ const html = ({ filename, template, chunks, exclude, base, files, sort, inject, 
     ...(params ? { templateParameters: params } : {})
   })
 
-const jarvis = (port = 1337) => new Jarvis({ port })
-
 const bundleAnalyzer = () =>
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
@@ -75,7 +72,6 @@ module.exports = {
   version,
   base,
   html,
-  jarvis,
   bundleAnalyzer,
   hmr,
   env,

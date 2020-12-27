@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@podlove/build": "^5.5.0",
-    "webpack": "4.41.2",
-    "webpack-dev-server": "3.9.0"
+    "webpack": "5.11.0",
+    "webpack-dev-server": "3.11.0"
   }
 }

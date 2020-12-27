@@ -56,7 +56,6 @@ module.exports = {
 
   plugins: [
     plugins.vue(),
-    plugins.jarvis(1337),
     plugins.bundleAnalyzer(),
     plugins.hmr(),
     plugins.env({ MODE: 'development', BASE, SCRIPTS: ['button'], STYLES: [], VERSION: version }),

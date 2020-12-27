@@ -20,7 +20,7 @@ module.exports = {
 
   output: output(),
 
-  optimization: { namedModules: true, namedChunks: true, splitChunks: { cacheGroups: { default: false } } },
+  optimization: { moduleIds: 'named', chunkIds: 'named', splitChunks: { cacheGroups: { default: false } } },
 
   resolve: resolve({
     '@podlove/player': playerAssets,

@@ -8,7 +8,7 @@
 - `optimization`: Code splitting and chunking
 - `output`: Output files
 - `resolve`: Resolving aliases and extensions
-- `plugins`: Plugins for vue, css, minifyCss, version, base, html, jarvis, bundleAnalyzer, hmr, env and copy
+- `plugins`: Plugins for vue, css, minifyCss, version, base, html, bundleAnalyzer, hmr, env and copy
 - `rules:`: Rules for vue, javascript, images, styles, fonts, pug, scss and mustache
 - `output`: Dynamic outputs
 - `optimization`: Configuration for vendor and chunk splitting

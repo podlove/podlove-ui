@@ -32,7 +32,7 @@
     "@storybook/addons": "5.2.5",
     "@storybook/vue": "5.2.5",
     "terser": "4.3.9",
-    "webpack": "4.41.2",
-    "webpack-dev-server": "3.9.0"
+    "webpack": "5.11.0",
+    "webpack-dev-server": "3.11.0"
   }
 }

@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "@podlove/build": "^5.5.0",
-    "webpack": "4.41.2"
+    "webpack": "5.11.0"
   }
 }
