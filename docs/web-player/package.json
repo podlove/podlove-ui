@@ -31,7 +31,7 @@
     "sass-loader": "8.0.0",
     "surge": "0.21.3",
     "vue-server-renderer": "2.6.12",
-    "vuepress": "1.6.0",
+    "vuepress": "1.7.1",
     "vuepress-theme-millidocs": "0.5.4"
   }
 }
