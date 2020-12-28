@@ -5,9 +5,9 @@
   "description": "Documentation for Podlove Web Player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run build:dependencies && vuepress dev",
-    "build": "build:dependencies && vuepress build",
     "build:dependencies": "lerna run build --scope @podlove/web-player",
+    "dev": "npm run build:dependencies && vuepress dev",
+    "build": "npm run build:dependencies && vuepress build",
     "publish:development": "surge ./.vuepress/dist podlove-player.surge.sh",
     "publish:tag": "github-pages -r podlove/podlove-web-player -t $GH_TOKEN ./.vuepress/dist"
   },
