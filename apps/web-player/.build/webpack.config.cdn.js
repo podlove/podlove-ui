@@ -2,7 +2,7 @@ const path = require('path')
 
 const { output, resolve, rules, plugins } = require('@podlove/build')
 
-const version = require('../package').version
+const pkg = require('../package')
 const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
 const subscribeButtonAssets = path.resolve('./node_modules/@podlove/subscribe-button/dist')
 
@@ -48,7 +48,10 @@ module.exports = {
   },
 
   plugins: [
-    plugins.version(),
+    plugins.version({
+      name: pkg.name,
+      version: pkg.version
+    }),
     plugins.env({
       MODE: 'cdn',
       BASE,
@@ -77,7 +80,7 @@ module.exports = {
       exclude: ['embed', 'extensions/external-events'],
       root: '',
       params: {
-        baseHref: `${version}/player/`
+        baseHref: `${pkg.version}/player/`
       }
     })
   ]

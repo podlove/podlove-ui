@@ -1,3 +1,5 @@
+const TerserPlugin = require('terser-webpack-plugin')
+
 module.exports = ({ vendors = [], runtimeChunk } = {}) => ({
   ...(runtimeChunk
     ? {
@@ -34,5 +36,6 @@ module.exports = ({ vendors = [], runtimeChunk } = {}) => ({
         minChunks: 1
       }
     }
-  }
+  },
+  minimizer: [new TerserPlugin({ extractComments: false })]
 })

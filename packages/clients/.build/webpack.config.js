@@ -9,8 +9,7 @@ module.exports = {
   },
 
   output: {
-    library: 'components',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
     filename: '[name].js'
   },
 

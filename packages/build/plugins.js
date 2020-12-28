@@ -3,12 +3,15 @@ const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const WebpackAutoInject = require('webpack-auto-inject-version')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyPlugin = require('copy-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const SWPrecachePlugin = require('sw-precache-webpack-plugin')
+const revision = require('child_process')
+  .execSync('git rev-parse HEAD')
+  .toString()
+  .trim()
 const { prepend } = require('./utils')
 
 const vue = () => new VueLoaderPlugin()
@@ -20,12 +23,24 @@ const css = ({ filename = '[name].css', prefix = '' } = {}) =>
 
 const minifyCss = () => new OptimizeCSSAssetsPlugin({})
 
-const version = () => new WebpackAutoInject({ SILENT: true })
-
 const base = input =>
   new webpack.DefinePlugin({
     BASE: JSON.stringify(input)
   })
+
+const version = inserts => {
+  const banner = {
+    creation: new Date().toISOString(),
+    revision,
+    ...(inserts || {})
+  }
+
+  return new webpack.BannerPlugin({
+    banner: Object.keys(banner)
+      .reduce((result, key) => [...result, `${key}: ${banner[key]}`], [])
+      .join(' ')
+  })
+}
 
 const html = ({ filename, template, chunks, exclude, base, files, sort, inject, params }) =>
   new HtmlWebpackPlugin({

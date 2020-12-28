@@ -2,7 +2,7 @@
 import { urlParameters } from '@podlove/utils/location'
 import { init } from '@podlove/player-actions/lifecycle'
 
-import { version } from '../package'
+import pkg from '../package'
 
 import { parseConfig } from './lib/config'
 import * as player from './player'
@@ -17,7 +17,7 @@ const bootstrap = async ({ episode, config }) => {
 
     return store
   } catch (err) {
-    console.group(`Can't load Podlove Webplayer ${version}`)
+    console.group(`Can't load Podlove Webplayer ${pkg.version}`)
     console.error('config', episode)
     console.error(err)
     console.groupEnd()

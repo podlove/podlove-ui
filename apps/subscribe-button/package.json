@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dependencies": "lerna run build --scope '@podlove/{components,clients}'",
-    "dev": "npm run build:dependencies && webpack-dev-server --progress --config .build/webpack.config.dev.js",
+    "dev": "npm run build:dependencies && webpack serve --progress --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.prod.js"
   },

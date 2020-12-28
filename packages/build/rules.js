@@ -7,7 +7,7 @@ const { prepend } = require('./utils')
 
 const vue = () => ({
   test: /\.vue$/,
-  use: 'vue-loader'
+  loader: 'vue-loader'
 })
 
 const javascript = () => ({
@@ -26,7 +26,10 @@ const images = () => ({
 
 const mustache = () => ({
   test: /\.mustache$/,
-  loader: 'mustache-loader?minify'
+  loader: 'mustache-loader',
+  options: {
+    minify: true
+  }
 })
 
 const style = {

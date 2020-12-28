@@ -1,5 +1,5 @@
 {
-  "name": "@podlove/docs-web-player",
+  "name": "@podlove/docs-web-player-old",
   "private": true,
   "version": "5.5.0",
   "description": "Documentation for Podlove Web Player",
@@ -23,7 +23,7 @@
     "vue-color": "2.7.0"
   },
   "devDependencies": {
-    "@babel/runtime": "7.11.2",
+    "@babel/runtime": "7.12.5",
     "copy-webpack-plugin": "6.0.2",
     "core-js": "3.4.2",
     "github-pages": "3.0.2",
@@ -31,7 +31,7 @@
     "sass-loader": "8.0.0",
     "surge": "0.21.3",
     "vue-server-renderer": "2.6.12",
-    "vuepress": "1.6.0",
+    "vuepress": "1.7.1",
     "vuepress-theme-millidocs": "0.5.4"
   }
 }

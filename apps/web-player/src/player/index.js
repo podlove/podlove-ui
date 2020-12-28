@@ -14,7 +14,7 @@ import { persistPlayer } from './persist'
 import { activeTab } from './active-tab'
 import { visibleComponents } from './components'
 
-import { version } from '../../package'
+import pkg from '../../package'
 
 const setAccessibilityAttributes = curry((config, node) => {
   const title = `Podlove Web Player${prop('title', config) ? ': ' + prop('title', config) : ''}`
@@ -32,7 +32,7 @@ const setAccessibilityAttributes = curry((config, node) => {
 export const create = async (config, target) => {
   const playerDom = template({
     root: window.resourceBaseUrl,
-    base: `${version}/player/`,
+    base: `${pkg.version}/player/`,
     styles: PLAYER_STYLES,
     scripts: PLAYER_SCRIPTS,
     template: target.template,
