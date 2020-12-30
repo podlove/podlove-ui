@@ -1,38 +1,53 @@
-<template lang="pug">
-  button.h-6.px-2.flex.items-center.text-xs.rounded-sm.border.whitespace-no-wrap(v-if="available" @click="show" :style="style" data-test="subscribe-button" :aria-label="$t(a11y.key, a11y.attr)")
-    icon.mr-1(aria-hidden="true" type="plus")
-    span {{ $t('SUBSCRIBE') }}
+<template>
+  <button
+    v-if="state.available"
+    class="h-6 px-2 flex items-center text-xs rounded-sm border whitespace-no-wrap"
+    data-test="subscribe-button"
+    :aria-label="$t(state.a11y.key, state.a11y.attr)"
+    :style="style"
+    @click="show"
+  >
+    <icon class="mr-1" aria-hidden="true" type="plus" />
+    <span>{{ $t('SUBSCRIBE') }}</span>
+  </button>
 </template>
 
 <script>
 import Icon from '@podlove/components/icons'
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import { compose } from 'ramda'
-import store from 'store'
-import select from 'store/selectors'
 import * as overlay from '@podlove/button-actions/overlay'
+
+import select from 'store/selectors'
 
 export default {
   components: { Icon },
-  data: mapState({
-    color: select.theme.brandDark,
-    background: select.theme.alt,
-    font: select.theme.fontBold,
-    available: select.subscribeButton.available,
-    a11y: select.accessibility.subscribeButton
-  }),
+  setup() {
+    return {
+      state: mapState({
+        color: select.theme.brandDark,
+        background: select.theme.alt,
+        font: select.theme.fontBold,
+        available: select.subscribeButton.available,
+        a11y: select.accessibility.subscribeButton
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   computed: {
     style() {
       return {
-        color: this.color,
-        'border-color': this.color,
-        background: this.background,
-        ...this.font
+        color: this.state.color,
+        'border-color': this.state.color,
+        background: this.state.background,
+        ...this.state.font
       }
     }
   },
   methods: {
-    show: compose(store.dispatch, overlay.show)
+    show() {
+      this.dispatch(overlay.show())
+    }
   }
 }
 </script>

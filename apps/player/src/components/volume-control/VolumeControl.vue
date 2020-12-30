@@ -1,42 +1,53 @@
-<template lang="pug">
-  v-popover(
-    v-if="available"
+<template>
+  <v-popover
+    ref="volumePopover"
+    popover-arrow-class="hidden"
     :placement="placement"
-    popoverArrowClass="hidden"
-    :popoverInnerClass="['bg-transparent']"
+    :popover-inner-class="['bg-transparent']"
     trigger="click"
     offset="15"
-    ref="volumePopover"
-  )
-    button.block.tooltip-target.cursor-pointer(:title="$t(buttonTitle.key, buttonTitle.attr)" @click="focus" data-test="volume-control")
-      icon(aria-hidden="true" :type="icon" :color="color")
-
-    template(slot="popover")
-      div.w-40.px-2.rounded.shadow(:style="{ background, color: background }")
-        input-slider.mr-5(
+    v-if="available"
+  >
+    <button
+      class="block.tooltip-target.cursor-pointer"
+      data-test="volume-control"
+      :title="$t(state.buttonTitle.key, state.buttonTitle.attr)"
+      @click="focus"
+    >
+      <icon aria-hidden="true" :type="state.icon" :color="state.color" />
+    </button>
+    <template slot="popover">
+      <div
+        class="w-40.px-2.rounded.shadow"
+        :style="{ background: state.background, color: state.background }"
+      >
+        <input-slider
           ref="volumeControl"
+          class="mr-5"
           tabindex="0"
           data-test="volume-control--slider"
           :min="0"
           :max="100"
-          :value="volume * 100"
+          :value="state.volume * 100"
           :step="1"
-          :background="color"
-          :borderColor="color"
-          :progressColor="progressColor"
+          :background="state.color"
+          :border-color="state.color"
+          :progress-color="state.progressColor"
+          :aria-label="$t(state.volumeLabel.key, state.volumeLabel.attr)"
           @input="setVolume"
-          :aria-label="$t(volumeLabel.key, volumeLabel.attr)"
-        )
+        />
+      </div>
+    </template>
+  </v-popover>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import Icon from '@podlove/components/icons'
 import InputSlider from '@podlove/components/input-slider'
 import { setVolume } from '@podlove/player-actions/audio'
 import { compose, path } from 'ramda'
 
-import store from 'store'
 import select from 'store/selectors'
 
 export default {
@@ -51,19 +62,25 @@ export default {
       validator: (val) => ['left', 'right'].includes(val)
     }
   },
-  data: mapState({
-    volume: select.audio.volume,
-    muted: select.audio.muted,
-    icon: select.audio.icon,
-    color: select.theme.brandDark,
-    progressColor: select.theme.brandDark,
-    background: select.theme.brandLightest,
-    buttonTitle: select.accessibility.volumeButton,
-    volumeLabel: select.accessibility.volumeControl,
-    available: select.components.volumeControl
-  }),
+  setup() {
+    return {
+      state: mapState({
+        volume: select.audio.volume,
+        icon: select.audio.icon,
+        color: select.theme.brandDark,
+        progressColor: select.theme.brandDark,
+        background: select.theme.brandLightest,
+        buttonTitle: select.accessibility.volumeButton,
+        volumeLabel: select.accessibility.volumeControl,
+        available: select.components.volumeControl
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   methods: {
-    setVolume: compose(store.dispatch, setVolume, (val) => val / 100),
+    setVolume(val) {
+      this.dispatch(setVolume(val / 100))
+    },
     focus() {
       const popover = path(['volumePopover', '$el'], this.$refs)
       const control = path(['volumeControl', '$el'], this.$refs)

@@ -1,31 +1,36 @@
-<template lang="pug">
-  chapter-button(v-if="chapterButtons" type="previous" :disabled="previousChapterDisabled" :color="color" @click="dispatch" :title="$t(title.key, title.attr)" data-test="chapter-previous")
+<template>
+  <chapter-button
+    v-if="state.chapterButtons"
+    data-test="chapter-previous"
+    type="previous"
+    :disabled="state.previousChapterDisabled"
+    :color="state.color"
+    :title="$t(state.title.key, state.title.attr)"
+    @click="dispatch"
+  />
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
-import store from 'store'
+import { mapState, injectStore } from 'redux-vuex'
 
 import select from 'store/selectors'
 
-import PlayButton from '@podlove/components/play-button'
 import ChapterButton from '@podlove/components/chapter-button'
-import StepperButton from '@podlove/components/stepper-button'
 
 export default {
   components: {
-    PlayButton,
-    ChapterButton,
-    StepperButton
+    ChapterButton
   },
-  data: mapState({
-    previousChapterDisabled: select.components.previousChapterDisabled,
-    chapterButtons: select.components.chapterButtons,
-    color: select.theme.brandDark,
-    title: select.accessibility.chapterPrevious
-  }),
-  methods: {
-    dispatch: store.dispatch
+  setup() {
+    return {
+      state: mapState({
+        previousChapterDisabled: select.components.previousChapterDisabled,
+        chapterButtons: select.components.chapterButtons,
+        color: select.theme.brandDark,
+        title: select.accessibility.chapterPrevious
+      }),
+      dispatch: injectStore().dispatch
+    }
   }
 }
 </script>

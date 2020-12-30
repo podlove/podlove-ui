@@ -1,33 +1,45 @@
-<template lang="pug">
-  input-checkbox(:label="$t('SHARE.PLAYTIME', { playtime: toHumanTime(playtime) })" :value="content === 'time'" :color="color" :border-color="color" :background="background" @change="toggleContent" data-test="tab-share--playtime")
+<template>
+  <input-checkbox
+    data-test="tab-share--playtime"
+    :label="$t('SHARE.PLAYTIME', { playtime: toHumanTime(state.playtime) })"
+    :value="state.content === 'time'"
+    :color="state.color"
+    :border-color="state.color"
+    :background="state.background"
+    @change="toggleContent"
+  />
 </template>
 
 <script>
 import InputCheckbox from '@podlove/components/input-checkbox'
 import { selectContent } from '@podlove/player-actions/share'
 import { toHumanTime } from '@podlove/utils/time'
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import select from 'store/selectors'
-import store from 'store'
 
 export default {
   components: {
     InputCheckbox
   },
-  data: mapState({
-    playtime: select.playtime,
-    content: select.share.content,
-    color: select.theme.brandDark,
-    background: select.theme.alt
-  }),
+  setup() {
+    return {
+      state: mapState({
+        playtime: select.playtime,
+        content: select.share.content,
+        color: select.theme.brandDark,
+        background: select.theme.alt
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   methods: {
     toHumanTime,
     toggleContent() {
-      if (this.content === 'time') {
-        return store.dispatch(selectContent('episode'))
+      if (this.state.content === 'time') {
+        return this.dispatch(selectContent('episode'))
       }
 
-      return store.dispatch(selectContent('time'))
+      return this.dispatch(selectContent('time'))
     }
   }
 }

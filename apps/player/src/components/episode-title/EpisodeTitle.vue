@@ -1,7 +1,15 @@
-<template lang="pug">
-  h1(:style="style" data-test="episode-title")
-    a.episode-title(:href="link" :target="target" v-if="link" data-test="episode-title--link") {{ title }}
-    span.episode-title(v-else data-test="episode-title--text") {{ title }}
+<template>
+  <h1 :style="style" data-test="episode-title">
+    <a
+      v-if="state.link"
+      class="episode-title"
+      :href="state.link"
+      :target="state.target"
+      data-test="episode-title--link"
+      >{{ state.title }}</a
+    >
+    <span v-else class="episode-title" data-test="episode-title--text">{{ state.title }}</span>
+  </h1>
 </template>
 
 <script>
@@ -9,13 +17,17 @@ import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
 
 export default {
-  data: mapState({
-    font: select.theme.fontBold,
-    color: select.theme.contrast,
-    title: select.episode.title,
-    link: select.episode.link,
-    target: select.target
-  }),
+  setup() {
+    return {
+      state: mapState({
+        font: select.theme.fontBold,
+        color: select.theme.contrast,
+        title: select.episode.title,
+        link: select.episode.link,
+        target: select.target
+      })
+    }
+  },
   computed: {
     style() {
       return {

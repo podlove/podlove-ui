@@ -1,18 +1,21 @@
-<template lang="pug">
-  div(class="mobile:p-4 tablet:p-6" data-test="tab-share")
-    tab-title(@close="closeTab" tab="share") {{ $t('SHARE.TITLE') }}
-    div.mb-4.block.items-center.justify-between(class="tablet:flex")
-      channels
-    div.mx-2.mb-4(v-if="sharePlaytime")
-      playtime.mx-2.mb-4(class="tablet:mx-0 tablet:mb-0")
-    embed-code.mx-2.mb-4(v-if="hasEmbedLink")
-
+<template>
+  <div class="mobile:p-4 tablet:p-6" data-test="tab-share">
+    <tab-title tab="share" @close="closeTab">
+      {{ $t('SHARE.TITLE') }}
+    </tab-title>
+    <div class="mb-4 block items-center justify-between tablet:flex">
+      <channels />
+    </div>
+    <div v-if="state.sharePlaytime" class="mx-2 mb-4">
+      <playtime class="mx-2 mb-4 tablet:mx-0 tablet:mb-0" />
+    </div>
+    <embed-code v-if="state.hasEmbedLink" class="mx-2 mb-4" />
+  </div>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import { toggleTab } from '@podlove/player-actions/tabs'
-import store from 'store'
 import select from 'store/selectors'
 
 import TabTitle from '../tab-title'
@@ -27,13 +30,18 @@ export default {
     Playtime,
     EmbedCode
   },
-  data: mapState({
-    hasEmbedLink: select.share.hasEmbedLink,
-    sharePlaytime: select.components.sharePlaytime
-  }),
+  setup() {
+    return {
+      state: mapState({
+        hasEmbedLink: select.share.hasEmbedLink,
+        sharePlaytime: select.components.sharePlaytime
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   methods: {
     closeTab() {
-      store.dispatch(toggleTab('share'))
+      this.dispatch(toggleTab('share'))
     }
   }
 }

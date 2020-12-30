@@ -33,6 +33,7 @@ export default {
       default: background
     }
   },
+  emits: ['load', 'error'],
   data() {
     return {
       loaded: false,

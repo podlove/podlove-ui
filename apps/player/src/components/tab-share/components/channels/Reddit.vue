@@ -1,8 +1,18 @@
-<template lang="pug">
-  channel(type="reddit" :text="shareText" :link="link" :color="color" :background="background" :filled="hover" @mouseover.native="hover = true" @mouseleave.native="hover = false")
+<template>
+  <channel
+    type="reddit"
+    :text="shareText"
+    :link="state.link"
+    :color="state.color"
+    :background="state.background"
+    :filled="hover"
+    @mouseover.native="hover = true"
+    @mouseleave.native="hover = false"
+  />
 </template>
 
 <script>
+import { mapState } from 'redux-vuex'
 import Channel from '@podlove/components/channel'
 import { toHumanTime } from '@podlove/utils/time'
 
@@ -12,10 +22,9 @@ export default {
   components: {
     Channel
   },
-  data() {
+  setup() {
     return {
-      hover: false,
-      ...this.mapState({
+      state: mapState({
         content: select.share.content,
         link: select.share.link,
         episodeTitle: select.episode.title,
@@ -25,19 +34,24 @@ export default {
       })
     }
   },
+  data() {
+    return {
+      hover: false
+    }
+  },
   computed: {
     shareText() {
-      if (this.content === 'time') {
+      if (this.state.content === 'time') {
         return this.$t('SHARE.EPISODE.TEXT.PLAYTIME', {
-          title: this.episodeTitle,
-          link: this.link,
-          playtime: toHumanTime(this.playtime)
+          title: this.state.episodeTitle,
+          link: this.state.link,
+          playtime: toHumanTime(this.state.playtime)
         })
       }
 
       return this.$t('SHARE.EPISODE.TEXT.BEGINNING', {
-        title: this.episodeTitle,
-        link: this.link
+        title: this.state.episodeTitle,
+        link: this.state.link
       })
     }
   }

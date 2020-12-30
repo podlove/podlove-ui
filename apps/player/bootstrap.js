@@ -1,17 +1,16 @@
 /* eslint no-undef: 0 */
-import Vue from 'vue/dist/vue.esm'
+import { createApp } from 'vue/dist/vue.esm-bundler'
+import { createI18n } from 'vue-i18n'
+import { provideStore } from 'redux-vuex'
 
 // Store
-import store from './src/store'
+import { store, actions } from './src/store'
 
 // Translations
-import VueI18n from 'vue-i18n'
 import translations from './lang'
-Vue.use(VueI18n)
 
 // Tooltip
 import VTooltip from 'v-tooltip'
-Vue.use(VTooltip)
 
 // Components
 import components from './src/components'
@@ -21,14 +20,18 @@ __webpack_public_path__ = window.resourceBaseUrl || '/'
 
 window.PODLOVE_STORE = store
 
-const i18n = new VueI18n({
+const i18n = createI18n({
   locale: 'en',
   fallbackLocale: 'en',
   messages: translations
 })
 
-new Vue({
-  el: '#app',
-  components,
-  i18n
+const app = createApp({
+  components
 })
+
+provideStore({ store, app, actions })
+
+app.use(i18n)
+app.use(VTooltip)
+app.mount('#app')

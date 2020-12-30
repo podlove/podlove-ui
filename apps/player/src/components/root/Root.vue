@@ -1,7 +1,18 @@
-<template lang="pug">
-  div.antialiased(:style="{ background, ...font }" data-test="root")
-    slot
-    font(v-for="(font, index) in fonts" :key="index" :src="font.src" :name="font.name" :weight="font.weight")
+<template>
+  <div
+    class="antialiased"
+    :style="{ background: state.background, ...state.font }"
+    data-test="root"
+  >
+    <slot />
+    <font
+      v-for="(font, index) in state.fonts"
+      :key="index"
+      :src="font.src"
+      :name="font.name"
+      :weight="font.weight"
+    />
+  </div>
 </template>
 
 <script>
@@ -11,19 +22,23 @@ import select from 'store/selectors'
 
 export default {
   components: { Font },
-  data: mapState({
-    background: select.theme.brandLightest,
-    font: select.theme.fontRegular,
-    fonts: select.theme.fonts,
-    language: select.language
-  }),
+  setup() {
+    return {
+      state: mapState({
+        background: select.theme.brandLightest,
+        font: select.theme.fontRegular,
+        fonts: select.theme.fonts,
+        language: select.language
+      })
+    }
+  },
   watch: {
     language() {
-      this.$i18n.locale = this.language
+      this.$i18n.locale = this.state.language
     }
   },
   mounted() {
-    this.$i18n.locale = this.language
+    this.$i18n.locale = this.state.language
   }
 }
 </script>

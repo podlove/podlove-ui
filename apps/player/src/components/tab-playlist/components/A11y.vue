@@ -1,13 +1,18 @@
-<template lang="pug">
-  li
-    button(@click="selectEpisode") {{ $t(playText.key, playText.attr) }}
-    time(role="timer" tabindex="0" :aria-label="$t(timerDuration.key, timerDuration.attr)")
-
+<template>
+  <li>
+    <button @click="selectEpisode">
+      {{ $t(state.playText.key, state.playText.attr) }}
+    </button>
+    <time
+      role="timer"
+      tabindex="0"
+      :aria-label="$t(state.timerDuration.key, state.timerDuration.attr)"
+    />
+  </li>
 </template>
 
 <script>
-import store from 'store'
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import select from 'store/selectors'
 import { toHumanTime } from '@podlove/utils/time'
 import { selectEpisode } from '@podlove/player-actions/playlist'
@@ -25,12 +30,15 @@ export default {
     }
   },
 
-  data() {
-    return this.mapState({
-      playing: select.driver.playing,
-      playText: select.accessibility.episodePlay(this.episode),
-      timerDuration: select.accessibility.episodeDuration(this.episode)
-    })
+  setup() {
+    return {
+      state: mapState({
+        playing: select.driver.playing,
+        playText: select.accessibility.episodePlay(this.episode),
+        timerDuration: select.accessibility.episodeDuration(this.episode)
+      }),
+      dispatch: injectStore().dispatch
+    }
   },
 
   methods: {
@@ -38,14 +46,14 @@ export default {
 
     selectEpisode() {
       if (!this.episode.active) {
-        return store.dispatch(selectEpisode({ index: this.index, play: true }))
+        return this.dispatch(selectEpisode({ index: this.index, play: true }))
       }
 
-      if (this.playing) {
-        return store.dispatch(requestPause())
+      if (this.state.playing) {
+        return this.dispatch(requestPause())
       }
 
-      return store.dispatch(requestPlay())
+      return this.dispatch(requestPlay())
     }
   }
 }

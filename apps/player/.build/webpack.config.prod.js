@@ -37,8 +37,7 @@ module.exports = {
             rules.style.postcss.plugins.autoprefixer
           ]
         })
-      ]),
-      rules.pug()
+      ])
     ]
   },
 

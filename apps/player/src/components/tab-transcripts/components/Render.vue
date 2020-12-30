@@ -1,37 +1,46 @@
-<template lang="pug">
-   div.overflow-auto.body(class="mobile:p-4 tablet:p-6" :style="heightByIndex(0, prerender.length - 1)" @scroll="renderWindow()" @mousewheel="disableFollow()" @DOMMouseScroll="disableFollow()" data-test="tab-transcripts--results")
-      div(:style="{ height: heightByIndex(0, start) + 'px' }")
-      div(:style="{ height: heightByIndex(start, end) + 'px' }")
-        transcript-entry(
-          v-for="(entry, index) in slice(start, end)"
-          :key="index"
-          :entry="entry"
-          :playtime="playtime"
-          :search-query="query"
-          :ghost-active="ghostActive"
-          :ghost-time="ghostTime"
-          :search-results="searchResults"
-          :chapter-style="chapterStyle"
-          :speaker-style="speakerStyle"
-          :highlight-style="highlightStyle"
-          :active-style="activeStyle"
-          @onClick="onClick"
-          @onMouseOver="onMouseOver"
-          @onMouseLeave="onMouseLeave"
-          data-test="tab-transcripts--entry"
-        )
-      div(:style="{ height: heightByIndex(end, prerender.length - 1) + 'px' }")
+<template>
+  <div
+    class="overflow-auto body mobile:p-4 tablet:p-6"
+    data-test="tab-transcripts--results"
+    :style="heightByIndex(0, prerender.length - 1)"
+    @scroll="renderWindow()"
+    @mousewheel="disableFollow()"
+    @DOMMouseScroll="disableFollow()"
+  >
+    <div :style="{ height: heightByIndex(0, start) + 'px' }" />
+    <div :style="{ height: heightByIndex(start, end) + 'px' }">
+      <transcript-entry
+        v-for="(entry, index) in slice(start, end)"
+        :key="index"
+        data-test="tab-transcripts--entry"
+        :entry="entry"
+        :playtime="playtime"
+        :search-query="query"
+        :ghost-active="ghostActive"
+        :ghost-time="ghostTime"
+        :search-results="searchResults"
+        :chapter-style="chapterStyle"
+        :speaker-style="speakerStyle"
+        :highlight-style="highlightStyle"
+        :active-style="activeStyle"
+        @onClick="onClick"
+        @onMouseOver="onMouseOver"
+        @onMouseLeave="onMouseLeave"
+      />
+    </div>
+    <div :style="{ height: heightByIndex(end, prerender.length - 1) + 'px' }" />
+  </div>
 </template>
 
 <script>
 import color from 'color'
 import { compose } from 'ramda'
+import { mapState, injectStore } from 'redux-vuex'
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
 import { requestPlay } from '@podlove/player-actions/play'
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
 import { followTranscripts } from '@podlove/player-actions/transcripts'
 import select from 'store/selectors'
-import store from 'store'
 
 import TranscriptEntry from './Entry'
 
@@ -47,11 +56,9 @@ export default {
       default: () => []
     }
   },
-  data() {
+  setup() {
     return {
-      start: 0,
-      end: 0,
-      ...this.mapState({
+      state: mapState({
         playtime: select.playtime,
         ghostActive: select.ghost.active,
         ghostTime: select.ghost.time,
@@ -65,41 +72,57 @@ export default {
         fontBold: select.theme.fontBold,
         shadeDark: select.theme.shadeDark,
         alt: select.theme.alt
-      })
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
+  data() {
+    return {
+      start: 0,
+      end: 0
     }
   },
   computed: {
     chapterStyle() {
       return {
-        ...this.fontCi
+        ...this.state.fontCi
       }
     },
     speakerStyle() {
       return {
-        ...this.fontBold
+        ...this.state.fontBold
       }
     },
     highlightStyle() {
       return {
-        background: this.shadeDark
+        background: this.state.shadeDark
       }
     },
     activeStyle() {
       return {
         cursor: 'pointer',
-        background: color(this.alt).fade(0.8)
+        background: color(this.state.alt).fade(0.8)
       }
+    },
+    active() {
+      return this.state.active
+    },
+    follow() {
+      return this.state.follow
+    },
+    selected() {
+      return this.state.selected
     }
   },
   watch: {
     active() {
-      this.follow && this.selected === -1 && this.scrollWindow()
+      this.follow && this.state.selected === -1 && this.scrollWindow()
     },
     follow() {
       this.follow && this.scrollWindow()
     },
     selected() {
-      if (this.query.length === 0 || this.selected === -1) {
+      if (this.state.query.length === 0 || this.selected === -1) {
         return
       }
 
@@ -108,23 +131,25 @@ export default {
   },
   mounted() {
     // Render the transcripts
-    this.renderWindow(this.active)
+    this.renderWindow(this.state.active)
 
     // Scroll to the active transcript
-    this.scrollTo(this.active)
+    this.scrollTo(this.state.active)
   },
   methods: {
     onMouseOver({ start }) {
-      store.dispatch(enableGhost())
-      store.dispatch(simulatePlaytime(start))
+      this.dispatch(enableGhost())
+      this.dispatch(simulatePlaytime(start))
     },
-    onMouseLeave: compose(store.dispatch, disableGhost),
+    onMouseLeave() {
+      this.dispatch(disableGhost())
+    },
     onClick({ start }) {
-      store.dispatch(requestPlaytime(start))
-      store.dispatch(requestPlay())
+      this.dispatch(requestPlaytime(start))
+      this.dispatch(requestPlay())
     },
     disableFollow() {
-      store.dispatch(followTranscripts(false))
+      this.dispatch(followTranscripts(false))
     },
     inRange(index) {
       if (index < 0) {
@@ -157,7 +182,7 @@ export default {
     },
     slice(start = 0, end = 0) {
       // slice not includes the last end element, therefore + 1
-      return this.timeline.slice(start, end + 1)
+      return this.state.timeline.slice(start, end + 1)
     },
     renderWindow(startIndex = -1) {
       window.requestAnimationFrame(() => {
@@ -177,12 +202,12 @@ export default {
     scrollWindow() {
       window.requestAnimationFrame(() => {
         // If transcript isn't in rendered slice, mostly initial or on scrub
-        if (this.start > this.active || this.end < this.active) {
-          this.scrollTo(this.active)
+        if (this.start > this.state.active || this.end < this.state.active) {
+          this.scrollTo(this.state.active)
         }
 
         // Follow mode is off or ghost mode is on
-        if (!this.follow || this.ghostActive) {
+        if (!this.state.follow || this.state.ghostActive) {
           return
         }
 

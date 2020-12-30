@@ -1,6 +1,7 @@
-<template lang="pug">
-  transition(name="fade")
-    slot(v-if="active")
+<template>
+  <transition name="fade">
+    <slot v-if="active" />
+  </transition>
 </template>
 
 <script>
@@ -14,15 +15,19 @@ export default {
       default: () => []
     }
   },
-  data: mapState({
-    playstate: select.playstate
-  }),
+  setup() {
+    return {
+      state: mapState({
+        playstate: select.playstate
+      })
+    }
+  },
   computed: {
     matcher() {
       return typeof this.on === 'string' ? [this.on] : this.on
     },
     active() {
-      return this.matcher.includes(this.playstate)
+      return this.matcher.includes(this.state.playstate)
     }
   }
 }

@@ -1,16 +1,32 @@
-<template lang="pug">
-  div.w-full(class="mobile:pt-4 mobile:pr-4 mobile:pl-4 tablet:pt-6 tablet:pr-6 tablet:pl-6" data-test="tab-chapters")
-    tab-title(@close="closeTab" tab="chapters") {{ $t('CHAPTERS.TITLE') }}
-    ol.sr-only(:aria-label="$t(a11y.key, a11y.attr)")
-      a11y(v-for="(chapter, index) in chapters" :chapter="chapter" :index="index" :key="`a11y-${index}`")
-    div.body.overflow-y-auto.overflow-x-hidden(class="mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6 mobile:pb-4 tablet:pb-6")
-      entry(aria-hidden="true" v-for="(chapter, index) in chapters" :chapter="chapter" :index="index" :key="`chapter-${index}`")
+<template>
+  <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-chapters">
+    <tab-title tab="chapters" @close="closeTab">
+      {{ $t('CHAPTERS.TITLE') }}
+    </tab-title>
+    <ol class="sr-only" :aria-label="$t(state.a11y.key, state.a11y.attr)">
+      <a11y
+        v-for="(chapter, index) in state.chapters"
+        :key="`a11y-${index}`"
+        :chapter="chapter"
+        :index="index"
+      />
+    </ol>
+    <div class="body overflow-y-auto overflow-x-hidden mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6">
+      <entry
+        v-for="(chapter, index) in state.chapters"
+        :key="`chapter-${index}`"
+        :chapter="chapter"
+        :index="index"
+        aria-hidden="true"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import { toggleTab } from '@podlove/player-actions/tabs'
-import store from 'store'
+
 import select from 'store/selectors'
 
 import TabTitle from '../tab-title'
@@ -23,13 +39,18 @@ export default {
     A11y,
     TabTitle
   },
-  data: mapState({
-    chapters: select.chapters.list,
-    a11y: select.accessibility.chapterList
-  }),
+  setup() {
+    return {
+      state: mapState({
+        chapters: select.chapters.list,
+        a11y: select.accessibility.chapterList
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   methods: {
     closeTab() {
-      store.dispatch(toggleTab('chapters'))
+      this.dispatch(toggleTab('chapters'))
     }
   }
 }

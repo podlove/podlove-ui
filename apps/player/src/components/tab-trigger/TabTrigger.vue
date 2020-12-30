@@ -1,29 +1,36 @@
-<template lang="pug">
-  button.block.relative.h-10.w-6(
-    :title="title"
-    @click="toggle"
+<template>
+  <button
     v-if="visibleTab"
-    role="tab"
-    :aria-label="$t(a11y.key, { name: tab })"
-    :aria-selected="activeTab"
     :id="`trigger-${tab}`"
+    class="block relative h-10 w-6"
+    role="tab"
+    :title="title"
+    :aria-label="$t(state.a11y.key, { name: tab })"
+    :aria-selected="activeTab"
     :data-test="`tab-trigger--${tab}`"
     :aria-controls="`tab-${tab}`"
-  )
-    span.block.absolute.top-0(:style="{ color: contrast }")
-      slot
-    span.block.absolute.w-full.bottom-0(v-if="activeTab" :style="{ color: brandDark }")
-      icon.block.m-auto(type="active-tab")
+    @click="toggle"
+  >
+    <span class="block.absolute.top-0" :style="{ color: state.contrast }">
+      <slot />
+    </span>
+    <span
+      v-if="activeTab"
+      class="block.absolute.w-full.bottom-0"
+      :style="{ color: state.brandDark }"
+    >
+      <icon class="block.m-auto" type="active-tab" />
+    </span>
+  </button>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import Icon from '@podlove/components/icons'
 import { prop } from 'ramda'
 
 import { toggleTab } from '@podlove/player-actions/tabs'
 
-import store from 'store'
 import select from 'store/selectors'
 
 const availableTabs = ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist']
@@ -43,29 +50,34 @@ export default {
       default: ''
     }
   },
-  data: mapState({
-    tabs: select.tabs,
-    contrast: select.theme.contrast,
-    brandDark: select.theme.brandDark,
-    shownotes: select.components.shownotesTab,
-    chapters: select.components.chaptersTab,
-    transcripts: select.components.transcriptTab,
-    share: select.components.shareTab,
-    files: select.components.filesTab,
-    playlist: select.components.playlistTab,
-    a11y: select.accessibility.tabTrigger
-  }),
+  setup() {
+    return {
+      state: mapState({
+        tabs: select.tabs,
+        contrast: select.theme.contrast,
+        brandDark: select.theme.brandDark,
+        shownotes: select.components.shownotesTab,
+        chapters: select.components.chaptersTab,
+        transcripts: select.components.transcriptTab,
+        share: select.components.shareTab,
+        files: select.components.filesTab,
+        playlist: select.components.playlistTab,
+        a11y: select.accessibility.tabTrigger
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   computed: {
     activeTab() {
-      return !!this.tabs[this.tab]
+      return !!this.state.tabs[this.tab]
     },
     visibleTab() {
-      return prop(this.tab, this)
+      return prop(this.tab, this.state)
     }
   },
   methods: {
     toggle() {
-      store.dispatch(toggleTab(this.tab))
+      this.dispatch(toggleTab(this.tab))
     }
   }
 }

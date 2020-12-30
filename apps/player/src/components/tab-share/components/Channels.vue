@@ -1,7 +1,17 @@
-<template lang="pug">
-  ul.flex.flex-wrap.justify-space-between(data-test="tab-share--channels")
-    li(v-for="(channel, index) in channels" :data-test="`tab-share--channels--${channel}`")
-      component(:is="`${channel}-channel`" :aria-label="$t(a11y(channel).key, a11y(channel).attr)" :a11y="$t(a11y.key, { channel })")
+<template>
+  <ul class=".flex.flex-wrap.justify-space-between" data-test="tab-share--channels">
+    <li
+      v-for="(channel, index) in state.channels"
+      :key="`channel-${index}`"
+      :data-test="`tab-share--channels--${channel}`"
+    >
+      <component
+        :is="`${channel}-channel`"
+        :aria-label="$t(state.a11y(channel).key, state.a11y(channel).attr)"
+        :a11y="$t(state.a11y.key, { channel })"
+      />
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -31,9 +41,13 @@ export default {
     XingChannel,
     WhatsAppChannel
   },
-  data: mapState({
-    channels: select.channels,
-    a11y: select.accessibility.shareChannel
-  })
+  setup() {
+    return {
+      state: mapState({
+        channels: select.channels,
+        a11y: select.accessibility.shareChannel
+      })
+    }
+  }
 }
 </script>

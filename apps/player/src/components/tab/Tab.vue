@@ -1,7 +1,21 @@
-<template lang="pug">
-  tab-body(:id="`tab-${name}`" :active="active" :name="name" :aria-label="$t(a11y.key, { name })" :aria-selected="active" :ref="name" v-if="active" :background="background" :style="{ color }" data-test="tab" tabindex="1")
-    div.relative.overflow-hidden
-      slot
+<template>
+  <tab-body
+    v-if="active"
+    :id="`tab-${name}`"
+    :ref="name"
+    :active="active"
+    :name="name"
+    :aria-label="$t(state.a11y.key, { name })"
+    :aria-selected="active"
+    :background="state.background"
+    :style="{ color: state.color }"
+    data-test="tab"
+    tabindex="1"
+  >
+    <div class="relative overflow-hidden">
+      <slot />
+    </div>
+  </tab-body>
 </template>
 
 <script>
@@ -20,15 +34,19 @@ export default {
       default: null
     }
   },
-  data: mapState({
-    background: select.theme.brandDark,
-    tabs: select.tabs,
-    color: select.theme.alt,
-    a11y: select.accessibility.tabPanel
-  }),
+  setup() {
+    return {
+      state: mapState({
+        background: select.theme.brandDark,
+        tabs: select.tabs,
+        color: select.theme.alt,
+        a11y: select.accessibility.tabPanel
+      })
+    }
+  },
   computed: {
     active() {
-      return this.tabs[this.name]
+      return this.state.tabs[this.name]
     }
   }
 }

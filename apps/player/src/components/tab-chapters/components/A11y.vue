@@ -1,13 +1,18 @@
-<template lang="pug">
-  li
-    button(@click="selectChapter") {{ $t(buttonText.key, buttonText.attr) }}
-    time(role="timer" tabindex="0" :title="$t(timerRemaining.key, timerRemaining.attr)")
-
+<template>
+  <li>
+    <button @click="selectChapter">
+      {{ $t(state.buttonText.key, state.buttonText.attr) }}
+    </button>
+    <time
+      role="timer"
+      tabindex="0"
+      :title="$t(state.timerRemaining.key, state.timerRemaining.attr)"
+    />
+  </li>
 </template>
 
 <script>
-import store from 'store'
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import select from 'store/selectors'
 import { toHumanTime } from '@podlove/utils/time'
 import { setChapter } from '@podlove/player-actions/chapters'
@@ -21,21 +26,24 @@ export default {
     }
   },
 
-  data() {
-    return this.mapState({
-      buttonText: select.accessibility.chapterPlay(this.chapter),
-      timerRemaining: select.accessibility.chapterTimerRemaining(this.chapter),
-      current: select.chapters.current,
-      playtime: select.playtime,
-      playing: select.driver.playing
-    })
+  setup() {
+    return {
+      state: mapState({
+        buttonText: select.accessibility.chapterPlay(this.chapter),
+        timerRemaining: select.accessibility.chapterTimerRemaining(this.chapter),
+        current: select.chapters.current,
+        playtime: select.playtime,
+        playing: select.driver.playing
+      }),
+      dispatch: injectStore().dispatch
+    }
   },
 
   computed: {
     remaining() {
       return toHumanTime(
         this.chapter.active
-          ? this.chapter.end - this.playtime
+          ? this.chapter.end - this.state.playtime
           : this.chapter.end - this.chapter.start
       )
     },
@@ -46,11 +54,11 @@ export default {
 
   methods: {
     selectChapter() {
-      if (this.current.index === this.chapter.index) {
-        store.dispatch(this.playing ? requestPause() : requestPlay())
+      if (this.state.current.index === this.chapter.index) {
+        this.dispatch(this.state.playing ? requestPause() : requestPlay())
       } else {
-        store.dispatch(setChapter(this.chapter.index - 1))
-        store.dispatch(requestPlay())
+        this.dispatch(setChapter(this.chapter.index - 1))
+        this.dispatch(requestPlay())
       }
     }
   }

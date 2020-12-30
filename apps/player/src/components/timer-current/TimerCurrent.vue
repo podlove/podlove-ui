@@ -1,5 +1,12 @@
-<template lang="pug">
-  timer(role="timer" :color="color" :time="ghost ? ghost: playtime" :aria-label="$t(a11y.key, a11y.attr)" tabindex="0" data-test="timer-current")
+<template>
+  <timer
+    role="timer"
+    :color="state.color"
+    :time="state.ghost ? state.ghost : state.playtime"
+    :aria-label="$t(state.a11y.key, state.a11y.attr)"
+    tabindex="0"
+    data-test="timer-current"
+  />
 </template>
 
 <script>
@@ -11,12 +18,15 @@ import select from 'store/selectors'
 
 export default {
   components: { Timer },
-
-  data: mapState({
-    playtime: select.playtime,
-    ghost: select.ghost.time,
-    color: select.theme.contrast,
-    a11y: select.accessibility.timerCurrent
-  })
+  setup() {
+    return {
+      state: mapState({
+        playtime: select.playtime,
+        ghost: select.ghost.time,
+        color: select.theme.contrast,
+        a11y: select.accessibility.timerCurrent
+      })
+    }
+  }
 }
 </script>

@@ -1,25 +1,36 @@
-<template lang="pug">
-  a(download :href="file.url" data-test="tab-files--download" @mouseover="hover(file)" @mouseout="hover()" @click="select(file)")
-    div.flex.h-10
-      span.h-full.flex.items-center.pr-4
-        icon(:type="icon" :filled="true")
-      div.w-full
-        h3(:style="font") {{ file.title }}
-        div.opacity-50.text-sm
-          span.uppercase(:style="font") {{ type }}
-          span.px-2 -
-          span {{ toMegabyte(file.size) }} MB
+<template>
+  <a
+    download
+    :href="file.url"
+    data-test="tab-files--download"
+    @mouseover="hover(file)"
+    @mouseout="hover()"
+    @click="select(file)"
+  >
+    <div class="flex h-10">
+      <span class="h-full flex items-center pr-4">
+        <icon :type="icon" :filled="true" />
+      </span>
+      <div class="w-full">
+        <h3 :style="state.font">{{ file.title }}</h3>
+        <div class="opacity-50 text-sm">
+          <span class="uppercase" :style="state.font">{{ type }}</span>
+          <span class="px-2">-</span>
+          <span>{{ toMegabyte(file.size) }} MB</span>
+        </div>
+      </div>
+    </div>
+  </a>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import { compose, includes, defaultTo, toLower } from 'ramda'
 import Icon from '@podlove/components/icons'
 import { toMegabyte } from '@podlove/utils/math'
 import { hoverFile, selectFile } from '@podlove/player-actions/files'
 
 import select from 'store/selectors'
-import store from 'store'
 
 const isType = (type) => compose(includes(type), toLower, defaultTo(''))
 const audio = isType('audio')
@@ -45,9 +56,14 @@ export default {
     }
   },
 
-  data: mapState({
-    font: select.theme.fontBold
-  }),
+  setup() {
+    return {
+      state: mapState({
+        font: select.theme.fontBold
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
 
   computed: {
     type() {
@@ -96,8 +112,12 @@ export default {
 
   methods: {
     toMegabyte,
-    hover: compose(store.dispatch, hoverFile),
-    select: compose(store.dispatch, selectFile)
+    hover(file) {
+      this.dispatch(hoverFile(file))
+    },
+    select(file) {
+      this.dispatch(selectFile(file))
+    }
   }
 }
 </script>

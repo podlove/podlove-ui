@@ -1,16 +1,31 @@
-<template lang="pug">
-  div.w-full(class="mobile:p-4 tablet:p-6" data-test="tab-playlist")
-    tab-title.header(@close="closeTab" tab="playlist") {{ $t('PLAYLIST.TITLE') }}
-    ol.sr-only(:aria-label="$t(a11y.key, a11y.attr)")
-      a11y(v-for="(episode, index) in playlist" :episode="episode" :index="index" :key="`a11y-${index}`")
-    div.body.overflow-y-auto.overflow-x-hidden(class="mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6")
-      entry(aria-hidden="true" v-for="(episode, index) in playlist" :episode="episode" :index="index " :key="`episode-${index}`")
+<template>
+  <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-playlist">
+    <tab-title tab="playlist" @close="closeTab">
+      {{ $t('PLAYLIST.TITLE') }}
+    </tab-title>
+    <ol class="sr-only" :aria-label="$t(state.a11y.key, state.a11y.attr)">
+      <a11y
+        v-for="(episode, index) in state.playlist"
+        :key="`a11y-${index}`"
+        :episode="episode"
+        :index="index"
+      />
+    </ol>
+    <div class="body overflow-y-auto overflow-x-hidden mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6">
+      <entry
+        v-for="(episode, index) in state.playlist"
+        :key="`episode-${index}`"
+        :episode="episode"
+        :index="index"
+        aria-hidden="true"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import { toggleTab } from '@podlove/player-actions/tabs'
-import store from 'store'
 import select from 'store/selectors'
 
 import TabTitle from '../tab-title'
@@ -23,13 +38,18 @@ export default {
     Entry,
     TabTitle
   },
-  data: mapState({
-    playlist: select.playlist.list,
-    a11y: select.accessibility.episodeList
-  }),
+  setup() {
+    return {
+      state: mapState({
+        playlist: select.playlist.list,
+        a11y: select.accessibility.episodeList
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   methods: {
     closeTab() {
-      store.dispatch(toggleTab('playlist'))
+      this.dispatch(toggleTab('playlist'))
     }
   }
 }

@@ -1,16 +1,26 @@
-<template lang="pug">
-  div.mb-6(data-test="tab-title")
-    div.flex.justify-between
-      h1.text-xl.mb-4(:style="font")
-        slot
-      button.h-6.mt-1(@click="close" data-test="tab-title--close" :title="$t(title.key, title.attr)")
-        icon(type="close" aria-hidden="true")
-    div.border-dotted.border-b-2.border-gray-400.w-full
+<template>
+  <div class="mb-6" data-test="tab-title">
+    <div class="flex justify-between">
+      <h1 class="text-xl mb-4" :style="state.font">
+        <slot />
+      </h1>
+      <button
+        class="h-6 mt-1"
+        data-test="tab-title--close"
+        :title="$t(state.title.key, state.title.attr)"
+        @click="close"
+      >
+        <icon type="close" aria-hidden="true" />
+      </button>
+    </div>
+    <div class="border-dotted border-b-2 border-gray-400 w-full" />
+  </div>
 </template>
 
 <script>
-import select from 'store/selectors'
+import { mapState } from 'redux-vuex'
 import Icon from '@podlove/components/icons'
+import select from 'store/selectors'
 
 export default {
   components: { Icon },
@@ -20,11 +30,13 @@ export default {
       default: null
     }
   },
-  data() {
-    return this.mapState({
-      font: select.theme.fontCi,
-      title: select.accessibility.closeTab(this.tab)
-    })
+  setup(props) {
+    return {
+      state: this.mapState({
+        font: select.theme.fontCi,
+        title: select.accessibility.closeTab(props.tab)
+      })
+    }
   },
   methods: {
     close() {

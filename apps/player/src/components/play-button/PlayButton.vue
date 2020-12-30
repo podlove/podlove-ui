@@ -1,22 +1,23 @@
-<template lang="pug">
-play-button.overflow-hidden(
-  v-if='button.type',
-  :type='button.type',
-  :title='button.a11y',
-  :color='background',
-  :background='color',
-  :size='size',
-  @click='dispatch',
-  :label='button.label',
-  @mouseover.native='mouseOver',
-  @mouseleave.native='mouseLeave',
-  data-test='play-button'
-)
+<template>
+  <play-button
+    v-if="button.type"
+    class="overflow-hidden"
+    :type="button.type"
+    :title="button.a11y"
+    :color="background"
+    :background="color"
+    :size="size"
+    :label="button.label"
+    data-test="play-button"
+    @click="dispatch"
+    @mouseover.native="mouseOver"
+    @mouseleave.native="mouseLeave"
+  />
 </template>
 
 <script>
 import { calcHours, calcMinutes, calcSeconds, toHumanTime } from '@podlove/utils/time'
-import store from 'store'
+import { mapState, injectStore } from 'redux-vuex'
 
 import select from 'store/selectors'
 import PlayButton from '@podlove/components/play-button'
@@ -40,10 +41,9 @@ export default {
       default: 'details'
     }
   },
-  data() {
+  setup() {
     return {
-      hover: false,
-      ...this.mapState({
+      state: mapState({
         brandDark: select.theme.brandDark,
         brandDarkest: select.theme.brandDarkest,
         brandLightest: select.theme.brandLightest,
@@ -55,7 +55,13 @@ export default {
         replayA11y: select.accessibility.playButtonReplay,
         playA11y: select.accessibility.playButtonPlay,
         errorA11y: select.accessibility.playButtonError
-      })
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
+  data() {
+    return {
+      hover: false
     }
   },
   computed: {
@@ -64,36 +70,37 @@ export default {
     },
 
     color() {
-      return this.hover ? this.brandDarkest : this.brandDark
+      return this.hover ? this.state.brandDarkest : this.state.brandDark
     },
 
     button() {
-      switch (this.playButton) {
+      switch (this.state.playButton) {
         case 'paused':
           return {
             type: 'play',
-            a11y: this.$t(this.playA11y.key, this.playA11y.attr),
+            a11y: this.$t(this.state.playA11y.key, this.state.playA11y.attr),
             width: '50px'
           }
         default:
         case 'duration':
           return {
             type: 'play',
-            a11y: this.$t(this.durationA11y.key, this.durationA11y.attr),
+            a11y: this.$t(this.state.durationA11y.key, this.state.durationA11y.attr),
             label:
               this.variant === 'details'
-                ? this.label || toHumanTime(this.playtime > 0 ? this.playtime : this.duration)
+                ? this.label ||
+                  toHumanTime(this.state.playtime > 0 ? this.state.playtime : this.state.duration)
                 : null
           }
         case 'remaining':
           return {
             type: 'play',
-            label: this.variant === 'details' ? toHumanTime(this.playtime) : null
+            label: this.variant === 'details' ? toHumanTime(this.state.playtime) : null
           }
         case 'replay':
           return {
             type: 'restart',
-            a11y: this.$t(this.replayA11y.key, this.replayA11y.attr),
+            a11y: this.$t(this.state.replayA11y.key, this.state.replayA11y.attr),
             label: this.$t('PLAYER.REPLAY')
           }
         case 'loading':
@@ -103,12 +110,12 @@ export default {
         case 'playing':
           return {
             type: 'pause',
-            a11y: this.$t(this.pauseA11y.key, this.pauseA11y.attr)
+            a11y: this.$t(this.state.pauseA11y.key, this.state.pauseA11y.attr)
           }
         case 'error':
           return {
             type: 'restart',
-            a11y: this.$t(this.errorA11y.key, this.errorA11y.attr)
+            a11y: this.$t(this.state.errorA11y.key, this.state.errorA11y.attr)
           }
         case 'retry':
           return {
@@ -123,7 +130,6 @@ export default {
     }
   },
   methods: {
-    dispatch: store.dispatch,
     mouseOver() {
       this.hover = true
     },

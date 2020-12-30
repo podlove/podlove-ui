@@ -1,4 +1,3 @@
-import Vue from 'vue/dist/vue.esm'
 import sagas from '@podlove/player-sagas'
 import { runtimeSaga } from '@podlove/player-sagas/runtime'
 import { lifeCycleSaga } from '@podlove/player-sagas/lifecycle'
@@ -15,8 +14,7 @@ import { playlistSaga } from '@podlove/player-sagas/playlist'
 import { mediaSessionSaga } from '@podlove/player-sagas/media-session'
 
 import { createStore, applyMiddleware, compose } from 'redux'
-import { connect } from 'redux-vuex'
-import pkg from '../../package'
+import { version } from '../../package'
 
 import reducers from './reducers'
 import actions from './actions'
@@ -25,8 +23,6 @@ import selectors from './selectors'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(reducers, composeEnhancers(applyMiddleware(sagas.middleware)))
-
-connect({ Vue, store, actions })
 
 // Connect Sagas
 sagas.run(
@@ -99,4 +95,4 @@ sagas.run(
   })
 )
 
-export default store
+export { actions, selectors, store }
