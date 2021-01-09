@@ -150,6 +150,7 @@
     "TIMER_CURRENT": "Current Playtime: {hours} hours {minutes} minutes {seconds} seconds",
     "TIMER_REMAINING": "Remaining Playtime: {hours} hours {minutes} minutes {seconds} seconds",
     "TIMER_DURATION": "Duration: {hours} hours {minutes} minutes {seconds} seconds",
+    "TIMER_LIVE": "Behind live: {hours} hours {minutes} minutes {seconds} seconds",
     "CHAPTER_LIST": "Chapters",
     "CHAPTER_PAUSE": "Pause Chapter {index}: \"{title}\"",
     "CHAPTER_PLAY": "Play Chapter {index}: \"{title}\"",
@@ -166,5 +167,6 @@
     "VOLUME_CONTROL": "Show Volume Control",
     "SPEED_CONTROL": "Set playback speed to {speed}%",
     "SUBSCRIBE_BUTTON": "Subscribe to Podcast"
-  }
+  },
+  "LIVE": "LIVE"
 }

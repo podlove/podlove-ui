@@ -22,9 +22,12 @@ import {
   backendBuffer,
   backendError
 } from '@podlove/player-actions/play'
-import { backendPlaytime, backendDuration } from '@podlove/player-actions/timepiece'
+import {
+  backendPlaytime,
+  backendDuration,
+  backendLiveSync
+} from '@podlove/player-actions/timepiece'
 import { errorMissingMedia } from '@podlove/player-actions/error'
-import { audio } from '@podlove/html5-audio-driver/connect'
 
 import {
   playerSaga,
@@ -48,8 +51,19 @@ import {
   onBuffering,
   onError,
   syncAttributes,
-  driver
+  driver,
+  onLiveSyncUpdate
 } from './player'
+
+jest.mock('@podlove/html5-audio-driver/src/connect', () => ({
+  audio: () => ({
+    load: jest.fn(),
+    actions: {},
+    events: {}
+  })
+}))
+
+import { audio } from '@podlove/html5-audio-driver/src/connect'
 
 describe('player', () => {
   describe('playerSaga()', () => {
@@ -188,6 +202,7 @@ describe('player', () => {
           onVolumeChange: jest.fn(),
           onError: jest.fn(),
           onDurationChange: jest.fn(),
+          onLiveSyncUpdate: jest.fn(),
           onRateChange: jest.fn(),
           onPlay: jest.fn(),
           onBuffering: jest.fn(),
@@ -324,6 +339,10 @@ describe('player', () => {
         type: 'DURATION'
       }
 
+      const livesyncEvent = {
+        type: 'LIVESYNC'
+      }
+
       const bufferChangeEvent = {
         type: 'BUFFER_CHANGE'
       }
@@ -355,8 +374,9 @@ describe('player', () => {
         gen.next(pauseEvent)
         gen.next(endEvent)
         gen.next(playtimeEvent)
-        gen.next(bufferingEvent)
         gen.next(durationEvent)
+        gen.next(livesyncEvent)
+        gen.next(bufferingEvent)
         gen.next(bufferChangeEvent)
       })
 
@@ -399,8 +419,19 @@ describe('player', () => {
         expect(gen.next().value).toEqual(takeEvery(durationEvent, onDurationChange))
       })
 
+      test('should create a livesync event binding', () => {
+        gen.next(errorEvent)
+        gen.next()
+        gen.next()
+        gen.next()
+        gen.next()
+        gen.next()
+        expect(gen.next().value).toEqual(takeEvery(livesyncEvent, onLiveSyncUpdate))
+      })
+
       test('should create a bufferChange event binding', () => {
         gen.next(errorEvent)
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -411,6 +442,7 @@ describe('player', () => {
 
       test('should create a buffering event binding', () => {
         gen.next(errorEvent)
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -429,11 +461,13 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
+        gen.next()
         expect(gen.next().value).toEqual(takeEvery(errorEvent, onError))
       })
 
       test('should finish the generator', () => {
         gen.next(errorEvent)
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -809,6 +843,27 @@ describe('player', () => {
 
     test('should dispatch BACKEND_DURATION', () => {
       expect(gen.next().value).toEqual(put(backendDuration(1337000)))
+    })
+
+    test('should end the saga', () => {
+      gen.next()
+      expect(gen.next().done).toBeTruthy()
+    })
+  })
+
+  describe('onLiveSyncUpdate()', () => {
+    let gen
+
+    beforeEach(() => {
+      gen = onLiveSyncUpdate(1337)
+    })
+
+    test('shoud export a generator', () => {
+      expect(typeof gen.next).toBe('function')
+    })
+
+    test('should dispatch BACKEND_LIVESYNC', () => {
+      expect(gen.next().value).toEqual(put(backendLiveSync(1337000)))
     })
 
     test('should end the saga', () => {

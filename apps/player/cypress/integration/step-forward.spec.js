@@ -19,14 +19,6 @@ describe('<step-forward>', () => {
   })
 
   describe('logic', () => {
-    it('should be disabled if less than 30 seconds are left', () => {
-      assert('PLAYER_REQUEST_PLAYTIME', () => {
-        cy.select('step-forward').should('be.disabled')
-      })
-
-      dispatch({ type: 'PLAYER_REQUEST_PLAYTIME', payload: 12000 })
-    })
-
     it('should be enabled more than 30 seconds are left', () => {
       assert('PLAYER_REQUEST_PLAYTIME', () => {
         cy.select('step-forward').should('not.be.disabled')

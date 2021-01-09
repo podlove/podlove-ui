@@ -157,6 +157,7 @@ export const BACKEND_DURATION = type('BACKEND_DURATION')
 export const BACKEND_PLAYTIME = type('BACKEND_PLAYTIME')
 export const REQUEST_PLAYTIME = type('REQUEST_PLAYTIME')
 export const UPDATE_PLAYTIME = type('UPDATE_PLAYTIME')
+export const BACKEND_LIVESYNC = type('BACKEND_LIVESYNC')
 
 // Quantiles
 export const LOAD_QUANTILES = type('LOAD_QUANTILES')

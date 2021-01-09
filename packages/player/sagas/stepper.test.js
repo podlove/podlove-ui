@@ -9,12 +9,14 @@ describe('stepper', () => {
     let gen
     let selectDuration
     let selectPlaytime
+    let selectLivesync
 
     beforeEach(() => {
       selectDuration = jest.fn()
       selectPlaytime = jest.fn()
+      selectLivesync = jest.fn()
 
-      factory = stepperSaga({ selectDuration, selectPlaytime })
+      factory = stepperSaga({ selectDuration, selectPlaytime, selectLivesync })
       gen = factory()
     })
 
@@ -28,7 +30,7 @@ describe('stepper', () => {
 
     test('should register stepForward on STEP_FORWARD', () => {
       expect(gen.next().value).toEqual(
-        takeEvery(STEP_FORWARD, stepForward, { selectDuration, selectPlaytime })
+        takeEvery(STEP_FORWARD, stepForward, { selectDuration, selectPlaytime, selectLivesync })
       )
     })
 
@@ -48,12 +50,14 @@ describe('stepper', () => {
     let gen
     let selectDuration
     let selectPlaytime
+    let selectLivesync
 
     beforeEach(() => {
       selectDuration = jest.fn()
       selectPlaytime = jest.fn()
+      selectLivesync = jest.fn()
 
-      gen = stepForward({ selectDuration, selectPlaytime })
+      gen = stepForward({ selectDuration, selectPlaytime, selectLivesync })
     })
 
     test('should export a generator', () => {
@@ -72,16 +76,26 @@ describe('stepper', () => {
     test('should dispatch REQUEST_PLAYTIME with current playtime + 30 seconds', () => {
       gen.next()
       gen.next(300000)
-      expect(gen.next(10000).value).toEqual(put(requestPlaytime(40000)))
+      gen.next(0)
+      expect(gen.next(0).value).toEqual(put(requestPlaytime(30000)))
     })
 
     test('should dispatch REQUEST_PLAYTIME with duration if playtime + 30 seconds', () => {
       gen.next()
       gen.next(300000)
-      expect(gen.next(300000).value).toEqual(put(requestPlaytime(300000)))
+      gen.next(300000)
+      expect(gen.next(0).value).toEqual(put(requestPlaytime(300000)))
+    })
+
+    test('should dispatch REQUEST_PLAYTIME with livesync as the upper boundary if its greater 0', () => {
+      gen.next()
+      gen.next(300000)
+      gen.next(300000)
+      expect(gen.next(200000).value).toEqual(put(requestPlaytime(200000)))
     })
 
     test('should complete the saga', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()

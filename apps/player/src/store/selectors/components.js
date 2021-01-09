@@ -22,8 +22,6 @@ export default {
   shareTab: compose(components.shareTab, root.components),
   filesTab: compose(components.filesTab, root.components),
   playlistTab: compose(components.playlistTab, root.components),
-  nextStepDisabled: state => timepiece.duration(state) - timepiece.playtime(state) <= 1000,
-  previousStepDisabled: state => timepiece.playtime(state) <= 1000,
   nextChapterDisabled: compose(equals(-1), propOr(-1, 'index'), chapters.next),
   previousChapterDisabled: compose(equals(-1), propOr(-1, 'index'), chapters.previous),
   chaptersChannel: compose(lt(0), length, chapters.list),

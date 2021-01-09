@@ -138,6 +138,16 @@ export default {
     })
   },
 
+  timerLiver: state => {
+    const live = timepiece.livesync(state) - timepiece.playtime(state)
+
+    return translation('A11Y.TIMER_LIVE', {
+      hours: calcHours(live),
+      minutes: calcMinutes(live),
+      seconds: calcSeconds(live)
+    })
+  },
+
   chapterList: () => {
     return translation('A11Y.CHAPTER_LIST')
   },

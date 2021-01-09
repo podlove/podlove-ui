@@ -67,7 +67,8 @@ sagas.run(
   }),
   stepperSaga({
     selectDuration: selectors.duration,
-    selectPlaytime: selectors.playtime
+    selectPlaytime: selectors.playtime,
+    selectLivesync: selectors.livesync
   }),
   errorSaga,
   keyboardSaga({

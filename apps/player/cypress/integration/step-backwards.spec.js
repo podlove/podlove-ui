@@ -19,14 +19,6 @@ describe('<step-backward>', () => {
   })
 
   describe('logic', () => {
-    it('should be disabled if less than 15 seconds are played', () => {
-      assert('PLAYER_REQUEST_PLAYTIME', () => {
-        cy.select('step-backward').should('be.disabled')
-      })
-
-      dispatch({ type: 'PLAYER_REQUEST_PLAYTIME', payload: 0 })
-    })
-
     it('should be enabled more than 15 seconds are played', () => {
       assert('PLAYER_REQUEST_PLAYTIME', () => {
         cy.select('step-backward').should('not.be.disabled')
