@@ -20,7 +20,7 @@ exports[`ChapterProgress props should render 'chapter' 1`] = `
     class="timer timer"
     datetime="00:00"
   >
-    -00:00
+    00:00
   </time>
    
   <span

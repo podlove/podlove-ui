@@ -153,10 +153,14 @@ describe('<tab-chapters>', () => {
 
       describe('timers', () => {
         it('should show the remaining time on the active chapter', () => {
-          cy.select('tab-chapters--entry')
-            .eq(0)
-            .find('.timer')
-            .should('contain', '-00:06')
+          assert('PLAYER_REQUEST_PAYTIME', () => {
+            cy.select('tab-chapters--entry')
+              .eq(0)
+              .find('.timer')
+              .should('contain', '-00:05')
+          })
+
+          dispatch({ type: 'SIMULATE_PLAYTIME', payload: 1000 })
         })
 
         it('should show the remaining time on the inactive chapter', () => {
