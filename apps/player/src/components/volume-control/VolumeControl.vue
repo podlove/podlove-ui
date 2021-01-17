@@ -1,5 +1,6 @@
 <template lang="pug">
   v-popover(
+    v-if="available"
     :placement="placement"
     popoverArrowClass="hidden"
     :popoverInnerClass="['bg-transparent']"
@@ -58,7 +59,8 @@ export default {
     progressColor: select.theme.brandDark,
     background: select.theme.brandLightest,
     buttonTitle: select.accessibility.volumeButton,
-    volumeLabel: select.accessibility.volumeControl
+    volumeLabel: select.accessibility.volumeControl,
+    available: select.components.volumeControl
   }),
   methods: {
     setVolume: compose(store.dispatch, setVolume, val => val / 100),

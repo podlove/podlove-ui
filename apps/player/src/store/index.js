@@ -43,6 +43,7 @@ sagas.run(
     selectShowTitle: selectors.show.title,
     selectShowCover: selectors.show.poster,
     selectRuntimeMode: selectors.mode,
+    selectRuntimePlatform: selectors.platform,
     selectChannels: selectors.channels,
     selectEmbedLink: selectors.share.hasEmbedLink
   }),
