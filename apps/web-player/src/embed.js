@@ -17,6 +17,7 @@ const podlovePlayer = async (selector, episode, meta) => {
 
   try {
     const config = await parseConfig(episode, meta)
+    console.log(config)
     context.create(config)
     target = await canvas(selector)
     target.init()

@@ -9,7 +9,7 @@
       :duration="duration"
       :time="playtime"
       :ghost="ghost"
-      :buffer="buffer"
+      :buffer="duration ? buffer : []"
       :chapters="chapters"
       :quantiles="quantiles"
       :title="$t(title.key, title.attr)"

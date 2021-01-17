@@ -43,6 +43,7 @@ sagas.run(
     selectShowTitle: selectors.show.title,
     selectShowCover: selectors.show.poster,
     selectRuntimeMode: selectors.mode,
+    selectRuntimePlatform: selectors.platform,
     selectChannels: selectors.channels,
     selectEmbedLink: selectors.share.hasEmbedLink
   }),
@@ -67,7 +68,8 @@ sagas.run(
   }),
   stepperSaga({
     selectDuration: selectors.duration,
-    selectPlaytime: selectors.playtime
+    selectPlaytime: selectors.playtime,
+    selectLivesync: selectors.livesync
   }),
   errorSaga,
   keyboardSaga({

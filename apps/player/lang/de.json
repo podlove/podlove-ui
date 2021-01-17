@@ -150,6 +150,7 @@
     "TIMER_CURRENT": "Aktuelle Spielzeit: {hours} Stunden {minutes} Minuten {seconds} Sekunden",
     "TIMER_REMAINING": "Verbleibende Spielzeit: {hours} Stunden {minutes} Minuten {seconds} Sekunden",
     "TIMER_DURATION": "Dauer: {hours} Stunden {minutes} Minuten {seconds} Sekunden",
+    "TIMER_LIVE": "Hinter live: {hours} Stunden {minutes} Minuten {seconds} Sekunden",
     "CHAPTER_LIST": "Kapitel",
     "CHAPTER_PAUSE": "Kapitel {index} \"{title}\" pausieren",
     "CHAPTER_PLAY": "Kapitel {index} \"{title}\" abspielen",
@@ -166,5 +167,6 @@
     "VOLUME_CONTROL": "Lautheitregelung anzeigen",
     "SPEED_CONTROL": "Abspielgeschwindigkeit auf {speed}% setzen",
     "SUBSCRIBE_BUTTON": "Podcast abbonieren"
-  }
+  },
+  "LIVE": "LIVE"
 }

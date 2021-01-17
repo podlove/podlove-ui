@@ -45,6 +45,7 @@ export const componentsSaga = ({
   selectShowTitle,
   selectShowCover,
   selectRuntimeMode,
+  selectRuntimePlatform,
   selectChannels,
   selectEmbedLink
 }) =>
@@ -58,6 +59,7 @@ export const componentsSaga = ({
       selectShowTitle,
       selectShowCover,
       selectRuntimeMode,
+      selectRuntimePlatform,
       selectChannels,
       selectEmbedLink
     })
@@ -79,6 +81,7 @@ export function* init({
   selectEpisodeSubtitle,
   selectShowCover,
   selectRuntimeMode,
+  selectRuntimePlatform,
   selectShowTitle,
   selectChannels,
   selectEmbedLink
@@ -91,6 +94,7 @@ export function* init({
   const subtitle = yield select(selectEpisodeSubtitle)
   const showTitle = yield select(selectShowTitle)
   const mode = yield select(selectRuntimeMode)
+  const platform = yield select(selectRuntimePlatform)
   const channels = yield select(selectChannels)
   const embedLink = yield select(selectEmbedLink)
 
@@ -108,7 +112,7 @@ export function* init({
   yield put(!isEmpty(channels) || embedLink ? showComponentTab('share') : hideComponentTab('share'))
 
   // Audio Inputs
-  yield put(mode === 'native' ? showVolumeSlider() : hideVolumeSlider())
+  yield put(mode === 'native' && platform === 'desktop' ? showVolumeSlider() : hideVolumeSlider())
   yield put(showRateSlider())
 
   // Steppers

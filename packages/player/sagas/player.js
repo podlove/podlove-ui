@@ -1,4 +1,4 @@
-import { audio } from '@podlove/html5-audio-driver/connect'
+import { audio } from '@podlove/html5-audio-driver/src/connect'
 import { select, call, put, takeEvery, fork } from 'redux-saga/effects'
 import {
   REQUEST_PLAY,
@@ -24,7 +24,11 @@ import {
   backendError
 } from '@podlove/player-actions/play'
 import { errorMissingMedia } from '@podlove/player-actions/error'
-import { backendPlaytime, backendDuration } from '@podlove/player-actions/timepiece'
+import {
+  backendPlaytime,
+  backendDuration,
+  backendLiveSync
+} from '@podlove/player-actions/timepiece'
 import { millisecondsToSeconds, secondsToMilliseconds } from '@podlove/utils/time'
 import { setAttributes } from '@podlove/utils/dom'
 
@@ -120,6 +124,11 @@ export function* onDurationChange(duration) {
   yield put(action)
 }
 
+export function* onLiveSyncUpdate(sync) {
+  const action = backendLiveSync(secondsToMilliseconds(sync))
+  yield put(action)
+}
+
 export function* onBuffering() {
   yield put(backendLoadingStart())
 }
@@ -154,8 +163,9 @@ export function* driver({ selectPlaytime, connector }) {
   const pauseEvent = yield call(channel, connector.events.onPause)
   const endEvent = yield call(channel, connector.events.onEnd)
   const playtimeEvent = yield call(channel, connector.events.onPlaytimeUpdate)
-  const bufferingEvent = yield call(channel, connector.events.onBuffering)
   const durationEvent = yield call(channel, connector.events.onDurationChange)
+  const liveSyncEvent = yield call(channel, connector.events.onLiveSyncUpdate)
+  const bufferingEvent = yield call(channel, connector.events.onBuffering)
   const bufferChangeEvent = yield call(channel, connector.events.onBufferChange)
   const errorEvent = yield call(channel, connector.events.onError)
 
@@ -165,6 +175,7 @@ export function* driver({ selectPlaytime, connector }) {
   yield takeEvery(endEvent, onEnd)
   yield takeEvery(playtimeEvent, onPlaytimeUpdate)
   yield takeEvery(durationEvent, onDurationChange)
+  yield takeEvery(liveSyncEvent, onLiveSyncUpdate)
   yield takeEvery(bufferChangeEvent, onBufferChange)
   yield takeEvery(bufferingEvent, onBuffering)
   yield takeEvery(errorEvent, onError)

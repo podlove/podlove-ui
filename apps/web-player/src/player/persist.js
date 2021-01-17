@@ -39,25 +39,29 @@ export const persistPlayer = (config, store) => {
     const { tabs } = store.getState()
     const quantiles = propOr([], 'quantiles', existing)
 
-    if (quantiles.length > 0) {
-      store.dispatch(restore())
-      store.dispatch(showPauseButton())
-    }
+    if (config.features.persistPlaystate) {
+      if (quantiles.length > 0) {
+        store.dispatch(restore())
+        store.dispatch(showPauseButton())
+      }
 
-    if (existing.tabs) {
-      const tab = Object.keys(existing.tabs).find(tab => existing.tabs[tab])
-      // prevent double toggling
-      if (!tabs[tab]) {
-        store.dispatch(toggleTab(tab))
+      if (existing.playtime) {
+        store.dispatch(requestPlaytime(existing.playtime))
+      }
+
+      if (existing.quantiles) {
+        store.dispatch(loadQuantiles(existing.quantiles))
       }
     }
 
-    if (existing.playtime) {
-      store.dispatch(requestPlaytime(existing.playtime))
-    }
-
-    if (existing.quantiles) {
-      store.dispatch(loadQuantiles(existing.quantiles))
+    if (config.features.persistTab) {
+      if (existing.tabs) {
+        const tab = Object.keys(existing.tabs).find(tab => existing.tabs[tab])
+        // prevent double toggling
+        if (!tabs[tab]) {
+          store.dispatch(toggleTab(tab))
+        }
+      }
     }
 
     record(store)

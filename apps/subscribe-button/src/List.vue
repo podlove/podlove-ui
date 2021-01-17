@@ -47,7 +47,7 @@ export default {
     overlay: select.view.overlay,
     listView: select.view.list,
     finishView: select.view.finish,
-    language: select.runtime.language
+    language: select.language
   }),
   watch: {
     language() {

@@ -37,6 +37,11 @@ const reference = ({ episode, config }, resolved) => ({
   share: pathOr(null, ['share', 'outlet'], resolved.config)
 })
 
+const features = ({ config }) => ({
+  persistTab: pathOr(true, ['features', 'persistTab'], config),
+  persistPlaystate: pathOr(true, ['features', 'persistPlaystate'], config)
+})
+
 const resolve = async url => {
   try {
     return await json(url)
@@ -64,7 +69,8 @@ export const parseConfig = (episode, config) =>
           reference: reference(
             { episode, config },
             { episode: resolvedEpisode, config: resolvedConfig }
-          )
+          ),
+          features: features({ config: resolvedConfig })
         })
       )
     }

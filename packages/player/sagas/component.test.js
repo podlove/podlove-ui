@@ -57,6 +57,7 @@ describe('components', () => {
       selectShowTitle: jest.fn(),
       selectShowCover: jest.fn(),
       selectRuntimeMode: jest.fn(),
+      selectRuntimePlatform: jest.fn(),
       selectPlaylist: jest.fn(),
       selectChannels: jest.fn(),
       selectEmbedLink: jest.fn()
@@ -90,6 +91,7 @@ describe('components', () => {
           selectShowTitle: selectors.selectShowTitle,
           selectShowCover: selectors.selectShowCover,
           selectRuntimeMode: selectors.selectRuntimeMode,
+          selectRuntimePlatform: selectors.selectRuntimePlatform,
           selectChannels: selectors.selectChannels,
           selectEmbedLink: selectors.selectEmbedLink
         })
@@ -197,6 +199,7 @@ describe('components', () => {
         selectShowTitle: selectors.selectShowTitle,
         selectShowCover: selectors.selectShowCover,
         selectRuntimeMode: selectors.selectRuntimeMode,
+        selectRuntimePlatform: selectors.selectRuntimePlatform,
         selectChannels: selectors.selectChannels,
         selectEmbedLink: selectors.selectEmbedLink
       })
@@ -275,10 +278,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(select(selectors.selectChannels))
     })
 
     test('should select embed link available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -302,6 +307,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showInfoPoster()))
     })
 
@@ -316,10 +322,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showInfoPoster()))
     })
 
     test('should dispatch HIDE_COMPONENT_INFO_POSTER if neither episodeCover nor showCover is available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -345,10 +353,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showEpisodeTitle()))
     })
 
     test('should dispatch HIDE_COMPONENT_EPISODE_TITLE if episodeTitle is not available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -376,10 +386,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showSubtitle()))
     })
 
     test('should dispatch HIDE_COMPONENT_SUBTITLE if subtitle is not available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -409,10 +421,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showShowTitle()))
     })
 
     test('should dispatch HIDE_COMPONENT_SHOW_TITLE if showTitle is not available', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -444,12 +458,14 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showComponentTab('files')))
     })
 
     test('should dispatch HIDE_COMPONENT_TAB with files if files are not available', () => {
       gen.next()
       gen.next([])
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -481,6 +497,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showComponentTab('playlist')))
     })
 
@@ -488,6 +505,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next([])
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -520,10 +538,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showComponentTab('shownotes')))
     })
 
     test('should dispatch SHOW_COMPONENT_TAB with audio', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -563,10 +583,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showComponentTab('share')))
     })
 
     test('should dispatch SHOW_COMPONENT_TAB with share when episode link is avaialble', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -598,6 +620,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       gen.next([])
       gen.next(false)
       gen.next()
@@ -610,7 +633,7 @@ describe('components', () => {
       expect(gen.next().value).toEqual(put(hideComponentTab('share')))
     })
 
-    test('should dispatch SHOW_COMPONENT_VOLUME_SLIDER when mode is native', () => {
+    test('should dispatch SHOW_COMPONENT_VOLUME_SLIDER when mode is "native" and runtime is "desktop"', () => {
       gen.next()
       gen.next()
       gen.next()
@@ -620,6 +643,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next('native')
+      gen.next('desktop')
       gen.next()
       gen.next()
       gen.next()
@@ -634,6 +658,7 @@ describe('components', () => {
     })
 
     test('should dispatch HIDE_COMPONENT_VOLUME_SLIDER when mode is not native', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
@@ -677,10 +702,12 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
+      gen.next()
       expect(gen.next().value).toEqual(put(showRateSlider()))
     })
 
     test('should end the saga', () => {
+      gen.next()
       gen.next()
       gen.next()
       gen.next()
