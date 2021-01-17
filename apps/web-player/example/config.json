@@ -1,5 +1,4 @@
 {
-  "activeTab": "chapters",
   "theme": {
     "tokens": {
       "brand": "#E64415",
@@ -56,5 +55,9 @@
     "outlet": "/share.html",
     "sharePlaytime": true
   },
-  "base": "/"
+  "base": "/",
+  "features": {
+    "persistTab": false,
+    "persistPlaystate": false
+  }
 }
