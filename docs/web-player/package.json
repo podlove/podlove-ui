@@ -28,7 +28,7 @@
     "core-js": "3.4.2",
     "github-pages": "3.0.2",
     "node-sass": "4.14.1",
-    "sass-loader": "8.0.0",
+    "sass-loader": "10.1.1",
     "surge": "0.21.3",
     "vue-server-renderer": "2.6.12",
     "vuepress": "1.6.0",
