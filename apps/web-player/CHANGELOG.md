@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/podlove/podlove-ui/compare/v5.3.2...v5.4.0) (2021-01-26)
+
+
+### Features
+
+* **web-player:** add feature flags for persistence ([cc9c22a](https://github.com/podlove/podlove-ui/commit/cc9c22a62e42622f563697dfb6cea074981b5567))
+
+
+
+
+
 ## [5.3.2](https://github.com/podlove/podlove-ui/compare/v5.3.1...v5.3.2) (2020-12-19)
 
 **Note:** Version bump only for package @podlove/web-player

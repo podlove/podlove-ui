@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/podlove/podlove-ui/compare/v5.3.2...v5.4.0) (2021-01-26)
+
+
+### Bug Fixes
+
+* Chapters: Only mark active chapters if playtime is greater 0 ([1b5f227](https://github.com/podlove/podlove-ui/commit/1b5f227dfcd39c53357acef7b033c2623c0ebd3d)), closes [podlove#741](https://github.com/podlove/issues/741)
+
+
+
+
+
 ## [5.3.2](https://github.com/podlove/podlove-ui/compare/v5.3.1...v5.3.2) (2020-12-19)
 
 
