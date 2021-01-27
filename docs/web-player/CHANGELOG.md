@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/podlove/podlove-ui/compare/v5.3.2...v5.4.0) (2021-01-26)
+
+
+### Bug Fixes
+
+* **docs:** fix build step ([e4c1b38](https://github.com/podlove/podlove-ui/commit/e4c1b388c10db429d89451bb034167a641e74e31))
+
+
+
+
+
 ## [5.3.2](https://github.com/podlove/podlove-ui/compare/v5.3.1...v5.3.2) (2020-12-19)
 
 **Note:** Version bump only for package @podlove/docs-web-player

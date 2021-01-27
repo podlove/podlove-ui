@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/podlove/podlove-ui/compare/v5.3.2...v5.4.0) (2021-01-26)
+
+
+### Bug Fixes
+
+* **player:** only show volume slider on desktop devices ([c9c7e66](https://github.com/podlove/podlove-ui/commit/c9c7e66a0a3489f192ab1c7a81ce5044bb1eaaba))
+
+
+
+
+
 ## [5.3.2](https://github.com/podlove/podlove-ui/compare/v5.3.1...v5.3.2) (2020-12-19)
 
 **Note:** Version bump only for package @podlove/player-sagas

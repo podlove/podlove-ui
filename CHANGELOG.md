@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/podlove/podlove-ui/compare/v5.3.2...v5.4.0) (2021-01-26)
+
+
+### Bug Fixes
+
+* **player:** only show volume slider on desktop devices ([c9c7e66](https://github.com/podlove/podlove-ui/commit/c9c7e66a0a3489f192ab1c7a81ce5044bb1eaaba))
+* Chapters: Only mark active chapters if playtime is greater 0 ([1b5f227](https://github.com/podlove/podlove-ui/commit/1b5f227dfcd39c53357acef7b033c2623c0ebd3d)), closes [podlove#741](https://github.com/podlove/issues/741)
+* **docs:** fix build step ([e4c1b38](https://github.com/podlove/podlove-ui/commit/e4c1b388c10db429d89451bb034167a641e74e31))
+
+
+### Features
+
+* **web-player:** add feature flags for persistence ([cc9c22a](https://github.com/podlove/podlove-ui/commit/cc9c22a62e42622f563697dfb6cea074981b5567))
+
+
+
+
+
 ## [5.3.2](https://github.com/podlove/podlove-ui/compare/v5.3.1...v5.3.2) (2020-12-19)
 
 
