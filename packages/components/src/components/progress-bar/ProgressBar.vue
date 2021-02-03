@@ -285,7 +285,7 @@ export default {
   position: absolute;
   border: 1px solid;
   // border offset
-  margin-left: -1px;
+  margin-left: calc(-1px - #{$thumb-size / 2});
   height: $thumb-size;
   border-radius: $thumb-size;
   top: calc(50% - #{$thumb-size / 2});
@@ -307,7 +307,7 @@ export default {
   position: absolute;
   border: 1px solid transparent;
   opacity: 0.8;
-  margin-left: -1px;
+  margin-left: calc(-1px - #{$thumb-size / 2});
   height: $thumb-size;
   border-radius: $thumb-size;
   top: calc(50% - #{$thumb-size / 2});
