@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { identity } from 'ramda'
 import { mapState } from 'redux-vuex'
 import Font from '@podlove/components/font'
 import select from 'store/selectors'
@@ -61,10 +60,12 @@ export default {
   opacity: 0;
 }
 
-a:focus,
-button:focus,
-input:focus,
-textarea:focus {
-  outline: none;
+.without-outline {
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus {
+    outline: none;
+  }
 }
 </style>
