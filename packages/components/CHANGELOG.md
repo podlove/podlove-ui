@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.1](https://github.com/podlove/podlove-ui/compare/v5.4.0...v5.4.1) (2021-03-14)
+
+
+### Bug Fixes
+
+* thumb position for progress and ghost ([e4b6aa8](https://github.com/podlove/podlove-ui/commit/e4b6aa88142a343d947ecb2ddc10c6f011b129ff))
+
+
+
+
+
 # [5.4.0](https://github.com/podlove/podlove-ui/compare/v5.3.2...v5.4.0) (2021-01-26)
 
 

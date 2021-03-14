@@ -1,7 +1,7 @@
 {
   "name": "@podlove/docs-web-player",
   "private": true,
-  "version": "5.4.0",
+  "version": "5.4.1",
   "description": "Documentation for Podlove Web Player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,9 +15,9 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/player-actions": "^5.4.0",
-    "@podlove/utils": "^5.4.0",
-    "@podlove/web-player": "^5.4.0",
+    "@podlove/player-actions": "^5.4.1",
+    "@podlove/utils": "^5.4.1",
+    "@podlove/web-player": "^5.4.1",
     "jsoneditor": "9.0.3",
     "ramda": "0.27.1",
     "vue-color": "2.7.0"
