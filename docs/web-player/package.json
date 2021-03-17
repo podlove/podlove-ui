@@ -23,7 +23,7 @@
     "vue-color": "2.7.0"
   },
   "devDependencies": {
-    "@babel/runtime": "7.11.2",
+    "@babel/runtime": "7.13.10",
     "copy-webpack-plugin": "6.0.2",
     "core-js": "3.4.2",
     "github-pages": "3.0.2",
