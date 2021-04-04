@@ -1,9 +1,10 @@
 <template lang="pug">
   div.w-full(class="mobile:p-4 tablet:p-6" data-test="tab-playlist")
-    tab-title(@close="closeTab" tab="playlist") {{ $t('PLAYLIST.TITLE') }}
+    tab-title.header(@close="closeTab" tab="playlist") {{ $t('PLAYLIST.TITLE') }}
     ol.sr-only(:aria-label="$t(a11y.key, a11y.attr)")
       a11y(v-for="(episode, index) in playlist" :episode="episode" :index="index" :key="`a11y-${index}`")
-    entry(aria-hidden="true" v-for="(episode, index) in playlist" :episode="episode" :index="index " :key="`episode-${index}`")
+    div.body.overflow-y-auto.overflow-x-hidden
+      entry(aria-hidden="true" v-for="(episode, index) in playlist" :episode="episode" :index="index " :key="`episode-${index}`")
 </template>
 
 <script>
@@ -33,3 +34,9 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+.body {
+  max-height: 430px;
+}
+</style>
