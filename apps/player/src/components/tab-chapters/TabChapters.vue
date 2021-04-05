@@ -3,7 +3,8 @@
     tab-title(@close="closeTab" tab="chapters") {{ $t('CHAPTERS.TITLE') }}
     ol.sr-only(:aria-label="$t(a11y.key, a11y.attr)")
       a11y(v-for="(chapter, index) in chapters" :chapter="chapter" :index="index" :key="`a11y-${index}`")
-    entry(aria-hidden="true" v-for="(chapter, index) in chapters" :chapter="chapter" :index="index" :key="`chapter-${index}`")
+    div.body.overflow-y-auto.overflow-x-hidden(class="mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6")
+      entry(aria-hidden="true" v-for="(chapter, index) in chapters" :chapter="chapter" :index="index" :key="`chapter-${index}`")
 </template>
 
 <script>
@@ -33,3 +34,9 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+.body {
+  max-height: 455px;
+}
+</style>

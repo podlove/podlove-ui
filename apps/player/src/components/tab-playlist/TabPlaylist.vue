@@ -3,7 +3,7 @@
     tab-title.header(@close="closeTab" tab="playlist") {{ $t('PLAYLIST.TITLE') }}
     ol.sr-only(:aria-label="$t(a11y.key, a11y.attr)")
       a11y(v-for="(episode, index) in playlist" :episode="episode" :index="index" :key="`a11y-${index}`")
-    div.body.overflow-y-auto.overflow-x-hidden
+    div.body.overflow-y-auto.overflow-x-hidden(class="mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6")
       entry(aria-hidden="true" v-for="(episode, index) in playlist" :episode="episode" :index="index " :key="`episode-${index}`")
 </template>
 
@@ -37,6 +37,6 @@ export default {
 
 <style lang="postcss" scoped>
 .body {
-  max-height: 430px;
+  max-height: 455px;
 }
 </style>
