@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/podlove/podlove-ui/compare/v5.4.1...v5.5.0) (2021-04-05)
+
+
+### Features
+
+* add overflow to chapters ([07e5f0c](https://github.com/podlove/podlove-ui/commit/07e5f0ccd7f7ec6ad023d8ddee6fbc1df78a0d29))
+* add overflow to related episodes ([bf97d9a](https://github.com/podlove/podlove-ui/commit/bf97d9a8d43f69e8b89c1ffc7763a02ef1108330))
+
+
+
+
+
 ## [5.4.1](https://github.com/podlove/podlove-ui/compare/v5.4.0...v5.4.1) (2021-03-14)
 
 **Note:** Version bump only for package @podlove/player
