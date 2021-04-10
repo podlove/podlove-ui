@@ -25,13 +25,13 @@
   },
   "devDependencies": {
     "@podlove/build": "^5.5.0",
-    "@storybook/addon-actions": "5.2.8",
-    "@storybook/addon-centered": "5.2.5",
-    "@storybook/addon-knobs": "5.2.5",
-    "@storybook/addon-options": "5.2.5",
-    "@storybook/addons": "5.2.5",
-    "@storybook/vue": "5.2.5",
-    "terser": "4.3.9",
+    "@storybook/addon-actions": "6.2.7",
+    "@storybook/addon-centered": "5.3.21",
+    "@storybook/addon-knobs": "6.0.28",
+    "@storybook/addon-options": "5.3.21",
+    "@storybook/addons": "6.2.7",
+    "@storybook/vue": "6.2.7",
+    "terser": "5.6.1",
     "webpack": "5.11.0",
     "webpack-dev-server": "3.11.0"
   }
