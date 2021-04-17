@@ -15,7 +15,7 @@
 
 ### For Usage
 
-This mono repo creates a set of different packages within the `@podlove` NPM orgainzation. Once released you can use each package by simply installing it as a dependency.
+This mono repo creates a set of different packages within the `@podlove` NPM organization. Once released you can use each package by simply installing it as a dependency.
 
 ## Used Libraries and Frameworks
 
