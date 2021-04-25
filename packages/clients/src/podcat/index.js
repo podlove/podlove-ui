@@ -5,7 +5,7 @@ export default [
   client({
     title: 'Podcat',
     scheme: feed => `podcat://${feed}`,
-    install: 'https://itunes.apple.com/de/app/podcasts/id845960230',
+    install: 'https://apps.apple.com/app/podcasts/id845960230',
     platform: platform.ios,
     type: type.app,
     icon

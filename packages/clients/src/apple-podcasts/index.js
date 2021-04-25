@@ -6,7 +6,7 @@ export default [
   client({
     title: 'Apple Podcasts',
     scheme: feed => `podcast://${removeProtocol(feed)}`,
-    install: 'https://itunes.apple.com/app/podcasts/id525463029',
+    install: 'https://apps.apple.com/app/podcasts/id525463029',
     platform: platform.ios,
     type: type.app,
     icon
