@@ -13,7 +13,6 @@ const CLIENTS = {
   overcast: require('./overcast').default,
   'player-fm': require('./player-fm').default,
   'pocket-casts': require('./pocket-casts').default,
-  'pod-grasp': require('./pod-grasp').default,
   'podcast-addict': require('./podcast-addict').default,
   'podcast-republic': require('./podcast-republic').default,
   podcat: require('./podcat').default,
