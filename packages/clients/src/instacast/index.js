@@ -5,7 +5,7 @@ export default [
   client({
     title: 'Instacast',
     scheme: feed => `instacast://${feed}`,
-    install: 'https://itunes.apple.com/de/app/icatcher!-podcast-app/id414419105',
+    install: 'https://github.com/martinhering/instacast', // 'https://apps.apple.com/app/instacast-core/id1083868334',
     platform: platform.ios,
     type: type.app,
     icon

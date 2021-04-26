@@ -20,7 +20,6 @@
 | `overcast`            | Overcast            |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
 | `player-fm`           | Player.fm           |  ☑   | ☑        | ☑       | ☐   | ☐   | ☐       | ☐    | ☑   |
 | `pocket-casts`        | PocketCasts         |  ☑   | ☑        | ☑       | ☑   | ☐   | ☐       | ☐    | ☑   |
-| `pod-grasp`           | PodGrasp            |  ☑   | ☐        | ☐       | ☑   | ☑   | ☐       | ☐    | ☐   |
 | `podcast-republic`    | Podcast Republic    |  ☑   | ☐        | ☑       | ☐   | ☐   | ☐       | ☐    | ☐   |
 | `podcat`              | Podcat              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
 | `podcat`              | Podcat              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
