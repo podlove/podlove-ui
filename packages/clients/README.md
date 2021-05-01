@@ -24,6 +24,7 @@
 | `podcat`              | Podcat              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
 | `podcat`              | Podcat              |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
 | `podscout`            | Podscout            |  ☑   | ☐        | ☐       | ☐   | ☐   | ☑       | ☐    | ☐   |
+| `procast`             | Procast             |  ☑   | ☐        | ☑       | ☑   | ☐   | ☐       | ☐    | ☐   |
 | `rss`                 | RSS                 |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |
 | `rss-radio`           | RSSRadio            |  ☑   | ☐        | ☐       | ☑   | ☐   | ☐       | ☐    | ☐   |
 | `soundcloud`          | Soundcloud          |  ☐   | ☑        | ☐       | ☐   | ☐   | ☐       | ☐    | ☑   |

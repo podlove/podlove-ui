@@ -17,6 +17,7 @@ const CLIENTS = {
   'podcast-republic': require('./podcast-republic').default,
   podcat: require('./podcat').default,
   podscout: require('./podscout').default,
+  procast: require('./procast').default,
   rss: require('./rss').default,
   'rss-radio': require('./rss-radio').default,
   soundcloud: require('./soundcloud').default,
