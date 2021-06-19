@@ -11,7 +11,7 @@ const vue = () => ({
 })
 
 const javascript = () => ({
-  test: /\.js?$/,
+  test: /\.(js|jsx)$/,
   loader: 'babel-loader',
   exclude: /node_modules/
 })

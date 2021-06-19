@@ -336,6 +336,43 @@ steps:
 
 ---
 kind: pipeline
+name: packages/player-react
+
+steps:
+- name: bootstrap
+  image: node:12
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node:12
+  commands:
+    - npx eslint 'packages/player/react/**/*.{js,jsx}'
+
+- name: release:prepare
+  image: node:12
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/player-react --stream
+  when:
+    ref:
+    - refs/tags/v*
+
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/player/react/publish
+  when:
+    ref:
+    - refs/tags/v*
+
+---
+kind: pipeline
 name: packages/utils
 
 steps:
