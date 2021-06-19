@@ -2,7 +2,7 @@
   "name": "@podlove/player-react",
   "version": "5.6.0",
   "description": "React Wrapper for Podlove Web Player",
-  "homepage": "https://github.com/podlove/ui/tree/development/packages/player/sagas",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/player/react",
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
