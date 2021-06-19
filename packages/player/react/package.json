@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-react",
-  "version": "5.5.0",
+  "version": "5.6.0",
   "description": "React Wrapper for Podlove Web Player",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/sagas",
   "keywords": [],
@@ -13,18 +13,18 @@
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
   },
   "dependencies": {
-    "@podlove/player-actions": "^5.5.0",
-    "@podlove/utils": "^5.5.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "@podlove/player-actions": "^5.6.0",
+    "@podlove/utils": "^5.6.0",
     "load-scripts": "1.0.0",
+    "lodash.debounce": "4.0.8",
     "ramda": "0.27.1",
-    "lodash.debounce": "4.0.8"
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@podlove/build": "^5.5.0",
-    "webpack": "4.41.2",
+    "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/preset-react": "7.10.4",
-    "@babel/plugin-proposal-class-properties": "7.10.4"
+    "@podlove/build": "^5.6.0",
+    "webpack": "4.41.2"
   }
 }
