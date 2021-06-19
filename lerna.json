@@ -1,7 +1,6 @@
 {
   "packages": [
     "apps/**",
-    "docs/**",
     "packages/**"
   ],
   "version": "5.5.0",
