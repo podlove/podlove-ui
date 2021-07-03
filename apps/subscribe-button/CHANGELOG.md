@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.2](https://github.com/podlove/podlove-ui/compare/v5.6.1...v5.6.2) (2021-07-03)
+
+**Note:** Version bump only for package @podlove/subscribe-button
+
+
+
+
+
 ## [5.6.1](https://github.com/podlove/podlove-ui/compare/v5.6.0...v5.6.1) (2021-07-03)
 
 **Note:** Version bump only for package @podlove/subscribe-button
