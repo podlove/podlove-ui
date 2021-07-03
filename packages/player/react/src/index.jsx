@@ -13,13 +13,16 @@ export class PodloveWebPlayer extends React.Component {
     this.playerRef = React.createRef()
     this.mountIframe = debounce(() => {
       const node = this.playerRef.current
-
       if (!node) {
         return
       }
 
       if (this.props.variant) {
         node.setAttribute('data-variant', this.props.variant)
+      }
+
+      if (this.props.template) {
+        node.setAttribute('data-template', this.props.template)
       }
 
       node.innerHTML = typeof this.props.children === 'string' ? this.props.children : ''
@@ -43,8 +46,10 @@ export class PodloveWebPlayer extends React.Component {
     await loadScripts(script).then(this.mountIframe.bind(this))
   }
 
-  componentWillReceiveProps(props) {
-    if (equals(omit(props, 'onLoaded'), omit(this.props, 'onLoaded'))) {
+  UNSAFE_componentWillReceiveProps(props) {
+    const cleard = omit(['onLoaded'])
+
+    if (equals(cleard(props), cleard(this.props))) {
       return
     }
 
