@@ -18,5 +18,10 @@ module.exports = {
     rules: [rules.javascript()]
   },
 
+  externals: {
+    react: "commonjs react",
+    "react-dom": "commonjs react-dom",
+  },
+
   plugins: [plugins.env({ mode: 'production' })]
 }
