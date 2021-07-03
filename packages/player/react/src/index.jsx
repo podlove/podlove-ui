@@ -3,7 +3,6 @@ import { toggleTab } from '@podlove/player-actions/tabs'
 import { requestPlaytime } from '@podlove/player-actions/timepiece'
 import loadScripts from 'load-scripts'
 import { equals, omit } from 'ramda'
-import { renderToString } from 'react-dom/server'
 import debounce from 'lodash.debounce'
 
 const cdnFallback = 'https://cdn.podlove.org/web-player/5.x'
@@ -23,8 +22,7 @@ export class PodloveWebPlayer extends React.Component {
         node.setAttribute('data-variant', this.props.variant)
       }
 
-      node.innerHTML = this.props.children ? renderToString(this.props.children) : ''
-
+      node.innerHTML = typeof this.props.children === 'string' ? this.props.children : ''
       window.podlovePlayer(node, this.props.episode, this.props.config).then(store => {
         this.props.onLoaded && this.props.onLoaded(store)
 

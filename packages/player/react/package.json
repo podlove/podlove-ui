@@ -18,13 +18,18 @@
     "load-scripts": "1.0.0",
     "lodash.debounce": "4.0.8",
     "ramda": "0.27.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-element-to-jsx-string": "14.3.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/preset-react": "7.10.4",
     "@podlove/build": "^5.6.0",
-    "webpack": "4.41.2"
+    "webpack": "4.41.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "peerDependencies": {
+    "react": "17.x",
+    "react-dom": "17.x"
   }
 }
