@@ -70,6 +70,9 @@
     <divider class="w-full mt-6 mb-3"></divider>
     <div class="flex justify-between">
       <div class="flex mobile:w-full tablet:w-3/12 desktop:w-3/12 justify-between">
+        <tab-trigger tab="shownotes">
+          <icon type="info"></icon>
+        </tab-trigger>
         <tab-trigger tab="chapters">
           <icon type="chapter"></icon>
         </tab-trigger>
@@ -90,6 +93,9 @@
     </div>
   </div>
   <div class="w-full relative overflow-hidden">
+    <tab name="shownotes">
+      <tab-shownotes></tab-shownotes>
+    </tab>
     <tab name="chapters">
       <tab-chapters></tab-chapters>
     </tab>
