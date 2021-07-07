@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@podlove/build",
-  "version": "5.6.3",
+  "version": "5.6.4",
   "description": "Webpack building blocks for podlove player framework",
   "main": "index.js",
   "scripts": {
