@@ -10,7 +10,7 @@
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
     "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish library"
   },
   "dependencies": {
     "@podlove/player-actions": "^5.6.3",
