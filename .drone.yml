@@ -449,3 +449,32 @@ steps:
   when:
     ref:
     - refs/tags/v*
+
+---
+kind: pipeline
+name: packages/button-actions
+
+steps:
+- name: bootstrap
+  image: node:12
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node:12
+  commands:
+    - npx eslint 'packages/button/actions/**/*.{js,vue}'
+
+- name: deploy:npm
+  image: plugins/npm
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/button/actions
+  when:
+    ref:
+    - refs/tags/v*
