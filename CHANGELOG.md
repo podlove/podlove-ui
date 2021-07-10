@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.4](https://github.com/podlove/podlove-ui/compare/v5.6.3...v5.6.4) (2021-07-07)
+
+
+### Bug Fixes
+
+* only add dependencies to library packages ([21f8c90](https://github.com/podlove/podlove-ui/commit/21f8c9092c894ce3c3c721929a6ea0fb272a2e1f))
+
+
+
+
+
 ## [5.6.3](https://github.com/podlove/podlove-ui/compare/v5.6.2...v5.6.3) (2021-07-07)
 
 **Note:** Version bump only for package root
