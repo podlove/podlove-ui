@@ -12,8 +12,11 @@ import {
   UNMUTE,
   REQUEST_LOAD,
   UPDATE_CHAPTER,
-  SET_CHAPTER
+  SET_CHAPTER,
+  REQUEST_STOP
 } from '@podlove/player-actions/types'
+import { requestPause } from '@podlove/player-actions/play'
+import { requestPlaytime } from '@podlove/player-actions/timepiece'
 import {
   backendPlay,
   backendPause,
@@ -145,6 +148,11 @@ export function* onError(type) {
   yield put(backendError(type))
 }
 
+export function* onStop() {
+  yield put(requestPause())
+  yield put(requestPlaytime(0))
+}
+
 export function* driver({ selectPlaytime, connector }) {
   // AudioActions
   yield takeEvery(REQUEST_PLAY, play, connector.actions, selectPlaytime)
@@ -152,6 +160,7 @@ export function* driver({ selectPlaytime, connector }) {
   yield takeEvery(REQUEST_RESTART, restart, connector.actions)
   yield takeEvery(REQUEST_LOAD, load, connector.actions)
   yield takeEvery(REQUEST_PLAYTIME, playtime, connector.actions)
+  yield takeEvery(REQUEST_STOP, onStop)
   yield takeEvery(SET_RATE, rate, connector.actions)
   yield takeEvery(SET_VOLUME, volume, connector.actions)
   yield takeEvery(MUTE, mute, connector.actions)
