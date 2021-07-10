@@ -11,7 +11,8 @@ import {
   UNMUTE,
   REQUEST_LOAD,
   UPDATE_CHAPTER,
-  SET_CHAPTER
+  SET_CHAPTER,
+  REQUEST_STOP
 } from '@podlove/player-actions/types'
 import {
   backendPlay,
@@ -20,12 +21,14 @@ import {
   backendLoadingStart,
   backendLoadingEnd,
   backendBuffer,
-  backendError
+  backendError,
+  requestPause
 } from '@podlove/player-actions/play'
 import {
   backendPlaytime,
   backendDuration,
-  backendLiveSync
+  backendLiveSync,
+  requestPlaytime
 } from '@podlove/player-actions/timepiece'
 import { errorMissingMedia } from '@podlove/player-actions/error'
 
@@ -52,7 +55,8 @@ import {
   onError,
   syncAttributes,
   driver,
-  onLiveSyncUpdate
+  onLiveSyncUpdate,
+  onStop
 } from './player'
 
 jest.mock('@podlove/html5-audio-driver/src/connect', () => ({
@@ -259,7 +263,19 @@ describe('player', () => {
         expect(saga).toEqual(playtime)
       })
 
+      test('should register stop on REQUEST_STOP', () => {
+        gen.next()
+        gen.next()
+        gen.next()
+        gen.next()
+        gen.next()
+        const [type, saga] = gen.next().value.payload.args
+        expect(type).toEqual(REQUEST_STOP)
+        expect(saga).toEqual(onStop)
+      })
+
       test('should register rate on SET_RATE', () => {
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -271,6 +287,7 @@ describe('player', () => {
       })
 
       test('should register rate on SET_VOLUME', () => {
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -290,12 +307,14 @@ describe('player', () => {
         gen.next()
         gen.next()
         gen.next()
+        gen.next()
         const [type, saga] = gen.next().value.payload.args
         expect(type).toEqual(MUTE)
         expect(saga).toEqual(mute)
       })
 
       test('should register unmute on UNMUTE', () => {
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -357,6 +376,7 @@ describe('player', () => {
 
       beforeEach(() => {
         // Init
+        gen.next()
         gen.next()
         gen.next()
         gen.next()
@@ -942,6 +962,27 @@ describe('player', () => {
     test('should end the saga', () => {
       gen.next()
       expect(gen.next().done).toBeTruthy()
+    })
+  })
+
+  describe('onStop()', () => {
+    let gen
+
+    beforeEach(() => {
+      gen = onStop()
+    })
+
+    test('shoud export a generator', () => {
+      expect(typeof gen.next).toBe('function')
+    })
+
+    test('should dispatch REQUEST_PAUSE', () => {
+      expect(gen.next().value).toEqual(put(requestPause()))
+    })
+
+    test('should dispatch REQUEST_PLAYTIME', () => {
+      gen.next()
+      expect(gen.next().value).toEqual(put(requestPlaytime(0)))
     })
   })
 })
