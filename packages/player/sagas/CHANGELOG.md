@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/podlove/podlove-ui/compare/v5.6.4...v5.7.0) (2021-07-11)
+
+
+### Features
+
+* **player:** add REQUEST_STOP action ([0a5cd1f](https://github.com/podlove/podlove-ui/commit/0a5cd1fd1778aa2134149233196cc186217b5792)), closes [#942](https://github.com/podlove/podlove-ui/issues/942)
+
+
+
+
+
 ## [5.6.4](https://github.com/podlove/podlove-ui/compare/v5.6.3...v5.6.4) (2021-07-07)
 
 **Note:** Version bump only for package @podlove/player-sagas
