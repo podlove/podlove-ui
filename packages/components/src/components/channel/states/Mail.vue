@@ -9,7 +9,7 @@
 
 <script>
 import Icon from '../../icons'
-import { addQueryParameter } from '@podlove/utils/url'
+import { queryParameter } from '@podlove/utils/url'
 
 const LINK = 'mailto:'
 
@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     mailLink() {
-      return addQueryParameter(LINK, { body: this.text, subject: this.subject })
+      return `${LINK}?${queryParameter({ body: this.text, subject: this.subject })}`
     },
     style() {
       return {
