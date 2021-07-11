@@ -17,7 +17,7 @@
     "dompurify": "2.0.12",
     "keycode": "2.2.0",
     "mobile-detect": "1.4.4",
-    "query-string-for-all": "6.9.0",
+    "query-string-for-all": "6.13.7",
     "ramda": "0.27.1",
     "unfetch": "4.1.0"
   },
