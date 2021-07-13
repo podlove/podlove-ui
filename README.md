@@ -101,7 +101,7 @@ Collection of helper utils for dealing with time, transforming chapters accordin
 
 ## Docs
 
-### [web-player](docs/web-player/index.md)
+### [web-player](https://docs.podlove.org/podlove-web-player)
 
 Documentation for Podlove Web Player
 
