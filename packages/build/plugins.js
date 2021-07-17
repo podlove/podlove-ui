@@ -41,12 +41,13 @@ const version = inserts => {
   })
 }
 
-const html = ({ filename, template, chunks, exclude, base, files, sort, inject, params }) =>
+const html = ({ filename, template, chunks, exclude, base, files, sort, inject, params, scriptLoading }) =>
   new HtmlWebpackPlugin({
     filename,
     template,
     chunksSortMode: sort || 'none',
     chunks,
+    scriptLoading: scriptLoading || 'defer',
     ...(base ? { base } : {}),
     files,
     inject: inject || true,

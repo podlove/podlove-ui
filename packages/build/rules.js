@@ -64,8 +64,9 @@ const style = {
     postcss: ({ plugins = [] } = {}) => ({
       loader: 'postcss-loader',
       options: {
-        ident: 'postcss',
-        plugins
+        postcssOptions: {
+          plugins
+        }
       }
     })
   },
