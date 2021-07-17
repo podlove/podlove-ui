@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.7.0](https://github.com/podlove/podlove-ui/compare/v5.6.4...v5.7.0) (2021-07-11)
+
+
+### Bug Fixes
+
+* **components:** fix issue with mail share in firefox ([875277a](https://github.com/podlove/podlove-ui/commit/875277ac1ff4d6e461eaad78aa6edfb69304cfe7)), closes [#950](https://github.com/podlove/podlove-ui/issues/950)
+
+
+### Features
+
+* **player:** add REQUEST_STOP action ([0a5cd1f](https://github.com/podlove/podlove-ui/commit/0a5cd1fd1778aa2134149233196cc186217b5792)), closes [#942](https://github.com/podlove/podlove-ui/issues/942)
+
+
+
+
+
 ## [5.6.4](https://github.com/podlove/podlove-ui/compare/v5.6.3...v5.6.4) (2021-07-07)
 
 
