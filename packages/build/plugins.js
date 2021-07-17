@@ -6,7 +6,6 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyPlugin = require('copy-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 const revision = require('child_process')
   .execSync('git rev-parse HEAD')
@@ -76,8 +75,6 @@ const env = (data = {}) =>
 
 const copy = (patterns = [], options = {}) => new CopyPlugin({ patterns, options })
 
-const friendlyErrors = () => new FriendlyErrorsPlugin()
-
 const serviceWorkerCache = config => new SWPrecachePlugin(config)
 
 module.exports = {
@@ -91,6 +88,5 @@ module.exports = {
   hmr,
   env,
   copy,
-  friendlyErrors,
   serviceWorkerCache
 }

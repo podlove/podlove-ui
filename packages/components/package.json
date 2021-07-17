@@ -20,7 +20,7 @@
     "normalize.css": "8.0.1",
     "rangetouch": "2.0.0",
     "v-tooltip": "2.0.2",
-    "vue": "2.6.12",
+    "vue": "2.6.14",
     "vue-mutation-observer": "0.1.2"
   },
   "devDependencies": {
@@ -31,8 +31,8 @@
     "@storybook/addons": "6.2.7",
     "@storybook/vue": "6.2.7",
     "terser": "5.6.1",
-    "webpack": "5.11.0",
-    "webpack-dev-server": "3.11.0",
+    "webpack": "5.45.1",
+    "webpack-dev-server": "3.11.2",
     "@podlove/build": "^5.7.0"
   }
 }
