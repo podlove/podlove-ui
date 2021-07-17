@@ -1,57 +1,92 @@
 [
   {
-    "title": "FG070 Nachhaltigkeit und die Stadt",
-    "config": "episodes/fg-70.json",
-    "duration": "01:28:03.426"
+    "title": "LOV018 Finanziell unabh\u00e4ngig mit Podcasts \u2013 Philip Banse",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/235",
+    "duration": "01:48:07.660"
   },
   {
-    "title": "FG069 Islamische \u00c4sthetik",
-    "config": "episodes/fg-69.json",
-    "duration": "01:25:20.915"
+    "title": "LOV017 Auphonic mit Georg Holzmann",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/223",
+    "duration": "01:47:43.726"
   },
   {
-    "title": "FG068 Risikoforschung",
-    "config": "episodes/fg-68.json",
-    "duration": "01:38:14.708"
+    "title": "Podlove Beratung mit J\u00f6rn Schaar",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/211",
+    "duration": "01:40:02.577"
   },
   {
-    "title": "FG067 Datenbasierte Konfliktforschung",
-    "config": "episodes/fg-67.json",
-    "duration": "01:19:34.995"
+    "title": "Podcatcher-Apps mit Jeanette M\u00fcller (Podcat)",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/202",
+    "duration": "02:11:51.445"
   },
   {
-    "title": "FG066 Klimaneutralität",
-    "config": "episodes/fg-66.json",
-    "duration": "01:40:36.297"
+    "title": "StudioLink mit Sebastian Reimers",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/192",
+    "duration": "01:53:06.900"
   },
   {
-    "title": "FG065 Feuerökologie",
-    "config": "episodes/fg-65.json",
-    "duration": "02:27:10.981"
+    "title": "Podcast (RSS) Feeds: Standards und Spezifikationen",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/187",
+    "duration": "02:32:34.418"
   },
   {
-    "title": "FG064 Ethik und Genetik",
-    "config": "episodes/fg-64.json",
-    "duration": "01:47:16.900"
+    "title": "Ultraschall mit Ralf Stockmann",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/169",
+    "duration": "02:08:11.518"
   },
   {
-    "title": "FG063 Geothermie",
-    "config": "episodes/fg-63.json",
-    "duration": "01:56:55.100"
+    "title": "WordPress Entwicklung mit Dennis Morhardt",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/158",
+    "duration": "02:41:04.890"
   },
   {
-    "title": "FG062 Leichte Sprache",
-    "config": "episodes/fg-62.json",
-    "duration": "01:32:04.621"
+    "title": "Podcast-Produktion mit Toby Baier",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/139",
+    "duration": "02:02:14.661"
   },
   {
-    "title": "FG061 Persönlichkeitsentwicklung",
-    "config": "episodes/fg-61.json",
-    "duration": "00:58:26.860"
+    "title": "Podcastverzeichnisse mit Christian Bednarek",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/132",
+    "duration": "01:32:50.666"
   },
   {
-    "title": "FG060 Klimawandel",
-    "config": "episodes/fg-60.json",
-    "duration": "00:58:26.860"
+    "title": "Podcast-Produktion mit Stefan Schulz",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/117",
+    "duration": "02:01:34.124"
+  },
+  {
+    "title": "Podcast-Produktion mit Daniela Ishorst",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/106",
+    "duration": "01:20:47.647"
+  },
+  {
+    "title": "Podlove Publisher Plus",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/97",
+    "duration": "01:42:47.749"
+  },
+  {
+    "title": "Podlove Radiator",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/79",
+    "duration": "02:14:43.200"
+  },
+  {
+    "title": "Podlove Subscribe Button",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/72",
+    "duration": "01:07:01.551"
+  },
+  {
+    "title": "Podlove Web Player",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/60",
+    "duration": "01:31:18.610"
+  },
+  {
+    "title": "Podlove Publisher",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/51",
+    "duration": "02:03:30.573"
+  },
+  {
+    "title": "Wir. M\u00fcssen Reden",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/15",
+    "duration": "00:50:03.900"
   }
 ]

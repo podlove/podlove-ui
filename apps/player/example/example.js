@@ -1,12 +1,12 @@
 import { init } from '@podlove/player-actions/init'
 
-import example from './example.json'
-import playlist from './playlist.json'
+import episode from './episode.json'
+import config from './config.json'
 
 window.addEventListener(
   'load',
   () => {
-    window.PODLOVE_STORE.dispatch(init(Object.assign({}, example, { playlist })))
+    window.PODLOVE_STORE.dispatch(init(Object.assign({}, episode, config)))
   },
   false
 )

@@ -1,9 +1,9 @@
 <template lang="pug">
-  div.w-full(class="mobile:p-4 tablet:p-6" data-test="tab-chapters")
+  div.w-full(class="mobile:pt-4 mobile:pr-4 mobile:pl-4 tablet:pt-6 tablet:pr-6 tablet:pl-6" data-test="tab-chapters")
     tab-title(@close="closeTab" tab="chapters") {{ $t('CHAPTERS.TITLE') }}
     ol.sr-only(:aria-label="$t(a11y.key, a11y.attr)")
       a11y(v-for="(chapter, index) in chapters" :chapter="chapter" :index="index" :key="`a11y-${index}`")
-    div.body.overflow-y-auto.overflow-x-hidden(class="mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6")
+    div.body.overflow-y-auto.overflow-x-hidden(class="mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6 mobile:pb-4 tablet:pb-6")
       entry(aria-hidden="true" v-for="(chapter, index) in chapters" :chapter="chapter" :index="index" :key="`chapter-${index}`")
 </template>
 

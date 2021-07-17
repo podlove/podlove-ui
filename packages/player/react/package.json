@@ -1,0 +1,35 @@
+{
+  "name": "@podlove/player-react",
+  "version": "5.7.0",
+  "description": "React Wrapper for Podlove Web Player",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/player/react",
+  "keywords": [],
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist publish",
+    "build": "npm run clean && webpack --config .build/webpack.config.js",
+    "postpublish": "npm run clean",
+    "publish:prepare": "npm run clean && npm run build && podlove-prepublish library"
+  },
+  "dependencies": {
+    "@podlove/player-actions": "^5.7.0",
+    "@podlove/utils": "^5.7.0",
+    "load-scripts": "1.0.0",
+    "lodash.debounce": "4.0.8",
+    "ramda": "0.27.1",
+    "react-element-to-jsx-string": "14.3.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "7.10.4",
+    "@babel/preset-react": "7.10.4",
+    "@podlove/build": "^5.7.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "webpack": "4.41.2"
+  },
+  "peerDependencies": {
+    "react": "17.x",
+    "react-dom": "17.x"
+  }
+}

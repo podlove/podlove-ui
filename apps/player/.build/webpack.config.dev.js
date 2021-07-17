@@ -51,9 +51,7 @@ module.exports = {
     }),
     plugins.copy([
       { from: './example/test.html' },
-      { from: './example/assets', to: 'assets' },
-      { from: './example/episodes', to: 'episodes'},
-      { from: './example/transcripts.json' }
+      { from: './example/assets', to: 'assets' }
     ]),
     plugins.env({ mode: 'development' })
   ]

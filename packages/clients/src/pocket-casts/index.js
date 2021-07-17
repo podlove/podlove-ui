@@ -13,7 +13,7 @@ export default [
   client({
     title: 'PocketCasts',
     scheme: feed => `pktc://subscribe/${feed}`,
-    install: 'https://itunes.apple.com/de/app/pocket-casts/id414834813',
+    install: 'https://apps.apple.com/app/pocket-casts/id414834813',
     platform: platform.ios,
     type: type.app,
     icon

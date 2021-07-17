@@ -15,7 +15,7 @@
 
 ### For Usage
 
-This mono repo creates a set of different packages within the `@podlove` NPM orgainzation. Once released you can use each package by simply installing it as a dependency.
+This mono repo creates a set of different packages within the `@podlove` NPM organization. Once released you can use each package by simply installing it as a dependency.
 
 ## Used Libraries and Frameworks
 
@@ -101,7 +101,7 @@ Collection of helper utils for dealing with time, transforming chapters accordin
 
 ## Docs
 
-### [web-player](docs/web-player/index.md)
+### [web-player](https://docs.podlove.org/podlove-web-player)
 
 Documentation for Podlove Web Player
 
