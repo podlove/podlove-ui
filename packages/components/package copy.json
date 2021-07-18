@@ -5,6 +5,7 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
     "dev": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
     "postpublish": "npm run clean",
@@ -23,16 +24,7 @@
     "vue-mutation-observer": "0.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@storybook/addon-actions": "^6.4.0-alpha.18",
-    "@storybook/addon-essentials": "^6.4.0-alpha.18",
-    "@storybook/addon-links": "^6.4.0-alpha.18",
-    "@storybook/builder-webpack5": "^6.4.0-alpha.18",
-    "@storybook/manager-webpack5": "^6.4.0-alpha.18",
-    "@storybook/vue": "^6.4.0-alpha.18",
-    "babel-loader": "^8.2.2",
     "terser": "5.6.1",
-    "vue-loader": "^15.9.7",
     "webpack": "5.45.1",
     "webpack-dev-server": "3.11.2",
     "@podlove/build": "^5.7.0"

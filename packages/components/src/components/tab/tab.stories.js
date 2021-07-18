@@ -1,11 +1,21 @@
-import { color } from '@storybook/addon-knobs'
-
 import Tab from '.'
-import { color as defaultColor, background as defaultBackground } from 'defaults'
-import Icon from '../icons'
+import * as defaults from 'defaults'
+import Icon from '../icons/Icon.vue'
 
-export default () => ({
-  components: { TabHeader: Tab.Header, TabHeaderItem: Tab.HeaderItem, TabBody: Tab.Body, Icon },
+
+export default {
+  title: 'Tab',
+  component: Tab,
+};
+
+const Template = (args, { argTypes }) => ({
+  components: {
+    TabHeader: Tab.Header,
+    TabHeaderItem: Tab.HeaderItem,
+    TabBody: Tab.Body,
+    Icon
+  },
+  props: Object.keys(argTypes),
   data() {
     return {
       tabs: {
@@ -14,21 +24,6 @@ export default () => ({
       }
     }
   },
-  props: {
-    color: {
-      default: color('color', defaultColor)
-    },
-    colorActive: {
-      default: color('colorActive', defaultBackground)
-    },
-    background: {
-      default: color('background', defaultBackground)
-    },
-    backgroundActive: {
-      default: color('backgroundActive', defaultColor)
-    }
-  },
-
   template: `
     <div style="width: 350px;">
       <tab-header :colorActive="colorActive">
@@ -66,4 +61,14 @@ export default () => ({
       })
     }
   }
-})
+});
+
+export const Default = Template.bind({});
+
+Default.args = {
+  color: defaults.color,
+  colorActive: defaults.background,
+  background: defaults.background,
+  backgroundActive: defaults.color
+};
+
