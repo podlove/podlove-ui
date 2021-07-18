@@ -61,7 +61,7 @@ export const reducer = handleActions(
       }
     }),
 
-    [NEXT_SEARCH_RESULT]: state => ({
+    [NEXT_SEARCH_RESULT]: (state) => ({
       ...state,
       search: {
         ...state.search,
@@ -72,7 +72,7 @@ export const reducer = handleActions(
       }
     }),
 
-    [PREVIOUS_SEARCH_RESULT]: state => ({
+    [PREVIOUS_SEARCH_RESULT]: (state) => ({
       ...state,
       search: {
         ...state.search,
@@ -80,7 +80,7 @@ export const reducer = handleActions(
       }
     }),
 
-    [RESET_SEARCH_TRANSCRIPTS]: state => ({
+    [RESET_SEARCH_TRANSCRIPTS]: (state) => ({
       ...state,
       search: {
         ...state.search,

@@ -2,8 +2,8 @@ import Tooltip from './Tooltip.vue'
 
 export default {
   title: 'Tooltip',
-  component: Tooltip,
-};
+  component: Tooltip
+}
 
 const Template = (args, { argTypes }) => ({
   components: { Tooltip },
@@ -15,15 +15,15 @@ const Template = (args, { argTypes }) => ({
       </tooltip>
     </div>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   content: 'Tooltip Content',
   color: '#fff',
-  background: '#000',
-};
+  background: '#000'
+}
 
 Default.argTypes = {
   onClick: {

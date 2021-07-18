@@ -7,7 +7,7 @@ import template from './template.mustache'
 
 import pkg from '../../package'
 
-export const create = async config => {
+export const create = async (config) => {
   const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config.reference)
 
   const dom = template({
@@ -47,7 +47,7 @@ export const create = async config => {
   return store
 }
 
-export const config = config => {
+export const config = (config) => {
   const theme = propOr({}, 'theme', config)
   const button = propOr({}, 'subscribe-button', config)
   const runtime = propOr({}, 'runtime', config)

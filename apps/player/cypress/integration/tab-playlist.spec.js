@@ -23,12 +23,12 @@ describe('<tab-playlist>', () => {
     })
 
     describe('list', () => {
-      it(`shouldn't render entries if no playlists are available`, function() {
+      it(`shouldn't render entries if no playlists are available`, function () {
         cy.bootstrap('<tab-playlist style="width: 400px;"></tab-playlist>', [this.theme])
         cy.select('tab-playlist--entry').should('have.length', 0)
       })
 
-      it(`should render entries if playlists are available`, function() {
+      it(`should render entries if playlists are available`, function () {
         cy.bootstrap('<tab-playlist style="width: 400px;"></tab-playlist>', [
           this.theme,
           this.playlist
@@ -36,12 +36,12 @@ describe('<tab-playlist>', () => {
         cy.select('tab-playlist--entry').should('have.length', this.playlist.playlist.length)
       })
 
-      it(`should render the entries in the right order`, function() {
+      it(`should render the entries in the right order`, function () {
         cy.bootstrap('<tab-playlist style="width: 400px;"></tab-playlist>', [
           this.theme,
           this.playlist
         ])
-        cy.select('tab-playlist--entry--title').then(nodes => {
+        cy.select('tab-playlist--entry--title').then((nodes) => {
           this.playlist.playlist.forEach((entry, index) => {
             expect(nodes.get(index).textContent).to.contain(entry.title)
           })
@@ -53,18 +53,18 @@ describe('<tab-playlist>', () => {
   describe('logic', () => {
     let assert, dispatch
 
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap('<tab-playlist style="width: 400px;"></tab-playlist>', [
         this.theme,
         this.playlist
-      ]).then(app => {
+      ]).then((app) => {
         assert = onUpdate(app)
         dispatch = app.dispatch
       })
     })
 
     describe('title', () => {
-      it('should trigger the toggle tab action on close', done => {
+      it('should trigger the toggle tab action on close', (done) => {
         assert('PLAYER_TOGGLE_TAB', (_, { payload }) => {
           expect(payload).to.equal('playlist')
           done()
@@ -75,7 +75,7 @@ describe('<tab-playlist>', () => {
     })
 
     describe('list', () => {
-      it('should mark the current episode as active', function() {
+      it('should mark the current episode as active', function () {
         cy.select('tab-playlist--entry--active').should('not.exist')
 
         assert('PLAYER_SELECT_PLAYLIST_ENTRY', () => {
@@ -88,38 +88,30 @@ describe('<tab-playlist>', () => {
         dispatch({ type: 'PLAYER_SELECT_PLAYLIST_ENTRY', payload: { index: 0 } })
       })
 
-      it('should dispatch the action to select and play an episode', done => {
+      it('should dispatch the action to select and play an episode', (done) => {
         assert('PLAYER_SELECT_PLAYLIST_ENTRY', (_, { payload: { index: index } }) => {
           expect(index).to.equal(1)
           done()
         })
 
-        cy.select('tab-playlist--entry--interaction')
-          .eq(1)
-          .click()
+        cy.select('tab-playlist--entry--interaction').eq(1).click()
       })
 
-      it('should dispatch the action to play the current episode', done => {
+      it('should dispatch the action to play the current episode', (done) => {
         assert('PLAYER_REQUEST_PLAY', () => {
           done()
         })
         dispatch({ type: 'PLAYER_SELECT_PLAYLIST_ENTRY', payload: { index: 1 } })
-        cy.select('tab-playlist--entry--interaction')
-          .eq(1)
-          .click()
+        cy.select('tab-playlist--entry--interaction').eq(1).click()
       })
 
-      it('should dispatch the action to pause the current episode', done => {
+      it('should dispatch the action to pause the current episode', (done) => {
         assert('PLAYER_REQUEST_PAUSE', () => {
           done()
         })
 
-        cy.select('tab-playlist--entry--interaction')
-          .eq(1)
-          .click()
-        cy.select('tab-playlist--entry--interaction')
-          .eq(1)
-          .click()
+        cy.select('tab-playlist--entry--interaction').eq(1).click()
+        cy.select('tab-playlist--entry--interaction').eq(1).click()
       })
     })
   })

@@ -1,1 +1,1 @@
-export const media = root => root
+export const media = (root) => root

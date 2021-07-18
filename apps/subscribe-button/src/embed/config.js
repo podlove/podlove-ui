@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { mergeDeepRight } from 'ramda'
 
-const request = async url => fetch(url).then(res => res.json())
+const request = async (url) => fetch(url).then((res) => res.json())
 
 export default async (input = {}, additional = {}) => {
   let config

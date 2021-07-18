@@ -11,7 +11,7 @@ import {
   currentChapter as getCurrentChapter
 } from '@podlove/utils/chapters'
 
-const generateState = chapters => ({
+const generateState = (chapters) => ({
   list: chapters,
   current: getCurrentChapter(chapters),
   next: getNextChapter(chapters),

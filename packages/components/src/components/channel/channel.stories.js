@@ -2,8 +2,8 @@ import Channel from './Channel.vue'
 
 export default {
   title: 'Channel',
-  component: Channel,
-};
+  component: Channel
+}
 
 const Template = (args, { argTypes }) => ({
   components: { Channel },
@@ -21,9 +21,9 @@ const Template = (args, { argTypes }) => ({
     :filled="filled">
   </channel>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   color: '#fff',
@@ -33,7 +33,7 @@ Default.args = {
   text: 'The Text',
   filled: false,
   a11y: 'The a11y text'
-};
+}
 
 Default.argTypes = {
   type: {

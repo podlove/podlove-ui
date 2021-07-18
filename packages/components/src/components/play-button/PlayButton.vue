@@ -44,7 +44,7 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: val => ['play', 'pause', 'loading', 'restart'].includes(val)
+      validator: (val) => ['play', 'pause', 'loading', 'restart'].includes(val)
     },
     background: {
       type: String,

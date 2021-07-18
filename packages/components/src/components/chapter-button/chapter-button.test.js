@@ -19,7 +19,7 @@ describe('ChapterButton', () => {
   describe('props', () => {
     const types = ['next', 'previous']
 
-    types.forEach(type => {
+    types.forEach((type) => {
       test(`should render type '${type}' with prop color`, async () => {
         const wrapper = await mount(ChapterButton, {
           propsData: {

@@ -9,7 +9,7 @@ describe('url-parameters', () => {
         episode: '/episode.json',
         config: '/test/config.json',
         params: { t: '00:02' }
-      }).then(app => {
+      }).then((app) => {
         store = app
       })
     })
@@ -27,7 +27,7 @@ describe('url-parameters', () => {
         episode: '/test/episode.json',
         config: '/test/config.json',
         params: { t: '00:01,00:02' }
-      }).then(app => {
+      }).then((app) => {
         store = app
       })
     })
@@ -54,7 +54,7 @@ describe('url-parameters', () => {
         episode: '/test/episode.json',
         config: '/test/config.json',
         params: { autoplay: true }
-      }).then(app => {
+      }).then((app) => {
         store = app
       })
     })

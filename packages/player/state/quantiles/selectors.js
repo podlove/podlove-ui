@@ -1,1 +1,1 @@
-export const quantiles = root => root
+export const quantiles = (root) => root

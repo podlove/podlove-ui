@@ -41,15 +41,15 @@ export function* previousChapter() {
   yield put(chapters.previousChapter())
 }
 
-export const changeVolume = modifier =>
-  function*(selectVolume) {
+export const changeVolume = (modifier) =>
+  function* (selectVolume) {
     const volume = yield select(selectVolume)
 
     yield put(audio.setVolume(parseFloat(volume) + modifier))
   }
 
-export const changeRate = modifier =>
-  function*(selectRate) {
+export const changeRate = (modifier) =>
+  function* (selectRate) {
     const volume = yield select(selectRate)
 
     yield put(audio.setRate(parseFloat(volume) + modifier))

@@ -4,13 +4,13 @@ describe('<divider>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    it('should render', function() {
+    it('should render', function () {
       cy.bootstrap('<divider style="width: 200px;"></divider>').then(() => {
         cy.select('divider').should('exist')
       })
     })
 
-    it('should have a color gradient', function() {
+    it('should have a color gradient', function () {
       cy.bootstrap('<divider style="width: 200px;"></divider>').then(() => {
         cy.select('divider').should(
           'have.css',

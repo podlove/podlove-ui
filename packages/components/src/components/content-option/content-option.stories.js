@@ -5,11 +5,11 @@ import { types as iconTypes } from '../icons/types'
 
 export default {
   title: 'ContentOption',
-  component: ContentOption,
-};
+  component: ContentOption
+}
 
 const Template = (args, { argTypes }) => ({
-  components: { ContentOption , Icon},
+  components: { ContentOption, Icon },
   props: Object.keys(argTypes),
   template: `
   <content-option
@@ -25,9 +25,9 @@ const Template = (args, { argTypes }) => ({
       <icon slot="icon" :type="icon" />
     </content-option>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   content: 'Show',
@@ -36,7 +36,7 @@ Default.args = {
   background: defaults.background,
   color: defaults.color,
   active: false
-};
+}
 
 Default.argTypes = {
   onClick: {

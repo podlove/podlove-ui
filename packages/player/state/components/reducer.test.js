@@ -31,8 +31,8 @@ import {
 } from '@podlove/player-actions/types'
 import { reducer, INITIAL_STATE } from './reducer'
 
-const state = type => expect(reducer(INITIAL_STATE, { type }))
-const expected = result => ({
+const state = (type) => expect(reducer(INITIAL_STATE, { type }))
+const expected = (result) => ({
   ...INITIAL_STATE,
   ...result
 })

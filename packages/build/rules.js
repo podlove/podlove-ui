@@ -81,7 +81,7 @@ const pug = () => ({
   loader: 'pug-plain-loader'
 })
 
-const fonts = prefix => ({
+const fonts = (prefix) => ({
   test: /\.(eot|svg|ttf|woff|woff2)$/,
   loader: 'file-loader',
   options: {

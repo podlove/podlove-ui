@@ -1,7 +1,7 @@
 import throttle from './throttle'
 
 describe('throttle()', () => {
-  it('should throttle a function call', done => {
+  it('should throttle a function call', (done) => {
     const test = jest.fn()
     const throttled = throttle(test, 10)
 
@@ -15,7 +15,7 @@ describe('throttle()', () => {
     }, 10)
   })
 
-  it('should call the function immediate if parameter is provided', done => {
+  it('should call the function immediate if parameter is provided', (done) => {
     const test = jest.fn()
     const throttled = throttle(test, 10, true)
 

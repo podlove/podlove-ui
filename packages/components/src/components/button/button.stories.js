@@ -3,8 +3,8 @@ import * as defaults from 'defaults'
 
 export default {
   title: 'Button',
-  component: ButtonComponent,
-};
+  component: ButtonComponent
+}
 
 const Template = (args, { argTypes }) => ({
   components: { ButtonComponent },
@@ -17,9 +17,9 @@ const Template = (args, { argTypes }) => ({
       :disabled="disabled"
     >{{ text }}</button-component>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   textColor: defaults.color,
@@ -28,4 +28,4 @@ Default.args = {
   href: 'href',
   disabled: false,
   text: 'Button Text'
-};
+}

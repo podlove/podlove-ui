@@ -2,7 +2,7 @@ describe('config parsing', () => {
   beforeEach(cy.setup)
 
   describe('chapters', () => {
-    it('should resolve chapters from an url', function() {
+    it('should resolve chapters from an url', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, chapters: '/chapters.json' },
         config: '/test/config.json'
@@ -12,7 +12,7 @@ describe('config parsing', () => {
       cy.select('tab-trigger--chapters').should('exist')
     })
 
-    it('should resolve chapters from the episode', function() {
+    it('should resolve chapters from the episode', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, chapters: this.chapters },
         config: '/test/config.json'
@@ -23,7 +23,7 @@ describe('config parsing', () => {
   })
 
   describe('transcripts', () => {
-    it('should resolve transcripts from an url', function() {
+    it('should resolve transcripts from an url', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, transcripts: '/transcripts.json' },
         config: '/test/config.json'
@@ -33,7 +33,7 @@ describe('config parsing', () => {
       cy.select('tab-trigger--transcripts').should('exist')
     })
 
-    it('should resolve transcripts from the config', function() {
+    it('should resolve transcripts from the config', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, transcripts: this.transcripts },
         config: '/test/config.json'
@@ -45,7 +45,7 @@ describe('config parsing', () => {
   })
 
   describe('playlist', () => {
-    it('should resolve playlist from an url', function() {
+    it('should resolve playlist from an url', function () {
       cy.embed('<div></div>', {
         episode: '/episode.json',
         config: { ...this.config, playlist: '/playlist.json' }
@@ -54,7 +54,7 @@ describe('config parsing', () => {
       cy.select('tab-trigger--playlist').should('exist')
     })
 
-    it('should resolve playlist from the config', function() {
+    it('should resolve playlist from the config', function () {
       cy.embed('<div></div>', {
         episode: '/episode.json',
         config: { ...this.config, playlist: this.playlist }
@@ -68,8 +68,8 @@ describe('config parsing', () => {
     // const tabs = ['chapters', 'transcripts', 'files', 'playlist', 'share']
     const tabs = ['chapters']
 
-    tabs.forEach(tab => {
-      it(`should make the ${tab} tab active`, function() {
+    tabs.forEach((tab) => {
+      it(`should make the ${tab} tab active`, function () {
         cy.embed('<div></div>', {
           episode: '/episode.json',
           config: { ...this.config, activeTab: tab }

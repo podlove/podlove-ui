@@ -9,8 +9,8 @@
       :tabindex="index"
       @click="clickHandler"
     >
-      <span class="icon" :style="iconStyle" aria-hidden="true"><slot name="icon"/></span>
-      <span class="title"><slot name="title"/></span>
+      <span class="icon" :style="iconStyle" aria-hidden="true"><slot name="icon" /></span>
+      <span class="title"><slot name="title" /></span>
       <icon v-if="active" type="close" class="close" :color="iconColor(true)" aria-hidden="true" />
     </button>
   </li>

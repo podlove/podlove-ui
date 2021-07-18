@@ -2,8 +2,8 @@ import ProgressBar from './ProgressBar.vue'
 
 export default {
   title: 'ProgressBar',
-  component: ProgressBar,
-};
+  component: ProgressBar
+}
 
 const Template = (args, { argTypes }) => ({
   components: { ProgressBar },
@@ -28,9 +28,9 @@ const Template = (args, { argTypes }) => ({
     >
     </progress-bar>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   title: 'input title',
@@ -60,8 +60,8 @@ Default.args = {
   progressColor: '#D1C477',
   thumbColor: '#000',
   highlightColor: '#D1C477',
-  label: '',
-};
+  label: ''
+}
 
 Default.argTypes = {
   onInput: {
@@ -72,5 +72,5 @@ Default.argTypes = {
   },
   onGhost: {
     action: 'ghostAction'
-  },
+  }
 }

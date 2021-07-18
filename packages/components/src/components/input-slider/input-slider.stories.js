@@ -3,8 +3,8 @@ import * as defaults from 'defaults'
 
 export default {
   title: 'InputSlider',
-  component: InputSlider,
-};
+  component: InputSlider
+}
 
 const Template = (args, { argTypes }) => ({
   components: { InputSlider },
@@ -27,9 +27,9 @@ const Template = (args, { argTypes }) => ({
     </input-slider>
   </div>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   min: 0,
@@ -61,7 +61,7 @@ Default.args = {
       label: '100x'
     }
   ]
-};
+}
 
 Default.argTypes = {
   onChange: {

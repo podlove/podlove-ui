@@ -4,7 +4,7 @@ import icon from './icon.svg'
 export default [
   client({
     title: 'PocketCasts',
-    scheme: feed => `pktc://subscribe/${encodeURIComponent(feed)}`,
+    scheme: (feed) => `pktc://subscribe/${encodeURIComponent(feed)}`,
     install: 'https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts',
     platform: platform.android,
     type: type.app,
@@ -12,7 +12,7 @@ export default [
   }),
   client({
     title: 'PocketCasts',
-    scheme: feed => `pktc://subscribe/${feed}`,
+    scheme: (feed) => `pktc://subscribe/${feed}`,
     install: 'https://apps.apple.com/app/pocket-casts/id414834813',
     platform: platform.ios,
     type: type.app,
@@ -20,7 +20,7 @@ export default [
   }),
   client({
     title: 'PocketCasts',
-    scheme: id => `https://pca.st/${id}`,
+    scheme: (id) => `https://pca.st/${id}`,
     install: 'https://play.pocketcasts.com/',
     platform: platform.web,
     type: type.service,

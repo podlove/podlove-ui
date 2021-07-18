@@ -2,8 +2,8 @@ import ChapterButton from './ChapterButton.vue'
 
 export default {
   title: 'ChapterButton',
-  component: ChapterButton,
-};
+  component: ChapterButton
+}
 
 const Template = (args, { argTypes }) => ({
   components: { ChapterButton },
@@ -16,13 +16,13 @@ const Template = (args, { argTypes }) => ({
   >
   </chapter-button>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
-  color: '#000',
-};
+  color: '#000'
+}
 
 Default.argTypes = {
   onClick: {
@@ -32,5 +32,5 @@ Default.argTypes = {
     defaultValue: 'next',
     options: ['next', 'previous'],
     control: { type: 'select' }
-  },
+  }
 }

@@ -7,10 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyPlugin = require('copy-webpack-plugin')
 const SWPrecachePlugin = require('sw-precache-webpack-plugin')
-const revision = require('child_process')
-  .execSync('git rev-parse HEAD')
-  .toString()
-  .trim()
+const revision = require('child_process').execSync('git rev-parse HEAD').toString().trim()
 const { prepend } = require('./utils')
 
 const vue = () => new VueLoaderPlugin()
@@ -22,12 +19,12 @@ const css = ({ filename = '[name].css', prefix = '' } = {}) =>
 
 const minifyCss = () => new OptimizeCSSAssetsPlugin({})
 
-const base = input =>
+const base = (input) =>
   new webpack.DefinePlugin({
     BASE: JSON.stringify(input)
   })
 
-const version = inserts => {
+const version = (inserts) => {
   const banner = {
     creation: new Date().toISOString(),
     revision,
@@ -41,7 +38,18 @@ const version = inserts => {
   })
 }
 
-const html = ({ filename, template, chunks, exclude, base, files, sort, inject, params, scriptLoading }) =>
+const html = ({
+  filename,
+  template,
+  chunks,
+  exclude,
+  base,
+  files,
+  sort,
+  inject,
+  params,
+  scriptLoading
+}) =>
   new HtmlWebpackPlugin({
     filename,
     template,
@@ -76,7 +84,7 @@ const env = (data = {}) =>
 
 const copy = (patterns = [], options = {}) => new CopyPlugin({ patterns, options })
 
-const serviceWorkerCache = config => new SWPrecachePlugin(config)
+const serviceWorkerCache = (config) => new SWPrecachePlugin(config)
 
 module.exports = {
   vue,

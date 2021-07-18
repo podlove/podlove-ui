@@ -9,7 +9,7 @@ const emptyChapter = {
   index: -1
 }
 
-export const getChapterByIndex = chapters => index =>
+export const getChapterByIndex = (chapters) => (index) =>
   index < 0 ? emptyChapter : prop(index, chapters)
 
 export const currentChapterIndex = compose(
@@ -23,14 +23,14 @@ export const currentChapter = compose(
   defaultTo([])
 )
 
-export const nextChapter = chapters =>
+export const nextChapter = (chapters) =>
   compose(getChapterByIndex(chapters), add(1), currentChapterIndex)(chapters)
 
-export const previousChapter = chapters =>
+export const previousChapter = (chapters) =>
   compose(getChapterByIndex(chapters), add(-1), currentChapterIndex)(chapters)
 
 export const currentChapterByPlaytime = curry((chapters, playtime) =>
-  find(chapter => {
+  find((chapter) => {
     if (playtime < chapter.start) {
       return false
     }
@@ -43,17 +43,17 @@ export const currentChapterByPlaytime = curry((chapters, playtime) =>
   })(chapters)
 )
 
-export const inactiveChapter = chapter => ({
+export const inactiveChapter = (chapter) => ({
   ...chapter,
   active: false
 })
 
-export const activeChapter = chapter => ({
+export const activeChapter = (chapter) => ({
   ...chapter,
   active: true
 })
 
-export const setActiveByPlaytime = playtime => chapter => {
+export const setActiveByPlaytime = (playtime) => (chapter) => {
   if (playtime < chapter.start) {
     return inactiveChapter(chapter)
   }
@@ -65,5 +65,5 @@ export const setActiveByPlaytime = playtime => chapter => {
   return activeChapter(chapter)
 }
 
-export const setActiveByIndex = chapterIndex => (chapter, index) =>
+export const setActiveByIndex = (chapterIndex) => (chapter, index) =>
   chapterIndex === index ? activeChapter(chapter) : inactiveChapter(chapter)

@@ -78,7 +78,7 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: val =>
+      validator: (val) =>
         [
           'embed',
           'facebook',

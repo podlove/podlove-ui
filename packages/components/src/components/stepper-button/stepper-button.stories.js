@@ -2,8 +2,8 @@ import StepperButton from './StepperButton.vue'
 
 export default {
   title: 'StepperButton',
-  component: StepperButton,
-};
+  component: StepperButton
+}
 
 const Template = (args, { argTypes }) => ({
   components: { StepperButton },
@@ -16,13 +16,13 @@ const Template = (args, { argTypes }) => ({
   >
   </stepper-button>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   color: '#000'
-};
+}
 
 Default.argTypes = {
   onClick: {

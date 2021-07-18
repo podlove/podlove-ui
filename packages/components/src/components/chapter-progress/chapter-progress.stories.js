@@ -4,16 +4,14 @@ import * as defaults from 'defaults'
 
 export default {
   title: 'ChapterProgress',
-  component: ChapterProgress,
-};
+  component: ChapterProgress
+}
 
 const Template = (args, { argTypes }) => ({
   components: { ChapterProgress },
   props: Object.keys(argTypes),
   template: `
-  <div style="background: ${color(defaults.background)
-    .fade(0.8)
-    .string()}">
+  <div style="background: ${color(defaults.background).fade(0.8).string()}">
     <chapter-progress
       :chapter="chapter"
       :showLink="showLink"
@@ -30,14 +28,14 @@ const Template = (args, { argTypes }) => ({
     </chapter-progress>
   </div>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   showLink: true,
   progressColor: defaults.background
-};
+}
 
 Default.argTypes = {
   onChapter: {
@@ -61,7 +59,7 @@ Default.argTypes = {
   chapter: {
     defaultValue: {
       start: 0,
-      end:  5 * 60 * 1000,
+      end: 5 * 60 * 1000,
       title: 'Chapter Title',
       href: 'http://google.de',
       linkTitle: 'Link Title',

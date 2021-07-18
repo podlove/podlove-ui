@@ -20,7 +20,7 @@ const stopAt = (stoptime, store) => {
   })
 }
 
-export const applyUrlParameters = store => {
+export const applyUrlParameters = (store) => {
   ready(store).then(() => {
     const { starttime, stoptime, autoplay } = urlParameters()
     if (starttime || autoplay || stoptime) {

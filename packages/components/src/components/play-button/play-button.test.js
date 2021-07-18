@@ -40,7 +40,7 @@ describe('PlayButton', () => {
       }
     ]
 
-    types.forEach(type => {
+    types.forEach((type) => {
       props.forEach(({ prop, value }) => {
         test(`should render type '${type}' with '${prop}'`, async () => {
           const wrapper = await mount(PlayButton, {

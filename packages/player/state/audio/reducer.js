@@ -22,12 +22,12 @@ export const reducer = handleActions(
       volume: inVolumeRange(payload)
     }),
 
-    [MUTE]: state => ({
+    [MUTE]: (state) => ({
       ...state,
       muted: true
     }),
 
-    [UNMUTE]: state => ({
+    [UNMUTE]: (state) => ({
       ...state,
       muted: false
     }),

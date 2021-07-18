@@ -15,19 +15,19 @@ describe('<tab-files>', () => {
     })
 
     describe('list', () => {
-      it(`shouldn't render entries if no files are available`, function() {
+      it(`shouldn't render entries if no files are available`, function () {
         cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme])
         cy.select('tab-files--download').should('have.length', 0)
       })
 
-      it(`should render entries if files are available`, function() {
+      it(`should render entries if files are available`, function () {
         cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
         cy.select('tab-files--download').should('have.length', this.audio.audio.length)
       })
 
-      it(`should render the entries in the right order`, function() {
+      it(`should render the entries in the right order`, function () {
         cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
-        cy.select('tab-files--download').then(nodes => {
+        cy.select('tab-files--download').then((nodes) => {
           this.audio.audio.forEach((audio, index) => {
             expect(nodes.get(index).textContent).to.contain(audio.title)
             expect(nodes.get(index).getAttribute('href')).to.equal(audio.url)
@@ -40,16 +40,16 @@ describe('<tab-files>', () => {
   describe('logic', () => {
     let assert
 
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio]).then(
-        app => {
+        (app) => {
           assert = onUpdate(app)
         }
       )
     })
 
     describe('title', () => {
-      it('should trigger the toggle tab action on close', done => {
+      it('should trigger the toggle tab action on close', (done) => {
         assert('PLAYER_TOGGLE_TAB', (_, { payload }) => {
           expect(payload).to.equal('files')
           done()

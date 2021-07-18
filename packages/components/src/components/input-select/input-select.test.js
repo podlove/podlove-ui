@@ -60,10 +60,7 @@ describe('InputSelect', () => {
         }
       })
 
-      wrapper
-        .findAll('option')
-        .at(1)
-        .trigger('change')
+      wrapper.findAll('option').at(1).trigger('change')
       expect(wrapper.emitted('change')).toEqual([['bar']])
     })
   })

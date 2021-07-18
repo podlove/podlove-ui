@@ -26,7 +26,7 @@ describe('active tab', () => {
   beforeEach(cy.setup)
 
   describe('predefined tab', () => {
-    it('should open the player with the configured tab', function() {
+    it('should open the player with the configured tab', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, chapters: '/chapters.json' },
         config
@@ -41,7 +41,7 @@ describe('active tab', () => {
   })
 
   describe('chapters', () => {
-    it('should not select the chapters tab if no chapters are available', function() {
+    it('should not select the chapters tab if no chapters are available', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, chapters: null },
         config

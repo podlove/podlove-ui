@@ -1,4 +1,4 @@
-const select = selector => `[data-test="${selector}"]`
+const select = (selector) => `[data-test="${selector}"]`
 
 module.exports = {
   select

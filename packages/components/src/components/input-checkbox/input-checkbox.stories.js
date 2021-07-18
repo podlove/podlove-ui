@@ -3,8 +3,8 @@ import * as defaults from 'defaults'
 
 export default {
   title: 'InputCheckbox',
-  component: InputCheckbox,
-};
+  component: InputCheckbox
+}
 
 const Template = (args, { argTypes }) => ({
   components: { InputCheckbox },
@@ -19,20 +19,20 @@ const Template = (args, { argTypes }) => ({
      @change="onChange">
   </input-checkbox>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   value: false,
   disabled: false,
   label: 'Input Label',
   borderColor: defaults.background,
-  background: defaults.color,
-};
+  background: defaults.color
+}
 
 Default.argTypes = {
   onChange: {
     action: 'changeAction'
-  },
+  }
 }

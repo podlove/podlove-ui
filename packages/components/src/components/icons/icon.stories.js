@@ -1,11 +1,10 @@
 import Icon from './Icon.vue'
 import { types as iconTypes } from './types'
 
-
 export default {
   title: 'Icon',
-  component: Icon,
-};
+  component: Icon
+}
 
 const Template = (args, { argTypes }) => ({
   components: { Icon },
@@ -17,14 +16,14 @@ const Template = (args, { argTypes }) => ({
     :size="size"
   >
   </icon>`
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   color: '#000',
   size: 21
-};
+}
 
 Default.argTypes = {
   type: {

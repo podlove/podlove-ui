@@ -18,7 +18,7 @@ module.exports = ({ vendors = [], runtimeChunk } = {}) => ({
           }
 
           // But not node modules that contain these key words in the path
-          if (vendors.concat(vendors).some(str => mod.context.includes(str))) {
+          if (vendors.concat(vendors).some((str) => mod.context.includes(str))) {
             return false
           }
 

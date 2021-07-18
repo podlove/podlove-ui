@@ -5,19 +5,21 @@ describe('persist', () => {
   let assert, store
   beforeEach(cy.setup)
   beforeEach(() => {
-    cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(app => {
-      assert = onUpdate(app)
-      store = app
-    })
+    cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
+      (app) => {
+        assert = onUpdate(app)
+        store = app
+      }
+    )
   })
 
   describe('playtime', () => {
-    it('should persist the playtime', done => {
+    it('should persist the playtime', (done) => {
       assert('PLAYER_REQUEST_PLAYTIME', () => {
         // throttled time
         cy.wait(1000)
 
-        storage.getItem('playtime').then(val => {
+        storage.getItem('playtime').then((val) => {
           expect(val).to.equal(60000)
           done()
         })
@@ -33,7 +35,7 @@ describe('persist', () => {
       cy.wait(1000)
 
       cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
-        app => {
+        (app) => {
           expect(app.getState().timepiece.playtime).to.equal(60000)
         }
       )
@@ -43,13 +45,13 @@ describe('persist', () => {
   describe('tabs', () => {
     const tabs = ['files', 'playlist', 'chapters', 'transcripts', 'share']
 
-    tabs.forEach(tab => {
-      it(`should persist on ${tab} tab change`, done => {
+    tabs.forEach((tab) => {
+      it(`should persist on ${tab} tab change`, (done) => {
         assert('PLAYER_TOGGLE_TAB', () => {
           // throttled time
           cy.wait(1000)
 
-          storage.getItem('tabs').then(val => {
+          storage.getItem('tabs').then((val) => {
             expect(val[tab]).to.equal(true)
             done()
           })
@@ -65,7 +67,7 @@ describe('persist', () => {
         cy.wait(1000)
 
         cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
-          app => {
+          (app) => {
             expect(app.getState().tabs[tab]).to.equal(true)
           }
         )
@@ -74,12 +76,12 @@ describe('persist', () => {
   })
 
   describe('quantiles', () => {
-    it('should persist the quantiles', done => {
+    it('should persist the quantiles', (done) => {
       assert('PLAYER_LOAD_QUANTILES', () => {
         // throttled time
         cy.wait(1000)
 
-        storage.getItem('quantiles').then(val => {
+        storage.getItem('quantiles').then((val) => {
           expect(val).to.deep.equal([
             [0, 10],
             [100, 200]
@@ -110,7 +112,7 @@ describe('persist', () => {
       cy.wait(1000)
 
       cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
-        app => {
+        (app) => {
           expect(app.getState().quantiles).to.deep.equal([
             [0, 10],
             [100, 200]

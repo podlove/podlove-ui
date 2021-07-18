@@ -1,6 +1,6 @@
 export const PREFIX = `BUTTON`
 
-const type = name => `${PREFIX}_${name}`
+const type = (name) => `${PREFIX}_${name}`
 
 export const INIT = type('INIT')
 

@@ -1,11 +1,10 @@
 import InputText from './InputText.vue'
 import * as defaults from 'defaults'
 
-
 export default {
   title: 'InputText',
-  component: InputText,
-};
+  component: InputText
+}
 
 const Template = (args, { argTypes }) => ({
   components: { InputText },
@@ -20,9 +19,9 @@ const Template = (args, { argTypes }) => ({
       :block="block">
     </input-text>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   disabled: false,
@@ -31,5 +30,4 @@ Default.args = {
   borderColor: defaults.highlight,
   background: defaults.background,
   block: false
-};
-
+}

@@ -6,13 +6,13 @@ describe('<chapter-next>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    it('should not render when chapters are not available', function() {
+    it('should not render when chapters are not available', function () {
       cy.bootstrap('<chapter-next></chapter-next>').then(() => {
         cy.select('chapter-next').should('not.exist')
       })
     })
 
-    it('should render when chapters are available', function() {
+    it('should render when chapters are available', function () {
       cy.bootstrap('<chapter-next></chapter-next>', [this.chapters]).then(() => {
         cy.select('chapter-next').should('exist')
       })
@@ -22,8 +22,8 @@ describe('<chapter-next>', () => {
   describe('logic', () => {
     let assert, store
 
-    beforeEach(function() {
-      cy.bootstrap('<chapter-next></chapter-next>', [this.chapters]).then(app => {
+    beforeEach(function () {
+      cy.bootstrap('<chapter-next></chapter-next>', [this.chapters]).then((app) => {
         expect(app.getState().chapters.current.index).to.equal(1)
         cy.select('chapter-next').should('exist')
         assert = onUpdate(app)
@@ -31,8 +31,8 @@ describe('<chapter-next>', () => {
       })
     })
 
-    it('should jump to the next chapter on click', function(done) {
-      assert('PLAYER_SET_CHAPTER', state => {
+    it('should jump to the next chapter on click', function (done) {
+      assert('PLAYER_SET_CHAPTER', (state) => {
         expect(state.chapters.current.index).to.equal(2)
         done()
       })
@@ -40,7 +40,7 @@ describe('<chapter-next>', () => {
       cy.select('chapter-next').click()
     })
 
-    it('should be disabled on last chapter', function(done) {
+    it('should be disabled on last chapter', function (done) {
       assert('PLAYER_SET_CHAPTER', () => {
         cy.select('chapter-next').should('be.disabled')
         done()

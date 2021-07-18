@@ -9,7 +9,7 @@ const files = require('./tabs/files')
 const info = require('./tabs/info')
 const share = require('./tabs/share')
 
-module.exports = cy =>
+module.exports = (cy) =>
   Object.assign({}, controllbar(cy), progressbar(cy), header(cy), {
     tabs: {
       audio: audio(cy),

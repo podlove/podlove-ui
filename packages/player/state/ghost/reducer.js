@@ -18,14 +18,14 @@ export const reducer = handleActions(
       time: state.active ? toInt(payload) : null
     }),
 
-    [ENABLE_GHOST_MODE]: state => {
+    [ENABLE_GHOST_MODE]: (state) => {
       return {
         ...state,
         active: true
       }
     },
 
-    [DISABLE_GHOST_MODE]: state => ({
+    [DISABLE_GHOST_MODE]: (state) => ({
       ...state,
       active: false,
       time: null

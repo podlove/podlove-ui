@@ -66,17 +66,13 @@ export default {
     },
 
     progressColor() {
-      return color(this.color)
-        .alpha(0.5)
-        .string()
+      return color(this.color).alpha(0.5).string()
     },
 
     style() {
       return this.hover
         ? {
-            background: color(this.color)
-              .alpha(0.3)
-              .string()
+            background: color(this.color).alpha(0.3).string()
           }
         : {}
     },

@@ -30,7 +30,7 @@ describe('Icon', () => {
       }
     ]
 
-    types.forEach(type => {
+    types.forEach((type) => {
       props.forEach(({ prop, value }) => {
         test(`should render type '${type}' with prop ${prop}`, async () => {
           const wrapper = await mount(Icon, {

@@ -3,8 +3,8 @@ import * as defaults from 'defaults'
 
 export default {
   title: 'Card',
-  component: Card,
-};
+  component: Card
+}
 
 const Template = (args, { argTypes }) => ({
   components: { Card },
@@ -20,11 +20,11 @@ const Template = (args, { argTypes }) => ({
     </div>
   </card>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   headerColor: defaults.background,
   backgroundColor: '#efefef'
-};
+}

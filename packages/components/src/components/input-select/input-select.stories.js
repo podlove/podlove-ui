@@ -3,8 +3,8 @@ import * as defaults from 'defaults'
 
 export default {
   title: 'InputSelect',
-  component: InputSelect,
-};
+  component: InputSelect
+}
 
 const Template = (args, { argTypes }) => ({
   components: { InputSelect },
@@ -20,9 +20,9 @@ const Template = (args, { argTypes }) => ({
     @change="onChange">
   </input-select>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   value: 'value-2',
@@ -30,8 +30,8 @@ Default.args = {
   borderColor: defaults.background,
   background: defaults.color,
   color: defaults.background,
-  options: ['value-1', 'value-2', 'value-3', 'value-4'],
-};
+  options: ['value-1', 'value-2', 'value-3', 'value-4']
+}
 
 Default.argTypes = {
   onChange: {

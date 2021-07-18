@@ -22,7 +22,7 @@ Cypress.Commands.add('bootstrap', (template = '', stateFragments = []) => {
   cy.visit('/test.html')
   cy.url()
     .should('include', '/test.html')
-    .then(() => cy.window().then(win => win.BOOTSTRAP(template, state)))
+    .then(() => cy.window().then((win) => win.BOOTSTRAP(template, state)))
 })
 
-Cypress.Commands.add('select', selector => cy.get(select(selector)))
+Cypress.Commands.add('select', (selector) => cy.get(select(selector)))

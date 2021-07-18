@@ -60,87 +60,87 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [HIDE_COMPONENT_ERROR]: state => ({
+    [HIDE_COMPONENT_ERROR]: (state) => ({
       ...state,
       error: false
     }),
-    [SHOW_COMPONENT_INFO_POSTER]: state => ({
+    [SHOW_COMPONENT_INFO_POSTER]: (state) => ({
       ...state,
       poster: true
     }),
-    [HIDE_COMPONENT_INFO_POSTER]: state => ({
+    [HIDE_COMPONENT_INFO_POSTER]: (state) => ({
       ...state,
       poster: false
     }),
-    [HIDE_COMPONENT_CONTROLS_BUTTON]: state => ({
+    [HIDE_COMPONENT_CONTROLS_BUTTON]: (state) => ({
       ...state,
       playButton: false
     }),
-    [SHOW_COMPONENT_CONTROLS_BUTTON_PLAYING]: state => ({
+    [SHOW_COMPONENT_CONTROLS_BUTTON_PLAYING]: (state) => ({
       ...state,
       playButton: 'playing'
     }),
-    [SHOW_COMPONENT_CONTROLS_BUTTON_DURATION]: state => ({
+    [SHOW_COMPONENT_CONTROLS_BUTTON_DURATION]: (state) => ({
       ...state,
       playButton: 'duration'
     }),
-    [SHOW_COMPONENT_CONTROLS_BUTTON_PAUSE]: state => ({
+    [SHOW_COMPONENT_CONTROLS_BUTTON_PAUSE]: (state) => ({
       ...state,
       playButton: 'paused'
     }),
-    [SHOW_COMPONENT_CONTROLS_BUTTON_LOADING]: state => ({
+    [SHOW_COMPONENT_CONTROLS_BUTTON_LOADING]: (state) => ({
       ...state,
       playButton: 'loading'
     }),
-    [SHOW_COMPONENT_CONTROLS_BUTTON_REPLAY]: state => ({
+    [SHOW_COMPONENT_CONTROLS_BUTTON_REPLAY]: (state) => ({
       ...state,
       playButton: 'replay'
     }),
-    [SHOW_COMPONENT_CONTROLS_BUTTON_REMAINING]: state => ({
+    [SHOW_COMPONENT_CONTROLS_BUTTON_REMAINING]: (state) => ({
       ...state,
       playButton: 'remaining'
     }),
-    [SHOW_COMPONENT_CONTROLS_BUTTON_RETRY]: state => ({
+    [SHOW_COMPONENT_CONTROLS_BUTTON_RETRY]: (state) => ({
       ...state,
       playButton: 'retry'
     }),
-    [SHOW_COMPONENT_CONTROLS_CHAPTERS]: state => ({
+    [SHOW_COMPONENT_CONTROLS_CHAPTERS]: (state) => ({
       ...state,
       chapterButtons: true
     }),
-    [HIDE_COMPONENT_CONTROLS_CHAPTERS]: state => ({
+    [HIDE_COMPONENT_CONTROLS_CHAPTERS]: (state) => ({
       ...state,
       chapterButtons: false
     }),
-    [SHOW_COMPONENT_CONTROLS_STEPPERS]: state => ({
+    [SHOW_COMPONENT_CONTROLS_STEPPERS]: (state) => ({
       ...state,
       stepperButtons: true
     }),
-    [HIDE_COMPONENT_CONTROLS_STEPPERS]: state => ({
+    [HIDE_COMPONENT_CONTROLS_STEPPERS]: (state) => ({
       ...state,
       stepperButtons: false
     }),
-    [SHOW_COMPONENT_PROGRESSBAR]: state => ({
+    [SHOW_COMPONENT_PROGRESSBAR]: (state) => ({
       ...state,
       progressBar: true
     }),
-    [HIDE_COMPONENT_PROGRESSBAR]: state => ({
+    [HIDE_COMPONENT_PROGRESSBAR]: (state) => ({
       ...state,
       progressBar: false
     }),
-    [SHOW_COMPONENT_VOLUME_SLIDER]: state => ({
+    [SHOW_COMPONENT_VOLUME_SLIDER]: (state) => ({
       ...state,
       volumeControl: true
     }),
-    [HIDE_COMPONENT_VOLUME_SLIDER]: state => ({
+    [HIDE_COMPONENT_VOLUME_SLIDER]: (state) => ({
       ...state,
       volumeControl: false
     }),
-    [SHOW_COMPONENT_RATE_SLIDER]: state => ({
+    [SHOW_COMPONENT_RATE_SLIDER]: (state) => ({
       ...state,
       rateControl: true
     }),
-    [HIDE_COMPONENT_RATE_SLIDER]: state => ({
+    [HIDE_COMPONENT_RATE_SLIDER]: (state) => ({
       ...state,
       rateControl: false
     }),
@@ -158,53 +158,53 @@ export const reducer = handleActions(
         [payload]: false
       }
     }),
-    [SHOW_COMPONENT_SHOW_TITLE]: state => ({
+    [SHOW_COMPONENT_SHOW_TITLE]: (state) => ({
       ...state,
       info: {
         ...state.info,
         showTitle: true
       }
     }),
-    [HIDE_COMPONENT_SHOW_TITLE]: state => ({
+    [HIDE_COMPONENT_SHOW_TITLE]: (state) => ({
       ...state,
       info: {
         ...state.info,
         showTitle: false
       }
     }),
-    [SHOW_COMPONENT_EPISODE_TITLE]: state => ({
+    [SHOW_COMPONENT_EPISODE_TITLE]: (state) => ({
       ...state,
       info: {
         ...state.info,
         episodeTitle: true
       }
     }),
-    [HIDE_COMPONENT_EPISODE_TITLE]: state => ({
+    [HIDE_COMPONENT_EPISODE_TITLE]: (state) => ({
       ...state,
       info: {
         ...state.info,
         episodeTitle: false
       }
     }),
-    [SHOW_COMPONENT_SUBTITLE]: state => ({
+    [SHOW_COMPONENT_SUBTITLE]: (state) => ({
       ...state,
       info: {
         ...state.info,
         subtitle: true
       }
     }),
-    [HIDE_COMPONENT_SUBTITLE]: state => ({
+    [HIDE_COMPONENT_SUBTITLE]: (state) => ({
       ...state,
       info: {
         ...state.info,
         subtitle: false
       }
     }),
-    [SHOW_SHARE_PLAYTIME]: state => ({
+    [SHOW_SHARE_PLAYTIME]: (state) => ({
       ...state,
       sharePlaytime: true
     }),
-    [HIDE_SHARE_PLAYTIME]: state => ({
+    [HIDE_SHARE_PLAYTIME]: (state) => ({
       ...state,
       sharePlaytime: false
     })

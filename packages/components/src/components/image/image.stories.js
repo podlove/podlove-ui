@@ -3,8 +3,8 @@ import * as defaults from 'defaults'
 
 export default {
   title: 'LazyImage',
-  component: LazyImage,
-};
+  component: LazyImage
+}
 
 const Template = (args, { argTypes }) => ({
   components: { LazyImage },
@@ -21,15 +21,15 @@ const Template = (args, { argTypes }) => ({
     >
   </lazy-image>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   alt: 'Image Alt text',
   url: 'https://via.placeholder.com/1500',
   color: defaults.background
-};
+}
 
 Default.argTypes = {
   onLoad: {
@@ -37,5 +37,5 @@ Default.argTypes = {
   },
   onError: {
     action: 'errorAction'
-  },
+  }
 }

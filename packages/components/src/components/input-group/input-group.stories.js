@@ -3,11 +3,10 @@ import ButtonComponent from '../button'
 import InputText from '../input-text'
 import Icon from '../icons'
 
-
 export default {
   title: 'InputGroup',
-  component: InputGroup,
-};
+  component: InputGroup
+}
 
 const Template = (args, { argTypes }) => ({
   components: { InputGroup, ButtonComponent, InputText, Icon },
@@ -18,6 +17,6 @@ const Template = (args, { argTypes }) => ({
     <input-text value="My Input text value" slot="input"></input-text>
   </input-group>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})

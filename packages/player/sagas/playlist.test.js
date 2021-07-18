@@ -27,7 +27,7 @@ import * as player from '@podlove/player-actions/play'
 describe('playlist', () => {
   let selectEpisodeConfig, selectRate, selectVolume, selectMuted, selectPlaylist, selectReference
 
-  const list = active => [
+  const list = (active) => [
     {
       title: 'Episode 1',
       config: 'episode/1',

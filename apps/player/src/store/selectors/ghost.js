@@ -11,5 +11,5 @@ const active = compose(ghost.active, root.ghost)
 export default {
   time,
   active,
-  chapter: state => currentChapterByPlaytime(chapters.list(state), time(state))
+  chapter: (state) => currentChapterByPlaytime(chapters.list(state), time(state))
 }

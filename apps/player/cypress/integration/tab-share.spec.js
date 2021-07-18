@@ -8,7 +8,7 @@ describe('<tab-share>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap('<tab-share></tab-share>', [
         this.theme,
         this.episode,
@@ -25,7 +25,7 @@ describe('<tab-share>', () => {
     })
 
     describe('channels', () => {
-      channels.forEach(channel => {
+      channels.forEach((channel) => {
         it(`should render ${channel} share`, () => {
           cy.select(`tab-share--channels--${channel}`).should('exist')
         })
@@ -34,9 +34,7 @@ describe('<tab-share>', () => {
 
     describe('playtime', () => {
       it('should render the playtime checkbox', () => {
-        cy.select('tab-share--playtime')
-          .find('input')
-          .should('exist')
+        cy.select('tab-share--playtime').find('input').should('exist')
       })
 
       it('should render the playtime label', () => {
@@ -61,20 +59,20 @@ describe('<tab-share>', () => {
   describe('logic', () => {
     let assert, dispatch
 
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap(
         `
         <tab-share></tab-share>
       `,
         [this.theme, this.episode, this.audio, this.reference, this.share, { playtime: 8000 }]
-      ).then(app => {
+      ).then((app) => {
         assert = onUpdate(app)
         dispatch = app.dispatch
       })
     })
 
     describe('title', () => {
-      it('should trigger the toggle tab action on close', done => {
+      it('should trigger the toggle tab action on close', (done) => {
         assert('PLAYER_TOGGLE_TAB', (_, { payload }) => {
           expect(payload).to.equal('share')
           done()
@@ -85,21 +83,21 @@ describe('<tab-share>', () => {
     })
 
     describe('channels', () => {
-      channels.forEach(channel => {
+      channels.forEach((channel) => {
         describe(channel, () => {
-          it('should set the share link', function() {
+          it('should set the share link', function () {
             cy.select(`tab-share--channels--${channel}`)
               .find('a')
               .should('have.attr', 'href')
               .and('include', encodeURIComponent(this.episode.link))
           })
 
-          it('should include the playtime in the share link', function(done) {
+          it('should include the playtime in the share link', function (done) {
             assert('PLAYER_SELECT_CONTENT', () => {
               cy.wait(50)
               cy.select(`tab-share--channels--${channel}`)
                 .find('a')
-                .then(link => {
+                .then((link) => {
                   expect(link.attr('href')).to.include(encodeURIComponent('t=00%3A08'))
                   done()
                 })
@@ -112,18 +110,14 @@ describe('<tab-share>', () => {
 
       // Test when copy to clipboard is testable
       describe.skip('link', () => {
-        it('should copy the link', function() {
-          cy.select(`tab-share--channels--link`)
-            .find('a')
-            .click({ native: true })
+        it('should copy the link', function () {
+          cy.select(`tab-share--channels--link`).find('a').click({ native: true })
           // should include this.episode.link
         })
 
-        it('should include the playtime in the share link', function(done) {
+        it('should include the playtime in the share link', function (done) {
           assert('PLAYER_SELECT_CONTENT', () => {
-            cy.select(`tab-share--channels--link`)
-              .find('a')
-              .click()
+            cy.select(`tab-share--channels--link`).find('a').click()
             done()
           })
 

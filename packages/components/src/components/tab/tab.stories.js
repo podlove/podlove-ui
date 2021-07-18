@@ -2,11 +2,10 @@ import Tab from '.'
 import * as defaults from 'defaults'
 import Icon from '../icons/Icon.vue'
 
-
 export default {
   title: 'Tab',
-  component: Tab,
-};
+  component: Tab
+}
 
 const Template = (args, { argTypes }) => ({
   components: {
@@ -56,19 +55,18 @@ const Template = (args, { argTypes }) => ({
   `,
   methods: {
     selectTab(tab) {
-      Object.keys(this.tabs).forEach(key => {
+      Object.keys(this.tabs).forEach((key) => {
         this.tabs[key] = tab === key
       })
     }
   }
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   color: defaults.color,
   colorActive: defaults.background,
   background: defaults.background,
   backgroundActive: defaults.color
-};
-
+}

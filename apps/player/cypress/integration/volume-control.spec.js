@@ -6,8 +6,8 @@ describe('<volume-control>', () => {
   let dispatch, assert
 
   beforeEach(cy.setup)
-  beforeEach(function() {
-    cy.bootstrap('<volume-control></volume-control>', [this.theme]).then(app => {
+  beforeEach(function () {
+    cy.bootstrap('<volume-control></volume-control>', [this.theme]).then((app) => {
       dispatch = app.dispatch
       assert = onUpdate(app)
     })
@@ -27,9 +27,7 @@ describe('<volume-control>', () => {
   describe('logic', () => {
     it('should reflect the volume on input', () => {
       assert('PLAYER_SET_VOLUME', () => {
-        cy.select('volume-control--slider')
-          .find('input')
-          .should('have.value', '50')
+        cy.select('volume-control--slider').find('input').should('have.value', '50')
       })
 
       cy.select('volume-control').click()

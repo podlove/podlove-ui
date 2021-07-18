@@ -1,11 +1,10 @@
 import PlayButton from './PlayButton.vue'
 import * as defaults from 'defaults'
 
-
 export default {
   title: 'PlayButton',
-  component: PlayButton,
-};
+  component: PlayButton
+}
 
 const Template = (args, { argTypes }) => ({
   components: { PlayButton },
@@ -21,16 +20,16 @@ const Template = (args, { argTypes }) => ({
   >
   </play-button>
   `
-});
+})
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 
 Default.args = {
   color: defaults.color,
   background: defaults.background,
   label: '',
   size: 50
-};
+}
 
 Default.argTypes = {
   onClick: {
