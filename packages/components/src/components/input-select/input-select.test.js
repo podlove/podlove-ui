@@ -5,7 +5,7 @@ describe('InputSelect', () => {
   describe('component', () => {
     test('should be a Vue instance', () => {
       const wrapper = mount(InputSelect)
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

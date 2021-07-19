@@ -9,7 +9,7 @@ describe('Channel', () => {
           type: 'embed'
         }
       })
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

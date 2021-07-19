@@ -12,7 +12,7 @@ describe('StepperButton', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

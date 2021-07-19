@@ -9,33 +9,38 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
     class="wrapper"
     style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <div
-      aria-hidden="true"
-      class="loading-indicator component"
-      id="play-button--loading"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
       <div
         aria-hidden="true"
-        background="currentColor"
-        class="loading-indicator"
+        class="loading-indicator component"
+        id="play-button--loading"
+        label=""
       >
         <div
-          class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-         
-        <div
-          class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-         
-        <div
-          class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
+          aria-hidden="true"
+          background="currentColor"
+          class="loading-indicator"
+        >
+          <div
+            class="loading-bubble first"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+           
+          <div
+            class="loading-bubble second"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+           
+          <div
+            class="loading-bubble third"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+        </div>
       </div>
-    </div>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -49,33 +54,38 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <div
-      aria-hidden="true"
-      class="loading-indicator component"
-      id="play-button--loading"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
       <div
         aria-hidden="true"
-        background="currentColor"
-        class="loading-indicator"
+        class="loading-indicator component"
+        id="play-button--loading"
+        label=""
       >
         <div
-          class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-         
-        <div
-          class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-         
-        <div
-          class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
+          aria-hidden="true"
+          background="currentColor"
+          class="loading-indicator"
+        >
+          <div
+            class="loading-bubble first"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+           
+          <div
+            class="loading-bubble second"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+           
+          <div
+            class="loading-bubble third"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+        </div>
       </div>
-    </div>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -89,33 +99,38 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <div
-      aria-hidden="true"
-      class="loading-indicator component"
-      id="play-button--loading"
-      label="test-label"
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
       <div
         aria-hidden="true"
-        background="currentColor"
-        class="loading-indicator"
+        class="loading-indicator component"
+        id="play-button--loading"
+        label="test-label"
       >
         <div
-          class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-         
-        <div
-          class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-         
-        <div
-          class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
+          aria-hidden="true"
+          background="currentColor"
+          class="loading-indicator"
+        >
+          <div
+            class="loading-bubble first"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+           
+          <div
+            class="loading-bubble second"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+           
+          <div
+            class="loading-bubble third"
+            style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+          />
+        </div>
       </div>
-    </div>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -129,41 +144,46 @@ exports[`PlayButton props should render type 'pause' with 'background' 1`] = `
     class="wrapper"
     style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="pause-inner component"
-      id="play-button--pause"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
+      <span
         aria-hidden="true"
-        background="currentColor"
-        fill="none"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
+        class="pause-inner component"
+        id="play-button--pause"
+        label=""
       >
-        <rect
-          fill="#fff"
-          height="16"
-          rx="1.5"
-          width="3"
-          x="7"
-          y="4"
-        />
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          fill="none"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            fill="#fff"
+            height="16"
+            rx="1.5"
+            width="3"
+            x="7"
+            y="4"
+          />
+           
+          <rect
+            fill="#fff"
+            height="16"
+            rx="1.5"
+            width="3"
+            x="14"
+            y="4"
+          />
+        </svg>
          
-        <rect
-          fill="#fff"
-          height="16"
-          rx="1.5"
-          width="3"
-          x="14"
-          y="4"
-        />
-      </svg>
-       
-    </span>
+      </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -177,41 +197,46 @@ exports[`PlayButton props should render type 'pause' with 'color' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="pause-inner component"
-      id="play-button--pause"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
+      <span
         aria-hidden="true"
-        background="currentColor"
-        fill="none"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
+        class="pause-inner component"
+        id="play-button--pause"
+        label=""
       >
-        <rect
-          fill="#fff"
-          height="16"
-          rx="1.5"
-          width="3"
-          x="7"
-          y="4"
-        />
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          fill="none"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            fill="#fff"
+            height="16"
+            rx="1.5"
+            width="3"
+            x="7"
+            y="4"
+          />
+           
+          <rect
+            fill="#fff"
+            height="16"
+            rx="1.5"
+            width="3"
+            x="14"
+            y="4"
+          />
+        </svg>
          
-        <rect
-          fill="#fff"
-          height="16"
-          rx="1.5"
-          width="3"
-          x="14"
-          y="4"
-        />
-      </svg>
-       
-    </span>
+      </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -225,47 +250,52 @@ exports[`PlayButton props should render type 'pause' with 'label' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="pause-inner component has-label"
-      id="play-button--pause"
-      label="test-label"
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
-        aria-hidden="true"
-        background="currentColor"
-        fill="none"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect
-          fill="#fff"
-          height="16"
-          rx="1.5"
-          width="3"
-          x="7"
-          y="4"
-        />
-         
-        <rect
-          fill="#fff"
-          height="16"
-          rx="1.5"
-          width="3"
-          x="14"
-          y="4"
-        />
-      </svg>
-       
       <span
-        class="label"
-        style="color: rgb(255, 255, 255);"
+        aria-hidden="true"
+        class="pause-inner component has-label"
+        id="play-button--pause"
+        label="test-label"
       >
-        test-label
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          fill="none"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            fill="#fff"
+            height="16"
+            rx="1.5"
+            width="3"
+            x="7"
+            y="4"
+          />
+           
+          <rect
+            fill="#fff"
+            height="16"
+            rx="1.5"
+            width="3"
+            x="14"
+            y="4"
+          />
+        </svg>
+         
+        <span
+          class="label"
+          style="color: rgb(255, 255, 255);"
+        >
+          test-label
+        </span>
       </span>
-    </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -279,28 +309,33 @@ exports[`PlayButton props should render type 'play' with 'background' 1`] = `
     class="wrapper"
     style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="play-inner component"
-      id="play-button--play"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
+      <span
         aria-hidden="true"
-        background="currentColor"
-        fill="none"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
+        class="play-inner component"
+        id="play-button--play"
+        label=""
       >
-        <path
-          d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
-          fill="#fff"
-        />
-      </svg>
-       
-    </span>
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          fill="none"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
+            fill="#fff"
+          />
+        </svg>
+         
+      </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -314,28 +349,33 @@ exports[`PlayButton props should render type 'play' with 'color' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="play-inner component"
-      id="play-button--play"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
+      <span
         aria-hidden="true"
-        background="currentColor"
-        fill="none"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
+        class="play-inner component"
+        id="play-button--play"
+        label=""
       >
-        <path
-          d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
-          fill="#fff"
-        />
-      </svg>
-       
-    </span>
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          fill="none"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
+            fill="#fff"
+          />
+        </svg>
+         
+      </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -349,34 +389,39 @@ exports[`PlayButton props should render type 'play' with 'label' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="play-inner component has-label"
-      id="play-button--play"
-      label="test-label"
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
-        aria-hidden="true"
-        background="currentColor"
-        fill="none"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
-          fill="#fff"
-        />
-      </svg>
-       
       <span
-        class="label"
-        style="color: rgb(255, 255, 255);"
+        aria-hidden="true"
+        class="play-inner component has-label"
+        id="play-button--play"
+        label="test-label"
       >
-        test-label
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          fill="none"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
+            fill="#fff"
+          />
+        </svg>
+         
+        <span
+          class="label"
+          style="color: rgb(255, 255, 255);"
+        >
+          test-label
+        </span>
       </span>
-    </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -390,27 +435,32 @@ exports[`PlayButton props should render type 'restart' with 'background' 1`] = `
     class="wrapper"
     style="background-color: rgb(255, 255, 255); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="restart-inner component"
-      id="play-button--restart"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
+      <span
         aria-hidden="true"
-        background="currentColor"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
+        class="restart-inner component"
+        id="play-button--restart"
+        label=""
       >
-        <path
-          d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
-          fill="#fff"
-        />
-      </svg>
-       
-    </span>
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
+            fill="#fff"
+          />
+        </svg>
+         
+      </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -424,27 +474,32 @@ exports[`PlayButton props should render type 'restart' with 'color' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="restart-inner component"
-      id="play-button--restart"
-      label=""
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
+      <span
         aria-hidden="true"
-        background="currentColor"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
+        class="restart-inner component"
+        id="play-button--restart"
+        label=""
       >
-        <path
-          d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
-          fill="#fff"
-        />
-      </svg>
-       
-    </span>
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
+            fill="#fff"
+          />
+        </svg>
+         
+      </span>
+    </transition-stub>
   </div>
 </button>
 `;
@@ -458,33 +513,38 @@ exports[`PlayButton props should render type 'restart' with 'label' 1`] = `
     class="wrapper"
     style="background-color: rgb(43, 138, 198); width: auto; height: 50px; min-width: 50px; border-radius: 25px;"
   >
-    <span
-      aria-hidden="true"
-      class="restart-inner component has-label"
-      id="play-button--restart"
-      label="test-label"
+    <transition-stub
+      mode="out-in"
+      name="component"
     >
-      <svg
-        aria-hidden="true"
-        background="currentColor"
-        height="25"
-        viewBox="0 0 24 24"
-        width="25"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
-          fill="#fff"
-        />
-      </svg>
-       
       <span
-        class="label"
-        style="color: rgb(255, 255, 255);"
+        aria-hidden="true"
+        class="restart-inner component has-label"
+        id="play-button--restart"
+        label="test-label"
       >
-        test-label
+        <svg
+          aria-hidden="true"
+          background="currentColor"
+          height="25"
+          viewBox="0 0 24 24"
+          width="25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
+            fill="#fff"
+          />
+        </svg>
+         
+        <span
+          class="label"
+          style="color: rgb(255, 255, 255);"
+        >
+          test-label
+        </span>
       </span>
-    </span>
+    </transition-stub>
   </div>
 </button>
 `;

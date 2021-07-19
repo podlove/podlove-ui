@@ -7,7 +7,7 @@ describe('Timer', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(Timer)
 
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

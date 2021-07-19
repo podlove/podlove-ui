@@ -5,7 +5,7 @@ describe('InputGroup', () => {
   describe('component', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(InputGroup)
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

@@ -6,7 +6,7 @@ describe('InputSlider', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(InputSlider)
 
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 
@@ -77,7 +77,7 @@ describe('InputSlider', () => {
       })
 
       wrapper.find('input').trigger('input')
-      expect(wrapper.emitted('input')).toEqual([['0']])
+      expect(wrapper.emitted('input')).toEqual([['1']])
     })
 
     test('should dispatch change event on change', async () => {
@@ -89,7 +89,7 @@ describe('InputSlider', () => {
       })
 
       wrapper.find('input').trigger('change')
-      expect(wrapper.emitted('change')).toEqual([['0']])
+      expect(wrapper.emitted('change')).toEqual([['1']])
     })
 
     test('should dispatch dblclick event on dblclick', async () => {
@@ -101,7 +101,7 @@ describe('InputSlider', () => {
       })
 
       wrapper.find('input').trigger('dblclick')
-      expect(wrapper.emitted('dblclick')).toEqual([['0']])
+      expect(wrapper.emitted('dblclick')).toEqual([['1']])
     })
   })
 })

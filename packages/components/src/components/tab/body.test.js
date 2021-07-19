@@ -11,7 +11,7 @@ describe('TabHeader', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

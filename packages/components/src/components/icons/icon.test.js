@@ -10,7 +10,7 @@ describe('Icon', () => {
           type: 'play'
         }
       })
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 
