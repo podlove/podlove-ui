@@ -1,4 +1,4 @@
-module.exports = cy => ({
+module.exports = (cy) => ({
   header: () => cy.get(`#tabs [rel="info"]`),
   container: () => cy.get('#tab-info'),
   episode: {

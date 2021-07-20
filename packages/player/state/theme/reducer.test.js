@@ -40,7 +40,7 @@ describe('theme', () => {
 
   const actions = [CONSTRUCTED, SET_THEME]
 
-  actions.forEach(type => {
+  actions.forEach((type) => {
     test(`theme: it sets the fonts on ${type}`, () => {
       let result = theme(INITIAL_STATE, {
         type,

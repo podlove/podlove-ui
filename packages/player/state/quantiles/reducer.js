@@ -4,7 +4,7 @@ import { head, findIndex } from 'ramda'
 import { LOAD_QUANTILES, SET_QUANTILE } from '@podlove/player-actions/types'
 
 const findQuantile = (quantiles = [], start) =>
-  findIndex(quantile => head(quantile) === start, quantiles)
+  findIndex((quantile) => head(quantile) === start, quantiles)
 
 const newQuantile = (quantiles = [], quantile) => [...quantiles, quantile]
 

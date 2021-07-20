@@ -78,7 +78,7 @@ export const FONTS = {
   }
 }
 
-const normalizeFont = type =>
+const normalizeFont = (type) =>
   createObject({
     family: propOr(path([type, 'family'], FONTS), 'family'),
     weight: propOr(path([type, 'weight'], FONTS), 'weight'),

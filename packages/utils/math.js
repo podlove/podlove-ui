@@ -20,17 +20,19 @@ export const roundUp = (base, number) => {
 export const relativePosition = (current = 0, maximum = 0) =>
   current < maximum ? (current * 100) / maximum + '%' : '100%'
 
-export const inRange = (lower = 0, upper = 0) => (value = 0) => {
-  if (value < lower) {
-    return lower
-  }
+export const inRange =
+  (lower = 0, upper = 0) =>
+  (value = 0) => {
+    if (value < lower) {
+      return lower
+    }
 
-  if (value > upper) {
-    return upper
-  }
+    if (value > upper) {
+      return upper
+    }
 
-  return value
-}
+    return value
+  }
 
 export const toDecimal = (input = 0) => parseFloat(Math.round(input * 100) / 100).toFixed(2)
 

@@ -1,5 +1,6 @@
 const path = require('path')
 const { output, resolve, rules, plugins, optimization } = require('@podlove/build')
+const pkg = require('../package.json')
 const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
 
 const tailwind = require('./tailwind.config')
@@ -46,7 +47,7 @@ module.exports = {
     plugins.css(),
     plugins.bundleAnalyzer(),
     plugins.minifyCss(),
-    plugins.version(),
+    plugins.version({ name: pkg.name, version: pkg.version }),
     plugins.base('.'),
     plugins.env('production')
   ]

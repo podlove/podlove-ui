@@ -3,13 +3,11 @@ const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const WebpackAutoInject = require('webpack-auto-inject-version')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const Jarvis = require('webpack-jarvis')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyPlugin = require('copy-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const SWPrecachePlugin = require('sw-precache-webpack-plugin')
+const revision = require('child_process').execSync('git rev-parse HEAD').toString().trim()
 const { prepend } = require('./utils')
 
 const vue = () => new VueLoaderPlugin()
@@ -21,27 +19,49 @@ const css = ({ filename = '[name].css', prefix = '' } = {}) =>
 
 const minifyCss = () => new OptimizeCSSAssetsPlugin({})
 
-const version = () => new WebpackAutoInject({ SILENT: true })
-
-const base = input =>
+const base = (input) =>
   new webpack.DefinePlugin({
     BASE: JSON.stringify(input)
   })
 
-const html = ({ filename, template, chunks, exclude, base, files, sort, inject, params }) =>
+const version = (inserts) => {
+  const banner = {
+    creation: new Date().toISOString(),
+    revision,
+    ...(inserts || {})
+  }
+
+  return new webpack.BannerPlugin({
+    banner: Object.keys(banner)
+      .reduce((result, key) => [...result, `${key}: ${banner[key]}`], [])
+      .join(' ')
+  })
+}
+
+const html = ({
+  filename,
+  template,
+  chunks,
+  exclude,
+  base,
+  files,
+  sort,
+  inject,
+  params,
+  scriptLoading
+}) =>
   new HtmlWebpackPlugin({
     filename,
     template,
     chunksSortMode: sort || 'none',
     chunks,
+    scriptLoading: scriptLoading || 'defer',
     ...(base ? { base } : {}),
     files,
     inject: inject || true,
     excludeChunks: exclude,
     ...(params ? { templateParameters: params } : {})
   })
-
-const jarvis = (port = 1337) => new Jarvis({ port })
 
 const bundleAnalyzer = () =>
   new BundleAnalyzerPlugin({
@@ -64,9 +84,7 @@ const env = (data = {}) =>
 
 const copy = (patterns = [], options = {}) => new CopyPlugin({ patterns, options })
 
-const friendlyErrors = () => new FriendlyErrorsPlugin()
-
-const serviceWorkerCache = config => new SWPrecachePlugin(config)
+const serviceWorkerCache = (config) => new SWPrecachePlugin(config)
 
 module.exports = {
   vue,
@@ -75,11 +93,9 @@ module.exports = {
   version,
   base,
   html,
-  jarvis,
   bundleAnalyzer,
   hmr,
   env,
   copy,
-  friendlyErrors,
   serviceWorkerCache
 }

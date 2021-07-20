@@ -33,7 +33,7 @@ export default {
   directives: {
     'click-outside': {
       bind(el, { value: fn }) {
-        el.addEventListener('click', evt => {
+        el.addEventListener('click', (evt) => {
           if (evt.target !== el) {
             return
           }

@@ -36,7 +36,7 @@ export default {
     },
     variant: {
       type: String,
-      validate: val => ['details', 'simple'].includes(val),
+      validate: (val) => ['details', 'simple'].includes(val),
       default: 'details'
     }
   },

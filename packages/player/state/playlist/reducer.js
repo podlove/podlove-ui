@@ -16,7 +16,7 @@ export const reducer = handleActions(
   {
     [READY]: (state, { payload }) =>
       state ||
-      playlist(payload).map(item => ({
+      playlist(payload).map((item) => ({
         ...item,
         duration: toPlayerTime(item.duration),
         active: !!item.active

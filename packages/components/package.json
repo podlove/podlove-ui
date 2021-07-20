@@ -5,7 +5,6 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && webpack --config .build/webpack.config.js",
     "postpublish": "npm run clean",
@@ -20,19 +19,22 @@
     "normalize.css": "8.0.1",
     "rangetouch": "2.0.0",
     "v-tooltip": "2.0.2",
-    "vue": "2.6.12",
+    "vue": "2.6.14",
     "vue-mutation-observer": "0.1.2"
   },
   "devDependencies": {
-    "@podlove/build": "^5.7.0",
-    "@storybook/addon-actions": "5.2.8",
-    "@storybook/addon-centered": "5.2.5",
-    "@storybook/addon-knobs": "5.2.5",
-    "@storybook/addon-options": "5.2.5",
-    "@storybook/addons": "5.2.5",
-    "@storybook/vue": "5.2.5",
-    "terser": "4.3.9",
-    "webpack": "4.41.2",
-    "webpack-dev-server": "3.9.0"
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.4.0-alpha.18",
+    "@storybook/addon-essentials": "^6.4.0-alpha.18",
+    "@storybook/addon-links": "^6.4.0-alpha.18",
+    "@storybook/builder-webpack5": "^6.4.0-alpha.18",
+    "@storybook/manager-webpack5": "^6.4.0-alpha.18",
+    "@storybook/vue": "^6.4.0-alpha.18",
+    "babel-loader": "^8.2.2",
+    "terser": "5.6.1",
+    "vue-loader": "^15.9.7",
+    "webpack": "5.45.1",
+    "webpack-dev-server": "3.11.2",
+    "@podlove/build": "^5.7.0"
   }
 }

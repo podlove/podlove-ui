@@ -7,7 +7,7 @@ const volume = compose(audio.volume, root.audio)
 const muted = compose(audio.muted, root.audio)
 const rate = compose(audio.rate, root.audio)
 
-const icon = state => {
+const icon = (state) => {
   if (muted(state)) {
     return 'speaker-0'
   }

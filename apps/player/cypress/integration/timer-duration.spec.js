@@ -6,8 +6,8 @@ describe('<timer-duration>', () => {
   let dispatch, assert
 
   beforeEach(cy.setup)
-  beforeEach(function() {
-    cy.bootstrap('<timer-duration></timer-duration>', [this.theme, this.episode]).then(app => {
+  beforeEach(function () {
+    cy.bootstrap('<timer-duration></timer-duration>', [this.theme, this.episode]).then((app) => {
       dispatch = app.dispatch
       assert = onUpdate(app)
     })

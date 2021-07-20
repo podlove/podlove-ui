@@ -3,7 +3,7 @@ import { reducer, INITIAL_STATE } from './reducer'
 
 describe('content', () => {
   test('should update the selected content on SELECT_CONTENT', () => {
-    ;['show', 'episode', 'chapter', 'time'].forEach(content =>
+    ;['show', 'episode', 'chapter', 'time'].forEach((content) =>
       expect(
         reducer(INITIAL_STATE, {
           type: SELECT_CONTENT,

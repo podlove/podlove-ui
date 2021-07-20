@@ -11,7 +11,7 @@ import transcripts from './transcripts'
 const translation = (key, attr = {}) => ({ key, attr })
 
 export default {
-  chapterNext: state => {
+  chapterNext: (state) => {
     const next = chapters.next(state)
 
     if (!next) {
@@ -21,7 +21,7 @@ export default {
     return translation('A11Y.PLAYER_CHAPTER_NEXT', next)
   },
 
-  chapterPrevious: state => {
+  chapterPrevious: (state) => {
     const previous = chapters.previous(state)
     const current = chapters.current(state)
     const playtime = timepiece.playtime(state)
@@ -37,15 +37,15 @@ export default {
     return translation('A11Y.PLAYER_CHAPTER_PREVIOUS', previous)
   },
 
-  currentChapter: state => {
+  currentChapter: (state) => {
     return translation('A11Y.TIMER_CHAPTER', chapters.current(state))
   },
 
-  playButtonPause: state => {
+  playButtonPause: (state) => {
     return translation('A11Y.PLAYER_PAUSE', chapters.current(state))
   },
 
-  playButtonDuration: state => {
+  playButtonDuration: (state) => {
     const duration = timepiece.duration(state)
     const playtime = timepiece.playtime(state)
 
@@ -88,7 +88,7 @@ export default {
     return translation('A11Y.TAB_PANEL')
   },
 
-  chapterPlay: chapter => state => {
+  chapterPlay: (chapter) => (state) => {
     const playing = driver.playing(state)
     const current = chapters.current(state)
 
@@ -99,7 +99,7 @@ export default {
     return translation('A11Y.CHAPTER_PLAY', chapter)
   },
 
-  chapterTimerRemaining: chapter => state => {
+  chapterTimerRemaining: (chapter) => (state) => {
     const playtime = timepiece.playtime(state)
     const left = chapter.end - playtime
 
@@ -118,7 +118,7 @@ export default {
     })
   },
 
-  timerCurrent: state => {
+  timerCurrent: (state) => {
     const playtime = timepiece.playtime(state)
 
     return translation('A11Y.TIMER_CURRENT', {
@@ -128,7 +128,7 @@ export default {
     })
   },
 
-  timerDuration: state => {
+  timerDuration: (state) => {
     const duration = timepiece.duration(state)
 
     return translation('A11Y.TIMER_REMAINING', {
@@ -138,7 +138,7 @@ export default {
     })
   },
 
-  timerLiver: state => {
+  timerLiver: (state) => {
     const live = timepiece.livesync(state) - timepiece.playtime(state)
 
     return translation('A11Y.TIMER_LIVE', {
@@ -152,7 +152,7 @@ export default {
     return translation('A11Y.CHAPTER_LIST')
   },
 
-  closeTab: tab => () => {
+  closeTab: (tab) => () => {
     return translation('A11Y.TAB_CLOSE.' + tab.toUpperCase())
   },
 
@@ -172,7 +172,7 @@ export default {
     return translation('A11Y.TRANSCRIPTS_SEARCH_NEXT')
   },
 
-  followTranscripts: state => {
+  followTranscripts: (state) => {
     if (transcripts.follow(state)) {
       return translation('A11Y.TRANSCRIPTS_UNFOLLOW')
     }
@@ -184,7 +184,7 @@ export default {
     return translation('A11Y.EPISODE_LIST')
   },
 
-  episodePlay: episode => state => {
+  episodePlay: (episode) => (state) => {
     const playing = driver.playing(state)
 
     if (episode.active && playing) {
@@ -194,7 +194,7 @@ export default {
     return translation('A11Y.EPISODE_PLAY', episode)
   },
 
-  episodeDuration: episode => () => {
+  episodeDuration: (episode) => () => {
     return translation('A11Y.TIMER_DURATION', {
       hours: calcHours(episode.duration),
       minutes: calcMinutes(episode.duration),
@@ -202,7 +202,7 @@ export default {
     })
   },
 
-  shareChannel: () => channel => {
+  shareChannel: () => (channel) => {
     if (channel === 'link') {
       return translation('A11Y.COPY_SHARE_LINK')
     }
@@ -230,7 +230,7 @@ export default {
     return translation('A11Y.SET_VOLUME_IN_PERCENT')
   },
 
-  speedControl: () => speed => {
+  speedControl: () => (speed) => {
     return translation('A11Y.SPEED_CONTROL', { speed })
   },
 

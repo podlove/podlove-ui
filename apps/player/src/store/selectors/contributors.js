@@ -5,7 +5,7 @@ import root from './root'
 
 const list = compose(selectors.contributors, root.contributors)
 
-const groups = state => {
+const groups = (state) => {
   const contributors = list(state)
 
   return values(

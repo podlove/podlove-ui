@@ -1,3 +1,5 @@
+const TerserPlugin = require('terser-webpack-plugin')
+
 module.exports = ({ vendors = [], runtimeChunk } = {}) => ({
   ...(runtimeChunk
     ? {
@@ -16,7 +18,7 @@ module.exports = ({ vendors = [], runtimeChunk } = {}) => ({
           }
 
           // But not node modules that contain these key words in the path
-          if (vendors.concat(vendors).some(str => mod.context.includes(str))) {
+          if (vendors.concat(vendors).some((str) => mod.context.includes(str))) {
             return false
           }
 
@@ -34,5 +36,6 @@ module.exports = ({ vendors = [], runtimeChunk } = {}) => ({
         minChunks: 1
       }
     }
-  }
+  },
+  minimizer: [new TerserPlugin({ extractComments: false })]
 })

@@ -3,7 +3,7 @@ import { curry } from 'ramda'
 const STORE = window.localStorage
 
 const selector = curry((scope, key) => [scope, key].join('\x00'))
-const notFound = selector => {
+const notFound = (selector) => {
   const error = new Error(`Not Found [${selector}]`)
 
   return {
@@ -13,7 +13,7 @@ const notFound = selector => {
   }
 }
 
-export default scope => ({
+export default (scope) => ({
   selector: selector(scope),
 
   get(key) {

@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 import fetch from 'unfetch'
 
-export const json = async url => {
+export const json = async (url) => {
   if (!url || typeof url !== 'string') {
     return url
   }
@@ -24,7 +24,7 @@ export const json = async url => {
   }
 }
 
-export const html = async url => {
+export const html = async (url) => {
   if (typeof url !== 'string') {
     return url
   }

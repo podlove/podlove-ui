@@ -5,15 +5,15 @@ describe('<speed-control>', () => {
   let assert, dispatch
 
   beforeEach(cy.setup)
-  beforeEach(function() {
-    cy.bootstrap('<speed-control></speed-control>').then(app => {
+  beforeEach(function () {
+    cy.bootstrap('<speed-control></speed-control>').then((app) => {
       assert = onUpdate(app)
       dispatch = app.dispatch
     })
   })
 
   describe('render', () => {
-    it('should render', function() {
+    it('should render', function () {
       cy.select('speed-control').should('exist')
     })
 

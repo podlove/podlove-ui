@@ -20,7 +20,8 @@ import { transcripts as getTranscripts } from '@podlove/player-config'
 import { binarySearch, textSearch } from '@podlove/utils/search'
 import { isDefinedAndNotNull } from '@podlove/utils/predicates'
 
-const transformTime = time => (is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time))
+const transformTime = (time) =>
+  is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time)
 
 const isNewChunk = (current, last) => {
   if (last === undefined) {
@@ -73,15 +74,15 @@ const transformTranscript = reduce((transcripts, chunk) => {
   ]
 }, [])
 
-const transformChapters = chapters =>
+const transformChapters = (chapters) =>
   chapters.map((chapter, index) => ({
     ...chapter,
     type: 'chapter',
     index: index + 1
   }))
 
-const mapSpeakers = speakers =>
-  map(transcript => {
+const mapSpeakers = (speakers) =>
+  map((transcript) => {
     if (transcript.type === 'chapter') {
       return transcript
     }

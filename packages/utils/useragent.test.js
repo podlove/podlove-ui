@@ -8,7 +8,7 @@ const platforms = {
   windows: ['Windows', 'Win32', 'Win64', 'Windows8.1']
 }
 
-platforms.osx.forEach(el => {
+platforms.osx.forEach((el) => {
   describe('Test getPlatform on osx', () => {
     beforeEach(() => {
       Object.defineProperty(window.navigator, 'userAgent', {
@@ -22,7 +22,7 @@ platforms.osx.forEach(el => {
   })
 })
 
-platforms.ios.forEach(el => {
+platforms.ios.forEach((el) => {
   describe('Test getPlatform on ios', () => {
     beforeEach(() => {
       Object.defineProperty(window.navigator, 'userAgent', {
@@ -35,7 +35,7 @@ platforms.ios.forEach(el => {
     })
   })
 })
-platforms.android.forEach(el => {
+platforms.android.forEach((el) => {
   describe('Test getPlatform on android', () => {
     beforeEach(() => {
       Object.defineProperty(window.navigator, 'userAgent', {
@@ -48,7 +48,7 @@ platforms.android.forEach(el => {
     })
   })
 })
-platforms.unix.forEach(el => {
+platforms.unix.forEach((el) => {
   describe('Test getPlatform on unix', () => {
     beforeEach(() => {
       Object.defineProperty(window.navigator, 'userAgent', {
@@ -61,7 +61,7 @@ platforms.unix.forEach(el => {
     })
   })
 })
-platforms.windows.forEach(el => {
+platforms.windows.forEach((el) => {
   describe('Test getPlatform on windows', () => {
     beforeEach(() => {
       Object.defineProperty(window.navigator, 'userAgent', {

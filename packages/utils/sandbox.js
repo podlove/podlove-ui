@@ -14,7 +14,7 @@ const iframe = compose(
   createNode
 )
 
-const createFrame = () => new Promise(resolve => resolve(iframe('iframe')))
+const createFrame = () => new Promise((resolve) => resolve(iframe('iframe')))
 
 export const sandboxWindow = prop('contentWindow')
 export const sandboxDocument = compose(prop('document'), sandboxWindow)
@@ -35,7 +35,7 @@ export const resize = curry((anchor, frame) => {
 
 const inject = curry(
   (content, sandbox) =>
-    new Promise(resolve => {
+    new Promise((resolve) => {
       const sdbxWindow = sandboxWindow(sandbox)
       const doc = sandboxDocument(sandbox)
 
@@ -62,7 +62,5 @@ const inject = curry(
 )
 
 export const sandbox = curry((anchor, content) =>
-  createFrame()
-    .then(appendNode(anchor))
-    .then(inject(content))
+  createFrame().then(appendNode(anchor)).then(inject(content))
 )

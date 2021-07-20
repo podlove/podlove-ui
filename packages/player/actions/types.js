@@ -1,6 +1,6 @@
 export const PREFIX = `PLAYER`
 
-const type = name => `${PREFIX}_${name}`
+const type = (name) => `${PREFIX}_${name}`
 
 // Lifecycle
 export const CONSTRUCTED = type('CONSTRUCTED') // config was parsed

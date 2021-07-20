@@ -1,4 +1,4 @@
-module.exports = cy => ({
+module.exports = (cy) => ({
   controls: {
     playButton: {
       loading: () => cy.get('#play-button--loading'),

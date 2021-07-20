@@ -6,15 +6,15 @@ describe('<error>', () => {
   let assert, dispatch
 
   beforeEach(cy.setup)
-  beforeEach(function() {
-    cy.bootstrap('<error></error>', [this.audio]).then(store => {
+  beforeEach(function () {
+    cy.bootstrap('<error></error>', [this.audio]).then((store) => {
       dispatch = store.dispatch
       assert = onUpdate(store)
     })
   })
 
   describe('render', () => {
-    it('should not render when no error is available', function() {
+    it('should not render when no error is available', function () {
       cy.select('error').should('not.exist')
     })
 

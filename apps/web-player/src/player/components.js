@@ -5,7 +5,7 @@ import { ready } from './store'
 export const visibleComponents = (config, store) => {
   const playtime = sharePlaytime(config)
 
-  ready(store).then(store => {
+  ready(store).then((store) => {
     if (playtime) {
       store.dispatch(showSharePlaytime())
     } else {

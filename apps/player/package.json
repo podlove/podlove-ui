@@ -5,7 +5,7 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run build:dependencies && webpack-dev-server --progress --config .build/webpack.config.dev.js",
+    "dev": "npm run build:dependencies && webpack serve --progress --config .build/webpack.config.dev.js",
     "build:dependencies": "lerna run build --scope @podlove/components --stream",
     "build:dev": "npm run build:dependencies && webpack --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist publish",
@@ -30,7 +30,7 @@
     "@podlove/utils": "^5.7.0",
     "color": "3.1.2",
     "copy-to-clipboard": "3.2.0",
-    "core-js": "3.4.2",
+    "core-js": "3.15.2",
     "date-fns": "2.16.1",
     "normalize-scss": "7.0.1",
     "ramda": "0.27.1",
@@ -38,14 +38,14 @@
     "redux-vuex": "0.3.2",
     "regenerator-runtime": "0.13.3",
     "v-tooltip": "2.0.2",
-    "vue": "2.6.12",
+    "vue": "2.6.14",
     "vue-i18n": "8.15.0"
   },
   "devDependencies": {
     "@podlove/build": "^5.7.0",
     "cypress": "5.1.0",
     "http-server": "0.11.1",
-    "webpack": "4.41.2",
-    "webpack-dev-server": "3.9.0"
+    "webpack": "5.45.1",
+    "webpack-dev-server": "3.11.2"
   }
 }

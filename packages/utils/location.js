@@ -4,7 +4,7 @@ import { toPlayerTime } from './time'
 
 export const locationParams = () => queryString.parse(window.location.search)
 
-const parseParameters = parameters => {
+const parseParameters = (parameters) => {
   const parsed = {}
 
   if (parameters.t) {

@@ -18,7 +18,7 @@ export default {
     type: {
       type: String,
       required: true,
-      validator: val => ['next', 'previous'].includes(val)
+      validator: (val) => ['next', 'previous'].includes(val)
     },
     color: {
       type: String,

@@ -56,9 +56,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      const entries = [...this.$el.children].map(asyncAnimation(entry => entry.clientHeight))
+      const entries = [...this.$el.children].map(asyncAnimation((entry) => entry.clientHeight))
 
-      Promise.all(entries).then(resolved => {
+      Promise.all(entries).then((resolved) => {
         this.$emit('load', resolved)
       })
     })

@@ -1,10 +1,10 @@
 const { prop } = require('ramda')
 
-const getItem = key =>
+const getItem = (key) =>
   cy
     .window()
-    .then(win => win.localStorage)
-    .then(storage => {
+    .then((win) => win.localStorage)
+    .then((storage) => {
       let item
 
       for (let i = 0; i < storage.length; i++) {
@@ -19,10 +19,10 @@ const getItem = key =>
 
       return item
     })
-    .then(item => JSON.parse(item))
+    .then((item) => JSON.parse(item))
     .then(prop(key))
 
 const mock = (value = {}) =>
-  cy.window().then(win => (win.localStorage.getItem = () => JSON.stringify(value)))
+  cy.window().then((win) => (win.localStorage.getItem = () => JSON.stringify(value)))
 
 module.exports = { getItem, mock }

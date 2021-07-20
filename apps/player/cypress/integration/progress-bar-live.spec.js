@@ -6,11 +6,11 @@ describe('<progress-bar-live>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap('<progress-bar-live style="width: 200px;"></progress-bar-live>', [this.theme])
     })
 
-    it('should render the progress bar', function() {
+    it('should render the progress bar', function () {
       cy.select('progress-bar-live').should('exist')
     })
 
@@ -42,12 +42,12 @@ describe('<progress-bar-live>', () => {
   describe('logic', () => {
     let assert, dispatch
 
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap('<progress-bar-live style="width: 200px;"></progress-bar-live>', [
         this.theme,
         this.episode,
         this.audio
-      ]).then(app => {
+      ]).then((app) => {
         assert = onUpdate(app)
         dispatch = app.dispatch
         dispatch({ type: 'PLAYER_BACKEND_LIVESYNC', payload: 12000 })
@@ -69,9 +69,7 @@ describe('<progress-bar-live>', () => {
     })
     it('should set the thumb to the right if playtime equals livesync', () => {
       assert('PLAYER_REQUEST_PLAYTIME', () => {
-        cy.select('progress-bar-live')
-          .find('.progress-thumb')
-          .should('have.css', 'left', '200px')
+        cy.select('progress-bar-live').find('.progress-thumb').should('have.css', 'left', '200px')
       })
 
       cy.select('progress-bar-live')

@@ -2,7 +2,7 @@ import { findNode } from '@podlove/utils/dom'
 import { html } from '@podlove/utils/request'
 import variant from '../templates'
 
-const fetchTemplate = async node => {
+const fetchTemplate = async (node) => {
   const templateUrl = node.getAttribute('data-template')
   const type = node.getAttribute('data-variant')
 
@@ -21,7 +21,7 @@ const fetchTemplate = async node => {
   return await variant('xl')
 }
 
-export default async selector => {
+export default async (selector) => {
   const node = findNode(selector)
 
   return {

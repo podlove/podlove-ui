@@ -1,4 +1,4 @@
-module.exports = cy => ({
+module.exports = (cy) => ({
   show: {
     title: () => cy.get('#header-showtitle')
   },

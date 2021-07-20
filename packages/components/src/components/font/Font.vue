@@ -16,11 +16,11 @@ export default {
   },
   computed: {
     fontSrc() {
-      const eot = this.src.find(font => font.endsWith('.eot'))
-      const woff = this.src.find(font => font.endsWith('.woff'))
-      const woff2 = this.src.find(font => font.endsWith('.woff2'))
-      const ttf = this.src.find(font => font.endsWith('.ttf'))
-      const svg = this.src.find(font => font.endsWith('.svg'))
+      const eot = this.src.find((font) => font.endsWith('.eot'))
+      const woff = this.src.find((font) => font.endsWith('.woff'))
+      const woff2 = this.src.find((font) => font.endsWith('.woff2'))
+      const ttf = this.src.find((font) => font.endsWith('.ttf'))
+      const svg = this.src.find((font) => font.endsWith('.svg'))
 
       return [
         { format: 'embedded-opentype', url: eot },

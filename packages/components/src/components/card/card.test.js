@@ -5,7 +5,7 @@ describe('Card', () => {
   describe('component', () => {
     test('should be a Vue instance', () => {
       const wrapper = mount(Card)
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
 
     test('should provide defaults', async () => {

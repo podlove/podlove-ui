@@ -7,7 +7,7 @@ describe('TabHeader', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(TabHeader)
 
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

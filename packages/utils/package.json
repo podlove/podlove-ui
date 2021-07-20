@@ -22,7 +22,7 @@
     "unfetch": "4.1.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.7.0",
-    "webpack": "4.41.2"
+    "webpack": "5.45.1",
+    "@podlove/build": "^5.7.0"
   }
 }

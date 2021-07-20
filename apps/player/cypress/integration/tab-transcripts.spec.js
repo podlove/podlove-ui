@@ -6,12 +6,12 @@ describe('<tab-transcripts>', () => {
   let assert, dispatch
 
   beforeEach(cy.setup)
-  beforeEach(function() {
+  beforeEach(function () {
     cy.bootstrap('<tab-transcripts></tab-transcripts>', [
       this.theme,
       this.chapters,
       this.transcripts
-    ]).then(app => {
+    ]).then((app) => {
       assert = onUpdate(app)
       dispatch = app.dispatch
     })
@@ -48,7 +48,7 @@ describe('<tab-transcripts>', () => {
     })
 
     describe('transcripts', () => {
-      it('should render the transcripts', done => {
+      it('should render the transcripts', (done) => {
         assert('PLAYER_SEARCH_TRANSCRIPTS', () => {
           cy.select('tab-transcripts--entry').should('have.length', 5)
           done()
@@ -82,7 +82,7 @@ describe('<tab-transcripts>', () => {
           cy.select('tab-transcripts--search-controls--total-result').should('contain', '6')
         })
 
-        it('should jump to the next search result if clicked', done => {
+        it('should jump to the next search result if clicked', (done) => {
           assert('PLAYER_NEXT_SEARCH_RESULT', () => {
             done()
           })
@@ -90,7 +90,7 @@ describe('<tab-transcripts>', () => {
           cy.select('tab-transcripts--search-controls--next').click()
         })
 
-        it('should jump to the previous search result if clicked', done => {
+        it('should jump to the previous search result if clicked', (done) => {
           assert('PLAYER_PREVIOUS_SEARCH_RESULT', () => {
             done()
           })
@@ -107,7 +107,7 @@ describe('<tab-transcripts>', () => {
       })
 
       describe('results', () => {
-        it('should highlight all results', done => {
+        it('should highlight all results', (done) => {
           assert('PLAYER_SEARCH_TRANSCRIPTS', () => {
             cy.select('tab-transcripts--results')
               .find('span[style*="background: rgb(128, 126, 124)"]')
@@ -121,7 +121,7 @@ describe('<tab-transcripts>', () => {
     })
 
     describe('follow', () => {
-      it('should disable follow on click', done => {
+      it('should disable follow on click', (done) => {
         assert('PLAYER_TOGGLE_FOLLOW_TRANSCRIPTS', (_, { payload }) => {
           expect(payload).to.equal(false)
           done()
@@ -130,7 +130,7 @@ describe('<tab-transcripts>', () => {
         cy.select('tab-transcripts--follow').click()
       })
 
-      it('should enable follow on click', done => {
+      it('should enable follow on click', (done) => {
         dispatch({ type: 'PLAYER_TOGGLE_FOLLOW_TRANSCRIPTS', payload: false })
         assert('PLAYER_TOGGLE_FOLLOW_TRANSCRIPTS', (_, { payload }) => {
           expect(payload).to.equal(true)

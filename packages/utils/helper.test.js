@@ -2,7 +2,7 @@ import { inAnimationFrame, asyncAnimation, callWith } from './helper'
 
 describe('helper', () => {
   beforeEach(() => {
-    window.requestAnimationFrame = cb => cb()
+    window.requestAnimationFrame = (cb) => cb()
   })
 
   describe('inAnimationFrame()', () => {
@@ -29,7 +29,7 @@ describe('helper', () => {
       expect(typeof result.then).toBe('function')
     })
 
-    test(`resolves stub in promise`, done => {
+    test(`resolves stub in promise`, (done) => {
       const testStub = jest.fn()
       const result = asyncAnimation(testStub)('foo', 'bar')
 

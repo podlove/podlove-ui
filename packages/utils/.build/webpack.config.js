@@ -39,7 +39,7 @@ module.exports = {
     filename: '[name].js'
   },
 
-  devtool: 'source-maps',
+  devtool: 'source-map',
 
   module: {
     rules: [rules.javascript()]

@@ -3,7 +3,7 @@ import { init as playerInit } from '@podlove/player-actions/lifecycle'
 import { init as buttonInit } from '@podlove/button-actions/lifecycle'
 import * as configParser from '@podlove/player-config'
 
-import { version } from '../package'
+import pkg from '../package'
 
 import * as context from './lib/context'
 import canvas from './lib/canvas'
@@ -40,7 +40,7 @@ const podlovePlayer = async (selector, episode, meta) => {
 
     return playerStore
   } catch (err) {
-    console.group(`Error in Podlove Webplayer ${version}`)
+    console.group(`Error in Podlove Webplayer ${pkg.version}`)
     console.warn('selector', selector)
     console.warn('config', episode)
     console.warn(err)

@@ -9,7 +9,7 @@ describe('Channel', () => {
           type: 'embed'
         }
       })
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 
@@ -43,7 +43,7 @@ describe('Channel', () => {
 
     const types = ['embed', 'facebook', 'linkedin', 'mail', 'reddit', 'twitter', 'pinterest']
 
-    types.forEach(type => {
+    types.forEach((type) => {
       props.forEach(({ prop, value }) => {
         test(`should render type '${type}' with prop ${prop}`, async () => {
           const wrapper = await mount(Channel, {

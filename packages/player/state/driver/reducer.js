@@ -14,15 +14,15 @@ export const INITIAL_STATE = {
 
 export const reducer = handleActions(
   {
-    [BACKEND_PAUSE]: state => ({
+    [BACKEND_PAUSE]: (state) => ({
       ...state,
       playing: false
     }),
-    [BACKEND_ERROR]: state => ({
+    [BACKEND_ERROR]: (state) => ({
       ...state,
       playing: false
     }),
-    [BACKEND_PLAY]: state => ({
+    [BACKEND_PLAY]: (state) => ({
       ...state,
       playing: true
     }),
