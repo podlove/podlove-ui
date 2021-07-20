@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf apps/**/dist apps/**/publish packages/**/dist packages/**/publish",
-    "format": "eslint --fix '**/*.{js,vue}'",
-    "lint": "eslint -f codeframe '**/*.{js,vue}'",
+    "format": "eslint --fix '**/*.{js,jsx,vue}'",
+    "lint": "eslint -f codeframe '**/*.{js,jsx,vue}'",
     "test": "jest",
     "test:dev": "jest --watchAll",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
