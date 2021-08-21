@@ -1,5 +1,5 @@
 <template>
-  <div class="episode-subtitle" :style="style" data-test="episode-subtitle">
+  <div class="episode-subtitle block overflow-hidden" :style="style" data-test="episode-subtitle">
     {{ state.subtitle }}
   </div>
 </template>
@@ -31,10 +31,8 @@ export default {
 
 <style lang="postcss" scoped>
 .episode-subtitle {
-  display: block;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 </style>

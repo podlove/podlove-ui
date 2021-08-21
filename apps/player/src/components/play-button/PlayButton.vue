@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { calcHours, calcMinutes, calcSeconds, toHumanTime } from '@podlove/utils/time'
+import { toHumanTime } from '@podlove/utils/time'
 import { mapState, injectStore } from 'redux-vuex'
 
 import select from 'store/selectors'

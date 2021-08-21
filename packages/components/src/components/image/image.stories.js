@@ -9,15 +9,13 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { LazyImage },
   props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
   <lazy-image
       class="lazy-image"
-      style="width: 250px; height: 250px;"
-      :alt="alt"
-      :url="url"
-      :color="color"
-      @error="onError"
-      @load="onLoad"
+      v-bind="args"
     >
   </lazy-image>
   `

@@ -56,7 +56,7 @@ sagas.run(
     selectPoster: selectors.driver.image,
     selectTitle: selectors.driver.title
   }),
-  versionSaga({ version: pkg.version }),
+  versionSaga({ version }),
   transcriptsSaga({
     selectChapters: selectors.chapters.list,
     selectSpeakers: selectors.contributors.list,

@@ -1,7 +1,7 @@
 <template>
   <stepper-button
-    class="control-button"
     v-if="state.stepperButtons"
+    class="control-button"
     data-test="step-forward"
     type="forward"
     :title="$t(state.title.key, state.title.attr)"

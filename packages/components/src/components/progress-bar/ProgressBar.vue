@@ -1,5 +1,5 @@
 <template>
-  <div id="progress-bar" class="progress">
+  <div id="progress-bar" class="progress w-full relative cursor-pointer">
     <input
       v-if="isMobile"
       ref="input"
@@ -26,7 +26,10 @@
       @mousemove="onMouseMove"
       @mouseout="onMouseOut"
     />
-    <span class="progress-range" :style="rangeStyle" />
+    <span
+      class="progress-range block absolute w-full left-0 pointer-events-none"
+      :style="rangeStyle"
+    />
     <span
       v-for="(buffering, index) in buffer"
       :key="`buffer-${index}`"
@@ -40,7 +43,7 @@
       :key="`track-${index}`"
       tabindex="-1"
       aria-hidden="true"
-      class="progress-track"
+      class="progress-track block absolute left-0 pointer-events-none"
       :style="trackStyle(quantile)"
     />
     <div class="chapters-progress">
@@ -49,13 +52,24 @@
         :key="index"
         tabindex="-1"
         aria-hidden="true"
-        class="indicator"
+        class="absolute pointer-events-none"
         :style="chapterStyle(chapter)"
       />
     </div>
-    <span class="ghost-thumb" aria-hidden="true" :style="ghostStyle" />
     <span
-      class="progress-thumb"
+      class="
+        ghost-thumb
+        absolute
+        hidden
+        border-transparent border
+        bg-opacity-75
+        pointer-events-none
+      "
+      aria-hidden="true"
+      :style="ghostStyle"
+    />
+    <span
+      class="progress-thumb absolute border border-solid pointer-events-none"
       tabindex="-1"
       aria-hidden="true"
       :class="{ active: thumbActive }"
@@ -63,7 +77,7 @@
     />
     <input
       type="range"
-      class="visually-hidden"
+      class="sr-only"
       :title="title"
       min="0"
       max="100"
@@ -78,7 +92,7 @@
 <script>
 import color from 'color'
 import RangeTouch from 'rangetouch/dist/rangetouch'
-import { mapActions } from 'redux-vuex'
+
 import { interpolate, relativePosition } from '@podlove/utils/math'
 import { isNegative, light, dark } from '@podlove/utils/color'
 import { isMobile } from '@podlove/utils/detect'
@@ -244,53 +258,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'resets';
-@import 'a11y';
-@import 'tokens/progress';
-@import 'tokens/animation';
-@import 'tokens/color';
+@import '../../theme/resets';
+@import '../../theme/tokens/progress';
+@import '../../theme/tokens/animation';
+@import '../../theme/tokens/color';
 
 .progress {
   @include range($height, $thumb-width-desktop, $thumb-width-desktop-hover);
-
-  width: 100%;
-  position: relative;
   height: $height;
   transition: opacity ($animation-duration / 2), height $animation-duration;
-  cursor: pointer;
 }
 
 .progress-range {
-  display: block;
-  position: absolute;
-  width: 100%;
-  left: 0;
   top: calc(50% - #{$track-height / 2});
   height: $track-height;
   background-color: rgba($accent-color, 0.25);
-  pointer-events: none;
 }
 
 .progress-track {
-  display: block;
-  position: absolute;
-  left: 0;
   top: calc(50% - #{$track-height / 2});
   height: $track-height;
-  pointer-events: none;
 }
 
 .progress-thumb {
-  position: absolute;
-  border: 1px solid;
   // border offset
   margin-left: calc(-1px - #{$thumb-size / 2});
   height: $thumb-size;
   border-radius: $thumb-size;
   top: calc(50% - #{$thumb-size / 2});
   width: $thumb-size;
-  pointer-events: none;
 
   transition: left $animation-duration / 2;
 
@@ -303,16 +299,11 @@ export default {
 }
 
 .ghost-thumb {
-  display: none;
-  position: absolute;
-  border: 1px solid transparent;
-  opacity: 0.8;
   margin-left: calc(-1px - #{$thumb-size / 2});
   height: $thumb-size;
   border-radius: $thumb-size;
   top: calc(50% - #{$thumb-size / 2});
   width: $thumb-size;
-  pointer-events: none;
 }
 
 .progress-buffer {
@@ -323,12 +314,5 @@ export default {
   top: calc(50% - #{$track-height / 2});
   left: 0;
   pointer-events: none;
-}
-
-.chapters-progress {
-  .indicator {
-    position: absolute;
-    pointer-events: none;
-  }
 }
 </style>

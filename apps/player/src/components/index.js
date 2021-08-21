@@ -1,15 +1,15 @@
 import 'regenerator-runtime/runtime'
 
 import Root from './root'
-// import EpisodeTitle from './episode-title'
-// import EpisodeSubtitle from './episode-subtitle'
-// import ShowTitle from './show-title'
-// import PublicationDate from './publication-date'
+import EpisodeTitle from './episode-title'
+import EpisodeSubtitle from './episode-subtitle'
+import ShowTitle from './show-title'
+import PublicationDate from './publication-date'
 import Poster from './poster'
-// import StepForward from './step-forward'
-// import StepBackward from './step-backward'
-// import PlayButton from './play-button'
-// import ProgressBar from './progress-bar'
+import StepForward from './step-forward'
+import StepBackward from './step-backward'
+import PlayButton from './play-button'
+import ProgressBar from './progress-bar'
 // import TimerCurrent from './timer-current'
 // import TimerDuration from './timer-duration'
 // import CurrentChapter from './current-chapter'
@@ -26,15 +26,15 @@ import Poster from './poster'
 
 export default {
   Root,
-  // EpisodeTitle,
-  // EpisodeSubtitle,
-  // ShowTitle,
-  // PublicationDate,
-  Poster
-  // StepForward,
-  // StepBackward,
-  // PlayButton,
-  // ProgressBar,
+  EpisodeTitle,
+  EpisodeSubtitle,
+  ShowTitle,
+  PublicationDate,
+  Poster,
+  StepForward,
+  StepBackward,
+  PlayButton,
+  ProgressBar,
   // TimerCurrent,
   // TimerDuration,
   // CurrentChapter,

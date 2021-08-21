@@ -1,12 +1,12 @@
 <template>
-  <span class="restart-inner" aria-hidden="true">
+  <span class="flex justify-center items-center" aria-hidden="true">
     <icon type="restart" :color="color" :size="size" />
     <slot />
   </span>
 </template>
 
 <script>
-import Icon from 'components/icons'
+import Icon from '../../icons'
 import { color } from 'defaults'
 
 export default {
@@ -26,10 +26,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.restart-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
+<style lang="scss" scoped></style>

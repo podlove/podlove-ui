@@ -1,6 +1,6 @@
 <template>
   <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
-    <div v-observer="updateSize" class="wrapper" :style="wrapper">
+    <div v-observer="updateSize" class="wrapper flex items-center content-center" :style="wrapper">
       <transition name="component" mode="out-in">
         <component
           :is="type"
@@ -10,9 +10,14 @@
           :color="color"
           :label="label"
           :size="size / 2"
-          :class="{ 'has-label': label && type !== 'loading' }"
+          :class="{ 'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading' }"
         >
-          <span v-if="label" class="label" :style="{ color: color }">{{ label }}</span>
+          <span
+            v-if="label"
+            class="truncate ml-4 text-base font-thin font-variant-numeric"
+            :style="{ color: color }"
+            >{{ label }}</span
+          >
         </component>
       </transition>
     </div>
@@ -118,32 +123,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'resets';
-@import 'font';
-@import 'tokens/animation';
-@import 'tokens/play-button';
+@import '../../theme/tokens/animation';
+@import '../../theme/tokens/play-button';
 
 .play-button {
-  @extend %button;
-
   .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all $animation-duration * 4;
-  }
-
-  .label {
-    font-variant-numeric: tabular-nums;
-    margin-left: $margin;
-    font-size: 1rem;
-    font-weight: 200;
-    @extend %truncate;
-  }
-
-  .has-label {
-    padding: 0 $padding * 2;
   }
 }
 

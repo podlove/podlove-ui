@@ -5,14 +5,13 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run build:dependencies && webpack serve --progress --config .build/webpack.config.dev.js",
-    "build:dependencies": "lerna run build --scope @podlove/components --stream",
-    "build:dev": "npm run build:dependencies && webpack --config .build/webpack.config.dev.js",
+    "dev": "webpack serve --progress --config .build/webpack.config.dev.js",
+    "build:dev": "webpack --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist publish",
-    "build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.prod.js",
+    "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
     "postpublish": "npm run clean",
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
-    "integration:build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.dev.js",
+    "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 9000 dist/ > http.log 2>&1 &",
     "integration:ci": "cypress run --browser chrome",
     "integration:dev": "cypress open --browser chrome"
@@ -38,8 +37,8 @@
     "redux-vuex": "3.0.0-beta.2",
     "regenerator-runtime": "0.13.3",
     "v-tooltip": "2.0.2",
-    "vue": "3.0.4",
-    "vue-i18n": "9.0.0-beta.16"
+    "vue": "3.1.5",
+    "vue-i18n": "9.1.7"
   },
   "devDependencies": {
     "@podlove/build": "^5.7.0",

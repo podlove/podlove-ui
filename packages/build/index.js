@@ -4,6 +4,7 @@ const rules = require('./rules')
 const plugins = require('./plugins')
 const resolve = require('./resolve')
 const optimization = require('./optimization')
+const tailwind = require('./tailwind.config')
 
 module.exports = {
   devServer,
@@ -11,5 +12,6 @@ module.exports = {
   rules,
   plugins,
   resolve,
-  optimization
+  optimization,
+  tailwind
 }

@@ -1,6 +1,6 @@
 const path = require('path')
 const glob = require('glob')
-const { resolve, rules, plugins } = require('@podlove/build')
+const { resolve, rules, plugins, tailwind } = require('@podlove/build')
 
 const base = path.resolve(__dirname, '..', 'src')
 
@@ -45,6 +45,16 @@ module.exports = {
       rules.vue(),
       rules.javascript(),
       rules.images(),
+      rules.style.config(rules.style.test.postcss, [
+        rules.style.loader.vue(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.tailwind(tailwind),
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        })
+      ]),
       rules.style.config(rules.style.test.scss, [
         rules.style.loader.vue(),
         rules.style.loader.css(),
@@ -54,7 +64,7 @@ module.exports = {
             rules.style.postcss.plugins.autoprefixer
           ]
         }),
-        rules.style.loader.sass({ includePaths: [path.resolve(base, 'theme')] })
+        rules.style.loader.sass()
       ]),
       rules.fonts()
     ]

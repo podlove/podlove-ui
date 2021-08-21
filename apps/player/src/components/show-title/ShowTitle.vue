@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapState, provideStore } from 'redux-vuex'
+import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
 
 export default {
@@ -26,8 +26,8 @@ export default {
   computed: {
     style() {
       return {
-        color: this.color,
-        ...this.font
+        color: this.state.color,
+        ...this.state.font
       }
     }
   }

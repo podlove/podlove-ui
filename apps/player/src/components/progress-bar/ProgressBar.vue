@@ -47,9 +47,7 @@ export default {
   },
   computed: {
     progressColor() {
-      return color(this.state.progressColor)
-        .fade(0.7)
-        .string()
+      return color(this.state.progressColor).fade(0.7).string()
     }
   }
 }

@@ -1,11 +1,11 @@
 <template>
-  <div class="image-container">
+  <div class="relative image">
     <transition name="fade">
-      <div v-if="!loaded" class="cover" :style="coverStyle" />
+      <div v-if="!loaded" class="absolute top-0 left-0 w-full h-full" :style="coverStyle"></div>
     </transition>
     <img
       v-if="url && !error"
-      class="image"
+      class="max-h-full w-auto"
       :style="imageStyle"
       :src="url"
       :alt="alt"
@@ -74,26 +74,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'tokens/animation';
-
-.image-container {
-  position: relative;
-  line-height: 0;
-
-  .image {
-    max-height: 100%;
-    width: auto;
-  }
-
-  .cover {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-
+@import '../../theme/tokens/animation';
+.image {
   @extend %fade-animation;
 }
 </style>

@@ -1,5 +1,9 @@
 <template>
-  <button :id="`stepper-button--${type}`" class="stepper-button" @click="clickHandler">
+  <button
+    :id="`stepper-button--${type}`"
+    class="stepper-button opacity-100 hover:opacity-75"
+    @click="clickHandler"
+  >
     <icon :type="type" :color="color" />
     <slot />
   </button>
@@ -7,7 +11,7 @@
 
 <script>
 import { color } from 'defaults'
-import Icon from 'components/icons'
+import Icon from '../icons'
 import { stepForward, stepBackwards } from '@podlove/player-actions/stepper'
 
 export default {
@@ -40,16 +44,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import 'boot';
-@import 'resets';
-
-.stepper-button {
-  @extend %button;
-  opacity: 1;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
