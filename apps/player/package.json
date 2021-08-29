@@ -34,10 +34,10 @@
     "normalize-scss": "7.0.1",
     "ramda": "0.27.1",
     "redux": "4.0.4",
-    "redux-vuex": "3.0.0-beta.2",
+    "redux-vuex": "3.0.0-beta.4",
     "regenerator-runtime": "0.13.3",
-    "v-tooltip": "2.0.2",
-    "vue": "3.1.5",
+    "v-tooltip": "4.0.0-alpha.1",
+    "vue": "3.2.4",
     "vue-i18n": "9.1.7"
   },
   "devDependencies": {

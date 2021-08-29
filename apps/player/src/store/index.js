@@ -14,7 +14,6 @@ import { playlistSaga } from '@podlove/player-sagas/playlist'
 import { mediaSessionSaga } from '@podlove/player-sagas/media-session'
 
 import { createStore, applyMiddleware, compose } from 'redux'
-import { version } from '../../package'
 
 import reducers from './reducers'
 import actions from './actions'
@@ -56,7 +55,7 @@ sagas.run(
     selectPoster: selectors.driver.image,
     selectTitle: selectors.driver.title
   }),
-  versionSaga({ version }),
+  versionSaga({ version: VERSION }),
   transcriptsSaga({
     selectChapters: selectors.chapters.list,
     selectSpeakers: selectors.contributors.list,

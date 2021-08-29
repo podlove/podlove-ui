@@ -29,14 +29,18 @@ export default {
       default: color
     }
   },
+  emit: {
+    forward: null,
+    backwards: null
+  },
   methods: {
     clickHandler() {
       switch (this.type) {
         case 'forward':
-          this.$emit('click', stepForward())
+          this.$emit('forward', stepForward())
           break
         case 'backwards':
-          this.$emit('click', stepBackwards())
+          this.$emit('backwards', stepBackwards())
           break
       }
     }

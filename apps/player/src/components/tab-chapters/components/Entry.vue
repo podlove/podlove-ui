@@ -42,7 +42,6 @@ import { mapState, injectStore } from 'redux-vuex'
 import color from 'color'
 import { setChapter } from '@podlove/player-actions/chapters'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'
-import { toHumanTime } from '@podlove/utils/time'
 
 import select from 'store/selectors'
 

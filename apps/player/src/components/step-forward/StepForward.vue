@@ -6,7 +6,7 @@
     type="forward"
     :title="$t(state.title.key, state.title.attr)"
     :color="state.color"
-    @click="dispatch"
+    @forward="dispatch"
   />
 </template>
 

@@ -1,44 +1,38 @@
 <template>
-  <v-popover
-    ref="volumePopover"
-    popover-arrow-class="hidden"
-    :placement="placement"
-    :popover-inner-class="['bg-transparent']"
-    trigger="click"
-    offset="15"
-    v-if="available"
-  >
-    <button
-      class="block.tooltip-target.cursor-pointer"
-      data-test="volume-control"
-      :title="$t(state.buttonTitle.key, state.buttonTitle.attr)"
-      @click="focus"
-    >
-      <icon aria-hidden="true" :type="state.icon" :color="state.color" />
-    </button>
-    <template slot="popover">
-      <div
-        class="w-40.px-2.rounded.shadow"
-        :style="{ background: state.background, color: state.background }"
+  <div v-if="state.available" class="block">
+    <dropdown ref="volumePopover" :triggers="['click']" :offset="[0, 15]" :placement="placement">
+      <button
+        class="block cursor-pointer"
+        data-test="volume-control"
+        :title="$t(state.buttonTitle.key, state.buttonTitle.attr)"
+        @click="focus"
       >
-        <input-slider
-          ref="volumeControl"
-          class="mr-5"
-          tabindex="0"
-          data-test="volume-control--slider"
-          :min="0"
-          :max="100"
-          :value="state.volume * 100"
-          :step="1"
-          :background="state.color"
-          :border-color="state.color"
-          :progress-color="state.progressColor"
-          :aria-label="$t(state.volumeLabel.key, state.volumeLabel.attr)"
-          @input="setVolume"
-        />
-      </div>
-    </template>
-  </v-popover>
+        <icon aria-hidden="true" :type="state.icon" :color="state.color" />
+      </button>
+      <template #popper>
+        <div
+          class="w-40 px-4 rounded"
+          :style="{ background: state.background, color: state.background }"
+        >
+          <input-slider
+            ref="volumeControl"
+            class="mr-5"
+            tabindex="0"
+            data-test="volume-control--slider"
+            :min="0"
+            :max="100"
+            :value="state.volume * 100"
+            :step="1"
+            :background="state.color"
+            :border-color="state.color"
+            :progress-color="state.progressColor"
+            :aria-label="$t(state.volumeLabel.key, state.volumeLabel.attr)"
+            @sliderInput="setVolume"
+          />
+        </div>
+      </template>
+    </dropdown>
+  </div>
 </template>
 
 <script>
@@ -46,12 +40,13 @@ import { mapState, injectStore } from 'redux-vuex'
 import Icon from '@podlove/components/icons'
 import InputSlider from '@podlove/components/input-slider'
 import { setVolume } from '@podlove/player-actions/audio'
-import { compose, path } from 'ramda'
+import { Dropdown } from 'v-tooltip'
 
 import select from 'store/selectors'
 
 export default {
   components: {
+    Dropdown,
     InputSlider,
     Icon
   },
@@ -82,15 +77,26 @@ export default {
       this.dispatch(setVolume(val / 100))
     },
     focus() {
-      const popover = path(['volumePopover', '$el'], this.$refs)
-      const control = path(['volumeControl', '$el'], this.$refs)
-
       setTimeout(() => {
-        if (popover.className.includes('open')) {
-          control.focus()
+        const control = this.$refs.volumeControl
+        if (control.$el) {
+          control.$el.querySelector('input').focus()
         }
       }, 300)
     }
   }
 }
 </script>
+
+<style lang="scss">
+@import 'v-tooltip/dist/v-tooltip.css';
+
+.v-popper--theme-dropdown .v-popper__inner {
+  padding: 0;
+  background: transparent;
+}
+
+.v-popper--theme-dropdown .v-popper__arrow {
+  border-color: red;
+}
+</style>

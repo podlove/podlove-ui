@@ -9,7 +9,9 @@
     :size="size"
     :label="button.label"
     data-test="play-button"
-    @click="dispatch"
+    @play="dispatch"
+    @pause="dispatch"
+    @restart="dispatch"
     @mouseover.native="mouseOver"
     @mouseleave.native="mouseLeave"
   />
@@ -66,7 +68,7 @@ export default {
   },
   computed: {
     background() {
-      return this.brandLightest
+      return this.state.brandLightest
     },
 
     color() {

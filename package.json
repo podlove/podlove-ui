@@ -55,7 +55,7 @@
     "ramda": "0.27.1",
     "regenerator-transform": "0.14.5",
     "stream-to-promise": "3.0.0",
-    "vue": "3.1.5",
+    "vue": "3.2.4",
     "vue-jest": "3.0.7",
     "vue-loader": "16.5.0",
     "vue-template-compiler": "2.6.14",

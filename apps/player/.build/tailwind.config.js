@@ -6,5 +6,8 @@ module.exports =
         tablet: '600px',
         desktop: '950px'
       }
+    },
+    maxHeight: {
+      tab: '455px'
     }
   }

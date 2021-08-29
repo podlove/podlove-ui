@@ -1,4 +1,5 @@
 const path = require('path')
+const { version } = require('../package.json')
 const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
 const componentAssets = path.resolve(__dirname, '..', '..', '..', 'packages', 'components' , 'src', 'components')
 
@@ -63,6 +64,6 @@ module.exports = {
       { from: './example/test.html' },
       { from: './example/assets', to: 'assets' }
     ]),
-    plugins.env({ mode: 'development' })
+    plugins.env({ mode: 'development', VERSION: version })
   ]
 }

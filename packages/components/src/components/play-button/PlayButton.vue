@@ -1,6 +1,6 @@
 <template>
   <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
-    <div v-observer="updateSize" class="wrapper flex items-center content-center" :style="wrapper">
+    <div v-observer="updateSize" class="wrapper flex items-center justify-center" :style="wrapper">
       <transition name="component" mode="out-in">
         <component
           :is="type"
@@ -10,7 +10,7 @@
           :color="color"
           :label="label"
           :size="size / 2"
-          :class="{ 'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading' }"
+          :class="{ 'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading', '-ml-1': type === 'play' }"
         >
           <span
             v-if="label"
@@ -68,6 +68,11 @@ export default {
       default: 50
     }
   },
+  emits: {
+    play: null,
+    pause: null,
+    restart: null
+  },
   data() {
     return {
       width: null
@@ -99,24 +104,22 @@ export default {
     clickHandler() {
       switch (this.type) {
         case 'play':
-          this.$emit('click', requestPlay())
+          this.$emit('play', requestPlay())
           break
         case 'pause':
-          this.$emit('click', requestPause())
+          this.$emit('pause', requestPause())
           break
         case 'restart':
-          this.$emit('click', requestRestart())
+          this.$emit('restart', requestRestart())
           break
       }
     },
 
     updateSize() {
       setTimeout(() => {
-        if (!this.$refs.component) {
-          return
-        }
-        this.width = this.$refs.component.$el.clientWidth
-      }, 10)
+        const component = this.$refs.playbutton.querySelector('.component')
+        this.width = component.clientWidth
+      }, 300) // equals animation duration
     }
   }
 }

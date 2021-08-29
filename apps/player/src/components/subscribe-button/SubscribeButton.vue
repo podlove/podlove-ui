@@ -15,7 +15,6 @@
 <script>
 import Icon from '@podlove/components/icons'
 import { mapState, injectStore } from 'redux-vuex'
-import { compose } from 'ramda'
 import * as overlay from '@podlove/button-actions/overlay'
 
 import select from 'store/selectors'

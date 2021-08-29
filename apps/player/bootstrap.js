@@ -9,11 +9,9 @@ import { store, actions } from './src/store'
 // Translations
 import translations from './lang'
 
-// Tooltip
-import VTooltip from 'v-tooltip'
-
 // Components
 import components from './src/components'
+
 
 // Use public path from application
 __webpack_public_path__ = window.resourceBaseUrl || '/'
@@ -33,5 +31,4 @@ const app = createApp({
 provideStore({ store, app, actions })
 
 app.use(i18n)
-app.use(VTooltip)
 app.mount('#app')

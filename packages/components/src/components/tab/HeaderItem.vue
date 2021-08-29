@@ -1,17 +1,46 @@
 <template>
-  <li class="tab-header-item" :style="tabStyle" :class="{ active }" role="presentation" :rel="name">
+  <li
+    class="
+      tab-header-item
+      flex
+      items-center
+      justify-center
+      w-full
+      m-0
+      opacity-100
+      hover:opacity-75
+      h-8
+    "
+    :style="tabStyle"
+    :class="{ 'hover:opacity-100': active }"
+    role="presentation"
+    :rel="name"
+  >
     <button
       :id="`trigger-${name}`"
-      class="caption"
+      class="
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+        pt-0
+        pb-0
+        pl-4
+        pr-4
+        align-middle
+        text-center
+        w-full
+        h-full
+      "
       role="tab"
       :aria-controls="name"
       :aria-selected="active"
       :tabindex="index"
       @click="clickHandler"
     >
-      <span class="icon" :style="iconStyle" aria-hidden="true"><slot name="icon" /></span>
-      <span class="title"><slot name="title" /></span>
-      <icon v-if="active" type="close" class="close" :color="iconColor(true)" aria-hidden="true" />
+      <span class="icon mr-1" :style="iconStyle" aria-hidden="true"><slot name="icon" /></span>
+      <span class="uppercase ml-1"><slot name="title" /></span>
+      <icon v-if="active" type="close" class="hidden" :color="iconColor(true)" aria-hidden="true" />
     </button>
   </li>
 </template>
@@ -106,61 +135,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'resets';
-@import 'font';
-
-@import 'tokens/defaults';
-@import 'tokens/tab';
-@import 'tokens/animation';
-
-button {
-  @extend %button;
-}
+@import '../../theme/tokens/animation';
 
 .tab-header-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin: 0;
-  height: $tabs-header-height;
   transition: all $animation-duration;
-  opacity: 1;
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &.active:hover {
-    opacity: 1;
-  }
-
-  .caption {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 ($padding / 2);
-
-    overflow: hidden;
-    vertical-align: middle;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-  }
-
-  .title {
-    margin-left: $margin / 3;
-    text-transform: uppercase;
-  }
 
   .icon {
-    margin-right: $margin / 3;
     line-height: 0;
-  }
-
-  .close {
-    display: none;
   }
 }
 </style>

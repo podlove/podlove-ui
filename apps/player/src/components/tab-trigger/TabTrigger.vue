@@ -11,15 +11,15 @@
     :aria-controls="`tab-${tab}`"
     @click="toggle"
   >
-    <span class="block.absolute.top-0" :style="{ color: state.contrast }">
+    <span class="block absolute top-0" :style="{ color: state.contrast }">
       <slot />
     </span>
     <span
       v-if="activeTab"
-      class="block.absolute.w-full.bottom-0"
+      class="block absolute w-full bottom-0"
       :style="{ color: state.brandDark }"
     >
-      <icon class="block.m-auto" type="active-tab" />
+      <icon class="block m-auto" type="active-tab" />
     </span>
   </button>
 </template>

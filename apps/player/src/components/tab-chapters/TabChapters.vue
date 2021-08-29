@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-chapters">
+  <div class="w-full mobile:p-4 tablet:p-6 max-h-tab" data-test="tab-chapters">
     <tab-title tab="chapters" @close="closeTab">
       {{ $t('CHAPTERS.TITLE') }}
     </tab-title>
@@ -11,7 +11,16 @@
         :index="index"
       />
     </ol>
-    <div class="body overflow-y-auto overflow-x-hidden mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6">
+    <div
+      class="
+        body
+        overflow-y-auto overflow-x-hidden
+        mobile:-mr-4
+        tablet:-mr-6
+        mobile:pr-4
+        tablet:pr-6
+      "
+    >
       <entry
         v-for="(chapter, index) in state.chapters"
         :key="`chapter-${index}`"
@@ -56,8 +65,4 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
-.body {
-  max-height: 455px;
-}
-</style>
+<style lang="postcss" scoped></style>

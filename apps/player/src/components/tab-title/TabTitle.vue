@@ -32,7 +32,7 @@ export default {
   },
   setup(props) {
     return {
-      state: this.mapState({
+      state: mapState({
         font: select.theme.fontCi,
         title: select.accessibility.closeTab(props.tab)
       })

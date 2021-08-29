@@ -11,7 +11,7 @@
     :quantiles="state.quantiles"
     :title="$t(state.title.key, state.title.attr)"
     data-test="progress-bar"
-    @input="dispatch"
+    @time="dispatch"
     @simulate="dispatch"
     @ghost="dispatch"
   />

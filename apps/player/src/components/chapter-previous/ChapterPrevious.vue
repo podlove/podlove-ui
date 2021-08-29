@@ -6,7 +6,7 @@
     :disabled="state.previousChapterDisabled"
     :color="state.color"
     :title="$t(state.title.key, state.title.attr)"
-    @click="dispatch"
+    @previous="dispatch"
   />
 </template>
 

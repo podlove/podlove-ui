@@ -1,13 +1,13 @@
 <template>
   <span
-    v-if="state.title"
+    v-if="title"
     class="truncate"
     :aria-label="$t(state.label.key, state.label.attr)"
     tabindex="0"
     data-test="current-chapter"
     :style="{ color: state.color }"
   >
-    {{ state.title }}
+    {{ title }}
   </span>
 </template>
 
@@ -30,11 +30,11 @@ export default {
   },
   computed: {
     chapter() {
-      if (this.ghost) {
-        return this.currentGhostChapter
+      if (this.state.ghost) {
+        return this.state.currentGhostChapter
       }
 
-      return this.currentChapter
+      return this.state.currentChapter
     },
     title() {
       return prop('title', this.chapter)

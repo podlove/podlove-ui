@@ -144,6 +144,11 @@ export default {
       default: () => []
     }
   },
+  emit: {
+    time: null,
+    ghost: null,
+    simulate: null
+  },
   data() {
     return {
       thumbActive: false,
@@ -180,12 +185,12 @@ export default {
   },
   methods: {
     onChange(value) {
-      this.$emit('input', requestPlaytime(value))
+      this.$emit('time', requestPlaytime(value))
     },
 
     onInput(value) {
       this.thumbAnimated = false
-      this.$emit('input', requestPlaytime(value))
+      this.$emit('time', requestPlaytime(value))
       this.$emit('ghost', disableGhost())
     },
 

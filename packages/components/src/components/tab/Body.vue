@@ -1,7 +1,10 @@
 <template>
   <div
-    class="tab-body"
-    :class="{ active, fixed }"
+    class="tab-body overflow-hidden"
+    :class="{
+      'active overflow-y-auto': active,
+      'fixed-height absolute top-0 left-0 w-full overflow-x-hidden': fixed
+    }"
     role="tabpanel"
     :aria-labelledby="`trigger-${name}`"
     tabindex="0"
@@ -46,27 +49,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'tokens/color';
-@import 'tokens/tab';
+@import '../../theme/tokens/color';
+@import '../../theme/tokens/tab';
 
 .tab-body {
   max-height: 0;
-  overflow: hidden;
+  background: $background-color;
 
   &.active {
     max-height: 100%;
-    overflow-y: auto;
   }
 
-  background: $background-color;
-
-  &.fixed {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    overflow-x: auto;
+  &.fixed-height {
     height: calc(100% - #{$tabs-header-height});
   }
 }

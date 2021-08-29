@@ -5,7 +5,7 @@
     type="backwards"
     :title="$t(state.title.key, state.title.attr)"
     :color="state.color"
-    @click="dispatch"
+    @backwards="dispatch"
   />
 </template>
 

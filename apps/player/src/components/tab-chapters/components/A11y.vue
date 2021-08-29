@@ -26,11 +26,11 @@ export default {
     }
   },
 
-  setup() {
+  setup(props) {
     return {
       state: mapState({
-        buttonText: select.accessibility.chapterPlay(this.chapter),
-        timerRemaining: select.accessibility.chapterTimerRemaining(this.chapter),
+        buttonText: select.accessibility.chapterPlay(props.chapter),
+        timerRemaining: select.accessibility.chapterTimerRemaining(props.chapter),
         current: select.chapters.current,
         playtime: select.playtime,
         playing: select.driver.playing
