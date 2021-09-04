@@ -4,18 +4,18 @@
       <div class="relative w-full">
         <div class="flex absolute opacity-50 right-0 h-full items-center p-2">
           <button
-            v-if="searchQuery.length > 0"
+            v-if="state.searchQuery.length > 0"
             :title="$t(state.clearSearchTitle.key, state.clearSearchTitle.attr)"
             @click="reset"
           >
-            <icon aria-hidden="true" type="close" :color="brandDark" :size="24" />
+            <icon aria-hidden="true" type="close" :color="state.brandDark" :size="24" />
           </button>
           <icon
             v-else
             class="pointer-events-none"
             aria-hidden="true"
             type="search"
-            :color="brandDark"
+            :color="state.brandDark"
             :size="24"
           />
         </div>
@@ -85,13 +85,12 @@
       :title="$t(state.followTranscriptsTitle.key, state.followTranscriptsTitle.attr)"
       @click="toggleFollow"
     >
-      {{ follow ? $t('TRANSCRIPTS.FOLLOW.ACTIVE') : $t('TRANSCRIPTS.FOLLOW.INACTIVE') }}
+      {{ state.follow ? $t('TRANSCRIPTS.FOLLOW.ACTIVE') : $t('TRANSCRIPTS.FOLLOW.INACTIVE') }}
     </button>
   </div>
 </template>
 
 <script>
-import { compose } from 'ramda'
 import { mapState, injectStore } from 'redux-vuex'
 import Icon from '@podlove/components/icons'
 
@@ -138,7 +137,7 @@ export default {
     },
     buttonStyle() {
       return {
-        color: this.state.follow ? this.contrastColor.state : this.state.brandLightest,
+        color: this.state.follow ? this.state.contrastColor : this.state.brandLightest,
         background: this.state.follow ? this.state.brandLightest : this.state.brandDark,
         'border-color': this.state.brandLightest
       }

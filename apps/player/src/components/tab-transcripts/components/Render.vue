@@ -14,11 +14,11 @@
         :key="index"
         data-test="tab-transcripts--entry"
         :entry="entry"
-        :playtime="playtime"
-        :search-query="query"
-        :ghost-active="ghostActive"
-        :ghost-time="ghostTime"
-        :search-results="searchResults"
+        :playtime="state.playtime"
+        :search-query="state.query"
+        :ghost-active="state.ghostActive"
+        :ghost-time="state.ghostTime"
+        :search-results="state.searchResults"
         :chapter-style="chapterStyle"
         :speaker-style="speakerStyle"
         :highlight-style="highlightStyle"
@@ -34,7 +34,6 @@
 
 <script>
 import color from 'color'
-import { compose } from 'ramda'
 import { mapState, injectStore } from 'redux-vuex'
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
 import { requestPlay } from '@podlove/player-actions/play'
@@ -207,7 +206,7 @@ export default {
         }
 
         // Follow mode is off or ghost mode is on
-        if (!this.state.follow || this.state.ghostActive) {
+        if (!this.follow || this.state.ghostActive) {
           return
         }
 

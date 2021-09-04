@@ -53,11 +53,11 @@ export default {
 
   SubscribeButton,
   TabChapters: defineAsyncComponent(() => import('./tab-chapters')),
-  // TabTranscripts: () => import('./tab-transcripts'),
+  TabTranscripts: defineAsyncComponent(() => import('./tab-transcripts')),
   // TabFiles: () => import('./tab-files'),
   // TabShare: () => import('./tab-share'),
   // TabPlaylist: () => import('./tab-playlist'),
-  // TabShownotes: () => import('./tab-shownotes'),
+  TabShownotes: defineAsyncComponent(() => import('./tab-shownotes')),
 
   // ProgressBarLive: () => import('./progress-bar-live'),
 

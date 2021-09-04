@@ -1,6 +1,8 @@
 <script>
+import { h } from 'vue'
+
 const container =
-  (h) =>
+  () =>
   (children = []) =>
     h(
       'div',
@@ -14,7 +16,7 @@ const container =
     )
 
 const chapter =
-  (h, c) =>
+  (c) =>
   (children = []) =>
     h(
       'div',
@@ -30,7 +32,7 @@ const chapter =
       [c.$t('TRANSCRIPTS.CHAPTER', c.entry), ...children]
     )
 
-const speaker = (h, c) =>
+const speaker = (c) =>
   h('div', { class: { '-ml-6': true }, style: c.speakerStyle }, [
     c.entry.speaker.avatar
       ? h('img', {
@@ -41,15 +43,14 @@ const speaker = (h, c) =>
             'inline-block': true,
             'mr-2': true
           },
-          domProps: { src: c.entry.speaker.avatar }
+          src: c.entry.speaker.avatar
         })
       : null,
     c.entry.speaker.name
       ? h(
           'span',
           {
-            class: { 'text-xs': true, uppercase: true, 'opacity-50': true },
-            style: c.speakerTextStyle
+            class: { 'text-xs': true, uppercase: true, 'opacity-50': true }
           },
           c.entry.speaker.name
         )
@@ -57,14 +58,14 @@ const speaker = (h, c) =>
   ])
 
 const transcript =
-  (h, c) =>
+  (c) =>
   (children = []) =>
     h('div', { class: { transcript: true, 'ml-6': c.entry.speaker } }, [
-      c.entry.speaker ? speaker(h, c) : null,
+      c.entry.speaker ? speaker(c) : null,
       ...children
     ])
 
-const highlightText = (h, c, text) => {
+const highlightText = (c, text) => {
   if (!c.query) {
     return text
   }
@@ -75,7 +76,7 @@ const highlightText = (h, c, text) => {
     .map((text) => (text.match(c.query) ? h('span', { style: c.highlightStyle }, text) : text))
 }
 
-const text = (h, c) => (transcript, index) =>
+const text = (c) => (transcript, index) =>
   h(
     'span',
     {
@@ -93,7 +94,7 @@ const text = (h, c) => (transcript, index) =>
             mouseleave: () => c.onMouseLeave(transcript)
           }
     },
-    [highlightText(h, c, transcript.text)]
+    [highlightText(c, transcript.text)]
   )
 
 export default {
@@ -221,11 +222,11 @@ export default {
       return {}
     }
   },
-  render(h) {
-    const entryContainer = container(h, this)
-    const entryChapter = chapter(h, this)
-    const entryTranscript = transcript(h, this)
-    const entryTexts = text(h, this)
+  render() {
+    const entryContainer = container(this)
+    const entryChapter = chapter(this)
+    const entryTranscript = transcript(this)
+    const entryTexts = text(this)
 
     return entryContainer([
       this.entry.type === 'chapter'
