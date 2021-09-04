@@ -23,11 +23,11 @@ const chapter =
       {
         class: { 'text-lg': true },
         style: c.chapterStyle,
-        on: c.prerender
+        ...(c.prerender
           ? {}
           : {
-              click: () => c.onClick(c.entry)
-            }
+              onClick: () => c.onClick(c.entry)
+            })
       },
       [c.$t('TRANSCRIPTS.CHAPTER', c.entry), ...children]
     )
@@ -86,13 +86,13 @@ const text = (c) => (transcript, index) =>
         'active-transcript': c.activePlaytime(transcript)
       },
       style: c.prerender ? {} : c.transcriptStyle(transcript),
-      on: c.prerender
+      ...(c.prerender
         ? {}
         : {
-            click: () => c.onClick(transcript),
-            mouseover: () => c.onMouseOver(transcript),
-            mouseleave: () => c.onMouseLeave(transcript)
-          }
+            onClick: () => c.onClick(transcript),
+            onMouseover: () => c.onMouseOver(transcript),
+            onMouseleave: () => c.onMouseLeave(transcript)
+          })
     },
     [highlightText(c, transcript.text)]
   )

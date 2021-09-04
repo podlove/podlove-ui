@@ -1,5 +1,5 @@
 <template>
-  <div clcass="w-full mobile:p-4 tablet:p-6" data-test="tab-files">
+  <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-files">
     <tab-title tab="files" @close="closeTab">
       {{ $t('FILES.TITLE') }}
     </tab-title>

@@ -54,7 +54,7 @@ export default {
   SubscribeButton,
   TabChapters: defineAsyncComponent(() => import('./tab-chapters')),
   TabTranscripts: defineAsyncComponent(() => import('./tab-transcripts')),
-  // TabFiles: () => import('./tab-files'),
+  TabFiles: defineAsyncComponent(() => import('./tab-files')),
   // TabShare: () => import('./tab-share'),
   // TabPlaylist: () => import('./tab-playlist'),
   TabShownotes: defineAsyncComponent(() => import('./tab-shownotes')),
