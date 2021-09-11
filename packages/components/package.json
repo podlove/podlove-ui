@@ -18,8 +18,8 @@
     "@podlove/utils": "^5.7.0",
     "normalize.css": "8.0.1",
     "rangetouch": "2.0.0",
-    "v-tooltip": "2.0.2",
-    "vue": "3.2.4",
+    "v-tooltip": "4.0.0-alpha.1",
+    "vue": "3.2.11",
     "vue-mutation-observer": "0.1.2"
   },
   "devDependencies": {

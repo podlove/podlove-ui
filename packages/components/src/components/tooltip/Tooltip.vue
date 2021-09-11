@@ -1,31 +1,26 @@
 <template>
-  <v-popover
-    ref="popover"
-    class="tooltip"
-    :auto-hide="true"
-    :placement="placement"
-    trigger="manual"
-    delay.show="100"
-    delay.hide="3000"
-  >
-    <span @click="click" @mouseleave="mouseLeave" @mouseover="mouseOver">
-      <slot />
-    </span>
-    <template slot="popover">
-      <span class="tooltip-inner" :style="{ color, background }">
-        {{ content }}
+  <span>
+    <dropdown :auto-hide="true" :placement="placement" :triggers="[]" :shown="visible">
+      <span @click="click" @mouseleave="mouseLeave" @mouseover="mouseOver">
+        <slot />
       </span>
-    </template>
-  </v-popover>
+      <template #popper>
+        <span class="tooltip-inner rounded px-3 py-1 text-center" :style="{ color, background }">
+          {{ content }}
+        </span>
+      </template>
+    </dropdown>
+  </span>
 </template>
 
 <script>
-import { VPopover } from 'v-tooltip'
+import { Dropdown } from 'v-tooltip'
 
 export default {
   components: {
-    VPopover
+    Dropdown
   },
+
   props: {
     trigger: {
       type: String,
@@ -50,14 +45,26 @@ export default {
     }
   },
 
+  emits: {
+    click: null
+  },
+
+  data() {
+    return {
+      visible: false
+    }
+  },
+
   methods: {
     show() {
-      this.$refs.popover.$refs.popover.style.color = this.background
-      this.$refs.popover.show()
+      // this.$refs.popover.$refs.popover.style.color = this.background
+      // this.$refs.popover.show()
+      this.visible = true
     },
 
     hide() {
-      this.$refs.popover.hide()
+      // this.$refs.popover.hide()
+      this.visible = false
     },
 
     mouseLeave() {
@@ -94,19 +101,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'boot';
-@import 'tokens/color';
-@import 'font';
-
 .tooltip {
   z-index: 10000;
-  font-size: 0.9em;
-
-  .tooltip-inner {
-    border-radius: 3px;
-    padding: 5px 10px 4px;
-    text-align: center;
-  }
 
   .tooltip-arrow {
     width: 0;

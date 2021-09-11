@@ -1,21 +1,20 @@
 <template>
-  <a :href="linkedinLink" class="channel-link" target="_blank">
-    <span class="channel-icon Linkedin" aria-hidden="true" :style="style">
-      <icon type="linkedin" :color="color" :filled="filled" />
-    </span>
-    <span class="visually-hidden">{{ a11y }}</span>
-  </a>
+  <channel-base v-bind="$props" type="link" :link="linkedinLink">
+    <icon type="linkedin" :color="color" :filled="filled" />
+  </channel-base>
 </template>
 
 <script>
+// import { addQueryParameter } from '@podlove/utils/url'
+import ChannelBase from './Base'
 import Icon from '../../icons'
-import { addQueryParameter } from '@podlove/utils/url'
 
 const LINK = 'https://www.linkedin.com/shareArticle'
 
 export default {
   components: {
-    Icon
+    Icon,
+    ChannelBase
   },
   props: {
     link: {
@@ -26,21 +25,9 @@ export default {
       type: String,
       default: ''
     },
-    subject: {
-      type: String,
-      default: ''
-    },
-    a11y: {
-      type: String,
-      default: ''
-    },
     color: {
       type: String,
       default: '#fff'
-    },
-    background: {
-      type: String,
-      default: '#0077B5'
     },
     filled: {
       type: Boolean,
@@ -49,17 +36,9 @@ export default {
   },
   computed: {
     linkedinLink() {
-      return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
-    },
-    style() {
-      return {
-        background: this.background
-      }
+      return ''
+      // return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import 'channel';
-</style>

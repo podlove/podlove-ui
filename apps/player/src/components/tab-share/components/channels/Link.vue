@@ -11,8 +11,8 @@
       :color="state.color"
       :background="state.background"
       :filled="hover"
-      @mouseover.native="hover = true"
-      @mouseleave.native="hover = false"
+      @mouseover="hover = true"
+      @mouseleavee="hover = false"
     />
   </tooltip>
 </template>

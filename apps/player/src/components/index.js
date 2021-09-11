@@ -55,7 +55,7 @@ export default {
   TabChapters: defineAsyncComponent(() => import('./tab-chapters')),
   TabTranscripts: defineAsyncComponent(() => import('./tab-transcripts')),
   TabFiles: defineAsyncComponent(() => import('./tab-files')),
-  // TabShare: () => import('./tab-share'),
+  TabShare: defineAsyncComponent(() => import('./tab-share')),
   // TabPlaylist: () => import('./tab-playlist'),
   TabShownotes: defineAsyncComponent(() => import('./tab-shownotes')),
 

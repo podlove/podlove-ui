@@ -1,7 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const cssClean = require('postcss-clean')
 const tailwind = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
+const cssClean = require('postcss-clean')
+const cssImport = require('postcss-import')
 
 const { prepend } = require('./utils')
 
@@ -43,6 +44,7 @@ const style = {
       clean: cssClean({
         inline: ['none']
       }),
+      cssImport,
       autoprefixer,
       tailwind
     }

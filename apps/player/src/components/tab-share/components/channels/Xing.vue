@@ -5,8 +5,8 @@
     :color="state.color"
     :background="state.background"
     :filled="hover"
-    @mouseover.native="hover = true"
-    @mouseleave.native="hover = false"
+    @mouseover="hover = true"
+    @mouseleave="hover = false"
   />
 </template>
 
@@ -22,7 +22,7 @@ export default {
   },
   setup() {
     return {
-      state: this.mapState({
+      state: mapState({
         link: select.share.link,
         color: select.theme.brandDark,
         background: select.theme.alt

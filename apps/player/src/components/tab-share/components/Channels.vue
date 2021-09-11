@@ -1,14 +1,14 @@
 <template>
-  <ul class=".flex.flex-wrap.justify-space-between" data-test="tab-share--channels">
+  <ul class="flex flex-wrap justify-space-between" data-test="tab-share--channels">
     <li
-      v-for="(channel, index) in state.channels"
-      :key="`channel-${index}`"
+      v-for="channel in channels"
+      :key="`channel-${channel}`"
       :data-test="`tab-share--channels--${channel}`"
     >
       <component
         :is="`${channel}-channel`"
         :aria-label="$t(state.a11y(channel).key, state.a11y(channel).attr)"
-        :a11y="$t(state.a11y.key, { channel })"
+        :a11y="$t(state.a11y(channel).key, { channel })"
       />
     </li>
   </ul>
@@ -47,6 +47,11 @@ export default {
         channels: select.channels,
         a11y: select.accessibility.shareChannel
       })
+    }
+  },
+  computed: {
+    channels() {
+      return Object.values(this.state.channels)
     }
   }
 }

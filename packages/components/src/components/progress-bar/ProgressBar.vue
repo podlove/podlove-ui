@@ -286,7 +286,6 @@ export default {
 }
 
 .progress-thumb {
-  // border offset
   margin-left: calc(-1px - #{$thumb-size / 2});
   height: $thumb-size;
   border-radius: $thumb-size;
