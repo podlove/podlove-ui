@@ -6,7 +6,7 @@
     :color="state.color"
     :border-color="state.color"
     :background="state.background"
-    @change="toggleContent"
+    @select="toggleContent"
   />
 </template>
 

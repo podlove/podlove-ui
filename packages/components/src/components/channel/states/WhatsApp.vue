@@ -1,5 +1,5 @@
 <template>
-  <channel-base v-bind="$props" type="link" :link="whatsAppLink">
+  <channel-base v-bind="$props" type="link" :href="whatsAppLink">
     <icon type="whats-app" :color="color" :filled="filled" />
   </channel-base>
 </template>

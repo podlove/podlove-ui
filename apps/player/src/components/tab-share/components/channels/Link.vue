@@ -4,6 +4,7 @@
     :content="$t('MESSAGES.COPIED')"
     :color="state.color"
     :background="state.background"
+    placement="right"
     @click="copyLink"
   >
     <channel

@@ -2,7 +2,7 @@
   <span>
     <component
       :is="componentType"
-      :href="link"
+      :href="href"
       class="inline-flex items-center flex-col m-2 cursor-pointer"
       :target="target"
     >
@@ -33,7 +33,7 @@ export default {
       default: 'link',
       validator: (val) => ['button', 'link'].includes(val)
     },
-    link: {
+    href: {
       type: String,
       default: null
     },

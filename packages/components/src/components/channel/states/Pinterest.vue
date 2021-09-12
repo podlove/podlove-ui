@@ -1,5 +1,5 @@
 <template>
-  <channel-base v-bind="$props" type="link" :link="pinterestLink">
+  <channel-base v-bind="$props" type="link" :href="pinterestLink">
     <icon type="pinterest" :color="color" :filled="filled" />
   </channel-base>
 </template>

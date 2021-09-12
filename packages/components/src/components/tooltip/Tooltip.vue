@@ -5,9 +5,14 @@
         <slot />
       </span>
       <template #popper>
-        <span class="tooltip-inner rounded px-3 py-1 text-center" :style="{ color, background }">
+        <span class="rounded px-3 py-1 text-center text-sm" :style="{ color, background }">
           {{ content }}
         </span>
+        <span
+          class="arrow"
+          :class="{ [`arrow-${placement}`]: true }"
+          :style="{ 'border-color': background }"
+        ></span>
       </template>
     </dropdown>
   </span>
@@ -15,6 +20,8 @@
 
 <script>
 import { Dropdown } from 'v-tooltip'
+
+let hideTimeout
 
 export default {
   components: {
@@ -51,24 +58,25 @@ export default {
 
   data() {
     return {
-      visible: false
+      visible: false,
+      test: 'orange'
     }
   },
 
   methods: {
     show() {
-      // this.$refs.popover.$refs.popover.style.color = this.background
-      // this.$refs.popover.show()
       this.visible = true
     },
 
-    hide() {
-      // this.$refs.popover.hide()
-      this.visible = false
+    hide(timeout) {
+      clearTimeout(hideTimeout)
+      hideTimeout = setTimeout(() => {
+        // this.visible = false
+      }, timeout)
     },
 
     mouseLeave() {
-      this.hide()
+      this.hide(500)
     },
 
     mouseOver() {
@@ -94,84 +102,72 @@ export default {
 
       this.show()
       this.$emit('click')
-      setTimeout(() => this.hide(), 6000)
+      this.hide(6000)
     }
   }
 }
 </script>
 
 <style lang="scss">
-.tooltip {
-  z-index: 10000;
+.v-popper__arrow-container {
+  display: none;
+}
 
-  .tooltip-arrow {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    position: absolute;
-    margin: 5px;
-    border-color: currentColor;
-    z-index: 1;
-  }
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  z-index: 1;
 
-  &[x-placement^='top'] {
+  &.arrow-top {
     margin-bottom: 8px;
-
-    .tooltip-arrow {
-      border-width: 5px 5px 0 5px;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      bottom: -5px;
-      left: calc(50% - 5px);
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+    border-width: 5px 5px 0 5px;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    bottom: -5px;
+    left: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  &[x-placement^='bottom'] {
-    margin-top: 8px;
-
-    .tooltip-arrow {
-      border-width: 0 5px 5px 5px;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-top-color: transparent !important;
-      top: -5px;
-      left: calc(50% - 5px);
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+  &.arrow-bottom {
+    border-width: 0 5px 5px 5px;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-top-color: transparent !important;
+    top: -5px;
+    left: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  &[x-placement^='right'] {
-    margin-left: 8px;
-
-    .tooltip-arrow {
-      border-width: 5px 5px 5px 0;
-      border-left-color: transparent !important;
-      border-top-color: transparent !important;
-      border-bottom-color: transparent !important;
-      left: 5px;
-      top: calc(50% - 5px);
-      margin-left: 0;
-      margin-right: 0;
-    }
+  &.arrow-right {
+    border-width: 5px 5px 5px 0;
+    border-left-color: transparent !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    left: -5px;
+    top: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 1px;
+    margin-right: 0;
   }
 
-  &[x-placement^='left'] {
-    margin-right: 8px;
-
-    .tooltip-arrow {
-      border-width: 5px 0 5px 5px;
-      border-top-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      right: 5px;
-      top: calc(50% - 5px);
-      margin-left: 0;
-      margin-right: 0;
-    }
+  &.arrow-left {
+    border-width: 5px 0 5px 5px;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    right: -5px;
+    top: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 1px;
+    margin-right: 0;
   }
 }
 </style>

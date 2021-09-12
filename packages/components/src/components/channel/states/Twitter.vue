@@ -1,5 +1,5 @@
 <template>
-  <channel-base v-bind="$props" type="link" :link="twitterLink">
+  <channel-base v-bind="$props" type="link" :href="twitterLink">
     <icon type="twitter" :color="color" :filled="filled" />
   </channel-base>
 </template>
@@ -12,6 +12,7 @@ import Icon from '../../icons'
 const LINK = 'https://twitter.com/intent/tweet'
 
 export default {
+
   components: {
     ChannelBase,
     Icon

@@ -1,5 +1,5 @@
 <template>
-  <channel-base v-bind="$props" type="link" :link="xingLink">
+  <channel-base v-bind="$props" type="link" :href="xingLink">
     <icon type="xing" :color="color" :filled="filled" />
   </channel-base>
 </template>

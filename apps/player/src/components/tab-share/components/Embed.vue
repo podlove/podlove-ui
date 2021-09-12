@@ -26,7 +26,7 @@
       >
         <button
           class="block px-8 py-2 text-sm p-1 rounded-sm mr-2 w-full border"
-          :title="$t(copyLabel.key, copyLabel.attr)"
+          :title="$t(state.copyLabel.key, state.copyLabel.attr)"
           :style="{
             color: state.brandColor,
             background: state.background,

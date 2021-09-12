@@ -13,7 +13,7 @@
         class="opacity-0"
         :checked="value"
         :disabled="disabled"
-        @change="changeEvent"
+        @change="selectEvent"
       />
     </span>
     <span class="h-5 leading-5">{{ label }}</span>
@@ -31,7 +31,7 @@
       class="opacity-0"
       :checked="value"
       :disabled="disabled"
-      @change="changeEvent"
+      @change="selectEvent"
     />
   </span>
 </template>
@@ -70,6 +70,9 @@ export default {
       default: false
     }
   },
+  emits: {
+    select: null
+  },
   computed: {
     style() {
       return {
@@ -79,8 +82,8 @@ export default {
     }
   },
   methods: {
-    changeEvent(event) {
-      this.$emit('change', event.target.value)
+    selectEvent(event) {
+      this.$emit('select', event.target.value)
     }
   }
 }

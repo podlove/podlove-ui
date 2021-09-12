@@ -1,5 +1,5 @@
 <template>
-  <channel-base v-bind="$props" type="link" :link="mailLink">
+  <channel-base v-bind="$props" type="link" :href="mailLink">
     <icon type="mail" :color="color" :filled="filled" />
   </channel-base>
 </template>
@@ -41,4 +41,3 @@ export default {
   }
 }
 </script>
-

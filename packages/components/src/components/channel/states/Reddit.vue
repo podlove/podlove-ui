@@ -1,5 +1,5 @@
 <template>
-  <channel-base v-bind="$props" type="link" :link="redditLink">
+  <channel-base v-bind="$props" type="link" :href="redditLink">
     <icon type="reddit" :color="color" :filled="filled" />
   </channel-base>
 </template>
