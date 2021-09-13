@@ -180,7 +180,6 @@
     "outlet": "/share.html",
     "sharePlaytime": true
   },
-
   "features": {
     "persistTab": false,
     "persistPlaystate": false

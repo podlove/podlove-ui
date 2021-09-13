@@ -11,7 +11,16 @@
         :index="index"
       />
     </ol>
-    <div class="body overflow-y-auto overflow-x-hidden mobile:-mr-4 tablet:-mr-6 mobile:pr-4 tablet:pr-6">
+    <div
+      class="
+        body
+        overflow-y-auto overflow-x-hidden
+        mobile:-mr-4
+        tablet:-mr-6
+        mobile:pr-4
+        tablet:pr-6
+      "
+    >
       <entry
         v-for="(episode, index) in state.playlist"
         :key="`episode-${index}`"

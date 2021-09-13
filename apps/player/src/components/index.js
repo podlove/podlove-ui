@@ -56,10 +56,10 @@ export default {
   TabTranscripts: defineAsyncComponent(() => import('./tab-transcripts')),
   TabFiles: defineAsyncComponent(() => import('./tab-files')),
   TabShare: defineAsyncComponent(() => import('./tab-share')),
-  // TabPlaylist: () => import('./tab-playlist'),
+  TabPlaylist: defineAsyncComponent(() => import('./tab-playlist')),
   TabShownotes: defineAsyncComponent(() => import('./tab-shownotes')),
 
-  // ProgressBarLive: () => import('./progress-bar-live'),
+  ProgressBarLive: defineAsyncComponent(() => import('./progress-bar-live')),
 
   Icon: defineAsyncComponent(() => import('@podlove/components/icons'))
 }

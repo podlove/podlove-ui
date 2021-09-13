@@ -30,12 +30,12 @@ export default {
     }
   },
 
-  setup() {
+  setup(props) {
     return {
       state: mapState({
         playing: select.driver.playing,
-        playText: select.accessibility.episodePlay(this.episode),
-        timerDuration: select.accessibility.episodeDuration(this.episode)
+        playText: select.accessibility.episodePlay(props.episode),
+        timerDuration: select.accessibility.episodeDuration(props.episode)
       }),
       dispatch: injectStore().dispatch
     }
