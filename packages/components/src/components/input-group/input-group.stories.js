@@ -8,13 +8,19 @@ export default {
   component: InputGroup
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { InputGroup, ButtonComponent, InputText, Icon },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
   <input-group>
-    <button-component slot="button"><icon type="copy" /></button-component>
-    <input-text value="My Input text value" slot="input"></input-text>
+    <template #button>
+      <button-component><icon type="copy" /></button-component>
+    </template>
+    <template #input>
+      <input-text value="My Input text value"></input-text>
+    </template>
   </input-group>
   `
 })

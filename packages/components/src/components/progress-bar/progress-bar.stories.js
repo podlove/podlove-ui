@@ -5,28 +5,13 @@ export default {
   component: ProgressBar
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { ProgressBar },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-    <progress-bar
-      style="width: 400px"
-      :title="title"
-      :time="time"
-      :duration="duration"
-      :ghost="ghost"
-      :quantiles="quantiles"
-      :buffer="buffer"
-      :chapters="chapters"
-      :progressColor="progressColor"
-      :thumbColor="thumbColor"
-      :highlightColor="highlightColor"
-      :label="label"
-      @input="onInput"
-      @simulate="onSimulate"
-      @ghost="onGhost"
-    >
-    </progress-bar>
+    <progress-bar v-bind="args"></progress-bar>
   `
 })
 

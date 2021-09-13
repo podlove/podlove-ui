@@ -1,10 +1,10 @@
 <template>
   <div class="card" :style="containerStyle">
     <div class="card-header" :style="headerStyle">
-      <slot name="header" />
+      <slot name="header"></slot>
     </div>
     <div class="card-body">
-      <slot />
+      <slot></slot>
     </div>
   </div>
 </template>

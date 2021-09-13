@@ -6,19 +6,13 @@ export default {
   component: PlayButton
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { PlayButton },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-  <play-button
-    :type="type"
-    :color="color"
-    :background="background"
-    :label="label"
-    :size="size"
-    @click="onClick"
-  >
-  </play-button>
+  <play-button v-bind="args"></play-button>
   `
 })
 

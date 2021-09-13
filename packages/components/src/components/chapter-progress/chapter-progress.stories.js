@@ -7,24 +7,14 @@ export default {
   component: ChapterProgress
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { ChapterProgress },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
   <div style="background: ${color(defaults.background).fade(0.8).string()}">
-    <chapter-progress
-      :chapter="chapter"
-      :showLink="showLink"
-      :playtime="playtime"
-      :ghost="ghost"
-      :progressColor="progressColor"
-      @chapter="onChapter"
-      @play="onPlay"
-      @ghost="onGhost"
-      @playtime="onPlaytime"
-      @hover="onHover"
-      @simulate="onSimulate"
-    >
+    <chapter-progress v-bind="args">
     </chapter-progress>
   </div>
   `

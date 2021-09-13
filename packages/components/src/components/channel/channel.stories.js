@@ -10,7 +10,6 @@ const Template = (args) => ({
   setup() {
     return { args }
   },
-  // props: Object.keys(argTypes),
   template: `
   <channel v-bind="args"></channel>
   `

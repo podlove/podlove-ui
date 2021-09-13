@@ -6,9 +6,8 @@ export default {
   component: LazyImage
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { LazyImage },
-  props: Object.keys(argTypes),
   setup() {
     return { args }
   },

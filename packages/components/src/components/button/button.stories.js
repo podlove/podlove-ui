@@ -6,15 +6,14 @@ export default {
   component: ButtonComponent
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { ButtonComponent },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
     <button-component
-      :textColor="textColor"
-      :backgroundColor="backgroundColor"
-      :href="href"
-      :disabled="disabled"
+    v-bind="args"
     >{{ text }}</button-component>
   `
 })

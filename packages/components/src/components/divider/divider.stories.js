@@ -6,10 +6,12 @@ export default {
   component: Divider
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { Divider },
-  props: Object.keys(argTypes),
-  template: `<divider :color="color"></divider>`
+  setup() {
+    return { args }
+  },
+  template: `<divider v-bind="args"></divider>`
 })
 
 export const Default = Template.bind({})

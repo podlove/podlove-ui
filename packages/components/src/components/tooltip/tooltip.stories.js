@@ -5,12 +5,14 @@ export default {
   component: Tooltip
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { Tooltip },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-    <div style="height: 150px; display: flex; align-items: center; justify-content: center;">
-      <tooltip :content="content" :trigger="trigger" :color="color" :background="background" :placement="placement" @click="onClick">
+    <div style="height: 150px; position: relative; display: flex; align-items: center; justify-content: center;">
+      <tooltip v-bind="args">
         <span>Tooltip trigger</span>
       </tooltip>
     </div>

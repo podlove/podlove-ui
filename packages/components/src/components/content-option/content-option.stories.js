@@ -8,21 +8,16 @@ export default {
   component: ContentOption
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { ContentOption, Icon },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-  <content-option
-      :content="content"
-      :title="title"
-      :type="type"
-      :active="active"
-      :icon="icon"
-      :background="background"
-      :color="color"
-      @click="onClick"
-    >
-      <icon slot="icon" :type="icon" />
+    <content-option v-bind="args">
+      <template #icon>
+        <icon :type="args.icon" />
+      </template>
     </content-option>
   `
 })
