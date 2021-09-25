@@ -5,7 +5,7 @@
 </template>
 
 <script>
-// import { addQueryParameter } from '@podlove/utils/url'
+import { addQueryParameter } from '@podlove/utils/url'
 import ChannelBase from './Base'
 import Icon from '../../icons'
 
@@ -36,8 +36,7 @@ export default {
   },
   computed: {
     linkedinLink() {
-      return ''
-      // return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
+      return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
     }
   }
 }

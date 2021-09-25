@@ -100,7 +100,7 @@ export default {
     activeStyle() {
       return {
         cursor: 'pointer',
-        background: color(this.state.alt).fade(0.8)
+        background: color(this.state.alt).fade(0.8).toString()
       }
     },
     active() {
@@ -115,7 +115,7 @@ export default {
   },
   watch: {
     active() {
-      this.follow && this.state.selected === -1 && this.scrollWindow()
+      this.follow && this.selected === -1 && this.scrollWindow()
     },
     follow() {
       this.follow && this.scrollWindow()
@@ -125,7 +125,7 @@ export default {
         return
       }
 
-      this.scrollTo(this.searchResults[this.selected - 1])
+      this.scrollTo(this.state.searchResults[this.selected - 1])
     }
   },
   mounted() {

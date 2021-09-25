@@ -12,8 +12,8 @@
     @play="dispatch"
     @pause="dispatch"
     @restart="dispatch"
-    @mouseover.native="mouseOver"
-    @mouseleave.native="mouseLeave"
+    @mouseover="mouseOver"
+    @mouseleave="mouseLeave"
   />
 </template>
 

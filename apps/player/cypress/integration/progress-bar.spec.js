@@ -55,7 +55,7 @@ describe('<progress-bar>', () => {
     })
 
     it('should render the chapters', () => {
-      cy.select('progress-bar').find('.chapters-progress .indicator').should('have.length', 3)
+      cy.select('progress-bar--chapter-progress--indicator').should('have.length', 3)
     })
 
     it('should set the thumb according to current playtime', () => {

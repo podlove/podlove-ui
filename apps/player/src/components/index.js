@@ -13,6 +13,7 @@ import PlayButton from './play-button'
 import ProgressBar from './progress-bar'
 import TimerCurrent from './timer-current'
 import TimerDuration from './timer-duration'
+import TimerLive from './timer-live'
 import CurrentChapter from './current-chapter'
 import ChapterPrevious from './chapter-previous'
 import ChapterNext from './chapter-next'
@@ -39,6 +40,7 @@ export default {
   ProgressBar,
   TimerCurrent,
   TimerDuration,
+  TimerLive,
   CurrentChapter,
   ChapterPrevious,
   ChapterNext,

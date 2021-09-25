@@ -52,6 +52,7 @@
         :key="index"
         tabindex="-1"
         aria-hidden="true"
+        data-test="progress-bar--chapter-progress--indicator"
         class="absolute pointer-events-none"
         :style="chapterStyle(chapter)"
       />

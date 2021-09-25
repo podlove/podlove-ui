@@ -138,7 +138,7 @@ export default {
     })
   },
 
-  timerLiver: (state) => {
+  timerLive: (state) => {
     const live = timepiece.livesync(state) - timepiece.playtime(state)
 
     return translation('A11Y.TIMER_LIVE', {

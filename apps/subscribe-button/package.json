@@ -25,7 +25,7 @@
     "redux": "4.0.4",
     "redux-actions": "2.6.5",
     "redux-saga": "1.1.3",
-    "redux-vuex": "3.0.0-beta.2",
+    "redux-vuex": "3.0.0-beta.4",
     "vue": "3.2.11",
     "vue-i18n": "9.1.7"
   },

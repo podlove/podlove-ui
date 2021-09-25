@@ -37,7 +37,7 @@
       >
         <div
           v-if="noResults"
-          class="whitespace-no-wraptruncate"
+          class="whitespace-no-wrap truncate"
           data-test="tab-transcripts--search-controls--no-results"
         >
           {{ $t('TRANSCRIPTS.NO_SEARCH_RESULTS') }}
@@ -52,7 +52,7 @@
             <icon aria-hidden="true" type="chevron-left" />
           </button>
           <span
-            class="whitespace-no-wrap.block.stepper"
+            class="whitespace-no-wrap block stepper"
             data-test="tab-transcripts--search-results"
           >
             <span data-test="tab-transcripts--search-controls--current-result">{{
@@ -69,7 +69,6 @@
             class="block px-0 tablet:px-1 desktop:px-2"
             data-test="tab-transcripts--search-controls--next"
             :title="$t(state.nextSearchTitle.key, state.nextSearchTitle.attr)"
-            )
             @click="nextSearchResult"
           >
             <icon aria-hidden="true" type="chevron-right" />

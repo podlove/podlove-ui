@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 
 const { onUpdate } = require('../helpers/state')
+const { select } = require('../helpers/selectors')
 
 const channels = ['facebook', 'twitter', 'whats-app', 'linkedin', 'pinterest', 'xing', 'mail']
 
@@ -39,7 +40,7 @@ describe('<tab-share>', () => {
 
       it('should render the playtime label', () => {
         cy.select('tab-share--playtime')
-          .find('.label')
+          .find(select('input-checkbox--label'))
           .should('contain', 'Share current position (00:00)')
       })
     })
@@ -49,7 +50,7 @@ describe('<tab-share>', () => {
         cy.select('tab-share--embed').should('exist')
       })
 
-      it('should not render the embed code when the reference is missing', () => {
+      it('should not render the embed code when the reference is missing', function () {
         cy.bootstrap('<tab-share></tab-share>', [this.theme, this.episode])
         cy.select('tab-share--embed').should('not.exist')
       })

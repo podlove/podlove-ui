@@ -12,7 +12,7 @@ describe('<tab-playlist>', () => {
 
   describe('render', () => {
     describe('title', () => {
-      it('should render the tab title', () => {
+      it('should render the tab title', function () {
         cy.bootstrap('<tab-playlist style="width: 400px;"></tab-playlist>', [
           this.theme,
           this.playlist

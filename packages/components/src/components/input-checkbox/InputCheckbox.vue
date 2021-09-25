@@ -16,7 +16,7 @@
         @change="selectEvent"
       />
     </span>
-    <span class="h-5 leading-5">{{ label }}</span>
+    <span class="h-5 leading-5" data-test="input-checkbox--label">{{ label }}</span>
   </label>
   <span v-else class="relative inline-block w-5 h-5 border rounded-sm border-solid" :style="style">
     <icon

@@ -27,7 +27,7 @@ describe('<step-backward>', () => {
       dispatch({ type: 'PLAYER_REQUEST_PLAYTIME', payload: 15000 })
     })
 
-    it('should jump 15 seconds back', (done) => {
+    it('should jump 15 seconds back', function (done) {
       cy.bootstrap('<step-backward></step-backward>', [this.theme, { playtime: 15000 }]).then(
         (app) => {
           onUpdate(app, 'PLAYER_REQUEST_PLAYTIME', (_, { payload }) => {

@@ -85,7 +85,7 @@ const text = (c) => (transcript, index) =>
         'mr-1': index < c.entry.texts.length - 1,
         'active-transcript': c.activePlaytime(transcript)
       },
-      style: c.prerender ? {} : c.transcriptStyle(transcript),
+      style: c.transcriptStyle(transcript),
       ...(c.prerender
         ? {}
         : {
@@ -164,14 +164,6 @@ export default {
 
     onMouseOver(transcript) {
       this.$emit('onMouseOver', transcript)
-    },
-
-    searchText(text) {
-      return this.query
-        ? text
-            .toString()
-            .replace(this.query, (matchedText) => `<span class="highlight">${matchedText}</span>`)
-        : text
     },
 
     // Utilities

@@ -1,5 +1,5 @@
 <template>
-  <h1 :style="state.style" data-test="show-title">
+  <h1 :style="style" data-test="show-title">
     <a v-if="state.link" :href="state.link" :target="state.target" data-test="show-title--link">{{
       state.title
     }}</a>
