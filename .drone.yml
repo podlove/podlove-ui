@@ -38,6 +38,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -89,6 +90,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -185,6 +187,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -215,6 +218,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -255,6 +259,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -290,6 +295,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -324,6 +330,7 @@ steps:
 
   - name: deploy:npm
     image: plugins/npm
+    failure: ignore
     settings:
       username: alexander-heimbuch
       token:
@@ -361,6 +368,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -403,6 +411,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -440,6 +449,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
@@ -469,6 +479,7 @@ steps:
 
 - name: deploy:npm
   image: plugins/npm
+  failure: ignore
   settings:
     username: alexander-heimbuch
     token:
