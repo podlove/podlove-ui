@@ -12,7 +12,7 @@ module.exports = {
     libraryTarget: "commonjs2"
   },
 
-  devtool: 'source-maps',
+  devtool: 'source-map',
 
   module: {
     rules: [rules.javascript()]
