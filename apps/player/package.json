@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player",
-  "version": "5.7.1",
+  "version": "5.7.2",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {

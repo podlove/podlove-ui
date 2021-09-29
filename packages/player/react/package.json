@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-react",
-  "version": "5.7.1",
+  "version": "5.7.2",
   "description": "React Wrapper for Podlove Web Player",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/react",
   "keywords": [],

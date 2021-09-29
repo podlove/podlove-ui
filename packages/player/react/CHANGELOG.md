@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.2](https://github.com/podlove/podlove-ui/compare/v5.7.1...v5.7.2) (2021-09-29)
+
+
+### Bug Fixes
+
+* **release:** fix issues in webpack release steps ([362bd79](https://github.com/podlove/podlove-ui/commit/362bd798b8b928f5ee639cd89c94486755ac537f))
+
+
+
+
+
 ## [5.7.1](https://github.com/podlove/podlove-ui/compare/v5.7.0...v5.7.1) (2021-09-29)
 
 
