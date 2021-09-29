@@ -6,7 +6,7 @@ describe('InputText', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(InputText)
 
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

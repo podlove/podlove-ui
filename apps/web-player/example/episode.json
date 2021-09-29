@@ -4,7 +4,7 @@
     "title": "Podlovers",
     "subtitle": "Der Podlove Entwickler:innen Podcast",
     "summary": "Podlove ist eine Initiative zur Verbesserung der Open Source Infrastruktur zum Podcasting. Podlove ist gleichzeitig auch ein Netzwerk an Entwickler:innen zur Diskussion von Features und Standardisierung.",
-    "poster": "/assets/web-player/show.png",
+    "poster": "/assets/show.png",
     "link": "https://podlovers.org"
   },
   "title": "Podlove Web Player",
@@ -12,7 +12,7 @@
   "summary": "Wir holen uns Simon zur Hilfe um \u00fcber die Anf\u00e4nge des Podlove Web Player zu sprechen: Warum es ihn gibt und wie die ersten Versionen aussahen. In der zweiten H\u00e4lfte geht es tief in den Technik-Kaninchenbau: Alex erl\u00e4utert seine Motivation f\u00fcr den Neubau f\u00fcr Podlove Web Player 4 und 5. Zum Schluss besprechen wir das holprige Release des aktuellen Web Player Plugins.",
   "publicationDate": "2020-08-16T11:58:58+00:00",
   "duration": "01:31:18.610",
-  "poster": "/assets/web-player/episode.png",
+  "poster": "/assets/episode.png",
   "link": "https://podlovers.org/podlove-web-player",
   "chapters": "/chapters.json",
   "audio": [
@@ -35,7 +35,7 @@
     {
       "id": "1",
       "name": "Alexander Heimbuch",
-      "avatar": "/assets/web-player/alexander-heimbuch.jpeg",
+      "avatar": "/assets/alexander-heimbuch.jpeg",
       "role": {
         "id": "1",
         "slug": "team",
@@ -50,7 +50,7 @@
     {
       "id": "2",
       "name": "Michaela Lehr",
-      "avatar": "/assets/web-player/michaela-lehr.jpeg",
+      "avatar": "/assets/michaela-lehr.jpeg",
       "role": {
         "id": "1",
         "slug": "team",
@@ -65,7 +65,7 @@
     {
       "id": "3",
       "name": "Eric Teubert",
-      "avatar": "/assets/web-player/eric-teubert.jpeg",
+      "avatar": "/assets/eric-teubert.jpeg",
       "role": {
         "id": "1",
         "slug": "team",
@@ -80,7 +80,7 @@
     {
       "id": "4",
       "name": "Simon",
-      "avatar": "/assets/web-player/simon.jpeg",
+      "avatar": "/assets/simon.jpeg",
       "role": {
         "id": "2",
         "slug": "guest",

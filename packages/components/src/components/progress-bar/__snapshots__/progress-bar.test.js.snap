@@ -83,13 +83,13 @@ exports[`ProgressBar props should render 'chapters' 1`] = `
     <span
       aria-hidden="true"
       class="indicator"
-      style="border-right: 2px solid #a00; height: 2px; background: transparent;"
+      style="border-right: 2px solid #a00; height: 2px; background: transparent; top: calc(50% - 1px);"
       tabindex="-1"
     />
     <span
       aria-hidden="true"
       class="indicator"
-      style="border-right: 2px solid #a00; height: 2px; background: transparent;"
+      style="border-right: 2px solid #a00; height: 2px; background: transparent; top: calc(50% - 1px);"
       tabindex="-1"
     />
   </div>

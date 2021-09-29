@@ -21,7 +21,7 @@ export const media = compose(
 )
 
 export const chapters = propOr([], 'chapters')
-export const theme = config => {
+export const theme = (config) => {
   const theme = propOr({}, 'theme', config)
 
   if (version(config) === 5) {
@@ -54,7 +54,7 @@ export const shareReference = compose(propOr(null, 'share'), reference)
 
 export const originReference = compose(propOr(null, 'origin'), reference)
 
-export const episodeReference = config => {
+export const episodeReference = (config) => {
   const ref = reference(config)
 
   if (version(config) === 5) {
@@ -64,7 +64,7 @@ export const episodeReference = config => {
   return propOr(null, 'config', ref)
 }
 
-export const configReference = config => {
+export const configReference = (config) => {
   const ref = reference(config)
 
   if (version(config) === 5) {
@@ -74,7 +74,7 @@ export const configReference = config => {
   return null
 }
 
-export const validate = config => {
+export const validate = (config) => {
   if (media(config).length === 0) {
     return false
   }
@@ -89,7 +89,7 @@ export const platform = compose(prop('platform'), runtime)
 
 export const playlist = propOr([], 'playlist')
 
-export const files = config =>
+export const files = (config) =>
   propOr(media(config), 'files', config)
     .filter(({ url }) => !!url)
     .reduce(

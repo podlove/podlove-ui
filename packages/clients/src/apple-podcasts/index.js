@@ -5,7 +5,7 @@ import icon from './icon.svg'
 export default [
   client({
     title: 'Apple Podcasts',
-    scheme: feed => `podcast://${removeProtocol(feed)}`,
+    scheme: (feed) => `podcast://${removeProtocol(feed)}`,
     install: 'https://apps.apple.com/app/podcasts/id525463029',
     platform: platform.ios,
     type: type.app,
@@ -13,7 +13,7 @@ export default [
   }),
   client({
     title: 'Apple Podcasts',
-    scheme: feed => `podcast://${removeProtocol(feed)}`,
+    scheme: (feed) => `podcast://${removeProtocol(feed)}`,
     platform: platform.osx,
     type: type.app,
     icon

@@ -1,1 +1,1 @@
-export const contributors = root => root
+export const contributors = (root) => root

@@ -12,14 +12,14 @@ describe('StepperButton', () => {
         }
       })
 
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 
   describe('props', () => {
     const types = ['forward', 'backwards']
 
-    types.forEach(type => {
+    types.forEach((type) => {
       test(`should render for rype ${type}`, async () => {
         const wrapper = await mount(StepperButton, {
           propsData: {

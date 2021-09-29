@@ -27,16 +27,18 @@ const CLIENTS = {
   castbox: require('./castbox').default
 }
 
-const search = ({ id = null, platform = null, title = null, type = null } = {}) => client => {
-  const platformMatch = platform ? [].concat(platform).includes(client.platform) : true
-  const typeMatch = type ? [].concat(type).includes(client.type) : true
-  const titleMatch = title ? client.title.toUpperCase().includes(title.toUpperCase()) : true
-  const idMatch = id ? [].concat(id).some(item => item === client.id) : true
+const search =
+  ({ id = null, platform = null, title = null, type = null } = {}) =>
+  (client) => {
+    const platformMatch = platform ? [].concat(platform).includes(client.platform) : true
+    const typeMatch = type ? [].concat(type).includes(client.type) : true
+    const titleMatch = title ? client.title.toUpperCase().includes(title.toUpperCase()) : true
+    const idMatch = id ? [].concat(id).some((item) => item === client.id) : true
 
-  return idMatch && platformMatch && titleMatch && typeMatch
-}
+    return idMatch && platformMatch && titleMatch && typeMatch
+  }
 
 export default ({ id, platform, title, type } = {}) =>
   Object.keys(CLIENTS)
-    .reduce((result, id) => [...result, ...CLIENTS[id].map(item => ({ id, ...item }))], [])
+    .reduce((result, id) => [...result, ...CLIENTS[id].map((item) => ({ id, ...item }))], [])
     .filter(search({ id, type, title, platform }))

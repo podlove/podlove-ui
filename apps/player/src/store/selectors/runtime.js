@@ -3,9 +3,9 @@ import { compose } from 'ramda'
 
 import root from './root'
 
-const target = compose(mode => (mode === 'native' ? '_parent' : '_blank'), runtime.mode)
+const target = compose((mode) => (mode === 'native' ? '_parent' : '_blank'), runtime.mode)
 
-const fixed = compose(mode => mode === 'embed', runtime.mode)
+const fixed = compose((mode) => mode === 'embed', runtime.mode)
 
 export default {
   language: compose(runtime.language, root.runtime),

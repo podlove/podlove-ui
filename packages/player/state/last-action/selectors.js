@@ -1,1 +1,1 @@
-export const lastAction = root => root
+export const lastAction = (root) => root

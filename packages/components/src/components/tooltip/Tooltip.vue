@@ -46,7 +46,7 @@ export default {
     placement: {
       type: String,
       default: 'auto',
-      validator: pos => ['auto', 'top', 'right', 'bottom', 'left'].includes(pos)
+      validator: (pos) => ['auto', 'top', 'right', 'bottom', 'left'].includes(pos)
     }
   },
 

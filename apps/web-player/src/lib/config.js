@@ -3,7 +3,7 @@ import { mergeDeepRight, propOr, pathOr } from 'ramda'
 import { json } from '@podlove/utils/request'
 import * as playerConfig from '@podlove/player-config'
 
-const fetchChapters = async config => {
+const fetchChapters = async (config) => {
   try {
     return await json(playerConfig.chapters(config))
   } catch (err) {
@@ -12,7 +12,7 @@ const fetchChapters = async config => {
   }
 }
 
-const fetchTranscripts = async config => {
+const fetchTranscripts = async (config) => {
   try {
     return await json(playerConfig.transcripts(config))
   } catch (err) {
@@ -21,7 +21,7 @@ const fetchTranscripts = async config => {
   }
 }
 
-const fetchPlaylist = async config => {
+const fetchPlaylist = async (config) => {
   try {
     return json(playerConfig.playlist(config))
   } catch (err) {
@@ -42,7 +42,7 @@ const features = ({ config }) => ({
   persistPlaystate: pathOr(true, ['features', 'persistPlaystate'], config)
 })
 
-const resolve = async url => {
+const resolve = async (url) => {
   try {
     return await json(url)
   } catch (err) {

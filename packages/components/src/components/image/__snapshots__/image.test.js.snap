@@ -4,10 +4,14 @@ exports[`Image props should render with prop alt 1`] = `
 <div
   class="image-container"
 >
-  <div
-    class="cover"
-    style="background-color: rgb(43, 138, 198);"
-  />
+  <transition-stub
+    name="fade"
+  >
+    <div
+      class="cover"
+      style="background-color: rgb(43, 138, 198);"
+    />
+  </transition-stub>
    
   <!---->
 </div>
@@ -17,10 +21,14 @@ exports[`Image props should render with prop color 1`] = `
 <div
   class="image-container"
 >
-  <div
-    class="cover"
-    style="background-color: rgb(255, 255, 255);"
-  />
+  <transition-stub
+    name="fade"
+  >
+    <div
+      class="cover"
+      style="background-color: rgb(255, 255, 255);"
+    />
+  </transition-stub>
    
   <!---->
 </div>
@@ -30,10 +38,14 @@ exports[`Image props should render with prop url 1`] = `
 <div
   class="image-container"
 >
-  <div
-    class="cover"
-    style="background-color: rgb(43, 138, 198);"
-  />
+  <transition-stub
+    name="fade"
+  >
+    <div
+      class="cover"
+      style="background-color: rgb(43, 138, 198);"
+    />
+  </transition-stub>
    
   <img
     class="image"
@@ -47,10 +59,14 @@ exports[`Image props should render without props 1`] = `
 <div
   class="image-container"
 >
-  <div
-    class="cover"
-    style="background-color: rgb(43, 138, 198);"
-  />
+  <transition-stub
+    name="fade"
+  >
+    <div
+      class="cover"
+      style="background-color: rgb(43, 138, 198);"
+    />
+  </transition-stub>
    
   <!---->
 </div>

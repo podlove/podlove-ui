@@ -1,30 +1,34 @@
 <script>
-const container = h => (children = []) =>
-  h(
-    'div',
-    {
-      class: {
-        entry: true,
-        'pb-6': true
-      }
-    },
-    [...children]
-  )
+const container =
+  (h) =>
+  (children = []) =>
+    h(
+      'div',
+      {
+        class: {
+          entry: true,
+          'pb-6': true
+        }
+      },
+      [...children]
+    )
 
-const chapter = (h, c) => (children = []) =>
-  h(
-    'div',
-    {
-      class: { 'text-lg': true },
-      style: c.chapterStyle,
-      on: c.prerender
-        ? {}
-        : {
-            click: () => c.onClick(c.entry)
-          }
-    },
-    [c.$t('TRANSCRIPTS.CHAPTER', c.entry), ...children]
-  )
+const chapter =
+  (h, c) =>
+  (children = []) =>
+    h(
+      'div',
+      {
+        class: { 'text-lg': true },
+        style: c.chapterStyle,
+        on: c.prerender
+          ? {}
+          : {
+              click: () => c.onClick(c.entry)
+            }
+      },
+      [c.$t('TRANSCRIPTS.CHAPTER', c.entry), ...children]
+    )
 
 const speaker = (h, c) =>
   h('div', { class: { '-ml-6': true }, style: c.speakerStyle }, [
@@ -52,11 +56,13 @@ const speaker = (h, c) =>
       : null
   ])
 
-const transcript = (h, c) => (children = []) =>
-  h('div', { class: { transcript: true, 'ml-6': c.entry.speaker } }, [
-    c.entry.speaker ? speaker(h, c) : null,
-    ...children
-  ])
+const transcript =
+  (h, c) =>
+  (children = []) =>
+    h('div', { class: { transcript: true, 'ml-6': c.entry.speaker } }, [
+      c.entry.speaker ? speaker(h, c) : null,
+      ...children
+    ])
 
 const highlightText = (h, c, text) => {
   if (!c.query) {
@@ -64,9 +70,9 @@ const highlightText = (h, c, text) => {
   }
 
   return text
-    .replace(c.query, matched => `|||${matched}|||`)
+    .replace(c.query, (matched) => `|||${matched}|||`)
     .split('|||')
-    .map(text => (text.match(c.query) ? h('span', { style: c.highlightStyle }, text) : text))
+    .map((text) => (text.match(c.query) ? h('span', { style: c.highlightStyle }, text) : text))
 }
 
 const text = (h, c) => (transcript, index) =>
@@ -163,7 +169,7 @@ export default {
       return this.query
         ? text
             .toString()
-            .replace(this.query, matchedText => `<span class="highlight">${matchedText}</span>`)
+            .replace(this.query, (matchedText) => `<span class="highlight">${matchedText}</span>`)
         : text
     },
 

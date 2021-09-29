@@ -50,6 +50,7 @@ module.exports = {
       template: './example/example.html',
       inject: 'head',
       sort: 'manual',
+      scriptLoading: 'blocking',
       chunks: ['polyfills', 'embed', 'extensions/external-events']
     }),
     plugins.html({
@@ -95,12 +96,9 @@ module.exports = {
         from: './example/chapters.json'
       },
       {
-        from: './example/example.jpg'
-      },
-      {
         from: './example/playlist.json'
       },
-      { from: './example/episodes', to: 'episodes' },
+      { from: './example/assets', to: 'assets' },
       { from: './example/test', to: 'test' }
     ])
   ]

@@ -96,7 +96,7 @@ export default {
       return (
         this.pins
           .map(pluck('value'))
-          .find(pin => pin + pinRange >= value && pin - pinRange <= value) || value
+          .find((pin) => pin + pinRange >= value && pin - pinRange <= value) || value
       )
     },
 

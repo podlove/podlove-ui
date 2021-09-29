@@ -59,9 +59,7 @@ export default {
     style() {
       return this.hover
         ? {
-            background: color(this.color)
-              .alpha(0.3)
-              .string()
+            background: color(this.color).alpha(0.3).string()
           }
         : {}
     }

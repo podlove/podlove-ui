@@ -16,7 +16,7 @@ import { mediaSessionSaga } from '@podlove/player-sagas/media-session'
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connect } from 'redux-vuex'
-import { version } from '../../package'
+import pkg from '../../package'
 
 import reducers from './reducers'
 import actions from './actions'
@@ -60,7 +60,7 @@ sagas.run(
     selectPoster: selectors.driver.image,
     selectTitle: selectors.driver.title
   }),
-  versionSaga({ version }),
+  versionSaga({ version: pkg.version }),
   transcriptsSaga({
     selectChapters: selectors.chapters.list,
     selectSpeakers: selectors.contributors.list,

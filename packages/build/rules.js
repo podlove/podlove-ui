@@ -7,7 +7,7 @@ const { prepend } = require('./utils')
 
 const vue = () => ({
   test: /\.vue$/,
-  use: 'vue-loader'
+  loader: 'vue-loader'
 })
 
 const javascript = () => ({
@@ -26,7 +26,10 @@ const images = () => ({
 
 const mustache = () => ({
   test: /\.mustache$/,
-  loader: 'mustache-loader?minify'
+  loader: 'mustache-loader',
+  options: {
+    minify: true
+  }
 })
 
 const style = {
@@ -61,8 +64,9 @@ const style = {
     postcss: ({ plugins = [] } = {}) => ({
       loader: 'postcss-loader',
       options: {
-        ident: 'postcss',
-        plugins
+        postcssOptions: {
+          plugins
+        }
       }
     })
   },
@@ -77,7 +81,7 @@ const pug = () => ({
   loader: 'pug-plain-loader'
 })
 
-const fonts = prefix => ({
+const fonts = (prefix) => ({
   test: /\.(eot|svg|ttf|woff|woff2)$/,
   loader: 'file-loader',
   options: {

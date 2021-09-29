@@ -21,7 +21,7 @@ import { hoverFile, selectFile } from '@podlove/player-actions/files'
 import select from 'store/selectors'
 import store from 'store'
 
-const isType = type => compose(includes(type), toLower, defaultTo(''))
+const isType = (type) => compose(includes(type), toLower, defaultTo(''))
 const audio = isType('audio')
 const video = isType('video')
 const pdf = isType('pdf')

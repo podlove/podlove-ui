@@ -9,12 +9,11 @@ module.exports = {
   },
 
   output: {
-    library: 'components',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
     filename: '[name].js'
   },
 
-  devtool: 'source-maps',
+  devtool: 'source-map',
 
   module: {
     rules: [

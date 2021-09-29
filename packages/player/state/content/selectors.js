@@ -1,1 +1,1 @@
-export const content = root => root
+export const content = (root) => root

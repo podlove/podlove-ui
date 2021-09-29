@@ -8,7 +8,7 @@ describe('sharing', () => {
     cy.embed('<div></div>', { episode: '/test/episode.json', config: '/test/config.json' })
     cy.select('tab-trigger--share').click()
     cy.select('tab-share--embed--input').should('exist')
-    cy.select('tab-share--embed--input').then(input => {
+    cy.select('tab-share--embed--input').then((input) => {
       expect(input.val()).to.include(
         'title="Podlove Web Player: Forschergeist - FG066 Klimaneutralität"'
       )
@@ -25,13 +25,13 @@ describe('sharing', () => {
     cy.get(select('player--share')).should('exist')
   })
 
-  it('should parse the start time', done => {
+  it('should parse the start time', (done) => {
     cy.share({
       episode: '/test/episode.json',
       config: '/test/config.json',
       params: { t: '00:10' }
-    }).then(app => {
-      onUpdate(app, 'PLAYER_REQUEST_PLAYTIME', state => {
+    }).then((app) => {
+      onUpdate(app, 'PLAYER_REQUEST_PLAYTIME', (state) => {
         expect(state.timepiece.playtime).to.equal(10000)
         done()
       })

@@ -29,7 +29,7 @@ export const localeTime = (timestamp, locale) =>
   new Date(timestamp).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })
 export const fallbackToZero = (time = 0) => (!is(Number, time) || time < 0 ? 0 : time)
 
-const leadingZero = time => (time > 9 ? `${time}` : `0${time}`)
+const leadingZero = (time) => (time > 9 ? `${time}` : `0${time}`)
 
 // Transforms milliseconds to (hh:)mm:ss
 export const toHumanTime = (time = 0) => {
@@ -46,9 +46,9 @@ export const toHumanTime = (time = 0) => {
   return result
 }
 
-export const secondsToMilliseconds = compose(toInt, input => input * 1000, toFloat)
-export const millisecondsToSeconds = compose(toFloat, input => input / 1000, toInt)
-export const parseDate = utcDate => (utcDate ? new Date(utcDate).getTime() : null)
+export const secondsToMilliseconds = compose(toInt, (input) => input * 1000, toFloat)
+export const millisecondsToSeconds = compose(toFloat, (input) => input / 1000, toInt)
+export const parseDate = (utcDate) => (utcDate ? new Date(utcDate).getTime() : null)
 
 export const calcSeconds = compose((time = 0) => parseInt(time % 60), millisecondsToSeconds)
 export const calcMinutes = compose((time = 0) => parseInt(time / 60) % 60, millisecondsToSeconds)

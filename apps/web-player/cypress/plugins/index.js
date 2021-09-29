@@ -1,1 +1,1 @@
-module.exports = on => {}
+module.exports = (on) => {}

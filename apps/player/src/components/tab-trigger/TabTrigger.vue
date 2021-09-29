@@ -36,7 +36,7 @@ export default {
     tab: {
       type: String,
       default: null,
-      validator: val => availableTabs.includes(val)
+      validator: (val) => availableTabs.includes(val)
     },
     title: {
       type: String,

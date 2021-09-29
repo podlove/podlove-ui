@@ -8,14 +8,14 @@ describe('<play-state>', () => {
   describe('initialized', () => {
     let assert, dispatch
 
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap(
         `
         <play-state on="initialized">
           <div style="background: red; width: 50px; height: 50px;" data-test="play-state"></div>
         </play-state>`,
         [this.audio]
-      ).then(store => {
+      ).then((store) => {
         assert = onUpdate(store)
         dispatch = store.dispatch
       })
@@ -64,14 +64,14 @@ describe('<play-state>', () => {
   describe('active', () => {
     let assert, dispatch
 
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap(
         `
         <play-state on="active">
           <div style="background: red; width: 50px; height: 50px;" data-test="play-state"></div>
         </play-state>`,
         [this.audio]
-      ).then(store => {
+      ).then((store) => {
         assert = onUpdate(store)
         dispatch = store.dispatch
       })
@@ -121,14 +121,14 @@ describe('<play-state>', () => {
   describe('ended', () => {
     let assert, dispatch
 
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap(
         `
         <play-state on="ended">
           <div style="background: red; width: 50px; height: 50px;" data-test="play-state"></div>
         </play-state>`,
         [this.audio]
-      ).then(store => {
+      ).then((store) => {
         assert = onUpdate(store)
         dispatch = store.dispatch
       })

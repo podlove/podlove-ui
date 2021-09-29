@@ -56,7 +56,7 @@ export const persistPlayer = (config, store) => {
 
     if (config.features.persistTab) {
       if (existing.tabs) {
-        const tab = Object.keys(existing.tabs).find(tab => existing.tabs[tab])
+        const tab = Object.keys(existing.tabs).find((tab) => existing.tabs[tab])
         // prevent double toggling
         if (!tabs[tab]) {
           store.dispatch(toggleTab(tab))

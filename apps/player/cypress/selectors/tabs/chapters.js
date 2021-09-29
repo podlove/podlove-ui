@@ -1,4 +1,4 @@
-module.exports = cy => ({
+module.exports = (cy) => ({
   header: () => cy.get(`#tabs [rel="chapters"]`),
   container: () => cy.get('#tab-chapters'),
   entries: () => cy.get('#tab-chapters .chapters--entry'),

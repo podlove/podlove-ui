@@ -26,7 +26,7 @@ export class PodloveWebPlayer extends React.Component {
       }
 
       node.innerHTML = typeof this.props.children === 'string' ? this.props.children : ''
-      window.podlovePlayer(node, this.props.episode, this.props.config).then(store => {
+      window.podlovePlayer(node, this.props.episode, this.props.config).then((store) => {
         this.props.onLoaded && this.props.onLoaded(store)
 
         if (this.props.playtime) {

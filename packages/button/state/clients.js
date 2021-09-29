@@ -7,20 +7,20 @@ import * as config from '@podlove/button-config'
 
 export const INITIAL_STATE = []
 
-const clients = payload => {
+const clients = (payload) => {
   const provided = config.clients(payload)
   const currentPlatform = getPlatform()
   const feed = config.feed(payload)
 
   return provided
-    .map(client =>
+    .map((client) =>
       getClients({ id: client.id, platform: [currentPlatform, platform.web] })
-        .filter(item => (item.type === type.service ? !!client.service : true))
-        .map(item => ({
+        .filter((item) => (item.type === type.service ? !!client.service : true))
+        .map((item) => ({
           ...item,
           link: item.type === type.service ? item.scheme(client.service) : item.scheme(feed)
         }))
-        .sort(item => (item.type === type.service ? -1 : 0))
+        .sort((item) => (item.type === type.service ? -1 : 0))
         .shift()
     )
     .filter(Boolean)

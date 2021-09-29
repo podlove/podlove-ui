@@ -12,7 +12,7 @@ if (typeof window.CustomEvent !== 'function') {
 }
 
 if (!('remove' in Element.prototype)) {
-  Element.prototype.remove = function() {
+  Element.prototype.remove = function () {
     if (this.parentNode) {
       this.parentNode.removeChild(this)
     }
@@ -20,7 +20,7 @@ if (!('remove' in Element.prototype)) {
 }
 
 if (!String.prototype.includes) {
-  String.prototype.includes = function() {
+  String.prototype.includes = function () {
     return String.prototype.indexOf.apply(this, arguments) !== -1
   }
 }

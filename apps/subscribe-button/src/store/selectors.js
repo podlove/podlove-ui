@@ -29,14 +29,14 @@ export const selectStyle = compose(config.style, configSlice)
 export const headless = compose(config.headless, configSlice)
 
 const fontString = ({ weight = 300, family = [] } = {}) => ({
-  'font-family': family.map(font => `"${font}"`).join(', '),
+  'font-family': family.map((font) => `"${font}"`).join(', '),
   'font-weight': weight
 })
 
 export const theme = {
   ...scope(themeSelectors, slices.theme),
   fonts: compose(
-    state => [
+    (state) => [
       themeSelectors.fontRegular(state),
       themeSelectors.fontBold(state),
       themeSelectors.fontCi(state)

@@ -2,13 +2,13 @@
 import { prop } from 'ramda'
 
 export default (...stores) =>
-  stores.forEach(sender => {
+  stores.forEach((sender) => {
     sender.store.subscribe(() => {
       const action = prop('lastAction', sender.store.getState())
       const type = prop('type', action)
 
       try {
-        stores.forEach(reciever => {
+        stores.forEach((reciever) => {
           // prohibit emits to itself
           if (reciever.prefix === sender.prefix) {
             return

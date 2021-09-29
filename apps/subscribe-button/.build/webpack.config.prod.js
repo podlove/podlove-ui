@@ -1,9 +1,9 @@
 const path = require('path')
-const { output, resolve, devServer, rules, plugins, optimization } = require('@podlove/build')
+const { output, resolve, rules, plugins, optimization } = require('@podlove/build')
 const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
 const clientAssets = path.resolve('./node_modules/@podlove/clients/dist')
 
-const version = require('../package').version
+const pkg = require('../package')
 
 const BASE = `/`
 
@@ -60,7 +60,7 @@ module.exports = {
     plugins.vue(),
     plugins.css(),
     plugins.minifyCss(),
-    plugins.version(),
-    plugins.env({ MODE: 'production', BASE, SCRIPTS: ['button'], STYLES: ['button'], VERSION: version })
+    plugins.version({ version: pkg.version, name: pkg.name }),
+    plugins.env({ MODE: 'production', BASE, SCRIPTS: ['button'], STYLES: ['button'], VERSION: pkg.version })
   ]
 }

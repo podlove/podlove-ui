@@ -3,7 +3,7 @@ import show from './show'
 import episode from './episode'
 import chapters from './chapters'
 
-const posterSrc = state => {
+const posterSrc = (state) => {
   const playtime = timepiece.playtime(state)
 
   if (playtime === 0) {

@@ -7,7 +7,7 @@ describe('embedding', () => {
       cy.select('player').should('exist')
     })
 
-    it('should accept plain config objects', function() {
+    it('should accept plain config objects', function () {
       cy.embed('<div></div>', { episode: this.episode, config: this.config })
       cy.select('player').should('exist')
     })
@@ -33,7 +33,7 @@ describe('embedding', () => {
         episode: '/episode.json',
         config: '/test/config.json'
       })
-      cy.select('player').then(element => expect(element.width()).to.equal(300))
+      cy.select('player').then((element) => expect(element.width()).to.equal(300))
     })
 
     it('should have a minimal width of 240px', () => {
@@ -41,7 +41,7 @@ describe('embedding', () => {
         episode: '/episode.json',
         config: '/test/config.json'
       })
-      cy.select('player').then(element => expect(element.width()).to.equal(240))
+      cy.select('player').then((element) => expect(element.width()).to.equal(240))
     })
 
     it('should have a maximum width of 900px', () => {
@@ -49,7 +49,7 @@ describe('embedding', () => {
         episode: '/episode.json',
         config: '/test/config.json'
       })
-      cy.select('player').then(element => expect(element.width()).to.equal(900))
+      cy.select('player').then((element) => expect(element.width()).to.equal(900))
     })
   })
 })

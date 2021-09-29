@@ -105,7 +105,7 @@ export function* setActiveEntry({ selectPlaylist, selectReference }) {
     return
   }
 
-  const index = entries.findIndex(entry => propOr('', 'config', entry).endsWith(reference))
+  const index = entries.findIndex((entry) => propOr('', 'config', entry).endsWith(reference))
 
   if (index > -1) {
     yield put(playlist.markActive(index))

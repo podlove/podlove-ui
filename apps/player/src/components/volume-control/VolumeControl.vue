@@ -48,7 +48,7 @@ export default {
     placement: {
       type: String,
       default: 'left',
-      validator: val => ['left', 'right'].includes(val)
+      validator: (val) => ['left', 'right'].includes(val)
     }
   },
   data: mapState({
@@ -63,7 +63,7 @@ export default {
     available: select.components.volumeControl
   }),
   methods: {
-    setVolume: compose(store.dispatch, setVolume, val => val / 100),
+    setVolume: compose(store.dispatch, setVolume, (val) => val / 100),
     focus() {
       const popover = path(['volumePopover', '$el'], this.$refs)
       const control = path(['volumeControl', '$el'], this.$refs)

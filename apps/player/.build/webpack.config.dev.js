@@ -43,7 +43,6 @@ module.exports = {
   plugins: [
     plugins.vue(),
     plugins.base('.'),
-    plugins.jarvis(1337),
     plugins.bundleAnalyzer(),
     plugins.hmr(),
     plugins.html({

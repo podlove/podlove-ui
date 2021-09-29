@@ -5,7 +5,7 @@ describe('Image', () => {
   describe('component', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(Image)
-      expect(wrapper.isVueInstance()).toBeTruthy()
+      expect(wrapper.vm).toBeTruthy()
     })
   })
 

@@ -5,14 +5,14 @@ import { sandbox, sandboxWindow } from '@podlove/utils/sandbox'
 import { setStyles, removeStyles } from '@podlove/utils/dom'
 import template from './template.mustache'
 
-import { version } from '../../package'
+import pkg from '../../package'
 
-export const create = async config => {
+export const create = async (config) => {
   const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config.reference)
 
   const dom = template({
     root: reference,
-    base: `${version}/button/`,
+    base: `${pkg.version}/button/`,
     styles: BUTTON_STYLES,
     scripts: BUTTON_SCRIPTS
   })
@@ -47,7 +47,7 @@ export const create = async config => {
   return store
 }
 
-export const config = config => {
+export const config = (config) => {
   const theme = propOr({}, 'theme', config)
   const button = propOr({}, 'subscribe-button', config)
   const runtime = propOr({}, 'runtime', config)

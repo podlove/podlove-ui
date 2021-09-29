@@ -4,7 +4,7 @@ describe('<tab-overflow>', () => {
   beforeEach(cy.setup)
 
   describe('render', () => {
-    beforeEach(function() {
+    beforeEach(function () {
       cy.bootstrap('<tab-overflow style="width:400px;"></tab-overflow>', [this.theme])
     })
 
