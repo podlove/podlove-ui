@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.1](https://github.com/podlove/podlove-ui/compare/v5.7.0...v5.7.1) (2021-09-29)
+
+
+### Bug Fixes
+
+* apply linting ([820cf20](https://github.com/podlove/podlove-ui/commit/820cf200c4337e832173cc95eeed3cbd6e2d343d))
+* **build:** use banner plugin to replace webpack auto version ([d0f39f1](https://github.com/podlove/podlove-ui/commit/d0f39f154da6d9ada2eecb879039384e619ef414))
+
+
+
+
+
 # [5.7.0](https://github.com/podlove/podlove-ui/compare/v5.6.4...v5.7.0) (2021-07-11)
 
 
