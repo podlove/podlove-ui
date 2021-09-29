@@ -1,14 +1,33 @@
 <template>
-  <a v-if="href" class="button" :class="{ disabled }" :href="href" :style="style">
-    <span class="inner centered">
+  <component
+    :is="href ? 'a' : 'button'"
+    class="
+      button
+      flex
+      justify-center
+      h-8
+      text-base
+      cursor-pointer
+      bg-transparent
+      outline-none
+      transition-opacity
+      hover:opacity-75
+      border
+      rounded
+      border-solid
+      py-1
+      px-2
+      uppercase
+      text-center
+    "
+    :class="{ 'opacity-50': disabled, 'opacity-100': !disabled }"
+    :href="href"
+    :style="style"
+  >
+    <span class="truncate w-full h-full flex items-center justify-center">
       <slot />
     </span>
-  </a>
-  <button v-else class="button" :class="{ disabled }" :disabled="disabled" :style="style">
-    <span class="inner centered">
-      <slot />
-    </span>
-  </button>
+  </component>
 </template>
 
 <script>
@@ -51,63 +70,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'font';
-@import 'resets';
-@import 'utils';
-@import 'tokens/defaults';
-@import 'tokens/button';
-@import 'tokens/animation';
-
 .button {
-  @extend %button;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: $input-height;
-
-  font-size: 1.1em;
   font-variant: small-caps;
-
-  opacity: 1;
-  transition: opacity $animation-duration;
-
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-
-  &.disabled {
-    opacity: 0.5;
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  border-radius: 3px;
-  border-width: 1px;
-  border-style: solid;
-  padding: $padding / 4 $padding / 2;
-  text-transform: uppercase;
-
-  .inner {
-    @extend %truncate;
-    width: 100%;
-    height: 100%;
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &.block {
-    display: block;
-    width: 100%;
-  }
-
-  text-align: center;
-
   svg {
     display: inline;
   }

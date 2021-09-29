@@ -3,6 +3,7 @@ const tailwind = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
 const cssClean = require('postcss-clean')
 const cssImport = require('postcss-import')
+const cssNested = require('postcss-nested')
 
 const { prepend } = require('./utils')
 
@@ -46,7 +47,8 @@ const style = {
       }),
       cssImport,
       autoprefixer,
-      tailwind
+      tailwind,
+      cssNested
     }
   },
   loader: {

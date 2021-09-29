@@ -19,9 +19,9 @@ export const Default = Template.bind({})
 Default.args = {
   value: 'value-2',
   disabled: false,
-  borderColor: defaults.background,
-  background: defaults.color,
-  color: defaults.background,
+  borderColor: defaults.highlight,
+  background: defaults.background,
+  color: defaults.color,
   options: ['value-1', 'value-2', 'value-3', 'value-4']
 }
 

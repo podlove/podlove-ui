@@ -1,26 +1,24 @@
 <template>
   <transition name="fade">
     <root
-      v-if="overlay"
+      v-if="state.overlay"
       v-click-outside="close"
       class="list p-6 fixed inset-0 w-full h-full flex items-center justify-center"
     >
       <transition name="fade" mode="out-in">
-        <client-screen v-if="listView" />
-        <finish-screen v-if="finishView" />
+        <client-screen v-if="state.listView" />
+        <finish-screen v-if="state.finishView" />
       </transition>
     </root>
   </transition>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
-import { compose } from 'ramda'
+import { mapState, injectStore } from 'redux-vuex'
 import Root from 'components/root'
 import ClientScreen from 'screens/Clients'
 import FinishScreen from 'screens/Finish'
 
-import store from 'store'
 import * as select from 'store/selectors'
 import * as overlay from '@podlove/button-actions/overlay'
 
@@ -43,12 +41,22 @@ export default {
       }
     }
   },
-  data: mapState({
-    overlay: select.view.overlay,
-    listView: select.view.list,
-    finishView: select.view.finish,
-    language: select.runtime.language
-  }),
+  setup() {
+    return {
+      state: mapState({
+        overlay: select.view.overlay,
+        listView: select.view.list,
+        finishView: select.view.finish,
+        language: select.runtime.language
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
+  computed: {
+    language() {
+      return this.state.language
+    }
+  },
   watch: {
     language() {
       this.$i18n.locale = this.language
@@ -58,7 +66,9 @@ export default {
     this.$i18n.locale = this.language
   },
   methods: {
-    close: compose(store.dispatch, overlay.hide)
+    close() {
+      this.dispatch(overlay.hide())
+    }
   }
 }
 </script>

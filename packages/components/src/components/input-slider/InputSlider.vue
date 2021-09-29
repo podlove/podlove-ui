@@ -124,15 +124,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../theme/tokens/defaults';
-@import '../../theme/tokens/input';
+$subtile-color: rgba(0, 0, 0, 0.2);
+
 @import '../../theme/tokens/progress';
-@import '../../theme/tokens/color';
-@import '../../theme/font';
+@import '../../theme/tokens/input';
 @import '../../theme/resets';
 
 .input-slider {
-  @include range($height, $thumb-width-desktop, $thumb-width-desktop-hover);
+  @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
 
   height: $slider-height;
 

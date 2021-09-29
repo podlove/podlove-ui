@@ -33,7 +33,8 @@ module.exports = {
         rules.style.loader.postcss({
           plugins: [
             rules.style.postcss.plugins.tailwind(tailwind),
-            rules.style.postcss.plugins.autoprefixer
+            rules.style.postcss.plugins.autoprefixer,
+            rules.style.postcss.plugins.cssNested,
           ]
         })
       ]),

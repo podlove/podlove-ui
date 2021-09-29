@@ -270,8 +270,8 @@ export default {
 @import '../../theme/tokens/color';
 
 .progress {
-  @include range($height, $thumb-width-desktop, $thumb-width-desktop-hover);
-  height: $height;
+  @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
+  height: $progress-height;
   transition: opacity ($animation-duration / 2), height $animation-duration;
 }
 

@@ -13,8 +13,9 @@ const Template = (args) => ({
   },
   template: `
     <button-component
-    v-bind="args"
-    >{{ text }}</button-component>
+    v-bind="args">
+      Example Button
+    </button-component>
   `
 })
 
@@ -25,6 +26,5 @@ Default.args = {
   backgroundColor: defaults.background,
   borderColor: defaults.highlight,
   href: 'href',
-  disabled: false,
-  text: 'Button Text'
+  disabled: false
 }
