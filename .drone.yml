@@ -439,6 +439,11 @@ steps:
   commands:
     - npx eslint 'packages/clients/**/*.js'
 
+- name: build
+  image: node:12
+  commands:
+    - npx lerna run build --scope @podlove/clients --stream
+
 - name: release:prepare
   image: node:12
   commands:
