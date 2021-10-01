@@ -1,6 +1,6 @@
 {
   "name": "@podlove/utils",
-  "version": "5.7.1",
+  "version": "5.7.3",
   "description": "Utils for Podlove Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/utils",
   "scripts": {
@@ -22,7 +22,7 @@
     "unfetch": "4.1.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.7.1",
+    "@podlove/build": "^5.7.3",
     "webpack": "5.45.1"
   }
 }

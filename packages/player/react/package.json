@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-react",
-  "version": "5.7.2",
+  "version": "5.7.3",
   "description": "React Wrapper for Podlove Web Player",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/react",
   "keywords": [],
@@ -13,8 +13,8 @@
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish library"
   },
   "dependencies": {
-    "@podlove/player-actions": "^5.7.1",
-    "@podlove/utils": "^5.7.1",
+    "@podlove/player-actions": "^5.7.3",
+    "@podlove/utils": "^5.7.3",
     "load-scripts": "1.0.0",
     "lodash.debounce": "4.0.8",
     "ramda": "0.27.1",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/preset-react": "7.10.4",
-    "@podlove/build": "^5.7.1",
+    "@podlove/build": "^5.7.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "webpack": "5.45.1"
