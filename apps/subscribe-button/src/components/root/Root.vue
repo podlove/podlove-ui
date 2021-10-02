@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="antialiased" :style="font">
+  <div class="antialiased" :style="state.font">
     <slot></slot>
 
     <font
-      v-for="(font, index) in fonts"
+      v-for="(font, index) in state.fonts"
       :key="index"
       :src="font.src"
       :name="font.name"
@@ -19,10 +19,14 @@ import * as select from 'store/selectors'
 
 export default {
   components: { Font },
-  data: mapState({
-    font: select.theme.fontRegular,
-    fonts: select.theme.fonts
-  })
+  setup() {
+    return {
+      state: mapState({
+        font: select.theme.fontRegular,
+        fonts: select.theme.fonts
+      })
+    }
+  }
 }
 </script>
 

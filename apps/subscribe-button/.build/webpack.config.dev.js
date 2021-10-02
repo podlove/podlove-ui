@@ -1,7 +1,5 @@
 const path = require('path')
-const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
-const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
-const clientAssets = path.resolve('./node_modules/@podlove/clients/dist')
+const { output, resolve, devServer, rules, plugins, projectPaths } = require('@podlove/build')
 
 const version = require('../package').version
 const BASE = `/`
@@ -20,8 +18,8 @@ module.exports = {
     store: './src/store',
     components: './src/components',
     screens: './src/screens',
-    '@podlove/components': componentAssets,
-    '@podlove/clients': clientAssets
+    '@podlove/components': projectPaths.packages.components,
+    '@podlove/clients': projectPaths.packages.clients
   }),
 
   devtool: 'inline-source-map',
@@ -48,7 +46,18 @@ module.exports = {
             }),
             rules.style.postcss.plugins.autoprefixer
           ]
-        })
+        }),
+      ]),
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.vue(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass()
       ]),
       rules.mustache()
     ]

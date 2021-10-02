@@ -1,7 +1,5 @@
-const path = require('path')
 const { version } = require('../package.json')
-const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
-const componentAssets = path.resolve(__dirname, '..', '..', '..', 'packages', 'components' , 'src', 'components')
+const { output, resolve, devServer, rules, plugins, projectPaths } = require('@podlove/build')
 
 const tailwind = require('./tailwind.config')
 
@@ -16,7 +14,7 @@ module.exports = {
 
   resolve: resolve({
     store: './src/store',
-    '@podlove/components': componentAssets
+    '@podlove/components': projectPaths.packages.components
   }),
 
   devtool: 'inline-source-map',

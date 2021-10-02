@@ -5,6 +5,7 @@ const plugins = require('./plugins')
 const resolve = require('./resolve')
 const optimization = require('./optimization')
 const tailwind = require('./tailwind.config')
+const projectPaths = require('./project-paths')
 
 module.exports = {
   devServer,
@@ -13,5 +14,6 @@ module.exports = {
   plugins,
   resolve,
   optimization,
-  tailwind
+  tailwind,
+  projectPaths
 }

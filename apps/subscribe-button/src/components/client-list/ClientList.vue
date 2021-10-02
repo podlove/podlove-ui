@@ -1,7 +1,7 @@
 <template>
   <ul class="flex mobile:flex-col tablet:flex-row flex-wrap w-full">
     <li
-      v-for="(entry, index) in clients"
+      v-for="(entry, index) in state.clients"
       :key="index"
       class="block mb-2 mobile:w-full tablet:w-1/2"
       :aria-label="$t('A11Y.CLIENT', entry)"
@@ -10,7 +10,7 @@
         class="flex items-center w-full p-2 hover:bg-gray-200 rounded-sm cursor-pointer"
         rel="noopener"
         target="_blank"
-        :style="font"
+        :style="state.font"
         :href="entry.rss ? null : entry.link"
         @click="onClick(entry)"
       >
@@ -31,10 +31,14 @@ import * as select from 'store/selectors'
 
 export default {
   components: { Icon },
-  data: mapState({
-    clients: select.clients,
-    font: select.theme.fontBold
-  }),
+  setup() {
+    return {
+      state: mapState({
+        clients: select.clients,
+        font: select.theme.fontBold
+      })
+    }
+  },
 
   methods: {
     onClick(client) {

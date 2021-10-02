@@ -12,7 +12,6 @@ import translations from './lang'
 // Components
 import components from './src/components'
 
-
 // Use public path from application
 __webpack_public_path__ = window.resourceBaseUrl || '/'
 

@@ -1,6 +1,13 @@
 <template>
   <span>
-    <dropdown :auto-hide="true" :placement="placement" :triggers="[]" :shown="visible">
+    <dropdown
+      :auto-hide="true"
+      :placement="placement"
+      :triggers="[]"
+      :shown="visible"
+      :offset="[0, 10]"
+      theme="dropdown"
+    >
       <span @click="click" @mouseleave="mouseLeave" @mouseover="mouseOver">
         <slot />
       </span>
@@ -9,7 +16,7 @@
           {{ content }}
         </span>
         <span
-          class="arrow"
+          class="dropdown-arrow"
           :class="{ [`arrow-${placement}`]: true }"
           :style="{ 'border-color': background }"
         ></span>
@@ -71,7 +78,7 @@ export default {
     hide(timeout) {
       clearTimeout(hideTimeout)
       hideTimeout = setTimeout(() => {
-        // this.visible = false
+        this.visible = false
       }, timeout)
     },
 
@@ -102,7 +109,7 @@ export default {
 
       this.show()
       this.$emit('click')
-      this.hide(6000)
+      this.hide(3000)
     }
   }
 }
@@ -113,7 +120,16 @@ export default {
   display: none;
 }
 
-.arrow {
+.v-popper--theme-dropdown {
+  display: inline-block;
+  position: relative;
+
+  .resize-observer {
+    display: none;
+  }
+}
+
+.dropdown-arrow {
   width: 0;
   height: 0;
   border-style: solid;

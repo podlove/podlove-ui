@@ -7,7 +7,7 @@
     >
       <transition name="fade" mode="out-in">
         <client-screen v-if="state.listView" />
-        <finish-screen v-if="state.finishView" />
+        <finish-screen v-else />
       </transition>
     </root>
   </transition>
