@@ -64,9 +64,8 @@ describe('config parsing', () => {
     })
   })
 
-  describe.only('active tab', () => {
-    // const tabs = ['chapters', 'transcripts', 'files', 'playlist', 'share']
-    const tabs = ['chapters']
+  describe('active tab', () => {
+    const tabs = ['chapters', 'transcripts', 'files', 'playlist', 'share']
 
     tabs.forEach((tab) => {
       it(`should make the ${tab} tab active`, function () {

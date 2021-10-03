@@ -67,9 +67,11 @@ describe('<play-button>', () => {
     })
 
     it('should show the replay button on end', () => {
+      assert('BACKEND_END', () => {
+        cy.get('#play-button--restart').should('be.visible')
+      })
       dispatch({ type: 'PLAYER_REQUEST_PLAYTIME', payload: 12000 })
       dispatch({ type: 'PLAYER_REQUEST_PLAY', payload: 12000 })
-      cy.get('#play-button--restart').should('be.visible')
     })
   })
 })
