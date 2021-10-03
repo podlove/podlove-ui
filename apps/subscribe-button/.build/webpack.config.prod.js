@@ -1,7 +1,4 @@
-const path = require('path')
-const { output, resolve, rules, plugins, optimization } = require('@podlove/build')
-const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
-const clientAssets = path.resolve('./node_modules/@podlove/clients/dist')
+const { output, resolve, rules, plugins, projectPaths, optimization } = require('@podlove/build')
 
 const pkg = require('../package')
 
@@ -25,8 +22,8 @@ module.exports = {
     directives: './src/directives',
     components: './src/components',
     screens: './src/screens',
-    '@podlove/components': componentAssets,
-    '@podlove/clients': clientAssets
+    '@podlove/components': projectPaths.packages.components,
+    '@podlove/clients': projectPaths.packages.clients
   }),
 
   module: {
@@ -52,8 +49,19 @@ module.exports = {
           ]
         })
       ]),
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.minify(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass()
+      ]),
       rules.mustache()
-    ]
+    ],
   },
 
   plugins: [

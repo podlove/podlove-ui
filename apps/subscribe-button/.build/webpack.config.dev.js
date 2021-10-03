@@ -1,4 +1,3 @@
-const path = require('path')
 const { output, resolve, devServer, rules, plugins, projectPaths } = require('@podlove/build')
 
 const version = require('../package').version

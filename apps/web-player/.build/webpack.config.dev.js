@@ -1,10 +1,6 @@
-const path = require('path')
-
-const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
+const { output, resolve, devServer, rules, plugins, projectPaths } = require('@podlove/build')
 
 const version = require('../package').version
-const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
-const subscribeButtonAssets = path.resolve('./node_modules/@podlove/subscribe-button/dist')
 
 module.exports = {
   mode: 'development',
@@ -18,8 +14,8 @@ module.exports = {
   output: output(),
 
   resolve: resolve({
-    '@podlove/player': playerAssets,
-    '@podlove/subscribe-button': subscribeButtonAssets
+    '@podlove/player': projectPaths.apps.player,
+    '@podlove/subscribe-button': projectPaths.apps.subscribeButton
   }),
 
   devtool: 'source-map',
@@ -76,11 +72,11 @@ module.exports = {
     }),
     plugins.copy([
       {
-        from: playerAssets,
+        from: projectPaths.apps.player,
         to: `${version}/player/`
       },
       {
-        from: subscribeButtonAssets,
+        from: projectPaths.apps.subscribeButton,
         to: `${version}/button/`
       },
       {
