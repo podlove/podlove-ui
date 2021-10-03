@@ -3,6 +3,8 @@ const { prop } = require('ramda')
 const getItem = (key) =>
   cy
     .window()
+    .its('localStorage')
+    .should('exist')
     .then((win) => win.localStorage)
     .then((storage) => {
       let item

@@ -101,8 +101,12 @@ describe('<tab-playlist>', () => {
         assert('PLAYER_REQUEST_PLAY', () => {
           done()
         })
+
+        assert('PLAYER_SELECT_PLAYLIST_ENTRY', () => {
+          cy.select('tab-playlist--entry--interaction').eq(1).click()
+        })
+
         dispatch({ type: 'PLAYER_SELECT_PLAYLIST_ENTRY', payload: { index: 1 } })
-        cy.select('tab-playlist--entry--interaction').eq(1).click()
       })
 
       it('should dispatch the action to pause the current episode', (done) => {
