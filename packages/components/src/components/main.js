@@ -7,11 +7,9 @@ import Timer from './timer'
 import Tab from './tab'
 import Image from './image'
 import ChapterProgress from './chapter-progress'
-import Card from './card'
 import Button from './button'
 import Tooltip from './tooltip'
 import Channel from './channel'
-import ContentOption from './content-option'
 import InputText from './input-text'
 import InputGroup from './input-group'
 import InputSelect from './input-select'
@@ -30,10 +28,8 @@ export {
   Tab,
   Image,
   ChapterProgress,
-  Card,
   Button,
   Tooltip,
-  ContentOption,
   Channel,
   InputText,
   InputGroup,

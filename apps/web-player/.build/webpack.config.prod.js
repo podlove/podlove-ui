@@ -56,11 +56,11 @@ module.exports = {
     }),
     plugins.copy([
       {
-        from: playerAssets,
+        from: projectPaths.apps.player,
         to: `${pkg.version}/player`
       },
       {
-        from: subscribeButtonAssets,
+        from: projectPaths.apps.subscribeButton,
         to: `${pkg.version}/button`
       }
     ]),
