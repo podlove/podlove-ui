@@ -6,9 +6,12 @@
       :href="state.link"
       :target="state.target"
       data-test="episode-title--link"
-      >{{ state.title }}</a
     >
-    <span v-else class="episode-title block overflow-hidden" data-test="episode-title--text">{{ state.title }}</span>
+      {{ state.title }}
+    </a>
+    <span v-else class="episode-title block overflow-hidden" data-test="episode-title--text">{{
+      state.title
+    }}</span>
   </h1>
 </template>
 

@@ -32,9 +32,9 @@
       class="block w-full py-2 mr-2"
       data-test="tab-playlist--entry--title"
       @click="select({ index, play: true })"
-      >{{ episode.title }}</span
     >
-
+      {{ episode.title }}
+    </span>
     <timer
       v-if="episode.duration"
       class="block w-18 py-2"
@@ -96,9 +96,7 @@ export default {
     style() {
       return this.hover
         ? {
-            background: color(this.state.color)
-              .alpha(0.3)
-              .string()
+            background: color(this.state.color).alpha(0.3).string()
           }
         : {}
     }

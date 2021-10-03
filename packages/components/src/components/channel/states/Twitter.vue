@@ -12,7 +12,6 @@ import Icon from '../../icons'
 const LINK = 'https://twitter.com/intent/tweet'
 
 export default {
-
   components: {
     ChannelBase,
     Icon

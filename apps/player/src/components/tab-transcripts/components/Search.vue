@@ -62,8 +62,9 @@
             <span
               data-test="tab-transcripts--search-controls--total-result"
               :title="state.searchResults.length"
-              >{{ results }}</span
             >
+              {{ results }}
+            </span>
           </span>
           <button
             class="block px-0 tablet:px-1 desktop:px-2"

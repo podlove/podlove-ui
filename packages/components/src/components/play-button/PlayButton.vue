@@ -17,8 +17,9 @@
             data-test="play-button--label"
             class="truncate ml-4 text-base font-thin font-variant-numeric"
             :style="{ color: color }"
-            >{{ label }}</span
           >
+            {{ label }}
+          </span>
         </component>
       </transition>
     </div>
