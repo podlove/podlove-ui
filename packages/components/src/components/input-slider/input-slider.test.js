@@ -55,7 +55,7 @@ describe('InputSlider', () => {
     props.forEach(({ prop, value }) => {
       test(`should render type '${prop}'`, async () => {
         const wrapper = await mount(InputSlider, {
-          propsData: {
+          props: {
             min: 1,
             max: 20,
             [prop]: value
@@ -70,38 +70,38 @@ describe('InputSlider', () => {
   describe('events', () => {
     test('should dispatch input event on input', async () => {
       const wrapper = await mount(InputSlider, {
-        propsData: {
+        props: {
           min: 1,
           max: 20
         }
       })
 
       wrapper.find('input').trigger('input')
-      expect(wrapper.emitted('input')).toEqual([['1']])
+      expect(wrapper.emitted().sliderInput).toEqual([['1']])
     })
 
     test('should dispatch change event on change', async () => {
       const wrapper = await mount(InputSlider, {
-        propsData: {
+        props: {
           min: 1,
           max: 20
         }
       })
 
       wrapper.find('input').trigger('change')
-      expect(wrapper.emitted('change')).toEqual([['1']])
+      expect(wrapper.emitted().sliderChange).toEqual([['1']])
     })
 
     test('should dispatch dblclick event on dblclick', async () => {
       const wrapper = await mount(InputSlider, {
-        propsData: {
+        props: {
           min: 1,
           max: 20
         }
       })
 
       wrapper.find('input').trigger('dblclick')
-      expect(wrapper.emitted('dblclick')).toEqual([['1']])
+      expect(wrapper.emitted().sliderDblclick).toEqual([['1']])
     })
   })
 })

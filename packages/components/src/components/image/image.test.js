@@ -33,7 +33,7 @@ describe('Image', () => {
     props.forEach(({ prop, value }) => {
       test(`should render with prop ${prop}`, async () => {
         const wrapper = await mount(Image, {
-          propsData: {
+          props: {
             [prop]: value
           }
         })

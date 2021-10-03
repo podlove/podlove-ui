@@ -6,7 +6,7 @@ describe('Icon', () => {
   describe('component', () => {
     test('should be a Vue instance', () => {
       const wrapper = mount(Icon, {
-        propsData: {
+        props: {
           type: 'play'
         }
       })
@@ -34,7 +34,7 @@ describe('Icon', () => {
       props.forEach(({ prop, value }) => {
         test(`should render type '${type}' with prop ${prop}`, async () => {
           const wrapper = await mount(Icon, {
-            propsData: {
+            props: {
               [prop]: value,
               type
             }

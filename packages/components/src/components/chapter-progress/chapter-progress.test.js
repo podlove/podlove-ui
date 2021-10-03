@@ -49,7 +49,7 @@ describe('ChapterProgress', () => {
     props.forEach(({ prop, value }) => {
       test(`should render '${prop}'`, async () => {
         const wrapper = await mount(ChapterProgress, {
-          propsData: {
+          props: {
             [prop]: value
           }
         })
@@ -62,7 +62,7 @@ describe('ChapterProgress', () => {
   describe('computed', () => {
     test('should render the remaining time accordingly', async () => {
       const chapterActive = await mount(ChapterProgress, {
-        propsData: {
+        props: {
           chapter: {
             start: 0,
             end: 50,
@@ -75,10 +75,10 @@ describe('ChapterProgress', () => {
         }
       })
 
-      expect(chapterActive.vm['remainingTime']).toEqual(30)
+      expect(chapterActive.componentVM.remainingTime).toEqual(30)
 
       const ghostActive = await mount(ChapterProgress, {
-        propsData: {
+        props: {
           chapter: {
             start: 0,
             end: 50,
@@ -92,10 +92,10 @@ describe('ChapterProgress', () => {
         }
       })
 
-      expect(ghostActive.vm['remainingTime']).toEqual(20)
+      expect(ghostActive.componentVM.remainingTime).toEqual(20)
 
       const defaultActive = await mount(ChapterProgress, {
-        propsData: {
+        props: {
           chapter: {
             start: 0,
             end: 50,
@@ -107,14 +107,14 @@ describe('ChapterProgress', () => {
         }
       })
 
-      expect(defaultActive.vm['remainingTime']).toEqual(50)
+      expect(defaultActive.componentVM.remainingTime).toEqual(50)
     })
   })
 
   describe('events', () => {
     test('should emit SET_CHAPTER on progress click', async () => {
       const wrapper = await mount(ChapterProgress, {
-        propsData: {
+        props: {
           chapter: {
             start: 0,
             end: 50,
@@ -128,12 +128,12 @@ describe('ChapterProgress', () => {
       })
 
       wrapper.trigger('click')
-      expect(wrapper.emitted('chapter')).toEqual([[setChapter(1)]])
+      expect(wrapper.emitted().chapter).toEqual([[setChapter(1)]])
     })
 
     test('should emit REQUEST_PLAY on progress click', async () => {
       const wrapper = await mount(ChapterProgress, {
-        propsData: {
+        props: {
           chapter: {
             start: 0,
             end: 50,
@@ -147,12 +147,12 @@ describe('ChapterProgress', () => {
       })
 
       wrapper.trigger('click')
-      expect(wrapper.emitted('play')).toEqual([[requestPlay()]])
+      expect(wrapper.emitted().play).toEqual([[requestPlay()]])
     })
 
     test('should emit DISABLE_GHOST on mouse out', async () => {
       const wrapper = await mount(ChapterProgress, {
-        propsData: {
+        props: {
           chapter: {
             start: 0,
             end: 50,
@@ -166,7 +166,7 @@ describe('ChapterProgress', () => {
       })
 
       wrapper.trigger('mouseout')
-      expect(wrapper.emitted('ghost')).toEqual([[disableGhost()]])
+      expect(wrapper.emitted().ghost).toEqual([[disableGhost()]])
     })
   })
 })

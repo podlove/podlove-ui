@@ -2,7 +2,7 @@
 
 exports[`Timer props should render with prop color 1`] = `
 <time
-  class="timer"
+  class="tabular-nums"
   datetime="00:00"
   style="color: rgb(255, 255, 255);"
 >
@@ -12,7 +12,7 @@ exports[`Timer props should render with prop color 1`] = `
 
 exports[`Timer props should render with prop remaining 1`] = `
 <time
-  class="timer"
+  class="tabular-nums"
   datetime="00:00"
 >
   -00:00
@@ -21,7 +21,7 @@ exports[`Timer props should render with prop remaining 1`] = `
 
 exports[`Timer props should render with prop time 1`] = `
 <time
-  class="timer"
+  class="tabular-nums"
   datetime="00:00"
 >
   00:00
@@ -30,7 +30,7 @@ exports[`Timer props should render with prop time 1`] = `
 
 exports[`Timer props should render without props 1`] = `
 <time
-  class="timer"
+  class="tabular-nums"
   datetime="00:00"
 >
   00:00

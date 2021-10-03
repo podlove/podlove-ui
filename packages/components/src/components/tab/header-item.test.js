@@ -65,7 +65,7 @@ describe('TabHeader', () => {
             icon: '<span>Icon</span>',
             title: '<span>title</span>'
           },
-          propsData: {
+          props: {
             [prop]: value
           }
         })

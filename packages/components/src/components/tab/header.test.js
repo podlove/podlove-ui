@@ -51,7 +51,7 @@ describe('TabBody', () => {
           slots: {
             default: '<div>Inner Tab</div>'
           },
-          propsData: {
+          props: {
             [prop]: value
           }
         })

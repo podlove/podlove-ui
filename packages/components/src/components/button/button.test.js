@@ -49,7 +49,7 @@ describe('Button', () => {
           slots: {
             default: '<span>Button Inner</span>'
           },
-          propsData: {
+          props: {
             [prop]: value
           }
         })

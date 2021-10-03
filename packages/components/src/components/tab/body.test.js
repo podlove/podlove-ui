@@ -31,7 +31,7 @@ describe('TabHeader', () => {
         slots: {
           default: '<span>Inner Tab Header</span>'
         },
-        propsData: {
+        props: {
           backgroundActive: '#fff'
         }
       })

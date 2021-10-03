@@ -1,7 +1,6 @@
 <template>
   <play-button
     v-if="button.type"
-    class="overflow-hidden"
     :type="button.type"
     :title="button.a11y"
     :color="background"

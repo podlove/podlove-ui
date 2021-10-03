@@ -25,6 +25,10 @@ export default {
       type: String,
       default: '#fff'
     },
+    link: {
+      type: String,
+      default: null
+    },
     filled: {
       type: Boolean,
       default: false

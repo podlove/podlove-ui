@@ -2,39 +2,38 @@
 
 exports[`InputGroup slots should apply special classes when having multiple slots 1`] = `
 <div
-  class="input-group elements-3"
+  class="input-group h-8 box-border elements-0"
 >
-  <button>
-    click!
-  </button>
-   
-  <input
-    type="text"
-  />
-  <input
-    type="text"
-  />
+  
+  &lt;button&gt;click!&lt;/button&gt;
+  
+  
+  &lt;input type="text" /&gt;
+  &lt;input type="text" /&gt;
+  
 </div>
 `;
 
 exports[`InputGroup slots should have a slot for buttons 1`] = `
 <div
-  class="input-group elements-1"
+  class="input-group h-8 box-border elements-0"
 >
-  <button>
-    click!
-  </button>
-   
+  
+  &lt;button&gt;click!&lt;/button&gt;
+  
+  
+  
 </div>
 `;
 
 exports[`InputGroup slots should have a slot for inputs 1`] = `
 <div
-  class="input-group elements-1"
+  class="input-group h-8 box-border elements-0"
 >
-   
-  <input
-    type="text"
-  />
+  
+  
+  
+  &lt;input type="text" /&gt;
+  
 </div>
 `;

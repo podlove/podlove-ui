@@ -21,14 +21,14 @@ describe('sharing', () => {
   })
 
   it('should render the share template', () => {
-    cy.share({ episode: '/test/episode.json', config: '/test/config.json' })
+    cy.share({ episode: '/episode.json', config: '/config.json' })
     cy.get(select('player--share')).should('exist')
   })
 
-  it('should parse the start time', (done) => {
+  it.only('should parse the start time', (done) => {
     cy.share({
-      episode: '/test/episode.json',
-      config: '/test/config.json',
+      episode: '/episode.json',
+      config: '/config.json',
       params: { t: '00:10' }
     }).then((app) => {
       onUpdate(app, 'PLAYER_REQUEST_PLAYTIME', (state) => {

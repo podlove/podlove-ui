@@ -5,7 +5,7 @@ describe('Channel', () => {
   describe('component', () => {
     test('should be a Vue instance', () => {
       const wrapper = mount(Channel, {
-        propsData: {
+        props: {
           type: 'embed'
         }
       })
@@ -47,7 +47,7 @@ describe('Channel', () => {
       props.forEach(({ prop, value }) => {
         test(`should render type '${type}' with prop ${prop}`, async () => {
           const wrapper = await mount(Channel, {
-            propsData: {
+            props: {
               [prop]: value,
               type
             }

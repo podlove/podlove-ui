@@ -45,6 +45,9 @@ export default {
       default: null
     }
   },
+  emits: {
+    change: null
+  },
   computed: {
     style() {
       return {
