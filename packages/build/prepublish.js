@@ -22,7 +22,7 @@ const copyPackage = () =>
     .then(stripProperties)
     .then((pkg) => fs.writeJson(path('publish/package.json'), pkg))
 
-fs.emptyDir(path('publish'))
+fs.remove(path('publish'))
   .then(fs.copy(path('dist'), path('publish')))
   .then(copyPackage)
   .then(fs.copy(path('README.md'), path('publish/README.md')))

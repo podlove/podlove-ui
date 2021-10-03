@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@podlove/build",
-  "version": "5.7.0",
+  "version": "5.7.3",
   "description": "Webpack building blocks for podlove player framework",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,6 @@
     "html-webpack-plugin": "5.3.2",
     "mini-css-extract-plugin": "2.1.0",
     "mustache-loader": "1.4.3",
-    "sass": "1.35.2",
     "optimize-css-assets-webpack-plugin": "5.0.8",
     "postcss-clean": "1.2.2",
     "postcss-loader": "6.1.1",

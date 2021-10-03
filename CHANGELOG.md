@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.3](https://github.com/podlove/podlove-ui/compare/v5.7.2...v5.7.3) (2021-10-01)
+
+**Note:** Version bump only for package root
+
+
+
+
+
+## [5.7.2](https://github.com/podlove/podlove-ui/compare/v5.7.1...v5.7.2) (2021-09-29)
+
+
+### Bug Fixes
+
+* **release:** fix issues in webpack release steps ([362bd79](https://github.com/podlove/podlove-ui/commit/362bd798b8b928f5ee639cd89c94486755ac537f))
+
+
+
+
+
+## [5.7.1](https://github.com/podlove/podlove-ui/compare/v5.7.0...v5.7.1) (2021-09-29)
+
+
+### Bug Fixes
+
+* apply linting ([820cf20](https://github.com/podlove/podlove-ui/commit/820cf200c4337e832173cc95eeed3cbd6e2d343d))
+* **build:** use banner plugin to replace webpack auto version ([d0f39f1](https://github.com/podlove/podlove-ui/commit/d0f39f154da6d9ada2eecb879039384e619ef414))
+* downgrade build dependency ([0540bfa](https://github.com/podlove/podlove-ui/commit/0540bfa86fb28f8dc70858176c994382fcb80852))
+* linting ([e0c65ad](https://github.com/podlove/podlove-ui/commit/e0c65ad1f7e59177c043bafc46c58c4ce2caccb7))
+* **player:** adapt build scripts ([a4d3c6b](https://github.com/podlove/podlove-ui/commit/a4d3c6b2eff2b7e5ad48fc2da1a343de57fb4f72))
+* **player:** hide thumb shadow for ios 15 mobile devices ([c340413](https://github.com/podlove/podlove-ui/commit/c340413b880ccb8287c037b9b364aa862ec2ae74))
+* unit tests ([aa61add](https://github.com/podlove/podlove-ui/commit/aa61addab6d7d0e6a16099b54bbe97726ba35636))
+
+
+
+
+
 # [5.7.0](https://github.com/podlove/podlove-ui/compare/v5.6.4...v5.7.0) (2021-07-11)
 
 

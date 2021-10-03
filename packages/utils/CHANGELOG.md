@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.3](https://github.com/podlove/podlove-ui/compare/v5.7.2...v5.7.3) (2021-10-01)
+
+**Note:** Version bump only for package @podlove/utils
+
+
+
+
+
+## [5.7.1](https://github.com/podlove/podlove-ui/compare/v5.7.0...v5.7.1) (2021-09-29)
+
+
+### Bug Fixes
+
+* apply linting ([820cf20](https://github.com/podlove/podlove-ui/commit/820cf200c4337e832173cc95eeed3cbd6e2d343d))
+* unit tests ([aa61add](https://github.com/podlove/podlove-ui/commit/aa61addab6d7d0e6a16099b54bbe97726ba35636))
+
+
+
+
+
 # [5.7.0](https://github.com/podlove/podlove-ui/compare/v5.6.4...v5.7.0) (2021-07-11)
 
 
