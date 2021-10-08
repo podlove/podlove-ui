@@ -103,7 +103,7 @@ describe('<tab-playlist>', () => {
         })
 
         assert('PLAYER_SELECT_PLAYLIST_ENTRY', () => {
-          cy.select('tab-playlist--entry--interaction').eq(1).click()
+          cy.select('tab-playlist--entry--interaction').eq(1).should('be.visible').click()
         })
 
         dispatch({ type: 'PLAYER_SELECT_PLAYLIST_ENTRY', payload: { index: 1 } })
