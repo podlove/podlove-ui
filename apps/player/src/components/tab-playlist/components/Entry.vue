@@ -14,7 +14,7 @@
       data-test="tab-playlist--entry--interaction"
       @click="play()"
     >
-      <icon :type="playing ? 'menu-pause' : 'menu-play'" :size="24" />
+      <icon :type="state.playing ? 'menu-pause' : 'menu-play'" :size="24" />
     </span>
 
     <span
