@@ -25,4 +25,6 @@ Cypress.Commands.add('bootstrap', (template = '', stateFragments = []) => {
     .then(() => cy.window().then((win) => win.BOOTSTRAP(template, state)))
 })
 
-Cypress.Commands.add('select', (selector) => cy.get(select(selector)))
+Cypress.Commands.add('select', (selector, ...query) =>
+  cy.get([select(selector), ...(query || [])].join(''))
+)

@@ -7,7 +7,7 @@ describe('StepperButton', () => {
   describe('component', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(StepperButton, {
-        propsData: {
+        props: {
           type: 'forward'
         }
       })
@@ -22,7 +22,7 @@ describe('StepperButton', () => {
     types.forEach((type) => {
       test(`should render for rype ${type}`, async () => {
         const wrapper = await mount(StepperButton, {
-          propsData: {
+          props: {
             type,
             color: '#fff'
           }
@@ -36,26 +36,26 @@ describe('StepperButton', () => {
   describe('events', () => {
     test('should emit STEP_FORWARD on type forward click', async () => {
       const wrapper = await mount(StepperButton, {
-        propsData: {
+        props: {
           type: 'forward'
         }
       })
 
       wrapper.trigger('click')
 
-      expect(wrapper.emitted('click')).toEqual([[stepForward()]])
+      expect(wrapper.emitted().forward).toEqual([[stepForward()]])
     })
 
     test('should emit STE_BACKWARD on type backward click', async () => {
       const wrapper = await mount(StepperButton, {
-        propsData: {
+        props: {
           type: 'backwards'
         }
       })
 
       wrapper.trigger('click')
 
-      expect(wrapper.emitted('click')).toEqual([[stepBackwards()]])
+      expect(wrapper.emitted().backwards).toEqual([[stepBackwards()]])
     })
   })
 })

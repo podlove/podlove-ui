@@ -1,25 +1,33 @@
-<template lang="pug">
-  stepper-button(v-if="stepperButtons" type="backwards" :title="$t(title.key, title.attr)" :color="color" @click="dispatch" data-test="step-backward")
+<template>
+  <stepper-button
+    v-if="state.stepperButtons"
+    data-test="step-backward"
+    type="backwards"
+    :title="$t(state.title.key, state.title.attr)"
+    :color="state.color"
+    @backwards="dispatch"
+  />
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
-import store from 'store'
+import { mapState, injectStore } from 'redux-vuex'
+import StepperButton from '@podlove/components/stepper-button'
 
 import select from 'store/selectors'
-import StepperButton from '@podlove/components/stepper-button'
 
 export default {
   components: {
     StepperButton
   },
-  data: mapState({
-    stepperButtons: select.components.stepperButtons,
-    color: select.theme.brandDark,
-    title: select.accessibility.stepperBackwards
-  }),
-  methods: {
-    dispatch: store.dispatch
+  setup() {
+    return {
+      state: mapState({
+        stepperButtons: select.components.stepperButtons,
+        color: select.theme.brandDark,
+        title: select.accessibility.stepperBackwards
+      }),
+      dispatch: injectStore().dispatch
+    }
   }
 }
 </script>

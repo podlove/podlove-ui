@@ -1,20 +1,20 @@
 <template>
   <div
     ref="progressContainer"
-    class="chapter-progress"
+    class="relative flex items-center px-2 py-0"
     aria-hidden="true"
     @mouseout="progressOut"
     @mousemove.alt="progressMove"
     @click.exact="progressClick"
     @click.alt="contextProgressClick"
   >
-    <span class="title" aria-hidden="true">
+    <span class="title pointer-events-none" aria-hidden="true">
       {{ chapter.title }}
     </span>
-    <span v-if="hasLink" class="link">
-      <icon class="icon" type="link" />
+    <span v-if="hasLink" class="link flex">
+      <icon class="icon flex-shrink-0" type="link" />
       <a
-        class="info-link"
+        class="font-medium whitespace-no-wrap"
         :href="chapter.href"
         target="_blank"
         @mouseover="linkOver"
@@ -24,12 +24,20 @@
       </a>
     </span>
     <timer
-      class="timer"
+      class="timer block text-right pointer-events-none pr-2"
       :time="remainingTime"
       :remaining="(chapter.active || !!ghostActive) && playtime > 0"
     />
-    <span class="chapter-progress-bar" :style="progressStyle" aria-hidden="true" />
-    <span class="chapter-progress-bar" :style="progressGhostStyle" aria-hidden="true" />
+    <span
+      class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
+      :style="progressStyle"
+      aria-hidden="true"
+    />
+    <span
+      class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
+      :style="progressGhostStyle"
+      aria-hidden="true"
+    />
   </div>
 </template>
 
@@ -172,52 +180,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'font';
-@import 'resets';
-@import 'utils';
-@import 'tokens/defaults';
+.title {
+  width: calc(100% - 4.4em);
+}
 
-.chapter-progress {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-  padding: ($padding / 2) 0;
+.link {
+  max-width: calc(40%);
+}
 
-  .title {
-    width: calc(100% - 4.4em);
-    pointer-events: none;
-  }
+.icon {
+  margin-top: -2px;
+}
 
-  .icon {
-    margin-top: -2px;
-    flex-shrink: 0;
-  }
+.timer {
+  min-width: 4.4em;
+}
 
-  .info-link {
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .link {
-    display: flex;
-    max-width: calc(40%);
-  }
-
-  .timer {
-    min-width: 4.4em;
-    display: block;
-    text-align: right;
-    pointer-events: none;
-    padding-right: $padding / 2;
-  }
-
-  .chapter-progress-bar {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    pointer-events: none;
-  }
+.chapter-progress-bar {
+  height: 3px;
 }
 </style>

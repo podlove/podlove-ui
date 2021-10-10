@@ -1,14 +1,38 @@
 <template>
-  <label v-if="label" class="input-checkbox">
-    <span class="checkbox" :style="style">
-      <icon v-if="value" class="check-mark" :size="16" type="check-mark" :color="color"></icon>
-      <input type="checkbox" :checked="value" :disabled="disabled" @change="changeEvent" />
+  <label v-if="label" class="flex">
+    <span class="mr-2 relative inline-block w-5 h-5 border rounded-sm border-solid" :style="style">
+      <icon
+        v-if="value"
+        class="check-mark absolute pointer-events-none -mr-2 -mt-2"
+        :size="16"
+        type="check-mark"
+        :color="color"
+      ></icon>
+      <input
+        type="checkbox"
+        class="opacity-0"
+        :checked="value"
+        :disabled="disabled"
+        @change="selectEvent"
+      />
     </span>
-    <span class="label">{{ label }}</span>
+    <span class="h-5 leading-5" data-test="input-checkbox--label">{{ label }}</span>
   </label>
-  <span v-else class="checkbox" :style="style">
-    <icon v-if="value" class="check-mark" :size="16" type="check-mark" :color="color"></icon>
-    <input type="checkbox" :checked="value" :disabled="disabled" @change="changeEvent" />
+  <span v-else class="relative inline-block w-5 h-5 border rounded-sm border-solid" :style="style">
+    <icon
+      v-if="value"
+      class="check-mark absolute pointer-events-none -mr-2 -mt-2"
+      :size="16"
+      type="check-mark"
+      :color="color"
+    ></icon>
+    <input
+      type="checkbox"
+      class="opacity-0"
+      :checked="value"
+      :disabled="disabled"
+      @change="selectEvent"
+    />
   </span>
 </template>
 
@@ -46,6 +70,9 @@ export default {
       default: false
     }
   },
+  emits: {
+    select: null
+  },
   computed: {
     style() {
       return {
@@ -55,51 +82,18 @@ export default {
     }
   },
   methods: {
-    changeEvent(event) {
-      this.$emit('change', event.target.value)
+    selectEvent(event) {
+      this.$emit('select', event.target.value)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'tokens/defaults';
-@import 'tokens/input';
-
-.input-checkbox {
-  display: flex;
-
-  .checkbox {
-    margin-right: $margin / 2;
-  }
-
-  .label {
-    height: 20px;
-    line-height: 20px;
-  }
-}
-
-.checkbox {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  border-radius: 2px;
-  border-width: 1px;
-  border-style: solid;
-
-  .check-mark {
-    position: absolute;
-    pointer-events: none;
-    top: 50%;
-    left: 50%;
-    margin-left: -8px;
-    margin-top: -8px;
-  }
-
-  input[type='checkbox'] {
-    opacity: 0;
-  }
+.check-mark {
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
 }
 </style>

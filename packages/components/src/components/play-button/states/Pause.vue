@@ -1,12 +1,12 @@
 <template>
-  <span class="pause-inner" aria-hidden="true">
+  <span class="flex justify-center items-center" aria-hidden="true">
     <icon type="pause" :color="color" :size="size" />
     <slot />
   </span>
 </template>
 
 <script>
-import Icon from 'components/icons'
+import Icon from '../../icons'
 import { color } from 'defaults'
 
 export default {

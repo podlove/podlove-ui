@@ -5,21 +5,13 @@ export default {
   component: Channel
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { Channel },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-  <channel
-    :type="type"
-    :color="color"
-    @click="onClick"
-    :link="link"
-    :subject="subject"
-    :text="text"
-    :background="background"
-    :a11y="a11y"
-    :filled="filled">
-  </channel>
+  <channel v-bind="args"></channel>
   `
 })
 
@@ -30,7 +22,6 @@ Default.args = {
   background: '#000',
   link: 'http://google.de',
   subject: 'The Subject',
-  text: 'The Text',
   filled: false,
   a11y: 'The a11y text'
 }
@@ -38,7 +29,18 @@ Default.args = {
 Default.argTypes = {
   type: {
     defaultValue: 'embed',
-    options: ['embed', 'facebook', 'linkedin', 'mail', 'reddit', 'twitter', 'pinterest'],
+    options: [
+      'embed',
+      'facebook',
+      'linkedin',
+      'mail',
+      'reddit',
+      'twitter',
+      'xing',
+      'whats-app',
+      'pinterest',
+      'link'
+    ],
     control: { type: 'select' }
   },
   onClick: {

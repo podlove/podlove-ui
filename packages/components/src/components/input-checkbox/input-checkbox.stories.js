@@ -6,17 +6,13 @@ export default {
   component: InputCheckbox
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { InputCheckbox },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-  <input-checkbox
-     :value="value"
-     :disabled="disabled"
-     :label="label"
-     :borderColor="borderColor"
-     :background="background"
-     @change="onChange">
+  <input-checkbox v-bind="args">
   </input-checkbox>
   `
 })

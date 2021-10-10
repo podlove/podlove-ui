@@ -1,5 +1,5 @@
-<template lang="pug">
-  divider(:color="color" data-test="divider")
+<template>
+  <divider :color="state.color" data-test="divider" />
 </template>
 
 <script>
@@ -9,8 +9,12 @@ import select from 'store/selectors'
 
 export default {
   components: { Divider },
-  data: mapState({
-    color: select.theme.shadeBase
-  })
+  setup() {
+    return {
+      state: mapState({
+        color: select.theme.shadeBase
+      })
+    }
+  }
 }
 </script>

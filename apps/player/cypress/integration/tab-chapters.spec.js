@@ -8,7 +8,7 @@ describe('<tab-chapters>', () => {
 
   describe('render', () => {
     describe('title', () => {
-      it('should render the tab title', () => {
+      it('should render the tab title', function () {
         cy.bootstrap('<tab-chapters style="width: 400px;"></tab-chapters>', [this.theme])
         cy.select('tab-title').should('exist')
         cy.select('tab-title').should('contain', 'Chapters')

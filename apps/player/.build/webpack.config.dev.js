@@ -1,6 +1,5 @@
-const path = require('path')
-const { output, resolve, devServer, rules, plugins } = require('@podlove/build')
-const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
+const { version } = require('../package.json')
+const { output, resolve, devServer, rules, plugins, projectPaths } = require('@podlove/build')
 
 const tailwind = require('./tailwind.config')
 
@@ -15,7 +14,7 @@ module.exports = {
 
   resolve: resolve({
     store: './src/store',
-    '@podlove/components': componentAssets
+    '@podlove/components': projectPaths.packages.components
   }),
 
   devtool: 'inline-source-map',
@@ -32,11 +31,22 @@ module.exports = {
         rules.style.loader.postcss({
           plugins: [
             rules.style.postcss.plugins.tailwind(tailwind),
-            rules.style.postcss.plugins.autoprefixer
+            rules.style.postcss.plugins.autoprefixer,
+            rules.style.postcss.plugins.cssNested,
           ]
         })
       ]),
-      rules.pug()
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.vue(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass()
+      ]),
     ]
   },
 
@@ -53,6 +63,6 @@ module.exports = {
       { from: './example/test.html' },
       { from: './example/assets', to: 'assets' }
     ]),
-    plugins.env({ mode: 'development' })
+    plugins.env({ mode: 'development', VERSION: version })
   ]
 }

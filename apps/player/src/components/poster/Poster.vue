@@ -1,6 +1,7 @@
-<template lang="pug">
-  div(data-test="poster")
-    lazy-image(:url="posterSrc" alt="" @error="errorPosterLoad" :color="coverColor")
+<template>
+  <div data-test="poster">
+    <lazy-image :url="state.posterSrc" :color="state.coverColor" alt="" @error="errorPosterLoad" />
+  </div>
 </template>
 
 <script>
@@ -11,10 +12,14 @@ import select from 'store/selectors'
 
 export default {
   components: { LazyImage: Image },
-  data: mapState({
-    posterSrc: select.header.posterSrc,
-    coverColor: select.theme.brandLightest
-  }),
-  methods: mapActions('errorPosterLoad')
+  setup() {
+    return {
+      state: mapState({
+        posterSrc: select.header.posterSrc,
+        coverColor: select.theme.brandLightest
+      }),
+      ...mapActions('errorPosterLoad')
+    }
+  }
 }
 </script>

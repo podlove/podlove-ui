@@ -1,7 +1,9 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const cssClean = require('postcss-clean')
 const tailwind = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
+const cssClean = require('postcss-clean')
+const cssImport = require('postcss-import')
+const cssNested = require('postcss-nested')
 
 const { prepend } = require('./utils')
 
@@ -43,8 +45,10 @@ const style = {
       clean: cssClean({
         inline: ['none']
       }),
+      cssImport,
       autoprefixer,
-      tailwind
+      tailwind,
+      cssNested
     }
   },
   loader: {
@@ -75,11 +79,6 @@ const style = {
     use
   })
 }
-
-const pug = () => ({
-  test: /\.pug$/,
-  loader: 'pug-plain-loader'
-})
 
 const fonts = (prefix) => ({
   test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -115,7 +114,6 @@ module.exports = {
   javascript,
   images,
   fonts,
-  pug,
   mustache,
   handlebars,
   url,

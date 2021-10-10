@@ -1,5 +1,5 @@
 <template>
-  <button :id="`chapter-button--${type}`" class="chapter-button" @click="clickHandler">
+  <button :id="`chapter-button--${type}`" @click="clickHandler">
     <icon :type="type" :color="color" />
     <slot />
   </button>
@@ -7,7 +7,7 @@
 
 <script>
 import { color } from 'defaults'
-import Icon from 'components/icons'
+import Icon from '../icons'
 import { nextChapter, previousChapter } from '@podlove/player-actions/chapters'
 
 export default {
@@ -25,14 +25,18 @@ export default {
       default: color
     }
   },
+  emits: {
+    next: null,
+    previous: null
+  },
   methods: {
     clickHandler() {
       switch (this.type) {
         case 'next':
-          this.$emit('click', nextChapter())
+          this.$emit('next', nextChapter())
           break
         case 'previous':
-          this.$emit('click', previousChapter())
+          this.$emit('previous', previousChapter())
           break
       }
     }
@@ -40,11 +44,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import 'boot';
-@import 'resets';
-
-.chapter-button {
-  @extend %button;
-}
-</style>
+<style lang="scss" scoped></style>

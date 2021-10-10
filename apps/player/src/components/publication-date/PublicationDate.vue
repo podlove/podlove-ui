@@ -1,5 +1,5 @@
-<template lang="pug">
-  span(:style="style" data-test="publication-date") {{ date }}
+<template>
+  <span :style="style" data-test="publication-date">{{ date }}</span>
 </template>
 
 <script>
@@ -14,18 +14,22 @@ export default {
       default: null
     }
   },
-  data: mapState({
-    color: select.theme.contrast,
-    publicationDate: select.episode.publicationDate
-  }),
+  setup() {
+    return {
+      state: mapState({
+        color: select.theme.contrast,
+        publicationDate: select.episode.publicationDate
+      })
+    }
+  },
   computed: {
     style() {
       return {
-        color: this.color
+        color: this.state.color
       }
     },
     date() {
-      const date = new Date(this.publicationDate)
+      const date = new Date(this.state.publicationDate)
 
       return this.format ? format(date, this.format) : date.toLocaleDateString()
     }

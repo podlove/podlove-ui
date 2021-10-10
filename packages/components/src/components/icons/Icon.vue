@@ -45,6 +45,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import 'boot';
-</style>
+<style lang="scss" scoped></style>

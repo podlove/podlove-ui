@@ -1,8 +1,19 @@
-<template lang="pug">
-  channel(type="facebook" :link="link" :color="color" :background="background" :filled="hover" @mouseover.native="hover = true" @mouseleave.native="hover = false") {{ link }}
+<template>
+  <channel
+    type="facebook"
+    :link="state.link"
+    :color="state.color"
+    :background="state.background"
+    :filled="hover"
+    @mouseover.native="hover = true"
+    @mouseleave.native="hover = false"
+  >
+    {{ state.link }}
+  </channel>
 </template>
 
 <script>
+import { mapState } from 'redux-vuex'
 import Channel from '@podlove/components/channel'
 
 import select from 'store/selectors'
@@ -11,14 +22,18 @@ export default {
   components: {
     Channel
   },
-  data() {
+  setup() {
     return {
-      hover: false,
-      ...this.mapState({
+      state: mapState({
         link: select.share.link,
         color: select.theme.brandDark,
         background: select.theme.alt
       })
+    }
+  },
+  data() {
+    return {
+      hover: false
     }
   }
 }

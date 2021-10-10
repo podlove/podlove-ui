@@ -1,6 +1,6 @@
 <template>
   <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
-    <div v-observer="updateSize" class="wrapper" :style="wrapper">
+    <div v-observer="updateSize" class="wrapper flex items-center justify-center" :style="wrapper">
       <transition name="component" mode="out-in">
         <component
           :is="type"
@@ -10,9 +10,16 @@
           :color="color"
           :label="label"
           :size="size / 2"
-          :class="{ 'has-label': label && type !== 'loading' }"
+          :class="{ 'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading', '-ml-1': type === 'play' }"
         >
-          <span v-if="label" class="label" :style="{ color: color }">{{ label }}</span>
+          <span
+            v-if="label"
+            data-test="play-button--label"
+            class="truncate ml-4 text-base font-thin font-variant-numeric"
+            :style="{ color: color }"
+          >
+            {{ label }}
+          </span>
         </component>
       </transition>
     </div>
@@ -63,6 +70,11 @@ export default {
       default: 50
     }
   },
+  emits: {
+    play: null,
+    pause: null,
+    restart: null
+  },
   data() {
     return {
       width: null
@@ -94,56 +106,34 @@ export default {
     clickHandler() {
       switch (this.type) {
         case 'play':
-          this.$emit('click', requestPlay())
+          this.$emit('play', requestPlay())
           break
         case 'pause':
-          this.$emit('click', requestPause())
+          this.$emit('pause', requestPause())
           break
         case 'restart':
-          this.$emit('click', requestRestart())
+          this.$emit('restart', requestRestart())
           break
       }
     },
 
     updateSize() {
       setTimeout(() => {
-        if (!this.$refs.component) {
-          return
-        }
-        this.width = this.$refs.component.$el.clientWidth
-      }, 10)
+        const component = this.$refs.playbutton.querySelector('.component')
+        this.width = component.clientWidth
+      }, 300) // equals animation duration
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'resets';
-@import 'font';
-@import 'tokens/animation';
-@import 'tokens/play-button';
+@import '../../theme/tokens/animation';
+@import '../../theme/tokens/play-button';
 
 .play-button {
-  @extend %button;
-
   .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all $animation-duration * 4;
-  }
-
-  .label {
-    font-variant-numeric: tabular-nums;
-    margin-left: $margin;
-    font-size: 1rem;
-    font-weight: 200;
-    @extend %truncate;
-  }
-
-  .has-label {
-    padding: 0 $padding * 2;
   }
 }
 

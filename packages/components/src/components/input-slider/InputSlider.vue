@@ -1,5 +1,5 @@
 <template>
-  <div class="input-slider">
+  <div class="input-slider w-full relative">
     <input
       type="range"
       :min="min"
@@ -10,16 +10,19 @@
       @change="handleChange"
       @dblclick="handleDblclick"
     />
-    <span class="track" :style="trackStyle" />
+    <span class="track block w-full absolute left-0 pointer-events-none" :style="trackStyle" />
     <span
       v-for="(pin, index) in pins"
       :key="index"
-      class="pin"
+      class="pin block absolute font-medium text-xs text-center"
       :style="{ left: `${round(pin.value * 100)}%` }"
     >
       {{ pin.label }}
     </span>
-    <span class="thumb" :style="thumbStyle" />
+    <span
+      class="thumb absolute border border-solid pointer-events-none rounded-lg"
+      :style="thumbStyle"
+    />
     <slot />
   </div>
 </template>
@@ -72,7 +75,11 @@ export default {
       default: defaultColors.color
     }
   },
-
+  emits: {
+    sliderInput: null,
+    sliderChange: null,
+    sliderDblclick: null
+  },
   computed: {
     trackStyle() {
       return {
@@ -104,68 +111,48 @@ export default {
 
     // Events Handlers
     handleInput(event) {
-      this.$emit('input', this.calcValue(event))
+      this.$emit('sliderInput', this.calcValue(event))
     },
     handleChange(event) {
-      this.$emit('change', this.calcValue(event))
+      this.$emit('sliderChange', this.calcValue(event))
     },
     handleDblclick(event) {
-      this.$emit('dblclick', event.target.value)
+      this.$emit('sliderDblclick', event.target.value)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import 'boot';
-@import 'tokens/defaults';
-@import 'tokens/input';
-@import 'tokens/progress';
-@import 'tokens/color';
-@import 'font';
-@import 'resets';
+$subtile-color: rgba(0, 0, 0, 0.2);
+
+@import '../../theme/tokens/progress';
+@import '../../theme/tokens/input';
+@import '../../theme/resets';
 
 .input-slider {
-  @include range($height, $thumb-width-desktop, $thumb-width-desktop-hover);
+  @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
 
-  width: 100%;
-  position: relative;
   height: $slider-height;
 
   .track {
-    display: block;
-    width: 100%;
-    position: absolute;
-    left: 0;
     top: 50%;
     height: 2px;
-    pointer-events: none;
     background-color: $subtile-color;
     border-radius: 2px;
   }
 
   .pin {
-    position: absolute;
     top: -10px;
     color: $subtile-color;
-    font-weight: 500;
-    font-size: 0.8em;
-    display: block;
     width: 30px;
     margin-left: $thumb-width-desktop / 2 * -1;
-    text-align: center;
   }
 
   .thumb {
-    position: absolute;
     top: calc(50% - 4px);
-    border: 1px solid;
     height: 10px;
     width: 10px;
-    pointer-events: none;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 10px;
     border-color: $subtile-color;
     margin-left: $thumb-width-desktop / 4 * -1;
   }

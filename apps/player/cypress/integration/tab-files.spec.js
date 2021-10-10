@@ -7,7 +7,7 @@ describe('<tab-files>', () => {
 
   describe('render', () => {
     describe('title', () => {
-      it('should render the tab title', () => {
+      it('should render the tab title', function () {
         cy.bootstrap('<tab-files style="width: 400px;"></tab-files>', [this.theme, this.audio])
         cy.select('tab-title').should('exist')
         cy.select('tab-title').should('contain', 'Files')

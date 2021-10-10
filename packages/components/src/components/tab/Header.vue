@@ -1,6 +1,9 @@
 <template>
-  <ul class="tab-header" role="tablist">
-    <span class="header-shadow" :style="headerShadowStyle" />
+  <ul class="relative w-full flex items-center justify-center font-hairline h-8" role="tablist">
+    <span
+      class="block absolute pointer-events-none top-8 left-0 right-0 h-4 z-30"
+      :style="headerShadowStyle"
+    />
     <slot />
   </ul>
 </template>
@@ -27,38 +30,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-@import 'boot';
-@import 'resets';
-
-@import 'tokens/defaults';
-@import 'tokens/tab';
-
-.tab-header {
-  @extend %list;
-
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 100;
-  height: $tabs-header-height;
-
-  .header-shadow {
-    display: block;
-    position: absolute;
-    pointer-events: none;
-    top: $tabs-header-height;
-    left: 0;
-    right: 0;
-    height: $padding;
-    z-index: $tab-shadow;
-  }
-
-  .title {
-    text-transform: uppercase;
-  }
-}
-</style>

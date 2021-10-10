@@ -41,7 +41,7 @@ describe('InputSelect', () => {
     props.forEach(({ prop, value }) => {
       test(`should render type '${prop}'`, async () => {
         const wrapper = await mount(InputSelect, {
-          propsData: {
+          props: {
             [prop]: value,
             options: ['foo', 'bar', 'baz']
           }
@@ -55,13 +55,14 @@ describe('InputSelect', () => {
   describe('events', () => {
     test('should dispatch change event on change', async () => {
       const wrapper = await mount(InputSelect, {
-        propsData: {
-          options: ['foo', 'bar', 'baz']
+        props: {
+          options: ['foo', 'bar', 'baz'],
+          value: 'bar'
         }
       })
 
-      wrapper.findAll('option').at(1).trigger('change')
-      expect(wrapper.emitted('change')).toEqual([['bar']])
+      await wrapper.trigger('change')
+      expect(wrapper.emitted().change).toEqual([['bar']])
     })
   })
 })

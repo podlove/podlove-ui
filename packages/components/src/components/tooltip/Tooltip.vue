@@ -1,31 +1,40 @@
 <template>
-  <v-popover
-    ref="popover"
-    class="tooltip"
-    :auto-hide="true"
-    :placement="placement"
-    trigger="manual"
-    delay.show="100"
-    delay.hide="3000"
-  >
-    <span @click="click" @mouseleave="mouseLeave" @mouseover="mouseOver">
-      <slot />
-    </span>
-    <template slot="popover">
-      <span class="tooltip-inner" :style="{ color, background }">
-        {{ content }}
+  <span>
+    <dropdown
+      :auto-hide="true"
+      :placement="placement"
+      :triggers="[]"
+      :shown="visible"
+      :offset="[0, 10]"
+      theme="dropdown"
+    >
+      <span @click="click" @mouseleave="mouseLeave" @mouseover="mouseOver">
+        <slot />
       </span>
-    </template>
-  </v-popover>
+      <template #popper>
+        <span class="rounded px-3 py-1 text-center text-sm" :style="{ color, background }">
+          {{ content }}
+        </span>
+        <span
+          class="dropdown-arrow"
+          :class="{ [`arrow-${placement}`]: true }"
+          :style="{ 'border-color': background }"
+        ></span>
+      </template>
+    </dropdown>
+  </span>
 </template>
 
 <script>
-import { VPopover } from 'v-tooltip'
+import { Dropdown } from 'v-tooltip'
+
+let hideTimeout
 
 export default {
   components: {
-    VPopover
+    Dropdown
   },
+
   props: {
     trigger: {
       type: String,
@@ -50,18 +59,31 @@ export default {
     }
   },
 
+  emits: {
+    click: null
+  },
+
+  data() {
+    return {
+      visible: false,
+      test: 'orange'
+    }
+  },
+
   methods: {
     show() {
-      this.$refs.popover.$refs.popover.style.color = this.background
-      this.$refs.popover.show()
+      this.visible = true
     },
 
-    hide() {
-      this.$refs.popover.hide()
+    hide(timeout) {
+      clearTimeout(hideTimeout)
+      hideTimeout = setTimeout(() => {
+        this.visible = false
+      }, timeout)
     },
 
     mouseLeave() {
-      this.hide()
+      this.hide(500)
     },
 
     mouseOver() {
@@ -87,95 +109,81 @@ export default {
 
       this.show()
       this.$emit('click')
-      setTimeout(() => this.hide(), 6000)
+      this.hide(3000)
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import 'boot';
-@import 'tokens/color';
-@import 'font';
+.v-popper__arrow-container {
+  display: none;
+}
 
-.tooltip {
-  z-index: 10000;
-  font-size: 0.9em;
+.v-popper--theme-dropdown {
+  display: inline-block;
+  position: relative;
 
-  .tooltip-inner {
-    border-radius: 3px;
-    padding: 5px 10px 4px;
-    text-align: center;
+  .resize-observer {
+    display: none;
   }
+}
 
-  .tooltip-arrow {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    position: absolute;
-    margin: 5px;
-    border-color: currentColor;
-    z-index: 1;
-  }
+.dropdown-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  z-index: 1;
 
-  &[x-placement^='top'] {
+  &.arrow-top {
     margin-bottom: 8px;
-
-    .tooltip-arrow {
-      border-width: 5px 5px 0 5px;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      bottom: -5px;
-      left: calc(50% - 5px);
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+    border-width: 5px 5px 0 5px;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    bottom: -5px;
+    left: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  &[x-placement^='bottom'] {
-    margin-top: 8px;
-
-    .tooltip-arrow {
-      border-width: 0 5px 5px 5px;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-top-color: transparent !important;
-      top: -5px;
-      left: calc(50% - 5px);
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+  &.arrow-bottom {
+    border-width: 0 5px 5px 5px;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-top-color: transparent !important;
+    top: -5px;
+    left: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  &[x-placement^='right'] {
-    margin-left: 8px;
-
-    .tooltip-arrow {
-      border-width: 5px 5px 5px 0;
-      border-left-color: transparent !important;
-      border-top-color: transparent !important;
-      border-bottom-color: transparent !important;
-      left: 5px;
-      top: calc(50% - 5px);
-      margin-left: 0;
-      margin-right: 0;
-    }
+  &.arrow-right {
+    border-width: 5px 5px 5px 0;
+    border-left-color: transparent !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    left: -5px;
+    top: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 1px;
+    margin-right: 0;
   }
 
-  &[x-placement^='left'] {
-    margin-right: 8px;
-
-    .tooltip-arrow {
-      border-width: 5px 0 5px 5px;
-      border-top-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      right: 5px;
-      top: calc(50% - 5px);
-      margin-left: 0;
-      margin-right: 0;
-    }
+  &.arrow-left {
+    border-width: 5px 0 5px 5px;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    right: -5px;
+    top: calc(50% - 5px);
+    margin-left: 0;
+    margin-top: 1px;
+    margin-right: 0;
   }
 }
 </style>

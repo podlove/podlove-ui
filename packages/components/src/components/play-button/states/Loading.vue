@@ -1,12 +1,12 @@
 <template>
-  <div class="loading-indicator" aria-hidden="true">
+  <div class="pt-0 pb-0 pr-4 pl-4" aria-hidden="true">
     <icon :color="color" type="loading" :size="size" />
   </div>
 </template>
 
 <script>
 import { color } from 'defaults'
-import Icon from 'components/icons'
+import Icon from '../../icons'
 
 export default {
   components: {
@@ -25,8 +25,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.loading-indicator {
-  padding: 0 15px;
-}
-</style>
+<style lang="scss" scoped></style>

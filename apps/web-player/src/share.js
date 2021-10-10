@@ -10,10 +10,11 @@ import * as player from './player'
 const bootstrap = async ({ episode, config }) => {
   try {
     const playerConfig = await parseConfig(episode, config)
+
     const store = window.PODLOVE_STORE
 
     store.dispatch(init(playerConfig))
-    player.restore(config, store)
+    player.restore(playerConfig, store)
 
     return store
   } catch (err) {

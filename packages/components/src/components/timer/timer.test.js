@@ -36,7 +36,7 @@ describe('Timer', () => {
     props.forEach(({ prop, value }) => {
       test(`should render with prop ${prop}`, async () => {
         const wrapper = await mount(Timer, {
-          propsData: {
+          props: {
             [prop]: value
           }
         })

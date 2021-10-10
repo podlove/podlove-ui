@@ -6,18 +6,13 @@ export default {
   component: InputText
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { InputText },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-    <input-text
-      :value="value"
-      :disabled="disabled"
-      :color="color"
-      :borderColor="borderColor"
-      :background="background"
-      :block="block">
-    </input-text>
+    <input-text v-bind="args"></input-text>
   `
 })
 

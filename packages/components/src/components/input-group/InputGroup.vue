@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group" :class="{ [`elements-${elements}`]: true }">
+  <div class="input-group h-8 box-border" :class="{ [`elements-${elements}`]: true }">
     <slot name="button" />
     <slot name="input" />
   </div>
@@ -19,10 +19,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import 'boot';
-@import 'tokens/defaults';
-@import 'tokens/input';
+<style lang="scss">
+$addon-button-width: 80px;
 
 .input-group {
   box-sizing: border-box;
@@ -30,11 +28,10 @@ export default {
 
   .input-text,
   .input-select {
-    padding: $padding / 2;
+    padding: 0.25rem;
     width: 100%;
     border-radius: 0 3px 3px 0;
     border-width: 1px 1px 1px 0;
-    height: $input-height;
   }
 
   .button {
@@ -42,7 +39,6 @@ export default {
     display: block;
     border-width: 1px;
     border-radius: 3px 0 0 3px;
-    height: $input-height;
   }
 
   &.elements-2 {

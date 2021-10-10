@@ -5,6 +5,7 @@ exports[`Icon props should render type 'active-tab' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="5.995"
   viewBox="0 0 11 6"
   width="11"
@@ -22,6 +23,7 @@ exports[`Icon props should render type 'active-tab' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="5.995"
   viewBox="0 0 11 6"
   width="11"
@@ -39,6 +41,7 @@ exports[`Icon props should render type 'active-tab' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="10.9"
   viewBox="0 0 11 6"
   width="20"
@@ -57,6 +60,7 @@ exports[`Icon props should render type 'arrow-to-left' with prop background 1`] 
   background="#fff"
   color="currentColor"
   fill="none"
+  filled="false"
   height="16"
   viewBox="0 0 16 16"
   width="16"
@@ -76,6 +80,7 @@ exports[`Icon props should render type 'arrow-to-left' with prop color 1`] = `
   background="currentColor"
   color="#fff"
   fill="none"
+  filled="false"
   height="16"
   viewBox="0 0 16 16"
   width="16"
@@ -95,6 +100,7 @@ exports[`Icon props should render type 'arrow-to-left' with prop size 1`] = `
   background="currentColor"
   color="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 16 16"
   width="20"
@@ -114,6 +120,7 @@ exports[`Icon props should render type 'arrow-to-right' with prop background 1`]
   background="#fff"
   color="currentColor"
   fill="none"
+  filled="false"
   height="12"
   viewBox="0 0 12 12"
   width="12"
@@ -134,6 +141,7 @@ exports[`Icon props should render type 'arrow-to-right' with prop color 1`] = `
   background="currentColor"
   color="#fff"
   fill="none"
+  filled="false"
   height="12"
   viewBox="0 0 12 12"
   width="12"
@@ -154,6 +162,7 @@ exports[`Icon props should render type 'arrow-to-right' with prop size 1`] = `
   background="currentColor"
   color="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 12 12"
   width="20"
@@ -173,6 +182,7 @@ exports[`Icon props should render type 'audio-file' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -185,7 +195,6 @@ exports[`Icon props should render type 'audio-file' with prop background 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M7.10647 15.9112V20.5166C4.56293 20.5166 2.50098 18.4547 2.50098 15.9112C2.50098 13.3676 4.56293 11.3057 7.10647 11.3057V15.9112Z"
     stroke="currentColor"
@@ -193,7 +202,6 @@ exports[`Icon props should render type 'audio-file' with prop background 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M16.8955 15.9112L16.8955 20.5166C19.439 20.5166 21.501 18.4547 21.501 15.9112C21.501 13.3676 19.439 11.3057 16.8955 11.3057V15.9112Z"
     stroke="currentColor"
@@ -209,6 +217,7 @@ exports[`Icon props should render type 'audio-file' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -221,7 +230,6 @@ exports[`Icon props should render type 'audio-file' with prop color 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M7.10647 15.9112V20.5166C4.56293 20.5166 2.50098 18.4547 2.50098 15.9112C2.50098 13.3676 4.56293 11.3057 7.10647 11.3057V15.9112Z"
     stroke="#fff"
@@ -229,7 +237,6 @@ exports[`Icon props should render type 'audio-file' with prop color 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M16.8955 15.9112L16.8955 20.5166C19.439 20.5166 21.501 18.4547 21.501 15.9112C21.501 13.3676 19.439 11.3057 16.8955 11.3057V15.9112Z"
     stroke="#fff"
@@ -245,6 +252,7 @@ exports[`Icon props should render type 'audio-file' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -257,7 +265,6 @@ exports[`Icon props should render type 'audio-file' with prop size 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M7.10647 15.9112V20.5166C4.56293 20.5166 2.50098 18.4547 2.50098 15.9112C2.50098 13.3676 4.56293 11.3057 7.10647 11.3057V15.9112Z"
     stroke="currentColor"
@@ -265,7 +272,6 @@ exports[`Icon props should render type 'audio-file' with prop size 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M16.8955 15.9112L16.8955 20.5166C19.439 20.5166 21.501 18.4547 21.501 15.9112C21.501 13.3676 19.439 11.3057 16.8955 11.3057V15.9112Z"
     stroke="currentColor"
@@ -281,6 +287,7 @@ exports[`Icon props should render type 'backwards' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 32 24"
   width="31.92"
@@ -293,12 +300,10 @@ exports[`Icon props should render type 'backwards' with prop background 1`] = `
     stroke-linejoin="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.64507 2.93557L4.75612 1.08839C5.24106 0.664074 6 1.00846 6 1.65283V5.34717C6 5.99154 5.24106 6.33593 4.75612 5.91161L2.64507 4.06443C2.30357 3.76562 2.30357 3.23438 2.64507 2.93557Z"
     fill="currentColor"
   />
-   
   <path
     d="M10.1245 15.62V17H15.4165V15.62H13.7605V9.044H12.2725L10.0765 9.944L10.4845 11.156L12.0445 10.52V15.62H10.1245ZM16.309 13.508C16.597 13.46 17.449 13.424 18.001 13.424C19.441 13.424 20.137 13.736 20.137 14.66C20.137 15.452 19.693 15.86 18.901 15.86C18.073 15.86 17.689 15.476 17.773 14.684H16.045C15.781 16.364 16.633 17.156 18.757 17.156C20.917 17.156 21.901 16.124 21.901 14.528C21.901 12.788 20.797 12.14 18.685 12.14C18.433 12.14 18.157 12.152 17.905 12.164L18.037 10.544H21.349L21.481 9.044H16.597L16.309 13.508Z"
     fill="currentColor"
@@ -311,6 +316,7 @@ exports[`Icon props should render type 'backwards' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 32 24"
   width="31.92"
@@ -323,12 +329,10 @@ exports[`Icon props should render type 'backwards' with prop color 1`] = `
     stroke-linejoin="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.64507 2.93557L4.75612 1.08839C5.24106 0.664074 6 1.00846 6 1.65283V5.34717C6 5.99154 5.24106 6.33593 4.75612 5.91161L2.64507 4.06443C2.30357 3.76562 2.30357 3.23438 2.64507 2.93557Z"
     fill="#fff"
   />
-   
   <path
     d="M10.1245 15.62V17H15.4165V15.62H13.7605V9.044H12.2725L10.0765 9.944L10.4845 11.156L12.0445 10.52V15.62H10.1245ZM16.309 13.508C16.597 13.46 17.449 13.424 18.001 13.424C19.441 13.424 20.137 13.736 20.137 14.66C20.137 15.452 19.693 15.86 18.901 15.86C18.073 15.86 17.689 15.476 17.773 14.684H16.045C15.781 16.364 16.633 17.156 18.757 17.156C20.917 17.156 21.901 16.124 21.901 14.528C21.901 12.788 20.797 12.14 18.685 12.14C18.433 12.14 18.157 12.152 17.905 12.164L18.037 10.544H21.349L21.481 9.044H16.597L16.309 13.508Z"
     fill="#fff"
@@ -341,6 +345,7 @@ exports[`Icon props should render type 'backwards' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 32 24"
   width="26.6"
@@ -353,12 +358,10 @@ exports[`Icon props should render type 'backwards' with prop size 1`] = `
     stroke-linejoin="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.64507 2.93557L4.75612 1.08839C5.24106 0.664074 6 1.00846 6 1.65283V5.34717C6 5.99154 5.24106 6.33593 4.75612 5.91161L2.64507 4.06443C2.30357 3.76562 2.30357 3.23438 2.64507 2.93557Z"
     fill="currentColor"
   />
-   
   <path
     d="M10.1245 15.62V17H15.4165V15.62H13.7605V9.044H12.2725L10.0765 9.944L10.4845 11.156L12.0445 10.52V15.62H10.1245ZM16.309 13.508C16.597 13.46 17.449 13.424 18.001 13.424C19.441 13.424 20.137 13.736 20.137 14.66C20.137 15.452 19.693 15.86 18.901 15.86C18.073 15.86 17.689 15.476 17.773 14.684H16.045C15.781 16.364 16.633 17.156 18.757 17.156C20.917 17.156 21.901 16.124 21.901 14.528C21.901 12.788 20.797 12.14 18.685 12.14C18.433 12.14 18.157 12.152 17.905 12.164L18.037 10.544H21.349L21.481 9.044H16.597L16.309 13.508Z"
     fill="currentColor"
@@ -370,6 +373,7 @@ exports[`Icon props should render type 'calendar' with prop background 1`] = `
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -379,7 +383,6 @@ exports[`Icon props should render type 'calendar' with prop background 1`] = `
     d="M 2,3 2,17 18,17 18,3 2,3 Z M 17,16 3,16 3,8 17,8 17,16 Z M 17,7 3,7 3,4 17,4 17,7 Z"
     fill="currentColor"
   />
-   
   <rect
     fill="currentColor"
     height="3"
@@ -387,7 +390,6 @@ exports[`Icon props should render type 'calendar' with prop background 1`] = `
     x="6"
     y="2"
   />
-   
   <rect
     fill="currentColor"
     height="3"
@@ -402,6 +404,7 @@ exports[`Icon props should render type 'calendar' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -411,7 +414,6 @@ exports[`Icon props should render type 'calendar' with prop color 1`] = `
     d="M 2,3 2,17 18,17 18,3 2,3 Z M 17,16 3,16 3,8 17,8 17,16 Z M 17,7 3,7 3,4 17,4 17,7 Z"
     fill="#fff"
   />
-   
   <rect
     fill="#fff"
     height="3"
@@ -419,7 +421,6 @@ exports[`Icon props should render type 'calendar' with prop color 1`] = `
     x="6"
     y="2"
   />
-   
   <rect
     fill="#fff"
     height="3"
@@ -434,6 +435,7 @@ exports[`Icon props should render type 'calendar' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -443,7 +445,6 @@ exports[`Icon props should render type 'calendar' with prop size 1`] = `
     d="M 2,3 2,17 18,17 18,3 2,3 Z M 17,16 3,16 3,8 17,8 17,16 Z M 17,7 3,7 3,4 17,4 17,7 Z"
     fill="currentColor"
   />
-   
   <rect
     fill="currentColor"
     height="3"
@@ -451,7 +452,6 @@ exports[`Icon props should render type 'calendar' with prop size 1`] = `
     x="6"
     y="2"
   />
-   
   <rect
     fill="currentColor"
     height="3"
@@ -467,6 +467,7 @@ exports[`Icon props should render type 'chapter' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -481,7 +482,6 @@ exports[`Icon props should render type 'chapter' with prop background 1`] = `
     y1="6.55"
     y2="6.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -491,7 +491,6 @@ exports[`Icon props should render type 'chapter' with prop background 1`] = `
     y1="11.55"
     y2="11.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -501,21 +500,18 @@ exports[`Icon props should render type 'chapter' with prop background 1`] = `
     y1="16.55"
     y2="16.55"
   />
-   
   <circle
     cx="5.5"
     cy="6.5"
     fill="currentColor"
     r="1"
   />
-   
   <circle
     cx="5.5"
     cy="11.5"
     fill="currentColor"
     r="1"
   />
-   
   <circle
     cx="5.5"
     cy="16.5"
@@ -530,6 +526,7 @@ exports[`Icon props should render type 'chapter' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -544,7 +541,6 @@ exports[`Icon props should render type 'chapter' with prop color 1`] = `
     y1="6.55"
     y2="6.55"
   />
-   
   <line
     stroke="#fff"
     stroke-linecap="round"
@@ -554,7 +550,6 @@ exports[`Icon props should render type 'chapter' with prop color 1`] = `
     y1="11.55"
     y2="11.55"
   />
-   
   <line
     stroke="#fff"
     stroke-linecap="round"
@@ -564,21 +559,18 @@ exports[`Icon props should render type 'chapter' with prop color 1`] = `
     y1="16.55"
     y2="16.55"
   />
-   
   <circle
     cx="5.5"
     cy="6.5"
     fill="#fff"
     r="1"
   />
-   
   <circle
     cx="5.5"
     cy="11.5"
     fill="#fff"
     r="1"
   />
-   
   <circle
     cx="5.5"
     cy="16.5"
@@ -593,6 +585,7 @@ exports[`Icon props should render type 'chapter' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -607,7 +600,6 @@ exports[`Icon props should render type 'chapter' with prop size 1`] = `
     y1="6.55"
     y2="6.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -617,7 +609,6 @@ exports[`Icon props should render type 'chapter' with prop size 1`] = `
     y1="11.55"
     y2="11.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -627,21 +618,18 @@ exports[`Icon props should render type 'chapter' with prop size 1`] = `
     y1="16.55"
     y2="16.55"
   />
-   
   <circle
     cx="5.5"
     cy="6.5"
     fill="currentColor"
     r="1"
   />
-   
   <circle
     cx="5.5"
     cy="11.5"
     fill="currentColor"
     r="1"
   />
-   
   <circle
     cx="5.5"
     cy="16.5"
@@ -655,6 +643,7 @@ exports[`Icon props should render type 'check-mark' with prop background 1`] = `
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -671,6 +660,7 @@ exports[`Icon props should render type 'check-mark' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -687,6 +677,7 @@ exports[`Icon props should render type 'check-mark' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -704,6 +695,7 @@ exports[`Icon props should render type 'chevron-left' with prop background 1`] =
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -723,6 +715,7 @@ exports[`Icon props should render type 'chevron-left' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -742,6 +735,7 @@ exports[`Icon props should render type 'chevron-left' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -761,6 +755,7 @@ exports[`Icon props should render type 'chevron-right' with prop background 1`] 
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -780,6 +775,7 @@ exports[`Icon props should render type 'chevron-right' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -799,6 +795,7 @@ exports[`Icon props should render type 'chevron-right' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -817,6 +814,7 @@ exports[`Icon props should render type 'clock' with prop background 1`] = `
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -830,14 +828,12 @@ exports[`Icon props should render type 'clock' with prop background 1`] = `
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <rect
     height="7"
     width="1"
     x="9"
     y="4"
   />
-   
   <path
     d="M13.018,14.197 L9.445,10.625"
     fill="none"
@@ -851,6 +847,7 @@ exports[`Icon props should render type 'clock' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -864,14 +861,12 @@ exports[`Icon props should render type 'clock' with prop color 1`] = `
     stroke="#fff"
     stroke-width="1.1"
   />
-   
   <rect
     height="7"
     width="1"
     x="9"
     y="4"
   />
-   
   <path
     d="M13.018,14.197 L9.445,10.625"
     fill="none"
@@ -885,6 +880,7 @@ exports[`Icon props should render type 'clock' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -898,14 +894,12 @@ exports[`Icon props should render type 'clock' with prop size 1`] = `
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <rect
     height="7"
     width="1"
     x="9"
     y="4"
   />
-   
   <path
     d="M13.018,14.197 L9.445,10.625"
     fill="none"
@@ -920,6 +914,7 @@ exports[`Icon props should render type 'close' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -939,6 +934,7 @@ exports[`Icon props should render type 'close' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -958,6 +954,7 @@ exports[`Icon props should render type 'close' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -976,6 +973,7 @@ exports[`Icon props should render type 'content-chapter' with prop background 1`
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -989,7 +987,6 @@ exports[`Icon props should render type 'content-chapter' with prop background 1`
     x="6"
     y="4"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -997,7 +994,6 @@ exports[`Icon props should render type 'content-chapter' with prop background 1`
     x="6"
     y="9"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1005,7 +1001,6 @@ exports[`Icon props should render type 'content-chapter' with prop background 1`
     x="6"
     y="14"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1013,7 +1008,6 @@ exports[`Icon props should render type 'content-chapter' with prop background 1`
     x="2"
     y="4"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1021,7 +1015,6 @@ exports[`Icon props should render type 'content-chapter' with prop background 1`
     x="2"
     y="9"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1036,6 +1029,7 @@ exports[`Icon props should render type 'content-chapter' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1049,7 +1043,6 @@ exports[`Icon props should render type 'content-chapter' with prop color 1`] = `
     x="6"
     y="4"
   />
-   
   <rect
     fill="#fff"
     height="1"
@@ -1057,7 +1050,6 @@ exports[`Icon props should render type 'content-chapter' with prop color 1`] = `
     x="6"
     y="9"
   />
-   
   <rect
     fill="#fff"
     height="1"
@@ -1065,7 +1057,6 @@ exports[`Icon props should render type 'content-chapter' with prop color 1`] = `
     x="6"
     y="14"
   />
-   
   <rect
     fill="#fff"
     height="1"
@@ -1073,7 +1064,6 @@ exports[`Icon props should render type 'content-chapter' with prop color 1`] = `
     x="2"
     y="4"
   />
-   
   <rect
     fill="#fff"
     height="1"
@@ -1081,7 +1071,6 @@ exports[`Icon props should render type 'content-chapter' with prop color 1`] = `
     x="2"
     y="9"
   />
-   
   <rect
     fill="#fff"
     height="1"
@@ -1096,6 +1085,7 @@ exports[`Icon props should render type 'content-chapter' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1109,7 +1099,6 @@ exports[`Icon props should render type 'content-chapter' with prop size 1`] = `
     x="6"
     y="4"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1117,7 +1106,6 @@ exports[`Icon props should render type 'content-chapter' with prop size 1`] = `
     x="6"
     y="9"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1125,7 +1113,6 @@ exports[`Icon props should render type 'content-chapter' with prop size 1`] = `
     x="6"
     y="14"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1133,7 +1120,6 @@ exports[`Icon props should render type 'content-chapter' with prop size 1`] = `
     x="2"
     y="4"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1141,7 +1127,6 @@ exports[`Icon props should render type 'content-chapter' with prop size 1`] = `
     x="2"
     y="9"
   />
-   
   <rect
     fill="currentColor"
     height="1"
@@ -1156,6 +1141,7 @@ exports[`Icon props should render type 'content-episode' with prop background 1`
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -1167,7 +1153,6 @@ exports[`Icon props should render type 'content-episode' with prop background 1`
     stroke="currentColor"
     stroke-width=".82229346"
   />
-   
   <path
     d="M.93963873 6.5861716h16.42688v2.0641451h-16.42688z"
     fill="none"
@@ -1175,7 +1160,6 @@ exports[`Icon props should render type 'content-episode' with prop background 1`
     stroke-width=".79365057"
     transform="matrix(.96632 -.25733 .22394 .9746 0 0)"
   />
-   
   <path
     d="M3.3859545 8.5247829a.84745765.80508476 0 0 1-.7612853.8781919.84745765.80508476 0 0 1-.9256172-.7218293.84745765.80508476 0 0 1 .7583533-.8804784.84745765.80508476 0 0 1 .9280194.71904"
     fill="#fff"
@@ -1184,7 +1168,6 @@ exports[`Icon props should render type 'content-episode' with prop background 1`
     stroke-linecap="round"
     stroke-width=".82200003"
   />
-   
   <path
     d="M2.6609156 9.4405775h16.118847v2.2205417H2.6609156z"
     fill="#fff"
@@ -1193,7 +1176,6 @@ exports[`Icon props should render type 'content-episode' with prop background 1`
     stroke-linecap="round"
     stroke-width=".72010225"
   />
-   
   <path
     d="M6.0140037 11.598303l1.9198581-2.2124744M3.3868851 11.598303l1.9198581-2.2124744m3.1648876 2.3819664l1.9198582-2.2124749m.70726 2.1277289l1.919858-2.2124747m.792007 2.1277287l1.919858-2.2124745m.622514 2.2124745l1.919858-2.2124745"
     fill="none"
@@ -1207,6 +1189,7 @@ exports[`Icon props should render type 'content-episode' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -1218,7 +1201,6 @@ exports[`Icon props should render type 'content-episode' with prop color 1`] = `
     stroke="#fff"
     stroke-width=".82229346"
   />
-   
   <path
     d="M.93963873 6.5861716h16.42688v2.0641451h-16.42688z"
     fill="none"
@@ -1226,7 +1208,6 @@ exports[`Icon props should render type 'content-episode' with prop color 1`] = `
     stroke-width=".79365057"
     transform="matrix(.96632 -.25733 .22394 .9746 0 0)"
   />
-   
   <path
     d="M3.3859545 8.5247829a.84745765.80508476 0 0 1-.7612853.8781919.84745765.80508476 0 0 1-.9256172-.7218293.84745765.80508476 0 0 1 .7583533-.8804784.84745765.80508476 0 0 1 .9280194.71904"
     fill="#fff"
@@ -1235,7 +1216,6 @@ exports[`Icon props should render type 'content-episode' with prop color 1`] = `
     stroke-linecap="round"
     stroke-width=".82200003"
   />
-   
   <path
     d="M2.6609156 9.4405775h16.118847v2.2205417H2.6609156z"
     fill="#fff"
@@ -1244,7 +1224,6 @@ exports[`Icon props should render type 'content-episode' with prop color 1`] = `
     stroke-linecap="round"
     stroke-width=".72010225"
   />
-   
   <path
     d="M6.0140037 11.598303l1.9198581-2.2124744M3.3868851 11.598303l1.9198581-2.2124744m3.1648876 2.3819664l1.9198582-2.2124749m.70726 2.1277289l1.919858-2.2124747m.792007 2.1277287l1.919858-2.2124745m.622514 2.2124745l1.919858-2.2124745"
     fill="none"
@@ -1258,6 +1237,7 @@ exports[`Icon props should render type 'content-episode' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 20 20"
   width="20"
@@ -1269,7 +1249,6 @@ exports[`Icon props should render type 'content-episode' with prop size 1`] = `
     stroke="currentColor"
     stroke-width=".82229346"
   />
-   
   <path
     d="M.93963873 6.5861716h16.42688v2.0641451h-16.42688z"
     fill="none"
@@ -1277,7 +1256,6 @@ exports[`Icon props should render type 'content-episode' with prop size 1`] = `
     stroke-width=".79365057"
     transform="matrix(.96632 -.25733 .22394 .9746 0 0)"
   />
-   
   <path
     d="M3.3859545 8.5247829a.84745765.80508476 0 0 1-.7612853.8781919.84745765.80508476 0 0 1-.9256172-.7218293.84745765.80508476 0 0 1 .7583533-.8804784.84745765.80508476 0 0 1 .9280194.71904"
     fill="#fff"
@@ -1286,7 +1264,6 @@ exports[`Icon props should render type 'content-episode' with prop size 1`] = `
     stroke-linecap="round"
     stroke-width=".82200003"
   />
-   
   <path
     d="M2.6609156 9.4405775h16.118847v2.2205417H2.6609156z"
     fill="#fff"
@@ -1295,7 +1272,6 @@ exports[`Icon props should render type 'content-episode' with prop size 1`] = `
     stroke-linecap="round"
     stroke-width=".72010225"
   />
-   
   <path
     d="M6.0140037 11.598303l1.9198581-2.2124744M3.3868851 11.598303l1.9198581-2.2124744m3.1648876 2.3819664l1.9198582-2.2124749m.70726 2.1277289l1.919858-2.2124747m.792007 2.1277287l1.919858-2.2124745m.622514 2.2124745l1.919858-2.2124745"
     fill="none"
@@ -1309,6 +1285,7 @@ exports[`Icon props should render type 'content-playtime' with prop background 1
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1321,7 +1298,6 @@ exports[`Icon props should render type 'content-playtime' with prop background 1
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <circle
     cx="10"
     cy="10"
@@ -1337,6 +1313,7 @@ exports[`Icon props should render type 'content-playtime' with prop color 1`] = 
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1349,7 +1326,6 @@ exports[`Icon props should render type 'content-playtime' with prop color 1`] = 
     stroke="#fff"
     stroke-width="1.1"
   />
-   
   <circle
     cx="10"
     cy="10"
@@ -1365,6 +1341,7 @@ exports[`Icon props should render type 'content-playtime' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1377,7 +1354,6 @@ exports[`Icon props should render type 'content-playtime' with prop size 1`] = `
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <circle
     cx="10"
     cy="10"
@@ -1393,6 +1369,7 @@ exports[`Icon props should render type 'content-show' with prop background 1`] =
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1412,6 +1389,7 @@ exports[`Icon props should render type 'content-show' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1431,6 +1409,7 @@ exports[`Icon props should render type 'content-show' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   ratio="1"
   viewBox="0 0 20 20"
@@ -1450,6 +1429,7 @@ exports[`Icon props should render type 'copy' with prop background 1`] = `
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="16"
   viewBox="0 0 24 24"
   width="16"
@@ -1466,6 +1446,7 @@ exports[`Icon props should render type 'copy' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="16"
   viewBox="0 0 24 24"
   width="16"
@@ -1482,6 +1463,7 @@ exports[`Icon props should render type 'copy' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -1512,7 +1494,6 @@ exports[`Icon props should render type 'download' with prop background 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M4 19.5H20"
     stroke="currentColor"
@@ -1539,7 +1520,6 @@ exports[`Icon props should render type 'download' with prop color 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M4 19.5H20"
     stroke="#fff"
@@ -1566,7 +1546,6 @@ exports[`Icon props should render type 'download' with prop size 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M4 19.5H20"
     stroke="currentColor"
@@ -1579,6 +1558,7 @@ exports[`Icon props should render type 'embed' with prop background 1`] = `
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="25"
   viewBox="0 0 24 24"
   width="25"
@@ -1595,6 +1575,7 @@ exports[`Icon props should render type 'embed' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="25"
   viewBox="0 0 24 24"
   width="25"
@@ -1611,6 +1592,7 @@ exports[`Icon props should render type 'embed' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -1688,6 +1670,7 @@ exports[`Icon props should render type 'forward' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 32 24"
   width="31.92"
@@ -1700,12 +1683,10 @@ exports[`Icon props should render type 'forward' with prop background 1`] = `
     stroke-linejoin="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M29.3549 2.93557L27.2439 1.08839C26.7589 0.664074 26 1.00846 26 1.65283V5.34717C26 5.99154 26.7589 6.33593 27.2439 5.91161L29.3549 4.06443C29.6964 3.76562 29.6964 3.23438 29.3549 2.93557Z"
     fill="currentColor"
   />
-   
   <path
     d="M11.9726 13.604C13.1366 13.604 13.4606 14.036 13.4606 14.732C13.4606 15.368 13.1006 15.86 12.1646 15.86C11.2766 15.86 10.8686 15.488 10.9406 14.672H9.20064C8.96064 16.376 9.83664 17.156 12.0686 17.156C14.2406 17.156 15.2246 16.184 15.2246 14.72C15.2246 13.532 14.5886 12.944 13.4966 12.8V12.776C14.3726 12.548 14.9846 11.888 14.9846 10.952C14.9846 9.716 14.2646 8.888 12.2246 8.888C10.3046 8.888 9.21264 9.68 9.28464 11.288H10.9886C10.9646 10.652 11.2526 10.172 12.1166 10.172C12.8606 10.172 13.2206 10.52 13.2206 11.204C13.2206 11.816 12.8726 12.26 11.9726 12.26H10.8806V13.604H11.9726ZM19.2417 17.156C21.1977 17.156 22.5057 15.968 22.5057 12.908C22.5057 9.98 21.4257 8.888 19.3737 8.888C17.4057 8.888 16.0977 10.064 16.0977 13.124C16.0977 16.052 17.1897 17.156 19.2417 17.156ZM19.2897 15.824C18.3657 15.824 17.8737 15.248 17.8737 13.04C17.8737 10.856 18.4017 10.22 19.3137 10.22C20.2377 10.22 20.7417 10.796 20.7417 12.992C20.7417 15.2 20.2017 15.824 19.2897 15.824Z"
     fill="currentColor"
@@ -1718,6 +1699,7 @@ exports[`Icon props should render type 'forward' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 32 24"
   width="31.92"
@@ -1730,12 +1712,10 @@ exports[`Icon props should render type 'forward' with prop color 1`] = `
     stroke-linejoin="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M29.3549 2.93557L27.2439 1.08839C26.7589 0.664074 26 1.00846 26 1.65283V5.34717C26 5.99154 26.7589 6.33593 27.2439 5.91161L29.3549 4.06443C29.6964 3.76562 29.6964 3.23438 29.3549 2.93557Z"
     fill="#fff"
   />
-   
   <path
     d="M11.9726 13.604C13.1366 13.604 13.4606 14.036 13.4606 14.732C13.4606 15.368 13.1006 15.86 12.1646 15.86C11.2766 15.86 10.8686 15.488 10.9406 14.672H9.20064C8.96064 16.376 9.83664 17.156 12.0686 17.156C14.2406 17.156 15.2246 16.184 15.2246 14.72C15.2246 13.532 14.5886 12.944 13.4966 12.8V12.776C14.3726 12.548 14.9846 11.888 14.9846 10.952C14.9846 9.716 14.2646 8.888 12.2246 8.888C10.3046 8.888 9.21264 9.68 9.28464 11.288H10.9886C10.9646 10.652 11.2526 10.172 12.1166 10.172C12.8606 10.172 13.2206 10.52 13.2206 11.204C13.2206 11.816 12.8726 12.26 11.9726 12.26H10.8806V13.604H11.9726ZM19.2417 17.156C21.1977 17.156 22.5057 15.968 22.5057 12.908C22.5057 9.98 21.4257 8.888 19.3737 8.888C17.4057 8.888 16.0977 10.064 16.0977 13.124C16.0977 16.052 17.1897 17.156 19.2417 17.156ZM19.2897 15.824C18.3657 15.824 17.8737 15.248 17.8737 13.04C17.8737 10.856 18.4017 10.22 19.3137 10.22C20.2377 10.22 20.7417 10.796 20.7417 12.992C20.7417 15.2 20.2017 15.824 19.2897 15.824Z"
     fill="#fff"
@@ -1748,6 +1728,7 @@ exports[`Icon props should render type 'forward' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 32 24"
   width="26.6"
@@ -1760,12 +1741,10 @@ exports[`Icon props should render type 'forward' with prop size 1`] = `
     stroke-linejoin="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M29.3549 2.93557L27.2439 1.08839C26.7589 0.664074 26 1.00846 26 1.65283V5.34717C26 5.99154 26.7589 6.33593 27.2439 5.91161L29.3549 4.06443C29.6964 3.76562 29.6964 3.23438 29.3549 2.93557Z"
     fill="currentColor"
   />
-   
   <path
     d="M11.9726 13.604C13.1366 13.604 13.4606 14.036 13.4606 14.732C13.4606 15.368 13.1006 15.86 12.1646 15.86C11.2766 15.86 10.8686 15.488 10.9406 14.672H9.20064C8.96064 16.376 9.83664 17.156 12.0686 17.156C14.2406 17.156 15.2246 16.184 15.2246 14.72C15.2246 13.532 14.5886 12.944 13.4966 12.8V12.776C14.3726 12.548 14.9846 11.888 14.9846 10.952C14.9846 9.716 14.2646 8.888 12.2246 8.888C10.3046 8.888 9.21264 9.68 9.28464 11.288H10.9886C10.9646 10.652 11.2526 10.172 12.1166 10.172C12.8606 10.172 13.2206 10.52 13.2206 11.204C13.2206 11.816 12.8726 12.26 11.9726 12.26H10.8806V13.604H11.9726ZM19.2417 17.156C21.1977 17.156 22.5057 15.968 22.5057 12.908C22.5057 9.98 21.4257 8.888 19.3737 8.888C17.4057 8.888 16.0977 10.064 16.0977 13.124C16.0977 16.052 17.1897 17.156 19.2417 17.156ZM19.2897 15.824C18.3657 15.824 17.8737 15.248 17.8737 13.04C17.8737 10.856 18.4017 10.22 19.3137 10.22C20.2377 10.22 20.7417 10.796 20.7417 12.992C20.7417 15.2 20.2017 15.824 19.2897 15.824Z"
     fill="currentColor"
@@ -1778,6 +1757,7 @@ exports[`Icon props should render type 'image-file' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -1789,14 +1769,12 @@ exports[`Icon props should render type 'image-file' with prop background 1`] = `
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     clip-rule="evenodd"
     d="M5 5V12L8 8.5C8 8.5 8.5 8 9 8.5C9.5 9 12 12 12 12L14 10.5C14 10.5 14.5 10 15 10.5C15.5 11 17 12 17 12V5H5ZM4.75 4C4.33579 4 4 4.33579 4 4.75V14.25C4 14.6642 4.33579 15 4.75 15H17.25C17.6642 15 18 14.6642 18 14.25V4.75C18 4.33579 17.6642 4 17.25 4H4.75Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <circle
     cx="13"
     cy="7"
@@ -1811,6 +1789,7 @@ exports[`Icon props should render type 'image-file' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -1822,14 +1801,12 @@ exports[`Icon props should render type 'image-file' with prop color 1`] = `
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     clip-rule="evenodd"
     d="M5 5V12L8 8.5C8 8.5 8.5 8 9 8.5C9.5 9 12 12 12 12L14 10.5C14 10.5 14.5 10 15 10.5C15.5 11 17 12 17 12V5H5ZM4.75 4C4.33579 4 4 4.33579 4 4.75V14.25C4 14.6642 4.33579 15 4.75 15H17.25C17.6642 15 18 14.6642 18 14.25V4.75C18 4.33579 17.6642 4 17.25 4H4.75Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <circle
     cx="13"
     cy="7"
@@ -1844,6 +1821,7 @@ exports[`Icon props should render type 'image-file' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -1855,14 +1833,12 @@ exports[`Icon props should render type 'image-file' with prop size 1`] = `
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     clip-rule="evenodd"
     d="M5 5V12L8 8.5C8 8.5 8.5 8 9 8.5C9.5 9 12 12 12 12L14 10.5C14 10.5 14.5 10 15 10.5C15.5 11 17 12 17 12V5H5ZM4.75 4C4.33579 4 4 4.33579 4 4.75V14.25C4 14.6642 4.33579 15 4.75 15H17.25C17.6642 15 18 14.6642 18 14.25V4.75C18 4.33579 17.6642 4 17.25 4H4.75Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <circle
     cx="13"
     cy="7"
@@ -1877,6 +1853,7 @@ exports[`Icon props should render type 'info' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -1891,12 +1868,10 @@ exports[`Icon props should render type 'info' with prop background 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M12 8.6C12.718 8.6 13.3 8.01797 13.3 7.3C13.3 6.58203 12.718 6 12 6C11.282 6 10.7 6.58203 10.7 7.3C10.7 8.01797 11.282 8.6 12 8.6Z"
     fill="currentColor"
   />
-   
   <path
     d="M9.6321 10.5066C9.4413 10.8758 9.59597 11.3247 9.97757 11.5093L10.7206 11.8687C10.9504 11.9798 11.0955 12.0515 11.0955 12.3V15.3C11.0955 15.5486 10.9504 15.6203 10.7206 15.7314L9.84561 16.1547C9.53689 16.304 9.41176 16.6672 9.56612 16.9658C9.67198 17.1707 9.88838 17.3 10.1251 17.3H13.8749C14.1116 17.3 14.328 17.1707 14.4339 16.9658C14.5882 16.6672 14.4631 16.304 14.1544 16.1547L13.2794 15.7314C13.0496 15.6203 12.9045 15.5486 12.9045 15.3V10.9563C12.9045 10.5939 12.6008 10.3 12.2261 10.3H9.97757C9.83127 10.3 9.69752 10.38 9.6321 10.5066Z"
     fill="currentColor"
@@ -1909,6 +1884,7 @@ exports[`Icon props should render type 'info' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -1923,12 +1899,10 @@ exports[`Icon props should render type 'info' with prop color 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M12 8.6C12.718 8.6 13.3 8.01797 13.3 7.3C13.3 6.58203 12.718 6 12 6C11.282 6 10.7 6.58203 10.7 7.3C10.7 8.01797 11.282 8.6 12 8.6Z"
     fill="#fff"
   />
-   
   <path
     d="M9.6321 10.5066C9.4413 10.8758 9.59597 11.3247 9.97757 11.5093L10.7206 11.8687C10.9504 11.9798 11.0955 12.0515 11.0955 12.3V15.3C11.0955 15.5486 10.9504 15.6203 10.7206 15.7314L9.84561 16.1547C9.53689 16.304 9.41176 16.6672 9.56612 16.9658C9.67198 17.1707 9.88838 17.3 10.1251 17.3H13.8749C14.1116 17.3 14.328 17.1707 14.4339 16.9658C14.5882 16.6672 14.4631 16.304 14.1544 16.1547L13.2794 15.7314C13.0496 15.6203 12.9045 15.5486 12.9045 15.3V10.9563C12.9045 10.5939 12.6008 10.3 12.2261 10.3H9.97757C9.83127 10.3 9.69752 10.38 9.6321 10.5066Z"
     fill="#fff"
@@ -1941,6 +1915,7 @@ exports[`Icon props should render type 'info' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -1955,12 +1930,10 @@ exports[`Icon props should render type 'info' with prop size 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M12 8.6C12.718 8.6 13.3 8.01797 13.3 7.3C13.3 6.58203 12.718 6 12 6C11.282 6 10.7 6.58203 10.7 7.3C10.7 8.01797 11.282 8.6 12 8.6Z"
     fill="currentColor"
   />
-   
   <path
     d="M9.6321 10.5066C9.4413 10.8758 9.59597 11.3247 9.97757 11.5093L10.7206 11.8687C10.9504 11.9798 11.0955 12.0515 11.0955 12.3V15.3C11.0955 15.5486 10.9504 15.6203 10.7206 15.7314L9.84561 16.1547C9.53689 16.304 9.41176 16.6672 9.56612 16.9658C9.67198 17.1707 9.88838 17.3 10.1251 17.3H13.8749C14.1116 17.3 14.328 17.1707 14.4339 16.9658C14.5882 16.6672 14.4631 16.304 14.1544 16.1547L13.2794 15.7314C13.0496 15.6203 12.9045 15.5486 12.9045 15.3V10.9563C12.9045 10.5939 12.6008 10.3 12.2261 10.3H9.97757C9.83127 10.3 9.69752 10.38 9.6321 10.5066Z"
     fill="currentColor"
@@ -1972,6 +1945,7 @@ exports[`Icon props should render type 'invalid-configuration' with prop backgro
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -1988,6 +1962,7 @@ exports[`Icon props should render type 'invalid-configuration' with prop color 1
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2004,6 +1979,7 @@ exports[`Icon props should render type 'invalid-configuration' with prop size 1`
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -2033,7 +2009,6 @@ exports[`Icon props should render type 'link' with prop background 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M17.2988 14.4714C17.2988 14.4714 18.2432 15.4158 19.2877 14.3713L21.4252 12.2338V12.2338C22.792 10.867 22.792 8.65091 21.4252 7.28408L21.071 6.92989L20.7168 6.5757C19.35 5.20887 17.1339 5.20887 15.7671 6.5757V6.5757C15.3156 7.02719 14.6741 7.66866 13.6296 8.71317C12.5851 9.75768 13.5278 10.7004 13.5278 10.7004"
     stroke="currentColor"
@@ -2041,7 +2016,6 @@ exports[`Icon props should render type 'link' with prop background 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M10.2928 17.7072L17.7071 10.293"
     stroke="currentColor"
@@ -2068,7 +2042,6 @@ exports[`Icon props should render type 'link' with prop color 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M17.2988 14.4714C17.2988 14.4714 18.2432 15.4158 19.2877 14.3713L21.4252 12.2338V12.2338C22.792 10.867 22.792 8.65091 21.4252 7.28408L21.071 6.92989L20.7168 6.5757C19.35 5.20887 17.1339 5.20887 15.7671 6.5757V6.5757C15.3156 7.02719 14.6741 7.66866 13.6296 8.71317C12.5851 9.75768 13.5278 10.7004 13.5278 10.7004"
     stroke="#fff"
@@ -2076,7 +2049,6 @@ exports[`Icon props should render type 'link' with prop color 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M10.2928 17.7072L17.7071 10.293"
     stroke="#fff"
@@ -2103,7 +2075,6 @@ exports[`Icon props should render type 'link' with prop size 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M17.2988 14.4714C17.2988 14.4714 18.2432 15.4158 19.2877 14.3713L21.4252 12.2338V12.2338C22.792 10.867 22.792 8.65091 21.4252 7.28408L21.071 6.92989L20.7168 6.5757C19.35 5.20887 17.1339 5.20887 15.7671 6.5757V6.5757C15.3156 7.02719 14.6741 7.66866 13.6296 8.71317C12.5851 9.75768 13.5278 10.7004 13.5278 10.7004"
     stroke="currentColor"
@@ -2111,7 +2082,6 @@ exports[`Icon props should render type 'link' with prop size 1`] = `
     stroke-miterlimit="10"
     stroke-width="1.1"
   />
-   
   <path
     d="M10.2928 17.7072L17.7071 10.293"
     stroke="currentColor"
@@ -2137,17 +2107,14 @@ exports[`Icon props should render type 'linkedin' with prop background 1`] = `
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M8.16832 19.8333H10.6683V10.6666H8.16832V19.8333Z"
     fill="currentColor"
   />
-   
   <path
     d="M7.95999 8.13998C7.95999 8.95165 8.61332 9.60998 9.41832 9.60998C10.2242 9.60998 10.8767 8.95165 10.8767 8.13998C10.8767 7.32832 10.2233 6.66998 9.41832 6.66998C8.61332 6.66998 7.95999 7.32832 7.95999 8.13998Z"
     fill="currentColor"
   />
-   
   <path
     d="M18.1683 19.8333H20.6683V14.2008C20.6683 9.82332 15.9983 9.98248 14.835 12.1375V10.6666H12.335V19.8333H14.835V15.1633C14.835 12.5691 18.1683 12.3566 18.1683 15.1633V19.8333Z"
     fill="currentColor"
@@ -2171,17 +2138,14 @@ exports[`Icon props should render type 'linkedin' with prop color 1`] = `
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M8.16832 19.8333H10.6683V10.6666H8.16832V19.8333Z"
     fill="#fff"
   />
-   
   <path
     d="M7.95999 8.13998C7.95999 8.95165 8.61332 9.60998 9.41832 9.60998C10.2242 9.60998 10.8767 8.95165 10.8767 8.13998C10.8767 7.32832 10.2233 6.66998 9.41832 6.66998C8.61332 6.66998 7.95999 7.32832 7.95999 8.13998Z"
     fill="#fff"
   />
-   
   <path
     d="M18.1683 19.8333H20.6683V14.2008C20.6683 9.82332 15.9983 9.98248 14.835 12.1375V10.6666H12.335V19.8333H14.835V15.1633C14.835 12.5691 18.1683 12.3566 18.1683 15.1633V19.8333Z"
     fill="#fff"
@@ -2205,17 +2169,14 @@ exports[`Icon props should render type 'linkedin' with prop size 1`] = `
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M8.16832 19.8333H10.6683V10.6666H8.16832V19.8333Z"
     fill="currentColor"
   />
-   
   <path
     d="M7.95999 8.13998C7.95999 8.95165 8.61332 9.60998 9.41832 9.60998C10.2242 9.60998 10.8767 8.95165 10.8767 8.13998C10.8767 7.32832 10.2233 6.66998 9.41832 6.66998C8.61332 6.66998 7.95999 7.32832 7.95999 8.13998Z"
     fill="currentColor"
   />
-   
   <path
     d="M18.1683 19.8333H20.6683V14.2008C20.6683 9.82332 15.9983 9.98248 14.835 12.1375V10.6666H12.335V19.8333H14.835V15.1633C14.835 12.5691 18.1683 12.3566 18.1683 15.1633V19.8333Z"
     fill="currentColor"
@@ -2228,17 +2189,16 @@ exports[`Icon props should render type 'loading' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   class="loading-indicator"
+  filled="false"
 >
   <div
     class="loading-bubble first"
     style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble second"
     style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble third"
     style="background: currentColor; width: 12.5px; height: 12.5px;"
@@ -2251,17 +2211,16 @@ exports[`Icon props should render type 'loading' with prop background 2`] = `
   aria-hidden="true"
   background="#fff"
   class="loading-indicator"
+  filled="false"
 >
   <div
     class="loading-bubble first"
     style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble second"
     style="background: currentColor; width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble third"
     style="background: currentColor; width: 12.5px; height: 12.5px;"
@@ -2274,17 +2233,16 @@ exports[`Icon props should render type 'loading' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   class="loading-indicator"
+  filled="false"
 >
   <div
     class="loading-bubble first"
     style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble second"
     style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble third"
     style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
@@ -2297,17 +2255,16 @@ exports[`Icon props should render type 'loading' with prop color 2`] = `
   aria-hidden="true"
   background="currentColor"
   class="loading-indicator"
+  filled="false"
 >
   <div
     class="loading-bubble first"
     style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble second"
     style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
   />
-   
   <div
     class="loading-bubble third"
     style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
@@ -2320,17 +2277,16 @@ exports[`Icon props should render type 'loading' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   class="loading-indicator"
+  filled="false"
 >
   <div
     class="loading-bubble first"
     style="background: currentColor; width: 10px; height: 10px;"
   />
-   
   <div
     class="loading-bubble second"
     style="background: currentColor; width: 10px; height: 10px;"
   />
-   
   <div
     class="loading-bubble third"
     style="background: currentColor; width: 10px; height: 10px;"
@@ -2343,17 +2299,16 @@ exports[`Icon props should render type 'loading' with prop size 2`] = `
   aria-hidden="true"
   background="currentColor"
   class="loading-indicator"
+  filled="false"
 >
   <div
     class="loading-bubble first"
     style="background: currentColor; width: 10px; height: 10px;"
   />
-   
   <div
     class="loading-bubble second"
     style="background: currentColor; width: 10px; height: 10px;"
   />
-   
   <div
     class="loading-bubble third"
     style="background: currentColor; width: 10px; height: 10px;"
@@ -2423,6 +2378,7 @@ exports[`Icon props should render type 'menu-empty' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2445,6 +2401,7 @@ exports[`Icon props should render type 'menu-empty' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2467,6 +2424,7 @@ exports[`Icon props should render type 'menu-empty' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -2489,6 +2447,7 @@ exports[`Icon props should render type 'menu-pause' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2503,7 +2462,6 @@ exports[`Icon props should render type 'menu-pause' with prop background 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <rect
     fill="currentColor"
     height="8"
@@ -2512,7 +2470,6 @@ exports[`Icon props should render type 'menu-pause' with prop background 1`] = `
     x="9"
     y="8"
   />
-   
   <rect
     fill="currentColor"
     height="8"
@@ -2529,6 +2486,7 @@ exports[`Icon props should render type 'menu-pause' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2543,7 +2501,6 @@ exports[`Icon props should render type 'menu-pause' with prop color 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <rect
     fill="#fff"
     height="8"
@@ -2552,7 +2509,6 @@ exports[`Icon props should render type 'menu-pause' with prop color 1`] = `
     x="9"
     y="8"
   />
-   
   <rect
     fill="#fff"
     height="8"
@@ -2569,6 +2525,7 @@ exports[`Icon props should render type 'menu-pause' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -2583,7 +2540,6 @@ exports[`Icon props should render type 'menu-pause' with prop size 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <rect
     fill="currentColor"
     height="8"
@@ -2592,7 +2548,6 @@ exports[`Icon props should render type 'menu-pause' with prop size 1`] = `
     x="9"
     y="8"
   />
-   
   <rect
     fill="currentColor"
     height="8"
@@ -2609,6 +2564,7 @@ exports[`Icon props should render type 'menu-play' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2623,7 +2579,6 @@ exports[`Icon props should render type 'menu-play' with prop background 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M8 7.84227C8 7.46274 8.40624 7.22158 8.73943 7.40332L16.3619 11.5611C16.7094 11.7506 16.7094 12.2494 16.3619 12.4389L8.73942 16.5967C8.40624 16.7784 8 16.5373 8 16.1577V7.84227Z"
     fill="currentColor"
@@ -2636,6 +2591,7 @@ exports[`Icon props should render type 'menu-play' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2650,7 +2606,6 @@ exports[`Icon props should render type 'menu-play' with prop color 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M8 7.84227C8 7.46274 8.40624 7.22158 8.73943 7.40332L16.3619 11.5611C16.7094 11.7506 16.7094 12.2494 16.3619 12.4389L8.73942 16.5967C8.40624 16.7784 8 16.5373 8 16.1577V7.84227Z"
     fill="#fff"
@@ -2663,6 +2618,7 @@ exports[`Icon props should render type 'menu-play' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -2677,7 +2633,6 @@ exports[`Icon props should render type 'menu-play' with prop size 1`] = `
     stroke-linejoin="round"
     stroke-width="1.1"
   />
-   
   <path
     d="M8 7.84227C8 7.46274 8.40624 7.22158 8.73943 7.40332L16.3619 11.5611C16.7094 11.7506 16.7094 12.2494 16.3619 12.4389L8.73942 16.5967C8.40624 16.7784 8 16.5373 8 16.1577V7.84227Z"
     fill="currentColor"
@@ -2699,7 +2654,6 @@ exports[`Icon props should render type 'messenger' with prop background 1`] = `
     d="M7.573 21.4879C7.573 21.1472 7.41293 20.8355 7.15854 20.631C4.93167 18.8409 3.53345 16.201 3.53345 13.2656C3.53345 7.92267 8.18632 3.53333 14.0001 3.53333C19.8143 3.53333 24.4668 7.92266 24.4668 13.2656C24.4668 18.6082 19.8143 22.9979 14.0001 22.9979C13.0003 22.9979 12.0335 22.8675 11.1187 22.6249C10.8456 22.5524 10.5482 22.5842 10.2928 22.7294L7.69752 24.2049C7.64197 24.2365 7.573 24.1963 7.573 24.1324V21.4879Z"
     stroke="currentColor"
   />
-   
   <path
     d="M12.8291 10.463L6.91483 16.725L12.2973 13.7718L15.1096 16.725L20.9904 10.463L15.6677 13.3645L12.8291 10.463Z"
     fill="currentColor"
@@ -2721,7 +2675,6 @@ exports[`Icon props should render type 'messenger' with prop color 1`] = `
     d="M7.573 21.4879C7.573 21.1472 7.41293 20.8355 7.15854 20.631C4.93167 18.8409 3.53345 16.201 3.53345 13.2656C3.53345 7.92267 8.18632 3.53333 14.0001 3.53333C19.8143 3.53333 24.4668 7.92266 24.4668 13.2656C24.4668 18.6082 19.8143 22.9979 14.0001 22.9979C13.0003 22.9979 12.0335 22.8675 11.1187 22.6249C10.8456 22.5524 10.5482 22.5842 10.2928 22.7294L7.69752 24.2049C7.64197 24.2365 7.573 24.1963 7.573 24.1324V21.4879Z"
     stroke="#fff"
   />
-   
   <path
     d="M12.8291 10.463L6.91483 16.725L12.2973 13.7718L15.1096 16.725L20.9904 10.463L15.6677 13.3645L12.8291 10.463Z"
     fill="#fff"
@@ -2743,7 +2696,6 @@ exports[`Icon props should render type 'messenger' with prop size 1`] = `
     d="M7.573 21.4879C7.573 21.1472 7.41293 20.8355 7.15854 20.631C4.93167 18.8409 3.53345 16.201 3.53345 13.2656C3.53345 7.92267 8.18632 3.53333 14.0001 3.53333C19.8143 3.53333 24.4668 7.92266 24.4668 13.2656C24.4668 18.6082 19.8143 22.9979 14.0001 22.9979C13.0003 22.9979 12.0335 22.8675 11.1187 22.6249C10.8456 22.5524 10.5482 22.5842 10.2928 22.7294L7.69752 24.2049C7.64197 24.2365 7.573 24.1963 7.573 24.1324V21.4879Z"
     stroke="currentColor"
   />
-   
   <path
     d="M12.8291 10.463L6.91483 16.725L12.2973 13.7718L15.1096 16.725L20.9904 10.463L15.6677 13.3645L12.8291 10.463Z"
     fill="currentColor"
@@ -2755,6 +2707,7 @@ exports[`Icon props should render type 'missing-connection' with prop background
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2771,6 +2724,7 @@ exports[`Icon props should render type 'missing-connection' with prop color 1`] 
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2787,6 +2741,7 @@ exports[`Icon props should render type 'missing-connection' with prop size 1`] =
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -2804,6 +2759,7 @@ exports[`Icon props should render type 'next' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2813,7 +2769,6 @@ exports[`Icon props should render type 'next' with prop background 1`] = `
     d="M10 5.75263C10 5.18583 10.6045 4.82386 11.1042 5.09152L22.7659 11.3389C23.2937 11.6216 23.2937 12.3784 22.7659 12.6611L11.1042 18.9085C10.6045 19.1761 10 18.8142 10 18.2474V5.75263Z"
     fill="currentColor"
   />
-   
   <path
     d="M22 5.75C22 5.33579 22.3358 5 22.75 5H23.25C23.6642 5 24 5.33579 24 5.75V18.25C24 18.6642 23.6642 19 23.25 19H22.75C22.3358 19 22 18.6642 22 18.25V5.75Z"
     fill="currentColor"
@@ -2826,6 +2781,7 @@ exports[`Icon props should render type 'next' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2835,7 +2791,6 @@ exports[`Icon props should render type 'next' with prop color 1`] = `
     d="M10 5.75263C10 5.18583 10.6045 4.82386 11.1042 5.09152L22.7659 11.3389C23.2937 11.6216 23.2937 12.3784 22.7659 12.6611L11.1042 18.9085C10.6045 19.1761 10 18.8142 10 18.2474V5.75263Z"
     fill="#fff"
   />
-   
   <path
     d="M22 5.75C22 5.33579 22.3358 5 22.75 5H23.25C23.6642 5 24 5.33579 24 5.75V18.25C24 18.6642 23.6642 19 23.25 19H22.75C22.3358 19 22 18.6642 22 18.25V5.75Z"
     fill="#fff"
@@ -2848,6 +2803,7 @@ exports[`Icon props should render type 'next' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -2857,7 +2813,6 @@ exports[`Icon props should render type 'next' with prop size 1`] = `
     d="M10 5.75263C10 5.18583 10.6045 4.82386 11.1042 5.09152L22.7659 11.3389C23.2937 11.6216 23.2937 12.3784 22.7659 12.6611L11.1042 18.9085C10.6045 19.1761 10 18.8142 10 18.2474V5.75263Z"
     fill="currentColor"
   />
-   
   <path
     d="M22 5.75C22 5.33579 22.3358 5 22.75 5H23.25C23.6642 5 24 5.33579 24 5.75V18.25C24 18.6642 23.6642 19 23.25 19H22.75C22.3358 19 22 18.6642 22 18.25V5.75Z"
     fill="currentColor"
@@ -2870,6 +2825,7 @@ exports[`Icon props should render type 'pause' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2883,7 +2839,6 @@ exports[`Icon props should render type 'pause' with prop background 1`] = `
     x="7"
     y="4"
   />
-   
   <rect
     fill="currentColor"
     height="16"
@@ -2900,6 +2855,7 @@ exports[`Icon props should render type 'pause' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2913,7 +2869,6 @@ exports[`Icon props should render type 'pause' with prop color 1`] = `
     x="7"
     y="4"
   />
-   
   <rect
     fill="#fff"
     height="16"
@@ -2930,6 +2885,7 @@ exports[`Icon props should render type 'pause' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -2943,7 +2899,6 @@ exports[`Icon props should render type 'pause' with prop size 1`] = `
     x="7"
     y="4"
   />
-   
   <rect
     fill="currentColor"
     height="16"
@@ -2960,6 +2915,7 @@ exports[`Icon props should render type 'pdf-file' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -2970,23 +2926,19 @@ exports[`Icon props should render type 'pdf-file' with prop background 1`] = `
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M7 16H7.87324V14.6306H8.28848C9.36323 14.6306 9.98 14.0961 9.98 13.2492C9.98 12.3964 9.48537 12.018 8.41061 12.018H7V16ZM8.32512 12.6667C8.82586 12.6667 9.08844 12.8529 9.08844 13.3153C9.08844 13.7778 8.81975 13.988 8.28848 13.988H7.87324V12.6667H8.32512Z"
     fill="currentColor"
   />
-   
   <path
     d="M10.4886 16H11.8015C13.2732 16 13.835 15.1712 13.835 13.8979C13.835 12.6006 13.1816 12 11.9175 12C11.4779 12 10.9161 12.012 10.4886 12.018V16ZM11.8687 12.6787C12.6992 12.6787 12.9373 13.2192 12.9373 13.976C12.9373 14.8288 12.6442 15.3393 11.8748 15.3393H11.3618V12.6787H11.8687Z"
     fill="currentColor"
   />
-   
   <path
     d="M15.3573 16V14.4204H16.7496V13.7477H15.3573V12.6907H16.9389L17 12.018H14.4841V16H15.3573Z"
     fill="currentColor"
@@ -2999,6 +2951,7 @@ exports[`Icon props should render type 'pdf-file' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3009,23 +2962,19 @@ exports[`Icon props should render type 'pdf-file' with prop color 1`] = `
     stroke="#fff"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="#fff"
     stroke-width="1.1"
   />
-   
   <path
     d="M7 16H7.87324V14.6306H8.28848C9.36323 14.6306 9.98 14.0961 9.98 13.2492C9.98 12.3964 9.48537 12.018 8.41061 12.018H7V16ZM8.32512 12.6667C8.82586 12.6667 9.08844 12.8529 9.08844 13.3153C9.08844 13.7778 8.81975 13.988 8.28848 13.988H7.87324V12.6667H8.32512Z"
     fill="#fff"
   />
-   
   <path
     d="M10.4886 16H11.8015C13.2732 16 13.835 15.1712 13.835 13.8979C13.835 12.6006 13.1816 12 11.9175 12C11.4779 12 10.9161 12.012 10.4886 12.018V16ZM11.8687 12.6787C12.6992 12.6787 12.9373 13.2192 12.9373 13.976C12.9373 14.8288 12.6442 15.3393 11.8748 15.3393H11.3618V12.6787H11.8687Z"
     fill="#fff"
   />
-   
   <path
     d="M15.3573 16V14.4204H16.7496V13.7477H15.3573V12.6907H16.9389L17 12.018H14.4841V16H15.3573Z"
     fill="#fff"
@@ -3038,6 +2987,7 @@ exports[`Icon props should render type 'pdf-file' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -3048,23 +2998,19 @@ exports[`Icon props should render type 'pdf-file' with prop size 1`] = `
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M7 16H7.87324V14.6306H8.28848C9.36323 14.6306 9.98 14.0961 9.98 13.2492C9.98 12.3964 9.48537 12.018 8.41061 12.018H7V16ZM8.32512 12.6667C8.82586 12.6667 9.08844 12.8529 9.08844 13.3153C9.08844 13.7778 8.81975 13.988 8.28848 13.988H7.87324V12.6667H8.32512Z"
     fill="currentColor"
   />
-   
   <path
     d="M10.4886 16H11.8015C13.2732 16 13.835 15.1712 13.835 13.8979C13.835 12.6006 13.1816 12 11.9175 12C11.4779 12 10.9161 12.012 10.4886 12.018V16ZM11.8687 12.6787C12.6992 12.6787 12.9373 13.2192 12.9373 13.976C12.9373 14.8288 12.6442 15.3393 11.8748 15.3393H11.3618V12.6787H11.8687Z"
     fill="currentColor"
   />
-   
   <path
     d="M15.3573 16V14.4204H16.7496V13.7477H15.3573V12.6907H16.9389L17 12.018H14.4841V16H15.3573Z"
     fill="currentColor"
@@ -3134,6 +3080,7 @@ exports[`Icon props should render type 'play' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3151,6 +3098,7 @@ exports[`Icon props should render type 'play' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3168,6 +3116,7 @@ exports[`Icon props should render type 'play' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -3185,6 +3134,7 @@ exports[`Icon props should render type 'playlist' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3199,7 +3149,6 @@ exports[`Icon props should render type 'playlist' with prop background 1`] = `
     y1="6.55"
     y2="6.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -3209,7 +3158,6 @@ exports[`Icon props should render type 'playlist' with prop background 1`] = `
     y1="11.55"
     y2="11.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -3219,7 +3167,6 @@ exports[`Icon props should render type 'playlist' with prop background 1`] = `
     y1="16.55"
     y2="16.55"
   />
-   
   <path
     d="M4.55 6.29238C4.55 6.13882 4.7159 6.04255 4.84923 6.11874L9.58755 8.82635C9.72192 8.90313 9.72192 9.09687 9.58755 9.17365L4.84923 11.8813C4.7159 11.9575 4.55 11.8612 4.55 11.7076V6.29238Z"
     stroke="currentColor"
@@ -3234,6 +3181,7 @@ exports[`Icon props should render type 'playlist' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3248,7 +3196,6 @@ exports[`Icon props should render type 'playlist' with prop color 1`] = `
     y1="6.55"
     y2="6.55"
   />
-   
   <line
     stroke="#fff"
     stroke-linecap="round"
@@ -3258,7 +3205,6 @@ exports[`Icon props should render type 'playlist' with prop color 1`] = `
     y1="11.55"
     y2="11.55"
   />
-   
   <line
     stroke="#fff"
     stroke-linecap="round"
@@ -3268,7 +3214,6 @@ exports[`Icon props should render type 'playlist' with prop color 1`] = `
     y1="16.55"
     y2="16.55"
   />
-   
   <path
     d="M4.55 6.29238C4.55 6.13882 4.7159 6.04255 4.84923 6.11874L9.58755 8.82635C9.72192 8.90313 9.72192 9.09687 9.58755 9.17365L4.84923 11.8813C4.7159 11.9575 4.55 11.8612 4.55 11.7076V6.29238Z"
     stroke="#fff"
@@ -3283,6 +3228,7 @@ exports[`Icon props should render type 'playlist' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -3297,7 +3243,6 @@ exports[`Icon props should render type 'playlist' with prop size 1`] = `
     y1="6.55"
     y2="6.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -3307,7 +3252,6 @@ exports[`Icon props should render type 'playlist' with prop size 1`] = `
     y1="11.55"
     y2="11.55"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -3317,7 +3261,6 @@ exports[`Icon props should render type 'playlist' with prop size 1`] = `
     y1="16.55"
     y2="16.55"
   />
-   
   <path
     d="M4.55 6.29238C4.55 6.13882 4.7159 6.04255 4.84923 6.11874L9.58755 8.82635C9.72192 8.90313 9.72192 9.09687 9.58755 9.17365L4.84923 11.8813C4.7159 11.9575 4.55 11.8612 4.55 11.7076V6.29238Z"
     stroke="currentColor"
@@ -3332,6 +3275,7 @@ exports[`Icon props should render type 'plus' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="16"
   viewBox="0 0 16 16"
   width="16"
@@ -3349,6 +3293,7 @@ exports[`Icon props should render type 'plus' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="16"
   viewBox="0 0 16 16"
   width="16"
@@ -3366,6 +3311,7 @@ exports[`Icon props should render type 'plus' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 16 16"
   width="20"
@@ -3383,6 +3329,7 @@ exports[`Icon props should render type 'podlove' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   color="currentColor"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 74 117"
@@ -3409,19 +3356,16 @@ exports[`Icon props should render type 'podlove' with prop background 1`] = `
         stroke="#696969"
         stroke-width="2"
       />
-       
       <path
         d="M35.900198,64.58 C44.983604,64.58 52.3454257,71.9564286 52.3454257,81.0571429 C52.3454257,90.1571428 44.983604,97.535 35.900198,97.535 C26.8196435,97.535 19.456396,90.1571428 19.456396,81.0571429 C19.456396,71.9564286 26.8196435,64.58 35.900198,64.58 L35.900198,64.58 L35.900198,64.58 L35.900198,64.58 L35.900198,64.58 Z M35.900198,58.1514286 C23.2952079,58.1514286 13.0405545,68.4271429 13.0405545,81.0571429 C13.0405545,93.6878571 23.2952079,103.963571 35.900198,103.963571 C48.5059011,103.963571 58.7612673,93.6878571 58.7612673,81.0571429 C58.7619802,68.4271429 48.5059011,58.1514286 35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 Z"
         id="Shape"
         stroke="#696969"
       />
-       
       <path
         d="M50.2546276,30.7442602 L33.4529643,47.5892603 L37.9911884,47.5894532 L21.190238,30.7423103 C19.8481449,29.371472 19.074297,27.5145334 19.074297,25.5278571 C19.074297,21.398338 22.415446,18.0507143 26.5366336,18.0507143 C29.2056159,18.0507143 31.6250472,19.4626325 32.9624472,21.7232982 L35.7225096,26.3887524 L38.4817885,21.7228329 C39.8181187,19.4631085 42.2385025,18.0507143 44.9066139,18.0507143 C49.0290731,18.0507143 52.3703763,21.3981836 52.3703763,25.5278571 C52.3703763,27.5149997 51.5961613,29.3734744 50.2333618,30.7657828 L50.2546276,30.7442602 L50.2546276,30.7442602 L50.2546276,30.7442602 L50.2546276,30.7442602 Z M54.8139254,35.2670743 C57.3410495,32.68523 58.7862178,29.2161562 58.7862178,25.5278571 C58.7862178,17.8475823 52.5722458,11.6221429 44.9066139,11.6221429 C39.9488936,11.6221429 35.4422405,14.2519616 32.962172,18.4457385 L38.4815132,18.4452734 C36.0003767,14.2512996 31.4951128,11.6221429 26.5366336,11.6221429 C18.8721408,11.6221429 12.6584554,17.8478696 12.6584554,25.5278571 C12.6584554,29.2161807 14.103632,32.6840516 16.6311638,35.2653562 L33.4527719,52.1334041 L35.7217877,54.4086582 L37.9909962,52.1335969 L54.7926595,35.2885968 L54.8139254,35.2670743 L54.8139254,35.2670743 L54.8139254,35.2670743 L54.8139254,35.2670743 Z"
         id="Shape"
         stroke="#696969"
       />
-       
       <rect
         height="6"
         id="Rectangle"
@@ -3429,7 +3373,6 @@ exports[`Icon props should render type 'podlove' with prop background 1`] = `
         x="33"
         y="46"
       />
-       
       <rect
         height="6"
         id="Rectangle"
@@ -3437,7 +3380,6 @@ exports[`Icon props should render type 'podlove' with prop background 1`] = `
         x="33"
         y="16"
       />
-       
       <path
         d="M35.9009109,75.1592858 C39.1523169,75.1592858 41.7892277,77.8007143 41.7892277,81.0571429 C41.7892277,84.3157143 39.1523169,86.9557143 35.9009109,86.9557143 C32.6502178,86.9557143 30.0147327,84.3157143 30.0147327,81.0571429 C30.0147327,77.8007143 32.6502178,75.1592858 35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 Z"
         id="Path"
@@ -3452,6 +3394,7 @@ exports[`Icon props should render type 'podlove' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   color="#fff"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 74 117"
@@ -3478,19 +3421,16 @@ exports[`Icon props should render type 'podlove' with prop color 1`] = `
         stroke="#696969"
         stroke-width="2"
       />
-       
       <path
         d="M35.900198,64.58 C44.983604,64.58 52.3454257,71.9564286 52.3454257,81.0571429 C52.3454257,90.1571428 44.983604,97.535 35.900198,97.535 C26.8196435,97.535 19.456396,90.1571428 19.456396,81.0571429 C19.456396,71.9564286 26.8196435,64.58 35.900198,64.58 L35.900198,64.58 L35.900198,64.58 L35.900198,64.58 L35.900198,64.58 Z M35.900198,58.1514286 C23.2952079,58.1514286 13.0405545,68.4271429 13.0405545,81.0571429 C13.0405545,93.6878571 23.2952079,103.963571 35.900198,103.963571 C48.5059011,103.963571 58.7612673,93.6878571 58.7612673,81.0571429 C58.7619802,68.4271429 48.5059011,58.1514286 35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 Z"
         id="Shape"
         stroke="#696969"
       />
-       
       <path
         d="M50.2546276,30.7442602 L33.4529643,47.5892603 L37.9911884,47.5894532 L21.190238,30.7423103 C19.8481449,29.371472 19.074297,27.5145334 19.074297,25.5278571 C19.074297,21.398338 22.415446,18.0507143 26.5366336,18.0507143 C29.2056159,18.0507143 31.6250472,19.4626325 32.9624472,21.7232982 L35.7225096,26.3887524 L38.4817885,21.7228329 C39.8181187,19.4631085 42.2385025,18.0507143 44.9066139,18.0507143 C49.0290731,18.0507143 52.3703763,21.3981836 52.3703763,25.5278571 C52.3703763,27.5149997 51.5961613,29.3734744 50.2333618,30.7657828 L50.2546276,30.7442602 L50.2546276,30.7442602 L50.2546276,30.7442602 L50.2546276,30.7442602 Z M54.8139254,35.2670743 C57.3410495,32.68523 58.7862178,29.2161562 58.7862178,25.5278571 C58.7862178,17.8475823 52.5722458,11.6221429 44.9066139,11.6221429 C39.9488936,11.6221429 35.4422405,14.2519616 32.962172,18.4457385 L38.4815132,18.4452734 C36.0003767,14.2512996 31.4951128,11.6221429 26.5366336,11.6221429 C18.8721408,11.6221429 12.6584554,17.8478696 12.6584554,25.5278571 C12.6584554,29.2161807 14.103632,32.6840516 16.6311638,35.2653562 L33.4527719,52.1334041 L35.7217877,54.4086582 L37.9909962,52.1335969 L54.7926595,35.2885968 L54.8139254,35.2670743 L54.8139254,35.2670743 L54.8139254,35.2670743 L54.8139254,35.2670743 Z"
         id="Shape"
         stroke="#696969"
       />
-       
       <rect
         height="6"
         id="Rectangle"
@@ -3498,7 +3438,6 @@ exports[`Icon props should render type 'podlove' with prop color 1`] = `
         x="33"
         y="46"
       />
-       
       <rect
         height="6"
         id="Rectangle"
@@ -3506,7 +3445,6 @@ exports[`Icon props should render type 'podlove' with prop color 1`] = `
         x="33"
         y="16"
       />
-       
       <path
         d="M35.9009109,75.1592858 C39.1523169,75.1592858 41.7892277,77.8007143 41.7892277,81.0571429 C41.7892277,84.3157143 39.1523169,86.9557143 35.9009109,86.9557143 C32.6502178,86.9557143 30.0147327,84.3157143 30.0147327,81.0571429 C30.0147327,77.8007143 32.6502178,75.1592858 35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 Z"
         id="Path"
@@ -3521,6 +3459,7 @@ exports[`Icon props should render type 'podlove' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   color="currentColor"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 74 117"
@@ -3547,19 +3486,16 @@ exports[`Icon props should render type 'podlove' with prop size 1`] = `
         stroke="#696969"
         stroke-width="2"
       />
-       
       <path
         d="M35.900198,64.58 C44.983604,64.58 52.3454257,71.9564286 52.3454257,81.0571429 C52.3454257,90.1571428 44.983604,97.535 35.900198,97.535 C26.8196435,97.535 19.456396,90.1571428 19.456396,81.0571429 C19.456396,71.9564286 26.8196435,64.58 35.900198,64.58 L35.900198,64.58 L35.900198,64.58 L35.900198,64.58 L35.900198,64.58 Z M35.900198,58.1514286 C23.2952079,58.1514286 13.0405545,68.4271429 13.0405545,81.0571429 C13.0405545,93.6878571 23.2952079,103.963571 35.900198,103.963571 C48.5059011,103.963571 58.7612673,93.6878571 58.7612673,81.0571429 C58.7619802,68.4271429 48.5059011,58.1514286 35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 L35.900198,58.1514286 Z"
         id="Shape"
         stroke="#696969"
       />
-       
       <path
         d="M50.2546276,30.7442602 L33.4529643,47.5892603 L37.9911884,47.5894532 L21.190238,30.7423103 C19.8481449,29.371472 19.074297,27.5145334 19.074297,25.5278571 C19.074297,21.398338 22.415446,18.0507143 26.5366336,18.0507143 C29.2056159,18.0507143 31.6250472,19.4626325 32.9624472,21.7232982 L35.7225096,26.3887524 L38.4817885,21.7228329 C39.8181187,19.4631085 42.2385025,18.0507143 44.9066139,18.0507143 C49.0290731,18.0507143 52.3703763,21.3981836 52.3703763,25.5278571 C52.3703763,27.5149997 51.5961613,29.3734744 50.2333618,30.7657828 L50.2546276,30.7442602 L50.2546276,30.7442602 L50.2546276,30.7442602 L50.2546276,30.7442602 Z M54.8139254,35.2670743 C57.3410495,32.68523 58.7862178,29.2161562 58.7862178,25.5278571 C58.7862178,17.8475823 52.5722458,11.6221429 44.9066139,11.6221429 C39.9488936,11.6221429 35.4422405,14.2519616 32.962172,18.4457385 L38.4815132,18.4452734 C36.0003767,14.2512996 31.4951128,11.6221429 26.5366336,11.6221429 C18.8721408,11.6221429 12.6584554,17.8478696 12.6584554,25.5278571 C12.6584554,29.2161807 14.103632,32.6840516 16.6311638,35.2653562 L33.4527719,52.1334041 L35.7217877,54.4086582 L37.9909962,52.1335969 L54.7926595,35.2885968 L54.8139254,35.2670743 L54.8139254,35.2670743 L54.8139254,35.2670743 L54.8139254,35.2670743 Z"
         id="Shape"
         stroke="#696969"
       />
-       
       <rect
         height="6"
         id="Rectangle"
@@ -3567,7 +3503,6 @@ exports[`Icon props should render type 'podlove' with prop size 1`] = `
         x="33"
         y="46"
       />
-       
       <rect
         height="6"
         id="Rectangle"
@@ -3575,7 +3510,6 @@ exports[`Icon props should render type 'podlove' with prop size 1`] = `
         x="33"
         y="16"
       />
-       
       <path
         d="M35.9009109,75.1592858 C39.1523169,75.1592858 41.7892277,77.8007143 41.7892277,81.0571429 C41.7892277,84.3157143 39.1523169,86.9557143 35.9009109,86.9557143 C32.6502178,86.9557143 30.0147327,84.3157143 30.0147327,81.0571429 C30.0147327,77.8007143 32.6502178,75.1592858 35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 L35.9009109,75.1592858 Z"
         id="Path"
@@ -3591,6 +3525,7 @@ exports[`Icon props should render type 'podlove-player' with prop background 1`]
   background="#fff"
   color="currentColor"
   enable-background="new 0 0 160.472 160.81"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 160.472 160.81"
@@ -3608,65 +3543,60 @@ exports[`Icon props should render type 'podlove-player' with prop background 1`]
           <path
             clip-rule="evenodd"
             d="M139.271,0h-56.92c-2.909,0-5.68,0.588-8.204,1.649h2.37
-          c11.47,0,20.767,9.298,20.767,20.767v115.979c0,11.468-9.297,20.767-20.767,20.767h-2.369c2.523,1.061,5.294,1.648,8.203,1.648
-          h56.92c11.71,0,21.201-9.492,21.201-21.201V21.202C160.472,9.493,150.98,0,139.271,0z"
+            c11.47,0,20.767,9.298,20.767,20.767v115.979c0,11.468-9.297,20.767-20.767,20.767h-2.369c2.523,1.061,5.294,1.648,8.203,1.648
+            h56.92c11.71,0,21.201-9.492,21.201-21.201V21.202C160.472,9.493,150.98,0,139.271,0z"
             fill="#F2875C"
             fill-rule="evenodd"
           />
         </g>
       </g>
-       
       <path
         d="M117.392,66.03l5.836,3.645l17.503,10.931
-      l-3.502,2.135l-19.837,12.095V66.03 M116.054,61.839c-0.989,0-1.754,0.99-1.754,2.079c0,7.712,0,26.184,0,33.43
-      c0,1.222,0.622,1.623,1.37,1.623c0.56,0,1.191-0.223,1.686-0.496c6.372-3.884,20.962-12.776,26.794-16.331
-      c1.086-0.666,1.614-2.155,0.066-3.007c-5.863-3.663-20.882-13.04-27.125-16.94C116.732,61.948,116.381,61.839,116.054,61.839
-      L116.054,61.839z"
+        l-3.502,2.135l-19.837,12.095V66.03 M116.054,61.839c-0.989,0-1.754,0.99-1.754,2.079c0,7.712,0,26.184,0,33.43
+        c0,1.222,0.622,1.623,1.37,1.623c0.56,0,1.191-0.223,1.686-0.496c6.372-3.884,20.962-12.776,26.794-16.331
+        c1.086-0.666,1.614-2.155,0.066-3.007c-5.863-3.663-20.882-13.04-27.125-16.94C116.732,61.948,116.381,61.839,116.054,61.839
+        L116.054,61.839z"
         fill="#FFFFFF"
         stroke="#FFFFFF"
         stroke-miterlimit="10"
         stroke-width="2"
       />
     </g>
-     
     <g>
       <g>
         <path
           d="M78.182,9c6.728,0,12.201,5.474,12.201,12.202v118.408c0,6.728-5.474,12.201-12.201,12.201H21.262
-        c-6.727,0-12.2-5.473-12.2-12.201V21.202C9.062,14.474,14.535,9,21.262,9H78.182 M78.182,0H21.262
-        c-11.707,0-21.2,9.493-21.2,21.202v118.408c0,11.708,9.493,21.201,21.2,21.201h56.919c11.71,0,21.201-9.492,21.201-21.201V21.202
-        C99.383,9.493,89.892,0,78.182,0L78.182,0z"
+          c-6.727,0-12.2-5.473-12.2-12.201V21.202C9.062,14.474,14.535,9,21.262,9H78.182 M78.182,0H21.262
+          c-11.707,0-21.2,9.493-21.2,21.202v118.408c0,11.708,9.493,21.201,21.2,21.201h56.919c11.71,0,21.201-9.492,21.201-21.201V21.202
+          C99.383,9.493,89.892,0,78.182,0L78.182,0z"
           fill="#181716"
         />
       </g>
-       
       <g>
         <path
           d="M49.639,90.412c12.742,0,23.069,10.327,23.069,23.068c0,12.74-10.327,23.069-23.069,23.069
-        c-12.738,0-23.067-10.329-23.067-23.069C26.571,100.739,36.9,90.412,49.639,90.412 M49.639,81.412
-        c-17.682,0-32.067,14.386-32.067,32.068c0,17.683,14.385,32.069,32.067,32.069c17.683,0,32.069-14.386,32.069-32.069
-        C81.708,95.798,67.322,81.412,49.639,81.412L49.639,81.412z"
+          c-12.738,0-23.067-10.329-23.067-23.069C26.571,100.739,36.9,90.412,49.639,90.412 M49.639,81.412
+          c-17.682,0-32.067,14.386-32.067,32.068c0,17.683,14.385,32.069,32.067,32.069c17.683,0,32.069-14.386,32.069-32.069
+          C81.708,95.798,67.322,81.412,49.639,81.412L49.639,81.412z"
           fill="#181716"
         />
       </g>
-       
       <path
         clip-rule="evenodd"
         d="
-      M72.957,46.223L49.388,69.806L25.82,46.22c-2.649-2.7-4.285-6.399-4.285-10.481c0-8.267,6.702-14.968,14.968-14.968
-      c5.485,0,10.278,2.949,12.885,7.347c2.606-4.398,7.401-7.347,12.884-7.347c8.268,0,14.97,6.701,14.97,14.968
-      C77.242,39.821,75.606,43.522,72.957,46.223z"
+        M72.957,46.223L49.388,69.806L25.82,46.22c-2.649-2.7-4.285-6.399-4.285-10.481c0-8.267,6.702-14.968,14.968-14.968
+        c5.485,0,10.278,2.949,12.885,7.347c2.606-4.398,7.401-7.347,12.884-7.347c8.268,0,14.97,6.701,14.97,14.968
+        C77.242,39.821,75.606,43.522,72.957,46.223z"
         fill="none"
         fill-rule="evenodd"
         stroke="#181716"
         stroke-miterlimit="10"
         stroke-width="9"
       />
-       
       <path
         clip-rule="evenodd"
         d="M49.64,105.223c4.561,0,8.26,3.698,8.26,8.257
-      c0,4.562-3.699,8.258-8.26,8.258c-4.56,0-8.257-3.696-8.257-8.258C41.383,108.921,45.08,105.223,49.64,105.223z"
+        c0,4.562-3.699,8.258-8.26,8.258c-4.56,0-8.257-3.696-8.257-8.258C41.383,108.921,45.08,105.223,49.64,105.223z"
         fill="#181716"
         fill-rule="evenodd"
       />
@@ -3681,6 +3611,7 @@ exports[`Icon props should render type 'podlove-player' with prop color 1`] = `
   background="currentColor"
   color="#fff"
   enable-background="new 0 0 160.472 160.81"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 160.472 160.81"
@@ -3698,65 +3629,60 @@ exports[`Icon props should render type 'podlove-player' with prop color 1`] = `
           <path
             clip-rule="evenodd"
             d="M139.271,0h-56.92c-2.909,0-5.68,0.588-8.204,1.649h2.37
-          c11.47,0,20.767,9.298,20.767,20.767v115.979c0,11.468-9.297,20.767-20.767,20.767h-2.369c2.523,1.061,5.294,1.648,8.203,1.648
-          h56.92c11.71,0,21.201-9.492,21.201-21.201V21.202C160.472,9.493,150.98,0,139.271,0z"
+            c11.47,0,20.767,9.298,20.767,20.767v115.979c0,11.468-9.297,20.767-20.767,20.767h-2.369c2.523,1.061,5.294,1.648,8.203,1.648
+            h56.92c11.71,0,21.201-9.492,21.201-21.201V21.202C160.472,9.493,150.98,0,139.271,0z"
             fill="#F2875C"
             fill-rule="evenodd"
           />
         </g>
       </g>
-       
       <path
         d="M117.392,66.03l5.836,3.645l17.503,10.931
-      l-3.502,2.135l-19.837,12.095V66.03 M116.054,61.839c-0.989,0-1.754,0.99-1.754,2.079c0,7.712,0,26.184,0,33.43
-      c0,1.222,0.622,1.623,1.37,1.623c0.56,0,1.191-0.223,1.686-0.496c6.372-3.884,20.962-12.776,26.794-16.331
-      c1.086-0.666,1.614-2.155,0.066-3.007c-5.863-3.663-20.882-13.04-27.125-16.94C116.732,61.948,116.381,61.839,116.054,61.839
-      L116.054,61.839z"
+        l-3.502,2.135l-19.837,12.095V66.03 M116.054,61.839c-0.989,0-1.754,0.99-1.754,2.079c0,7.712,0,26.184,0,33.43
+        c0,1.222,0.622,1.623,1.37,1.623c0.56,0,1.191-0.223,1.686-0.496c6.372-3.884,20.962-12.776,26.794-16.331
+        c1.086-0.666,1.614-2.155,0.066-3.007c-5.863-3.663-20.882-13.04-27.125-16.94C116.732,61.948,116.381,61.839,116.054,61.839
+        L116.054,61.839z"
         fill="#FFFFFF"
         stroke="#FFFFFF"
         stroke-miterlimit="10"
         stroke-width="2"
       />
     </g>
-     
     <g>
       <g>
         <path
           d="M78.182,9c6.728,0,12.201,5.474,12.201,12.202v118.408c0,6.728-5.474,12.201-12.201,12.201H21.262
-        c-6.727,0-12.2-5.473-12.2-12.201V21.202C9.062,14.474,14.535,9,21.262,9H78.182 M78.182,0H21.262
-        c-11.707,0-21.2,9.493-21.2,21.202v118.408c0,11.708,9.493,21.201,21.2,21.201h56.919c11.71,0,21.201-9.492,21.201-21.201V21.202
-        C99.383,9.493,89.892,0,78.182,0L78.182,0z"
+          c-6.727,0-12.2-5.473-12.2-12.201V21.202C9.062,14.474,14.535,9,21.262,9H78.182 M78.182,0H21.262
+          c-11.707,0-21.2,9.493-21.2,21.202v118.408c0,11.708,9.493,21.201,21.2,21.201h56.919c11.71,0,21.201-9.492,21.201-21.201V21.202
+          C99.383,9.493,89.892,0,78.182,0L78.182,0z"
           fill="#181716"
         />
       </g>
-       
       <g>
         <path
           d="M49.639,90.412c12.742,0,23.069,10.327,23.069,23.068c0,12.74-10.327,23.069-23.069,23.069
-        c-12.738,0-23.067-10.329-23.067-23.069C26.571,100.739,36.9,90.412,49.639,90.412 M49.639,81.412
-        c-17.682,0-32.067,14.386-32.067,32.068c0,17.683,14.385,32.069,32.067,32.069c17.683,0,32.069-14.386,32.069-32.069
-        C81.708,95.798,67.322,81.412,49.639,81.412L49.639,81.412z"
+          c-12.738,0-23.067-10.329-23.067-23.069C26.571,100.739,36.9,90.412,49.639,90.412 M49.639,81.412
+          c-17.682,0-32.067,14.386-32.067,32.068c0,17.683,14.385,32.069,32.067,32.069c17.683,0,32.069-14.386,32.069-32.069
+          C81.708,95.798,67.322,81.412,49.639,81.412L49.639,81.412z"
           fill="#181716"
         />
       </g>
-       
       <path
         clip-rule="evenodd"
         d="
-      M72.957,46.223L49.388,69.806L25.82,46.22c-2.649-2.7-4.285-6.399-4.285-10.481c0-8.267,6.702-14.968,14.968-14.968
-      c5.485,0,10.278,2.949,12.885,7.347c2.606-4.398,7.401-7.347,12.884-7.347c8.268,0,14.97,6.701,14.97,14.968
-      C77.242,39.821,75.606,43.522,72.957,46.223z"
+        M72.957,46.223L49.388,69.806L25.82,46.22c-2.649-2.7-4.285-6.399-4.285-10.481c0-8.267,6.702-14.968,14.968-14.968
+        c5.485,0,10.278,2.949,12.885,7.347c2.606-4.398,7.401-7.347,12.884-7.347c8.268,0,14.97,6.701,14.97,14.968
+        C77.242,39.821,75.606,43.522,72.957,46.223z"
         fill="none"
         fill-rule="evenodd"
         stroke="#181716"
         stroke-miterlimit="10"
         stroke-width="9"
       />
-       
       <path
         clip-rule="evenodd"
         d="M49.64,105.223c4.561,0,8.26,3.698,8.26,8.257
-      c0,4.562-3.699,8.258-8.26,8.258c-4.56,0-8.257-3.696-8.257-8.258C41.383,108.921,45.08,105.223,49.64,105.223z"
+        c0,4.562-3.699,8.258-8.26,8.258c-4.56,0-8.257-3.696-8.257-8.258C41.383,108.921,45.08,105.223,49.64,105.223z"
         fill="#181716"
         fill-rule="evenodd"
       />
@@ -3771,6 +3697,7 @@ exports[`Icon props should render type 'podlove-player' with prop size 1`] = `
   background="currentColor"
   color="currentColor"
   enable-background="new 0 0 160.472 160.81"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 160.472 160.81"
@@ -3788,65 +3715,60 @@ exports[`Icon props should render type 'podlove-player' with prop size 1`] = `
           <path
             clip-rule="evenodd"
             d="M139.271,0h-56.92c-2.909,0-5.68,0.588-8.204,1.649h2.37
-          c11.47,0,20.767,9.298,20.767,20.767v115.979c0,11.468-9.297,20.767-20.767,20.767h-2.369c2.523,1.061,5.294,1.648,8.203,1.648
-          h56.92c11.71,0,21.201-9.492,21.201-21.201V21.202C160.472,9.493,150.98,0,139.271,0z"
+            c11.47,0,20.767,9.298,20.767,20.767v115.979c0,11.468-9.297,20.767-20.767,20.767h-2.369c2.523,1.061,5.294,1.648,8.203,1.648
+            h56.92c11.71,0,21.201-9.492,21.201-21.201V21.202C160.472,9.493,150.98,0,139.271,0z"
             fill="#F2875C"
             fill-rule="evenodd"
           />
         </g>
       </g>
-       
       <path
         d="M117.392,66.03l5.836,3.645l17.503,10.931
-      l-3.502,2.135l-19.837,12.095V66.03 M116.054,61.839c-0.989,0-1.754,0.99-1.754,2.079c0,7.712,0,26.184,0,33.43
-      c0,1.222,0.622,1.623,1.37,1.623c0.56,0,1.191-0.223,1.686-0.496c6.372-3.884,20.962-12.776,26.794-16.331
-      c1.086-0.666,1.614-2.155,0.066-3.007c-5.863-3.663-20.882-13.04-27.125-16.94C116.732,61.948,116.381,61.839,116.054,61.839
-      L116.054,61.839z"
+        l-3.502,2.135l-19.837,12.095V66.03 M116.054,61.839c-0.989,0-1.754,0.99-1.754,2.079c0,7.712,0,26.184,0,33.43
+        c0,1.222,0.622,1.623,1.37,1.623c0.56,0,1.191-0.223,1.686-0.496c6.372-3.884,20.962-12.776,26.794-16.331
+        c1.086-0.666,1.614-2.155,0.066-3.007c-5.863-3.663-20.882-13.04-27.125-16.94C116.732,61.948,116.381,61.839,116.054,61.839
+        L116.054,61.839z"
         fill="#FFFFFF"
         stroke="#FFFFFF"
         stroke-miterlimit="10"
         stroke-width="2"
       />
     </g>
-     
     <g>
       <g>
         <path
           d="M78.182,9c6.728,0,12.201,5.474,12.201,12.202v118.408c0,6.728-5.474,12.201-12.201,12.201H21.262
-        c-6.727,0-12.2-5.473-12.2-12.201V21.202C9.062,14.474,14.535,9,21.262,9H78.182 M78.182,0H21.262
-        c-11.707,0-21.2,9.493-21.2,21.202v118.408c0,11.708,9.493,21.201,21.2,21.201h56.919c11.71,0,21.201-9.492,21.201-21.201V21.202
-        C99.383,9.493,89.892,0,78.182,0L78.182,0z"
+          c-6.727,0-12.2-5.473-12.2-12.201V21.202C9.062,14.474,14.535,9,21.262,9H78.182 M78.182,0H21.262
+          c-11.707,0-21.2,9.493-21.2,21.202v118.408c0,11.708,9.493,21.201,21.2,21.201h56.919c11.71,0,21.201-9.492,21.201-21.201V21.202
+          C99.383,9.493,89.892,0,78.182,0L78.182,0z"
           fill="#181716"
         />
       </g>
-       
       <g>
         <path
           d="M49.639,90.412c12.742,0,23.069,10.327,23.069,23.068c0,12.74-10.327,23.069-23.069,23.069
-        c-12.738,0-23.067-10.329-23.067-23.069C26.571,100.739,36.9,90.412,49.639,90.412 M49.639,81.412
-        c-17.682,0-32.067,14.386-32.067,32.068c0,17.683,14.385,32.069,32.067,32.069c17.683,0,32.069-14.386,32.069-32.069
-        C81.708,95.798,67.322,81.412,49.639,81.412L49.639,81.412z"
+          c-12.738,0-23.067-10.329-23.067-23.069C26.571,100.739,36.9,90.412,49.639,90.412 M49.639,81.412
+          c-17.682,0-32.067,14.386-32.067,32.068c0,17.683,14.385,32.069,32.067,32.069c17.683,0,32.069-14.386,32.069-32.069
+          C81.708,95.798,67.322,81.412,49.639,81.412L49.639,81.412z"
           fill="#181716"
         />
       </g>
-       
       <path
         clip-rule="evenodd"
         d="
-      M72.957,46.223L49.388,69.806L25.82,46.22c-2.649-2.7-4.285-6.399-4.285-10.481c0-8.267,6.702-14.968,14.968-14.968
-      c5.485,0,10.278,2.949,12.885,7.347c2.606-4.398,7.401-7.347,12.884-7.347c8.268,0,14.97,6.701,14.97,14.968
-      C77.242,39.821,75.606,43.522,72.957,46.223z"
+        M72.957,46.223L49.388,69.806L25.82,46.22c-2.649-2.7-4.285-6.399-4.285-10.481c0-8.267,6.702-14.968,14.968-14.968
+        c5.485,0,10.278,2.949,12.885,7.347c2.606-4.398,7.401-7.347,12.884-7.347c8.268,0,14.97,6.701,14.97,14.968
+        C77.242,39.821,75.606,43.522,72.957,46.223z"
         fill="none"
         fill-rule="evenodd"
         stroke="#181716"
         stroke-miterlimit="10"
         stroke-width="9"
       />
-       
       <path
         clip-rule="evenodd"
         d="M49.64,105.223c4.561,0,8.26,3.698,8.26,8.257
-      c0,4.562-3.699,8.258-8.26,8.258c-4.56,0-8.257-3.696-8.257-8.258C41.383,108.921,45.08,105.223,49.64,105.223z"
+        c0,4.562-3.699,8.258-8.26,8.258c-4.56,0-8.257-3.696-8.257-8.258C41.383,108.921,45.08,105.223,49.64,105.223z"
         fill="#181716"
         fill-rule="evenodd"
       />
@@ -3860,6 +3782,7 @@ exports[`Icon props should render type 'previous' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3869,7 +3792,6 @@ exports[`Icon props should render type 'previous' with prop background 1`] = `
     d="M14 5.75263C14 5.18583 13.3955 4.82386 12.8958 5.09152L1.23407 11.3389C0.706292 11.6216 0.706293 12.3784 1.23407 12.6611L12.8958 18.9085C13.3955 19.1761 14 18.8142 14 18.2474V5.75263Z"
     fill="currentColor"
   />
-   
   <path
     d="M2 5.75C2 5.33579 1.66421 5 1.25 5H0.75C0.335787 5 0 5.33579 0 5.75V18.25C0 18.6642 0.335787 19 0.75 19H1.25C1.66421 19 2 18.6642 2 18.25V5.75Z"
     fill="currentColor"
@@ -3882,6 +3804,7 @@ exports[`Icon props should render type 'previous' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3891,7 +3814,6 @@ exports[`Icon props should render type 'previous' with prop color 1`] = `
     d="M14 5.75263C14 5.18583 13.3955 4.82386 12.8958 5.09152L1.23407 11.3389C0.706292 11.6216 0.706293 12.3784 1.23407 12.6611L12.8958 18.9085C13.3955 19.1761 14 18.8142 14 18.2474V5.75263Z"
     fill="#fff"
   />
-   
   <path
     d="M2 5.75C2 5.33579 1.66421 5 1.25 5H0.75C0.335787 5 0 5.33579 0 5.75V18.25C0 18.6642 0.335787 19 0.75 19H1.25C1.66421 19 2 18.6642 2 18.25V5.75Z"
     fill="#fff"
@@ -3904,6 +3826,7 @@ exports[`Icon props should render type 'previous' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -3913,7 +3836,6 @@ exports[`Icon props should render type 'previous' with prop size 1`] = `
     d="M14 5.75263C14 5.18583 13.3955 4.82386 12.8958 5.09152L1.23407 11.3389C0.706292 11.6216 0.706293 12.3784 1.23407 12.6611L12.8958 18.9085C13.3955 19.1761 14 18.8142 14 18.2474V5.75263Z"
     fill="currentColor"
   />
-   
   <path
     d="M2 5.75C2 5.33579 1.66421 5 1.25 5H0.75C0.335787 5 0 5.33579 0 5.75V18.25C0 18.6642 0.335787 19 0.75 19H1.25C1.66421 19 2 18.6642 2 18.25V5.75Z"
     fill="currentColor"
@@ -3976,6 +3898,7 @@ exports[`Icon props should render type 'restart' with prop background 1`] = `
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -3992,6 +3915,7 @@ exports[`Icon props should render type 'restart' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4008,6 +3932,7 @@ exports[`Icon props should render type 'restart' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -4025,6 +3950,7 @@ exports[`Icon props should render type 'search' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4037,7 +3963,6 @@ exports[`Icon props should render type 'search' with prop background 1`] = `
     stroke="currentColor"
     stroke-width="1.3"
   />
-   
   <path
     d="M14 15L18.5 19.5"
     stroke="currentColor"
@@ -4052,6 +3977,7 @@ exports[`Icon props should render type 'search' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4064,7 +3990,6 @@ exports[`Icon props should render type 'search' with prop color 1`] = `
     stroke="#fff"
     stroke-width="1.3"
   />
-   
   <path
     d="M14 15L18.5 19.5"
     stroke="#fff"
@@ -4079,6 +4004,7 @@ exports[`Icon props should render type 'search' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -4091,7 +4017,6 @@ exports[`Icon props should render type 'search' with prop size 1`] = `
     stroke="currentColor"
     stroke-width="1.3"
   />
-   
   <path
     d="M14 15L18.5 19.5"
     stroke="currentColor"
@@ -4105,6 +4030,7 @@ exports[`Icon props should render type 'search-clear' with prop background 1`] =
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="21"
   version="1.1"
   viewBox="0 0 21 21"
@@ -4132,7 +4058,6 @@ exports[`Icon props should render type 'search-clear' with prop background 1`] =
           x="207"
           y="57"
         />
-         
         <rect
           fill="currentColor"
           height="1.5"
@@ -4141,7 +4066,6 @@ exports[`Icon props should render type 'search-clear' with prop background 1`] =
           x="213"
           y="67.0229708"
         />
-         
         <polygon
           fill="currentColor"
           points="213 67.0229708 222 67.0229708 222 68.5229708 217.610435 68.5229708 213 68.5229708"
@@ -4157,6 +4081,7 @@ exports[`Icon props should render type 'search-clear' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="21"
   version="1.1"
   viewBox="0 0 21 21"
@@ -4184,7 +4109,6 @@ exports[`Icon props should render type 'search-clear' with prop color 1`] = `
           x="207"
           y="57"
         />
-         
         <rect
           fill="currentColor"
           height="1.5"
@@ -4193,7 +4117,6 @@ exports[`Icon props should render type 'search-clear' with prop color 1`] = `
           x="213"
           y="67.0229708"
         />
-         
         <polygon
           fill="currentColor"
           points="213 67.0229708 222 67.0229708 222 68.5229708 217.610435 68.5229708 213 68.5229708"
@@ -4209,6 +4132,7 @@ exports[`Icon props should render type 'search-clear' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 21 21"
@@ -4236,7 +4160,6 @@ exports[`Icon props should render type 'search-clear' with prop size 1`] = `
           x="207"
           y="57"
         />
-         
         <rect
           fill="currentColor"
           height="1.5"
@@ -4245,7 +4168,6 @@ exports[`Icon props should render type 'search-clear' with prop size 1`] = `
           x="213"
           y="67.0229708"
         />
-         
         <polygon
           fill="currentColor"
           points="213 67.0229708 222 67.0229708 222 68.5229708 217.610435 68.5229708 213 68.5229708"
@@ -4261,6 +4183,7 @@ exports[`Icon props should render type 'search-next' with prop background 1`] = 
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="25"
   version="1.1"
   viewBox="0 0 25 25"
@@ -4288,7 +4211,6 @@ exports[`Icon props should render type 'search-next' with prop background 1`] = 
           x="280"
           y="95"
         />
-         
         <g
           fill="currentColor"
           transform="translate(290.000000, 104.000000)"
@@ -4307,6 +4229,7 @@ exports[`Icon props should render type 'search-next' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="25"
   version="1.1"
   viewBox="0 0 25 25"
@@ -4334,7 +4257,6 @@ exports[`Icon props should render type 'search-next' with prop color 1`] = `
           x="280"
           y="95"
         />
-         
         <g
           fill="currentColor"
           transform="translate(290.000000, 104.000000)"
@@ -4353,6 +4275,7 @@ exports[`Icon props should render type 'search-next' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 25 25"
@@ -4380,7 +4303,6 @@ exports[`Icon props should render type 'search-next' with prop size 1`] = `
           x="280"
           y="95"
         />
-         
         <g
           fill="currentColor"
           transform="translate(290.000000, 104.000000)"
@@ -4399,6 +4321,7 @@ exports[`Icon props should render type 'search-previous' with prop background 1`
 <svg
   aria-hidden="true"
   background="#fff"
+  filled="false"
   height="25"
   version="1.1"
   viewBox="0 0 25 25"
@@ -4426,7 +4349,6 @@ exports[`Icon props should render type 'search-previous' with prop background 1`
           x="15"
           y="95"
         />
-         
         <g
           fill="currentColor"
           transform="translate(26.500000, 107.500000) rotate(180.000000) translate(-26.500000, -107.500000) translate(23.000000, 103.000000)"
@@ -4445,6 +4367,7 @@ exports[`Icon props should render type 'search-previous' with prop color 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="25"
   version="1.1"
   viewBox="0 0 25 25"
@@ -4472,7 +4395,6 @@ exports[`Icon props should render type 'search-previous' with prop color 1`] = `
           x="15"
           y="95"
         />
-         
         <g
           fill="currentColor"
           transform="translate(26.500000, 107.500000) rotate(180.000000) translate(-26.500000, -107.500000) translate(23.000000, 103.000000)"
@@ -4491,6 +4413,7 @@ exports[`Icon props should render type 'search-previous' with prop size 1`] = `
 <svg
   aria-hidden="true"
   background="currentColor"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 25 25"
@@ -4518,7 +4441,6 @@ exports[`Icon props should render type 'search-previous' with prop size 1`] = `
           x="15"
           y="95"
         />
-         
         <g
           fill="currentColor"
           transform="translate(26.500000, 107.500000) rotate(180.000000) translate(-26.500000, -107.500000) translate(23.000000, 103.000000)"
@@ -4538,6 +4460,7 @@ exports[`Icon props should render type 'share' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4555,6 +4478,7 @@ exports[`Icon props should render type 'share' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4572,6 +4496,7 @@ exports[`Icon props should render type 'share' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -4589,6 +4514,7 @@ exports[`Icon props should render type 'speaker-0' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4599,14 +4525,12 @@ exports[`Icon props should render type 'speaker-0' with prop background 1`] = `
     stroke="currentColor"
     stroke-width="1.3"
   />
-   
   <path
     d="M15.5 14.5L20.5 9.5"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M20.5 14.5L15.5 9.5"
     stroke="currentColor"
@@ -4621,6 +4545,7 @@ exports[`Icon props should render type 'speaker-0' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4631,14 +4556,12 @@ exports[`Icon props should render type 'speaker-0' with prop color 1`] = `
     stroke="#fff"
     stroke-width="1.3"
   />
-   
   <path
     d="M15.5 14.5L20.5 9.5"
     stroke="#fff"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M20.5 14.5L15.5 9.5"
     stroke="#fff"
@@ -4653,6 +4576,7 @@ exports[`Icon props should render type 'speaker-0' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -4663,14 +4587,12 @@ exports[`Icon props should render type 'speaker-0' with prop size 1`] = `
     stroke="currentColor"
     stroke-width="1.3"
   />
-   
   <path
     d="M15.5 14.5L20.5 9.5"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M20.5 14.5L15.5 9.5"
     stroke="currentColor"
@@ -4685,6 +4607,7 @@ exports[`Icon props should render type 'speaker-25' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4696,7 +4619,6 @@ exports[`Icon props should render type 'speaker-25' with prop background 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="currentColor"
@@ -4710,6 +4632,7 @@ exports[`Icon props should render type 'speaker-25' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4721,7 +4644,6 @@ exports[`Icon props should render type 'speaker-25' with prop color 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="#fff"
@@ -4735,6 +4657,7 @@ exports[`Icon props should render type 'speaker-25' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -4746,7 +4669,6 @@ exports[`Icon props should render type 'speaker-25' with prop size 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="currentColor"
@@ -4760,6 +4682,7 @@ exports[`Icon props should render type 'speaker-50' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4771,14 +4694,12 @@ exports[`Icon props should render type 'speaker-50' with prop background 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M15 13C15.2989 12.8004 15.5 12.4273 15.5 12C15.5 11.5727 15.2989 11.1996 15 11"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="currentColor"
@@ -4792,6 +4713,7 @@ exports[`Icon props should render type 'speaker-50' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4803,14 +4725,12 @@ exports[`Icon props should render type 'speaker-50' with prop color 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M15 13C15.2989 12.8004 15.5 12.4273 15.5 12C15.5 11.5727 15.2989 11.1996 15 11"
     stroke="#fff"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="#fff"
@@ -4824,6 +4744,7 @@ exports[`Icon props should render type 'speaker-50' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -4835,14 +4756,12 @@ exports[`Icon props should render type 'speaker-50' with prop size 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M15 13C15.2989 12.8004 15.5 12.4273 15.5 12C15.5 11.5727 15.2989 11.1996 15 11"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="currentColor"
@@ -4856,6 +4775,7 @@ exports[`Icon props should render type 'speaker-75' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4867,21 +4787,18 @@ exports[`Icon props should render type 'speaker-75' with prop background 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M15 13C15.2989 12.8004 15.5 12.4273 15.5 12C15.5 11.5727 15.2989 11.1996 15 11"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M19 18.5C20.8569 17.2025 22.5 14.7775 22.5 12C22.5 9.2225 20.8569 6.79746 19 5.5"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="currentColor"
@@ -4895,6 +4812,7 @@ exports[`Icon props should render type 'speaker-75' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -4906,21 +4824,18 @@ exports[`Icon props should render type 'speaker-75' with prop color 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M15 13C15.2989 12.8004 15.5 12.4273 15.5 12C15.5 11.5727 15.2989 11.1996 15 11"
     stroke="#fff"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M19 18.5C20.8569 17.2025 22.5 14.7775 22.5 12C22.5 9.2225 20.8569 6.79746 19 5.5"
     stroke="#fff"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="#fff"
@@ -4934,6 +4849,7 @@ exports[`Icon props should render type 'speaker-75' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -4945,21 +4861,18 @@ exports[`Icon props should render type 'speaker-75' with prop size 1`] = `
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M15 13C15.2989 12.8004 15.5 12.4273 15.5 12C15.5 11.5727 15.2989 11.1996 15 11"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M19 18.5C20.8569 17.2025 22.5 14.7775 22.5 12C22.5 9.2225 20.8569 6.79746 19 5.5"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-width="1.3"
   />
-   
   <path
     d="M2.65 8.75C2.65 8.69477 2.69477 8.65 2.75 8.65H5.73691C6.05481 8.65 6.36325 8.54181 6.61149 8.34322L11.2006 4.67191C11.2183 4.65773 11.2404 4.65 11.2631 4.65H12.25C12.3052 4.65 12.35 4.69477 12.35 4.75V19.25C12.35 19.3052 12.3052 19.35 12.25 19.35H11.2631C11.2404 19.35 11.2183 19.3423 11.2006 19.3281L6.61149 15.6568C6.36325 15.4582 6.05481 15.35 5.73691 15.35H2.75C2.69477 15.35 2.65 15.3052 2.65 15.25V8.75Z"
     stroke="currentColor"
@@ -4973,6 +4886,7 @@ exports[`Icon props should render type 'speed-050' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -4982,22 +4896,18 @@ exports[`Icon props should render type 'speed-050' with prop background 1`] = `
     d="M10.4055 16.1559C12.3615 16.1559 13.6695 14.9679 13.6695 11.9079C13.6695 8.97994 12.5895 7.88794 10.5375 7.88794C8.56947 7.88794 7.26147 9.06394 7.26147 12.1239C7.26147 15.0519 8.35347 16.1559 10.4055 16.1559ZM10.4535 14.8239C9.52947 14.8239 9.03747 14.2479 9.03747 12.0399C9.03747 9.85594 9.56547 9.21994 10.4775 9.21994C11.4015 9.21994 11.9055 9.79594 11.9055 11.9919C11.9055 14.1999 11.3655 14.8239 10.4535 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.7111 15.9999V14.1759H14.9471V15.9999H16.7111Z"
     fill="currentColor"
   />
-   
   <path
     d="M18.242 12.5079C18.53 12.4599 19.382 12.4239 19.934 12.4239C21.374 12.4239 22.07 12.7359 22.07 13.6599C22.07 14.4519 21.626 14.8599 20.834 14.8599C20.006 14.8599 19.622 14.4759 19.706 13.6839H17.978C17.714 15.3639 18.566 16.1559 20.69 16.1559C22.85 16.1559 23.834 15.1239 23.834 13.5279C23.834 11.7879 22.73 11.1399 20.618 11.1399C20.366 11.1399 20.09 11.1519 19.838 11.1639L19.97 9.54394H23.282L23.414 8.04394H18.53L18.242 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.9645 9.90394H28.2245C28.0205 10.3239 27.8645 10.6719 27.7445 10.9719C27.5165 11.5119 27.3845 11.8839 27.3125 12.0879H27.2885C27.1925 11.7999 27.0485 11.4399 26.7725 10.8879L26.1965 9.80794L24.3965 9.91594L25.9445 12.8919L24.2645 15.9999H26.0165C26.2565 15.5319 26.3885 15.2199 26.5925 14.8119C26.8445 14.2479 27.0365 13.8039 27.0845 13.6239H27.1205C27.1925 13.8639 27.3125 14.1999 27.6965 14.9319L28.3325 16.1079L30.1325 15.9999L28.4645 12.7959L29.9645 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5008,14 +4918,12 @@ exports[`Icon props should render type 'speed-050' with prop background 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5029,6 +4937,7 @@ exports[`Icon props should render type 'speed-050' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5038,22 +4947,18 @@ exports[`Icon props should render type 'speed-050' with prop color 1`] = `
     d="M10.4055 16.1559C12.3615 16.1559 13.6695 14.9679 13.6695 11.9079C13.6695 8.97994 12.5895 7.88794 10.5375 7.88794C8.56947 7.88794 7.26147 9.06394 7.26147 12.1239C7.26147 15.0519 8.35347 16.1559 10.4055 16.1559ZM10.4535 14.8239C9.52947 14.8239 9.03747 14.2479 9.03747 12.0399C9.03747 9.85594 9.56547 9.21994 10.4775 9.21994C11.4015 9.21994 11.9055 9.79594 11.9055 11.9919C11.9055 14.1999 11.3655 14.8239 10.4535 14.8239Z"
     fill="#fff"
   />
-   
   <path
     d="M16.7111 15.9999V14.1759H14.9471V15.9999H16.7111Z"
     fill="#fff"
   />
-   
   <path
     d="M18.242 12.5079C18.53 12.4599 19.382 12.4239 19.934 12.4239C21.374 12.4239 22.07 12.7359 22.07 13.6599C22.07 14.4519 21.626 14.8599 20.834 14.8599C20.006 14.8599 19.622 14.4759 19.706 13.6839H17.978C17.714 15.3639 18.566 16.1559 20.69 16.1559C22.85 16.1559 23.834 15.1239 23.834 13.5279C23.834 11.7879 22.73 11.1399 20.618 11.1399C20.366 11.1399 20.09 11.1519 19.838 11.1639L19.97 9.54394H23.282L23.414 8.04394H18.53L18.242 12.5079Z"
     fill="#fff"
   />
-   
   <path
     d="M29.9645 9.90394H28.2245C28.0205 10.3239 27.8645 10.6719 27.7445 10.9719C27.5165 11.5119 27.3845 11.8839 27.3125 12.0879H27.2885C27.1925 11.7999 27.0485 11.4399 26.7725 10.8879L26.1965 9.80794L24.3965 9.91594L25.9445 12.8919L24.2645 15.9999H26.0165C26.2565 15.5319 26.3885 15.2199 26.5925 14.8119C26.8445 14.2479 27.0365 13.8039 27.0845 13.6239H27.1205C27.1925 13.8639 27.3125 14.1999 27.6965 14.9319L28.3325 16.1079L30.1325 15.9999L28.4645 12.7959L29.9645 9.90394Z"
     fill="#fff"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5064,14 +4969,12 @@ exports[`Icon props should render type 'speed-050' with prop color 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="#fff"
@@ -5085,6 +4988,7 @@ exports[`Icon props should render type 'speed-050' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 37 24"
   width="30.8"
@@ -5094,22 +4998,18 @@ exports[`Icon props should render type 'speed-050' with prop size 1`] = `
     d="M10.4055 16.1559C12.3615 16.1559 13.6695 14.9679 13.6695 11.9079C13.6695 8.97994 12.5895 7.88794 10.5375 7.88794C8.56947 7.88794 7.26147 9.06394 7.26147 12.1239C7.26147 15.0519 8.35347 16.1559 10.4055 16.1559ZM10.4535 14.8239C9.52947 14.8239 9.03747 14.2479 9.03747 12.0399C9.03747 9.85594 9.56547 9.21994 10.4775 9.21994C11.4015 9.21994 11.9055 9.79594 11.9055 11.9919C11.9055 14.1999 11.3655 14.8239 10.4535 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.7111 15.9999V14.1759H14.9471V15.9999H16.7111Z"
     fill="currentColor"
   />
-   
   <path
     d="M18.242 12.5079C18.53 12.4599 19.382 12.4239 19.934 12.4239C21.374 12.4239 22.07 12.7359 22.07 13.6599C22.07 14.4519 21.626 14.8599 20.834 14.8599C20.006 14.8599 19.622 14.4759 19.706 13.6839H17.978C17.714 15.3639 18.566 16.1559 20.69 16.1559C22.85 16.1559 23.834 15.1239 23.834 13.5279C23.834 11.7879 22.73 11.1399 20.618 11.1399C20.366 11.1399 20.09 11.1519 19.838 11.1639L19.97 9.54394H23.282L23.414 8.04394H18.53L18.242 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.9645 9.90394H28.2245C28.0205 10.3239 27.8645 10.6719 27.7445 10.9719C27.5165 11.5119 27.3845 11.8839 27.3125 12.0879H27.2885C27.1925 11.7999 27.0485 11.4399 26.7725 10.8879L26.1965 9.80794L24.3965 9.91594L25.9445 12.8919L24.2645 15.9999H26.0165C26.2565 15.5319 26.3885 15.2199 26.5925 14.8119C26.8445 14.2479 27.0365 13.8039 27.0845 13.6239H27.1205C27.1925 13.8639 27.3125 14.1999 27.6965 14.9319L28.3325 16.1079L30.1325 15.9999L28.4645 12.7959L29.9645 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5120,14 +5020,12 @@ exports[`Icon props should render type 'speed-050' with prop size 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5141,6 +5039,7 @@ exports[`Icon props should render type 'speed-075' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5150,27 +5049,22 @@ exports[`Icon props should render type 'speed-075' with prop background 1`] = `
     d="M7.69124 16.1559C9.64724 16.1559 10.9552 14.9679 10.9552 11.9079C10.9552 8.97994 9.87524 7.88794 7.82324 7.88794C5.85524 7.88794 4.54724 9.06394 4.54724 12.1239C4.54724 15.0519 5.63924 16.1559 7.69124 16.1559ZM7.73924 14.8239C6.81524 14.8239 6.32324 14.2479 6.32324 12.0399C6.32324 9.85594 6.85124 9.21994 7.76324 9.21994C8.68724 9.21994 9.19124 9.79594 9.19124 11.9919C9.19124 14.1999 8.65124 14.8239 7.73924 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M13.9969 15.9999V14.1759H12.2329V15.9999H13.9969Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.2628 8.04394H14.7068V9.54394H18.4628C17.1668 11.1519 16.1108 13.4799 15.4628 15.9999H17.5028C18.0548 13.4439 18.9908 11.1279 20.2628 9.37594V8.04394Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.9564 12.5079C21.2444 12.4599 22.0964 12.4239 22.6484 12.4239C24.0884 12.4239 24.7844 12.7359 24.7844 13.6599C24.7844 14.4519 24.3404 14.8599 23.5484 14.8599C22.7204 14.8599 22.3364 14.4759 22.4204 13.6839H20.6924C20.4284 15.3639 21.2804 16.1559 23.4044 16.1559C25.5644 16.1559 26.5484 15.1239 26.5484 13.5279C26.5484 11.7879 25.4444 11.1399 23.3324 11.1399C23.0804 11.1399 22.8044 11.1519 22.5524 11.1639L22.6844 9.54394H25.9964L26.1284 8.04394H21.2444L20.9564 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M32.6789 9.90394H30.9389C30.7349 10.3239 30.5789 10.6719 30.4589 10.9719C30.2309 11.5119 30.0989 11.8839 30.0269 12.0879H30.0029C29.9069 11.7999 29.7629 11.4399 29.4869 10.8879L28.9109 9.80794L27.1109 9.91594L28.6589 12.8919L26.9789 15.9999H28.7309C28.9709 15.5319 29.1029 15.2199 29.3069 14.8119C29.5589 14.2479 29.7509 13.8039 29.7989 13.6239H29.8349C29.9069 13.8639 30.0269 14.1999 30.4109 14.9319L31.0469 16.1079L32.8469 15.9999L31.1789 12.7959L32.6789 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5181,14 +5075,12 @@ exports[`Icon props should render type 'speed-075' with prop background 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5202,6 +5094,7 @@ exports[`Icon props should render type 'speed-075' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5211,27 +5104,22 @@ exports[`Icon props should render type 'speed-075' with prop color 1`] = `
     d="M7.69124 16.1559C9.64724 16.1559 10.9552 14.9679 10.9552 11.9079C10.9552 8.97994 9.87524 7.88794 7.82324 7.88794C5.85524 7.88794 4.54724 9.06394 4.54724 12.1239C4.54724 15.0519 5.63924 16.1559 7.69124 16.1559ZM7.73924 14.8239C6.81524 14.8239 6.32324 14.2479 6.32324 12.0399C6.32324 9.85594 6.85124 9.21994 7.76324 9.21994C8.68724 9.21994 9.19124 9.79594 9.19124 11.9919C9.19124 14.1999 8.65124 14.8239 7.73924 14.8239Z"
     fill="#fff"
   />
-   
   <path
     d="M13.9969 15.9999V14.1759H12.2329V15.9999H13.9969Z"
     fill="#fff"
   />
-   
   <path
     d="M20.2628 8.04394H14.7068V9.54394H18.4628C17.1668 11.1519 16.1108 13.4799 15.4628 15.9999H17.5028C18.0548 13.4439 18.9908 11.1279 20.2628 9.37594V8.04394Z"
     fill="#fff"
   />
-   
   <path
     d="M20.9564 12.5079C21.2444 12.4599 22.0964 12.4239 22.6484 12.4239C24.0884 12.4239 24.7844 12.7359 24.7844 13.6599C24.7844 14.4519 24.3404 14.8599 23.5484 14.8599C22.7204 14.8599 22.3364 14.4759 22.4204 13.6839H20.6924C20.4284 15.3639 21.2804 16.1559 23.4044 16.1559C25.5644 16.1559 26.5484 15.1239 26.5484 13.5279C26.5484 11.7879 25.4444 11.1399 23.3324 11.1399C23.0804 11.1399 22.8044 11.1519 22.5524 11.1639L22.6844 9.54394H25.9964L26.1284 8.04394H21.2444L20.9564 12.5079Z"
     fill="#fff"
   />
-   
   <path
     d="M32.6789 9.90394H30.9389C30.7349 10.3239 30.5789 10.6719 30.4589 10.9719C30.2309 11.5119 30.0989 11.8839 30.0269 12.0879H30.0029C29.9069 11.7999 29.7629 11.4399 29.4869 10.8879L28.9109 9.80794L27.1109 9.91594L28.6589 12.8919L26.9789 15.9999H28.7309C28.9709 15.5319 29.1029 15.2199 29.3069 14.8119C29.5589 14.2479 29.7509 13.8039 29.7989 13.6239H29.8349C29.9069 13.8639 30.0269 14.1999 30.4109 14.9319L31.0469 16.1079L32.8469 15.9999L31.1789 12.7959L32.6789 9.90394Z"
     fill="#fff"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5242,14 +5130,12 @@ exports[`Icon props should render type 'speed-075' with prop color 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="#fff"
@@ -5263,6 +5149,7 @@ exports[`Icon props should render type 'speed-075' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 37 24"
   width="30.8"
@@ -5272,27 +5159,22 @@ exports[`Icon props should render type 'speed-075' with prop size 1`] = `
     d="M7.69124 16.1559C9.64724 16.1559 10.9552 14.9679 10.9552 11.9079C10.9552 8.97994 9.87524 7.88794 7.82324 7.88794C5.85524 7.88794 4.54724 9.06394 4.54724 12.1239C4.54724 15.0519 5.63924 16.1559 7.69124 16.1559ZM7.73924 14.8239C6.81524 14.8239 6.32324 14.2479 6.32324 12.0399C6.32324 9.85594 6.85124 9.21994 7.76324 9.21994C8.68724 9.21994 9.19124 9.79594 9.19124 11.9919C9.19124 14.1999 8.65124 14.8239 7.73924 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M13.9969 15.9999V14.1759H12.2329V15.9999H13.9969Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.2628 8.04394H14.7068V9.54394H18.4628C17.1668 11.1519 16.1108 13.4799 15.4628 15.9999H17.5028C18.0548 13.4439 18.9908 11.1279 20.2628 9.37594V8.04394Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.9564 12.5079C21.2444 12.4599 22.0964 12.4239 22.6484 12.4239C24.0884 12.4239 24.7844 12.7359 24.7844 13.6599C24.7844 14.4519 24.3404 14.8599 23.5484 14.8599C22.7204 14.8599 22.3364 14.4759 22.4204 13.6839H20.6924C20.4284 15.3639 21.2804 16.1559 23.4044 16.1559C25.5644 16.1559 26.5484 15.1239 26.5484 13.5279C26.5484 11.7879 25.4444 11.1399 23.3324 11.1399C23.0804 11.1399 22.8044 11.1519 22.5524 11.1639L22.6844 9.54394H25.9964L26.1284 8.04394H21.2444L20.9564 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M32.6789 9.90394H30.9389C30.7349 10.3239 30.5789 10.6719 30.4589 10.9719C30.2309 11.5119 30.0989 11.8839 30.0269 12.0879H30.0029C29.9069 11.7999 29.7629 11.4399 29.4869 10.8879L28.9109 9.80794L27.1109 9.91594L28.6589 12.8919L26.9789 15.9999H28.7309C28.9709 15.5319 29.1029 15.2199 29.3069 14.8119C29.5589 14.2479 29.7509 13.8039 29.7989 13.6239H29.8349C29.9069 13.8639 30.0269 14.1999 30.4109 14.9319L31.0469 16.1079L32.8469 15.9999L31.1789 12.7959L32.6789 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5303,14 +5185,12 @@ exports[`Icon props should render type 'speed-075' with prop size 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5324,6 +5204,7 @@ exports[`Icon props should render type 'speed-100' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5333,22 +5214,18 @@ exports[`Icon props should render type 'speed-100' with prop background 1`] = `
     d="M7.59573 14.6199V15.9999H12.8877V14.6199H11.2317V8.04394H9.74373L7.54773 8.94394L7.95573 10.1559L9.51573 9.51994V14.6199H7.59573Z"
     fill="currentColor"
   />
-   
   <path
     d="M15.6857 15.9999V14.1759H13.9217V15.9999H15.6857Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.0966 16.1559C22.0526 16.1559 23.3606 14.9679 23.3606 11.9079C23.3606 8.97994 22.2806 7.88794 20.2286 7.88794C18.2606 7.88794 16.9526 9.06394 16.9526 12.1239C16.9526 15.0519 18.0446 16.1559 20.0966 16.1559ZM20.1446 14.8239C19.2206 14.8239 18.7286 14.2479 18.7286 12.0399C18.7286 9.85594 19.2566 9.21994 20.1686 9.21994C21.0926 9.21994 21.5966 9.79594 21.5966 11.9919C21.5966 14.1999 21.0566 14.8239 20.1446 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.6423 9.90394H27.9023C27.6983 10.3239 27.5423 10.6719 27.4223 10.9719C27.1943 11.5119 27.0623 11.8839 26.9903 12.0879H26.9663C26.8703 11.7999 26.7263 11.4399 26.4503 10.8879L25.8743 9.80794L24.0743 9.91594L25.6223 12.8919L23.9423 15.9999H25.6943C25.9343 15.5319 26.0663 15.2199 26.2703 14.8119C26.5223 14.2479 26.7143 13.8039 26.7623 13.6239H26.7983C26.8703 13.8639 26.9903 14.1999 27.3743 14.9319L28.0103 16.1079L29.8103 15.9999L28.1423 12.7959L29.6423 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5359,14 +5236,12 @@ exports[`Icon props should render type 'speed-100' with prop background 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5380,6 +5255,7 @@ exports[`Icon props should render type 'speed-100' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5389,22 +5265,18 @@ exports[`Icon props should render type 'speed-100' with prop color 1`] = `
     d="M7.59573 14.6199V15.9999H12.8877V14.6199H11.2317V8.04394H9.74373L7.54773 8.94394L7.95573 10.1559L9.51573 9.51994V14.6199H7.59573Z"
     fill="#fff"
   />
-   
   <path
     d="M15.6857 15.9999V14.1759H13.9217V15.9999H15.6857Z"
     fill="#fff"
   />
-   
   <path
     d="M20.0966 16.1559C22.0526 16.1559 23.3606 14.9679 23.3606 11.9079C23.3606 8.97994 22.2806 7.88794 20.2286 7.88794C18.2606 7.88794 16.9526 9.06394 16.9526 12.1239C16.9526 15.0519 18.0446 16.1559 20.0966 16.1559ZM20.1446 14.8239C19.2206 14.8239 18.7286 14.2479 18.7286 12.0399C18.7286 9.85594 19.2566 9.21994 20.1686 9.21994C21.0926 9.21994 21.5966 9.79594 21.5966 11.9919C21.5966 14.1999 21.0566 14.8239 20.1446 14.8239Z"
     fill="#fff"
   />
-   
   <path
     d="M29.6423 9.90394H27.9023C27.6983 10.3239 27.5423 10.6719 27.4223 10.9719C27.1943 11.5119 27.0623 11.8839 26.9903 12.0879H26.9663C26.8703 11.7999 26.7263 11.4399 26.4503 10.8879L25.8743 9.80794L24.0743 9.91594L25.6223 12.8919L23.9423 15.9999H25.6943C25.9343 15.5319 26.0663 15.2199 26.2703 14.8119C26.5223 14.2479 26.7143 13.8039 26.7623 13.6239H26.7983C26.8703 13.8639 26.9903 14.1999 27.3743 14.9319L28.0103 16.1079L29.8103 15.9999L28.1423 12.7959L29.6423 9.90394Z"
     fill="#fff"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5415,14 +5287,12 @@ exports[`Icon props should render type 'speed-100' with prop color 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="#fff"
@@ -5436,6 +5306,7 @@ exports[`Icon props should render type 'speed-100' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 37 24"
   width="30.8"
@@ -5445,22 +5316,18 @@ exports[`Icon props should render type 'speed-100' with prop size 1`] = `
     d="M7.59573 14.6199V15.9999H12.8877V14.6199H11.2317V8.04394H9.74373L7.54773 8.94394L7.95573 10.1559L9.51573 9.51994V14.6199H7.59573Z"
     fill="currentColor"
   />
-   
   <path
     d="M15.6857 15.9999V14.1759H13.9217V15.9999H15.6857Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.0966 16.1559C22.0526 16.1559 23.3606 14.9679 23.3606 11.9079C23.3606 8.97994 22.2806 7.88794 20.2286 7.88794C18.2606 7.88794 16.9526 9.06394 16.9526 12.1239C16.9526 15.0519 18.0446 16.1559 20.0966 16.1559ZM20.1446 14.8239C19.2206 14.8239 18.7286 14.2479 18.7286 12.0399C18.7286 9.85594 19.2566 9.21994 20.1686 9.21994C21.0926 9.21994 21.5966 9.79594 21.5966 11.9919C21.5966 14.1999 21.0566 14.8239 20.1446 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.6423 9.90394H27.9023C27.6983 10.3239 27.5423 10.6719 27.4223 10.9719C27.1943 11.5119 27.0623 11.8839 26.9903 12.0879H26.9663C26.8703 11.7999 26.7263 11.4399 26.4503 10.8879L25.8743 9.80794L24.0743 9.91594L25.6223 12.8919L23.9423 15.9999H25.6943C25.9343 15.5319 26.0663 15.2199 26.2703 14.8119C26.5223 14.2479 26.7143 13.8039 26.7623 13.6239H26.7983C26.8703 13.8639 26.9903 14.1999 27.3743 14.9319L28.0103 16.1079L29.8103 15.9999L28.1423 12.7959L29.6423 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5471,14 +5338,12 @@ exports[`Icon props should render type 'speed-100' with prop size 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5492,6 +5357,7 @@ exports[`Icon props should render type 'speed-125' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5501,27 +5367,22 @@ exports[`Icon props should render type 'speed-125' with prop background 1`] = `
     d="M4.58853 14.6199V15.9999H9.88053V14.6199H8.22453V8.04394H6.73653L4.54053 8.94394L4.94853 10.1559L6.50853 9.51994V14.6199H4.58853Z"
     fill="currentColor"
   />
-   
   <path
     d="M12.6785 15.9999V14.1759H10.9145V15.9999H12.6785Z"
     fill="currentColor"
   />
-   
   <path
     d="M13.8734 15.9999H19.6094L19.7414 14.4999H15.8414C16.7174 12.7479 19.5974 12.4599 19.5974 10.1199C19.5974 8.73994 18.8054 7.88794 16.9094 7.88794C14.9174 7.88794 13.8614 8.90794 14.0174 10.7079H15.7214C15.6494 9.77194 16.0214 9.24394 16.8014 9.24394C17.5694 9.24394 17.8334 9.68794 17.8334 10.2759C17.8334 11.8839 15.1934 12.0399 13.8734 14.6319V15.9999Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.9271 12.5079C21.2151 12.4599 22.0671 12.4239 22.6191 12.4239C24.0591 12.4239 24.7551 12.7359 24.7551 13.6599C24.7551 14.4519 24.3111 14.8599 23.5191 14.8599C22.6911 14.8599 22.3071 14.4759 22.3911 13.6839H20.6631C20.3991 15.3639 21.2511 16.1559 23.3751 16.1559C25.5351 16.1559 26.5191 15.1239 26.5191 13.5279C26.5191 11.7879 25.4151 11.1399 23.3031 11.1399C23.0511 11.1399 22.7751 11.1519 22.5231 11.1639L22.6551 9.54394H25.9671L26.0991 8.04394H21.2151L20.9271 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M32.6496 9.90394H30.9096C30.7056 10.3239 30.5496 10.6719 30.4296 10.9719C30.2016 11.5119 30.0696 11.8839 29.9976 12.0879H29.9736C29.8776 11.7999 29.7336 11.4399 29.4576 10.8879L28.8816 9.80794L27.0816 9.91594L28.6296 12.8919L26.9496 15.9999H28.7016C28.9416 15.5319 29.0736 15.2199 29.2776 14.8119C29.5296 14.2479 29.7216 13.8039 29.7696 13.6239H29.8056C29.8776 13.8639 29.9976 14.1999 30.3816 14.9319L31.0176 16.1079L32.8176 15.9999L31.1496 12.7959L32.6496 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5532,14 +5393,12 @@ exports[`Icon props should render type 'speed-125' with prop background 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5553,6 +5412,7 @@ exports[`Icon props should render type 'speed-125' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5562,27 +5422,22 @@ exports[`Icon props should render type 'speed-125' with prop color 1`] = `
     d="M4.58853 14.6199V15.9999H9.88053V14.6199H8.22453V8.04394H6.73653L4.54053 8.94394L4.94853 10.1559L6.50853 9.51994V14.6199H4.58853Z"
     fill="#fff"
   />
-   
   <path
     d="M12.6785 15.9999V14.1759H10.9145V15.9999H12.6785Z"
     fill="#fff"
   />
-   
   <path
     d="M13.8734 15.9999H19.6094L19.7414 14.4999H15.8414C16.7174 12.7479 19.5974 12.4599 19.5974 10.1199C19.5974 8.73994 18.8054 7.88794 16.9094 7.88794C14.9174 7.88794 13.8614 8.90794 14.0174 10.7079H15.7214C15.6494 9.77194 16.0214 9.24394 16.8014 9.24394C17.5694 9.24394 17.8334 9.68794 17.8334 10.2759C17.8334 11.8839 15.1934 12.0399 13.8734 14.6319V15.9999Z"
     fill="#fff"
   />
-   
   <path
     d="M20.9271 12.5079C21.2151 12.4599 22.0671 12.4239 22.6191 12.4239C24.0591 12.4239 24.7551 12.7359 24.7551 13.6599C24.7551 14.4519 24.3111 14.8599 23.5191 14.8599C22.6911 14.8599 22.3071 14.4759 22.3911 13.6839H20.6631C20.3991 15.3639 21.2511 16.1559 23.3751 16.1559C25.5351 16.1559 26.5191 15.1239 26.5191 13.5279C26.5191 11.7879 25.4151 11.1399 23.3031 11.1399C23.0511 11.1399 22.7751 11.1519 22.5231 11.1639L22.6551 9.54394H25.9671L26.0991 8.04394H21.2151L20.9271 12.5079Z"
     fill="#fff"
   />
-   
   <path
     d="M32.6496 9.90394H30.9096C30.7056 10.3239 30.5496 10.6719 30.4296 10.9719C30.2016 11.5119 30.0696 11.8839 29.9976 12.0879H29.9736C29.8776 11.7999 29.7336 11.4399 29.4576 10.8879L28.8816 9.80794L27.0816 9.91594L28.6296 12.8919L26.9496 15.9999H28.7016C28.9416 15.5319 29.0736 15.2199 29.2776 14.8119C29.5296 14.2479 29.7216 13.8039 29.7696 13.6239H29.8056C29.8776 13.8639 29.9976 14.1999 30.3816 14.9319L31.0176 16.1079L32.8176 15.9999L31.1496 12.7959L32.6496 9.90394Z"
     fill="#fff"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5593,14 +5448,12 @@ exports[`Icon props should render type 'speed-125' with prop color 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="#fff"
@@ -5614,6 +5467,7 @@ exports[`Icon props should render type 'speed-125' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 37 24"
   width="30.8"
@@ -5623,27 +5477,22 @@ exports[`Icon props should render type 'speed-125' with prop size 1`] = `
     d="M4.58853 14.6199V15.9999H9.88053V14.6199H8.22453V8.04394H6.73653L4.54053 8.94394L4.94853 10.1559L6.50853 9.51994V14.6199H4.58853Z"
     fill="currentColor"
   />
-   
   <path
     d="M12.6785 15.9999V14.1759H10.9145V15.9999H12.6785Z"
     fill="currentColor"
   />
-   
   <path
     d="M13.8734 15.9999H19.6094L19.7414 14.4999H15.8414C16.7174 12.7479 19.5974 12.4599 19.5974 10.1199C19.5974 8.73994 18.8054 7.88794 16.9094 7.88794C14.9174 7.88794 13.8614 8.90794 14.0174 10.7079H15.7214C15.6494 9.77194 16.0214 9.24394 16.8014 9.24394C17.5694 9.24394 17.8334 9.68794 17.8334 10.2759C17.8334 11.8839 15.1934 12.0399 13.8734 14.6319V15.9999Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.9271 12.5079C21.2151 12.4599 22.0671 12.4239 22.6191 12.4239C24.0591 12.4239 24.7551 12.7359 24.7551 13.6599C24.7551 14.4519 24.3111 14.8599 23.5191 14.8599C22.6911 14.8599 22.3071 14.4759 22.3911 13.6839H20.6631C20.3991 15.3639 21.2511 16.1559 23.3751 16.1559C25.5351 16.1559 26.5191 15.1239 26.5191 13.5279C26.5191 11.7879 25.4151 11.1399 23.3031 11.1399C23.0511 11.1399 22.7751 11.1519 22.5231 11.1639L22.6551 9.54394H25.9671L26.0991 8.04394H21.2151L20.9271 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M32.6496 9.90394H30.9096C30.7056 10.3239 30.5496 10.6719 30.4296 10.9719C30.2016 11.5119 30.0696 11.8839 29.9976 12.0879H29.9736C29.8776 11.7999 29.7336 11.4399 29.4576 10.8879L28.8816 9.80794L27.0816 9.91594L28.6296 12.8919L26.9496 15.9999H28.7016C28.9416 15.5319 29.0736 15.2199 29.2776 14.8119C29.5296 14.2479 29.7216 13.8039 29.7696 13.6239H29.8056C29.8776 13.8639 29.9976 14.1999 30.3816 14.9319L31.0176 16.1079L32.8176 15.9999L31.1496 12.7959L32.6496 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5654,14 +5503,12 @@ exports[`Icon props should render type 'speed-125' with prop size 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5675,6 +5522,7 @@ exports[`Icon props should render type 'speed-150' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5684,22 +5532,18 @@ exports[`Icon props should render type 'speed-150' with prop background 1`] = `
     d="M7.94729 14.6199V15.9999H13.2393V14.6199H11.5833V8.04395H10.0953L7.89929 8.94395L8.30729 10.1559L9.86729 9.51995V14.6199H7.94729Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.0373 15.9999V14.1759H14.2733V15.9999H16.0373Z"
     fill="currentColor"
   />
-   
   <path
     d="M17.5682 12.5079C17.8562 12.4599 18.7082 12.4239 19.2602 12.4239C20.7002 12.4239 21.3962 12.7359 21.3962 13.6599C21.3962 14.4519 20.9522 14.8599 20.1602 14.8599C19.3322 14.8599 18.9482 14.4759 19.0322 13.6839H17.3042C17.0402 15.3639 17.8922 16.1559 20.0162 16.1559C22.1762 16.1559 23.1602 15.1239 23.1602 13.5279C23.1602 11.7879 22.0562 11.1399 19.9442 11.1399C19.6922 11.1399 19.4162 11.1519 19.1642 11.1639L19.2962 9.54395H22.6082L22.7402 8.04395H17.8562L17.5682 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.2907 9.90395H27.5507C27.3467 10.3239 27.1907 10.6719 27.0707 10.9719C26.8427 11.5119 26.7107 11.8839 26.6387 12.0879H26.6147C26.5187 11.7999 26.3747 11.4399 26.0987 10.8879L25.5227 9.80795L23.7227 9.91595L25.2707 12.8919L23.5907 15.9999H25.3427C25.5827 15.5319 25.7147 15.2199 25.9187 14.8119C26.1707 14.2479 26.3627 13.8039 26.4107 13.6239H26.4467C26.5187 13.8639 26.6387 14.1999 27.0227 14.9319L27.6587 16.1079L29.4587 15.9999L27.7907 12.7959L29.2907 9.90395Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5710,14 +5554,12 @@ exports[`Icon props should render type 'speed-150' with prop background 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5731,6 +5573,7 @@ exports[`Icon props should render type 'speed-150' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5740,22 +5583,18 @@ exports[`Icon props should render type 'speed-150' with prop color 1`] = `
     d="M7.94729 14.6199V15.9999H13.2393V14.6199H11.5833V8.04395H10.0953L7.89929 8.94395L8.30729 10.1559L9.86729 9.51995V14.6199H7.94729Z"
     fill="#fff"
   />
-   
   <path
     d="M16.0373 15.9999V14.1759H14.2733V15.9999H16.0373Z"
     fill="#fff"
   />
-   
   <path
     d="M17.5682 12.5079C17.8562 12.4599 18.7082 12.4239 19.2602 12.4239C20.7002 12.4239 21.3962 12.7359 21.3962 13.6599C21.3962 14.4519 20.9522 14.8599 20.1602 14.8599C19.3322 14.8599 18.9482 14.4759 19.0322 13.6839H17.3042C17.0402 15.3639 17.8922 16.1559 20.0162 16.1559C22.1762 16.1559 23.1602 15.1239 23.1602 13.5279C23.1602 11.7879 22.0562 11.1399 19.9442 11.1399C19.6922 11.1399 19.4162 11.1519 19.1642 11.1639L19.2962 9.54395H22.6082L22.7402 8.04395H17.8562L17.5682 12.5079Z"
     fill="#fff"
   />
-   
   <path
     d="M29.2907 9.90395H27.5507C27.3467 10.3239 27.1907 10.6719 27.0707 10.9719C26.8427 11.5119 26.7107 11.8839 26.6387 12.0879H26.6147C26.5187 11.7999 26.3747 11.4399 26.0987 10.8879L25.5227 9.80795L23.7227 9.91595L25.2707 12.8919L23.5907 15.9999H25.3427C25.5827 15.5319 25.7147 15.2199 25.9187 14.8119C26.1707 14.2479 26.3627 13.8039 26.4107 13.6239H26.4467C26.5187 13.8639 26.6387 14.1999 27.0227 14.9319L27.6587 16.1079L29.4587 15.9999L27.7907 12.7959L29.2907 9.90395Z"
     fill="#fff"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5766,14 +5605,12 @@ exports[`Icon props should render type 'speed-150' with prop color 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="#fff"
@@ -5787,6 +5624,7 @@ exports[`Icon props should render type 'speed-150' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 37 24"
   width="30.8"
@@ -5796,22 +5634,18 @@ exports[`Icon props should render type 'speed-150' with prop size 1`] = `
     d="M7.94729 14.6199V15.9999H13.2393V14.6199H11.5833V8.04395H10.0953L7.89929 8.94395L8.30729 10.1559L9.86729 9.51995V14.6199H7.94729Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.0373 15.9999V14.1759H14.2733V15.9999H16.0373Z"
     fill="currentColor"
   />
-   
   <path
     d="M17.5682 12.5079C17.8562 12.4599 18.7082 12.4239 19.2602 12.4239C20.7002 12.4239 21.3962 12.7359 21.3962 13.6599C21.3962 14.4519 20.9522 14.8599 20.1602 14.8599C19.3322 14.8599 18.9482 14.4759 19.0322 13.6839H17.3042C17.0402 15.3639 17.8922 16.1559 20.0162 16.1559C22.1762 16.1559 23.1602 15.1239 23.1602 13.5279C23.1602 11.7879 22.0562 11.1399 19.9442 11.1399C19.6922 11.1399 19.4162 11.1519 19.1642 11.1639L19.2962 9.54395H22.6082L22.7402 8.04395H17.8562L17.5682 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.2907 9.90395H27.5507C27.3467 10.3239 27.1907 10.6719 27.0707 10.9719C26.8427 11.5119 26.7107 11.8839 26.6387 12.0879H26.6147C26.5187 11.7999 26.3747 11.4399 26.0987 10.8879L25.5227 9.80795L23.7227 9.91595L25.2707 12.8919L23.5907 15.9999H25.3427C25.5827 15.5319 25.7147 15.2199 25.9187 14.8119C26.1707 14.2479 26.3627 13.8039 26.4107 13.6239H26.4467C26.5187 13.8639 26.6387 14.1999 27.0227 14.9319L27.6587 16.1079L29.4587 15.9999L27.7907 12.7959L29.2907 9.90395Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5822,14 +5656,12 @@ exports[`Icon props should render type 'speed-150' with prop size 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5843,6 +5675,7 @@ exports[`Icon props should render type 'speed-175' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5852,27 +5685,22 @@ exports[`Icon props should render type 'speed-175' with prop background 1`] = `
     d="M5.23306 14.6199V15.9999H10.5251V14.6199H8.86906V8.04395H7.38106L5.18506 8.94395L5.59306 10.1559L7.15306 9.51995V14.6199H5.23306Z"
     fill="currentColor"
   />
-   
   <path
     d="M13.323 15.9999V14.1759H11.559V15.9999H13.323Z"
     fill="currentColor"
   />
-   
   <path
     d="M19.589 8.04395H14.033V9.54395H17.789C16.493 11.1519 15.437 13.4799 14.789 15.9999H16.829C17.381 13.4439 18.317 11.1279 19.589 9.37595V8.04395Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.2826 12.5079C20.5706 12.4599 21.4226 12.4239 21.9746 12.4239C23.4146 12.4239 24.1106 12.7359 24.1106 13.6599C24.1106 14.4519 23.6666 14.8599 22.8746 14.8599C22.0466 14.8599 21.6626 14.4759 21.7466 13.6839H20.0186C19.7546 15.3639 20.6066 16.1559 22.7306 16.1559C24.8906 16.1559 25.8746 15.1239 25.8746 13.5279C25.8746 11.7879 24.7706 11.1399 22.6586 11.1399C22.4066 11.1399 22.1306 11.1519 21.8786 11.1639L22.0106 9.54395H25.3226L25.4546 8.04395H20.5706L20.2826 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M32.0051 9.90395H30.2651C30.0611 10.3239 29.9051 10.6719 29.7851 10.9719C29.5571 11.5119 29.4251 11.8839 29.3531 12.0879H29.3291C29.2331 11.7999 29.0891 11.4399 28.8131 10.8879L28.2371 9.80795L26.4371 9.91595L27.9851 12.8919L26.3051 15.9999H28.0571C28.2971 15.5319 28.4291 15.2199 28.6331 14.8119C28.8851 14.2479 29.0771 13.8039 29.1251 13.6239H29.1611C29.2331 13.8639 29.3531 14.1999 29.7371 14.9319L30.3731 16.1079L32.1731 15.9999L30.5051 12.7959L32.0051 9.90395Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5883,14 +5711,12 @@ exports[`Icon props should render type 'speed-175' with prop background 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -5904,6 +5730,7 @@ exports[`Icon props should render type 'speed-175' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -5913,27 +5740,22 @@ exports[`Icon props should render type 'speed-175' with prop color 1`] = `
     d="M5.23306 14.6199V15.9999H10.5251V14.6199H8.86906V8.04395H7.38106L5.18506 8.94395L5.59306 10.1559L7.15306 9.51995V14.6199H5.23306Z"
     fill="#fff"
   />
-   
   <path
     d="M13.323 15.9999V14.1759H11.559V15.9999H13.323Z"
     fill="#fff"
   />
-   
   <path
     d="M19.589 8.04395H14.033V9.54395H17.789C16.493 11.1519 15.437 13.4799 14.789 15.9999H16.829C17.381 13.4439 18.317 11.1279 19.589 9.37595V8.04395Z"
     fill="#fff"
   />
-   
   <path
     d="M20.2826 12.5079C20.5706 12.4599 21.4226 12.4239 21.9746 12.4239C23.4146 12.4239 24.1106 12.7359 24.1106 13.6599C24.1106 14.4519 23.6666 14.8599 22.8746 14.8599C22.0466 14.8599 21.6626 14.4759 21.7466 13.6839H20.0186C19.7546 15.3639 20.6066 16.1559 22.7306 16.1559C24.8906 16.1559 25.8746 15.1239 25.8746 13.5279C25.8746 11.7879 24.7706 11.1399 22.6586 11.1399C22.4066 11.1399 22.1306 11.1519 21.8786 11.1639L22.0106 9.54395H25.3226L25.4546 8.04395H20.5706L20.2826 12.5079Z"
     fill="#fff"
   />
-   
   <path
     d="M32.0051 9.90395H30.2651C30.0611 10.3239 29.9051 10.6719 29.7851 10.9719C29.5571 11.5119 29.4251 11.8839 29.3531 12.0879H29.3291C29.2331 11.7999 29.0891 11.4399 28.8131 10.8879L28.2371 9.80795L26.4371 9.91595L27.9851 12.8919L26.3051 15.9999H28.0571C28.2971 15.5319 28.4291 15.2199 28.6331 14.8119C28.8851 14.2479 29.0771 13.8039 29.1251 13.6239H29.1611C29.2331 13.8639 29.3531 14.1999 29.7371 14.9319L30.3731 16.1079L32.1731 15.9999L30.5051 12.7959L32.0051 9.90395Z"
     fill="#fff"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -5944,14 +5766,12 @@ exports[`Icon props should render type 'speed-175' with prop color 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="#fff"
@@ -5965,6 +5785,7 @@ exports[`Icon props should render type 'speed-175' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 37 24"
   width="30.8"
@@ -5974,27 +5795,22 @@ exports[`Icon props should render type 'speed-175' with prop size 1`] = `
     d="M5.23306 14.6199V15.9999H10.5251V14.6199H8.86906V8.04395H7.38106L5.18506 8.94395L5.59306 10.1559L7.15306 9.51995V14.6199H5.23306Z"
     fill="currentColor"
   />
-   
   <path
     d="M13.323 15.9999V14.1759H11.559V15.9999H13.323Z"
     fill="currentColor"
   />
-   
   <path
     d="M19.589 8.04395H14.033V9.54395H17.789C16.493 11.1519 15.437 13.4799 14.789 15.9999H16.829C17.381 13.4439 18.317 11.1279 19.589 9.37595V8.04395Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.2826 12.5079C20.5706 12.4599 21.4226 12.4239 21.9746 12.4239C23.4146 12.4239 24.1106 12.7359 24.1106 13.6599C24.1106 14.4519 23.6666 14.8599 22.8746 14.8599C22.0466 14.8599 21.6626 14.4759 21.7466 13.6839H20.0186C19.7546 15.3639 20.6066 16.1559 22.7306 16.1559C24.8906 16.1559 25.8746 15.1239 25.8746 13.5279C25.8746 11.7879 24.7706 11.1399 22.6586 11.1399C22.4066 11.1399 22.1306 11.1519 21.8786 11.1639L22.0106 9.54395H25.3226L25.4546 8.04395H20.5706L20.2826 12.5079Z"
     fill="currentColor"
   />
-   
   <path
     d="M32.0051 9.90395H30.2651C30.0611 10.3239 29.9051 10.6719 29.7851 10.9719C29.5571 11.5119 29.4251 11.8839 29.3531 12.0879H29.3291C29.2331 11.7999 29.0891 11.4399 28.8131 10.8879L28.2371 9.80795L26.4371 9.91595L27.9851 12.8919L26.3051 15.9999H28.0571C28.2971 15.5319 28.4291 15.2199 28.6331 14.8119C28.8851 14.2479 29.0771 13.8039 29.1251 13.6239H29.1611C29.2331 13.8639 29.3531 14.1999 29.7371 14.9319L30.3731 16.1079L32.1731 15.9999L30.5051 12.7959L32.0051 9.90395Z"
     fill="currentColor"
   />
-   
   <mask
     fill="transparent"
     id="path-2-inside-1"
@@ -6005,14 +5821,12 @@ exports[`Icon props should render type 'speed-175' with prop size 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -6026,6 +5840,7 @@ exports[`Icon props should render type 'speed-200' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -6035,22 +5850,18 @@ exports[`Icon props should render type 'speed-200' with prop background 1`] = `
     d="M7.17188 15.9999H12.9079L13.0399 14.4999H9.13987C10.0159 12.7479 12.8959 12.4599 12.8959 10.1199C12.8959 8.73994 12.1039 7.88794 10.2079 7.88794C8.21587 7.88794 7.15988 8.90794 7.31588 10.7079H9.01988C8.94787 9.77194 9.31988 9.24394 10.0999 9.24394C10.8679 9.24394 11.1319 9.68794 11.1319 10.2759C11.1319 11.8839 8.49188 12.0399 7.17188 14.6319V15.9999Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.0255 15.9999V14.1759H14.2615V15.9999H16.0255Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.4365 16.1559C22.3925 16.1559 23.7005 14.9679 23.7005 11.9079C23.7005 8.97994 22.6205 7.88794 20.5685 7.88794C18.6005 7.88794 17.2925 9.06394 17.2925 12.1239C17.2925 15.0519 18.3845 16.1559 20.4365 16.1559ZM20.4845 14.8239C19.5605 14.8239 19.0685 14.2479 19.0685 12.0399C19.0685 9.85594 19.5965 9.21994 20.5085 9.21994C21.4325 9.21994 21.9365 9.79594 21.9365 11.9919C21.9365 14.1999 21.3965 14.8239 20.4845 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.9821 9.90394H28.2421C28.0381 10.3239 27.8821 10.6719 27.7621 10.9719C27.5341 11.5119 27.4021 11.8839 27.3301 12.0879H27.3061C27.2101 11.7999 27.0661 11.4399 26.7901 10.8879L26.2141 9.80794L24.4141 9.91594L25.9621 12.8919L24.2821 15.9999H26.0341C26.2741 15.5319 26.4061 15.2199 26.6101 14.8119C26.8621 14.2479 27.0541 13.8039 27.1021 13.6239H27.1381C27.2101 13.8639 27.3301 14.1999 27.7141 14.9319L28.3501 16.1079L30.1501 15.9999L28.4821 12.7959L29.9821 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="white"
     id="path-2-inside-1"
@@ -6061,14 +5872,12 @@ exports[`Icon props should render type 'speed-200' with prop background 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -6082,6 +5891,7 @@ exports[`Icon props should render type 'speed-200' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 37 24"
   width="36.96"
@@ -6091,22 +5901,18 @@ exports[`Icon props should render type 'speed-200' with prop color 1`] = `
     d="M7.17188 15.9999H12.9079L13.0399 14.4999H9.13987C10.0159 12.7479 12.8959 12.4599 12.8959 10.1199C12.8959 8.73994 12.1039 7.88794 10.2079 7.88794C8.21587 7.88794 7.15988 8.90794 7.31588 10.7079H9.01988C8.94787 9.77194 9.31988 9.24394 10.0999 9.24394C10.8679 9.24394 11.1319 9.68794 11.1319 10.2759C11.1319 11.8839 8.49188 12.0399 7.17188 14.6319V15.9999Z"
     fill="#fff"
   />
-   
   <path
     d="M16.0255 15.9999V14.1759H14.2615V15.9999H16.0255Z"
     fill="#fff"
   />
-   
   <path
     d="M20.4365 16.1559C22.3925 16.1559 23.7005 14.9679 23.7005 11.9079C23.7005 8.97994 22.6205 7.88794 20.5685 7.88794C18.6005 7.88794 17.2925 9.06394 17.2925 12.1239C17.2925 15.0519 18.3845 16.1559 20.4365 16.1559ZM20.4845 14.8239C19.5605 14.8239 19.0685 14.2479 19.0685 12.0399C19.0685 9.85594 19.5965 9.21994 20.5085 9.21994C21.4325 9.21994 21.9365 9.79594 21.9365 11.9919C21.9365 14.1999 21.3965 14.8239 20.4845 14.8239Z"
     fill="#fff"
   />
-   
   <path
     d="M29.9821 9.90394H28.2421C28.0381 10.3239 27.8821 10.6719 27.7621 10.9719C27.5341 11.5119 27.4021 11.8839 27.3301 12.0879H27.3061C27.2101 11.7999 27.0661 11.4399 26.7901 10.8879L26.2141 9.80794L24.4141 9.91594L25.9621 12.8919L24.2821 15.9999H26.0341C26.2741 15.5319 26.4061 15.2199 26.6101 14.8119C26.8621 14.2479 27.0541 13.8039 27.1021 13.6239H27.1381C27.2101 13.8639 27.3301 14.1999 27.7141 14.9319L28.3501 16.1079L30.1501 15.9999L28.4821 12.7959L29.9821 9.90394Z"
     fill="#fff"
   />
-   
   <mask
     fill="white"
     id="path-2-inside-1"
@@ -6117,14 +5923,12 @@ exports[`Icon props should render type 'speed-200' with prop color 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="#fff"
@@ -6138,6 +5942,7 @@ exports[`Icon props should render type 'speed-200' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 37 24"
   width="30.8"
@@ -6147,22 +5952,18 @@ exports[`Icon props should render type 'speed-200' with prop size 1`] = `
     d="M7.17188 15.9999H12.9079L13.0399 14.4999H9.13987C10.0159 12.7479 12.8959 12.4599 12.8959 10.1199C12.8959 8.73994 12.1039 7.88794 10.2079 7.88794C8.21587 7.88794 7.15988 8.90794 7.31588 10.7079H9.01988C8.94787 9.77194 9.31988 9.24394 10.0999 9.24394C10.8679 9.24394 11.1319 9.68794 11.1319 10.2759C11.1319 11.8839 8.49188 12.0399 7.17188 14.6319V15.9999Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.0255 15.9999V14.1759H14.2615V15.9999H16.0255Z"
     fill="currentColor"
   />
-   
   <path
     d="M20.4365 16.1559C22.3925 16.1559 23.7005 14.9679 23.7005 11.9079C23.7005 8.97994 22.6205 7.88794 20.5685 7.88794C18.6005 7.88794 17.2925 9.06394 17.2925 12.1239C17.2925 15.0519 18.3845 16.1559 20.4365 16.1559ZM20.4845 14.8239C19.5605 14.8239 19.0685 14.2479 19.0685 12.0399C19.0685 9.85594 19.5965 9.21994 20.5085 9.21994C21.4325 9.21994 21.9365 9.79594 21.9365 11.9919C21.9365 14.1999 21.3965 14.8239 20.4845 14.8239Z"
     fill="currentColor"
   />
-   
   <path
     d="M29.9821 9.90394H28.2421C28.0381 10.3239 27.8821 10.6719 27.7621 10.9719C27.5341 11.5119 27.4021 11.8839 27.3301 12.0879H27.3061C27.2101 11.7999 27.0661 11.4399 26.7901 10.8879L26.2141 9.80794L24.4141 9.91594L25.9621 12.8919L24.2821 15.9999H26.0341C26.2741 15.5319 26.4061 15.2199 26.6101 14.8119C26.8621 14.2479 27.0541 13.8039 27.1021 13.6239H27.1381C27.2101 13.8639 27.3301 14.1999 27.7141 14.9319L28.3501 16.1079L30.1501 15.9999L28.4821 12.7959L29.9821 9.90394Z"
     fill="currentColor"
   />
-   
   <mask
     fill="white"
     id="path-2-inside-1"
@@ -6173,14 +5974,12 @@ exports[`Icon props should render type 'speed-200' with prop size 1`] = `
       fill-rule="evenodd"
     />
   </mask>
-   
   <path
     clip-rule="evenodd"
     d="M25 1.3H12C6.09055 1.3 1.3 6.09055 1.3 12C1.3 17.9094 6.09055 22.7 12 22.7H25C30.9094 22.7 35.7 17.9094 35.7 12C35.7 6.09055 30.9094 1.3 25 1.3ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24H25C31.6274 24 37 18.6274 37 12C37 5.37258 31.6274 0 25 0H12Z"
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     d="M12 2.6H25V0H12V2.6ZM2.6 12C2.6 6.80852 6.80852 2.6 12 2.6V0C5.37258 0 0 5.37258 0 12H2.6ZM12 21.4C6.80852 21.4 2.6 17.1915 2.6 12H0C0 18.6274 5.37258 24 12 24V21.4ZM25 21.4H12V24H25V21.4ZM34.4 12C34.4 17.1915 30.1915 21.4 25 21.4V24C31.6274 24 37 18.6274 37 12H34.4ZM25 2.6C30.1915 2.6 34.4 6.80852 34.4 12H37C37 5.37258 31.6274 0 25 0V2.6ZM1.3 12C1.3 6.09055 6.09055 1.3 12 1.3V-1.3C4.65461 -1.3 -1.3 4.65461 -1.3 12H1.3ZM12 22.7C6.09055 22.7 1.3 17.9094 1.3 12H-1.3C-1.3 19.3454 4.65461 25.3 12 25.3V22.7ZM25 22.7H12V25.3H25V22.7ZM35.7 12C35.7 17.9094 30.9094 22.7 25 22.7V25.3C32.3454 25.3 38.3 19.3454 38.3 12H35.7ZM25 1.3C30.9094 1.3 35.7 6.09055 35.7 12H38.3C38.3 4.65461 32.3454 -1.3 25 -1.3V1.3ZM12 1.3H25V-1.3H12V1.3Z"
     fill="currentColor"
@@ -6194,6 +5993,7 @@ exports[`Icon props should render type 'subscribe' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   color="currentColor"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 102 128"
@@ -6226,6 +6026,7 @@ exports[`Icon props should render type 'subscribe' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   color="#fff"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 102 128"
@@ -6258,6 +6059,7 @@ exports[`Icon props should render type 'subscribe' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   color="currentColor"
+  filled="false"
   height="20"
   version="1.1"
   viewBox="0 0 102 128"
@@ -6290,6 +6092,7 @@ exports[`Icon props should render type 'text-file' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -6300,23 +6103,19 @@ exports[`Icon props should render type 'text-file' with prop background 1`] = `
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M10.076 12.6998L10.133 12H7V12.6998H8.10129V16H9.00638V12.6998H10.076Z"
     fill="currentColor"
   />
-   
   <path
     d="M12.7652 12C12.6913 12.1586 12.0374 13.4842 12.0374 13.4842L11.3032 12.0181L10.2841 12.0181L11.3411 13.9548C10.9677 14.5641 10.531 15.3424 10.1892 16H11.1449C11.2104 15.856 11.9741 14.3107 11.9741 14.3107L12.8222 16L13.8222 15.9819L12.664 13.8643C12.9994 13.3092 13.4171 12.5732 13.7146 12H12.7652Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.943 12.6998L17 12H13.867V12.6998H14.9683V16H15.8734V12.6998H16.943Z"
     fill="currentColor"
@@ -6329,6 +6128,7 @@ exports[`Icon props should render type 'text-file' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -6339,23 +6139,19 @@ exports[`Icon props should render type 'text-file' with prop color 1`] = `
     stroke="#fff"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="#fff"
     stroke-width="1.1"
   />
-   
   <path
     d="M10.076 12.6998L10.133 12H7V12.6998H8.10129V16H9.00638V12.6998H10.076Z"
     fill="#fff"
   />
-   
   <path
     d="M12.7652 12C12.6913 12.1586 12.0374 13.4842 12.0374 13.4842L11.3032 12.0181L10.2841 12.0181L11.3411 13.9548C10.9677 14.5641 10.531 15.3424 10.1892 16H11.1449C11.2104 15.856 11.9741 14.3107 11.9741 14.3107L12.8222 16L13.8222 15.9819L12.664 13.8643C12.9994 13.3092 13.4171 12.5732 13.7146 12H12.7652Z"
     fill="#fff"
   />
-   
   <path
     d="M16.943 12.6998L17 12H13.867V12.6998H14.9683V16H15.8734V12.6998H16.943Z"
     fill="#fff"
@@ -6368,6 +6164,7 @@ exports[`Icon props should render type 'text-file' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -6378,23 +6175,19 @@ exports[`Icon props should render type 'text-file' with prop size 1`] = `
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M10.076 12.6998L10.133 12H7V12.6998H8.10129V16H9.00638V12.6998H10.076Z"
     fill="currentColor"
   />
-   
   <path
     d="M12.7652 12C12.6913 12.1586 12.0374 13.4842 12.0374 13.4842L11.3032 12.0181L10.2841 12.0181L11.3411 13.9548C10.9677 14.5641 10.531 15.3424 10.1892 16H11.1449C11.2104 15.856 11.9741 14.3107 11.9741 14.3107L12.8222 16L13.8222 15.9819L12.664 13.8643C12.9994 13.3092 13.4171 12.5732 13.7146 12H12.7652Z"
     fill="currentColor"
   />
-   
   <path
     d="M16.943 12.6998L17 12H13.867V12.6998H14.9683V16H15.8734V12.6998H16.943Z"
     fill="currentColor"
@@ -6407,6 +6200,7 @@ exports[`Icon props should render type 'transcripts' with prop background 1`] = 
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -6421,7 +6215,6 @@ exports[`Icon props should render type 'transcripts' with prop background 1`] = 
     y1="13.45"
     y2="13.45"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -6431,7 +6224,6 @@ exports[`Icon props should render type 'transcripts' with prop background 1`] = 
     y1="16.45"
     y2="16.45"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -6441,7 +6233,6 @@ exports[`Icon props should render type 'transcripts' with prop background 1`] = 
     y1="10.45"
     y2="10.45"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -6451,13 +6242,11 @@ exports[`Icon props should render type 'transcripts' with prop background 1`] = 
     y1="7.45002"
     y2="7.45002"
   />
-   
   <path
     d="M5.55 3.55H14.7722L18.45 7.22782V19.45H5.55V3.55Z"
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="currentColor"
@@ -6471,6 +6260,7 @@ exports[`Icon props should render type 'transcripts' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -6485,7 +6275,6 @@ exports[`Icon props should render type 'transcripts' with prop color 1`] = `
     y1="13.45"
     y2="13.45"
   />
-   
   <line
     stroke="#fff"
     stroke-linecap="round"
@@ -6495,7 +6284,6 @@ exports[`Icon props should render type 'transcripts' with prop color 1`] = `
     y1="16.45"
     y2="16.45"
   />
-   
   <line
     stroke="#fff"
     stroke-linecap="round"
@@ -6505,7 +6293,6 @@ exports[`Icon props should render type 'transcripts' with prop color 1`] = `
     y1="10.45"
     y2="10.45"
   />
-   
   <line
     stroke="#fff"
     stroke-linecap="round"
@@ -6515,13 +6302,11 @@ exports[`Icon props should render type 'transcripts' with prop color 1`] = `
     y1="7.45002"
     y2="7.45002"
   />
-   
   <path
     d="M5.55 3.55H14.7722L18.45 7.22782V19.45H5.55V3.55Z"
     stroke="#fff"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="#fff"
@@ -6535,6 +6320,7 @@ exports[`Icon props should render type 'transcripts' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -6549,7 +6335,6 @@ exports[`Icon props should render type 'transcripts' with prop size 1`] = `
     y1="13.45"
     y2="13.45"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -6559,7 +6344,6 @@ exports[`Icon props should render type 'transcripts' with prop size 1`] = `
     y1="16.45"
     y2="16.45"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -6569,7 +6353,6 @@ exports[`Icon props should render type 'transcripts' with prop size 1`] = `
     y1="10.45"
     y2="10.45"
   />
-   
   <line
     stroke="currentColor"
     stroke-linecap="round"
@@ -6579,13 +6362,11 @@ exports[`Icon props should render type 'transcripts' with prop size 1`] = `
     y1="7.45002"
     y2="7.45002"
   />
-   
   <path
     d="M5.55 3.55H14.7722L18.45 7.22782V19.45H5.55V3.55Z"
     stroke="currentColor"
     stroke-width="1.1"
   />
-   
   <path
     d="M14.5 3.5V6.75C14.5 7.16421 14.8358 7.5 15.25 7.5H18.5"
     stroke="currentColor"
@@ -6656,6 +6437,7 @@ exports[`Icon props should render type 'video-file' with prop background 1`] = `
   aria-hidden="true"
   background="#fff"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -6669,7 +6451,6 @@ exports[`Icon props should render type 'video-file' with prop background 1`] = `
     x="2.5"
     y="4.5"
   />
-   
   <path
     d="M9.55 15.1101V8.88992L15.7702 12L9.55 15.1101Z"
     stroke="currentColor"
@@ -6684,6 +6465,7 @@ exports[`Icon props should render type 'video-file' with prop color 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="24"
   viewBox="0 0 24 24"
   width="24"
@@ -6697,7 +6479,6 @@ exports[`Icon props should render type 'video-file' with prop color 1`] = `
     x="2.5"
     y="4.5"
   />
-   
   <path
     d="M9.55 15.1101V8.88992L15.7702 12L9.55 15.1101Z"
     stroke="#fff"
@@ -6712,6 +6493,7 @@ exports[`Icon props should render type 'video-file' with prop size 1`] = `
   aria-hidden="true"
   background="currentColor"
   fill="none"
+  filled="false"
   height="20"
   viewBox="0 0 24 24"
   width="20"
@@ -6725,7 +6507,6 @@ exports[`Icon props should render type 'video-file' with prop size 1`] = `
     x="2.5"
     y="4.5"
   />
-   
   <path
     d="M9.55 15.1101V8.88992L15.7702 12L9.55 15.1101Z"
     stroke="currentColor"
@@ -6749,7 +6530,6 @@ exports[`Icon props should render type 'whats-app' with prop background 1`] = `
     d="M3.26527 13.8373L3.26527 13.8352C3.24102 7.94305 8.04255 3.18341 13.9699 3.18341C19.8977 3.18341 24.7 7.94384 24.7 13.8119C24.7 19.6799 19.8977 24.4403 13.9699 24.4403C12.1855 24.4403 10.4888 23.9979 8.98486 23.2173C8.72894 23.0845 8.4249 23.0523 8.13965 23.1446L3.28614 24.716C3.22089 24.7372 3.15948 24.6748 3.18158 24.6099L4.75156 19.9981C4.85552 19.6927 4.81541 19.3649 4.66172 19.0965C3.77301 17.5444 3.26527 15.7351 3.26527 13.8373Z"
     stroke="currentColor"
   />
-   
   <path
     d="M19.57 16.1461C19.4976 16.0496 19.3289 15.9773 19.0636 15.8326C18.7984 15.7121 17.5205 15.0852 17.2794 14.9887C17.0383 14.8923 16.8695 14.8682 16.7008 15.1093C16.532 15.3745 16.0256 15.9532 15.881 16.1219C15.7363 16.2907 15.5675 16.3148 15.3264 16.1943C15.0612 16.0737 14.2173 15.7844 13.2288 14.9164C12.4572 14.2413 11.9268 13.3733 11.7821 13.1322C11.6374 12.8669 11.758 12.7223 11.9026 12.6017C12.0232 12.4812 12.1679 12.2883 12.2884 12.1436C12.409 11.9989 12.4572 11.8784 12.5536 11.7096C12.6501 11.5408 12.6019 11.3962 12.5295 11.2515C12.4572 11.1309 11.9509 9.85306 11.7339 9.32261C11.5169 8.81628 11.2999 8.88861 11.1552 8.88861C11.0105 8.88861 10.8176 8.8645 10.6489 8.8645C10.4801 8.8645 10.1908 8.93684 9.94964 9.17795C9.70853 9.44317 9.03342 10.0701 9.03342 11.3479C9.03342 12.6258 9.97375 13.8555 10.0943 14.0243C10.2149 14.1931 11.9026 16.8935 14.5549 17.9303C17.2071 18.9671 17.2071 18.6295 17.6893 18.5813C18.1715 18.5331 19.2324 17.9544 19.4494 17.3516C19.6423 16.7729 19.6423 16.2666 19.57 16.1461Z"
     fill="currentColor"
@@ -6771,7 +6551,6 @@ exports[`Icon props should render type 'whats-app' with prop color 1`] = `
     d="M3.26527 13.8373L3.26527 13.8352C3.24102 7.94305 8.04255 3.18341 13.9699 3.18341C19.8977 3.18341 24.7 7.94384 24.7 13.8119C24.7 19.6799 19.8977 24.4403 13.9699 24.4403C12.1855 24.4403 10.4888 23.9979 8.98486 23.2173C8.72894 23.0845 8.4249 23.0523 8.13965 23.1446L3.28614 24.716C3.22089 24.7372 3.15948 24.6748 3.18158 24.6099L4.75156 19.9981C4.85552 19.6927 4.81541 19.3649 4.66172 19.0965C3.77301 17.5444 3.26527 15.7351 3.26527 13.8373Z"
     stroke="#fff"
   />
-   
   <path
     d="M19.57 16.1461C19.4976 16.0496 19.3289 15.9773 19.0636 15.8326C18.7984 15.7121 17.5205 15.0852 17.2794 14.9887C17.0383 14.8923 16.8695 14.8682 16.7008 15.1093C16.532 15.3745 16.0256 15.9532 15.881 16.1219C15.7363 16.2907 15.5675 16.3148 15.3264 16.1943C15.0612 16.0737 14.2173 15.7844 13.2288 14.9164C12.4572 14.2413 11.9268 13.3733 11.7821 13.1322C11.6374 12.8669 11.758 12.7223 11.9026 12.6017C12.0232 12.4812 12.1679 12.2883 12.2884 12.1436C12.409 11.9989 12.4572 11.8784 12.5536 11.7096C12.6501 11.5408 12.6019 11.3962 12.5295 11.2515C12.4572 11.1309 11.9509 9.85306 11.7339 9.32261C11.5169 8.81628 11.2999 8.88861 11.1552 8.88861C11.0105 8.88861 10.8176 8.8645 10.6489 8.8645C10.4801 8.8645 10.1908 8.93684 9.94964 9.17795C9.70853 9.44317 9.03342 10.0701 9.03342 11.3479C9.03342 12.6258 9.97375 13.8555 10.0943 14.0243C10.2149 14.1931 11.9026 16.8935 14.5549 17.9303C17.2071 18.9671 17.2071 18.6295 17.6893 18.5813C18.1715 18.5331 19.2324 17.9544 19.4494 17.3516C19.6423 16.7729 19.6423 16.2666 19.57 16.1461Z"
     fill="#fff"
@@ -6793,7 +6572,6 @@ exports[`Icon props should render type 'whats-app' with prop size 1`] = `
     d="M3.26527 13.8373L3.26527 13.8352C3.24102 7.94305 8.04255 3.18341 13.9699 3.18341C19.8977 3.18341 24.7 7.94384 24.7 13.8119C24.7 19.6799 19.8977 24.4403 13.9699 24.4403C12.1855 24.4403 10.4888 23.9979 8.98486 23.2173C8.72894 23.0845 8.4249 23.0523 8.13965 23.1446L3.28614 24.716C3.22089 24.7372 3.15948 24.6748 3.18158 24.6099L4.75156 19.9981C4.85552 19.6927 4.81541 19.3649 4.66172 19.0965C3.77301 17.5444 3.26527 15.7351 3.26527 13.8373Z"
     stroke="currentColor"
   />
-   
   <path
     d="M19.57 16.1461C19.4976 16.0496 19.3289 15.9773 19.0636 15.8326C18.7984 15.7121 17.5205 15.0852 17.2794 14.9887C17.0383 14.8923 16.8695 14.8682 16.7008 15.1093C16.532 15.3745 16.0256 15.9532 15.881 16.1219C15.7363 16.2907 15.5675 16.3148 15.3264 16.1943C15.0612 16.0737 14.2173 15.7844 13.2288 14.9164C12.4572 14.2413 11.9268 13.3733 11.7821 13.1322C11.6374 12.8669 11.758 12.7223 11.9026 12.6017C12.0232 12.4812 12.1679 12.2883 12.2884 12.1436C12.409 11.9989 12.4572 11.8784 12.5536 11.7096C12.6501 11.5408 12.6019 11.3962 12.5295 11.2515C12.4572 11.1309 11.9509 9.85306 11.7339 9.32261C11.5169 8.81628 11.2999 8.88861 11.1552 8.88861C11.0105 8.88861 10.8176 8.8645 10.6489 8.8645C10.4801 8.8645 10.1908 8.93684 9.94964 9.17795C9.70853 9.44317 9.03342 10.0701 9.03342 11.3479C9.03342 12.6258 9.97375 13.8555 10.0943 14.0243C10.2149 14.1931 11.9026 16.8935 14.5549 17.9303C17.2071 18.9671 17.2071 18.6295 17.6893 18.5813C18.1715 18.5331 19.2324 17.9544 19.4494 17.3516C19.6423 16.7729 19.6423 16.2666 19.57 16.1461Z"
     fill="currentColor"
@@ -6817,7 +6595,6 @@ exports[`Icon props should render type 'xing' with prop background 1`] = `
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     clip-rule="evenodd"
     d="M18.6718 4.10431C18.8418 3.79855 19.047 3.5 19.5202 3.5H22.7217C22.9125 3.5 23.0623 3.57212 23.143 3.70264C23.2265 3.83821 23.2244 4.01705 23.1365 4.19228L16.12 16.6136C16.1157 16.6201 16.1157 16.628 16.12 16.6345L20.5876 24.807C20.6762 24.9829 20.6784 25.1618 20.5941 25.2974C20.5134 25.4279 20.3643 25.5 20.1735 25.5H17.008C16.5226 25.5 16.2799 25.1769 16.1229 24.8957C16.1229 24.8957 11.6315 16.6461 11.62 16.6244C11.8447 16.2264 18.6718 4.10431 18.6718 4.10431C19.1645 4.38179 19.4039 4.51659 19.5202 4.58214C19.5295 4.5874 19.5381 4.59226 19.5459 4.59666C19.5459 4.59666 19.5459 4.59667 19.5459 4.59666L18.6718 4.10431ZM19.5519 4.6L19.6302 4.64411L19.6332 4.63878C19.6412 4.62443 19.6485 4.61157 19.6551 4.6H21.6428L15.1675 16.0633C14.9688 16.4062 14.9665 16.8286 15.1608 17.1732L19.1115 24.4H17.1068C17.1005 24.3895 17.0935 24.3776 17.0858 24.3639L13.2946 17.4C13.1314 17.1002 12.9899 16.8403 12.8774 16.6337C13.4702 15.5814 14.8382 13.1526 16.1886 10.7549L19.6302 4.64411C19.6303 4.64407 19.6303 4.64417 19.5519 4.6Z"
@@ -6843,7 +6620,6 @@ exports[`Icon props should render type 'xing' with prop color 1`] = `
     fill="#fff"
     fill-rule="evenodd"
   />
-   
   <path
     clip-rule="evenodd"
     d="M18.6718 4.10431C18.8418 3.79855 19.047 3.5 19.5202 3.5H22.7217C22.9125 3.5 23.0623 3.57212 23.143 3.70264C23.2265 3.83821 23.2244 4.01705 23.1365 4.19228L16.12 16.6136C16.1157 16.6201 16.1157 16.628 16.12 16.6345L20.5876 24.807C20.6762 24.9829 20.6784 25.1618 20.5941 25.2974C20.5134 25.4279 20.3643 25.5 20.1735 25.5H17.008C16.5226 25.5 16.2799 25.1769 16.1229 24.8957C16.1229 24.8957 11.6315 16.6461 11.62 16.6244C11.8447 16.2264 18.6718 4.10431 18.6718 4.10431C19.1645 4.38179 19.4039 4.51659 19.5202 4.58214C19.5295 4.5874 19.5381 4.59226 19.5459 4.59666C19.5459 4.59666 19.5459 4.59667 19.5459 4.59666L18.6718 4.10431ZM19.5519 4.6L19.6302 4.64411L19.6332 4.63878C19.6412 4.62443 19.6485 4.61157 19.6551 4.6H21.6428L15.1675 16.0633C14.9688 16.4062 14.9665 16.8286 15.1608 17.1732L19.1115 24.4H17.1068C17.1005 24.3895 17.0935 24.3776 17.0858 24.3639L13.2946 17.4C13.1314 17.1002 12.9899 16.8403 12.8774 16.6337C13.4702 15.5814 14.8382 13.1526 16.1886 10.7549L19.6302 4.64411C19.6303 4.64407 19.6303 4.64417 19.5519 4.6Z"
@@ -6869,7 +6645,6 @@ exports[`Icon props should render type 'xing' with prop size 1`] = `
     fill="currentColor"
     fill-rule="evenodd"
   />
-   
   <path
     clip-rule="evenodd"
     d="M18.6718 4.10431C18.8418 3.79855 19.047 3.5 19.5202 3.5H22.7217C22.9125 3.5 23.0623 3.57212 23.143 3.70264C23.2265 3.83821 23.2244 4.01705 23.1365 4.19228L16.12 16.6136C16.1157 16.6201 16.1157 16.628 16.12 16.6345L20.5876 24.807C20.6762 24.9829 20.6784 25.1618 20.5941 25.2974C20.5134 25.4279 20.3643 25.5 20.1735 25.5H17.008C16.5226 25.5 16.2799 25.1769 16.1229 24.8957C16.1229 24.8957 11.6315 16.6461 11.62 16.6244C11.8447 16.2264 18.6718 4.10431 18.6718 4.10431C19.1645 4.38179 19.4039 4.51659 19.5202 4.58214C19.5295 4.5874 19.5381 4.59226 19.5459 4.59666C19.5459 4.59666 19.5459 4.59667 19.5459 4.59666L18.6718 4.10431ZM19.5519 4.6L19.6302 4.64411L19.6332 4.63878C19.6412 4.62443 19.6485 4.61157 19.6551 4.6H21.6428L15.1675 16.0633C14.9688 16.4062 14.9665 16.8286 15.1608 17.1732L19.1115 24.4H17.1068C17.1005 24.3895 17.0935 24.3776 17.0858 24.3639L13.2946 17.4C13.1314 17.1002 12.9899 16.8403 12.8774 16.6337C13.4702 15.5814 14.8382 13.1526 16.1886 10.7549L19.6302 4.64411C19.6303 4.64407 19.6303 4.64417 19.5519 4.6Z"

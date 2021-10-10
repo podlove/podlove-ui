@@ -6,20 +6,12 @@ export default {
   component: InputSelect
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { InputSelect },
-  props: Object.keys(argTypes),
-  template: `
-  <input-select
-    :value="value"
-    :disabled="disabled"
-    :color="color"
-    :options="options"
-    :borderColor="borderColor"
-    :background="background"
-    @change="onChange">
-  </input-select>
-  `
+  setup() {
+    return { args }
+  },
+  template: `<input-select v-bind="args"></input-select>`
 })
 
 export const Default = Template.bind({})
@@ -27,9 +19,9 @@ export const Default = Template.bind({})
 Default.args = {
   value: 'value-2',
   disabled: false,
-  borderColor: defaults.background,
-  background: defaults.color,
-  color: defaults.background,
+  borderColor: defaults.highlight,
+  background: defaults.background,
+  color: defaults.color,
   options: ['value-1', 'value-2', 'value-3', 'value-4']
 }
 

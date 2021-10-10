@@ -5,16 +5,13 @@ export default {
   component: ChapterButton
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { ChapterButton },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-  <chapter-button
-    :type="type"
-    :color="color"
-    @click="onClick"
-  >
-  </chapter-button>
+  <chapter-button v-bind="args"></chapter-button>
   `
 })
 
@@ -25,8 +22,11 @@ Default.args = {
 }
 
 Default.argTypes = {
-  onClick: {
-    action: 'clicked'
+  onNext: {
+    action: 'next'
+  },
+  onPrevious: {
+    action: 'previous'
   },
   type: {
     defaultValue: 'next',

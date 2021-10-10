@@ -1,7 +1,6 @@
 <template>
   <component
     :is="`${type}-channel`"
-    class="channel-link"
     :color="color"
     :background="background"
     :subject="subject"
@@ -10,7 +9,7 @@
     :a11y="a11y"
     :filled="filled"
     :poster="poster"
-    @click.native="clickHandler"
+    @click="clickHandler"
   />
 </template>
 
@@ -93,7 +92,9 @@ export default {
         ].includes(val)
     }
   },
-
+  emits: {
+    click: null
+  },
   methods: {
     clickHandler() {
       this.$emit('click', selectChannel(this.type))
@@ -101,7 +102,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import 'boot';
-</style>

@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 // Buttons
 import playButtonStory from './play-button/story'

@@ -40,33 +40,37 @@
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { mapState, injectStore } from 'redux-vuex'
 import { followTranscripts } from '@podlove/player-actions/transcripts'
-import store from 'store'
 
 import select from 'store/selectors'
 
 export default {
-  data: mapState({
-    follow: select.transcripts.follow,
-    style: select.styles.button
-  }),
+  setup() {
+    return {
+      state: mapState({
+        follow: select.transcripts.follow,
+        styles: select.styles.button
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   computed: {
     textColor() {
       if (this.follow) {
-        return this.style.color
+        return this.state.styles.color
       }
 
-      return this.style.background
+      return this.state.styles.background
     },
 
     borderColor() {
-      return this.style.background
+      return this.state.styles.background
     },
 
     backgroundColor() {
       if (this.follow) {
-        return this.style.background
+        return this.state.styles.background
       }
 
       return 'transparent'
@@ -74,7 +78,7 @@ export default {
   },
   methods: {
     toggleFollow() {
-      store.dispatch(followTranscripts(!this.follow))
+      this.dispatch(followTranscripts(!this.state.follow))
     }
   }
 }

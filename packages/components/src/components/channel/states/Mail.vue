@@ -1,20 +1,19 @@
 <template>
-  <a :href="mailLink" class="channel-link">
-    <span class="channel-icon mail" aria-hidden="true" :style="style">
-      <icon type="mail" :color="color" :filled="filled" />
-    </span>
-    <span class="visually-hidden">{{ a11y }}</span>
-  </a>
+  <channel-base v-bind="$props" type="link" :href="mailLink">
+    <icon type="mail" :color="color" :filled="filled" />
+  </channel-base>
 </template>
 
 <script>
-import Icon from '../../icons'
 import { queryParameter } from '@podlove/utils/url'
+import ChannelBase from './Base'
+import Icon from '../../icons'
 
 const LINK = 'mailto:'
 
 export default {
   components: {
+    ChannelBase,
     Icon
   },
   props: {
@@ -26,17 +25,9 @@ export default {
       type: String,
       default: ''
     },
-    a11y: {
-      type: String,
-      default: ''
-    },
     color: {
       type: String,
       default: '#fff'
-    },
-    background: {
-      type: String,
-      default: '#888'
     },
     filled: {
       type: Boolean,
@@ -46,16 +37,7 @@ export default {
   computed: {
     mailLink() {
       return `${LINK}?${queryParameter({ body: this.text, subject: this.subject })}`
-    },
-    style() {
-      return {
-        background: this.background
-      }
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import 'channel';
-</style>

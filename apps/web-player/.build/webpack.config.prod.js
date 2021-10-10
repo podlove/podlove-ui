@@ -1,10 +1,6 @@
-const path = require('path')
-
-const { output, resolve, rules, plugins } = require('@podlove/build')
+const { output, resolve, rules, plugins, projectPaths } = require('@podlove/build')
 
 const pkg = require('../package')
-const playerAssets = path.resolve('./node_modules/@podlove/player/dist')
-const subscribeButtonAssets = path.resolve('./node_modules/@podlove/subscribe-button/dist')
 
 module.exports = {
   mode: 'production',
@@ -21,8 +17,8 @@ module.exports = {
   optimization: { moduleIds: 'named', chunkIds: 'named', splitChunks: { cacheGroups: { default: false } } },
 
   resolve: resolve({
-    '@podlove/player': playerAssets,
-    '@podlove/subscribe-button': subscribeButtonAssets
+    '@podlove/player': projectPaths.apps.player,
+    '@podlove/subscribe-button': projectPaths.apps.subscribeButton
   }),
 
   module: {
@@ -60,11 +56,11 @@ module.exports = {
     }),
     plugins.copy([
       {
-        from: playerAssets,
+        from: projectPaths.apps.player,
         to: `${pkg.version}/player`
       },
       {
-        from: subscribeButtonAssets,
+        from: projectPaths.apps.subscribeButton,
         to: `${pkg.version}/button`
       }
     ]),

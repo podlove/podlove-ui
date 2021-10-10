@@ -30,7 +30,7 @@ describe('<play-button>', () => {
   describe('interface', () => {
     it('should set the label', () => {
       cy.bootstrap('<play-button label="Custom Label"></play-button>').then(() => {
-        cy.select('play-button').find('.label').should('contain', 'Custom Label')
+        cy.select('play-button--label').should('contain', 'Custom Label')
       })
     })
   })

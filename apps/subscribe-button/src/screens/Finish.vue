@@ -9,18 +9,16 @@
         <icon aria-hidden="true" type="close" />
       </button>
     </div>
-    <divider class="mb-6" :color="shadeBase"></divider>
+    <divider class="mb-6" :color="state.shadeBase"></divider>
     <finish-card class="text-base" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'redux-vuex'
+import { injectStore, mapState } from 'redux-vuex'
 import Icon from '@podlove/components/icons'
 import Divider from '@podlove/components/divider'
-import { compose } from 'ramda'
 import FinishCard from 'components/finish-card'
-import store from 'store'
 import * as select from 'store/selectors'
 import * as overlay from '@podlove/button-actions/overlay'
 import * as list from '@podlove/button-actions/list'
@@ -31,16 +29,21 @@ export default {
     Divider,
     FinishCard
   },
-  data: mapState({
-    overlay: select.view.overlay,
-    font: select.theme.fontCi,
-    shadeBase: select.theme.shadeBase,
-    listView: select.view.list,
-    finishView: select.view.finish
-  }),
+  setup() {
+    return {
+      state: mapState({
+        shadeBase: select.theme.shadeBase
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
   methods: {
-    close: compose(store.dispatch, overlay.hide),
-    back: compose(store.dispatch, list.show)
+    close() {
+      this.dispatch(overlay.hide())
+    },
+    back() {
+      this.dispatch(list.show())
+    }
   }
 }
 </script>

@@ -1,4 +1,6 @@
 <script>
+import { h } from 'vue'
+
 export default {
   props: {
     name: {
@@ -34,7 +36,7 @@ export default {
         .join(',')
     }
   },
-  render(h) {
+  render() {
     if (this.src.length === 0) {
       return ''
     }

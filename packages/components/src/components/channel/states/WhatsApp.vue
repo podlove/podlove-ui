@@ -1,20 +1,19 @@
 <template>
-  <a :href="whatsAppLink" class="channel-link" target="_blank">
-    <span :style="style" class="channel-icon xing" aria-hidden="true">
-      <icon type="whats-app" :color="color" :filled="filled" />
-    </span>
-    <span class="visually-hidden">{{ a11y }}</span>
-  </a>
+  <channel-base v-bind="$props" type="link" :href="whatsAppLink">
+    <icon type="whats-app" :color="color" :filled="filled" />
+  </channel-base>
 </template>
 
 <script>
-import Icon from '../../icons'
 import { addQueryParameter } from '@podlove/utils/url'
+import ChannelBase from './Base'
+import Icon from '../../icons'
 
 const LINK = 'whatsapp://send'
 
 export default {
   components: {
+    ChannelBase,
     Icon
   },
   props: {
@@ -22,17 +21,9 @@ export default {
       type: String,
       default: ''
     },
-    a11y: {
-      type: String,
-      default: ''
-    },
     color: {
       type: String,
       default: '#fff'
-    },
-    background: {
-      type: String,
-      default: '#3b5998'
     },
     filled: {
       type: Boolean,
@@ -42,16 +33,7 @@ export default {
   computed: {
     whatsAppLink() {
       return addQueryParameter(LINK, { text: this.text })
-    },
-    style() {
-      return {
-        background: this.background
-      }
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import 'channel';
-</style>

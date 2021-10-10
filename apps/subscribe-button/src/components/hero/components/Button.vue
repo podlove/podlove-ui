@@ -1,7 +1,7 @@
 <template>
   <button :style="filling" @click="onClick">
     <icon type="subscribe" :size="iconSize"></icon>
-    <span v-if="format !== 'square'">{{ $t('SUBSCRIBE') }}</span>
+    <span v-if="state.format !== 'square'">{{ $t('SUBSCRIBE') }}</span>
   </button>
 </template>
 
@@ -13,27 +13,31 @@ import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 
 
 export default {
   components: { Icon },
-  data: mapState({
-    color: selectColor,
-    cover: selectCover,
-    format: selectFormat,
-    size: selectSize,
-    style: selectStyle
-  }),
+  setup() {
+    return {
+      state: mapState({
+        color: selectColor,
+        cover: selectCover,
+        format: selectFormat,
+        size: selectSize,
+        style: selectStyle
+      })
+    }
+  },
   computed: {
     filling() {
       if (this.style === 'outline') {
-        return `border: 2px solid ${this.color}; color: ${this.color};`
-      } else if (this.style === 'frameless') {
-        return `color: ${this.color}; background: none;`
+        return `border: 2px solid ${this.state.color}; color: ${this.state.color};`
+      } else if (this.state.style === 'frameless') {
+        return `color: ${this.state.color}; background: none;`
       } else {
-        return `background: ${this.color};`
+        return `background: ${this.state.color};`
       }
     },
     iconSize() {
       let size = 20
 
-      switch (this.size) {
+      switch (this.state.size) {
         case 'small':
           size = 16
           break

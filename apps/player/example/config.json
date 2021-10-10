@@ -177,10 +177,17 @@
       "mail",
       "link"
     ],
+    "outlet": "/share.html",
     "sharePlaytime": true
   },
   "features": {
     "persistTab": false,
     "persistPlaystate": false
+  },
+  "reference": {
+    "episode": "episode.json",
+    "config": "config.json",
+    "base": "/",
+    "share": "/share.html"
   }
 }

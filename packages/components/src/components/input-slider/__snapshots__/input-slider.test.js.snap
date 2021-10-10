@@ -2,7 +2,7 @@
 
 exports[`InputSlider props should render type 'background' 1`] = `
 <div
-  class="input-slider"
+  class="input-slider w-full relative"
 >
   <input
     max="20"
@@ -10,23 +10,24 @@ exports[`InputSlider props should render type 'background' 1`] = `
     step="0.1"
     type="range"
   />
-   
   <span
-    class="track"
+    class="track block w-full absolute left-0 pointer-events-none"
     style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
-    
+  
+  
   <span
-    class="thumb"
+    class="thumb absolute border border-solid pointer-events-none rounded-lg"
     style="left: -5.2631578947368425%; background-color: rgb(255, 255, 255); border-color: #fff;"
   />
-   
+  
+  
 </div>
 `;
 
 exports[`InputSlider props should render type 'borderColor' 1`] = `
 <div
-  class="input-slider"
+  class="input-slider w-full relative"
 >
   <input
     max="20"
@@ -34,23 +35,24 @@ exports[`InputSlider props should render type 'borderColor' 1`] = `
     step="0.1"
     type="range"
   />
-   
   <span
-    class="track"
+    class="track block w-full absolute left-0 pointer-events-none"
     style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
-    
+  
+  
   <span
-    class="thumb"
+    class="thumb absolute border border-solid pointer-events-none rounded-lg"
     style="left: -5.2631578947368425%; background-color: rgb(43, 138, 198); border-color: #fff;"
   />
-   
+  
+  
 </div>
 `;
 
 exports[`InputSlider props should render type 'pins' 1`] = `
 <div
-  class="input-slider"
+  class="input-slider w-full relative"
 >
   <input
     max="20"
@@ -58,40 +60,36 @@ exports[`InputSlider props should render type 'pins' 1`] = `
     step="0.1"
     type="range"
   />
-   
   <span
-    class="track"
+    class="track block w-full absolute left-0 pointer-events-none"
     style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
-   
+  
   <span
-    class="pin"
+    class="pin block absolute font-medium text-xs text-center"
     style="left: 100%;"
   >
-    
     pin-label-1
-  
   </span>
   <span
-    class="pin"
+    class="pin block absolute font-medium text-xs text-center"
     style="left: 400%;"
   >
-    
     pin-label-2
-  
   </span>
-   
+  
   <span
-    class="thumb"
+    class="thumb absolute border border-solid pointer-events-none rounded-lg"
     style="left: -5.2631578947368425%; background-color: rgb(43, 138, 198); border-color: #fff;"
   />
-   
+  
+  
 </div>
 `;
 
 exports[`InputSlider props should render type 'progressColor' 1`] = `
 <div
-  class="input-slider"
+  class="input-slider w-full relative"
 >
   <input
     max="20"
@@ -99,23 +97,24 @@ exports[`InputSlider props should render type 'progressColor' 1`] = `
     step="0.1"
     type="range"
   />
-   
   <span
-    class="track"
+    class="track block w-full absolute left-0 pointer-events-none"
     style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
-    
+  
+  
   <span
-    class="thumb"
+    class="thumb absolute border border-solid pointer-events-none rounded-lg"
     style="left: -5.2631578947368425%; background-color: rgb(43, 138, 198); border-color: #fff;"
   />
-   
+  
+  
 </div>
 `;
 
 exports[`InputSlider props should render type 'step' 1`] = `
 <div
-  class="input-slider"
+  class="input-slider w-full relative"
 >
   <input
     max="20"
@@ -123,23 +122,24 @@ exports[`InputSlider props should render type 'step' 1`] = `
     step="1"
     type="range"
   />
-   
   <span
-    class="track"
+    class="track block w-full absolute left-0 pointer-events-none"
     style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
-    
+  
+  
   <span
-    class="thumb"
+    class="thumb absolute border border-solid pointer-events-none rounded-lg"
     style="left: -5.2631578947368425%; background-color: rgb(43, 138, 198); border-color: #fff;"
   />
-   
+  
+  
 </div>
 `;
 
 exports[`InputSlider props should render type 'value' 1`] = `
 <div
-  class="input-slider"
+  class="input-slider w-full relative"
 >
   <input
     max="20"
@@ -147,23 +147,24 @@ exports[`InputSlider props should render type 'value' 1`] = `
     step="0.1"
     type="range"
   />
-   
   <span
-    class="track"
+    class="track block w-full absolute left-0 pointer-events-none"
     style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
-    
+  
+  
   <span
-    class="thumb"
+    class="thumb absolute border border-solid pointer-events-none rounded-lg"
     style="left: 10.526315789473685%; background-color: rgb(43, 138, 198); border-color: #fff;"
   />
-   
+  
+  
 </div>
 `;
 
 exports[`InputSlider props should render without props 1`] = `
 <div
-  class="input-slider"
+  class="input-slider w-full relative"
 >
   <input
     max="100"
@@ -171,16 +172,17 @@ exports[`InputSlider props should render without props 1`] = `
     step="0.1"
     type="range"
   />
-   
   <span
-    class="track"
+    class="track block w-full absolute left-0 pointer-events-none"
     style="background-color: rgba(255, 255, 255, 0.30000000000000004);"
   />
-    
+  
+  
   <span
-    class="thumb"
+    class="thumb absolute border border-solid pointer-events-none rounded-lg"
     style="left: 0%; background-color: rgb(43, 138, 198); border-color: #fff;"
   />
-   
+  
+  
 </div>
 `;

@@ -67,7 +67,7 @@ describe('ProgressBar', () => {
     props.forEach(({ prop, value }) => {
       test(`should render '${prop}'`, async () => {
         const wrapper = await mount(ProgressBar, {
-          propsData: {
+          props: {
             [prop]: value,
             duration: 10000
           }
@@ -81,38 +81,47 @@ describe('ProgressBar', () => {
   describe('events', () => {
     test('should emit REQUEST_PLAYTIME on input event', async () => {
       const wrapper = await mount(ProgressBar, {
-        propsData: {
+        props: {
           duration: 10000
         }
       })
 
       wrapper.find('input').trigger('input')
 
-      expect(wrapper.emitted('input')).toEqual([[requestPlaytime('0')]])
+      expect(wrapper.emitted('input')).toEqual({
+        ghost: [[disableGhost()]],
+        time: [[requestPlaytime('0')]]
+      })
     })
 
     test('should emit REQUEST_PLAYTIME on input event', async () => {
       const wrapper = await mount(ProgressBar, {
-        propsData: {
+        props: {
           duration: 10000
         }
       })
 
       wrapper.find('input').trigger('input')
 
-      expect(wrapper.emitted('input')).toEqual([[requestPlaytime('0')]])
+      expect(wrapper.emitted('input')).toEqual({
+        ghost: [[disableGhost()]],
+        time: [[requestPlaytime('0')]]
+      })
     })
 
     test('should emit DISABLE_GHOST on input event', async () => {
       const wrapper = await mount(ProgressBar, {
-        propsData: {
+        props: {
           duration: 10000
         }
       })
 
       wrapper.find('input').trigger('input')
 
-      expect(wrapper.emitted('ghost')).toEqual([[disableGhost()]])
+      expect(wrapper.emitted('ghost')).toEqual({
+        ghost: [[disableGhost()]],
+        time: [[requestPlaytime('0')]]
+      })
     })
   })
 })

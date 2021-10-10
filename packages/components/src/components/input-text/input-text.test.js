@@ -46,7 +46,7 @@ describe('InputText', () => {
     props.forEach(({ prop, value }) => {
       test(`should render type '${prop}'`, async () => {
         const wrapper = await mount(InputText, {
-          propsData: {
+          props: {
             [prop]: value
           }
         })

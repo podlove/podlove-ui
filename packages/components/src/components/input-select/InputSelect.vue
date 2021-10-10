@@ -2,7 +2,7 @@
   <select
     v-if="options"
     :style="style"
-    class="input-select"
+    class="input-select block w-full border rounded-none p-1 h-8"
     :disabled="disabled"
     @change="changeEvent"
   >
@@ -45,6 +45,9 @@ export default {
       default: null
     }
   },
+  emits: {
+    change: null
+  },
   computed: {
     style() {
       return {
@@ -63,20 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'boot';
-@import 'tokens/defaults';
-@import 'tokens/input';
-
 .input-select {
-  display: block;
-  width: 100%;
-
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 0;
-  padding: $padding / 4;
-  height: $input-height;
-
   -webkit-appearance: none;
 }
 </style>

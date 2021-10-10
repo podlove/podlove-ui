@@ -1,51 +1,58 @@
-<template lang="pug">
-timer(
-  v-if='!live || ghostTime',
-  role='timer',
-  :color='color',
-  :time='ghostTime ? ghostTime : time',
-  :aria-label='$t(a11y.key, a11y.attr)',
-  tabindex='0',
-  :remaining='true',
-  data-test='timer-live'
-)
-span(v-else, data-test='label-live') {{ $t('LIVE') }}
+<template>
+  <timer
+    v-if="!live || ghostTime"
+    role="timer"
+    :color="state.color"
+    :time="ghostTime ? ghostTime : time"
+    :aria-label="$t(state.a11y.key, state.a11y.attr)"
+    tabindex="0"
+    :remaining="true"
+    data-test="timer-live"
+  />
+  <span v-else data-test="label-live">{{ $t('LIVE') }}</span>
 </template>
 
 <script>
 import Timer from '@podlove/components/timer'
-
-import { calcHours, calcMinutes, calcSeconds } from '@podlove/utils/time'
+import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
 
 export default {
   components: { Timer },
 
-  data() {
+  setup() {
     return {
-      ...this.mapState({
+      state: mapState({
         playtime: select.playtime,
         livesync: select.livesync,
         ghost: select.ghost.time,
         color: select.theme.contrast,
         a11y: select.accessibility.timerLive
-      }),
+      })
+    }
+  },
+
+  data() {
+    return {
       time: 0
     }
   },
 
   computed: {
     ghostTime() {
-      return this.ghost ? this.livesync - this.ghost : null
+      return this.state.ghost ? this.state.livesync - this.state.ghost : null
     },
     live() {
       return this.time <= 5000
+    },
+    livesync() {
+      return this.state.livesync
     }
   },
 
   watch: {
     livesync() {
-      this.time = this.livesync - this.playtime
+      this.time = this.state.livesync - this.state.playtime
     }
   }
 }

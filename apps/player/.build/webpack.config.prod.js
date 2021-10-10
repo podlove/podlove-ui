@@ -1,7 +1,5 @@
-const path = require('path')
-const { output, resolve, rules, plugins, optimization } = require('@podlove/build')
 const pkg = require('../package.json')
-const componentAssets = path.resolve('./node_modules/@podlove/components/dist')
+const { output, resolve, rules, plugins, projectPaths, optimization } = require('@podlove/build')
 
 const tailwind = require('./tailwind.config')
 
@@ -20,7 +18,7 @@ module.exports = {
 
   resolve: resolve({
     store: './src/store',
-    '@podlove/components': componentAssets
+    '@podlove/components': projectPaths.packages.components
   }),
 
   module: {
@@ -38,7 +36,17 @@ module.exports = {
           ]
         })
       ]),
-      rules.pug()
+      rules.style.config(rules.style.test.scss, [
+        rules.style.loader.minify(),
+        rules.style.loader.css(),
+        rules.style.loader.postcss({
+          plugins: [
+            rules.style.postcss.plugins.clean,
+            rules.style.postcss.plugins.autoprefixer
+          ]
+        }),
+        rules.style.loader.sass()
+      ]),
     ]
   },
 

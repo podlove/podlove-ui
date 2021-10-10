@@ -14,7 +14,7 @@ describe('PlayButton', () => {
   describe('component', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(PlayButton, {
-        propsData: {
+        props: {
           type: 'play'
         }
       })
@@ -44,7 +44,7 @@ describe('PlayButton', () => {
       props.forEach(({ prop, value }) => {
         test(`should render type '${type}' with '${prop}'`, async () => {
           const wrapper = await mount(PlayButton, {
-            propsData: {
+            props: {
               type,
               [prop]: value
             }
@@ -59,35 +59,35 @@ describe('PlayButton', () => {
   describe('events', () => {
     test('should dispatch REQUEST_PLAY on click with type play', async () => {
       const wrapper = await mount(PlayButton, {
-        propsData: {
+        props: {
           type: 'play'
         }
       })
 
       wrapper.trigger('click')
-      expect(wrapper.emitted('click')).toEqual([[requestPlay()]])
+      expect(wrapper.emitted().play).toEqual([[requestPlay()]])
     })
 
     test('should dispatch REQUEST_PAUSE on click with type play', async () => {
       const wrapper = await mount(PlayButton, {
-        propsData: {
+        props: {
           type: 'pause'
         }
       })
 
       wrapper.trigger('click')
-      expect(wrapper.emitted('click')).toEqual([[requestPause()]])
+      expect(wrapper.emitted().pause).toEqual([[requestPause()]])
     })
 
     test('should dispatch REQUEST_PLAY on click with type play', async () => {
       const wrapper = await mount(PlayButton, {
-        propsData: {
+        props: {
           type: 'restart'
         }
       })
 
       wrapper.trigger('click')
-      expect(wrapper.emitted('click')).toEqual([[requestRestart()]])
+      expect(wrapper.emitted().restart).toEqual([[requestRestart()]])
     })
   })
 })

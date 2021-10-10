@@ -1,5 +1,11 @@
 <template>
-  <input class="input-text" :class="{ block }" :disabled="disabled" :value="value" :style="style" />
+  <input
+    class="input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+    :class="{ 'w-full block': block }"
+    :disabled="disabled"
+    :value="value"
+    :style="style"
+  />
 </template>
 
 <script>
@@ -49,24 +55,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import 'boot';
-@import 'tokens/defaults';
-@import 'tokens/input';
-
-.input-text {
-  box-sizing: border-box;
-  display: inline-block;
-  resize: none;
-  padding: $padding / 4;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 2px;
-  height: $input-height;
-
-  &.block {
-    display: block;
-    width: 100%;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

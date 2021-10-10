@@ -3,35 +3,29 @@
 exports[`ChapterProgress props should render 'chapter' 1`] = `
 <div
   aria-hidden="true"
-  class="chapter-progress"
+  class="relative flex items-center px-2 py-0"
 >
   <span
     aria-hidden="true"
-    class="title"
+    class="title pointer-events-none"
   >
-    
     chapter title
-  
   </span>
-   
-  <!---->
-   
+  <!--v-if-->
   <time
-    class="timer timer"
+    class="tabular-nums timer block text-right pointer-events-none pr-2"
     datetime="00:00"
   >
     00:00
   </time>
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
     style="width: 0%; background-color: rgb(43, 138, 198);"
   />
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
 </div>
 `;
@@ -39,34 +33,26 @@ exports[`ChapterProgress props should render 'chapter' 1`] = `
 exports[`ChapterProgress props should render 'playtime' 1`] = `
 <div
   aria-hidden="true"
-  class="chapter-progress"
+  class="relative flex items-center px-2 py-0"
 >
   <span
     aria-hidden="true"
-    class="title"
-  >
-    
-    
-  
-  </span>
-   
-  <!---->
-   
+    class="title pointer-events-none"
+  />
+  <!--v-if-->
   <time
-    class="timer timer"
+    class="tabular-nums timer block text-right pointer-events-none pr-2"
     datetime="00:00"
   >
     00:00
   </time>
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
 </div>
 `;
@@ -74,34 +60,26 @@ exports[`ChapterProgress props should render 'playtime' 1`] = `
 exports[`ChapterProgress props should render 'progressColor' 1`] = `
 <div
   aria-hidden="true"
-  class="chapter-progress"
+  class="relative flex items-center px-2 py-0"
 >
   <span
     aria-hidden="true"
-    class="title"
-  >
-    
-    
-  
-  </span>
-   
-  <!---->
-   
+    class="title pointer-events-none"
+  />
+  <!--v-if-->
   <time
-    class="timer timer"
+    class="tabular-nums timer block text-right pointer-events-none pr-2"
     datetime="00:00"
   >
     00:00
   </time>
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
 </div>
 `;
@@ -109,34 +87,26 @@ exports[`ChapterProgress props should render 'progressColor' 1`] = `
 exports[`ChapterProgress props should render 'showLink' 1`] = `
 <div
   aria-hidden="true"
-  class="chapter-progress"
+  class="relative flex items-center px-2 py-0"
 >
   <span
     aria-hidden="true"
-    class="title"
-  >
-    
-    
-  
-  </span>
-   
-  <!---->
-   
+    class="title pointer-events-none"
+  />
+  <!--v-if-->
   <time
-    class="timer timer"
+    class="tabular-nums timer block text-right pointer-events-none pr-2"
     datetime="00:00"
   >
     00:00
   </time>
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
 </div>
 `;
@@ -144,34 +114,26 @@ exports[`ChapterProgress props should render 'showLink' 1`] = `
 exports[`ChapterProgress props should render without props 1`] = `
 <div
   aria-hidden="true"
-  class="chapter-progress"
+  class="relative flex items-center px-2 py-0"
 >
   <span
     aria-hidden="true"
-    class="title"
-  >
-    
-    
-  
-  </span>
-   
-  <!---->
-   
+    class="title pointer-events-none"
+  />
+  <!--v-if-->
   <time
-    class="timer timer"
+    class="tabular-nums timer block text-right pointer-events-none pr-2"
     datetime="00:00"
   >
     00:00
   </time>
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
-   
   <span
     aria-hidden="true"
-    class="chapter-progress-bar"
+    class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
   />
 </div>
 `;

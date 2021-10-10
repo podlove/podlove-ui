@@ -5,16 +5,13 @@ export default {
   component: StepperButton
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { StepperButton },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-  <stepper-button
-    :type="type"
-    :color="color"
-    @click="onClick"
-  >
-  </stepper-button>
+  <stepper-button v-bind="args"></stepper-button>
   `
 })
 
@@ -25,7 +22,10 @@ Default.args = {
 }
 
 Default.argTypes = {
-  onClick: {
+  onForward: {
+    action: 'clickAction'
+  },
+  onBackwards: {
     action: 'clickAction'
   },
   type: {

@@ -6,25 +6,14 @@ export default {
   component: InputSlider
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { InputSlider },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
   <div style="width: 350px; margin: 20px;">
-    <input-slider
-      :min="min"
-      :max="max"
-      :step="step"
-      :value="value"
-      :pins="pins"
-      :borderColor="borderColor"
-      :background="background"
-      :progressColor="progressColor"
-      @change="onChange"
-      @input="onInput"
-      @dblclick="onDblClick"
-    >
-    </input-slider>
+    <input-slider v-bind="args"></input-slider>
   </div>
   `
 })

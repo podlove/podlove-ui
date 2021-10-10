@@ -1,9 +1,9 @@
 <template>
-  <div v-if="install">
+  <div v-if="state.install">
     <div class="mb-4">
       {{ $t('FINISH_SCREEN.REDIRECT_MESSAGE') }}
       <a
-        :href="link"
+        :href="state.link"
         :aria-label="$t('A11Y.DOWNLOAD_APP')"
         class="underline"
         rel="noopener"
@@ -12,13 +12,13 @@
         {{ $t('FINISH_SCREEN.REDIRECT_LINK') }}
       </a>
     </div>
-    <div v-if="install && os === 'ios'">
+    <div v-if="state.install && state.os === 'ios'">
       <div class="mb-4">
         {{ $t('FINISH_SCREEN.DOWNLOAD_APP') }}
       </div>
       <app-store-icon></app-store-icon>
     </div>
-    <div v-if="install && os === 'android'">
+    <div v-if="state.install && state.os === 'android'">
       <div class="mb-4">
         {{ $t('FINISH_SCREEN.DOWNLOAD_APP') }}
       </div>
@@ -30,26 +30,26 @@
       {{ $t('FINISH_SCREEN.COPY_MESSAGE') }}
     </div>
     <a
-      :href="feed"
+      :href="state.feed"
       class="underline mb-6 block truncate"
       rel="noopener"
       :aria-label="$t('A11Y.FEED')"
       target="_blank"
     >
-      {{ feed }}
+      {{ state.feed }}
     </a>
     <tooltip
       trigger="click"
       :content="$t('MESSAGES.COPIED')"
-      :color="alt"
-      :background="color"
+      :color="state.alt"
+      :background="state.color"
       placement="top"
       @click="copyLink"
     >
       <button
         :title="$t('A11Y.COPY_FEED')"
         class="py-2 px-4 rounded-sm text-sm"
-        :style="{ background: color, color: alt, ...font }"
+        :style="{ background: state.color, color: state.alt, ...state.font }"
       >
         {{ $t('FINISH_SCREEN.COPY_URL') }}
       </button>
@@ -72,19 +72,23 @@ export default {
     AppStoreIcon,
     PlayStoreIcon
   },
-  data: mapState({
-    color: select.theme.brand,
-    alt: select.theme.alt,
-    link: select.finish.link,
-    install: select.finish.install,
-    os: select.finish.os,
-    rss: select.finish.rss,
-    font: select.theme.fontBold,
-    feed: select.feed
-  }),
+  setup() {
+    return {
+      state: mapState({
+        color: select.theme.brand,
+        alt: select.theme.alt,
+        link: select.finish.link,
+        install: select.finish.install,
+        os: select.finish.os,
+        rss: select.finish.rss,
+        font: select.theme.fontBold,
+        feed: select.feed
+      })
+    }
+  },
   methods: {
     copyLink() {
-      copy(this.feed)
+      copy(this.state.feed)
     }
   }
 }

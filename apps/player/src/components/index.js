@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime'
+import { defineAsyncComponent } from 'vue'
 
 import Root from './root'
 import EpisodeTitle from './episode-title'
@@ -21,6 +22,7 @@ import VolumeControl from './volume-control'
 import SpeedControl from './speed-control'
 import Tab from './tab'
 import Divider from './divider'
+import SubscribeButton from './subscribe-button'
 import TabTrigger from './tab-trigger'
 import TabOverflow from './tab-overflow'
 import Error from './error'
@@ -51,15 +53,15 @@ export default {
   Divider,
   Error,
 
-  SubscribeButton: () => import('./subscribe-button'),
-  TabChapters: () => import('./tab-chapters'),
-  TabTranscripts: () => import('./tab-transcripts'),
-  TabFiles: () => import('./tab-files'),
-  TabShare: () => import('./tab-share'),
-  TabPlaylist: () => import('./tab-playlist'),
-  TabShownotes: () => import('./tab-shownotes'),
+  SubscribeButton,
+  TabChapters: defineAsyncComponent(() => import('./tab-chapters')),
+  TabTranscripts: defineAsyncComponent(() => import('./tab-transcripts')),
+  TabFiles: defineAsyncComponent(() => import('./tab-files')),
+  TabShare: defineAsyncComponent(() => import('./tab-share')),
+  TabPlaylist: defineAsyncComponent(() => import('./tab-playlist')),
+  TabShownotes: defineAsyncComponent(() => import('./tab-shownotes')),
 
-  ProgressBarLive: () => import('./progress-bar-live'),
+  ProgressBarLive: defineAsyncComponent(() => import('./progress-bar-live')),
 
-  Icon: () => import('@podlove/components/icons')
+  Icon: defineAsyncComponent(() => import('@podlove/components/icons'))
 }

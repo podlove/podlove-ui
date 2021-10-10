@@ -7,7 +7,7 @@ describe('ChapterButton', () => {
   describe('component', () => {
     test('should be a Vue instance', async () => {
       const wrapper = await mount(ChapterButton, {
-        propsData: {
+        props: {
           type: 'next'
         }
       })
@@ -22,7 +22,7 @@ describe('ChapterButton', () => {
     types.forEach((type) => {
       test(`should render type '${type}' with prop color`, async () => {
         const wrapper = await mount(ChapterButton, {
-          propsData: {
+          props: {
             color: '#fff',
             type
           }
@@ -36,24 +36,24 @@ describe('ChapterButton', () => {
   describe('events', () => {
     test('should emit NEXT_CHAPTER on next click', async () => {
       const wrapper = await mount(ChapterButton, {
-        propsData: {
+        props: {
           type: 'next'
         }
       })
 
       wrapper.trigger('click')
-      expect(wrapper.emitted('click')).toEqual([[nextChapter()]])
+      expect(wrapper.emitted().next).toEqual([[nextChapter()]])
     })
 
     test('should emit PREVIOUS_CHAPTER on next click', async () => {
       const wrapper = await mount(ChapterButton, {
-        propsData: {
+        props: {
           type: 'previous'
         }
       })
 
       wrapper.trigger('click')
-      expect(wrapper.emitted('click')).toEqual([[previousChapter()]])
+      expect(wrapper.emitted().previous).toEqual([[previousChapter()]])
     })
   })
 })

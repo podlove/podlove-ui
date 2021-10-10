@@ -1,5 +1,14 @@
-<template lang="pug">
-  span.truncate(:aria-label="$t(label.key, label.attr)" tabindex="0" v-if="title" data-test="current-chapter" :style="{ color }") {{ title }}
+<template>
+  <span
+    v-if="title"
+    class="truncate"
+    :aria-label="$t(state.label.key, state.label.attr)"
+    tabindex="0"
+    data-test="current-chapter"
+    :style="{ color: state.color }"
+  >
+    {{ title }}
+  </span>
 </template>
 
 <script>
@@ -8,20 +17,24 @@ import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
 
 export default {
-  data: mapState({
-    currentGhostChapter: select.ghost.chapter,
-    currentChapter: select.chapters.current,
-    ghost: select.ghost.time,
-    color: select.theme.contrast,
-    label: select.accessibility.currentChapter
-  }),
+  setup() {
+    return {
+      state: mapState({
+        currentGhostChapter: select.ghost.chapter,
+        currentChapter: select.chapters.current,
+        ghost: select.ghost.time,
+        color: select.theme.contrast,
+        label: select.accessibility.currentChapter
+      })
+    }
+  },
   computed: {
     chapter() {
-      if (this.ghost) {
-        return this.currentGhostChapter
+      if (this.state.ghost) {
+        return this.state.currentGhostChapter
       }
 
-      return this.currentChapter
+      return this.state.currentChapter
     },
     title() {
       return prop('title', this.chapter)

@@ -1,5 +1,5 @@
 <template>
-  <time class="timer" :style="timerStyle" :datetime="toHumanTime(time)">{{
+  <time class="tabular-nums" :style="timerStyle" :datetime="toHumanTime(time)">{{
     `${remaining ? '-' : ''}${toHumanTime(time)}`
   }}</time>
 </template>
@@ -40,12 +40,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import 'boot';
-@import 'font';
-
-// Timer
-.timer {
-  font-variant-numeric: tabular-nums;
-}
-</style>
+<style lang="scss" scoped></style>

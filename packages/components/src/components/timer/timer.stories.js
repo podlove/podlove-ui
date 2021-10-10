@@ -5,15 +5,13 @@ export default {
   component: Timer
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
   components: { Timer },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args }
+  },
   template: `
-  <timer
-      :time="time"
-      :color="color"
-    >
-    </timer>
+  <timer v-bind="args"></timer>
   `
 })
 
@@ -21,5 +19,6 @@ export const Default = Template.bind({})
 
 Default.args = {
   time: 5 * 60 * 1000,
-  color: '#000'
+  color: '#000',
+  remaining: false
 }

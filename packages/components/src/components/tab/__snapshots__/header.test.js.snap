@@ -2,8 +2,9 @@
 
 exports[`TabBody props should render with prop active 1`] = `
 <div
+  aria-hidden="false"
   aria-labelledby="trigger-"
-  class="tab-body active"
+  class="tab-body overflow-hidden active overflow-y-auto"
   role="tabpanel"
   tabindex="0"
 >
@@ -11,9 +12,9 @@ exports[`TabBody props should render with prop active 1`] = `
     class="tab-content"
     style="background-color: rgb(43, 138, 198);"
   >
-    <div>
-      Inner Tab
-    </div>
+    
+    &lt;div&gt;Inner Tab&lt;/div&gt;
+    
   </div>
 </div>
 `;
@@ -22,7 +23,7 @@ exports[`TabBody props should render with prop background 1`] = `
 <div
   aria-hidden="true"
   aria-labelledby="trigger-"
-  class="tab-body"
+  class="tab-body overflow-hidden"
   role="tabpanel"
   tabindex="0"
 >
@@ -30,9 +31,9 @@ exports[`TabBody props should render with prop background 1`] = `
     class="tab-content"
     style="background-color: rgb(255, 255, 255);"
   >
-    <div>
-      Inner Tab
-    </div>
+    
+    &lt;div&gt;Inner Tab&lt;/div&gt;
+    
   </div>
 </div>
 `;
@@ -41,7 +42,7 @@ exports[`TabBody props should render with prop fixed 1`] = `
 <div
   aria-hidden="true"
   aria-labelledby="trigger-"
-  class="tab-body fixed"
+  class="tab-body overflow-hidden fixed-height absolute top-0 left-0 w-full overflow-x-hidden"
   role="tabpanel"
   tabindex="0"
 >
@@ -49,9 +50,9 @@ exports[`TabBody props should render with prop fixed 1`] = `
     class="tab-content"
     style="background-color: rgb(43, 138, 198);"
   >
-    <div>
-      Inner Tab
-    </div>
+    
+    &lt;div&gt;Inner Tab&lt;/div&gt;
+    
   </div>
 </div>
 `;
@@ -60,7 +61,7 @@ exports[`TabBody props should render with prop name 1`] = `
 <div
   aria-hidden="true"
   aria-labelledby="trigger-tab-name"
-  class="tab-body"
+  class="tab-body overflow-hidden"
   role="tabpanel"
   tabindex="0"
 >
@@ -68,9 +69,9 @@ exports[`TabBody props should render with prop name 1`] = `
     class="tab-content"
     style="background-color: rgb(43, 138, 198);"
   >
-    <div>
-      Inner Tab
-    </div>
+    
+    &lt;div&gt;Inner Tab&lt;/div&gt;
+    
   </div>
 </div>
 `;
@@ -79,7 +80,7 @@ exports[`TabBody props should render without props 1`] = `
 <div
   aria-hidden="true"
   aria-labelledby="trigger-"
-  class="tab-body"
+  class="tab-body overflow-hidden"
   role="tabpanel"
   tabindex="0"
 >
@@ -87,9 +88,9 @@ exports[`TabBody props should render without props 1`] = `
     class="tab-content"
     style="background-color: rgb(43, 138, 198);"
   >
-    <div>
-      Inner Tab
-    </div>
+    
+    &lt;div&gt;Inner Tab&lt;/div&gt;
+    
   </div>
 </div>
 `;
