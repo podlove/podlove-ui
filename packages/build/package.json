@@ -34,7 +34,7 @@
     "optimize-css-assets-webpack-plugin": "5.0.8",
     "postcss-clean": "1.2.2",
     "postcss-loader": "6.1.1",
-    "postcss-scss": "4.0.0",
+    "postcss-scss": "4.0.2",
     "postcss-import": "12.0.1",
     "postcss-nested": "4.2.3",
     "pug": "3.0.2",
