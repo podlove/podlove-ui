@@ -22,7 +22,7 @@ import { PodloveWebPlayerStore } from './store';
  *
  * @returns store - Promise returning a redux store
  */
-export default function podlovePlayer(
+export type podlovePlayer = function(
   selector: string | Node,
   episode: string | PodloveWebPlayerEpisode,
   configuration: string | any // TODO configuration type
