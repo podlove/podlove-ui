@@ -3,7 +3,6 @@
   "version": "5.7.3",
   "description": "Embedded version of Podlove Player",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/web-player",
-  "types": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run clean && npm run build:dependencies && webpack serve --progress --config .build/webpack.config.dev.js",
