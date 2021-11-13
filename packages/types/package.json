@@ -1,0 +1,16 @@
+{
+  "name": "@podlove/types",
+  "version": "5.7.3",
+  "description": "TypeScript type definitions for Podlove Framework",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/types",
+  "main": "index.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.6.2"
+  }
+}
