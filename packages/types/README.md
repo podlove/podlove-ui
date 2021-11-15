@@ -7,7 +7,7 @@ TypeScript type definitions for Podlove Framework.
 Install the types with
 
 ```bash
-npm install D --save-dev
+npm install @podlove/types --save-dev
 ```
 
 ## Embedded Web Player
