@@ -1,6 +1,6 @@
 import throttle from '@podlove/utils/throttle'
 import { selectors } from '@podlove/player-state/timepiece'
-import { requestPlaytime } from '@podlove/player-actions/timepiece'
+import { backendPlaytime } from '@podlove/player-actions/timepiece'
 import { restore } from '@podlove/player-actions/lifecycle'
 import { showPauseButton } from '@podlove/player-actions/components'
 import { loadQuantiles } from '@podlove/player-actions/quantiles'
@@ -46,7 +46,7 @@ export const persistPlayer = (config, store) => {
       }
 
       if (existing.playtime) {
-        store.dispatch(requestPlaytime(existing.playtime))
+        store.dispatch(backendPlaytime(existing.playtime))
       }
 
       if (existing.quantiles) {
