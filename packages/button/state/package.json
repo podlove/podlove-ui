@@ -1,6 +1,6 @@
 {
   "name": "@podlove/button-state",
-  "version": "5.7.3",
+  "version": "5.7.4",
   "description": "Reducers for Podlove Button Framework",
   "main": "index.js",
   "keywords": [],
@@ -8,10 +8,10 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/state",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.7.3",
+    "@podlove/button-actions": "^5.7.4",
     "@podlove/button-config": "^5.7.0",
-    "@podlove/clients": "^5.7.3",
-    "@podlove/utils": "^5.7.3",
+    "@podlove/clients": "^5.7.4",
+    "@podlove/utils": "^5.7.4",
     "redux-actions": "2.6.5"
   },
   "scripts": {

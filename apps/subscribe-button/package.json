@@ -1,6 +1,6 @@
 {
   "name": "@podlove/subscribe-button",
-  "version": "5.7.3",
+  "version": "5.7.4",
   "description": "",
   "main": "subscribe-button.js",
   "scripts": {
@@ -14,11 +14,11 @@
   "author": "Letty",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.7.3",
-    "@podlove/button-state": "^5.7.3",
-    "@podlove/clients": "^5.7.3",
-    "@podlove/components": "^5.7.3",
-    "@podlove/utils": "^5.7.3",
+    "@podlove/button-actions": "^5.7.4",
+    "@podlove/button-state": "^5.7.4",
+    "@podlove/clients": "^5.7.4",
+    "@podlove/components": "^5.7.4",
+    "@podlove/utils": "^5.7.4",
     "iframe-resizer": "4.2.2",
     "normalize-scss": "7.0.1",
     "ramda": "0.27.1",
@@ -30,7 +30,7 @@
     "vue-i18n": "8.15.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.7.3",
+    "@podlove/build": "^5.7.4",
     "webpack": "5.45.1",
     "webpack-dev-server": "3.11.2"
   }
