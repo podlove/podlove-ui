@@ -42,7 +42,7 @@ export default {
 
   methods: {
     onClick(client) {
-      this.$emit('click', client)
+      this.$emit('clientSelect', client)
     }
   }
 }
