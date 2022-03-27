@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/podlove/podlove-ui/compare/v5.7.4...v5.8.0) (2022-03-27)
+
+**Note:** Version bump only for package @podlove/button-config
+
+
+
+
+
 # [5.7.0](https://github.com/podlove/podlove-ui/compare/v5.6.4...v5.7.0) (2021-07-11)
 
 **Note:** Version bump only for package @podlove/button-config

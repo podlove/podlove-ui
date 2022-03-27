@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/podlove/podlove-ui/compare/v5.7.4...v5.8.0) (2022-03-27)
+
+
+### Bug Fixes
+
+* integration test ([ced91e9](https://github.com/podlove/podlove-ui/commit/ced91e9aa6a6c248b5365a412ff9fe8463dffe2f))
+
+
+
+
+
 ## [5.7.4](https://github.com/podlove/podlove-ui/compare/v5.7.3...v5.7.4) (2021-12-04)
 
 **Note:** Version bump only for package @podlove/player

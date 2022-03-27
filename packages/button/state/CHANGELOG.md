@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/podlove/podlove-ui/compare/v5.7.4...v5.8.0) (2022-03-27)
+
+
+### Features
+
+* **subscribe-button:** add ability to provide custom clients ([2fa556a](https://github.com/podlove/podlove-ui/commit/2fa556ac7cda198fa5772a45785d08187b2812fa))
+
+
+
+
+
 ## [5.7.4](https://github.com/podlove/podlove-ui/compare/v5.7.3...v5.7.4) (2021-12-04)
 
 **Note:** Version bump only for package @podlove/button-state
