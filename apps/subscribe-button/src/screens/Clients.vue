@@ -9,7 +9,7 @@
       </button>
     </div>
     <divider class="mb-6" :color="state.shadeBase"></divider>
-    <client-list @click="finish" />
+    <client-list @clientSelect="finish" />
   </div>
 </template>
 
