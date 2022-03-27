@@ -8,7 +8,6 @@ module.exports = {
   entry: {
     embed: './src/embed.js',
     share: './src/share.js',
-    polyfills: './src/polyfills.js',
     'extensions/external-events': './src/extensions/external-events.js'
   },
   output: output(),
@@ -47,7 +46,7 @@ module.exports = {
       inject: 'head',
       sort: 'manual',
       scriptLoading: 'blocking',
-      chunks: ['polyfills', 'embed', 'extensions/external-events']
+      chunks: ['embed', 'extensions/external-events']
     }),
     plugins.html({
       files: {
