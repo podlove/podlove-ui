@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/podlove/podlove-ui/compare/v5.7.4...v5.8.0) (2022-03-27)
+
+
+### Features
+
+* Add typescript types for web player ([d7fed2c](https://github.com/podlove/podlove-ui/commit/d7fed2c42d0977d5169cbe0bae53a94b928e20d0))
+
+
+### Reverts
+
+* Revert web-player/package.json ([cebe655](https://github.com/podlove/podlove-ui/commit/cebe65530b3244fd315c225a34e8cc4e89544213))
+
+
+
+
+
 ## [5.7.4](https://github.com/podlove/podlove-ui/compare/v5.7.3...v5.7.4) (2021-12-04)
 
 

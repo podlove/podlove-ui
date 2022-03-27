@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.8.0](https://github.com/podlove/podlove-ui/compare/v5.7.4...v5.8.0) (2022-03-27)
+
+
+### Bug Fixes
+
+* integration test ([ced91e9](https://github.com/podlove/podlove-ui/commit/ced91e9aa6a6c248b5365a412ff9fe8463dffe2f))
+* types: Add missing package name to README.md ([b374fb4](https://github.com/podlove/podlove-ui/commit/b374fb4abade724887eb101d6b84f8d5558473e3))
+* types: Fix function type ([d577098](https://github.com/podlove/podlove-ui/commit/d577098d35b28efd4391e800d3a0be6c271e1cba))
+
+
+### Features
+
+* Add typescript types for web player ([d7fed2c](https://github.com/podlove/podlove-ui/commit/d7fed2c42d0977d5169cbe0bae53a94b928e20d0))
+* **subscribe-button:** add ability to provide custom clients ([2fa556a](https://github.com/podlove/podlove-ui/commit/2fa556ac7cda198fa5772a45785d08187b2812fa))
+* **subscribe-button:** add ability to provide custom clients ([473499d](https://github.com/podlove/podlove-ui/commit/473499d569a5c68215df57ba5434fa670f83969f))
+
+
+### Reverts
+
+* Revert web-player/package.json ([cebe655](https://github.com/podlove/podlove-ui/commit/cebe65530b3244fd315c225a34e8cc4e89544213))
+
+
+
+
+
 ## [5.7.4](https://github.com/podlove/podlove-ui/compare/v5.7.3...v5.7.4) (2021-12-04)
 
 
