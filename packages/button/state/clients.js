@@ -13,8 +13,12 @@ const clients = (payload) => {
   const feed = config.feed(payload)
 
   return provided
-    .map((client) =>
-      getClients({ id: client.id, platform: [currentPlatform, platform.web] })
+    .map((client) => {
+      if (client.id === 'custom') {
+        return client
+      }
+
+      return getClients({ id: client.id, platform: [currentPlatform, platform.web] })
         .filter((item) => (item.type === type.service ? !!client.service : true))
         .map((item) => ({
           ...item,
@@ -22,7 +26,7 @@ const clients = (payload) => {
         }))
         .sort((item) => (item.type === type.service ? -1 : 0))
         .shift()
-    )
+    })
     .filter(Boolean)
 }
 
