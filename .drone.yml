@@ -497,7 +497,7 @@ steps:
 
 ---
 kind: pipeline
-name: packages/player-react
+name: packages/button-react
 
 steps:
 - name: bootstrap
