@@ -1,6 +1,6 @@
 {
   "name": "@podlove/types",
-  "version": "5.8.0",
+  "version": "5.9.0",
   "description": "TypeScript type definitions for Podlove Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/types",
   "main": "index.js",
