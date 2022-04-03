@@ -494,3 +494,41 @@ steps:
   when:
     ref:
     - refs/tags/v*
+
+---
+kind: pipeline
+name: packages/player-react
+
+steps:
+- name: bootstrap
+  image: node:14
+  commands:
+    - npm set unsafe-perm true
+    - npm i
+    - npx lerna bootstrap --hoist
+
+- name: lint
+  image: node:14
+  commands:
+    - npx eslint 'packages/button/react/**/*.{js,jsx}'
+
+- name: release:prepare
+  image: node:14
+  commands:
+    - npx lerna run publish:prepare --scope @podlove/button-react --stream
+  when:
+    ref:
+    - refs/tags/v*
+
+- name: deploy:npm
+  image: plugins/npm
+  failure: ignore
+  settings:
+    username: alexander-heimbuch
+    token:
+      from_secret: NPM_TOKEN
+    email: npm@heimbu.ch
+    folder: packages/button/react/publish
+  when:
+    ref:
+    - refs/tags/v*

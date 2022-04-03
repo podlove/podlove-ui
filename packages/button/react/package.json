@@ -1,10 +1,13 @@
 {
-  "name": "@podlove/player-react",
+  "name": "@podlove/button-react",
   "version": "5.7.4",
-  "description": "React Wrapper for Podlove Web Player",
-  "homepage": "https://github.com/podlove/ui/tree/development/packages/player/react",
+  "description": "React Wrapper for Podlove Subscribe Button",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/button/react",
   "keywords": [],
-  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "contributors": [
+    "Alexander Heimbuch <github@heimbu.ch>",
+    "Michaela Lehr <michaela.lehr@geildanke.com>"
+  ],
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist/* publish/*",
@@ -13,8 +16,6 @@
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish library"
   },
   "dependencies": {
-    "@podlove/player-actions": "^5.7.4",
-    "@podlove/utils": "^5.7.4",
     "load-scripts": "1.0.0",
     "lodash.debounce": "4.0.8",
     "ramda": "0.27.1",
