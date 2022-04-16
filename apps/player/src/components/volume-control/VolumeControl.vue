@@ -1,10 +1,21 @@
 <template>
   <div v-if="state.available" class="block">
+    <div class="sr-only">
+      <input
+        type="range"
+        :title="$t(state.volumeLabel.key, state.volumeLabel.attr)"
+        :min="0"
+        :max="100"
+        :value="state.volume * 100"
+        :step="1"
+        @input="setVolume($event.target.value)"
+      />
+    </div>
     <dropdown ref="volumePopover" :triggers="['click']" :offset="[0, 15]" :placement="placement">
       <button
         class="block cursor-pointer"
         data-test="volume-control"
-        :title="$t(state.buttonTitle.key, state.buttonTitle.attr)"
+        aria-hidden="true"
         @click="focus"
       >
         <icon aria-hidden="true" :type="state.icon" :color="state.color" />

@@ -137,7 +137,7 @@
     "DOWNLOAD_FILE": "Download File {url}",
     "COPY_FILE": "Copy File {url}",
     "PLAYLIST_ENTRY": "Play episode {title}",
-    "TAB_TRIGGER": "Select Tab {name}",
+    "TAB_TRIGGER": "{name}",
     "TAB_PANEL": "Tab Panel {name}",
     "TAB_CLOSE": {
       "SHOWNOTES": "Hide Shownotes Tab",

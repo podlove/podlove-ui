@@ -10,11 +10,12 @@ export const INITIAL_STATE = []
 const clients = (payload) => {
   const provided = config.clients(payload)
   const currentPlatform = getPlatform()
+  const clientList = getClients()
   const feed = config.feed(payload)
 
   return provided
     .map((client) => {
-      if (client.id === 'custom') {
+      if (!clientList.some(({ id }) => client.id === id)) {
         return client
       }
 
