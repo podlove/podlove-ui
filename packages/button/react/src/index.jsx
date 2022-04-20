@@ -27,6 +27,7 @@ export class PodloveSubscribeButton extends React.Component {
 
       buttonScript.setAttribute('data-language', this.props.language)
       buttonScript.setAttribute('data-color', this.props.color)
+      buttonScript.setAttribute('data-format', this.props.format)
       buttonScript.setAttribute('data-size', this.props.size)
       buttonScript.setAttribute('data-style', this.props.style)
 
