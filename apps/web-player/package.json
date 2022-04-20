@@ -1,6 +1,6 @@
 {
   "name": "@podlove/web-player",
-  "version": "5.9.0",
+  "version": "5.10.0",
   "description": "Embedded version of Podlove Player",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/web-player",
   "scripts": {
@@ -21,20 +21,20 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.9.0",
-    "@podlove/player": "^5.9.0",
-    "@podlove/player-actions": "^5.9.0",
-    "@podlove/player-config": "^5.9.0",
-    "@podlove/player-state": "^5.9.0",
-    "@podlove/subscribe-button": "^5.9.0",
-    "@podlove/utils": "^5.9.0",
+    "@podlove/button-actions": "^5.10.0",
+    "@podlove/player": "^5.10.0",
+    "@podlove/player-actions": "^5.10.0",
+    "@podlove/player-config": "^5.10.0",
+    "@podlove/player-state": "^5.10.0",
+    "@podlove/subscribe-button": "^5.10.0",
+    "@podlove/utils": "^5.10.0",
     "color": "3.1.2",
     "hashcode": "1.0.3",
     "iframe-resizer": "4.2.2",
     "ramda": "0.27.1"
   },
   "devDependencies": {
-    "@podlove/build": "^5.9.0",
+    "@podlove/build": "^5.10.0",
     "cypress": "8.5.0",
     "http-server": "0.11.1",
     "webpack": "5.45.1",
