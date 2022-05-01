@@ -1,8 +1,7 @@
 <template>
-  <div class="loading-indicator" aria-hidden="true">
-    <div class="loading-bubble first" :style="bubbleStyle" />
-    <div class="loading-bubble second" :style="bubbleStyle" />
-    <div class="loading-bubble third" :style="bubbleStyle" />
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
   </div>
 </template>
 
@@ -21,46 +20,60 @@ export default {
     }
   },
   computed: {
-    bubbleStyle() {
-      return {
-        background: this.color,
-        width: `${this.size / 2}px`,
-        height: `${this.size / 2}px`
-      }
+    loaderSize() {
+      return `${this.size}px`
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.loading-indicator {
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
+.spinner {
+  width: v-bind(loaderSize);
+  height: v-bind(loaderSize);
 
-  .loading-bubble {
-    margin: 0 3px;
-    border-radius: 100%;
-    animation: loading 1.4s ease-in-out 0s infinite both;
+  position: relative;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: v-bind(color);
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
   }
-
-  .first {
-    animation-delay: -0.32s;
-  }
-
-  .second {
-    animation-delay: -0.16s;
+  50% {
+    -webkit-transform: scale(1);
   }
 }
 
-@keyframes loading {
+@keyframes sk-bounce {
   0%,
-  80%,
   100% {
     transform: scale(0);
+    -webkit-transform: scale(0);
   }
-  40% {
+  50% {
     transform: scale(1);
+    -webkit-transform: scale(1);
   }
 }
 </style>

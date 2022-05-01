@@ -11,29 +11,18 @@ exports[`PlayButton props should render type 'loading' with 'background' 1`] = `
   >
     <div
       aria-hidden="true"
-      class="pt-0 pb-0 pr-4 pl-4 component"
+      background="currentColor"
+      class="spinner component"
+      filled="false"
       id="play-button--loading"
       label=""
     >
       <div
-        aria-hidden="true"
-        background="currentColor"
-        class="loading-indicator"
-        filled="false"
-      >
-        <div
-          class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-        <div
-          class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-        <div
-          class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-      </div>
+        class="double-bounce1"
+      />
+      <div
+        class="double-bounce2"
+      />
     </div>
   </div>
 </button>
@@ -50,29 +39,18 @@ exports[`PlayButton props should render type 'loading' with 'color' 1`] = `
   >
     <div
       aria-hidden="true"
-      class="pt-0 pb-0 pr-4 pl-4 component"
+      background="currentColor"
+      class="spinner component"
+      filled="false"
       id="play-button--loading"
       label=""
     >
       <div
-        aria-hidden="true"
-        background="currentColor"
-        class="loading-indicator"
-        filled="false"
-      >
-        <div
-          class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-        <div
-          class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-        <div
-          class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-      </div>
+        class="double-bounce1"
+      />
+      <div
+        class="double-bounce2"
+      />
     </div>
   </div>
 </button>
@@ -89,29 +67,18 @@ exports[`PlayButton props should render type 'loading' with 'label' 1`] = `
   >
     <div
       aria-hidden="true"
-      class="pt-0 pb-0 pr-4 pl-4 component"
+      background="currentColor"
+      class="spinner component"
+      filled="false"
       id="play-button--loading"
       label="test-label"
     >
       <div
-        aria-hidden="true"
-        background="currentColor"
-        class="loading-indicator"
-        filled="false"
-      >
-        <div
-          class="loading-bubble first"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-        <div
-          class="loading-bubble second"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-        <div
-          class="loading-bubble third"
-          style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-        />
-      </div>
+        class="double-bounce1"
+      />
+      <div
+        class="double-bounce2"
+      />
     </div>
   </div>
 </button>
