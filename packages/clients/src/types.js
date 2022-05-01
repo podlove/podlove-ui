@@ -9,7 +9,8 @@ export const platform = {
   osx: 'osx',
   windows: 'windows',
   unix: 'unix',
-  web: 'web'
+  web: 'web',
+  custom: 'custom'
 }
 
 export const client = ({
