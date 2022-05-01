@@ -1,6 +1,6 @@
 {
   "name": "@podlove/clients",
-  "version": "5.10.0",
+  "version": "5.11.0",
   "description": "A comprehensive list of podcast clients",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "devDependencies": {
-    "@podlove/build": "^5.10.0",
+    "@podlove/build": "^5.11.0",
     "webpack": "5.45.1"
   }
 }

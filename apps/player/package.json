@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player",
-  "version": "5.10.0",
+  "version": "5.11.0",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
@@ -20,13 +20,13 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.10.0",
-    "@podlove/components": "^5.10.0",
-    "@podlove/player-actions": "^5.10.0",
-    "@podlove/player-config": "^5.10.0",
-    "@podlove/player-sagas": "^5.10.0",
-    "@podlove/player-state": "^5.10.0",
-    "@podlove/utils": "^5.10.0",
+    "@podlove/button-actions": "^5.11.0",
+    "@podlove/components": "^5.11.0",
+    "@podlove/player-actions": "^5.11.0",
+    "@podlove/player-config": "^5.11.0",
+    "@podlove/player-sagas": "^5.11.0",
+    "@podlove/player-state": "^5.11.0",
+    "@podlove/utils": "^5.11.0",
     "color": "3.1.2",
     "copy-to-clipboard": "3.2.0",
     "core-js": "3.15.2",
@@ -41,7 +41,7 @@
     "vue-i18n": "9.1.7"
   },
   "devDependencies": {
-    "@podlove/build": "^5.10.0",
+    "@podlove/build": "^5.11.0",
     "cypress": "8.5.0",
     "http-server": "0.11.1",
     "webpack": "5.45.1",
