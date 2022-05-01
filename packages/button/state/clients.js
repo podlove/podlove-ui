@@ -14,12 +14,20 @@ const clients = (payload) => {
 
   return provided
     .map((client) => {
-      if (client.id === 'custom') {
+      if (client?.platform === 'custom') {
         return client
       }
 
-      return getClients({ id: client.id, platform: [currentPlatform, platform.web] })
-        .filter((item) => (item.type === type.service ? !!client.service : true))
+      const clients = getClients({ id: client.id, platform: [currentPlatform, platform.web] })
+
+      return clients
+        .filter((item) => {
+          if (item.type === type.service) {
+            !!client.service
+          }
+
+          return true
+        })
         .map((item) => ({
           ...item,
           link: item.type === type.service ? item.scheme(client.service) : item.scheme(feed)
