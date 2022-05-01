@@ -2188,20 +2188,14 @@ exports[`Icon props should render type 'loading' with prop background 1`] = `
 <div
   aria-hidden="true"
   background="#fff"
-  class="loading-indicator"
+  class="spinner"
   filled="false"
 >
   <div
-    class="loading-bubble first"
-    style="background: currentColor; width: 12.5px; height: 12.5px;"
+    class="double-bounce1"
   />
   <div
-    class="loading-bubble second"
-    style="background: currentColor; width: 12.5px; height: 12.5px;"
-  />
-  <div
-    class="loading-bubble third"
-    style="background: currentColor; width: 12.5px; height: 12.5px;"
+    class="double-bounce2"
   />
 </div>
 `;
@@ -2210,20 +2204,14 @@ exports[`Icon props should render type 'loading' with prop background 2`] = `
 <div
   aria-hidden="true"
   background="#fff"
-  class="loading-indicator"
+  class="spinner"
   filled="false"
 >
   <div
-    class="loading-bubble first"
-    style="background: currentColor; width: 12.5px; height: 12.5px;"
+    class="double-bounce1"
   />
   <div
-    class="loading-bubble second"
-    style="background: currentColor; width: 12.5px; height: 12.5px;"
-  />
-  <div
-    class="loading-bubble third"
-    style="background: currentColor; width: 12.5px; height: 12.5px;"
+    class="double-bounce2"
   />
 </div>
 `;
@@ -2232,20 +2220,14 @@ exports[`Icon props should render type 'loading' with prop color 1`] = `
 <div
   aria-hidden="true"
   background="currentColor"
-  class="loading-indicator"
+  class="spinner"
   filled="false"
 >
   <div
-    class="loading-bubble first"
-    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+    class="double-bounce1"
   />
   <div
-    class="loading-bubble second"
-    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-  />
-  <div
-    class="loading-bubble third"
-    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+    class="double-bounce2"
   />
 </div>
 `;
@@ -2254,20 +2236,14 @@ exports[`Icon props should render type 'loading' with prop color 2`] = `
 <div
   aria-hidden="true"
   background="currentColor"
-  class="loading-indicator"
+  class="spinner"
   filled="false"
 >
   <div
-    class="loading-bubble first"
-    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+    class="double-bounce1"
   />
   <div
-    class="loading-bubble second"
-    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
-  />
-  <div
-    class="loading-bubble third"
-    style="background: rgb(255, 255, 255); width: 12.5px; height: 12.5px;"
+    class="double-bounce2"
   />
 </div>
 `;
@@ -2276,20 +2252,14 @@ exports[`Icon props should render type 'loading' with prop size 1`] = `
 <div
   aria-hidden="true"
   background="currentColor"
-  class="loading-indicator"
+  class="spinner"
   filled="false"
 >
   <div
-    class="loading-bubble first"
-    style="background: currentColor; width: 10px; height: 10px;"
+    class="double-bounce1"
   />
   <div
-    class="loading-bubble second"
-    style="background: currentColor; width: 10px; height: 10px;"
-  />
-  <div
-    class="loading-bubble third"
-    style="background: currentColor; width: 10px; height: 10px;"
+    class="double-bounce2"
   />
 </div>
 `;
@@ -2298,20 +2268,14 @@ exports[`Icon props should render type 'loading' with prop size 2`] = `
 <div
   aria-hidden="true"
   background="currentColor"
-  class="loading-indicator"
+  class="spinner"
   filled="false"
 >
   <div
-    class="loading-bubble first"
-    style="background: currentColor; width: 10px; height: 10px;"
+    class="double-bounce1"
   />
   <div
-    class="loading-bubble second"
-    style="background: currentColor; width: 10px; height: 10px;"
-  />
-  <div
-    class="loading-bubble third"
-    style="background: currentColor; width: 10px; height: 10px;"
+    class="double-bounce2"
   />
 </div>
 `;
