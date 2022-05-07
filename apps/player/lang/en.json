@@ -137,7 +137,14 @@
     "DOWNLOAD_FILE": "Download File {url}",
     "COPY_FILE": "Copy File {url}",
     "PLAYLIST_ENTRY": "Play episode {title}",
-    "TAB_TRIGGER": "{name}",
+    "TAB_TRIGGER": {
+      "SHOWNOTES": "Shownotes",
+      "CHAPTERS": "Chapters",
+      "TRANSCRIPTS": "Transcripts",
+      "FILES": "Files",
+      "PLAYLIST": "Related Episodes",
+      "SHARE": "Share"
+    },
     "TAB_PANEL": "Tab Panel {name}",
     "TAB_CLOSE": {
       "SHOWNOTES": "Hide Shownotes Tab",

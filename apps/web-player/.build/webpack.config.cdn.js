@@ -9,7 +9,6 @@ module.exports = {
   entry: {
     embed: './src/embed.js',
     share: './src/share.js',
-    polyfills: './src/polyfills.js',
     'extensions/external-events': './src/extensions/external-events.js'
   },
 

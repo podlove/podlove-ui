@@ -137,8 +137,22 @@
     "DOWNLOAD_FILE": "Datei herunterladen: {url}",
     "COPY_FILE": "Url {url} in Zwischenablage legen",
     "PLAYLIST_ENTRY": "Episode {title} abspielen",
-    "TAB_TRIGGER": "{name}",
-    "TAB_PANEL": "Panel {name}",
+    "TAB_TRIGGER": {
+      "SHOWNOTES": "Shownotes",
+      "CHAPTERS": "Kapitel",
+      "TRANSCRIPTS": "Transkripte",
+      "FILES": "Dateien",
+      "PLAYLIST": "Ähnliche Folgen",
+      "SHARE": "Teilen"
+    },
+    "TAB_PANEL": {
+      "SHOWNOTES": "Shownotes",
+      "CHAPTERS": "Kapitel",
+      "TRANSCRIPTS": "Transkripte",
+      "FILES": "Dateien",
+      "PLAYLIST": "Ähnliche Folgen",
+      "SHARE": "Teilen"
+    },
     "TAB_CLOSE": {
       "SHOWNOTES": "Shownotes ausblenden",
       "CHAPTERS": "Kapitel ausblenden",
