@@ -2,7 +2,7 @@
   <div v-if="state.available" class="block">
     <div class="sr-only">
       <input
-        type="range"
+        type="number"
         :min="0"
         :max="100"
         :value="state.volume * 100"
