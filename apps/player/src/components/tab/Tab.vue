@@ -34,13 +34,13 @@ export default {
       default: null
     }
   },
-  setup() {
+  setup(props) {
     return {
       state: mapState({
         background: select.theme.brandDark,
         tabs: select.tabs,
         color: select.theme.alt,
-        a11y: select.accessibility.tabPanel
+        a11y: select.accessibility.tabPanel(props.name)
       })
     }
   },

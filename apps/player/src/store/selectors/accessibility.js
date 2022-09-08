@@ -1,8 +1,5 @@
-import { prop } from 'ramda'
 import { calcHours, calcMinutes, calcSeconds } from '@podlove/utils/time'
 
-import episode from './episode'
-import show from './show'
 import chapters from './chapters'
 import timepiece from './timepiece'
 import driver from './driver'
@@ -80,12 +77,16 @@ export default {
     return translation('A11Y.PROGRESSBAR_INPUT')
   },
 
-  tabTrigger: () => {
-    return translation('A11Y.TAB_TRIGGER')
+  closeTab: (tab) => () => {
+    return translation('A11Y.TAB_CLOSE.' + tab.toUpperCase())
   },
 
-  tabPanel: () => {
-    return translation('A11Y.TAB_PANEL')
+  tabTrigger: (tab) => () => {
+    return translation('A11Y.TAB_TRIGGER.' + tab.toUpperCase())
+  },
+
+  tabPanel: (tab) => () => {
+    return translation('A11Y.TAB_PANEL.' + tab.toUpperCase())
   },
 
   chapterPlay: (chapter) => (state) => {
@@ -150,10 +151,6 @@ export default {
 
   chapterList: () => {
     return translation('A11Y.CHAPTER_LIST')
-  },
-
-  closeTab: (tab) => () => {
-    return translation('A11Y.TAB_CLOSE.' + tab.toUpperCase())
   },
 
   transcriptsSearch: () => {

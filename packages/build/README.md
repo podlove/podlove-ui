@@ -15,6 +15,5 @@
 
 ## Extensions
 
-- `polyfills`: Conditional polyfills for IE11
 - `prepublish`: Publish preparation script for bundled packages
 - `utils`: Shared utils for build scripts

@@ -137,15 +137,29 @@
     "DOWNLOAD_FILE": "Datei herunterladen: {url}",
     "COPY_FILE": "Url {url} in Zwischenablage legen",
     "PLAYLIST_ENTRY": "Episode {title} abspielen",
-    "TAB_TRIGGER": "Tab {name} auswählen",
-    "TAB_PANEL": "Tab Panel {name}",
+    "TAB_TRIGGER": {
+      "SHOWNOTES": "Shownotes",
+      "CHAPTERS": "Kapitel",
+      "TRANSCRIPTS": "Transkripte",
+      "FILES": "Dateien",
+      "PLAYLIST": "Ähnliche Folgen",
+      "SHARE": "Teilen"
+    },
+    "TAB_PANEL": {
+      "SHOWNOTES": "Shownotes",
+      "CHAPTERS": "Kapitel",
+      "TRANSCRIPTS": "Transkripte",
+      "FILES": "Dateien",
+      "PLAYLIST": "Ähnliche Folgen",
+      "SHARE": "Teilen"
+    },
     "TAB_CLOSE": {
-      "SHOWNOTES": "Shownotes Tab ausblenden",
-      "CHAPTERS": "Kapitel Tab ausblenden",
-      "TRANSCRIPTS": "Transkripte Tab ausblenden",
-      "FILES": "Dateien Tab ausblenden",
-      "PLAYLIST": "Ähnliche Folgen Tab ausblenden",
-      "SHARE": "Teilen Tab ausblenden"
+      "SHOWNOTES": "Shownotes ausblenden",
+      "CHAPTERS": "Kapitel ausblenden",
+      "TRANSCRIPTS": "Transkripte ausblenden",
+      "FILES": "Dateien ausblenden",
+      "PLAYLIST": "Ähnliche Folgen ausblenden",
+      "SHARE": "Teilen ausblenden"
     },
     "TIMER_CURRENT": "Aktuelle Spielzeit: {hours} Stunden {minutes} Minuten {seconds} Sekunden",
     "TIMER_REMAINING": "Verbleibende Spielzeit: {hours} Stunden {minutes} Minuten {seconds} Sekunden",

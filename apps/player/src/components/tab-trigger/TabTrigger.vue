@@ -50,7 +50,7 @@ export default {
       default: ''
     }
   },
-  setup() {
+  setup(props) {
     return {
       state: mapState({
         tabs: select.tabs,
@@ -62,7 +62,7 @@ export default {
         share: select.components.shareTab,
         files: select.components.filesTab,
         playlist: select.components.playlistTab,
-        a11y: select.accessibility.tabTrigger
+        a11y: select.accessibility.tabTrigger(props.tab)
       }),
       dispatch: injectStore().dispatch
     }

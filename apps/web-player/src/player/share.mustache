@@ -15,21 +15,6 @@
   <script type="text/javascript">
     window.resourceBaseUrl = '{{ htmlWebpackPlugin.options.root }}{{ baseHref }}';
   </script>
-
-  <script>
-    const modernBrowser = (
-      'fetch' in window &&
-      'assign' in Object
-    );
-
-    if ( !modernBrowser ) {
-      const scriptElement = document.createElement('script');
-
-      scriptElement.async = false;
-      scriptElement.src = '{{ htmlWebpackPlugin.options.root }}polyfills.js';
-      document.head.appendChild(scriptElement);
-    }
-  </script>
 </head>
 
 <body>
