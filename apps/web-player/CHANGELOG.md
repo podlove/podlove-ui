@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.11.0](https://github.com/podlove/podlove-ui/compare/v5.10.0...v5.11.0) (2022-05-01)
+
+
+### Bug Fixes
+
+* **web-player:** remove container transition to solve resizing issue ([4c7b9bc](https://github.com/podlove/podlove-ui/commit/4c7b9bc1f5a6b957ae579b1850074c93bc242e83))
+
+
+
+
+
+# [5.10.0](https://github.com/podlove/podlove-ui/compare/v5.9.0...v5.10.0) (2022-04-20)
+
+**Note:** Version bump only for package @podlove/web-player
+
+
+
+
+
 # [5.9.0](https://github.com/podlove/podlove-ui/compare/v5.8.0...v5.9.0) (2022-04-03)
 
 **Note:** Version bump only for package @podlove/web-player

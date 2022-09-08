@@ -10,17 +10,24 @@ export const INITIAL_STATE = []
 const clients = (payload) => {
   const provided = config.clients(payload)
   const currentPlatform = getPlatform()
-  const clientList = getClients()
   const feed = config.feed(payload)
 
   return provided
     .map((client) => {
-      if (!clientList.some(({ id }) => client.id === id)) {
+      if (client?.platform === 'custom') {
         return client
       }
 
-      return getClients({ id: client.id, platform: [currentPlatform, platform.web] })
-        .filter((item) => (item.type === type.service ? !!client.service : true))
+      const clients = getClients({ id: client.id, platform: [currentPlatform, platform.web] })
+
+      return clients
+        .filter((item) => {
+          if (item.type === type.service) {
+            !!client.service
+          }
+
+          return true
+        })
         .map((item) => ({
           ...item,
           link: item.type === type.service ? item.scheme(client.service) : item.scheme(feed)

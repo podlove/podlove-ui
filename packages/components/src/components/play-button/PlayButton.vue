@@ -10,7 +10,10 @@
           :color="color"
           :label="label"
           :size="size / 2"
-          :class="{ 'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading', '-ml-1': type === 'play' }"
+          :class="{
+            'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading',
+            '-ml-1': type === 'play'
+          }"
         >
           <span
             v-if="label"
@@ -29,13 +32,12 @@
 <script>
 import { background, color } from 'defaults'
 import { observer } from 'vue-mutation-observer'
+import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
 
 import Play from './states/Play'
 import Pause from './states/Pause'
 import Loading from './states/Loading'
 import Restart from './states/Restart'
-
-import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
 
 export default {
   directives: {

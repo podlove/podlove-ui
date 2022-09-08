@@ -1,7 +1,5 @@
 <template>
-  <div class="pt-0 pb-0 pr-4 pl-4" aria-hidden="true">
-    <icon :color="color" type="loading" :size="size" />
-  </div>
+  <icon :color="color" type="loading" :size="size" aria-hidden="true" />
 </template>
 
 <script>

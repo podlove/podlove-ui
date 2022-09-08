@@ -1,7 +1,7 @@
 /* global PLAYER_STYLES, PLAYER_SCRIPTS */
 
 import { prop, curry } from 'ramda'
-import { setAttributes, setStyles } from '@podlove/utils/dom'
+import { setAttributes } from '@podlove/utils/dom'
 import { sandbox, sandboxWindow, resize } from '@podlove/utils/sandbox'
 import { iframeResizer } from 'iframe-resizer'
 // eslint-disable-next-line
@@ -40,20 +40,14 @@ export const create = async (config, target) => {
     loader: createLoader(config)
   })
 
-  const player = await sandbox(target.node, playerDom)
-    .then(
-      setStyles({
-        transition: 'all 500ms'
-      })
-    )
-    .then(resize(target.node))
+  const player = await sandbox(target.node, playerDom).then(resize(target.node))
 
   setAccessibilityAttributes(config, player)
 
   iframeResizer(
     {
       checkOrigin: false,
-      log: false
+      log: true
     },
     player
   )
