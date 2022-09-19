@@ -1,0 +1,179 @@
+{
+  "CHAPTERS": {
+    "TITLE": "Kapitoly"
+  },
+  "AUDIO": {
+    "TITLE": "Audio",
+    "VOLUME": "Hlasitost",
+    "SPEED": "Rychlost",
+    "DEBUG_STATE": "Export stavu ladění"
+  },
+  "PLAYER": {
+    "PLAY_EPISODE": "Přehrát",
+    "REPLAY": "Přehrát znovu",
+    "RETRY": "Opakovat"
+  },
+  "ERROR": {
+    "NETWORK": {
+      "TITLE": "Chyba sítě",
+      "MESSAGE": "Nelze načíst zvukové soubory ze serveru. Možná nemáte připojení k internetu nebo hostitel není dostupný."
+    },
+    "MEDIA": {
+      "TITLE": "Chybí mediální soubor",
+      "MESSAGE": "Přehrávač obdržel neplatnou konfiguraci. Bez mediálních souborů nelze přehrávač použít. Obraťte se prosím na hostitele, aby tento problém odstranil."
+    },
+    "CONFIG": {
+      "TITLE": "Chybí nastavení epizody",
+      "MESSAGE": "Přehrávač nemohl načíst konfiguraci epizody. Chcete-li tento problém vyřešit, obraťte se na hostitele."
+    }
+  },
+  "FILES": {
+    "TITLE": "Soubory",
+    "TYPES": {
+      "AUDIO": "Audio",
+      "PDF": "PDF",
+      "TEXT": "Text",
+      "VIDEO": "Video"
+    },
+    "ACTIONS": {
+      "DOWNLOAD": "Stažení",
+      "COPY": "Kopírování adresy"
+    }
+  },
+  "SHARE": {
+    "TITLE": "Sdílení epizody",
+    "CONTENT": {
+      "SHOW": "Ukaž",
+      "EPISODE": "Epizoda",
+      "CHAPTER": "Kapitola",
+      "TIME": "Čas spuštění"
+    },
+    "SHARE_CHANNEL": "Sdílet na...",
+    "SHARE_LINK": "Odkaz",
+    "ACTIONS": {
+      "COPY": "kopírovat"
+    },
+    "PLAYTIME": "Sdílet aktuální čas ({playtime})",
+    "EPISODE": {
+      "TEXT": {
+        "BEGINNING": "\"{title}\" ({link})",
+        "CHAPTER": "\"{chapter}\" z \"{title}\" ({link})",
+        "PLAYTIME": "\"{title}\" ({link})"
+      },
+      "SUBJECT": {
+        "BEGINNING": "{title}",
+        "CHAPTER": "{title} - {chapter}",
+        "PLAYTIME": "{title}"
+      }
+    },
+    "SHOW": {
+      "TEXT": "\"{title}\" ({link})",
+      "SUBJECT": "{title}"
+    },
+    "EMBED": {
+      "TITLE": "Kód pro vložení",
+      "LABEL": {
+        "SIZE": "Velikost",
+        "CODE": "Embed kód"
+      },
+      "ACTIONS": {
+        "COPY": "kopírovat"
+      }
+    }
+  },
+  "SHOWNOTES": {
+    "TITLE": "Zobrazit poznámky",
+    "PUBLICATION_DATE": "Publikováno: {month}/{day}/{year}",
+    "DURATION_WITH_HOURS": "{hours} hodin {minutes} minut",
+    "DURATION": "{minutes} minut"
+  },
+  "TRANSCRIPTS": {
+    "TITLE": "Transcript",
+    "CHAPTER": "Kapitola {index}: {title}",
+    "FOLLOW": {
+      "ACTIVE": "Zastavit text",
+      "INACTIVE": "Následovat Text"
+    },
+    "PLACEHOLDER": "Hledat v textu ...",
+    "NO_SEARCH_RESULTS": "Nic nenalezeno"
+  },
+  "MESSAGES": {
+    "COPIED": "Zkopírováno!"
+  },
+  "PLAYLIST": {
+    "TITLE": "Podobné epizody"
+  },
+  "SUBSCRIBE": "Odebírat",
+  "A11Y": {
+    "ALT_EPISODE_COVER": "Cover epizody",
+    "ALT_SHOW_COVER": "Ukázat Cover",
+    "ALT_CHAPTER_COVER": "Cover kapitoly {title} ",
+    "PLAYER_PLAY": "Přehrát epizodu",
+    "PLAYER_START": "Začátek epizody, trvání {hours} hodin {minutes} minut {seconds} sekund",
+    "PLAYER_RESTART": "Restart epizody",
+    "PLAYER_ERROR": "Opětovné spuštění",
+    "PLAYER_PAUSE": "Pauza epizody",
+    "PLAYER_LOADING": "Načítání epizody",
+    "PLAYER_CHAPTER_NEXT": "Jít na další kapitolu: {index} - {title}",
+    "PLAYER_CHAPTER_END": "Přeskočit na konec epizody",
+    "PLAYER_CHAPTER_START": "Vrátit se na začátek epizody",
+    "PLAYER_CHAPTER_PREVIOUS": "Jít na předchozí kapitolu: {index} - {title}",
+    "PLAYER_CHAPTER_CURRENT": "Přejít na začátek aktuální kapitoly: {index} - {title}",
+    "PLAYER_STEPPER_BACK": "Přetočit o {seconds} Sekund",
+    "PLAYER_STEPPER_FORWARD": "Posunout o {seconds} Sekund",
+    "PROGRESSBAR_INPUT": "Změna času na procenta",
+    "TIMER_CHAPTER": "Aktuální kapitola: {index} - {title}",
+    "CONTRIBUTOR_COVER": "Řečník {name}",
+    "SHARE_CHANNEL": "Sdílet na {channel}",
+    "COPY_SHARE_LINK": "Kopírovat link na sdílení",
+    "SHARE_OVERLAY": "Sdílení prolnutí",
+    "OVERLAY_CLOSE": "Zavřít prolnutí",
+    "COPY_EMBED_CODE": "Kopírovat embed kód",
+    "DOWNLOAD_EPISODE": "Stáhnout epizodu",
+    "SELECT_EPISODE_FILETYPE": "Označit typ souboru epizody",
+    "COPY_DOWNLOAD_URL": "Kopírovat adresu ke stažení",
+    "SET_RATE_IN_PERCENT": "Nastavit rychlost přehrávání v procentech",
+    "SET_VOLUME_IN_PERCENT": "Nastavit hlasitost v procentech",
+    "DOWNLOAD_FILE": "Stažení souboru {url}",
+    "COPY_FILE": "Kopírovat soubor {url}",
+    "PLAYLIST_ENTRY": "Přehrát epizodu {title}",
+    "TAB_TRIGGER": {
+      "SHOWNOTES": "Zobrazit poznámky",
+      "CHAPTERS": "Kapitola",
+      "TRANSCRIPTS": "Transcripty",
+      "FILES": "Soubory",
+      "PLAYLIST": "Podobné epizody",
+      "SHARE": "Sdílet"
+    },
+    "TAB_PANEL": "Záložka {name}",
+    "TAB_CLOSE": {
+      "SHOWNOTES": "Skrýt záložku Poznámky",
+      "CHAPTERS": "Skrýt záložku Kapitoly",
+      "TRANSCRIPTS": "Skrýt záložku Transcripty",
+      "FILES": "Skrýt záložku souborů",
+      "PLAYLIST": "Skrýt záložku podobných epizod",
+      "SHARE": "Skrýt záložku sdílení"
+    },
+    "TIMER_CURRENT": "Aktuální čas: {hours} hodin {minutes} minut {seconds} sekud",
+    "TIMER_REMAINING": "Zbývající čas: {hours} hodin {minutes} minut {seconds} sekund",
+    "TIMER_DURATION": "Doba: {hours} hodin {minutes} minut {seconds} sekund",
+    "TIMER_LIVE": "Za živého vysílání: {hours} hodin {minutes} minut {seconds} sekund",
+    "CHAPTER_LIST": "Kapitoly",
+    "CHAPTER_PAUSE": "Zastavit kapitolu {index}: \"{title}\"",
+    "CHAPTER_PLAY": "Přehrát kapitolu {index}: \"{title}\"",
+    "TRANSCRIPTS_SEARCH": "Hledání Transcriptu",
+    "TRANSCRIPTS_SEARCH_CLEAR": "Vymazat hledání",
+    "TRANSCRIPTS_SEARCH_PREVIOUS": "Předchozí výsledky hledání",
+    "TRANSCRIPTS_SEARCH_NEXT": "Následující výsledky hledání",
+    "TRANSCRIPTS_FOLLOW": "Sledování Transcriptů",
+    "TRANSCRIPTS_UNFOLLOW": "Přestat sledovat Transcripty",
+    "EPISODE_LIST": "Epizody",
+    "EPISODE_PLAY": "Přehrát epizodu \"{title}\"",
+    "EPISODE_PAUSE": "Pozastavit epizodu \"{title}\"",
+    "SHARE_EMBED_CODE": "Embed kód",
+    "VOLUME_CONTROL": "Ukázat ovládaní hlasitosti",
+    "SPEED_CONTROL": "Nastavit rychlost přehrávání na {speed}%",
+    "SUBSCRIBE_BUTTON": "Přihlásit se k odběru podcastu"
+  },
+  "LIVE": "LIVE"
+}
