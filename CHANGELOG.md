@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.12.0](https://github.com/podlove/podlove-ui/compare/v5.11.1...v5.12.0) (2022-10-08)
+
+
+### Features
+
+* **volume-control:** add sr only volume control ([30f78c9](https://github.com/podlove/podlove-ui/commit/30f78c996eb8c7e7dd5b5717fe10970bca21f774))
+
+
+
+
+
 ## [5.11.1](https://github.com/podlove/podlove-ui/compare/v5.11.0...v5.11.1) (2022-09-10)
 
 **Note:** Version bump only for package root
