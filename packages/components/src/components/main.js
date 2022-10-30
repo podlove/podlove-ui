@@ -1,22 +1,24 @@
-import Icon from './icons'
-import PlayButton from './play-button'
-import ChapterButton from './chapter-button'
-import StepperButton from './stepper-button'
-import ProgressBar from './progress-bar'
-import Timer from './timer'
-import Tab from './tab'
-import Image from './image'
-import ChapterProgress from './chapter-progress'
-import Button from './button'
-import Tooltip from './tooltip'
-import Channel from './channel'
-import InputText from './input-text'
-import InputGroup from './input-group'
-import InputSelect from './input-select'
-import InputSlider from './input-slider'
-import InputCheckbox from './input-checkbox'
-import Divider from './divider'
-import Font from './font'
+import Icon from './icons/Icon'
+import PlayButton from './play-button/PlayButton'
+import ChapterButton from './chapter-button/ChapterButton'
+import StepperButton from './stepper-button/StepperButton'
+import ProgressBar from './progress-bar/ProgressBar'
+import Timer from './timer/Timer'
+import TabHeader from './tab/Header'
+import TabHeaderItem from './tab/HeaderItem'
+import TabBody from './tab/Body'
+import Image from './image/Image'
+import ChapterProgress from './chapter-progress/ChapterProgress'
+import Button from './button/Button'
+import Tooltip from './tooltip/Tooltip'
+import Channel from './channel/Channel'
+import InputText from './input-text/InputText'
+import InputGroup from './input-group/InputGroup'
+import InputSelect from './input-select/InputSelect'
+import InputSlider from './input-slider/InputSlider'
+import InputCheckbox from './input-checkbox/InputCheckbox'
+import Divider from './divider/Divider'
+import Font from './font/Font'
 
 export {
   Icon,
@@ -25,7 +27,9 @@ export {
   StepperButton,
   ProgressBar,
   Timer,
-  Tab,
+  TabHeader,
+  TabHeaderItem,
+  TabBody,
   Image,
   ChapterProgress,
   Button,

@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "setup": "npm i --force && lerna bootstrap --hoist",
     "clean": "rm -rf apps/**/dist apps/**/publish packages/**/dist packages/**/publish",
     "format": "eslint --fix '**/*.{js,jsx,vue}'",
     "lint": "eslint -f codeframe '**/*.{js,jsx,vue}'",
@@ -10,7 +11,6 @@
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "update": "lernaupdate",
     "version": "lerna version --conventional-commits --changelog-preset angular",
-    "postinstall": "lerna bootstrap --hoist",
     "dev:player": "lerna run dev --scope @podlove/player --stream",
     "dev:web-player": "lerna run dev --scope @podlove/web-player --stream",
     "build:web-player": "lerna run build --scope @podlove/web-player --stream",
@@ -49,14 +49,14 @@
     "jest": "27.0.6",
     "jest-html-reporters": "2.1.6",
     "jest-serializer-vue": "2.0.2",
-    "lerna": "4.0.0",
+    "lerna": "6.0.1",
     "lerna-update-wizard": "0.17.8",
     "lint-staged": "11.0.1",
     "prettier": "2.3.2",
     "ramda": "0.27.1",
     "regenerator-transform": "0.14.5",
     "stream-to-promise": "3.0.0",
-    "vue": "3.2.11",
+    "vue": "3.2.41",
     "@vue/vue3-jest": "27.0.0-alpha.1",
     "vue-loader": "16.5.0",
     "@vue/compiler-sfc": "3.2.19",
@@ -75,7 +75,8 @@
     }
   },
   "engines": {
-    "node": ">=12"
+    "node": "18",
+    "npm": "8"
   },
   "dependencies": {},
   "jest": {

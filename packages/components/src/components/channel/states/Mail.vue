@@ -7,7 +7,7 @@
 <script>
 import { queryParameter } from '@podlove/utils/url'
 import ChannelBase from './Base'
-import Icon from '../../icons'
+import Icon from '../../icons/Icon'
 
 const LINK = 'mailto:'
 

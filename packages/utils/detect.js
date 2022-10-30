@@ -1,5 +1,10 @@
 import MobileDetect from 'mobile-detect'
 
-const detect = new MobileDetect(window.navigator.userAgent)
+let isMobile = null
 
-export const isMobile = detect.mobile() || detect.tablet()
+if (typeof window !== 'undefined') {
+  detect = new MobileDetect(window.navigator.userAgent)
+  isMobile = detect.mobile() || detect.tablet()
+}
+
+export { isMobile }

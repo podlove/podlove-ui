@@ -49,8 +49,8 @@ import { requestPlay } from '@podlove/player-actions/play'
 
 import { background } from 'defaults'
 import color from 'color'
-import Icon from '../icons'
-import Timer from '../timer'
+import Icon from '../icons/Icon'
+import Timer from '../timer/Timer'
 
 export default {
   components: {

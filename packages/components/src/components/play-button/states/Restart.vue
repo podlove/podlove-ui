@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Icon from '../../icons'
+import Icon from '../../icons/Icon'
 import { color } from 'defaults'
 
 export default {

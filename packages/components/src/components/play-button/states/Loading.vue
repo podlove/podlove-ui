@@ -4,7 +4,7 @@
 
 <script>
 import { color } from 'defaults'
-import Icon from '../../icons'
+import Icon from '../../icons/Icon'
 
 export default {
   components: {

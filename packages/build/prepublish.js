@@ -13,7 +13,7 @@ const stripProperties = (pkg) => {
     return omit(['scripts', 'devDependencies'], pkg)
   }
 
-  return omit(['scripts', 'devDependencies', 'dependencies', 'peerDependencies'], pkg)
+  return omit(['scripts', 'devDependencies', 'dependencies'], pkg)
 }
 
 const copyPackage = () =>

@@ -34,10 +34,10 @@ import { background, color } from 'defaults'
 import { observer } from 'vue-mutation-observer'
 import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
 
-import Play from './states/Play'
-import Pause from './states/Pause'
-import Loading from './states/Loading'
-import Restart from './states/Restart'
+import Play from './states/Play.vue'
+import Pause from './states/Pause.vue'
+import Loading from './states/Loading.vue'
+import Restart from './states/Restart.vue'
 
 export default {
   directives: {

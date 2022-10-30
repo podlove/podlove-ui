@@ -7,7 +7,7 @@
 
 <script>
 import { color } from 'defaults'
-import Icon from '../icons'
+import Icon from '../icons/Icon'
 import { nextChapter, previousChapter } from '@podlove/player-actions/chapters'
 
 export default {

@@ -5,36 +5,42 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "clean": "rm -rf dist publish",
-    "build": "npm run clean && webpack --config .build/webpack.config.js",
+    "clean": "rm -rf dist/* publish/*",
+    "build": "npm run clean && vite build --config ./.build/vite.config.js",
     "postpublish": "npm run clean",
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "files": ["dist"],
+  "module": "./podlove-ui-components.es.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./podlove-ui-components.es.js"
+    }
+  },
   "dependencies": {
     "@podlove/player-actions": "^5.12.0",
     "@podlove/utils": "^5.12.0",
     "normalize.css": "8.0.1",
     "rangetouch": "2.0.0",
     "v-tooltip": "4.0.0-alpha.1",
-    "vue": "3.2.11",
+    "vue": "3.2.41",
     "vue-mutation-observer": "0.1.2"
   },
+  "peerDependencies": {
+    "vue": "3"
+  },
   "devDependencies": {
-    "@babel/core": "7.14.6",
-    "@podlove/build": "^5.12.0",
     "@storybook/addon-actions": "^6.4.0-alpha.25",
     "@storybook/addon-essentials": "^6.4.0-alpha.25",
     "@storybook/addon-links": "^6.4.0-alpha.25",
     "@storybook/builder-webpack5": "^6.4.0-alpha.25",
     "@storybook/manager-webpack5": "^6.4.0-alpha.25",
     "@storybook/vue3": "^6.4.0-alpha.25",
-    "babel-loader": "8.2.2",
-    "terser": "5.6.1",
-    "vue-loader": "16.5.0",
-    "webpack": "5.45.1",
-    "webpack-dev-server": "3.11.2"
+    "vite": "3.2.1",
+    "@vitejs/plugin-vue": "3.2.0"
   }
 }

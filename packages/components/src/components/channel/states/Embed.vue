@@ -6,7 +6,7 @@
 
 <script>
 import ChannelBase from './Base'
-import Icon from '../../icons'
+import Icon from '../../icons/Icon'
 
 export default {
   components: {
