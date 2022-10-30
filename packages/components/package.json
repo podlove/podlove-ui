@@ -4,7 +4,7 @@
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
-    "dev": "start-storybook -p 6006",
+    "dev": "vitebook dev",
     "clean": "rm -rf dist/* publish/*",
     "build": "npm run clean && vite build --config ./.build/vite.config.js",
     "postpublish": "npm run clean",
@@ -24,7 +24,6 @@
   "dependencies": {
     "@podlove/player-actions": "^5.12.0",
     "@podlove/utils": "^5.12.0",
-    "normalize.css": "8.0.1",
     "rangetouch": "2.0.0",
     "v-tooltip": "4.0.0-alpha.1",
     "vue": "3.2.41",
@@ -34,13 +33,13 @@
     "vue": "3"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.0-alpha.25",
-    "@storybook/addon-essentials": "^6.4.0-alpha.25",
-    "@storybook/addon-links": "^6.4.0-alpha.25",
-    "@storybook/builder-webpack5": "^6.4.0-alpha.25",
-    "@storybook/manager-webpack5": "^6.4.0-alpha.25",
-    "@storybook/vue3": "^6.4.0-alpha.25",
+    "@vitebook/client": "0.100.5",
+    "@vitebook/core": "0.100.5",
+    "@vitebook/markdown-vue": "0.100.5",
+    "@vitebook/theme-default": "0.100.5",
+    "@vitebook/vue": "0.100.5",
+    "@vitejs/plugin-vue": "3.2.0",
     "vite": "3.2.1",
-    "@vitejs/plugin-vue": "3.2.0"
+    "svelte": "3.49.0"
   }
 }
