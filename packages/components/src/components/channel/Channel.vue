@@ -16,7 +16,7 @@
 <script>
 import { selectChannel } from '@podlove/player-actions/share'
 
-import { background, color } from 'defaults'
+import { background, color } from '../../defaults'
 import EmbedChannel from './states/Embed'
 import TwitterChannel from './states/Twitter'
 import RedditChannel from './states/Reddit'

@@ -15,7 +15,7 @@
     "dev:web-player": "lerna run dev --scope @podlove/web-player --stream",
     "build:web-player": "lerna run build --scope @podlove/web-player --stream",
     "dev:subscribe-button": "lerna run dev --scope @podlove/subscribe-button --stream",
-    "dev:components": "lerna run dev --scope @podlove/components --stream",
+    "dev:docs": "lerna run dev --scope @podlove/docs --stream",
     "dev:docs-web-player": "lerna run dev --scope @podlove/docs-web-player --stream"
   },
   "devDependencies": {

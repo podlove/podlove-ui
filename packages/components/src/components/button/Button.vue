@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { color, background } from 'defaults'
+import { color, background } from '../../defaults'
 
 export default {
   props: {

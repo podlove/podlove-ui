@@ -1,5 +1,5 @@
 <script>
-import './global.css';
+import './global.css'
 
 export async function configureApp(app) {
   //
@@ -8,8 +8,8 @@ export async function configureApp(app) {
 
 <script setup>
 const { component } = defineProps({
-  component: Object,
-});
+  component: Object
+})
 </script>
 
 <template>

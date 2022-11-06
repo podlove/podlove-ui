@@ -1,0 +1,30 @@
+{
+  "name": "@podlove/docs",
+  "private": true,
+  "description": "",
+  "version": "5.12.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vitebook dev",
+    "build": "vitebook build",
+    "preview": "vitebook preview"
+  },
+  "dependencies": {
+    "vue": "3.2.41",
+    "@podlove/components": "5.12.0"
+  },
+  "devDependencies": {
+    "@vitebook/client": "0.100.5",
+    "@vitebook/core": "0.100.5",
+    "@vitebook/markdown-vue": "0.100.5",
+    "@vitebook/theme-default": "0.100.5",
+    "@vitebook/vue": "0.100.5",
+    "@vitejs/plugin-vue": "3.0.0",
+    "@vue/compiler-sfc": "3.2.26",
+    "autoprefixer": "10.4.13",
+    "postcss": "8.0.0",
+    "svelte": "3.49.0",
+    "tailwindcss": "1.9.6",
+    "vite": "3.2.1"
+  }
+}
