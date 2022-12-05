@@ -6,8 +6,8 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   build: {
     lib: {
-      formats: ['es'],
-      entry: path.resolve(__dirname, '..', 'src', 'components', 'main.js'),
+      formats: ['es', 'umd'],
+      entry: path.resolve(__dirname, 'src', 'components', 'main.js'),
       name: 'PodloveUiComponents',
       fileName: (format) => `podlove-ui-components.${format}.js`,
       type: 'modules'

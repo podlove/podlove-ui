@@ -6,26 +6,29 @@
   "scripts": {
     "dev": "vitebook dev",
     "clean": "rm -rf dist/* publish/*",
-    "build": "npm run clean && vite build --config ./.build/vite.config.js",
-    "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "build": "npm run clean && vite build --config ./vite.config.js",
+    "postpublish": "npm run clean"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
-  "files": ["dist"],
-  "module": "./podlove-ui-components.es.js",
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "main": "./dist/podlove-ui-components.umd.js",
+  "module": "./dist/podlove-ui-components.es.js",
   "exports": {
     ".": {
-      "import": "./podlove-ui-components.es.js"
+      "import": "./dist/podlove-ui-components.es.js",
+      "require": "./dist/podlove-ui-components.umd.js"
     }
   },
   "dependencies": {
     "@podlove/player-actions": "^5.12.0",
     "@podlove/utils": "^5.12.0",
-    "rangetouch": "2.0.0",
-    "v-tooltip": "4.0.0-alpha.1",
+    "rangetouch": "2.0.1",
+    "v-tooltip": "4.0.0-beta.17",
     "vue": "3.2.41",
     "farbraum": "0.0.2"
   },
