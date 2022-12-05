@@ -40,7 +40,7 @@ const disabled = ref(false)
         <input v-model="borderColor" type="color" />
       </Action>
       <Action label="Link">
-        <input v-model="href" type="text" />
+        <input v-model="href" type="text" class="w-full p-2" />
       </Action>
       <Action label="Disabled">
         <input v-model="disabled" type="checkbox" />

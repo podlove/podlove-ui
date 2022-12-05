@@ -47,8 +47,8 @@ import { setChapter } from '@podlove/player-actions/chapters'
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
 import { requestPlay } from '@podlove/player-actions/play'
 
-import { background } from 'defaults'
-import color from 'color'
+import { background } from '../../defaults'
+import { fade } from 'farbraum'
 import Icon from '../icons/Icon'
 import Timer from '../timer/Timer'
 
@@ -110,7 +110,7 @@ export default {
 
       return {
         width: this.progress(this.ghost),
-        'background-color': color(this.progressColor).fade(0.7)
+        'background-color': fade(this.progressColor, 0.7)
       }
     },
 

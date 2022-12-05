@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import color from 'color'
 import { pluck } from 'ramda'
 import { round } from '@podlove/utils/math'
+import { fade } from 'farbraum'
 
-import * as defaultColors from 'defaults'
+import * as defaultColors from '../../defaults'
 
 const pinRange = 0.01
 
@@ -83,7 +83,7 @@ export default {
   computed: {
     trackStyle() {
       return {
-        'background-color': color(this.progressColor).fade(0.7)
+        'background-color': fade(this.progressColor, 0.7)
       }
     },
 

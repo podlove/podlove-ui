@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
+import { createAction } from './action-creator'
 
 import {
   REQUEST_PLAY,

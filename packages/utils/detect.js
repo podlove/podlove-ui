@@ -1,10 +1,10 @@
-import MobileDetect from 'mobile-detect'
+const detectMobile = () =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
 let isMobile = null
 
 if (typeof window !== 'undefined') {
-  detect = new MobileDetect(window.navigator.userAgent)
-  isMobile = detect.mobile() || detect.tablet()
+  isMobile = detectMobile()
 }
 
 export { isMobile }

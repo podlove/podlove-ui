@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { color } from 'defaults'
+import { color } from '../../../defaults'
 import Icon from '../../icons/Icon'
 
 export default {

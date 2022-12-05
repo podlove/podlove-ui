@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import * as defaultColors from 'defaults'
+import * as defaultColors from '../../defaults'
 
 export default {
   props: {

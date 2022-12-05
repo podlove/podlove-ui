@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
+import { createAction } from './action-creator'
 import { FILE_HOVER, FILE_SELECT } from './types'
 
 export const selectFile = createAction(FILE_SELECT)

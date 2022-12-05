@@ -28,7 +28,7 @@
     "@podlove/player-state": "^5.12.0",
     "@podlove/subscribe-button": "^5.12.0",
     "@podlove/utils": "^5.12.0",
-    "color": "3.1.2",
+    "color": "4.2.3",
     "hashcode": "1.0.3",
     "iframe-resizer": "4.3.2",
     "ramda": "0.27.1"

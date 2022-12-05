@@ -13,13 +13,13 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "color": "3.1.2",
     "dompurify": "2.0.12",
     "keycode": "2.2.0",
     "mobile-detect": "1.4.4",
     "query-string-esm": "6.13.6",
     "ramda": "0.27.1",
-    "unfetch": "4.1.0"
+    "unfetch": "4.1.0",
+    "farbraum": "0.1.2"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",

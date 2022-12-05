@@ -2,7 +2,6 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "setup": "npm i --force && lerna bootstrap --hoist",
     "clean": "rm -rf apps/**/dist apps/**/publish packages/**/dist packages/**/publish",
     "format": "eslint --fix '**/*.{js,jsx,vue}'",
     "lint": "eslint -f codeframe '**/*.{js,jsx,vue}'",
@@ -76,7 +75,7 @@
   },
   "engines": {
     "node": "18",
-    "npm": "8"
+    "pnpm": "7"
   },
   "dependencies": {},
   "jest": {

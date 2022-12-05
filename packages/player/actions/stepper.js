@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
+import { createAction } from './action-creator'
 import { STEP_FORWARD, STEP_BACKWARDS } from './types'
 
 export const stepForward = createAction(STEP_FORWARD)

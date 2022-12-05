@@ -27,7 +27,7 @@
     "rangetouch": "2.0.0",
     "v-tooltip": "4.0.0-alpha.1",
     "vue": "3.2.41",
-    "vue-mutation-observer": "0.1.2"
+    "farbraum": "0.0.2"
   },
   "peerDependencies": {
     "vue": "3"

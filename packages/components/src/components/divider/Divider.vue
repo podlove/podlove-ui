@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { background } from 'defaults'
+import { background } from '../../defaults'
 
 export default {
   props: {

@@ -91,8 +91,8 @@
 </template>
 
 <script>
-import color from 'color'
 import RangeTouch from 'rangetouch/dist/rangetouch'
+import { fade } from 'farbraum'
 
 import { interpolate, relativePosition } from '@podlove/utils/math'
 import { isNegative, light, dark } from '@podlove/utils/color'
@@ -100,7 +100,7 @@ import { isMobile } from '@podlove/utils/detect'
 import { requestPlaytime, simulatePlaytime } from '@podlove/player-actions/timepiece'
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
 
-import { color as defaultColor, highlight as defaultHighlight } from 'defaults'
+import { color as defaultColor, highlight as defaultHighlight } from '../../defaults'
 
 export default {
   props: {
@@ -176,7 +176,7 @@ export default {
       return {
         display: this.ghost ? 'block' : 'none',
         left: relativePosition(this.ghost, this.duration),
-        'background-color': color(this.thumbColor).fade(0.2),
+        'background-color': fade(this.thumbColor, 0.2),
         'border-color': this.highlightColor
       }
     }
@@ -239,9 +239,7 @@ export default {
       return {
         left: relativePosition(start, this.duration),
         width: relativePosition(end - start, this.duration),
-        'background-color': isNegative(this.highlightColor)
-          ? color(light).fade(0.5)
-          : color(dark).fade(0.7)
+        'background-color': isNegative(this.highlightColor) ? fade(light, 0.5) : fade(dark, 0.7)
       }
     },
 

@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
+import { createAction } from './action-creator'
 import { NEXT_PLAYLIST_ENTRY, SELECT_PLAYLIST_ENTRY, MARK_PLAYLIST_ENTRY_ACTIVE } from './types'
 
 export const nextEpisode = createAction(NEXT_PLAYLIST_ENTRY)

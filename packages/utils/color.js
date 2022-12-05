@@ -1,7 +1,7 @@
 import { compose, gt } from 'ramda'
-import color from 'color'
+import { luminosity } from 'farbraum'
 
-export const luminosity = (theme) => color(theme).luminosity()
+export { luminosity }
 export const isNegative = compose(gt(0.25), luminosity)
 export const light = '#fff'
 export const dark = '#000'

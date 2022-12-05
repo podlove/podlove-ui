@@ -1,6 +1,6 @@
 <template>
   <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
-    <div v-observer="updateSize" class="wrapper flex items-center justify-center" :style="wrapper">
+    <div class="wrapper flex items-center justify-center overflow-hidden" :style="wrapper">
       <transition name="component" mode="out-in">
         <component
           :is="type"
@@ -14,6 +14,7 @@
             'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading',
             '-ml-1': type === 'play'
           }"
+          @vnodeMounted="updateSize"
         >
           <span
             v-if="label"
@@ -30,9 +31,8 @@
 </template>
 
 <script>
-import { background, color } from 'defaults'
-import { observer } from 'vue-mutation-observer'
 import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
+import { background, color } from '../../defaults'
 
 import Play from './states/Play.vue'
 import Pause from './states/Pause.vue'
@@ -40,9 +40,6 @@ import Loading from './states/Loading.vue'
 import Restart from './states/Restart.vue'
 
 export default {
-  directives: {
-    observer
-  },
   components: {
     Play,
     Pause,
@@ -120,10 +117,13 @@ export default {
     },
 
     updateSize() {
-      setTimeout(() => {
-        const component = this.$refs.playbutton.querySelector('.component')
-        this.width = component.clientWidth
-      }, 300) // equals animation duration
+      const component = this.$refs.playbutton?.querySelector('.component')
+
+      if (!component) {
+        return
+      }
+
+      this.width = component.clientWidth
     }
   }
 }
@@ -143,6 +143,7 @@ export default {
 .component-leave-active {
   transition: opacity $animation-duration ease;
 }
+
 .component-enter,
 .component-leave-to {
   opacity: 0;

@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { color, background } from 'defaults'
+import { color, background } from '../../defaults'
 import Icon from '../icons/Icon'
 
 export default {

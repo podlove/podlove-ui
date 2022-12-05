@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
+import { createAction } from './action-creator'
 import { SET_VOLUME, MUTE, UNMUTE, SET_RATE } from './types'
 
 export const setVolume = createAction(SET_VOLUME)

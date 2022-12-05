@@ -1,15 +1,9 @@
 {
+  "useWorkspaces": true,
   "packages": [
     "apps/**",
     "packages/**"
   ],
   "version": "5.12.0",
-  "npmClient": "npm",
-  "command": {
-    "bootstrap": {
-        "npmClientArgs": [
-            "--legacy-peer-deps"
-        ]
-    }
-  }
+  "npmClient": "pnpm"
 }

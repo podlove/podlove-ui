@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import { color } from 'defaults'
-import Icon from '../icons/Icon'
 import { stepForward, stepBackwards } from '@podlove/player-actions/stepper'
+import Icon from '../icons/Icon'
+import { color } from '../../defaults'
 
 export default {
   components: {

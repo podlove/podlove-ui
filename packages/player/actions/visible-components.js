@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
+import { createAction } from './action-creator'
 
 import {
   SHOW_VISIBLE_COMPONENTS_TAB_INFO,

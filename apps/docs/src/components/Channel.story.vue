@@ -30,7 +30,7 @@ const type = ref('embed')
 
     <ControlsAddon>
       <Action label="Type">
-        <select v-model="type">
+        <select v-model="type" class="w-full p-2">
           <option>embed</option>
           <option>facebook</option>
           <option>linkedin</option>
@@ -50,16 +50,16 @@ const type = ref('embed')
         <input v-model="background" type="color" />
       </Action>
       <Action label="Link">
-        <input v-model="link" type="text" />
+        <input v-model="link" type="text" class="w-full p-2"/>
       </Action>
       <Action label="Subject">
-        <input v-model="subject" type="text" />
+        <input v-model="subject" type="text" class="w-full p-2"/>
       </Action>
       <Action label="Filled">
         <input v-model="filled" type="checkbox" />
       </Action>
       <Action label="A11y">
-        <input v-model="a11y" type="text" />
+        <input v-model="a11y" type="text" class="w-full p-2" />
       </Action>
     </ControlsAddon>
 
