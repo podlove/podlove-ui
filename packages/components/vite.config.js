@@ -27,7 +27,8 @@ export default defineConfig({
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     alias: {
-      defaults: path.resolve(__dirname, './src/defaults')
+      defaults: path.resolve(__dirname, './src/defaults'),
+      '@podlove/utils': path.resolve(__dirname, '../../packages/utils/src')
     }
   }
 })

@@ -5,17 +5,72 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/utils",
   "scripts": {
     "clean": "rm -rf dist publish",
-    "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "build": "npm run clean && vite build --config vite.config.js",
+    "postpublish": "npm run clean"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    "./chapters": {
+      "import": "./dist/chapters.js"
+    },
+    "./color": {
+      "import": "./dist/color.js"
+    },
+    "./detect": {
+      "import": "./dist/detect.js"
+    },
+    "./dom": {
+      "import": "./dist/dom.js"
+    },
+    "./helper": {
+      "import": "./dist/helper.js"
+    },
+    "./keyboard": {
+      "import": "./dist/keyboard.js"
+    },
+    "./localstorage": {
+      "import": "./dist/localstorage.js"
+    },
+    "./location": {
+      "import": "./dist/location.js"
+    },
+    "./math": {
+      "import": "./dist/math.js"
+    },
+    "./predicates": {
+      "import": "./dist/predicates.js"
+    },
+    "./request": {
+      "import": "./dist/request.js"
+    },
+    "./sandbox": {
+      "import": "./dist/sandbox.js"
+    },
+    "./search": {
+      "import": "./dist/search.js"
+    },
+    "./throttle": {
+      "import": "./dist/throttle.js"
+    },
+    "./time": {
+      "import": "./dist/time.js"
+    },
+    "./url": {
+      "import": "./dist/url.js"
+    },
+    "./useragent": {
+      "import": "./dist/useragent.js"
+    }
+  },
   "dependencies": {
     "dompurify": "2.0.12",
     "keycode": "2.2.0",
-    "mobile-detect": "1.4.4",
     "query-string-esm": "6.13.6",
     "ramda": "0.27.1",
     "unfetch": "4.1.0",
@@ -23,6 +78,6 @@
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",
-    "webpack": "5.45.1"
+    "vite": "3.2.1"
   }
 }
