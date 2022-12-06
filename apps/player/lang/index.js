@@ -1,7 +1,13 @@
+import en from './en.json'
+import de from './de.json'
+import eo from './eo.json'
+import fr from './fr.json'
+import cs from './cs.json'
+
 export default {
-  en: require('./en.json'),
-  de: require('./de.json'),
-  eo: require('./eo.json'),
-  fr: require('./fr.json'),
-  cs: require('./cs.json')
+  en,
+  de,
+  eo,
+  fr,
+  cs
 }

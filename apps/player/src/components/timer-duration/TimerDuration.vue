@@ -12,9 +12,8 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import Timer from '@podlove/components/timer'
+import Timer from '@podlove/components/timer/Timer.vue'
 
-import { calcHours, calcMinutes, calcSeconds } from '@podlove/utils/time'
 import select from 'store/selectors'
 
 export default {

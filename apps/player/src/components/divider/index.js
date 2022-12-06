@@ -1,1 +1,3 @@
-export default require('./Divider').default
+import Divider from './Divider.vue'
+
+export default Divider

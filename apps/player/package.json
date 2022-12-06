@@ -5,10 +5,10 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --progress --config .build/webpack.config.dev.js",
+    "dev": "vite",
     "build:dev": "webpack --config .build/webpack.config.dev.js",
     "clean": "rm -rf dist publish",
-    "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
+    "build": "npm run clean && vite build --config vite.config.js --mode production",
     "postpublish": "npm run clean",
     "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
     "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
@@ -27,24 +27,24 @@
     "@podlove/player-sagas": "^5.12.0",
     "@podlove/player-state": "^5.12.0",
     "@podlove/utils": "^5.12.0",
-    "color": "4.2.3",
     "copy-to-clipboard": "3.2.0",
     "core-js": "3.15.2",
     "date-fns": "2.16.1",
     "normalize-scss": "7.0.1",
     "ramda": "0.27.1",
-    "redux": "4.0.4",
-    "redux-vuex": "3.0.0-beta.4",
+    "redux": "4.2.0",
+    "redux-vuex": "3.0.0",
     "regenerator-runtime": "0.13.3",
-    "v-tooltip": "4.0.0-alpha.1",
+    "v-tooltip": "4.0.0-beta.17",
     "vue": "3.2.41",
-    "vue-i18n": "9.1.7"
+    "vue-i18n": "9.2.2"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",
     "cypress": "8.5.0",
-    "http-server": "0.11.1",
-    "webpack": "5.45.1",
-    "webpack-dev-server": "3.11.2"
+    "@vitejs/plugin-vue": "3.2.0",
+    "vite": "3.2.1",
+    "vite-plugin-dynamic-publicpath": "1.1.2",
+    "http-server": "14.1.1"
   }
 }

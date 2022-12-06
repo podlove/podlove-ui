@@ -1,1 +1,2 @@
-export default require('./VolumeControl').default
+import VolumeControl from './VolumeControl'
+export default VolumeControl

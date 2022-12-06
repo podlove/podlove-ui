@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Timer from '@podlove/components/timer'
+import Timer from '@podlove/components/timer/Timer.vue'
 import { mapState } from 'redux-vuex'
 import select from 'store/selectors'
 

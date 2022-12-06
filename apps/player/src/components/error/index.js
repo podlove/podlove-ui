@@ -1,1 +1,3 @@
-export default require('./Error').default
+import Error from './Error.vue'
+
+export default Error

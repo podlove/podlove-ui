@@ -1,1 +1,2 @@
-export default require('./TabFiles').default
+import TabFiles from './TabFiles.vue'
+export default TabFiles

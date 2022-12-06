@@ -16,9 +16,8 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import Icon from '@podlove/components/icons'
+import Icon from '@podlove/components/icons/Icon.vue'
 import { setRate } from '@podlove/player-actions/audio'
-import { compose } from 'ramda'
 
 import select from 'store/selectors'
 

@@ -1,1 +1,3 @@
-export default require('./ProgressBar').default
+import ProgressBar from './ProgressBar.vue'
+
+export default ProgressBar

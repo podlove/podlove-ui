@@ -1,1 +1,2 @@
-export default require('./StepForward').default
+import StepForward from './StepForward.vue'
+export default StepForward

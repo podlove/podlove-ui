@@ -1,1 +1,3 @@
-export default require('./ChapterPrevious').default
+import ChapterPrevious from './ChapterPrevious.vue'
+
+export default ChapterPrevious

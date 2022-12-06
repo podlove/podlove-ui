@@ -20,13 +20,13 @@
 
 <script>
 import { mapState } from 'redux-vuex'
-import Tab from '@podlove/components/tab'
+import TabBody from '@podlove/components/tab/Body.vue'
 
 import select from 'store/selectors'
 
 export default {
   components: {
-    TabBody: Tab.Body
+    TabBody
   },
   props: {
     name: {

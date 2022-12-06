@@ -1,1 +1,3 @@
-export default require('./PlayButton').default
+import PlayButton from './PlayButton.vue'
+
+export default PlayButton

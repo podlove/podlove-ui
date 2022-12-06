@@ -46,13 +46,11 @@
 
 <script>
 import color from 'color'
-import { compose } from 'ramda'
 import { mapState, injectStore } from 'redux-vuex'
 import { selectEpisode } from '@podlove/player-actions/playlist'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'
-import Timer from '@podlove/components/timer'
-import Icon from '@podlove/components/icons'
-import { toHumanTime } from '@podlove/utils/time'
+import Timer from '@podlove/components/timer/Timer.vue'
+import Icon from '@podlove/components/icons/Icon.vue'
 
 import select from 'store/selectors'
 

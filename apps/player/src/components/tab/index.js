@@ -1,1 +1,2 @@
-export default require('./Tab').default
+import Tab from './Tab.vue'
+export default Tab

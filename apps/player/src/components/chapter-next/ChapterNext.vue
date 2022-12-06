@@ -14,7 +14,7 @@
 import { mapState, injectStore } from 'redux-vuex'
 
 import select from 'store/selectors'
-import ChapterButton from '@podlove/components/chapter-button'
+import ChapterButton from '@podlove/components/chapter-button/ChapterButton.vue'
 
 export default {
   components: {

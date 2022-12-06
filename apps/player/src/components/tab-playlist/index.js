@@ -1,1 +1,2 @@
-export default require('./TabPlaylist').default
+import TabPlaylist from './TabPlaylist.vue'
+export default TabPlaylist

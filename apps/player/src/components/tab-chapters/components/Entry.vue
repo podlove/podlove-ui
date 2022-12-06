@@ -45,8 +45,8 @@ import { requestPlay, requestPause } from '@podlove/player-actions/play'
 
 import select from 'store/selectors'
 
-import ChapterProgress from '@podlove/components/chapter-progress'
-import Icon from '@podlove/components/icons'
+import ChapterProgress from '@podlove/components/chapter-progress/ChapterProgress.vue'
+import Icon from '@podlove/components/icons/Icon.vue'
 
 export default {
   components: {

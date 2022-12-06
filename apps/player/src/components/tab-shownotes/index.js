@@ -1,1 +1,2 @@
-export default require('./TabShownotes').default
+import TabShownotes from './TabShownotes.vue'
+export default TabShownotes

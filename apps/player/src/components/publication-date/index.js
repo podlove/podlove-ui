@@ -1,1 +1,2 @@
-export default require('./PublicationDate').default
+import PublicationDate from './PublicationDate.vue'
+export default PublicationDate

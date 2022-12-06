@@ -1,1 +1,3 @@
-export default require('./ProgressBarLive').default
+import ProgressBarLive from './ProgressBarLive.vue'
+
+export default ProgressBarLive

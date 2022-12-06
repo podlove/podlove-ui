@@ -43,7 +43,7 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import Tooltip from '@podlove/components/tooltip'
+import Tooltip from '@podlove/components/tooltip/Tooltip.vue'
 import { selectEmbedSize } from '@podlove/player-actions/embed'
 import copy from 'copy-to-clipboard'
 

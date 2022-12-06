@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Icon from '@podlove/components/icons'
+import Icon from '@podlove/components/icons/Icon.vue'
 import { mapState, injectStore } from 'redux-vuex'
 import * as overlay from '@podlove/button-actions/overlay'
 

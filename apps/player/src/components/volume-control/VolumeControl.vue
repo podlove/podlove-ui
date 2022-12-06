@@ -50,8 +50,8 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import Icon from '@podlove/components/icons'
-import InputSlider from '@podlove/components/input-slider'
+import Icon from '@podlove/components/icons/Icon.vue'
+import InputSlider from '@podlove/components/input-slider/InputSlider.vue'
 import { setVolume } from '@podlove/player-actions/audio'
 import { Dropdown } from 'v-tooltip'
 

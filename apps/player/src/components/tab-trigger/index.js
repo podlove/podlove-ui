@@ -1,1 +1,2 @@
-export default require('./TabTrigger').default
+import TabTrigger from './TabTrigger.vue'
+export default TabTrigger

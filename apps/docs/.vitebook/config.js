@@ -20,7 +20,8 @@ export default defineConfig({
   },
   alias: {
     '@podlove/components': path.resolve(__dirname, '../../../../packages/components/src/components/'),
-    '@podlove/player-actions': path.resolve(__dirname, '../../../../packages/player/actions/')
+    '@podlove/player-actions': path.resolve(__dirname, '../../../../packages/player/actions/'),
+    '@podlove/player': path.resolve(__dirname, '../../../../apps/player/src'),
   },
   vite: {
     resolve: {

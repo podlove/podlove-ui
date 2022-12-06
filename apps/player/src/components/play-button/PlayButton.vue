@@ -21,7 +21,7 @@ import { toHumanTime } from '@podlove/utils/time'
 import { mapState, injectStore } from 'redux-vuex'
 
 import select from 'store/selectors'
-import PlayButton from '@podlove/components/play-button'
+import PlayButton from '@podlove/components/play-button/PlayButton.vue'
 
 export default {
   components: {

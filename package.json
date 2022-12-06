@@ -17,7 +17,8 @@
     "dev:docs": "lerna run dev --scope @podlove/docs --stream",
     "dev:docs-web-player": "lerna run dev --scope @podlove/docs-web-player --stream",
     "build:components": "lerna run build --scope @podlove/components --stream",
-    "build:utils": "lerna run build --scope @podlove/utils --stream"
+    "build:utils": "lerna run build --scope @podlove/utils --stream",
+    "build:player": "lerna run build --scope @podlove/player --stream"
   },
   "devDependencies": {
     "@babel/core": "7.14.6",

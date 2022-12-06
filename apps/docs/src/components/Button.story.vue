@@ -17,14 +17,14 @@ const disabled = ref(false)
 <template>
   <div>
     <Button
-      @click="eventCallback"
       :text-color="textColor"
       :background-color="backgroundColor"
       :border-color="borderColor"
       :href="href"
       :disabled="disabled"
-      >{{ text }}</Button
-    >
+      @click="eventCallback"
+      >{{ text }}
+    </Button>
 
     <ControlsAddon>
       <Action label="Button Text">

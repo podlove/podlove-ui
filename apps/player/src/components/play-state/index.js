@@ -1,1 +1,3 @@
-export default require('./PlayState').default
+import PlayState from './PlayState.vue'
+
+export default PlayState

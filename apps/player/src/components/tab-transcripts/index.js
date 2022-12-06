@@ -1,1 +1,2 @@
-export default require('./TabTranscripts').default
+import TabTranscripts from './TabTranscripts.vue'
+export default TabTranscripts

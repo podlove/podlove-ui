@@ -1,1 +1,3 @@
-export default require('./EpisodeTitle').default
+import EpisodeTitle from './EpisodeTitle.vue'
+
+export default EpisodeTitle

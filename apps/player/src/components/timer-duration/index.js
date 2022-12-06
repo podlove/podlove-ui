@@ -1,1 +1,2 @@
-export default require('./TimerDuration').default
+import TimerDuration from './TimerDuration.vue'
+export default TimerDuration

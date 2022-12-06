@@ -1,1 +1,3 @@
-export default require('./ChapterNext').default
+import ChapterNext from './ChapterNext.vue'
+
+export default ChapterNext

@@ -1,1 +1,2 @@
-export default require('./SpeedControl').default
+import SpeedControl from './SpeedControl.vue'
+export default SpeedControl

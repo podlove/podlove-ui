@@ -1,1 +1,3 @@
-export default require('./CurrentChapter').default
+import CurrentChapter from './CurrentChapter.vue'
+
+export default CurrentChapter

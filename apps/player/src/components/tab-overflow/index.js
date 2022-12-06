@@ -1,1 +1,2 @@
-export default require('./TabOverflow').default
+import TabOverflow from './TabOverflow.vue'
+export default TabOverflow

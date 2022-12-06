@@ -1,1 +1,2 @@
-export default require('./TimerLive').default
+import TimerLive from './TimerLive.vue'
+export default TimerLive

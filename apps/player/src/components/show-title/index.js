@@ -1,1 +1,2 @@
-export default require('./ShowTitle').default
+import ShowTitle from './ShowTitle.vue'
+export default ShowTitle

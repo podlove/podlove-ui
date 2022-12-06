@@ -1,1 +1,2 @@
-export default require('./Root').default
+import Root from './Root.vue'
+export default Root

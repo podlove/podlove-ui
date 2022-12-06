@@ -1,1 +1,3 @@
-export default require('./Poster').default
+import Poster from './Poster.vue'
+
+export default Poster

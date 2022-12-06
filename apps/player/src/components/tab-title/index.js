@@ -1,1 +1,2 @@
-export default require('./TabTitle').default
+import TabTitle from './TabTitle.vue'
+export default TabTitle

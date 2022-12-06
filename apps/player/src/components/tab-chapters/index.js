@@ -1,1 +1,2 @@
-export default require('./TabChapters').default
+import TabChapters from './TabChapters.vue'
+export default TabChapters

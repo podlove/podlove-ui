@@ -63,5 +63,5 @@ export default {
 
   ProgressBarLive: defineAsyncComponent(() => import('./progress-bar-live')),
 
-  Icon: defineAsyncComponent(() => import('@podlove/components/icons'))
+  Icon: defineAsyncComponent(() => import('@podlove/components/icons/Icon.vue'))
 }

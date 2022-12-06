@@ -1,1 +1,3 @@
-export default require('./EpisodeSubtitle').default
+import EpisodenSubtitle from './EpisodeSubtitle.vue'
+
+export default EpisodenSubtitle
