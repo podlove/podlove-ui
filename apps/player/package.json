@@ -4,17 +4,22 @@
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vite",
-    "build:dev": "webpack --config .build/webpack.config.dev.js",
+    "start": "vite",
     "clean": "rm -rf dist publish",
     "build": "npm run clean && vite build --config vite.config.js --mode production",
     "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
-    "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
-    "integration:server": "http-server -p 9000 dist/ > http.log 2>&1 &",
-    "integration:ci": "cypress run --browser chrome",
-    "integration:dev": "cypress open --browser chrome"
+    "test": "cypress open --browser chrome",
+    "test:ci": "cypress run --browser chrome"
+  },
+  "files": ["dist"],
+  "type": "module",
+  "main": "./dist/player.umd.js",
+  "module": "./dist/player.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/player.es.js",
+      "require": "./dist/player.umd.js"
+    }
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",

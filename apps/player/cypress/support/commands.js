@@ -18,7 +18,6 @@ Cypress.Commands.add('setup', () => {
 
 Cypress.Commands.add('bootstrap', (template = '', stateFragments = []) => {
   const state = stateFragments.reduce((result, item) => Object.assign({}, result, item), {})
-
   cy.visit('/test.html')
   cy.url()
     .should('include', '/test.html')

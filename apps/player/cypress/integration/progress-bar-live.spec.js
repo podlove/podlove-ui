@@ -57,7 +57,7 @@ describe('<progress-bar-live>', () => {
       assert('PLAYER_REQUEST_PLAYTIME', () => {
         cy.select('progress-bar-live')
           .find('.progress-thumb')
-          .should('have.css', 'left', '66.6562px')
+          .should('have.css', 'left', '66.6641px')
       })
 
       cy.select('progress-bar-live')

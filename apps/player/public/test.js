@@ -1,3 +1,5 @@
+import { init } from '@podlove/player-actions/init'
+import { CONSTRUCTED } from '@podlove/player-actions/types'
 import createPlayer from '../src/bootstrap'
 
 const initState = (store, state) =>
@@ -5,12 +7,12 @@ const initState = (store, state) =>
     const subscription = store.subscribe(() => {
       const state = store.getState()
 
-      if (state.lastAction.type === 'PLAYER_CONSTRUCTED') {
+      if (state.lastAction.type === CONSTRUCTED) {
         resolve(store)
       }
     })
 
-    store.dispatch({ type: 'PLAYER_INIT', state })
+    store.dispatch(init(state))
     resolve(store)
     subscription()
   })

@@ -60,7 +60,7 @@ describe('<progress-bar>', () => {
 
     it('should set the thumb according to current playtime', () => {
       assert('PLAYER_REQUEST_PLAYTIME', () => {
-        cy.select('progress-bar').find('.progress-thumb').should('have.css', 'left', '66.6562px')
+        cy.select('progress-bar').find('.progress-thumb').should('have.css', 'left', '66.2891px')
       })
 
       cy.select('progress-bar')

@@ -1,7 +1,6 @@
 import { compose, propOr, equals, lt, length } from 'ramda'
 import root from './root'
 import { selectors as components } from '@podlove/player-state/components'
-import timepiece from './timepiece'
 import chapters from './chapters'
 
 export default {

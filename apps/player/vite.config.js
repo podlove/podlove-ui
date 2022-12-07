@@ -20,13 +20,14 @@ const resolve = {
 const productionConfig = {
   build: {
     lib: {
-      formats: ['es'],
+      formats: ['es', 'umd'],
       entry: path.resolve(__dirname, 'src', 'bootstrap.js'),
-      fileName: () => `bootstrap.js`
+      fileName: () => `player.[format].js`,
+      name: 'PodlovePlayer'
     },
     rollupOptions: {
       output: {
-        entryFileNames: '[name].js',
+        entryFileNames: '[name].[format].js',
         chunkFileNames: `[name].[hash].js`,
         assetFileNames: `[name].css`
       }
