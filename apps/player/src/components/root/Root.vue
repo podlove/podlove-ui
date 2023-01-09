@@ -18,7 +18,7 @@
 <script>
 import { mapState } from 'redux-vuex'
 import Font from '@podlove/components/font/Font.vue'
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   components: { Font },

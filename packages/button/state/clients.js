@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { getPlatform } from '@podlove/utils/useragent'
 import getClients from '@podlove/clients'
 import { platform, type } from '@podlove/clients/types'

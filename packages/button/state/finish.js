@@ -1,5 +1,5 @@
 import { prop } from 'ramda'
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 
 import { HIDE_OVERLAY, SHOW_FINISH_CARD } from '@podlove/button-actions/types'
 

@@ -13,10 +13,10 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import select from 'store/selectors'
 import { toHumanTime } from '@podlove/utils/time'
 import { selectEpisode } from '@podlove/player-actions/playlist'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'
+import select from '../../../store/selectors'
 
 export default {
   props: {

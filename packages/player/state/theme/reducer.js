@@ -1,5 +1,5 @@
 import { compose, propOr, path } from 'ramda'
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { createObject } from '@podlove/utils/helper'
 
 import { theme } from '@podlove/player-config'

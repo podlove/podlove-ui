@@ -19,7 +19,7 @@ import { mapState, injectStore } from 'redux-vuex'
 import Icon from '@podlove/components/icons/Icon.vue'
 import { setRate } from '@podlove/player-actions/audio'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 const steps = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2.0]
 

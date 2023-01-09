@@ -1,7 +1,14 @@
 module.exports = {
   content: ['./src/**/*.vue', './src/**/*.story.vue', './.vitebook/App.vue'],
+  plugins: [],
   theme: {
-    extend: {}
+    screens: {
+      mobile: { min: '0px', max: '599px' },
+      tablet: '600px',
+      desktop: '950px'
+    }
   },
-  plugins: []
+  maxHeight: {
+    tab: '455px'
+  }
 }

@@ -30,7 +30,7 @@ import Icon from '@podlove/components/icons/Icon.vue'
 import { toMegabyte } from '@podlove/utils/math'
 import { hoverFile, selectFile } from '@podlove/player-actions/files'
 
-import select from 'store/selectors'
+import select from '../../../store/selectors'
 
 const isType = (type) => compose(includes(type), toLower, defaultTo(''))
 const audio = isType('audio')

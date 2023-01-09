@@ -17,7 +17,7 @@
 <script>
 import { mapState } from 'redux-vuex'
 
-import select from 'store/selectors'
+import select from '../../../store/selectors'
 
 import FacebookChannel from './channels/Facebook'
 import TwitterChannel from './channels/Twitter'

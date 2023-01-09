@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { READY } from '@podlove/player-actions/types'
 import { channels } from '@podlove/player-config'
 

@@ -33,13 +33,13 @@
 </template>
 
 <script>
-import color from 'color'
 import { mapState, injectStore } from 'redux-vuex'
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
 import { requestPlay } from '@podlove/player-actions/play'
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
 import { followTranscripts } from '@podlove/player-actions/transcripts'
-import select from 'store/selectors'
+import { fade } from 'farbraum'
+import select from '../../../store/selectors'
 
 import TranscriptEntry from './Entry'
 
@@ -100,7 +100,7 @@ export default {
     activeStyle() {
       return {
         cursor: 'pointer',
-        background: color(this.state.alt).fade(0.8).toString()
+        background: fade(this.state.alt, 0.8)
       }
     },
     active() {

@@ -1,4 +1,4 @@
-import { audio } from '@podlove/html5-audio-driver/src/connect'
+import { audio } from '@podlove/html5-audio-driver/connect'
 import { select, call, put, takeEvery, fork } from 'redux-saga/effects'
 import {
   REQUEST_PLAY,

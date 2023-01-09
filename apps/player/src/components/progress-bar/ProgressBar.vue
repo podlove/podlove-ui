@@ -19,10 +19,10 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import color from 'color'
+import { fade } from 'farbraum'
 import ProgressBar from '@podlove/components/progress-bar/ProgressBar.vue'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   components: {
@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     progressColor() {
-      return color(this.state.progressColor).fade(0.7).string()
+      return fade(this.state.progressColor, 0.7)
     }
   }
 }

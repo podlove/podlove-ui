@@ -14,7 +14,7 @@
 import { mapState } from 'redux-vuex'
 import Channel from '@podlove/components/channel/Channel.vue'
 
-import select from 'store/selectors'
+import select from '../../../../store/selectors'
 
 export default {
   components: {

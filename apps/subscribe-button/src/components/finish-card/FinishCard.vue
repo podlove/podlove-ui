@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import copy from 'copy-to-clipboard'
 import Tooltip from '@podlove/components/tooltip'
+import copy from '@podlove/utils/copy'
 import { mapState } from 'redux-vuex'
 import * as select from 'store/selectors'
 

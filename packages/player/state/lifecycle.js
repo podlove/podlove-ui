@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { READY, CONSTRUCTED, INIT } from '@podlove/player-actions/types'
 
 export const INITIAL_STATE = null

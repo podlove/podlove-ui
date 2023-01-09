@@ -15,7 +15,8 @@ import InputCheckbox from '@podlove/components/input-checkbox/InputCheckbox.vue'
 import { selectContent } from '@podlove/player-actions/share'
 import { toHumanTime } from '@podlove/utils/time'
 import { mapState, injectStore } from 'redux-vuex'
-import select from 'store/selectors'
+
+import select from '../../../store/selectors'
 
 export default {
   components: {

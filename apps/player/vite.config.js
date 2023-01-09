@@ -42,15 +42,7 @@ const developmentConfig = {
     port: 9000
   },
   plugins: [vue(), useDynamicPublicPath()],
-  resolve,
-  build: {
-    rollupOptions: {
-      input: {
-        index: path.resolve(__dirname, 'index.html'),
-        test: path.resolve(__dirname, 'test.html')
-      }
-    }
-  }
+  resolve
 }
 
 export default defineConfig(({ command }) => {

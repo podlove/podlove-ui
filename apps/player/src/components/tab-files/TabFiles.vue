@@ -18,7 +18,7 @@
 import { mapState, injectStore } from 'redux-vuex'
 import { toggleTab } from '@podlove/player-actions/tabs'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 import TabTitle from '../tab-title'
 import File from './components/File'

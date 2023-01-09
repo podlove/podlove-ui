@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 
 import { UPDATE_CHAPTER, SET_CHAPTERS_LIST, SET_CHAPTER } from '@podlove/player-actions/types'
 

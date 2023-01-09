@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { CONSTRUCTED } from '@podlove/player-actions/types'
 import * as config from '@podlove/player-config'
 

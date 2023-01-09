@@ -22,7 +22,7 @@
 import { mapState } from 'redux-vuex'
 import TabBody from '@podlove/components/tab/Body.vue'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   components: {

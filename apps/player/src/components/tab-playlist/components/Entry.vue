@@ -1,7 +1,7 @@
 <template>
   <div
-    class="flex px-2 -mx-2 cursor-pointer rounded-sm"
-    :class="{ 'font-medium': episode.active }"
+    class="flex px-2 cursor-pointer rounded-sm"
+    :class="{ 'font-medium': episode.active, 'bg-opacity-25': hover }"
     :style="style"
     :data-test="`tab-playlist--entry${episode.active ? '--active' : ''}`"
     @mouseover="mouseOverHandler"
@@ -45,14 +45,14 @@
 </template>
 
 <script>
-import color from 'color'
+import { lighten } from 'farbraum'
 import { mapState, injectStore } from 'redux-vuex'
 import { selectEpisode } from '@podlove/player-actions/playlist'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'
 import Timer from '@podlove/components/timer/Timer.vue'
 import Icon from '@podlove/components/icons/Icon.vue'
 
-import select from 'store/selectors'
+import select from '../../../store/selectors'
 
 export default {
   components: {
@@ -74,8 +74,9 @@ export default {
   setup() {
     return {
       state: mapState({
-        color: select.theme.brandLightest,
-        playing: select.driver.playing
+        playing: select.driver.playing,
+        brandLightest: select.theme.brandLightest,
+        brandDark: select.theme.brandDark
       }),
       dispatch: injectStore().dispatch
     }
@@ -94,7 +95,8 @@ export default {
     style() {
       return this.hover
         ? {
-            background: color(this.state.color).alpha(0.3).string()
+            background: this.state.brandLightest,
+            color: this.state.brandDark
           }
         : {}
     }

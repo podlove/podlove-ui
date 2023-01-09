@@ -19,9 +19,8 @@ steps:
   image: cypress/included:8.5.0
   commands:
     - npx cypress install
-    - npx lerna run integration:build --scope @podlove/player --stream
-    - npx lerna run integration:server --scope @podlove/player --stream
-    - npx lerna run integration:ci --scope @podlove/player --stream
+    - npx lerna run player:start --scope @podlove/player --stream > http.log 2>&1 &
+    - npx lerna run test:ci --scope @podlove/player --stream
 
 - name: build
   image: node:14

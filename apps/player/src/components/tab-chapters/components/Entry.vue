@@ -1,8 +1,8 @@
 <template>
   <div
-    class="flex px-2 -mx-2 rounded-sm"
+    class="flex px-2 rounded-sm"
     data-test="tab-chapters--entry"
-    :class="{ 'font-medium': chapter.active }"
+    :class="{ 'font-medium': chapter.active, 'bg-opacity-25': hover }"
     :style="style"
     @mouseover="mouseOverHandler"
     @mouseleave="mouseLeaveHandler"
@@ -39,11 +39,11 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import color from 'color'
+import { lighten } from 'farbraum'
 import { setChapter } from '@podlove/player-actions/chapters'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'
 
-import select from 'store/selectors'
+import select from '../../../store/selectors'
 
 import ChapterProgress from '@podlove/components/chapter-progress/ChapterProgress.vue'
 import Icon from '@podlove/components/icons/Icon.vue'
@@ -65,7 +65,8 @@ export default {
     return {
       state: mapState({
         playtime: select.playtime,
-        color: select.theme.brandLightest,
+        brandLightest: select.theme.brandLightest,
+        brandDark: select.theme.brandDark,
         ghost: select.ghost.time,
         current: select.chapters.current,
         playing: select.driver.playing
@@ -87,13 +88,14 @@ export default {
     },
 
     progressColor() {
-      return color(this.state.color).alpha(0.5).string()
+      return lighten(this.state.brandDark, 0.1)
     },
 
     style() {
       return this.hover
         ? {
-            background: color(this.state.color).alpha(0.3).string()
+            background: this.state.brandLightest,
+            color: this.state.brandDark
           }
         : {}
     },

@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { propOr } from 'ramda'
 
 import { TOGGLE_TAB } from '@podlove/player-actions/types'

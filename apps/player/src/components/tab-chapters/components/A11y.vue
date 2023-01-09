@@ -13,7 +13,7 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import select from 'store/selectors'
+import select from '../../../store/selectors'
 import { toHumanTime } from '@podlove/utils/time'
 import { setChapter } from '@podlove/player-actions/chapters'
 import { requestPlay, requestPause } from '@podlove/player-actions/play'

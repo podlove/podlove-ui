@@ -1,5 +1,5 @@
 import { pathOr, compose } from 'ramda'
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { sanitize } from '@podlove/utils/dom'
 import { createObject } from '@podlove/utils/helper'
 

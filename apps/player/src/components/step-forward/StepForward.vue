@@ -13,7 +13,7 @@
 <script>
 import { mapState, injectStore } from 'redux-vuex'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 import StepperButton from '@podlove/components/stepper-button/StepperButton.vue'
 
 export default {

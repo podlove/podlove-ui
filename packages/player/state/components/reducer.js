@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import {
   SHOW_COMPONENT_INFO_POSTER,
   SHOW_COMPONENT_TAB,

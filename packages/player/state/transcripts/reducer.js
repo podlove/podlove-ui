@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 
 import {
   SET_TRANSCRIPTS_TIMELINE,

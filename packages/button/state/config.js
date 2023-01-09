@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import { prop } from 'ramda'
 import { INIT } from '@podlove/button-actions/types'
 

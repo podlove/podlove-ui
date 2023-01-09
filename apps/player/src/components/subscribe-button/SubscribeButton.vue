@@ -17,7 +17,7 @@ import Icon from '@podlove/components/icons/Icon.vue'
 import { mapState, injectStore } from 'redux-vuex'
 import * as overlay from '@podlove/button-actions/overlay'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   components: { Icon },

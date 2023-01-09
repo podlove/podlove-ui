@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
+import { createAction } from 'redux-actions/es'
 
 import { SET_LANGUAGE, SET_RUNTIME, SET_VERSION } from './types'
 

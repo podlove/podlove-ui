@@ -55,7 +55,7 @@ import InputSlider from '@podlove/components/input-slider/InputSlider.vue'
 import { setVolume } from '@podlove/player-actions/audio'
 import { Dropdown } from 'v-tooltip'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   components: {

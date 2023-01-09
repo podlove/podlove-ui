@@ -20,7 +20,7 @@
 import { mapState } from 'redux-vuex'
 import { asyncAnimation } from '@podlove/utils/helper'
 
-import select from 'store/selectors'
+import select from '../../../store/selectors'
 
 import TranscriptEntry from './Entry'
 

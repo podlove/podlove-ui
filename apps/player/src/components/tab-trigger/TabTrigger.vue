@@ -26,12 +26,12 @@
 
 <script>
 import { mapState, injectStore } from 'redux-vuex'
-import Icon from '@podlove/components/icons/Icon.vue'
 import { prop } from 'ramda'
 
+import Icon from '@podlove/components/icons/Icon.vue'
 import { toggleTab } from '@podlove/player-actions/tabs'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 const availableTabs = ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist']
 

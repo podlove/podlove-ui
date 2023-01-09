@@ -20,7 +20,7 @@ import { mapState, injectStore } from 'redux-vuex'
 import color from 'color'
 import ProgressBar from '@podlove/components/progress-bar/ProgressBar.vue'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   components: {

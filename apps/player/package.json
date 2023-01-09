@@ -32,17 +32,17 @@
     "@podlove/player-sagas": "^5.12.0",
     "@podlove/player-state": "^5.12.0",
     "@podlove/utils": "^5.12.0",
-    "copy-to-clipboard": "3.2.0",
     "core-js": "3.15.2",
     "date-fns": "2.16.1",
     "normalize-scss": "7.0.1",
-    "ramda": "0.27.1",
+    "ramda": "0.28.0",
     "redux": "4.2.0",
     "redux-vuex": "3.0.0",
     "regenerator-runtime": "0.13.3",
     "v-tooltip": "4.0.0-beta.17",
     "vue": "3.2.41",
-    "vue-i18n": "9.2.2"
+    "vue-i18n": "9.2.2",
+    "farbraum": "0.1.2"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",

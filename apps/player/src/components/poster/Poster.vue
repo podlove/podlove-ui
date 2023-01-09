@@ -8,7 +8,7 @@
 import { mapState, mapActions } from 'redux-vuex'
 import Image from '@podlove/components/image/Image.vue'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   components: { LazyImage: Image },

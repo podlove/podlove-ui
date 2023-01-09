@@ -15,6 +15,7 @@
       class="
         body
         overflow-y-auto overflow-x-hidden
+        -mx-2
         mobile:-mr-4
         tablet:-mr-6
         mobile:pr-4
@@ -36,7 +37,7 @@
 import { mapState, injectStore } from 'redux-vuex'
 import { toggleTab } from '@podlove/player-actions/tabs'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 import TabTitle from '../tab-title'
 import Entry from './components/Entry'

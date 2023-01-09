@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 import {
   READY,
   SELECT_PLAYLIST_ENTRY,

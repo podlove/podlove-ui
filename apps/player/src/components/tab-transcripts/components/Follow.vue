@@ -43,7 +43,7 @@
 import { mapState, injectStore } from 'redux-vuex'
 import { followTranscripts } from '@podlove/player-actions/transcripts'
 
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   setup() {

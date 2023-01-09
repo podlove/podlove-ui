@@ -31,7 +31,7 @@
     "color": "4.2.3",
     "hashcode": "1.0.3",
     "iframe-resizer": "4.3.2",
-    "ramda": "0.27.1"
+    "ramda": "0.28.0"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",

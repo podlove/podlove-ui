@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import color from 'color'
+import { fade } from 'farbraum'
 import { mapState } from 'redux-vuex'
-import select from 'store/selectors'
+import select from '../../store/selectors'
 
 export default {
   setup() {
@@ -20,9 +20,7 @@ export default {
   computed: {
     style() {
       return {
-        'background-image': `linear-gradient(${color(this.state.color).fade(1)}, ${
-          this.state.color
-        })`
+        'background-image': `linear-gradient(${fade(this.state.color, 1)}, ${this.state.color})`
       }
     }
   }

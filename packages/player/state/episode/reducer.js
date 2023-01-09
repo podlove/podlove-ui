@@ -1,5 +1,5 @@
 import { compose, propOr } from 'ramda'
-import { handleActions } from 'redux-actions'
+import { handleActions } from 'redux-actions/es'
 
 import { parseDate } from '@podlove/utils/time'
 import { sanitize } from '@podlove/utils/dom'
