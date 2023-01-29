@@ -16,12 +16,14 @@
 
 <script>
 import { injectStore, mapState } from 'redux-vuex'
-import Icon from '@podlove/components/icons'
-import Divider from '@podlove/components/divider'
-import FinishCard from 'components/finish-card'
-import * as select from 'store/selectors'
+import Icon from '@podlove/components/icons/Icon.vue'
+import Divider from '@podlove/components/divider/Divider.vue'
+
 import * as overlay from '@podlove/button-actions/overlay'
 import * as list from '@podlove/button-actions/list'
+
+import FinishCard from '../components/finish-card/FinishCard.vue'
+import * as select from '../store/selectors'
 
 export default {
   components: {

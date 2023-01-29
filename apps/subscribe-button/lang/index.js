@@ -1,5 +1,9 @@
+import en from './en'
+import de from './de'
+import fr from './fr'
+
 export default {
-  en: require('./en.json'),
-  de: require('./de.json'),
-  fr: require('./fr.json')
+  en,
+  de,
+  fr
 }

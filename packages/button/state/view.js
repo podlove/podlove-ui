@@ -1,5 +1,5 @@
 import { prop } from 'ramda'
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 
 import {
   SHOW_OVERLAY,

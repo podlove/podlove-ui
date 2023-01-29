@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { mergeDeepRight } from 'ramda'
 
 const request = async (url) => fetch(url).then((res) => res.json())

@@ -1,7 +1,8 @@
-<template lang="html">
+<template>
   <div class="antialiased" :style="state.font">
     <slot></slot>
 
+    <inline-style :content="style"></inline-style>
     <font
       v-for="(font, index) in state.fonts"
       :key="index"
@@ -13,35 +14,23 @@
 </template>
 
 <script>
-import Font from '@podlove/components/font'
+import Font from '@podlove/components/font/Font.vue'
+import InlineStyle from '@podlove/components/style/Style.vue'
 import { mapState } from 'redux-vuex'
-import * as select from 'store/selectors'
+import buttonStyle from '../../button.css?inline'
+
+import * as select from '../../store/selectors'
 
 export default {
-  components: { Font },
+  components: { Font, InlineStyle },
   setup() {
     return {
       state: mapState({
         font: select.theme.fontRegular,
         fonts: select.theme.fonts
-      })
+      }),
+      style: buttonStyle
     }
   }
 }
 </script>
-
-<style lang="postcss">
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 300ms;
-  opacity: 1;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

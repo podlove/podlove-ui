@@ -1,28 +1,84 @@
 <template>
-  <hero v-if="!overlay"></hero>
+  <transition name="fade">
+    <root
+      v-if="state.overlay"
+      v-click-outside="close"
+      class="
+        bg-gray-900 bg-opacity-75
+        p-6
+        fixed
+        inset-0
+        w-full
+        h-full
+        flex
+        items-center
+        justify-center
+      "
+    >
+      <transition name="fade" mode="out-in">
+        <client-screen v-if="state.listView" />
+        <finish-screen v-else />
+      </transition>
+    </root>
+  </transition>
 </template>
+
 <script>
-import { compose } from 'ramda'
-import { mapState } from 'redux-vuex'
-import store from 'store'
+import * as overlay from '@podlove/button-actions/overlay'
+import { mapState, injectStore } from 'redux-vuex'
+import Root from './components/root/Root.vue'
+import ClientScreen from './screens/Clients.vue'
+import FinishScreen from './screens/Finish.vue'
 
-import Hero from './components/hero'
-
-import * as select from 'store/selectors'
-import { hide } from '@podlove/button-actions/overlay'
+import * as select from './store/selectors'
 
 export default {
-  components: { Hero },
-  data: mapState({
-    overlay: select.view.overlay
-  }),
-  computed: {
-    dimensions() {
-      return `${this.size.toLowerCase()}-${this.format.toLowerCase()}`
+  components: {
+    Root,
+    ClientScreen,
+    FinishScreen
+  },
+  directives: {
+    'click-outside': {
+      bind(el, { value: fn }) {
+        el.addEventListener('click', (evt) => {
+          if (evt.target !== el) {
+            return
+          }
+
+          fn()
+        })
+      }
     }
   },
+  setup() {
+    return {
+      state: mapState({
+        overlay: select.view.overlay,
+        listView: select.view.list,
+        finishView: select.view.finish,
+        language: select.runtime.language
+      }),
+      dispatch: injectStore().dispatch
+    }
+  },
+  computed: {
+    language() {
+      return this.state.language
+    }
+  },
+  watch: {
+    language() {
+      this.$i18n.locale = this.language
+    }
+  },
+  mounted() {
+    this.$i18n.locale = this.language
+  },
   methods: {
-    hideOverlay: compose(store.dispatch, hide)
+    close() {
+      this.dispatch(overlay.hide())
+    }
   }
 }
 </script>

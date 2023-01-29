@@ -1,6 +1,8 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import aliases from '../../.build/aliases'
+import extensions from '../../.build/extensions'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,10 +27,10 @@ export default defineConfig({
   },
   plugins: [vue()],
   resolve: {
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+    extensions,
     alias: {
       defaults: path.resolve(__dirname, './src/defaults'),
-      '@podlove/utils': path.resolve(__dirname, '../../packages/utils/src')
+      ...aliases
     }
   }
 })

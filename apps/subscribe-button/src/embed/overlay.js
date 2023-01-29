@@ -1,7 +1,7 @@
-import { setStyles, removeStyles } from '@podlove/utils/dom'
-import * as select from 'store/selectors'
+import { setStyles } from '@podlove/utils/dom'
+import * as select from '../store/selectors'
 
-const overlayStyles = {
+const visibleStyle = {
   position: 'fixed',
   width: '100%',
   height: '100%',
@@ -9,13 +9,23 @@ const overlayStyles = {
   left: 0
 }
 
+const hiddenStyle = {
+  position: 'fixed',
+  width: '0',
+  height: '0',
+  top: 0,
+  left: 0
+}
+
 export default (store, entry) => {
+  setStyles(hiddenStyle, entry)
+
   store.subscribe(() => {
     const state = store.getState()
     if (select.view.overlay(state)) {
-      setStyles(overlayStyles, entry)
+      setStyles(visibleStyle, entry)
     } else {
-      removeStyles(Object.keys(overlayStyles), entry)
+      setStyles(hiddenStyle, entry)
     }
   })
 }

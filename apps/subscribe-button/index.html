@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Subscribe Button Example</title>
+  </head>
+
+  <body>
+    <div id="button"></div>
+    <div id="playground">
+      <button id="show-button">Show Subscribe Button</button>
+    </div>
+
+    <script type="module">
+      import { show } from '@podlove/button-actions/overlay'
+      import createSubscribeButton from './src/embed'
+
+      const config = {
+        feed: 'https://feeds.podlovers.org/mp3',
+        clients: [
+          {
+            id: 'apple-podcasts',
+            service: 'id1523714548'
+          },
+          {
+            id: 'antenna-pod'
+          },
+          {
+            id: 'beyond-pod'
+          },
+          {
+            id: 'castbox',
+            service: 'Podlovers-id3117097'
+          },
+          {
+            id: 'castro',
+            service: 'id1523714548'
+          },
+          {
+            id: 'clementine'
+          },
+          {
+            id: 'downcast'
+          },
+          {
+            id: 'google-podcasts',
+            service: 'https://feeds.podlovers.org/mp3'
+          },
+          {
+            id: 'itunes'
+          },
+          {
+            id: 'i-catcher'
+          },
+          {
+            id: 'overcast'
+          },
+          {
+            id: 'player-fm'
+          },
+          {
+            id: 'pocket-casts',
+            service: '194w03r3'
+          },
+          {
+            id: 'pod-grasp'
+          },
+          {
+            id: 'podcast-addict'
+          },
+          {
+            id: 'podcast-republic'
+          },
+          {
+            id: 'podcat'
+          },
+          {
+            id: 'podscout'
+          },
+          {
+            id: 'rss-radio'
+          },
+          {
+            id: 'website',
+            link: 'https://podlovers.org/',
+            icon: 'https://github.com/podlove/podlovers.org/raw/master/static/favicon.png',
+            title: 'Podlovers',
+            platform: 'custom'
+          }
+        ]
+      }
+
+      createSubscribeButton('#button', config).then((store) => {
+        document.getElementById('show-button').addEventListener('click', () => {
+          store.dispatch(show())
+        })
+      })
+    </script>
+
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #playground {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </body>
+</html>

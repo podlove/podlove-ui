@@ -5,9 +5,9 @@
   </div>
 </template>
 <script>
-import ButtonComponent from './components/Button'
 import Image from '@podlove/components/image'
 import { injectStore, mapState } from 'redux-vuex'
+import ButtonComponent from './components/Button'
 
 import { selectColor, selectCover, selectFormat, selectSize, selectStyle } from 'store/selectors'
 import { show, hide } from '@podlove/button-actions/overlay'

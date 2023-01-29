@@ -58,11 +58,11 @@
 </template>
 
 <script>
-import Tooltip from '@podlove/components/tooltip'
+import Tooltip from '@podlove/components/tooltip/Tooltip.vue'
 import copy from '@podlove/utils/copy'
 import { mapState } from 'redux-vuex'
-import * as select from 'store/selectors'
 
+import * as select from '../../store/selectors'
 import AppStoreIcon from '../icons/AppStore'
 import PlayStoreIcon from '../icons/PlayStore'
 

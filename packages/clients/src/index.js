@@ -1,30 +1,57 @@
+import antennaPod from './antenna-pod'
+import applePodcasts from './apple-podcasts'
+import beyondPod from './beyond-pod'
+import castro from './castro'
+import clementine from './clementine'
+import deezer from './deezer'
+import downcast from './downcast'
+import googlePodcasts from './google-podcasts'
+import gpodder from './gpodder'
+import iCatcher from './i-catcher'
+import instacast from './instacast'
+import overcast from './overcast'
+import playerFm from './player-fm'
+import pocketCasts from './pocket-casts'
+import podcastAddict from './podcast-addict'
+import podcastRepublic from './podcast-republic'
+import podcat from './podcat'
+import podscout from './podscout'
+import procast from './procast'
+import rss from './rss'
+import rssRadio from './rss-radio'
+import soundcloud from './soundcloud'
+import spotify from './spotify'
+import stitcher from './stitcher'
+import youtube from './youtube'
+import castbox from './castbox'
+
 const CLIENTS = {
-  'antenna-pod': require('./antenna-pod').default,
-  'apple-podcasts': require('./apple-podcasts').default,
-  'beyond-pod': require('./beyond-pod').default,
-  castro: require('./castro').default,
-  clementine: require('./clementine').default,
-  deezer: require('./deezer').default,
-  downcast: require('./downcast').default,
-  'google-podcasts': require('./google-podcasts').default,
-  gpodder: require('./gpodder').default,
-  'i-catcher': require('./i-catcher').default,
-  instacast: require('./instacast').default,
-  overcast: require('./overcast').default,
-  'player-fm': require('./player-fm').default,
-  'pocket-casts': require('./pocket-casts').default,
-  'podcast-addict': require('./podcast-addict').default,
-  'podcast-republic': require('./podcast-republic').default,
-  podcat: require('./podcat').default,
-  podscout: require('./podscout').default,
-  procast: require('./procast').default,
-  rss: require('./rss').default,
-  'rss-radio': require('./rss-radio').default,
-  soundcloud: require('./soundcloud').default,
-  spotify: require('./spotify').default,
-  stitcher: require('./stitcher').default,
-  youtube: require('./youtube').default,
-  castbox: require('./castbox').default
+  'antenna-pod': antennaPod,
+  'apple-podcasts': applePodcasts,
+  'beyond-pod': beyondPod,
+  castro: castro,
+  clementine: clementine,
+  deezer: deezer,
+  downcast: downcast,
+  'google-podcasts': googlePodcasts,
+  gpodder: gpodder,
+  'i-catcher': iCatcher,
+  instacast: instacast,
+  overcast: overcast,
+  'player-fm': playerFm,
+  'pocket-casts': pocketCasts,
+  'podcast-addict': podcastAddict,
+  'podcast-republic': podcastRepublic,
+  podcat: podcat,
+  podscout: podscout,
+  procast: procast,
+  rss: rss,
+  'rss-radio': rssRadio,
+  soundcloud: soundcloud,
+  spotify: spotify,
+  stitcher: stitcher,
+  youtube: youtube,
+  castbox: castbox
 }
 
 const search =

@@ -21,9 +21,6 @@ export default defineConfig({
     /** @type {(import('@vitebook/theme-default/node').DefaultThemeConfig} */
     theme: {}
   },
-  optimizeDeps: {
-    include: ['redux-actions > invariant/browser.js'],
-  },
   alias: {
     '@podlove/components': path.resolve(__dirname, '../../../../packages/components/src/components/'),
     '@podlove/player-actions': path.resolve(__dirname, '../../../../packages/player/actions/'),

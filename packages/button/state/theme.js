@@ -1,5 +1,5 @@
 import { prop, compose, propOr, path } from 'ramda'
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 import { createObject } from '@podlove/utils/helper'
 import { INIT } from '@podlove/button-actions/types'
 

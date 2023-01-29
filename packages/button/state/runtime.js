@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 import { propOr, prop } from 'ramda'
 import { language } from '@podlove/button-config'
 
