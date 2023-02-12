@@ -9,11 +9,14 @@ import Action from '../shared/Action.vue'
 const color = ref('#ffffff')
 const alt = ref('Image Alt text')
 const url = ref('https://via.placeholder.com/1500')
+const style = ref({
+  '--podlove-component-image-background': color
+})
 </script>
 
 <template>
   <div>
-    <Image :color="color" :alt="alt" :url="url" @onLoad="eventCallback" @onError="eventCallback" />
+    <Image class="w-80 h-80" :style="style" :alt="alt" :url="url" @onLoad="eventCallback" @onError="eventCallback" />
 
     <ControlsAddon>
       <Action label="Color">

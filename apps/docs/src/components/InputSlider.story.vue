@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import InputSlider from '@podlove/components/input-slider/InputSlider.vue'
+import InputSlider from '@podlove/components/input-slider'
 import Action from '../shared/Action.vue'
 
 const min = ref(0)
@@ -11,7 +11,7 @@ const max = ref(100)
 const step = ref(1)
 const value = ref(0)
 const borderColor = ref('#ffffff')
-const background = ref('#000000')
+const thumbColor = ref('#000000')
 const progressColor = ref('#ff0000')
 const pins = ref([
   {
@@ -35,12 +35,18 @@ const pins = ref([
     label: '100x'
   }
 ])
+const style = ref({
+  '--podlove-component-input-slider-thumb': thumbColor,
+  '--podlove-component-input-slider-border': borderColor,
+  '--podlove-component-input-slider-progress': progressColor
+})
 </script>
 
 <template>
   <div>
     <div class="w-64">
       <input-slider
+        :style="style"
         :min="min"
         :max="max"
         :step="step"
@@ -74,8 +80,8 @@ const pins = ref([
       <Action label="Border Color">
         <input v-model="borderColor" type="color" />
       </Action>
-      <Action label="Background Color">
-        <input v-model="background" type="color" />
+      <Action label="Thumb Color">
+        <input v-model="thumbColor" type="color" />
       </Action>
     </ControlsAddon>
     <EventsAddon />

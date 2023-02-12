@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
@@ -25,17 +25,22 @@ const chapter = ref({
 const showLink = ref(false)
 const playtime = ref(2.5 * 60 * 1000)
 const ghost = ref(0)
-const progressColor = ref('#000')
+const progressColor = ref('#aa0000')
+const ghostColor = ref('#00aa00')
+const style = ref({
+  '--podlove-component-chapter-progress-background': progressColor,
+  '--podlove-component-chapter-ghost-background': ghostColor,
+})
 </script>
 
 <template>
   <div>
     <ChapterProgress
+      :style="style"
       :chapter="chapter"
       :show-link="showLink"
       :playtime="playtime"
       :ghost="ghost"
-      :progress-color="progressColor"
       @chapter="eventCallback"
       @play="eventCallback"
       @playtime="eventCallback"
@@ -56,6 +61,9 @@ const progressColor = ref('#000')
       </Action>
       <Action label="ProgressColor">
         <input v-model="progressColor" type="color" />
+      </Action>
+      <Action label="GhostColor">
+        <input v-model="ghostColor" type="color" />
       </Action>
 
       <hr class="my-3 border-0 h-px bg-gray-300" />

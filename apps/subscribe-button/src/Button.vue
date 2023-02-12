@@ -13,6 +13,7 @@
         flex
         items-center
         justify-center
+        bg-podlove-primar
       "
     >
       <transition name="fade" mode="out-in">
@@ -26,6 +27,7 @@
 <script>
 import * as overlay from '@podlove/button-actions/overlay'
 import { mapState, injectStore } from 'redux-vuex'
+
 import Root from './components/root/Root.vue'
 import ClientScreen from './screens/Clients.vue'
 import FinishScreen from './screens/Finish.vue'

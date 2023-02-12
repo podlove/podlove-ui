@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --podlove-components-background: #2B8AC6;
+  --podlove-components-text: #fff;
+  --podlove-components-highlight: #a00;
+}

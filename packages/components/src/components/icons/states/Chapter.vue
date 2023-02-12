@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+defineProps({
+  size: {
+    type: Number,
+    default: 24
+  }
+});
+</script>
+
 <template>
   <svg
     :width="size"
@@ -11,7 +20,7 @@
       y1="6.55"
       x2="9.55"
       y2="6.55"
-      :stroke="color"
+      stroke="currentColor"
       stroke-width="1.1"
       stroke-linecap="round"
     />
@@ -20,7 +29,7 @@
       y1="11.55"
       x2="9.55"
       y2="11.55"
-      :stroke="color"
+      stroke="currentColor"
       stroke-width="1.1"
       stroke-linecap="round"
     />
@@ -29,27 +38,12 @@
       y1="16.55"
       x2="9.55"
       y2="16.55"
-      :stroke="color"
+      stroke="currentColor"
       stroke-width="1.1"
       stroke-linecap="round"
     />
-    <circle cx="5.5" cy="6.5" r="1" :fill="color" />
-    <circle cx="5.5" cy="11.5" r="1" :fill="color" />
-    <circle cx="5.5" cy="16.5" r="1" :fill="color" />
+    <circle cx="5.5" cy="6.5" r="1" fill="currentColor" />
+    <circle cx="5.5" cy="11.5" r="1" fill="currentColor" />
+    <circle cx="5.5" cy="16.5" r="1" fill="currentColor" />
   </svg>
 </template>
-
-<script>
-export default {
-  props: {
-    size: {
-      type: Number,
-      default: 24
-    },
-    color: {
-      type: String,
-      default: 'currentColor'
-    }
-  }
-}
-</script>

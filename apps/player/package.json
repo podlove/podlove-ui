@@ -43,7 +43,7 @@
     "vue": "3.2.41",
     "vue-i18n": "9.2.2",
     "farbraum": "0.1.2",
-    "tailwindcss": "1.9.6"
+    "tailwindcss": "3.2.4"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",

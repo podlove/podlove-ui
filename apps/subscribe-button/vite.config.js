@@ -14,17 +14,17 @@ const resolve = {
   alias
 }
 
-const productionConfig = {
+export default defineConfig({
   build: {
     lib: {
       formats: ['es'],
-      entry: path.resolve(__dirname, 'src', 'embed.js')
+      entry: path.resolve(__dirname, 'src', 'subscribe-button.js')
     },
     rollupOptions: {
       output: {
         entryFileNames: '[name].js',
         chunkFileNames: `[name].[hash].js`,
-        assetFileNames: `button.css`
+        assetFileNames: `subscribe-button.css`
       }
     }
   },
@@ -38,29 +38,4 @@ const productionConfig = {
     })
   ],
   resolve
-}
-
-const developmentConfig = {
-  server: {
-    port: 9000
-  },
-  plugins: [
-    vue(),
-    useDynamicPublicPath(),
-    EnvironmentPlugin({
-      NODE_ENV: 'development',
-      MODE: 'development',
-      VERSION: version
-    })
-  ],
-  resolve
-}
-
-export default defineConfig(({ command }) => {
-  if (command === 'serve') {
-    return developmentConfig
-  } else {
-    // command === 'build'
-    return productionConfig
-  }
 })

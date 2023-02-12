@@ -7,12 +7,15 @@ import Divider from '@podlove/components/divider/Divider.vue'
 import Action from '../shared/Action.vue'
 
 const color = ref('#ffffff')
+const style = ref({
+  '--podlove-component-divider-color': color
+})
 </script>
 
 <template>
   <div>
     <div class="w-40">
-      <Divider :color="color" />
+      <Divider :style="style" />
     </div>
 
     <ControlsAddon>

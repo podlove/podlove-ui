@@ -1,13 +1,13 @@
 <template>
   <channel-base v-bind="$props" type="link" :href="mailLink">
-    <icon type="mail" :color="color" :filled="filled" />
+    <icon type="mail" :filled="filled" />
   </channel-base>
 </template>
 
 <script>
 import { queryParameter } from '@podlove/utils/url'
 import ChannelBase from './Base'
-import Icon from '../../icons/Icon'
+import Icon from '../../icons'
 
 const LINK = 'mailto:'
 
@@ -24,10 +24,6 @@ export default {
     subject: {
       type: String,
       default: ''
-    },
-    color: {
-      type: String,
-      default: '#fff'
     },
     filled: {
       type: Boolean,

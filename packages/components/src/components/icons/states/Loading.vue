@@ -1,3 +1,16 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const props = defineProps({
+  size: {
+    type: Number,
+    default: 25
+  }
+});
+
+const loaderSize = ref(`${props.size}px`)
+</script>
+
 <template>
   <div class="spinner">
     <div class="double-bounce1"></div>
@@ -5,29 +18,7 @@
   </div>
 </template>
 
-<script>
-import { color } from '../../../defaults'
-
-export default {
-  props: {
-    color: {
-      type: String,
-      default: color
-    },
-    size: {
-      type: Number,
-      default: 25
-    }
-  },
-  computed: {
-    loaderSize() {
-      return `${this.size}px`
-    }
-  }
-}
-</script>
-
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .spinner {
   width: v-bind(loaderSize);
   height: v-bind(loaderSize);
@@ -40,7 +31,7 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: v-bind(color);
+  background-color: var(--podlove-component-icon-color);
   opacity: 0.6;
   position: absolute;
   top: 0;

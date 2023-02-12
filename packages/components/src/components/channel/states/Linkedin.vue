@@ -1,13 +1,13 @@
 <template>
   <channel-base v-bind="$props" type="link" :href="linkedinLink">
-    <icon type="linkedin" :color="color" :filled="filled" />
+    <icon type="linkedin" :filled="filled" />
   </channel-base>
 </template>
 
 <script>
 import { addQueryParameter } from '@podlove/utils/url'
 import ChannelBase from './Base'
-import Icon from '../../icons/Icon'
+import Icon from '../../icons'
 
 const LINK = 'https://www.linkedin.com/shareArticle'
 
@@ -24,10 +24,6 @@ export default {
     text: {
       type: String,
       default: ''
-    },
-    color: {
-      type: String,
-      default: '#fff'
     },
     filled: {
       type: Boolean,

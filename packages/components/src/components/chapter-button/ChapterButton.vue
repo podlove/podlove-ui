@@ -1,47 +1,41 @@
+<script setup lang="ts">
+import { nextChapter, previousChapter } from '@podlove/player-actions/chapters';
+import Icon from '../icons';
+
+const props = defineProps({
+  type: {
+    type: String,
+    required: true,
+    validator: (val: string) => ['next', 'previous'].includes(val)
+  }
+});
+
+const emit = defineEmits(['next', 'previous']);
+
+const clickHandler = () => {
+  switch (props.type) {
+    case 'next':
+      emit('next', nextChapter());
+      break;
+    case 'previous':
+      emit('previous', previousChapter());
+      break;
+  }
+};
+</script>
+
 <template>
-  <button :id="`chapter-button--${type}`" @click="clickHandler">
-    <icon :type="type" :color="color" />
+  <button class="podlove-chapter-button" :id="`chapter-button--${props.type}`" @click="clickHandler">
+    <icon :type="props.type" />
     <slot />
   </button>
 </template>
 
-<script>
-import { color } from '../../defaults'
-import Icon from '../icons/Icon'
-import { nextChapter, previousChapter } from '@podlove/player-actions/chapters'
-
-export default {
-  components: {
-    Icon
-  },
-  props: {
-    type: {
-      type: String,
-      required: true,
-      validator: (val) => ['next', 'previous'].includes(val)
-    },
-    color: {
-      type: String,
-      default: color
-    }
-  },
-  emits: {
-    next: null,
-    previous: null
-  },
-  methods: {
-    clickHandler() {
-      switch (this.type) {
-        case 'next':
-          this.$emit('next', nextChapter())
-          break
-        case 'previous':
-          this.$emit('previous', previousChapter())
-          break
-      }
-    }
-  }
+<style lang="postcss">
+.podlove-chapter-button {
+  --podlove-component-icon-color: var(
+    --podlove-component-chapter-button-color,
+    var(--podlove-components-text)
+  );
 }
-</script>
-
-<style lang="scss" scoped></style>
+</style>

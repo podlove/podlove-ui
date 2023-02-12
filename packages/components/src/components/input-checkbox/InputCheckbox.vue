@@ -1,12 +1,13 @@
 <template>
   <label v-if="label" class="flex">
-    <span class="mr-2 relative inline-block w-5 h-5 border rounded-sm border-solid" :style="style">
+    <span
+      class="podlove-check-mark mr-2 relative inline-block w-5 h-5 border rounded-sm border-solid"
+    >
       <icon
         v-if="value"
-        class="check-mark absolute pointer-events-none -mr-2 -mt-2"
+        class="top-[50%] left-[0%] -ml-2 -mt-2 absolute pointer-events-none"
         :size="16"
         type="check-mark"
-        :color="color"
       ></icon>
       <input
         type="checkbox"
@@ -18,13 +19,15 @@
     </span>
     <span class="h-5 leading-5" data-test="input-checkbox--label">{{ label }}</span>
   </label>
-  <span v-else class="relative inline-block w-5 h-5 border rounded-sm border-solid" :style="style">
+  <span
+    v-else
+    class="podlove-check-mark relative inline-block w-5 h-5 border rounded-sm border-solid"
+  >
     <icon
       v-if="value"
-      class="check-mark absolute pointer-events-none -mr-2 -mt-2"
+      class="top-[50%] left-[0%] -ml-2 -mt-2 absolute pointer-events-none"
       :size="16"
       type="check-mark"
-      :color="color"
     ></icon>
     <input
       type="checkbox"
@@ -37,8 +40,8 @@
 </template>
 
 <script>
-import * as defaultColors from '../../defaults'
-import Icon from '../icons/Icon'
+import * as defaultColors from '../../defaults';
+import Icon from '../icons/Icon';
 
 export default {
   components: {
@@ -48,18 +51,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    background: {
-      type: String,
-      default: defaultColors.color
-    },
-    color: {
-      type: String,
-      default: defaultColors.background
-    },
-    borderColor: {
-      type: String,
-      default: defaultColors.background
     },
     label: {
       type: String,
@@ -78,22 +69,26 @@ export default {
       return {
         background: this.background,
         'border-color': this.borderColor
-      }
+      };
     }
   },
   methods: {
     selectEvent(event) {
-      this.$emit('select', event.target.value)
+      this.$emit('select', event.target.value);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.check-mark {
-  top: 50%;
-  left: 50%;
-  margin-left: -8px;
-  margin-top: -8px;
+.podlove-check-mark {
+  --podlove-component-icon-color: var(
+    --podlove-component-checkbox-color,
+    var(--podlove-components-background)
+  );
+
+  background: var(--podlove-component-checkbox-background, var(--podlove-components-text));
+
+  border-color: var(--podlove-component-checkbox-border, var(--podlove-components-background));
 }
 </style>

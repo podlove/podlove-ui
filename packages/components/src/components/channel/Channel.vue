@@ -1,104 +1,104 @@
+<script setup lang="ts">
+import { selectChannel } from '@podlove/player-actions/share';
+
+import EmbedChannel from './states/Embed.vue';
+import TwitterChannel from './states/Twitter.vue';
+import RedditChannel from './states/Reddit.vue';
+import PinterestChannel from './states/Pinterest.vue';
+import MailChannel from './states/Mail.vue';
+import LinkChannel from './states/Link.vue';
+import LinkedinChannel from './states/Linkedin.vue';
+import FacebookChannel from './states/Facebook.vue';
+import XingChannel from './states/Xing.vue';
+import WhatsAppChannel from './states/WhatsApp.vue';
+
+const props = defineProps({
+  filled: {
+    type: Boolean,
+    default: false
+  },
+  link: {
+    type: String,
+    default: null
+  },
+  subject: {
+    type: String,
+    default: null
+  },
+  text: {
+    type: String,
+    default: null
+  },
+  a11y: {
+    type: String,
+    default: null
+  },
+  poster: {
+    type: String,
+    default: null
+  },
+  type: {
+    type: String,
+    required: true,
+    validator: (val: string) =>
+      [
+        'embed',
+        'facebook',
+        'linkedin',
+        'mail',
+        'reddit',
+        'twitter',
+        'xing',
+        'whats-app',
+        'pinterest',
+        'link'
+      ].includes(val)
+  }
+});
+
+const emit = defineEmits(['click']);
+
+const clickHandler = () => {
+  emit('click', selectChannel(props.type));
+};
+
+const channels: { [key: string]: any } = {
+  embed: EmbedChannel,
+  facebook: FacebookChannel,
+  linkedin: LinkedinChannel,
+  mail: MailChannel,
+  reddit: RedditChannel,
+  twitter: TwitterChannel,
+  xing: XingChannel,
+  'whats-app': WhatsAppChannel,
+  pinterest: PinterestChannel,
+  link: LinkChannel
+};
+</script>
+
 <template>
   <component
-    :is="`${type}-channel`"
-    :color="color"
-    :background="background"
-    :subject="subject"
-    :link="link"
-    :text="text"
-    :a11y="a11y"
-    :filled="filled"
-    :poster="poster"
+    :is="channels[props.type]"
+    class="podlove-channel"
+    :subject="props.subject"
+    :link="props.link"
+    :text="props.text"
+    :a11y="props.a11y"
+    :filled="props.filled"
+    :poster="props.poster"
     @click="clickHandler"
   />
 </template>
 
-<script>
-import { selectChannel } from '@podlove/player-actions/share'
-
-import { background, color } from '../../defaults'
-import EmbedChannel from './states/Embed'
-import TwitterChannel from './states/Twitter'
-import RedditChannel from './states/Reddit'
-import PinterestChannel from './states/Pinterest'
-import MailChannel from './states/Mail'
-import LinkChannel from './states/Link'
-import LinkedinChannel from './states/Linkedin'
-import FacebookChannel from './states/Facebook'
-import XingChannel from './states/Xing'
-import WhatsAppChannel from './states/WhatsApp'
-
-export default {
-  components: {
-    EmbedChannel,
-    TwitterChannel,
-    RedditChannel,
-    PinterestChannel,
-    MailChannel,
-    LinkChannel,
-    LinkedinChannel,
-    FacebookChannel,
-    XingChannel,
-    WhatsAppChannel
-  },
-  props: {
-    color: {
-      type: String,
-      default: color
-    },
-    background: {
-      type: String,
-      default: background
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    },
-    link: {
-      type: String,
-      default: null
-    },
-    subject: {
-      type: String,
-      default: null
-    },
-    text: {
-      type: String,
-      default: null
-    },
-    a11y: {
-      type: String,
-      default: null
-    },
-    poster: {
-      type: String,
-      default: null
-    },
-    type: {
-      type: String,
-      required: true,
-      validator: (val) =>
-        [
-          'embed',
-          'facebook',
-          'linkedin',
-          'mail',
-          'reddit',
-          'twitter',
-          'xing',
-          'whats-app',
-          'pinterest',
-          'link'
-        ].includes(val)
-    }
-  },
-  emits: {
-    click: null
-  },
-  methods: {
-    clickHandler() {
-      this.$emit('click', selectChannel(this.type))
-    }
-  }
+<style lang="postcss">
+.podlove-channel {
+  --podlove-component-icon-color: var(
+    --podlove-component-channel-color,
+    var(--podlove-components-text)
+  );
+  background-color: var(
+    --podlove-component-channel-background,
+    var(--podlove-components-background)
+  );
 }
-</script>
+</style>

@@ -1,25 +1,29 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import Channel from '@podlove/components/channel/Channel.vue'
+import Channel from '@podlove/components/channel'
 import Action from '../shared/Action.vue'
 
-const color = ref('#fff')
-const background = ref('#000')
+const color = ref('#ffffff')
+const background = ref('#000000')
 const link = ref('http://google.de')
 const subject = ref('The Subject')
 const filled = ref(false)
 const a11y = ref('The a11y text')
 const type = ref('embed')
+
+const style = ref({
+  '--podlove-component-channel-color': color,
+  '--podlove-component-channel-background': background
+})
 </script>
 
 <template>
   <div>
     <Channel
-      :color="color"
-      :background="background"
+      :style="style"
       :link="link"
       :subject="subject"
       :filled="filled"
@@ -50,10 +54,10 @@ const type = ref('embed')
         <input v-model="background" type="color" />
       </Action>
       <Action label="Link">
-        <input v-model="link" type="text" class="w-full p-2"/>
+        <input v-model="link" type="text" class="w-full p-2" />
       </Action>
       <Action label="Subject">
-        <input v-model="subject" type="text" class="w-full p-2"/>
+        <input v-model="subject" type="text" class="w-full p-2" />
       </Action>
       <Action label="Filled">
         <input v-model="filled" type="checkbox" />

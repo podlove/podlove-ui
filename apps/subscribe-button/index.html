@@ -14,8 +14,8 @@
     </div>
 
     <script type="module">
-      import { show } from '@podlove/button-actions/overlay'
-      import createSubscribeButton from './src/embed'
+      // import { show } from '@podlove/button-actions/overlay'
+      import createSubscribeButton from './dist/subscribe-button.js'
 
       const config = {
         feed: 'https://feeds.podlovers.org/mp3',
@@ -94,7 +94,7 @@
 
       createSubscribeButton('#button', config).then((store) => {
         document.getElementById('show-button').addEventListener('click', () => {
-          store.dispatch(show())
+          store.dispatch({ type: 'BUTTON_SHOW_OVERLAY' })
         })
       })
     </script>

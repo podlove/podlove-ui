@@ -1,13 +1,13 @@
 <template>
   <channel-base v-bind="$props" type="link" :href="pinterestLink">
-    <icon type="pinterest" :color="color" :filled="filled" />
+    <icon type="pinterest" :filled="filled" />
   </channel-base>
 </template>
 
 <script>
 import { addQueryParameter } from '@podlove/utils/url'
 import ChannelBase from './Base'
-import Icon from '../../icons/Icon'
+import Icon from '../../icons'
 
 const LINK = 'https://pinterest.com/pin/create/bookmarklet/'
 
@@ -28,10 +28,6 @@ export default {
     poster: {
       type: String,
       default: null
-    },
-    color: {
-      type: String,
-      default: '#fff'
     },
     filled: {
       type: Boolean,

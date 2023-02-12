@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import InputCheckbox from '@podlove/components/input-checkbox/InputCheckbox.vue'
+import InputCheckbox from '@podlove/components/input-checkbox'
 import Action from '../shared/Action.vue'
 
 const value = ref(false)
@@ -11,6 +11,8 @@ const disabled = ref(false)
 const label = ref('Input Label')
 const borderColor = ref('#fff')
 const background = ref('#fff')
+
+const style = ref({})
 </script>
 
 <template>
@@ -19,8 +21,6 @@ const background = ref('#fff')
       :value="value"
       :disabled="disabled"
       :label="label"
-      :border-color="borderColor"
-      :background="background"
       @onChange="eventCallback"
     />
 

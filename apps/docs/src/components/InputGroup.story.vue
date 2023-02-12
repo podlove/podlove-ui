@@ -1,5 +1,5 @@
-<script setup>
-import InputGroup from '@podlove/components/input-group/InputGroup.vue'
+<script setup lang="ts">
+import InputGroup from '@podlove/components/input-group/InputGroup'
 import ButtonComponent from '@podlove/components/button/Button.vue'
 import InputText from '@podlove/components/input-text/InputText.vue'
 import Icon from '@podlove/components/icons/Icon.vue'

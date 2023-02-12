@@ -1,3 +1,13 @@
+<script lang="ts" setup>
+defineProps({
+  size: {
+    type: Number,
+    default: 12
+  }
+});
+</script>
+
+
 <template>
   <svg
     :width="size"
@@ -8,20 +18,9 @@
   >
     <path
       d="M4.33301 2.66663L7.66634 5.99996L4.33301 9.33329"
-      stroke="black"
+      stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
     />
   </svg>
 </template>
-
-<script>
-export default {
-  props: {
-    size: {
-      type: Number,
-      default: 12
-    }
-  }
-}
-</script>

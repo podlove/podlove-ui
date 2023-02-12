@@ -1,8 +1,32 @@
+<script lang="ts" setup>
+import {path} from 'ramda';
+
+defineProps({
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  options: {
+    type: Array,
+    default: () => []
+  },
+  value: {
+    type: String,
+    default: null
+  }
+});
+
+const emit = defineEmits(['change']);
+
+const changeEvent = (event: Event) => {
+  emit('change', path(['target','value'], event));
+};
+</script>
+
 <template>
   <select
     v-if="options"
-    :style="style"
-    class="input-select block w-full border rounded-none p-1 h-8"
+    class="podlove-select block w-full border rounded-none p-1 h-8"
     :disabled="disabled"
     @change="changeEvent"
   >
@@ -10,63 +34,15 @@
       {{ option }}
     </option>
   </select>
-  <select v-else :style="style" class="input-select" :disabled="disabled" @change="changeEvent">
+  <select v-else class="podlove-select" :disabled="disabled" @change="changeEvent">
     <slot />
   </select>
 </template>
 
-<script>
-import * as defaultColors from '../../defaults'
-
-export default {
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    options: {
-      type: Array,
-      default: () => []
-    },
-    color: {
-      type: String,
-      default: defaultColors.background
-    },
-    background: {
-      type: String,
-      default: defaultColors.color
-    },
-    borderColor: {
-      type: String,
-      default: defaultColors.background
-    },
-    value: {
-      type: String,
-      default: null
-    }
-  },
-  emits: {
-    change: null
-  },
-  computed: {
-    style() {
-      return {
-        color: this.color,
-        background: this.background,
-        'border-color': this.borderColor
-      }
-    }
-  },
-  methods: {
-    changeEvent(event) {
-      this.$emit('change', event.target.value)
-    }
-  }
-}
-</script>
-
-<style lang="scss">
-.input-select {
-  -webkit-appearance: none;
+<style lang="postcss" scoped>
+.podlove-select {
+  color: var(--podlove-component-input-select-color, var(--podlove-components-background));
+  background: var(--podlove-component-input-select-background, var(--podlove-components-text));
+  border-color: var(--podlove-component-input-select-border, var(--podlove-components-background));
 }
 </style>

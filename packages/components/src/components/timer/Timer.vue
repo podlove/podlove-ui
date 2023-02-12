@@ -1,19 +1,9 @@
-<template>
-  <time class="tabular-nums" :style="timerStyle" :datetime="toHumanTime(time)">{{
-    `${remaining ? '-' : ''}${toHumanTime(time)}`
-  }}</time>
-</template>
-
-<script>
+<script setup lang="ts">
+import { computed, ref } from 'vue';
 import { toHumanTime } from '@podlove/utils/time'
 
-export default {
-  props: {
-    color: {
-      type: String,
-      default: undefined
-    },
-    time: {
+const props = defineProps({
+  time: {
       type: Number,
       default: 0
     },
@@ -21,23 +11,20 @@ export default {
       type: Boolean,
       default: false
     }
-  },
+})
 
-  computed: {
-    timerStyle() {
-      if (!this.color) {
-        return {}
-      }
-
-      return {
-        color: this.color
-      }
-    }
-  },
-  methods: {
-    toHumanTime
-  }
-}
+const time = computed(() => toHumanTime(props.time))
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+  <time class="podlove-timer" :datetime="time">{{
+    `${remaining ? '-' : ''}${time}`
+  }}</time>
+</template>
+
+
+<style lang="postcss">
+.podlove-timer {
+  color: var(--podlove-component-timer-color, 'currentcolor')
+}
+</style>

@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import Button from '@podlove/components/button/Button.vue'
+import Button from '@podlove/components/button'
 import Action from '../shared/Action.vue'
 
 const text = ref('Button Text')
@@ -12,17 +12,17 @@ const backgroundColor = ref('#ffffff')
 const borderColor = ref('#ffffff')
 const href = ref('')
 const disabled = ref(false)
+
+const style = ref({
+  '--podlove-component-button-text': textColor,
+  '--podlove-component-button-background': backgroundColor,
+  '--podlove-component-button-border': borderColor
+})
 </script>
 
 <template>
   <div>
-    <Button
-      :text-color="textColor"
-      :background-color="backgroundColor"
-      :border-color="borderColor"
-      :href="href"
-      :disabled="disabled"
-      @click="eventCallback"
+    <Button :style="style" :href="href" :disabled="disabled" @click="eventCallback"
       >{{ text }}
     </Button>
 

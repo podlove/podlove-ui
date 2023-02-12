@@ -1,13 +1,13 @@
 <template>
   <channel-base v-bind="$props" type="link" :href="redditLink">
-    <icon type="reddit" :color="color" :filled="filled" />
+    <icon type="reddit" :filled="filled" />
   </channel-base>
 </template>
 
 <script>
 import { addQueryParameter } from '@podlove/utils/url'
 import ChannelBase from './Base'
-import Icon from '../../icons/Icon'
+import Icon from '../../icons'
 
 const LINK = 'http://reddit.com/submit'
 
@@ -20,10 +20,6 @@ export default {
     text: {
       type: String,
       default: ''
-    },
-    color: {
-      type: String,
-      default: '#fff'
     },
     link: {
       type: String,

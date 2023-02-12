@@ -1,27 +1,31 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
+import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons';
 
-import InputSelect from '@podlove/components/input-select/InputSelect.vue'
-import Action from '../shared/Action.vue'
+import InputSelect from '@podlove/components/input-select/InputSelect.vue';
+import Action from '../shared/Action.vue';
 
-const value = ref('value-2')
-const disabled = ref(false)
-const borderColor = ref('#ff0000')
-const background = ref('#ffffff')
-const color = ref('#000000')
-const options = ref(['value-1', 'value-2', 'value-3', 'value-4'])
+const value = ref('value-2');
+const disabled = ref(false);
+const borderColor = ref('#ff0000');
+const background = ref('#ffffff');
+const color = ref('#000000');
+const options = ref(['value-1', 'value-2', 'value-3', 'value-4']);
+
+const style = ref({
+  '--podlove-component-input-select-color': color,
+  '--podlove-component-input-select-background': background,
+  '--podlove-component-input-select-border': borderColor
+});
 </script>
 
 <template>
   <div>
     <InputSelect
+      :style="style"
       :value="value"
       :disabled="disabled"
-      :color="color"
-      :border-color="borderColor"
-      :background="background"
       :options="options"
       @change="eventCallback"
     />

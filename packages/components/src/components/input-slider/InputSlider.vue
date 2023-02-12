@@ -1,5 +1,67 @@
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { path } from 'ramda';
+import { round } from '@podlove/utils/math';
+
+const pinRange = 0.01;
+
+const props = defineProps({
+  min: {
+    type: Number,
+    default: 0
+  },
+  max: {
+    type: Number,
+    default: 100
+  },
+  step: {
+    type: Number,
+    default: 0.1
+  },
+  value: {
+    type: Number,
+    default: 0
+  },
+  pins: {
+    type: Array<{value: number, label: string}>,
+    default: () => []
+  }
+});
+
+const emit = defineEmits(['sliderInput', 'sliderChange', 'sliderDblclick'])
+
+const relativePosition = (current: any = 0, minimum: any = 0, maximum: any = 0) =>
+  ((parseFloat(current) - parseFloat(minimum)) * 100) /
+    (parseFloat(maximum) - parseFloat(minimum)) +
+  '%';
+
+const thumbLeft = computed(() => relativePosition(props.value, props.min, props.max));
+
+const calcValue = (event: Event) => {
+      const value = path(['target','value'], event) as number;
+
+      return (
+        props.pins
+          .map(({value}) => value)
+          .find((pin) => pin + pinRange >= value && pin - pinRange <= value) || value
+      );
+    };
+
+const handleInput = (event: Event) => {
+  emit('sliderInput', calcValue(event));
+};
+
+const handleChange = (event: Event) => {
+  emit('sliderChange', calcValue(event));
+};
+
+const handleDblclick = (event: Event) => {
+  emit('sliderDblclick', path(['target','value'], event));
+};
+</script>
+
 <template>
-  <div class="input-slider w-full relative">
+  <div class="podlove-input-slider w-full relative h-[30px]">
     <input
       type="range"
       :min="min"
@@ -10,151 +72,44 @@
       @change="handleChange"
       @dblclick="handleDblclick"
     />
-    <span class="track block w-full absolute left-0 pointer-events-none" :style="trackStyle" />
+    <span class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm" />
     <span
       v-for="(pin, index) in pins"
       :key="index"
-      class="pin block absolute font-medium text-xs text-center"
+      class="pin block absolute font-medium text-xs text-center -top-[10px] w-[30px] -ml-[15px]"
       :style="{ left: `${round(pin.value * 100)}%` }"
     >
       {{ pin.label }}
     </span>
     <span
-      class="thumb absolute border border-solid pointer-events-none rounded-lg"
-      :style="thumbStyle"
+      class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
     />
     <slot />
   </div>
 </template>
 
-<script>
-import { pluck } from 'ramda'
-import { round } from '@podlove/utils/math'
-import { fade } from 'farbraum'
-
-import * as defaultColors from '../../defaults'
-
-const pinRange = 0.01
-
-const relativePosition = (current = 0, minimum = 0, maximum = 0) =>
-  ((parseFloat(current, 1000) - parseFloat(minimum, 1000)) * 100) /
-  (parseFloat(maximum, 1000) - parseFloat(minimum, 1000))
-
-export default {
-  props: {
-    min: {
-      type: Number,
-      default: 0
-    },
-    max: {
-      type: Number,
-      default: 100
-    },
-    step: {
-      type: Number,
-      default: 0.1
-    },
-    value: {
-      type: Number,
-      default: 0
-    },
-    pins: {
-      type: Array,
-      default: () => []
-    },
-    background: {
-      type: String,
-      default: defaultColors.background
-    },
-    borderColor: {
-      type: String,
-      default: defaultColors.color
-    },
-    progressColor: {
-      type: String,
-      default: defaultColors.color
-    }
-  },
-  emits: {
-    sliderInput: null,
-    sliderChange: null,
-    sliderDblclick: null
-  },
-  computed: {
-    trackStyle() {
-      return {
-        'background-color': fade(this.progressColor, 0.7)
-      }
-    },
-
-    thumbStyle() {
-      const left = relativePosition(this.value, this.min, this.max)
-      return {
-        left: `${left}%`,
-        'background-color': this.background,
-        'border-color': this.borderColor
-      }
-    }
-  },
-  methods: {
-    calcValue(event) {
-      const value = event.target.value
-
-      return (
-        this.pins
-          .map(pluck('value'))
-          .find((pin) => pin + pinRange >= value && pin - pinRange <= value) || value
-      )
-    },
-
-    round,
-
-    // Events Handlers
-    handleInput(event) {
-      this.$emit('sliderInput', this.calcValue(event))
-    },
-    handleChange(event) {
-      this.$emit('sliderChange', this.calcValue(event))
-    },
-    handleDblclick(event) {
-      this.$emit('sliderDblclick', event.target.value)
-    }
-  }
-}
-</script>
-
 <style lang="scss" scoped>
-$subtile-color: rgba(0, 0, 0, 0.2);
+@import '../../theme/range.scss';
 
-@import '../../theme/tokens/progress';
-@import '../../theme/tokens/input';
-@import '../../theme/resets';
+.podlove-input-slider .thumb {
+  left: v-bind('thumbLeft');
+  background-color: var(
+    --podlove-component-input-slider-thumb,
+    var(--podlove-components-background)
+  );
+  border-color: var(--podlove-component-input-slider-border, var(--podlove-components-text));
+}
 
-.input-slider {
+.podlove-input-slider .track {
+  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--podlove-component-input-slider-progress, var(--podlove-components-text));
+}
+
+.podlove-input-slider .pin {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.podlove-input-slider {
   @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
-
-  height: $slider-height;
-
-  .track {
-    top: 50%;
-    height: 2px;
-    background-color: $subtile-color;
-    border-radius: 2px;
-  }
-
-  .pin {
-    top: -10px;
-    color: $subtile-color;
-    width: 30px;
-    margin-left: $thumb-width-desktop / 2 * -1;
-  }
-
-  .thumb {
-    top: calc(50% - 4px);
-    height: 10px;
-    width: 10px;
-    border-color: $subtile-color;
-    margin-left: $thumb-width-desktop / 4 * -1;
-  }
 }
 </style>

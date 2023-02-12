@@ -1,6 +1,6 @@
 <template>
   <channel-base v-bind="$props" type="link" :href="xingLink">
-    <icon type="xing" :color="color" :filled="filled" />
+    <icon type="xing" :filled="filled" />
   </channel-base>
 </template>
 
@@ -20,10 +20,6 @@ export default {
     link: {
       type: String,
       default: null
-    },
-    color: {
-      type: String,
-      default: '#fff'
     },
     filled: {
       type: Boolean,

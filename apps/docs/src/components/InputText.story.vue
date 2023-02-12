@@ -1,29 +1,33 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon } from '@vitebook/vue/addons'
+import { ControlsAddon } from '@vitebook/vue/addons';
 
-import InputText from '@podlove/components/input-text/InputText.vue'
-import Action from '../shared/Action.vue'
+import InputText from '@podlove/components/input-text/InputText.vue';
+import Action from '../shared/Action.vue';
 
-const disabled = ref(false)
-const value = ref('my value')
-const color = ref('#000000')
-const borderColor = ref('#ff0000')
-const background = ref('#ffffff')
-const block = ref(false)
+const disabled = ref(false);
+const value = ref('my value');
+const color = ref('#000000');
+const borderColor = ref('#ff0000');
+const background = ref('#ffffff');
+const block = ref(false);
+
+const style = ref({
+  '--podlove-component-input-text-background': background,
+  '--podlove-component-input-text-border': borderColor,
+  '--podlove-component-input-text-color': color
+});
 </script>
 
 <template>
   <div>
     <div class="w-64">
       <input-text
+        :style="style"
         :value="value"
         :disabled="disabled"
-        :color="color"
-        :border-color="borderColor"
-        :background="background"
-        :block="block"
+        :class="{ 'block w-full': block }"
       >
       </input-text>
     </div>

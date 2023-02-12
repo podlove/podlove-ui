@@ -1,48 +1,36 @@
+<script setup lang="ts">
+import { types } from './types';
+
+const props = defineProps({
+  type: {
+    type: String,
+    required: true,
+    validator: (val: string) => Object.keys(types).includes(val)
+  },
+  size: {
+    type: Number,
+    default: undefined
+  },
+  filled: {
+    type: Boolean,
+    default: false
+  }
+});
+</script>
+
 <template>
   <component
-    :is="iconType"
-    :color="color"
-    :background="background"
+    :is="types[props.type]"
+    class="podlove-icon"
     :size="size"
     :filled="filled"
     aria-hidden="true"
   />
 </template>
 
-<script>
-import { components, types } from './types'
-
-export default {
-  components,
-  props: {
-    type: {
-      type: String,
-      required: true,
-      validator: (val) => types.includes(val)
-    },
-    background: {
-      type: String,
-      default: 'currentColor'
-    },
-    color: {
-      type: String,
-      default: 'currentColor'
-    },
-    size: {
-      type: Number,
-      default: undefined
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    iconType() {
-      return `${this.type}-icon`
-    }
-  }
+<style lang="postcss">
+.podlove-icon {
+  color: var(--podlove-component-icon-color, 'currentColor');
+  background: var(--podlove-component-icon-background, 'transparent');
 }
-</script>
-
-<style lang="scss" scoped></style>
+</style>

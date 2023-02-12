@@ -1,6 +1,6 @@
 <template>
   <channel-base v-bind="$props" type="link" :href="twitterLink">
-    <icon type="twitter" :color="color" :filled="filled" />
+    <icon type="twitter" :filled="filled" />
   </channel-base>
 </template>
 
@@ -20,10 +20,6 @@ export default {
     text: {
       type: String,
       default: ''
-    },
-    color: {
-      type: String,
-      default: '#fff'
     },
     filled: {
       type: Boolean,

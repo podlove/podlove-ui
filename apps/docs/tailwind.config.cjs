@@ -1,5 +1,10 @@
 module.exports = {
-  content: ['./src/**/*.vue', './src/**/*.story.vue', './.vitebook/App.vue'],
+  content: [
+    './src/**/*.vue',
+    './src/**/*.story.vue',
+    './.vitebook/App.vue',
+    '../../packages/components/src/**/*.vue'
+  ],
   plugins: [],
   theme: {
     screens: {

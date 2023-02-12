@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 import { ControlsAddon } from '@vitebook/vue/addons'
@@ -9,11 +9,15 @@ import Action from '../shared/Action.vue'
 const time = ref(5 * 60 * 1000)
 const color = ref('#000000')
 const remaining = ref(false)
+
+const style = ref({
+  '--podlove-component-timer-color': color
+})
 </script>
 
 <template>
   <div>
-    <Timer :color="color" :time="time" :remaining="remaining" />
+    <Timer :style="style" :time="time" :remaining="remaining" />
 
     <ControlsAddon>
       <Action label="Time">

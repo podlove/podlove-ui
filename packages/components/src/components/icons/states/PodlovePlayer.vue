@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+defineProps({
+  size: {
+    type: Number,
+    default: 20
+  }
+});
+</script>
+
 <template>
   <svg
     version="1.1"
@@ -79,14 +88,3 @@
     </g>
   </svg>
 </template>
-
-<script>
-export default {
-  props: {
-    size: {
-      type: Number,
-      default: 20
-    }
-  }
-}
-</script>

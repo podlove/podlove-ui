@@ -1,6 +1,6 @@
 <template>
   <channel-base v-bind="$props" type="link" :href="whatsAppLink">
-    <icon type="whats-app" :color="color" :filled="filled" />
+    <icon type="whats-app" :filled="filled" />
   </channel-base>
 </template>
 
@@ -20,10 +20,6 @@ export default {
     text: {
       type: String,
       default: ''
-    },
-    color: {
-      type: String,
-      default: '#fff'
     },
     filled: {
       type: Boolean,

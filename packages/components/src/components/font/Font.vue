@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { h } from 'vue'
 
 export default {
@@ -8,7 +8,7 @@ export default {
       default: null
     },
     src: {
-      type: Array,
+      type: Array<String>,
       default: () => []
     },
     weight: {
