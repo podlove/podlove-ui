@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 
 import { media } from '@podlove/player-config'
 import { READY } from '@podlove/player-actions/types'

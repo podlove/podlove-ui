@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 import {
   SIMULATE_PLAYTIME,
   ENABLE_GHOST_MODE,

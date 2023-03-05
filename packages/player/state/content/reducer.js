@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 
 import { SELECT_CONTENT } from '@podlove/player-actions/types'
 

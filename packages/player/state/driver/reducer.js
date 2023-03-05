@@ -1,5 +1,5 @@
 import { propOr } from 'ramda'
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 
 import {
   BACKEND_PAUSE,

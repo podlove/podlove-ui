@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 import {
   CONSTRUCTED,
   BACKEND_LOADING_END,

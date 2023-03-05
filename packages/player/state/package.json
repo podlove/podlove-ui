@@ -16,7 +16,7 @@
     "color": "4.2.3",
     "object-mapper": "6.0.1",
     "ramda": "0.28.0",
-    "redux-actions": "2.6.5"
+    "redux-actions": "3.0.0"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0"

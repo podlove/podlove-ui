@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 import { compose } from 'ramda'
 
 import { inRange } from '@podlove/utils/math'

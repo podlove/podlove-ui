@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 import { head, findIndex } from 'ramda'
 
 import { LOAD_QUANTILES, SET_QUANTILE } from '@podlove/player-actions/types'

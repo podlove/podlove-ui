@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 import { propOr } from 'ramda'
 
 import { READY } from '@podlove/player-actions/types'

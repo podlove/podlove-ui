@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 
 import { BACKEND_BUFFER } from '@podlove/player-actions/types'
 

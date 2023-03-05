@@ -12,7 +12,7 @@
     "@podlove/button-config": "^5.12.0",
     "@podlove/clients": "^5.12.0",
     "@podlove/utils": "^5.12.0",
-    "redux-actions": "2.6.5"
+    "redux-actions": "3.0.0"
   },
   "scripts": {
     "test": "jest",

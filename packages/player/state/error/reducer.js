@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 
 import { SHOW_ERROR, HIDE_ERROR } from '@podlove/player-actions/types'
 

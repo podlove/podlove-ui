@@ -1,4 +1,4 @@
-import { handleActions } from 'redux-actions/es'
+import { handleActions } from 'redux-actions'
 
 import { SELECT_EMBED_SIZE } from '@podlove/player-actions/types'
 
