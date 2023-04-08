@@ -1,26 +1,78 @@
+<script lang="ts" setup>
+import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play';
+import { computed, type Component } from 'vue';
+
+import Play from './states/Play.vue';
+import Pause from './states/Pause.vue';
+import Loading from './states/Loading.vue';
+import Restart from './states/Restart.vue';
+
+const types: { [key: string]: Component } = {
+  play: Play,
+  pause: Pause,
+  loading: Loading,
+  restart: Restart
+}
+
+const props = defineProps({
+  type: {
+    type: String,
+    required: true,
+    validator: (val: string) => ['play', 'pause', 'loading', 'restart'].includes(val)
+  },
+  label: {
+    type: String,
+    default: ''
+  },
+  size: {
+    type: Number,
+    default: 50
+  }
+});
+
+const emit = defineEmits(['play', 'pause', 'restart']);
+
+const clickHandler = () => {
+  switch (props.type) {
+    case 'play':
+      emit('play', requestPlay());
+      break;
+    case 'pause':
+      emit('pause', requestPause());
+      break;
+    case 'restart':
+      emit('restart', requestRestart());
+      break;
+  }
+};
+
+const styleSize = computed(() => `${props.size}px`);
+const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px' : `${props.size}px`);
+</script>
+
 <template>
-  <button :id="`play-button--${type}`" ref="playbutton" class="play-button" @click="clickHandler()">
-    <div class="wrapper flex items-center justify-center overflow-hidden" :style="wrapper">
+  <button
+    :id="`play-button--${type}`"
+    ref="playbutton"
+    class="podlove-play-button"
+    @click="clickHandler()"
+  >
+    <div class="play-button--wrapper flex items-center justify-center overflow-hidden">
       <transition name="component" mode="out-in">
         <component
-          :is="type"
+          :is="types[type]"
           :id="`play-button--${type}`"
           ref="component"
-          class="component"
-          :color="color"
-          :label="label"
+          class="component py-0"
           :size="size / 2"
           :class="{
-            'pt-0 pb-0 pr-8 pl-8': label && type !== 'loading',
-            '-ml-1': type === 'play'
+            'pl-4 pr-5': label && type !== 'loading'
           }"
-          @vnodeMounted="updateSize"
         >
           <span
             v-if="label"
             data-test="play-button--label"
-            class="truncate ml-4 text-base font-thin font-variant-numeric"
-            :style="{ color: color }"
+            class="play-button--label truncate ml-2 text-base font-normal font-variant-numeric"
           >
             {{ label }}
           </span>
@@ -30,118 +82,33 @@
   </button>
 </template>
 
-<script>
-import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play'
-import { background, color } from '../../defaults'
-
-import Play from './states/Play.vue'
-import Pause from './states/Pause.vue'
-import Loading from './states/Loading.vue'
-import Restart from './states/Restart.vue'
-
-export default {
-  components: {
-    Play,
-    Pause,
-    Loading,
-    Restart
-  },
-  props: {
-    type: {
-      type: String,
-      required: true,
-      validator: (val) => ['play', 'pause', 'loading', 'restart'].includes(val)
-    },
-    background: {
-      type: String,
-      default: background
-    },
-    color: {
-      type: String,
-      default: color
-    },
-    label: {
-      type: String,
-      default: ''
-    },
-    size: {
-      type: Number,
-      default: 50
-    }
-  },
-  emits: {
-    play: null,
-    pause: null,
-    restart: null
-  },
-  data() {
-    return {
-      width: null
-    }
-  },
-  computed: {
-    wrapper() {
-      return {
-        'background-color': this.background,
-        width: this.width ? `${this.width}px` : 'auto',
-        height: `${this.size}px`,
-        'min-width': `${this.size}px`,
-        'border-radius': `${this.size / 2}px`
-      }
-    }
-  },
-  watch: {
-    type() {
-      this.updateSize()
-    },
-    label() {
-      this.updateSize()
-    }
-  },
-  mounted() {
-    this.updateSize()
-  },
-  methods: {
-    clickHandler() {
-      switch (this.type) {
-        case 'play':
-          this.$emit('play', requestPlay())
-          break
-        case 'pause':
-          this.$emit('pause', requestPause())
-          break
-        case 'restart':
-          this.$emit('restart', requestRestart())
-          break
-      }
-    },
-
-    updateSize() {
-      const component = this.$refs.playbutton?.querySelector('.component')
-
-      if (!component) {
-        return
-      }
-
-      this.width = component.clientWidth
-    }
-  }
+<style lang="postcss" scoped>
+.podlove-play-button {
+  --podlove-component-icon-color: var(
+    --podlove-component-play-button-text-color,
+    var(--podlove-components-text)
+  );
 }
-</script>
 
-<style lang="scss" scoped>
-@import '../../theme/tokens/animation';
-@import '../../theme/tokens/play-button';
+.podlove-play-button .play-button--wrapper {
+  transition: all 1800ms;
+  background-color: var(
+    --podlove-component-play-button-background,
+    var(--podlove-components-background)
+  );
+  height: v-bind('styleSize');
+  min-width: v-bind('styleSize');
+  border-radius: calc(v-bind('styleSize') / 2);
+  max-width: v-bind('maxWidth');
+}
 
-.play-button {
-  .wrapper {
-    transition: all $animation-duration * 4;
-  }
+.podlove-play-button .play-button--label {
+  color: var(--podlove-component-play-button-text-color, var(--podlove-components-text));
 }
 
 .component-enter-active,
 .component-leave-active {
-  transition: opacity $animation-duration ease;
+  transition: opacity 300ms ease;
 }
 
 .component-enter,

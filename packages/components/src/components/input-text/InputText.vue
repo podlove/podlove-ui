@@ -4,7 +4,6 @@ defineProps({
     type: Boolean,
     default: false
   },
-
   value: {
     type: String,
     default: ''

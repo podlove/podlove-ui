@@ -1,3 +1,5 @@
+import type { Component } from 'vue';
+
 import PlayIcon from './states/Play.vue';
 import PlusIcon from './states/Plus.vue';
 import PauseIcon from './states/Pause.vue';
@@ -66,7 +68,7 @@ import ChevronRightIcon from './states/ChevronRight.vue';
 import ChevronLeftIcon from './states/ChevronLeft.vue';
 import XingIcon from './states/Xing.vue';
 import WhatsAppIcon from './states/WhatsApp.vue';
-import type { Component } from 'vue';
+
 
 export const types: { [key: string]: Component } = {
   play: PlayIcon,

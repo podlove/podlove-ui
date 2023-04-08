@@ -90,7 +90,7 @@ const channels: { [key: string]: any } = {
   />
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .podlove-channel {
   --podlove-component-icon-color: var(
     --podlove-component-channel-color,

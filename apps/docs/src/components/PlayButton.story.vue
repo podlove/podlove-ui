@@ -11,6 +11,11 @@ const background = ref('#000000')
 const color = ref('#ff0000')
 const label = ref('My Label')
 const size = ref(50)
+
+const style = ref({
+  '--podlove-component-play-button-background': background,
+  '--podlove-component-play-button-text-color': color
+})
 </script>
 
 <template>
@@ -24,6 +29,7 @@ const size = ref(50)
       @play="eventCallback"
       @pause="eventCallback"
       @restart="eventCallback"
+      :style="style"
     >
     </play-button>
 
