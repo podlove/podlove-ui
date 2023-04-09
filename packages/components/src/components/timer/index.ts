@@ -1,2 +1,2 @@
-import Timer from './timer.vue'
+import Timer from './Timer.vue'
 export default Timer

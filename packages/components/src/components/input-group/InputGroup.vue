@@ -15,7 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="input-group h-8 box-border flex" :class="{ [`elements-${elements}`]: true }" ref="container">
+  <div class="podlove-component-input-group h-8 box-border flex" :class="{ [`elements-${elements}`]: true }" ref="container">
     <slot name="button" />
     <slot name="input" />
   </div>
@@ -24,7 +24,7 @@ onMounted(() => {
 <style lang="scss">
 $addon-button-width: 80px;
 
-.input-group {
+.podlove-component-input-group {
   .input-text,
   .input-select {
     padding: 0.25rem;

@@ -1,51 +1,45 @@
 <template>
   <button
-    :id="`stepper-button--${type}`"
-    class="stepper-button opacity-100 hover:opacity-75"
+    :data-test="`podlove-component-stepper-button--${type}`"
+    class="podlove-component-stepper-button opacity-100 hover:opacity-75"
     @click="clickHandler"
   >
-    <icon :type="type" :color="color" />
+    <icon :type="type" />
     <slot />
   </button>
 </template>
 
-<script>
-import { stepForward, stepBackwards } from '@podlove/player-actions/stepper'
-import Icon from '../icons/Icon'
-import { color } from '../../defaults'
+<script lang="ts" setup>
+import { stepForward, stepBackwards } from '@podlove/player-actions/stepper';
+import Icon from '../icons';
 
-export default {
-  components: {
-    Icon
-  },
-  props: {
-    type: {
-      type: String,
-      required: true,
-      validator: (val) => ['forward', 'backwards'].includes(val)
-    },
-    color: {
-      type: String,
-      default: color
-    }
-  },
-  emit: {
-    forward: null,
-    backwards: null
-  },
-  methods: {
-    clickHandler() {
-      switch (this.type) {
-        case 'forward':
-          this.$emit('forward', stepForward())
-          break
-        case 'backwards':
-          this.$emit('backwards', stepBackwards())
-          break
-      }
-    }
+const props = defineProps({
+  type: {
+    type: String,
+    required: true,
+    validator: (val) => ['forward', 'backwards'].includes(val)
   }
-}
+});
+
+const emits = defineEmits(['forward', 'backwards']);
+
+const clickHandler = () => {
+  switch (props.type) {
+    case 'forward':
+      emits('forward', stepForward());
+      break;
+    case 'backwards':
+      emits('backwards', stepBackwards());
+      break;
+  }
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="postcss" scoped>
+.podlove-component-stepper-button {
+  --podlove-component-icon-color: var(
+    --podlove-component-stepper-button-color,
+    var(--podlove-components-text)
+  );
+}
+</style>

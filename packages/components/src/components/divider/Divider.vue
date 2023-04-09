@@ -1,9 +1,9 @@
 <template>
-  <div class="podlove-divider"></div>
+  <div class="podlove-component-divider"></div>
 </template>
 
 <style lang="postcss">
-.podlove-divider {
+.podlove-component-divider {
   height: 1px;
   background-position: 0 100%;
   background-size: 4px 1px;

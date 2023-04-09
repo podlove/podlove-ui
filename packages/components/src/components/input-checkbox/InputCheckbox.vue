@@ -1,7 +1,7 @@
 <template>
   <label v-if="label" class="flex">
     <span
-      class="podlove-check-mark mr-2 relative inline-block w-5 h-5 border rounded-sm border-solid"
+      class="podlove-component-check-mark mr-2 relative inline-block w-5 h-5 border rounded-sm border-solid"
     >
       <icon
         v-if="value"
@@ -21,7 +21,7 @@
   </label>
   <span
     v-else
-    class="podlove-check-mark relative inline-block w-5 h-5 border rounded-sm border-solid"
+    class="podlove-component-check-mark relative inline-block w-5 h-5 border rounded-sm border-solid"
   >
     <icon
       v-if="value"
@@ -39,16 +39,11 @@
   </span>
 </template>
 
-<script>
-import * as defaultColors from '../../defaults';
-import Icon from '../icons/Icon';
+<script setup lang="ts">
+import Icon from '../icons';
 
-export default {
-  components: {
-    Icon
-  },
-  props: {
-    disabled: {
+const props = defineProps({
+  disabled: {
       type: Boolean,
       default: false
     },
@@ -60,28 +55,17 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  emits: {
-    select: null
-  },
-  computed: {
-    style() {
-      return {
-        background: this.background,
-        'border-color': this.borderColor
-      };
-    }
-  },
-  methods: {
-    selectEvent(event) {
-      this.$emit('select', event.target.value);
-    }
-  }
-};
+})
+
+const emits = defineEmits(['select']);
+
+const selectEvent = (event: Event) => {
+  emits('select', event.target.value);
+}
 </script>
 
 <style lang="scss" scoped>
-.podlove-check-mark {
+.podlove-component-check-mark {
   --podlove-component-icon-color: var(
     --podlove-component-checkbox-color,
     var(--podlove-components-background)

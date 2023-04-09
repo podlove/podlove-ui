@@ -15,7 +15,7 @@ const props = defineProps({
   <component
     :is="href ? 'a' : 'button'"
     class="
-      podlove-button
+      podlove-component-button
       flex
       justify-center
       h-8
@@ -43,14 +43,14 @@ const props = defineProps({
 </template>
 
 <style lang="postcss" scoped>
-.podlove-button {
+.podlove-component-button {
   font-variant: small-caps;
   color: var(--podlove-component-button-text, var(--podlove-components-background));
   background: var(--podlove-component-button-background, var(--podlove-components-text));
   border-color: var(--podlove-component-button-border, var(--podlove-components-background));
 }
 
-.pdolove-button svg {
+.podlove-component-button svg {
   display: inline;
 }
 </style>

@@ -32,15 +32,34 @@ const chapters = ref([
 ])
 
 const progressColor = ref('#D1C477')
-const thumbColor = ref('#000000')
-const highlightColor = ref('#D1C477')
+const chaptersSeperatorColor = ref('#D1C477')
+const chaptersBackgroundColor = ref('#D1C477')
+const trackBackgroundColor = ref('#000000')
+const thumbBackgroundColor = ref('#000000')
+const thumbBorderColor = ref('#000000')
+const ghostBackgroundColor = ref('#000000')
+const ghostBorderColor = ref('#000000')
+const bufferBackgroundColor = ref('#000000')
 const label = ref('')
+
+const style = ref({
+  '--podlove-component-progress-bar-progress-color': progressColor,
+  '--podlove-component-progress-bar-chapters-separator-color': chaptersSeperatorColor,
+  '--podlove-component-progress-bar-chapters-background-color': chaptersBackgroundColor,
+  '--podlove-component-progress-bar-track-background-color': trackBackgroundColor,
+  '--podlove-component-progress-bar-thumb-background-color': thumbBackgroundColor,
+  '--podlove-component-progress-bar-thumb-border-color': thumbBorderColor,
+  '--podlove-component-progress-bar-ghost-background-color': ghostBackgroundColor,
+  '--podlove-component-progress-bar-ghost-border-color': ghostBorderColor,
+  '--podlove-component-progress-bar-buffer-background-color': bufferBackgroundColor
+})
 </script>
 
 <template>
   <div>
     <div class="w-64">
       <progress-bar
+        :style="style"
         :title="title"
         :time="time"
         :duration="duration"
@@ -48,9 +67,6 @@ const label = ref('')
         :buffer="buffer"
         :quantiles="quantiles"
         :chapters="chapters"
-        :progress-color="progressColor"
-        :thumb-color="thumbColor"
-        :highlight-color="highlightColor"
         :label="label"
         @time="eventCallback"
         @ghost="eventCallback"
@@ -75,17 +91,32 @@ const label = ref('')
       <Action label="Ghost">
         <input v-model="ghost" type="number" class="w-full p-2" />
       </Action>
-      <Action label="Color">
-        <input v-model="color" type="color" />
-      </Action>
       <Action label="Progress Color">
         <input v-model="progressColor" type="color" />
       </Action>
-      <Action label="Thumb Color">
-        <input v-model="highlightColor" type="color" />
+      <Action label="Chapters Seperator Color">
+        <input v-model="chaptersSeperatorColor" type="color" />
       </Action>
-      <Action label="Highlight Color">
-        <input v-model="thumbColor" type="color" />
+      <Action label="Chapters Background Color">
+        <input v-model="chaptersBackgroundColor" type="color" />
+      </Action>
+      <Action label="Track Background Color">
+        <input v-model="trackBackgroundColor" type="color" />
+      </Action>
+      <Action label="Thumb Background Color">
+        <input v-model="thumbBackgroundColor" type="color" />
+      </Action>
+      <Action label="Thumb Border Color">
+        <input v-model="thumbBorderColor" type="color" />
+      </Action>
+      <Action label="Ghost Background Color">
+        <input v-model="ghostBackgroundColor" type="color" />
+      </Action>
+      <Action label="Ghost Border Color">
+        <input v-model="ghostBorderColor" type="color" />
+      </Action>
+      <Action label="Buffer Background Color">
+        <input v-model="bufferBackgroundColor" type="color" />
       </Action>
     </ControlsAddon>
     <EventsAddon />

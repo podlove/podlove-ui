@@ -31,7 +31,7 @@ const errorHandler = (event: Event) => {
 <template>
   <div class="relative">
     <transition name="fade">
-      <div v-if="!loaded" class="podlove-image-cover absolute top-0 left-0 w-full h-full"></div>
+      <div v-if="!loaded" class="podlove-component-image-cover absolute top-0 left-0 w-full h-full"></div>
     </transition>
     <img
       v-if="url && !error"
@@ -56,7 +56,7 @@ const errorHandler = (event: Event) => {
   opacity: 0;
 }
 
-.podlove-image-cover {
+.podlove-component-image-cover {
   background-color: var(--podlove-component-image-background, var(--podlove-components-background));
 }
 </style>

@@ -111,7 +111,7 @@ const linkLeave = () => {
 
 <template>
   <div
-    class="podlove-chapter-progress relative flex items-center px-2 py-0"
+    class="podlove-component-chapter-progress relative flex items-center px-2 py-0"
     ref="progressContainer"
     aria-hidden="true"
     @mouseout="progressOut"

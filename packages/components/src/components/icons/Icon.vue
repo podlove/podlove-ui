@@ -21,7 +21,7 @@ const props = defineProps({
 <template>
   <component
     :is="types[props.type]"
-    class="podlove-icon"
+    class="podlove-component-icon"
     :size="size"
     :filled="filled"
     aria-hidden="true"
@@ -29,7 +29,7 @@ const props = defineProps({
 </template>
 
 <style lang="postcss">
-.podlove-icon {
+.podlove-component-icon {
   color: var(--podlove-component-icon-color, 'currentColor');
   background: var(--podlove-component-icon-background, 'transparent');
 }

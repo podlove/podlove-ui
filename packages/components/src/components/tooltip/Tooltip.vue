@@ -12,110 +12,90 @@
         <slot />
       </span>
       <template #popper>
-        <span class="rounded px-3 py-1 text-center text-sm" :style="{ color, background }">
+        <span class="podlove-component-tooltip rounded px-3 py-1 text-center text-sm">
           {{ content }}
         </span>
         <span
           class="dropdown-arrow"
           :class="{ [`arrow-${placement}`]: true }"
-          :style="{ 'border-color': background }"
         ></span>
       </template>
     </dropdown>
   </span>
 </template>
 
-<script>
-import { Dropdown } from 'v-tooltip'
+<script lang="ts" setup>
+import { Dropdown } from 'v-tooltip';
+import { ref } from 'vue';
+let hideTimeout: any;
 
-let hideTimeout
-
-export default {
-  components: {
-    Dropdown
+const props = defineProps({
+  trigger: {
+    type: String,
+    default: 'hover'
   },
-
-  props: {
-    trigger: {
-      type: String,
-      default: 'hover'
-    },
-    content: {
-      type: String,
-      default: ''
-    },
-    color: {
-      type: String,
-      default: '#fff'
-    },
-    background: {
-      type: String,
-      default: '#000'
-    },
-    placement: {
-      type: String,
-      default: 'auto',
-      validator: (pos) => ['auto', 'top', 'right', 'bottom', 'left'].includes(pos)
-    }
+  content: {
+    type: String,
+    default: ''
   },
-
-  emits: {
-    click: null
-  },
-
-  data() {
-    return {
-      visible: false,
-      test: 'orange'
-    }
-  },
-
-  methods: {
-    show() {
-      this.visible = true
-    },
-
-    hide(timeout) {
-      clearTimeout(hideTimeout)
-      hideTimeout = setTimeout(() => {
-        this.visible = false
-      }, timeout)
-    },
-
-    mouseLeave() {
-      this.hide(500)
-    },
-
-    mouseOver() {
-      if (!this.content) {
-        return
-      }
-
-      if (this.trigger !== 'hover') {
-        return
-      }
-
-      this.show()
-    },
-
-    click() {
-      if (!this.content) {
-        return
-      }
-
-      if (this.trigger !== 'click') {
-        return
-      }
-
-      this.show()
-      this.$emit('click')
-      this.hide(3000)
-    }
+  placement: {
+    type: String,
+    default: 'auto',
+    validator: (pos: string) => ['auto', 'top', 'right', 'bottom', 'left'].includes(pos)
   }
-}
+});
+
+const emits = defineEmits(['click']);
+const visible = ref(false);
+
+const show = () => {
+  visible.value = true;
+};
+
+const hide = (timeout: number) => {
+  clearTimeout(hideTimeout);
+  hideTimeout = setTimeout(() => {
+    visible.value = false;
+  }, timeout);
+};
+
+const mouseLeave = () => {
+  hide(500);
+};
+
+const mouseOver = () => {
+  if (!props.content) {
+    return;
+  }
+
+  if (props.trigger !== 'hover') {
+    return;
+  }
+
+  show();
+};
+
+const click = () => {
+  if (!props.content) {
+    return;
+  }
+
+  if (props.trigger !== 'click') {
+    return;
+  }
+
+  show();
+  emits('click');
+  hide(3000);
+};
 </script>
 
 <style lang="scss">
+.podlove-component-tooltip {
+  color: var(--podlove-component-tooltip-color, var(--podlove-components-text));
+  background: var(--podlove-component-tooltip-background, var(--podlove-components-background));
+}
+
 .v-popper__arrow-container {
   display: none;
 }
@@ -136,6 +116,7 @@ export default {
   position: absolute;
   margin: 5px;
   z-index: 1;
+  border-color: var(--podlove-component-tooltip-background, var(--podlove-components-background));
 
   &.arrow-top {
     margin-bottom: 8px;

@@ -26,7 +26,7 @@ const changeEvent = (event: Event) => {
 <template>
   <select
     v-if="options"
-    class="podlove-select block w-full border rounded-none p-1 h-8"
+    class="podlove-component-select block w-full border rounded-none p-1 h-8"
     :disabled="disabled"
     @change="changeEvent"
   >
@@ -34,13 +34,13 @@ const changeEvent = (event: Event) => {
       {{ option }}
     </option>
   </select>
-  <select v-else class="podlove-select" :disabled="disabled" @change="changeEvent">
+  <select v-else class="podlove-component-select" :disabled="disabled" @change="changeEvent">
     <slot />
   </select>
 </template>
 
 <style lang="postcss" scoped>
-.podlove-select {
+.podlove-component-select {
   color: var(--podlove-component-input-select-color, var(--podlove-components-background));
   background: var(--podlove-component-input-select-background, var(--podlove-components-text));
   border-color: var(--podlove-component-input-select-border, var(--podlove-components-background));

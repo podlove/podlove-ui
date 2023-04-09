@@ -25,14 +25,14 @@ const clickHandler = () => {
 </script>
 
 <template>
-  <button class="podlove-chapter-button" :id="`chapter-button--${props.type}`" @click="clickHandler">
+  <button class="podlove-component-chapter-button" :data-test="`podlove-component-chapter-button--${props.type}`" @click="clickHandler">
     <icon :type="props.type" />
     <slot />
   </button>
 </template>
 
 <style lang="postcss">
-.podlove-chapter-button {
+.podlove-component-chapter-button {
   --podlove-component-icon-color: var(
     --podlove-component-chapter-button-color,
     var(--podlove-components-text)

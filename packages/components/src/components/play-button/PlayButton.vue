@@ -54,7 +54,7 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
   <button
     :id="`play-button--${type}`"
     ref="playbutton"
-    class="podlove-play-button"
+    class="podlove-component-play-button"
     @click="clickHandler()"
   >
     <div class="play-button--wrapper flex items-center justify-center overflow-hidden">
@@ -83,14 +83,14 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
 </template>
 
 <style lang="postcss" scoped>
-.podlove-play-button {
+.podlove-component-play-button {
   --podlove-component-icon-color: var(
     --podlove-component-play-button-text-color,
     var(--podlove-components-text)
   );
 }
 
-.podlove-play-button .play-button--wrapper {
+.podlove-component-play-button .play-button--wrapper {
   transition: all 1800ms;
   background-color: var(
     --podlove-component-play-button-background,
@@ -102,7 +102,7 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
   max-width: v-bind('maxWidth');
 }
 
-.podlove-play-button .play-button--label {
+.podlove-component-play-button .play-button--label {
   color: var(--podlove-component-play-button-text-color, var(--podlove-components-text));
 }
 

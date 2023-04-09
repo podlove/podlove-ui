@@ -1,7 +1,7 @@
 <template>
   <li
     class="
-      tab-header-item
+      podlove-component-tab-header-item
       flex
       items-center
       justify-center
@@ -11,13 +11,12 @@
       hover:opacity-75
       h-8
     "
-    :style="tabStyle"
-    :class="{ 'hover:opacity-100': active }"
+    :class="{ active, [display]: true }"
     role="presentation"
     :rel="name"
   >
     <button
-      :id="`trigger-${name}`"
+      :data-test="`podlove-component-tab-header-item-trigger-${name}`"
       class="
         flex
         items-center
@@ -38,110 +37,77 @@
       :tabindex="index"
       @click="clickHandler"
     >
-      <span class="icon mr-1" :style="iconStyle" aria-hidden="true"><slot name="icon" /></span>
+      <span class="icon mr-1" aria-hidden="true"><slot name="icon" /></span>
       <span class="uppercase ml-1"><slot name="title" /></span>
-      <icon v-if="active" type="close" class="hidden" :color="iconColor(true)" aria-hidden="true" />
+      <icon v-if="active" type="close" class="hidden" aria-hidden="true" />
     </button>
   </li>
 </template>
 
-<script>
-import { color, background } from '../../defaults'
-import Icon from '../icons/Icon'
+<script lang="ts" setup>
+import Icon from '../icons';
 
-export default {
-  components: {
-    Icon
+defineProps({
+  index: {
+    type: Number,
+    default: 0
   },
-  props: {
-    index: {
-      type: Number,
-      default: 0
-    },
-    name: {
-      type: String,
-      default: ''
-    },
-    active: {
-      type: Boolean,
-      default: false
-    },
-    display: {
-      type: String,
-      default: 'native'
-    },
-    color: {
-      type: String,
-      default: color
-    },
-    background: {
-      type: String,
-      default: background
-    },
-    colorActive: {
-      type: String,
-      default: background
-    },
-    backgroundActive: {
-      type: String,
-      default: color
-    }
+  name: {
+    type: String,
+    default: ''
   },
-  computed: {
-    tabStyle() {
-      const style = {
-        color: this.color,
-        background: this.background
-      }
-
-      if (this.active) {
-        style.color = this.colorActive
-        style.background = this.backgroundActive
-      }
-
-      if (this.display === 'embed') {
-        style.color = this.color
-        style.background = this.background
-      }
-
-      return style
-    },
-    iconStyle() {
-      return {
-        fill: this.iconColor(this.active)
-      }
-    }
+  active: {
+    type: Boolean,
+    default: false
   },
-  methods: {
-    iconColor(active) {
-      let color = this.color
-
-      if (active) {
-        color = this.colorActive
-      }
-
-      if (this.display === 'embed') {
-        color = this.color
-      }
-
-      return color
-    },
-
-    clickHandler() {
-      this.$emit('click')
-    }
+  display: {
+    type: String,
+    default: 'native'
   }
-}
+});
+
+const emits = defineEmits(['click']);
+
+const clickHandler = () => {
+  emits('click');
+};
 </script>
 
-<style lang="scss" scoped>
-@import '../../theme/tokens/animation';
+<style lang="postcss" scoped>
+.podlove-component-tab-header-item {
+  transition: all 300ms;
+  --podlove-component-icon-color: var(
+    --podlove-component-header-item-color-active,
+    var(--podlove-components-background)
+  );
+}
 
-.tab-header-item {
-  transition: all $animation-duration;
+.podlove-component-tab-header-item .icon {
+  line-height: 0;
+  fill: var(--podlove-component-tab-header-item-color, var(--podlove-components-text));
+}
 
-  .icon {
-    line-height: 0;
-  }
+.podlove-component-tab-header-item.active .icon {
+  fill: var(--podlove-component-tab-header-item-color-active, var(--podlove-components-background));
+}
+
+.podlove-component-tab-header-item.active {
+  @apply hover:opacity-100;
+
+  color: var(--podlove-component-tab-header-item-color-active, var(--podlove-components-background));
+  background: var(
+    --podlove-component-tab-header-item-background-active,
+    var(--podlove-components-text)
+  );
+}
+
+.podlove-component-tab-header-item,
+.podlove-component-tab-header-item.embed {
+  color: var(--podlove-component-tab-header-item-color, var(--podlove-components-text));
+  background: var(--podlove-component-tab-header-item-background, var(--podlove-components-background));
+}
+
+.podlove-component-tab-header-item.embed {
+  @apply hover:opacity-100;
 }
 </style>

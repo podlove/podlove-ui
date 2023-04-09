@@ -1,8 +1,8 @@
 <template>
-  <div id="progress-bar" class="progress w-full relative cursor-pointer">
+  <div class="podlove-component-progress-bar w-full relative cursor-pointer">
     <input
       v-if="isMobile"
-      ref="input"
+      ref="inputElement"
       type="range"
       min="0"
       :max="interpolate(duration)"
@@ -14,7 +14,7 @@
     />
     <input
       v-else
-      ref="input"
+      ref="inputElement"
       type="range"
       min="0"
       :max="interpolate(duration)"
@@ -26,10 +26,7 @@
       @mousemove="onMouseMove"
       @mouseout="onMouseOut"
     />
-    <span
-      class="progress-range block absolute w-full left-0 pointer-events-none"
-      :style="rangeStyle"
-    />
+    <span class="progress-range block absolute w-full left-0 pointer-events-none" />
     <span
       v-for="(buffering, index) in buffer"
       :key="`buffer-${index}`"
@@ -46,31 +43,31 @@
       class="progress-track block absolute left-0 pointer-events-none"
       :style="trackStyle(quantile)"
     />
-    <div class="chapters-progress">
+    <div>
       <span
         v-for="(chapter, index) in chapters"
         :key="index"
         tabindex="-1"
         aria-hidden="true"
         data-test="progress-bar--chapter-progress--indicator"
-        class="absolute pointer-events-none"
+        class="chapters-progress absolute pointer-events-none"
+        :class="{
+          active: chapter.start <= ghost && chapter.end >= ghost
+        }"
         :style="chapterStyle(chapter)"
       />
     </div>
     <span
-      class="
-        ghost-thumb
-        absolute
-        hidden
-        border-transparent border
-        bg-opacity-75
-        pointer-events-none
-      "
+      class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none"
+      :class="{
+        hidden: !ghost,
+        block: ghost
+      }"
       aria-hidden="true"
       :style="ghostStyle"
     />
     <span
-      class="progress-thumb absolute border border-solid pointer-events-none"
+      class="progress-thumb absolute block border border-solid pointer-events-none"
       tabindex="-1"
       aria-hidden="true"
       :class="{ active: thumbActive }"
@@ -90,232 +87,218 @@
   </div>
 </template>
 
-<script>
-import RangeTouch from 'rangetouch/dist/rangetouch'
-import { fade } from 'farbraum'
+<script lang="ts" setup>
+import RangeTouch from 'rangetouch';
 
-import { interpolate, relativePosition } from '@podlove/utils/math'
-import { isNegative, light, dark } from '@podlove/utils/color'
-import { isMobile } from '@podlove/utils/detect'
-import { requestPlaytime, simulatePlaytime } from '@podlove/player-actions/timepiece'
-import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
+import { interpolate, relativePosition } from '@podlove/utils/math';
+import { isMobile } from '@podlove/utils/detect';
+import { requestPlaytime, simulatePlaytime } from '@podlove/player-actions/timepiece';
+import { enableGhost, disableGhost } from '@podlove/player-actions/progress';
 
-import { color as defaultColor, highlight as defaultHighlight } from '../../defaults'
+import { computed, onMounted, ref } from 'vue';
+import { pathOr } from 'ramda';
 
-export default {
-  props: {
-    time: {
-      type: Number,
-      default: 0
-    },
-    duration: {
-      type: Number,
-      default: 0
-    },
-    ghost: {
-      type: Number,
-      default: undefined
-    },
-    buffer: {
-      type: Array,
-      default: () => []
-    },
-    quantiles: {
-      type: Array,
-      default: () => []
-    },
-    progressColor: {
-      type: String,
-      default: defaultColor
-    },
-    thumbColor: {
-      type: String,
-      default: defaultColor
-    },
-    highlightColor: {
-      type: String,
-      default: defaultHighlight
-    },
-    title: {
-      type: String,
-      default: ''
-    },
-    chapters: {
-      type: Array,
-      default: () => []
-    }
+const props = defineProps({
+  time: {
+    type: Number,
+    default: 0
   },
-  emit: {
-    time: null,
-    ghost: null,
-    simulate: null
+  duration: {
+    type: Number,
+    default: 0
   },
-  data() {
-    return {
-      thumbActive: false,
-      isMobile
-    }
+  ghost: {
+    type: Number,
+    default: undefined
   },
-  computed: {
-    rangeStyle() {
-      return {
-        'background-color': this.progressColor
-      }
-    },
-
-    thumbStyle() {
-      return {
-        display: 'block',
-        left: relativePosition(this.time, this.duration),
-        'background-color': this.thumbColor,
-        'border-color': this.highlightColor
-      }
-    },
-
-    ghostStyle() {
-      return {
-        display: this.ghost ? 'block' : 'none',
-        left: relativePosition(this.ghost, this.duration),
-        'background-color': fade(this.thumbColor, 0.2),
-        'border-color': this.highlightColor
-      }
-    }
+  buffer: {
+    type: Array,
+    default: () => []
   },
-  mounted() {
-    new RangeTouch(this.$refs.input, { watch: false })
+  quantiles: {
+    type: Array,
+    default: () => []
   },
-  methods: {
-    onChange(value) {
-      this.$emit('time', requestPlaytime(value))
-    },
-
-    onInput(value) {
-      this.thumbAnimated = false
-      this.$emit('time', requestPlaytime(value))
-      this.$emit('ghost', disableGhost())
-    },
-
-    onMouseMove(event) {
-      if (
-        (event.offsetY < 13 && event.offsetY > 31) ||
-        event.offsetX < 0 ||
-        event.offsetX > event.target.clientWidth
-      ) {
-        this.thumbActive = false
-        this.$emit('ghost', disableGhost())
-        return false
-      }
-
-      this.thumbAnimated = true
-      this.thumbActive = true
-
-      this.$emit(
-        'simulate',
-        simulatePlaytime((this.duration * event.offsetX) / event.target.clientWidth)
-      )
-      this.$emit('ghost', enableGhost())
-
-      return false
-    },
-
-    onMouseOut() {
-      this.thumbActive = false
-
-      this.$emit('ghost', disableGhost())
-      this.$emit('simulate', simulatePlaytime(this.time))
-
-      return false
-    },
-
-    trackStyle([start, end]) {
-      return {
-        left: relativePosition(start, this.duration),
-        width: relativePosition(end - start, this.duration),
-        'background-color': this.thumbColor
-      }
-    },
-
-    bufferStyle([start, end]) {
-      return {
-        left: relativePosition(start, this.duration),
-        width: relativePosition(end - start, this.duration),
-        'background-color': isNegative(this.highlightColor) ? fade(light, 0.5) : fade(dark, 0.7)
-      }
-    },
-
-    chapterStyle(chapter) {
-      const isActive = chapter.start <= this.ghost && chapter.end >= this.ghost
-
-      return {
-        left: (chapter.start * 100) / this.duration + '%',
-        width: ((chapter.end - chapter.start) * 100) / this.duration + '%',
-        'border-right': `2px solid ${this.highlightColor}`,
-        height: isActive ? '4px' : '2px',
-        background: isActive ? this.progressColor : 'transparent',
-        top: isActive ? 'calc(50% - 2px)' : 'calc(50% - 1px)'
-      }
-    },
-
-    interpolate
+  title: {
+    type: String,
+    default: ''
+  },
+  chapters: {
+    type: Array,
+    default: () => []
   }
-}
+});
+
+const emits = defineEmits(['time', 'ghost', 'simulate']);
+
+const thumbStyle = computed(() => ({
+  left: relativePosition(props.time, props.duration)
+}));
+
+const ghostStyle = computed(() => ({
+  left: relativePosition(props.ghost, props.duration)
+}));
+
+const thumbActive = ref(false);
+
+const inputElement = ref(null);
+
+onMounted(() => {
+  new RangeTouch(inputElement, { watch: false });
+});
+
+// Methods
+const onChange = (value: number) => emits('time', requestPlaytime(value));
+const onInput = (value: number) => {
+  emits('time', requestPlaytime(value));
+  emits('ghost', disableGhost());
+};
+
+const onMouseMove = (event: MouseEvent) => {
+  const width = pathOr(0, ['target', 'clientWidth'], event);
+
+  if ((event.offsetY < 13 && event.offsetY > 31) || event.offsetX < 0 || event.offsetX > width) {
+    thumbActive.value = false;
+    emits('ghost', disableGhost());
+    return false;
+  }
+
+  thumbActive.value = true;
+
+  emits('simulate', simulatePlaytime((props.duration * event.offsetX) / width));
+  emits('ghost', enableGhost());
+
+  return false;
+};
+
+const onMouseOut = () => {
+  thumbActive.value = false;
+
+  emits('ghost', disableGhost());
+  emits('simulate', simulatePlaytime(props.time));
+
+  return false;
+};
+
+const trackStyle = ([start, end]: [number, number]) => ({
+  left: relativePosition(start, props.duration),
+  width: relativePosition(end - start, props.duration)
+});
+
+const bufferStyle = ([start, end]: [number, number]) => ({
+  left: relativePosition(start, props.duration),
+  width: relativePosition(end - start, props.duration)
+});
+
+const chapterStyle = (chapter: { start: number; end: number }) => ({
+  left: (chapter.start * 100) / props.duration + '%',
+  width: ((chapter.end - chapter.start) * 100) / props.duration + '%'
+});
 </script>
 
 <style lang="scss" scoped>
 @import '../../theme/resets';
+@import '../../theme/range';
 @import '../../theme/tokens/progress';
 @import '../../theme/tokens/animation';
-@import '../../theme/tokens/color';
 
-.progress {
+.podlove-component-progress-bar {
   @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
   height: $progress-height;
-  transition: opacity ($animation-duration / 2), height $animation-duration;
-}
+  transition: opacity calc($animation-duration / 2), height $animation-duration;
 
-.progress-range {
-  top: calc(50% - #{$track-height / 2});
-  height: $track-height;
-  background-color: rgba($accent-color, 0.25);
-}
-
-.progress-track {
-  top: calc(50% - #{$track-height / 2});
-  height: $track-height;
-}
-
-.progress-thumb {
-  margin-left: calc(-1px - #{$thumb-size / 2});
-  height: $thumb-size;
-  border-radius: $thumb-size;
-  top: calc(50% - #{$thumb-size / 2});
-  width: $thumb-size;
-
-  transition: left $animation-duration / 2;
-
-  &.active {
-    width: $thumb-active-size;
-    height: $thumb-active-size;
-    border-radius: $thumb-active-size;
-    top: calc(50% - #{$thumb-active-size / 2});
+  .progress-range {
+    top: calc(50% - calc($track-height / 2));
+    height: $track-height;
+    background-color: var(
+      --podlove-component-progress-bar-progress-color,
+      var(--podlove-components-text)
+    );
   }
-}
 
-.ghost-thumb {
-  margin-left: calc(-1px - #{$thumb-size / 2});
-  height: $thumb-size;
-  border-radius: $thumb-size;
-  top: calc(50% - #{$thumb-size / 2});
-  width: $thumb-size;
-}
+  .chapters-progress {
+    background: transparent;
+    height: 2px;
+    top: calc(50% - 1px);
+    border-right: 2px solid
+      var(
+        --podlove-component-progress-bar-chapters-separator-color,
+        var(--podlove-components-highlight)
+      );
 
-.progress-buffer {
-  display: block;
-  opacity: 1;
-  position: absolute;
-  height: $track-height;
-  top: calc(50% - #{$track-height / 2});
-  left: 0;
-  pointer-events: none;
+    &.active {
+      height: 4px;
+      top: calc(50% - 2px);
+
+      background: var(
+        --podlove-component-progress-bar-chapters-background-color,
+        var(--podlove-components-text)
+      );
+    }
+  }
+
+  .progress-track {
+    top: calc(50% - calc($track-height / 2));
+    height: $track-height;
+    background-color: var(
+      --podlove-component-progress-bar-track-background-color,
+      var(--podlove-components-text)
+    );
+  }
+
+  .progress-thumb {
+    margin-left: calc(-1px - calc($thumb-size / 2));
+    height: $thumb-size;
+    border-radius: $thumb-size;
+    top: calc(50% - calc($thumb-size / 2));
+    width: $thumb-size;
+
+    transition: left calc($animation-duration / 2);
+    background-color: var(
+      --podlove-component-progress-bar-thumb-background-color,
+      var(--podlove-components-text)
+    );
+    border-color: var(
+      --podlove-component-progress-bar-thumb-border-color,
+      var(--podlove-components-highlight)
+    );
+
+    &.active {
+      width: $thumb-active-size;
+      height: $thumb-active-size;
+      border-radius: $thumb-active-size;
+      top: calc(50% - calc($thumb-active-size / 2));
+    }
+  }
+
+  .ghost-thumb {
+    margin-left: calc(-1px - calc($thumb-size / 2));
+    height: $thumb-size;
+    border-radius: $thumb-size;
+    top: calc(50% - calc($thumb-size / 2));
+    width: $thumb-size;
+    background-color: var(
+      --podlove-component-progress-bar-ghost-background-color,
+      var(--podlove-components-text)
+    );
+    border-color: var(
+      --podlove-component-progress-bar-ghost-border-color,
+      var(--podlove-components-highlight)
+    );
+  }
+
+  .progress-buffer {
+    display: block;
+    opacity: 1;
+    position: absolute;
+    height: $track-height;
+    top: calc(50% - calc($track-height / 2));
+    left: 0;
+    pointer-events: none;
+    background-color: var(
+      --podlove-component-progress-bar-buffer-background-color,
+      var(--podlove-components-highlight)
+    );
+  }
 }
 </style>

@@ -61,7 +61,7 @@ const handleDblclick = (event: Event) => {
 </script>
 
 <template>
-  <div class="podlove-input-slider w-full relative h-[30px]">
+  <div class="podlove-component-input-slider w-full relative h-[30px]">
     <input
       type="range"
       :min="min"
@@ -91,7 +91,7 @@ const handleDblclick = (event: Event) => {
 <style lang="scss" scoped>
 @import '../../theme/range.scss';
 
-.podlove-input-slider .thumb {
+.podlove-component-input-slider .thumb {
   left: v-bind('thumbLeft');
   background-color: var(
     --podlove-component-input-slider-thumb,
@@ -100,16 +100,16 @@ const handleDblclick = (event: Event) => {
   border-color: var(--podlove-component-input-slider-border, var(--podlove-components-text));
 }
 
-.podlove-input-slider .track {
+.podlove-component-input-slider .track {
   background-color: rgba(0, 0, 0, 0.2);
   background-color: var(--podlove-component-input-slider-progress, var(--podlove-components-text));
 }
 
-.podlove-input-slider .pin {
+.podlove-component-input-slider .pin {
   color: rgba(0, 0, 0, 0.2);
 }
 
-.podlove-input-slider {
+.podlove-component-input-slider {
   @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
 }
 </style>

@@ -79,7 +79,7 @@ const channels: { [key: string]: any } = {
 <template>
   <component
     :is="channels[props.type]"
-    class="podlove-channel"
+    class="podlove-component-channel"
     :subject="props.subject"
     :link="props.link"
     :text="props.text"
@@ -91,7 +91,7 @@ const channels: { [key: string]: any } = {
 </template>
 
 <style lang="postcss" scoped>
-.podlove-channel {
+.podlove-component-channel {
   --podlove-component-icon-color: var(
     --podlove-component-channel-color,
     var(--podlove-components-text)

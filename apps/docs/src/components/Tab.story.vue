@@ -18,6 +18,14 @@ const tabs = {
   dexter: ref(false)
 }
 
+const style = ref({
+  '--podlove-component-tab-header-item-color': color,
+  '--podlove-component-tab-header-item-color-active': colorActive,
+  '--podlove-component-tab-header-item-background': background,
+  '--podlove-component-tab-body-background': background,
+  '--podlove-component-tab-header-item-background-active': backgroundActive
+});
+
 function selectTab(selectedTab) {
   Object.keys(tabs).forEach((tab) => {
     tabs[tab].value = tab === selectedTab
@@ -28,15 +36,11 @@ function selectTab(selectedTab) {
 <template>
   <div>
     <div style="width: 350px">
-      <tab-header :background-active="backgroundActive">
+      <tab-header :style="style">
         <tab-header-item
           name="futurama"
           :active="tabs.futurama.value"
           display="native"
-          :color="color"
-          :color-active="colorActive"
-          :background="background"
-          :background-active="backgroundActive"
           :index="0"
           @click="selectTab('futurama')"
         >
@@ -47,10 +51,6 @@ function selectTab(selectedTab) {
           name="dexter"
           :active="tabs.dexter.value"
           display="native"
-          :color="color"
-          :color-active="colorActive"
-          :background="background"
-          :background-active="backgroundActive"
           :index="0"
           @click="selectTab('dexter')"
         >

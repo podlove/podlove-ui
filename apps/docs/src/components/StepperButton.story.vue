@@ -3,16 +3,20 @@ import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import StepperButton from '@podlove/components/stepper-button/StepperButton.vue'
+import StepperButton from '@podlove/components/stepper-button'
 import Action from '../shared/Action.vue'
 
 const type = ref('forward')
 const color = ref('#ff0000')
+
+const style = ref({
+  '--podlove-component-stepper-button-color': color
+})
 </script>
 
 <template>
   <div>
-    <stepper-button :type="type" :color="color" @forward="eventCallback" @backwards="eventCallback">
+    <stepper-button :style="style" :type="type" @forward="eventCallback" @backwards="eventCallback">
     </stepper-button>
 
     <ControlsAddon>
