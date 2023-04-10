@@ -89,7 +89,7 @@ const handleDblclick = (event: Event) => {
 </template>
 
 <style lang="scss" scoped>
-@import '../../theme/range.scss';
+@import '../../styles/range.scss';
 
 .podlove-component-input-slider .thumb {
   left: v-bind('thumbLeft');

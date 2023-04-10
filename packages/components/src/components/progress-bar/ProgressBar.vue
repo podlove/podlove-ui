@@ -197,15 +197,12 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
 </script>
 
 <style lang="scss" scoped>
-@import '../../theme/resets';
-@import '../../theme/range';
-@import '../../theme/tokens/progress';
-@import '../../theme/tokens/animation';
+@import '../../styles/range';
 
 .podlove-component-progress-bar {
   @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
   height: $progress-height;
-  transition: opacity calc($animation-duration / 2), height $animation-duration;
+  transition: opacity 150ms, height 300ms;
 
   .progress-range {
     top: calc(50% - calc($track-height / 2));
@@ -253,7 +250,7 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
     top: calc(50% - calc($thumb-size / 2));
     width: $thumb-size;
 
-    transition: left calc($animation-duration / 2);
+    transition: left 150ms;
     background-color: var(
       --podlove-component-progress-bar-thumb-background-color,
       var(--podlove-components-text)
