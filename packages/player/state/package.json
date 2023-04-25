@@ -2,23 +2,141 @@
   "name": "@podlove/player-state",
   "version": "5.12.0",
   "description": "Reducers for Podlove Player Framework",
-  "main": "index.js",
+  "type": "module",
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/state",
   "license": "MIT",
+  "scripts": {
+    "build": "vite build --config ./vite.config.ts",
+    "test": "vitest run",
+    "test:dev": "vitest"
+  },
   "dependencies": {
-    "@podlove/components": "^5.12.0",
     "@podlove/player-actions": "^5.12.0",
     "@podlove/player-config": "^5.12.0",
-    "@podlove/player-sagas": "^5.12.0",
     "@podlove/utils": "^5.12.0",
-    "color": "4.2.3",
-    "object-mapper": "6.0.1",
-    "ramda": "0.28.0",
+    "ramda": "0.29.0",
     "redux-actions": "3.0.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.12.0"
+    "@podlove/types": "^5.12.0",
+    "@types/redux-actions": "2.6.2",
+    "@types/ramda": "0.29.0",
+    "vite": "4.2.1",
+    "vite-plugin-dts": "2.2.0",
+    "types-ramda": "0.29.1",
+    "ts-toolbelt": "9.6.0",
+    "vitest": "0.30.1"
+  },
+  "exports": {
+    "./audio": {
+      "import": "./dist/audio.mjs",
+      "types": "./dist/audio.d.ts"
+    },
+    "./lifecycle": {
+      "import": "./dist/lifecycle.mjs",
+      "types": "./dist/lifecycle.d.ts"
+    },
+    "./subscribe-button": {
+      "import": "./dist/subscribe-button.mjs",
+      "types": "./dist/subscribe-button.d.ts"
+    },
+    "./tabs": {
+      "import": "./dist/tabs.mjs",
+      "types": "./dist/tabs.d.ts"
+    },
+    "./transcripts": {
+      "import": "./dist/transcripts.mjs",
+      "types": "./dist/transcripts.d.ts"
+    },
+    "./timepiece": {
+      "import": "./dist/timepiece.mjs",
+      "types": "./dist/timepiece.d.ts"
+    },
+    "./theme": {
+      "import": "./dist/theme.mjs",
+      "types": "./dist/theme.d.ts"
+    },
+    "./show": {
+      "import": "./dist/show.mjs",
+      "types": "./dist/show.d.ts"
+    },
+    "./runtime": {
+      "import": "./dist/runtime.mjs",
+      "types": "./dist/runtime.d.ts"
+    },
+    "./reference": {
+      "import": "./dist/reference.mjs",
+      "types": "./dist/reference.d.ts"
+    },
+    "./quantiles": {
+      "import": "./dist/quantiles.mjs",
+      "types": "./dist/quantiles.d.ts"
+    },
+    "./playstate": {
+      "import": "./dist/playstate.mjs",
+      "types": "./dist/playstate.d.ts"
+    },
+    "./playlist": {
+      "import": "./dist/playlist.mjs",
+      "types": "./dist/playlist.d.ts"
+    },
+    "./network": {
+      "import": "./dist/network.mjs",
+      "types": "./dist/network.d.ts"
+    },
+    "./media": {
+      "import": "./dist/media.mjs",
+      "types": "./dist/media.d.ts"
+    },
+    "./last-action": {
+      "import": "./dist/last-action.mjs",
+      "types": "./dist/last-action.d.ts"
+    },
+    "./ghost": {
+      "import": "./dist/ghost.mjs",
+      "types": "./dist/ghost.d.ts"
+    },
+    "./files": {
+      "import": "./dist/files.mjs",
+      "types": "./dist/files.d.ts"
+    },
+    "./error": {
+      "import": "./dist/error.mjs",
+      "types": "./dist/error.d.ts"
+    },
+    "./episode": {
+      "import": "./dist/episode.mjs",
+      "types": "./dist/episode.d.ts"
+    },
+    "./embed": {
+      "import": "./dist/embed.mjs",
+      "types": "./dist/embed.d.ts"
+    },
+    "./driver": {
+      "import": "./dist/driver.mjs",
+      "types": "./dist/driver.d.ts"
+    },
+    "./contributors": {
+      "import": "./dist/contributors.mjs",
+      "types": "./dist/contributors.d.ts"
+    },
+    "./content": {
+      "import": "./dist/content.mjs",
+      "types": "./dist/content.d.ts"
+    },
+    "./components": {
+      "import": "./dist/components.mjs",
+      "types": "./dist/components.d.ts"
+    },
+    "./chapters": {
+      "import": "./dist/chapters.mjs",
+      "types": "./dist/chapters.d.ts"
+    },
+    "./channels": {
+      "import": "./dist/channels.mjs",
+      "types": "./dist/channels.d.ts"
+    }
   }
 }

@@ -4,9 +4,9 @@
   "description": "Utils for Podlove Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/utils",
   "scripts": {
-    "clean": "rm -rf dist publish",
-    "build": "npm run clean && vite build --config vite.config.js",
-    "postpublish": "npm run clean"
+    "build": "vite build --config vite.config.ts",
+    "test": "vitest run",
+    "test:dev": "vitest"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -17,66 +17,90 @@
   "type": "module",
   "exports": {
     "./chapters": {
-      "import": "./dist/chapters.js"
+      "import": "./dist/chapters.mjs",
+      "types": "./dist/chapters.d.ts"
     },
     "./color": {
-      "import": "./dist/color.js"
+      "import": "./dist/color.mjs",
+      "types": "./dist/color.d.ts"
     },
     "./detect": {
-      "import": "./dist/detect.js"
+      "import": "./dist/detect.mjs",
+      "types": "./dist/detect.d.ts"
     },
     "./dom": {
-      "import": "./dist/dom.js"
+      "import": "./dist/dom.mjs",
+      "types": "./dist/dom.d.ts"
     },
     "./helper": {
-      "import": "./dist/helper.js"
+      "import": "./dist/helper.mjs",
+      "types": "./dist/helper.d.ts"
     },
     "./keyboard": {
-      "import": "./dist/keyboard.js"
+      "import": "./dist/keyboard.mjs",
+      "types": "./dist/keyboard.d.ts"
     },
     "./localstorage": {
-      "import": "./dist/localstorage.js"
+      "import": "./dist/localstorage.mjs",
+      "types": "./dist/localstorage.d.ts"
     },
     "./location": {
-      "import": "./dist/location.js"
+      "import": "./dist/location.mjs",
+      "types": "./dist/location.d.ts"
     },
     "./math": {
-      "import": "./dist/math.js"
+      "import": "./dist/math.mjs",
+      "types": "./dist/math.d.ts"
     },
     "./predicates": {
-      "import": "./dist/predicates.js"
+      "import": "./dist/predicates.mjs",
+      "types": "./dist/predicates.d.ts"
     },
     "./request": {
-      "import": "./dist/request.js"
+      "import": "./dist/request.mjs",
+      "types": "./dist/request.d.ts"
     },
     "./sandbox": {
-      "import": "./dist/sandbox.js"
+      "import": "./dist/sandbox.mjs",
+      "types": "./dist/sandbox.d.ts"
     },
     "./search": {
-      "import": "./dist/search.js"
+      "import": "./dist/search.mjs",
+      "types": "./dist/search.d.ts"
     },
     "./throttle": {
-      "import": "./dist/throttle.js"
+      "import": "./dist/throttle.mjs",
+      "types": "./dist/throttle.d.ts"
     },
     "./time": {
-      "import": "./dist/time.js"
+      "import": "./dist/time.mjs",
+      "types": "./dist/time.d.ts"
     },
     "./url": {
-      "import": "./dist/url.js"
+      "import": "./dist/url.mjs",
+      "types": "./dist/url.d.ts"
     },
     "./useragent": {
-      "import": "./dist/useragent.js"
+      "import": "./dist/useragent.mjs",
+      "types": "./dist/useragent.d.ts"
     }
   },
   "dependencies": {
     "dompurify": "2.0.12",
-    "query-string-esm": "6.13.6",
-    "ramda": "0.28.0",
-    "unfetch": "4.1.0",
-    "farbraum": "0.1.2"
+    "query-string": "8.1.0",
+    "ramda": "0.29.0",
+    "farbraum": "0.1.2",
+    "mobile-detect": "1.4.5"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",
-    "vite": "3.2.1"
+    "@podlove/types": "^5.12.0",
+    "vite": "4.2.1",
+    "vitest": "0.30.0",
+    "vite-plugin-dts": "2.2.0",
+    "happy-dom": "9.1.9",
+    "@types/ramda": "0.29.0",
+    "types-ramda": "0.29.1",
+    "ts-toolbelt": "9.6.0"
   }
 }

@@ -15,7 +15,7 @@ import components from './components'
 // Use public path from application
 window.__dynamicImportHandler__ = (importer) => window.resourceBaseUrl || '/' + importer
 
-export default function bootstrap() {
+export default function () {
   const i18n = createI18n({
     locale: 'en',
     fallbackLocale: 'en',

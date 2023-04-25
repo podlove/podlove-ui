@@ -1,0 +1,383 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TabHeaderItem > props > should render with prop active 1`] = `
+<li
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render with prop background 1`] = `
+<li
+  background="#fff"
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render with prop backgroundActive 1`] = `
+<li
+  backgroundactive="#fff"
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render with prop color 1`] = `
+<li
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  color="#fff"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render with prop colorActive 1`] = `
+<li
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  coloractive="#fff"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render with prop display 1`] = `
+<li
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 fixed"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render with prop index 1`] = `
+<li
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="5"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render with prop name 1`] = `
+<li
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  data-v-78036178=""
+  rel="tab-name"
+  role="presentation"
+>
+  <button
+    aria-controls="tab-name"
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-tab-name"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;
+
+exports[`TabHeaderItem > props > should render without props 1`] = `
+<li
+  class="podlove-component-tab-header-item flex items-center justify-center w-full m-0 opacity-100 hover:opacity-75 h-8 native"
+  data-v-78036178=""
+  rel=""
+  role="presentation"
+>
+  <button
+    aria-controls=""
+    aria-selected="false"
+    class="flex items-center justify-center overflow-hidden pt-0 pb-0 pl-4 pr-4 align-middle text-center w-full h-full"
+    data-test="podlove-component-tab-header-item-trigger-"
+    data-v-78036178=""
+    role="tab"
+    tabindex="0"
+  >
+    <span
+      aria-hidden="true"
+      class="icon mr-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        Icon
+      </span>
+      
+    </span>
+    <span
+      class="uppercase ml-1"
+      data-v-78036178=""
+    >
+      
+      <span>
+        title
+      </span>
+      
+    </span>
+    <!--v-if-->
+  </button>
+</li>
+`;

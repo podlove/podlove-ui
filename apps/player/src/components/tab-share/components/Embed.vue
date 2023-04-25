@@ -44,7 +44,6 @@
 <script>
 import { mapState, injectStore } from 'redux-vuex'
 import Tooltip from '@podlove/components/tooltip/Tooltip.vue'
-import { selectEmbedSize } from '@podlove/player-actions/embed'
 import copy from '@podlove/utils/copy'
 
 import select from '../../../store/selectors'
@@ -70,10 +69,6 @@ export default {
     }
   },
   methods: {
-    setSize(val) {
-      this.dispatch(selectEmbedSize(val))
-    },
-
     copyCode() {
       copy(this.state.embedCode)
     }

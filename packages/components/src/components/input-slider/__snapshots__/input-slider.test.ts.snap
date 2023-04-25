@@ -1,0 +1,207 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputSlider > props > should render type 'background' 1`] = `
+<div
+  background="#fff"
+  class="podlove-component-input-slider w-full relative h-[30px]"
+  data-v-aad1c04c=""
+>
+  <input
+    data-v-aad1c04c=""
+    max="20"
+    min="1"
+    step="0.1"
+    type="range"
+  />
+  <span
+    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    data-v-aad1c04c=""
+  />
+  
+  
+  <span
+    class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+    data-v-aad1c04c=""
+  />
+  
+  
+</div>
+`;
+
+exports[`InputSlider > props > should render type 'borderColor' 1`] = `
+<div
+  bordercolor="#fff"
+  class="podlove-component-input-slider w-full relative h-[30px]"
+  data-v-aad1c04c=""
+>
+  <input
+    data-v-aad1c04c=""
+    max="20"
+    min="1"
+    step="0.1"
+    type="range"
+  />
+  <span
+    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    data-v-aad1c04c=""
+  />
+  
+  
+  <span
+    class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+    data-v-aad1c04c=""
+  />
+  
+  
+</div>
+`;
+
+exports[`InputSlider > props > should render type 'pins' 1`] = `
+<div
+  class="podlove-component-input-slider w-full relative h-[30px]"
+  data-v-aad1c04c=""
+>
+  <input
+    data-v-aad1c04c=""
+    max="20"
+    min="1"
+    step="0.1"
+    type="range"
+  />
+  <span
+    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    data-v-aad1c04c=""
+  />
+  
+  <span
+    class="pin block absolute font-medium text-xs text-center -top-[10px] w-[30px] -ml-[15px]"
+    data-v-aad1c04c=""
+    style="left: 100%;"
+  >
+    pin-label-1
+  </span>
+  <span
+    class="pin block absolute font-medium text-xs text-center -top-[10px] w-[30px] -ml-[15px]"
+    data-v-aad1c04c=""
+    style="left: 400%;"
+  >
+    pin-label-2
+  </span>
+  
+  <span
+    class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+    data-v-aad1c04c=""
+  />
+  
+  
+</div>
+`;
+
+exports[`InputSlider > props > should render type 'progressColor' 1`] = `
+<div
+  class="podlove-component-input-slider w-full relative h-[30px]"
+  data-v-aad1c04c=""
+  progresscolor="#fff"
+>
+  <input
+    data-v-aad1c04c=""
+    max="20"
+    min="1"
+    step="0.1"
+    type="range"
+  />
+  <span
+    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    data-v-aad1c04c=""
+  />
+  
+  
+  <span
+    class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+    data-v-aad1c04c=""
+  />
+  
+  
+</div>
+`;
+
+exports[`InputSlider > props > should render type 'step' 1`] = `
+<div
+  class="podlove-component-input-slider w-full relative h-[30px]"
+  data-v-aad1c04c=""
+>
+  <input
+    data-v-aad1c04c=""
+    max="20"
+    min="1"
+    step="1"
+    type="range"
+  />
+  <span
+    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    data-v-aad1c04c=""
+  />
+  
+  
+  <span
+    class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+    data-v-aad1c04c=""
+  />
+  
+  
+</div>
+`;
+
+exports[`InputSlider > props > should render type 'value' 1`] = `
+<div
+  class="podlove-component-input-slider w-full relative h-[30px]"
+  data-v-aad1c04c=""
+>
+  <input
+    data-v-aad1c04c=""
+    max="20"
+    min="1"
+    step="0.1"
+    type="range"
+  />
+  <span
+    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    data-v-aad1c04c=""
+  />
+  
+  
+  <span
+    class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+    data-v-aad1c04c=""
+  />
+  
+  
+</div>
+`;
+
+exports[`InputSlider > props > should render without props 1`] = `
+<div
+  class="podlove-component-input-slider w-full relative h-[30px]"
+  data-v-aad1c04c=""
+>
+  <input
+    data-v-aad1c04c=""
+    max="100"
+    min="0"
+    step="0.1"
+    type="range"
+  />
+  <span
+    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    data-v-aad1c04c=""
+  />
+  
+  
+  <span
+    class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+    data-v-aad1c04c=""
+  />
+  
+  
+</div>
+`;

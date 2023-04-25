@@ -1,3 +1,4 @@
+import type { PodloveWebPlayerConfig } from './config';
 import { PodloveWebPlayerEpisode } from './episode';
 import { PodloveWebPlayerStore } from './store';
 
@@ -25,5 +26,5 @@ import { PodloveWebPlayerStore } from './store';
 export type podlovePlayer = (
   selector: string | Node,
   episode: string | PodloveWebPlayerEpisode,
-  configuration: string | any // TODO configuration type
+  configuration: string | PodloveWebPlayerConfig // URL to fetch the configuration or the plain config
 ) => Promise<PodloveWebPlayerStore>;

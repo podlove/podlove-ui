@@ -1,8 +1,10 @@
-import type { PodloveWebPlayerPlaylistItem } from "./playlist-item";
-import type { PodloveWebPlayerSubscribeButton } from "./subscribe-button";
-import type { PodloveWebPlayerShare } from "./share";
-import type { PodloveWebPlayerTheme } from "./theme";
-import type { PodloveWebPlayerTab } from "./tab";
+import type { PodloveWebPlayerPlaylistItem } from './playlist-item';
+import type { PodloveWebPlayerSubscribeButton } from './subscribe-button';
+import type { PodloveWebPlayerShare } from './share';
+import type { PodloveWebPlayerTheme } from './theme';
+import type { PodloveWebPlayerTab } from './tab';
+import type { PodloveWebPlayerReference } from './reference';
+import { PodloveWebPlayerFile } from './file';
 
 export interface PodloveWebPlayerConfig {
   version: 5;
@@ -20,7 +22,7 @@ export interface PodloveWebPlayerConfig {
    * - configuration for the subscribe button overlay
    * - if not defined the subscribe button won't be rendered
    */
-  "subscribe-button"?: PodloveWebPlayerSubscribeButton;
+  'subscribe-button'?: PodloveWebPlayerSubscribeButton;
 
   /**
    * Playlist:
@@ -31,4 +33,11 @@ export interface PodloveWebPlayerConfig {
 
   /** Share Tab */
   share?: PodloveWebPlayerShare;
+
+  /** Files */
+  files: PodloveWebPlayerFile[]
+}
+
+interface PodloveWebPlayerResolvedConfig extends PodloveWebPlayerConfig {
+  reference: PodloveWebPlayerReference;
 }

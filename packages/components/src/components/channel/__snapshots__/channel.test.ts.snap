@@ -1,0 +1,620 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Channel > props > should render type 'embed' with prop a11y 1`] = `
+<button
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="podlove-channel-icon flex justify-center items-center rounded border-2 border-transparent border-solid"
+    data-v-b05b5085=""
+  >
+    
+    <svg
+      aria-hidden="true"
+      class="podlove-component-icon"
+      filled="false"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="currentColor"
+      />
+    </svg>
+    
+  </span>
+  <span
+    class="sr-only"
+    data-v-b05b5085=""
+  >
+    test a11y
+  </span>
+</button>
+`;
+
+exports[`Channel > props > should render type 'embed' with prop color 1`] = `
+<button
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  color="#fff"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="podlove-channel-icon flex justify-center items-center rounded border-2 border-transparent border-solid"
+    data-v-b05b5085=""
+  >
+    
+    <svg
+      aria-hidden="true"
+      class="podlove-component-icon"
+      filled="false"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="currentColor"
+      />
+    </svg>
+    
+  </span>
+  <span
+    class="sr-only"
+    data-v-b05b5085=""
+  />
+</button>
+`;
+
+exports[`Channel > props > should render type 'embed' with prop link 1`] = `
+<button
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  link="http://foo.bar"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="podlove-channel-icon flex justify-center items-center rounded border-2 border-transparent border-solid"
+    data-v-b05b5085=""
+  >
+    
+    <svg
+      aria-hidden="true"
+      class="podlove-component-icon"
+      filled="false"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="currentColor"
+      />
+    </svg>
+    
+  </span>
+  <span
+    class="sr-only"
+    data-v-b05b5085=""
+  />
+</button>
+`;
+
+exports[`Channel > props > should render type 'embed' with prop poster 1`] = `
+<button
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="podlove-channel-icon flex justify-center items-center rounded border-2 border-transparent border-solid"
+    data-v-b05b5085=""
+  >
+    
+    <svg
+      aria-hidden="true"
+      class="podlove-component-icon"
+      filled="false"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="currentColor"
+      />
+    </svg>
+    
+  </span>
+  <span
+    class="sr-only"
+    data-v-b05b5085=""
+  />
+</button>
+`;
+
+exports[`Channel > props > should render type 'embed' with prop subject 1`] = `
+<button
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  subject="test subject"
+  target="_blank"
+>
+  <span
+    aria-hidden="true"
+    class="podlove-channel-icon flex justify-center items-center rounded border-2 border-transparent border-solid"
+    data-v-b05b5085=""
+  >
+    
+    <svg
+      aria-hidden="true"
+      class="podlove-component-icon"
+      filled="false"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="currentColor"
+      />
+    </svg>
+    
+  </span>
+  <span
+    class="sr-only"
+    data-v-b05b5085=""
+  />
+</button>
+`;
+
+exports[`Channel > props > should render type 'embed' with prop text 1`] = `
+<button
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  target="_blank"
+  text="test text"
+>
+  <span
+    aria-hidden="true"
+    class="podlove-channel-icon flex justify-center items-center rounded border-2 border-transparent border-solid"
+    data-v-b05b5085=""
+  >
+    
+    <svg
+      aria-hidden="true"
+      class="podlove-component-icon"
+      filled="false"
+      height="25"
+      viewBox="0 0 24 24"
+      width="25"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"
+        fill="currentColor"
+      />
+    </svg>
+    
+  </span>
+  <span
+    class="sr-only"
+    data-v-b05b5085=""
+  />
+</button>
+`;
+
+exports[`Channel > props > should render type 'facebook' with prop a11y 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'facebook' with prop color 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  color="#fff"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'facebook' with prop link 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffoo.bar"
+  link="http://foo.bar"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'facebook' with prop poster 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'facebook' with prop subject 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  subject="test subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'facebook' with prop text 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.facebook.com/sharer/sharer.php?u"
+  target="_blank"
+>
+  test text
+</a>
+`;
+
+exports[`Channel > props > should render type 'linkedin' with prop a11y 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.linkedin.com/shareArticle?mini=true&summary&url"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'linkedin' with prop color 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  color="#fff"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.linkedin.com/shareArticle?mini=true&summary&url"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'linkedin' with prop link 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.linkedin.com/shareArticle?mini=true&summary&url=http%3A%2F%2Ffoo.bar"
+  link="http://foo.bar"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'linkedin' with prop poster 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.linkedin.com/shareArticle?mini=true&summary&url"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'linkedin' with prop subject 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.linkedin.com/shareArticle?mini=true&summary&url"
+  subject="test subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'linkedin' with prop text 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://www.linkedin.com/shareArticle?mini=true&summary=test%20text&url"
+  target="_blank"
+>
+  test text
+</a>
+`;
+
+exports[`Channel > props > should render type 'mail' with prop a11y 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="mailto:?body&subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'mail' with prop color 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  color="#fff"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="mailto:?body&subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'mail' with prop link 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="mailto:?body&subject"
+  link="http://foo.bar"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'mail' with prop poster 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="mailto:?body&subject"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'mail' with prop subject 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="mailto:?body&subject=test%20subject"
+  subject="test subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'mail' with prop text 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="mailto:?body=test%20text&subject"
+  target="_blank"
+>
+  test text
+</a>
+`;
+
+exports[`Channel > props > should render type 'pinterest' with prop a11y 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'pinterest' with prop color 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  color="#fff"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'pinterest' with prop link 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url=http%3A%2F%2Ffoo.bar"
+  link="http://foo.bar"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'pinterest' with prop poster 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media=http%3A%2F%2Ffoo.bar%2Ftest.jpg&url"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'pinterest' with prop subject 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://pinterest.com/pin/create/bookmarklet/?description&is_video=false&media&url"
+  subject="test subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'pinterest' with prop text 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://pinterest.com/pin/create/bookmarklet/?description=test%20text&is_video=false&media&url"
+  target="_blank"
+>
+  test text
+</a>
+`;
+
+exports[`Channel > props > should render type 'reddit' with prop a11y 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="http://reddit.com/submit?title&url"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'reddit' with prop color 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  color="#fff"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="http://reddit.com/submit?title&url"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'reddit' with prop link 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="http://reddit.com/submit?title&url=http%3A%2F%2Ffoo.bar"
+  link="http://foo.bar"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'reddit' with prop poster 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="http://reddit.com/submit?title&url"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'reddit' with prop subject 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="http://reddit.com/submit?title&url"
+  subject="test subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'reddit' with prop text 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="http://reddit.com/submit?title=test%20text&url"
+  target="_blank"
+>
+  test text
+</a>
+`;
+
+exports[`Channel > props > should render type 'twitter' with prop a11y 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://twitter.com/intent/tweet?text"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'twitter' with prop color 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  color="#fff"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://twitter.com/intent/tweet?text"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'twitter' with prop link 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://twitter.com/intent/tweet?text"
+  link="http://foo.bar"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'twitter' with prop poster 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://twitter.com/intent/tweet?text"
+  poster="http://foo.bar/test.jpg"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'twitter' with prop subject 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://twitter.com/intent/tweet?text"
+  subject="test subject"
+  target="_blank"
+/>
+`;
+
+exports[`Channel > props > should render type 'twitter' with prop text 1`] = `
+<a
+  class="inline-flex items-center flex-col m-2 cursor-pointer podlove-component-channel"
+  data-v-b05b5085=""
+  data-v-dd1e51b6=""
+  href="https://twitter.com/intent/tweet?text=test%20text"
+  target="_blank"
+>
+  test text
+</a>
+`;

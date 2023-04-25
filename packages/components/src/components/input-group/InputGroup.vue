@@ -5,7 +5,6 @@ const elements = ref(0);
 const container = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  console.log(container.value)
   if (!container.value) {
     return;
   }

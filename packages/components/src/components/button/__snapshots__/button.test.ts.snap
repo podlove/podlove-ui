@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > component > should provide defaults 1`] = `
+<button
+  class="podlove-component-button flex justify-center h-8 text-base cursor-pointer bg-transparent outline-none transition-opacity hover:opacity-75 border rounded border-solid py-1 px-2 uppercase text-center opacity-100"
+  data-v-585f6ee7=""
+>
+  <span
+    class="truncate w-full h-full flex items-center justify-center"
+    data-v-585f6ee7=""
+  >
+    
+    <span>
+      Button Inner
+    </span>
+    
+  </span>
+</button>
+`;
+
+exports[`Button > props > should have a property for backgroundColor 1`] = `
+<button
+  backgroundcolor="#fff"
+  class="podlove-component-button flex justify-center h-8 text-base cursor-pointer bg-transparent outline-none transition-opacity hover:opacity-75 border rounded border-solid py-1 px-2 uppercase text-center opacity-100"
+  data-v-585f6ee7=""
+>
+  <span
+    class="truncate w-full h-full flex items-center justify-center"
+    data-v-585f6ee7=""
+  >
+    
+    <span>
+      Button Inner
+    </span>
+    
+  </span>
+</button>
+`;
+
+exports[`Button > props > should have a property for borderColor 1`] = `
+<button
+  bordercolor="#fff"
+  class="podlove-component-button flex justify-center h-8 text-base cursor-pointer bg-transparent outline-none transition-opacity hover:opacity-75 border rounded border-solid py-1 px-2 uppercase text-center opacity-100"
+  data-v-585f6ee7=""
+>
+  <span
+    class="truncate w-full h-full flex items-center justify-center"
+    data-v-585f6ee7=""
+  >
+    
+    <span>
+      Button Inner
+    </span>
+    
+  </span>
+</button>
+`;
+
+exports[`Button > props > should have a property for disabled 1`] = `
+<button
+  class="podlove-component-button flex justify-center h-8 text-base cursor-pointer bg-transparent outline-none transition-opacity hover:opacity-75 border rounded border-solid py-1 px-2 uppercase text-center opacity-50"
+  data-v-585f6ee7=""
+>
+  <span
+    class="truncate w-full h-full flex items-center justify-center"
+    data-v-585f6ee7=""
+  >
+    
+    <span>
+      Button Inner
+    </span>
+    
+  </span>
+</button>
+`;
+
+exports[`Button > props > should have a property for href 1`] = `
+<a
+  class="podlove-component-button flex justify-center h-8 text-base cursor-pointer bg-transparent outline-none transition-opacity hover:opacity-75 border rounded border-solid py-1 px-2 uppercase text-center opacity-100"
+  data-v-585f6ee7=""
+  href="http://foo.bar"
+>
+  <span
+    class="truncate w-full h-full flex items-center justify-center"
+    data-v-585f6ee7=""
+  >
+    
+    <span>
+      Button Inner
+    </span>
+    
+  </span>
+</a>
+`;
+
+exports[`Button > props > should have a property for textColor 1`] = `
+<button
+  class="podlove-component-button flex justify-center h-8 text-base cursor-pointer bg-transparent outline-none transition-opacity hover:opacity-75 border rounded border-solid py-1 px-2 uppercase text-center opacity-100"
+  data-v-585f6ee7=""
+  textcolor="#fff"
+>
+  <span
+    class="truncate w-full h-full flex items-center justify-center"
+    data-v-585f6ee7=""
+  >
+    
+    <span>
+      Button Inner
+    </span>
+    
+  </span>
+</button>
+`;

@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputGroup > slots > should apply special classes when having multiple slots 1`] = `
+<div
+  class="podlove-component-input-group h-8 box-border flex elements-6"
+>
+  
+  <button>
+    click!
+  </button>
+  
+  
+  
+  <input
+    type="text"
+  />
+  
+  
+  <input
+    type="text"
+  />
+  
+  
+</div>
+`;
+
+exports[`InputGroup > slots > should have a slot for buttons 1`] = `
+<div
+  class="podlove-component-input-group h-8 box-border flex elements-1"
+>
+  
+  <button>
+    click!
+  </button>
+  
+  
+  
+</div>
+`;
+
+exports[`InputGroup > slots > should have a slot for inputs 1`] = `
+<div
+  class="podlove-component-input-group h-8 box-border flex elements-1"
+>
+  
+  
+  
+  <input
+    type="text"
+  />
+  
+</div>
+`;

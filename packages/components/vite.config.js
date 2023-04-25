@@ -6,6 +6,10 @@ import extensions from '../../.build/extensions'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  test: {
+    include: ['src/**/*.test.ts'],
+    environment: 'happy-dom'
+  },
   build: {
     lib: {
       formats: ['es', 'umd'],

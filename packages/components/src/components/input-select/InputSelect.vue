@@ -19,7 +19,7 @@ defineProps({
 const emit = defineEmits(['change']);
 
 const changeEvent = (event: Event) => {
-  emit('change', path(['target','value'], event));
+  emit('change', path(['target', 'value'], event));
 };
 </script>
 
@@ -28,6 +28,7 @@ const changeEvent = (event: Event) => {
     v-if="options"
     class="podlove-component-select block w-full border rounded-none p-1 h-8"
     :disabled="disabled"
+    :value="value"
     @change="changeEvent"
   >
     <option v-for="(option, index) in options" :key="index" :selected="option === value">

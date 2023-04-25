@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "useDefineForClassFields": true,
+    "jsx": "preserve",
+    "noImplicitThis": true,
+    "strict": true,
+    "isolatedModules": true,
+    "preserveValueImports": true,
+    "importsNotUsedAsValues": "error",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+
+    "paths": {
+      "@podlove/subscribe-button": ["./packages/subscribe-button/src"],
+      "@podlove/player": ["./packages/player/src"],
+
+      "@podlove/clients/*": ["./packages/clients/src"],
+      "@podlove/utils/*": ["./packages/utils/src"],
+      "@podlove/components/*": ["./packages/components/src/components"],
+
+      "@podlove/button-actions/*": ["./packages/button/actions"],
+      "@podlove/button-config/*": ["./packages/button/config"],
+      "@podlove/button-react": ["./packages/button/react/src"],
+      "@podlove/button-state/*": ["./packages/button/state"],
+
+      "@podlove/player-actions/*": ["./packages/player/actions/src"],
+      "@podlove/player-config/*": ["./packages/player/config/src"],
+      "@podlove/player-sagas/*": ["./packages/player/sagas"],
+      "@podlove/player-state/*": ["./packages/player/state"],
+    }
+  },
+  "include": ["./packages/types/shim-vue.d.ts"]
+}
