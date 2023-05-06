@@ -3,7 +3,7 @@ import { compose, prop } from 'ramda';
 
 import {
   PodloveWebPlayerTimelineChapterEntry,
-  PodloveWebPlayerTimelineSpeakerEntry
+  PodloveWebPlayerTimelineTranscriptEntry
 } from '@podlove/types';
 
 import {
@@ -26,7 +26,7 @@ import {
 } from '@podlove/player-actions/transcripts';
 
 export interface State {
-  timeline: (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineSpeakerEntry)[];
+  timeline: (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry)[];
   active: number | null;
   follow: boolean;
   hasTranscripts: boolean;

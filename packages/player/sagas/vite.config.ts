@@ -1,33 +1,31 @@
+/// <reference types="vitest" />
 import path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 const entries = [
-  'audio',
+  'chapters',
+  'components',
   'error',
   'keyboard',
-  'playlist',
-  'runtime',
-  'tabs',
-  'transcripts',
-  'chapters',
-  'files',
   'lifecycle',
-  'progress',
-  'share',
-  'theme',
-  'types',
-  'components',
-  'init',
-  'play',
+  'media-session',
+  'player',
+  'playlist',
   'quantiles',
+  'runtime',
   'stepper',
-  'timepiece',
-  'visible-components'
+  'transcripts',
+  'version',
+  'middleware'
 ];
 
 export default defineConfig({
-  plugins: [dts({ insertTypesEntry: true, entryRoot: '../actions' })],
+  test: {
+    include: ['src/**/*.test.ts'],
+    environment: 'happy-dom'
+  },
+  plugins: [dts({ insertTypesEntry: true, entryRoot: '../sagas' })],
   build: {
     lib: {
       formats: ['es'],
@@ -41,8 +39,8 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: `[name].[hash].js`
+        entryFileNames: '[name].mjs',
+        chunkFileNames: `[name].[hash].mjs`
       }
     }
   },

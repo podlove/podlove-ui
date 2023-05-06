@@ -1,6 +1,5 @@
 import { prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
-import { READY } from '@podlove/player-actions/types';
 import {
   shareReference,
   originReference,

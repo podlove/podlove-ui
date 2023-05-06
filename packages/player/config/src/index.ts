@@ -42,7 +42,7 @@ export const media = compose<any[], PodloveWebPlayerAudio[], PodloveWebPlayerAud
   propOr([], 'audio')
 );
 
-export const chapters = propOr<PodloveWebPlayerChapter[]>([], 'chapters');
+export const chapters = propOr([], 'chapters') as (input: PodloveWebPlayerResolvedConfig) => PodloveWebPlayerChapter[];
 
 export const theme = (config: PodloveWebPlayerConfig): PodloveWebPlayerTheme => {
   const theme = propOr({}, 'theme', config) as (

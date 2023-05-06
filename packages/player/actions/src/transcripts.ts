@@ -13,13 +13,13 @@ import {
 
 import type {
   PodloveWebPlayerTimelineChapterEntry,
-  PodloveWebPlayerTimelineSpeakerEntry
+  PodloveWebPlayerTimelineTranscriptEntry
 } from '@podlove/types';
 
-export type setTranscriptsTimelinePayload = (
-  | PodloveWebPlayerTimelineChapterEntry
-  | PodloveWebPlayerTimelineSpeakerEntry
-)[];
+export interface setTranscriptsTimelinePayload {
+  timeline: (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry)[];
+  hasTranscripts: boolean;
+};
 export type updateTranscriptsPayload = number;
 export type followTranscriptsPayload = boolean;
 export type searchTranscriptsPayload = string;
@@ -29,22 +29,21 @@ export type nextTranscriptsSearchResultPayload = void;
 export type previousTranscriptsSearchResultPayload = void;
 
 export const setTranscriptsTimeline = createAction<setTranscriptsTimelinePayload>(
-  SET_TRANSCRIPTS_TIMELINE,
-  (transcripts = []) => transcripts
+  SET_TRANSCRIPTS_TIMELINE
 );
 export const updateTranscripts = createAction<updateTranscriptsPayload>(
-  UPDATE_TRANSCRIPTS,
-  (playtime = 0) => playtime
+  UPDATE_TRANSCRIPTS
 );
 export const followTranscripts = createAction<followTranscriptsPayload>(
-  TOGGLE_FOLLOW_TRANSCRIPTS,
-  (follow = true) => follow
+  TOGGLE_FOLLOW_TRANSCRIPTS
 );
 export const searchTranscripts = createAction<searchTranscriptsPayload>(SEARCH_TRANSCRIPTS);
-export const resetSearchTranscription = createAction<resetSearchTranscriptionPayload>(RESET_SEARCH_TRANSCRIPTS);
+export const resetSearchTranscription =
+  createAction<resetSearchTranscriptionPayload>(RESET_SEARCH_TRANSCRIPTS);
 export const setTranscriptsSearchResults = createAction<setTranscriptsSearchResultsPayload>(
-  SET_SEARCH_TRANSCRIPTS_RESULTS,
-  (results = []) => results
+  SET_SEARCH_TRANSCRIPTS_RESULTS
 );
-export const nextTranscriptsSearchResult = createAction<nextTranscriptsSearchResultPayload>(NEXT_SEARCH_RESULT);
-export const previousTranscriptsSearchResult = createAction<previousTranscriptsSearchResultPayload>(PREVIOUS_SEARCH_RESULT);
+export const nextTranscriptsSearchResult =
+  createAction<nextTranscriptsSearchResultPayload>(NEXT_SEARCH_RESULT);
+export const previousTranscriptsSearchResult =
+  createAction<previousTranscriptsSearchResultPayload>(PREVIOUS_SEARCH_RESULT);

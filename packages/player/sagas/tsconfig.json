@@ -1,7 +1,8 @@
 {
-  "extends": "../../../tsconfig.base.json",
   "include": ["./src"],
   "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "nodenext",
     "preserveValueImports": true,
     "isolatedModules": true,
     "importsNotUsedAsValues": "preserve"

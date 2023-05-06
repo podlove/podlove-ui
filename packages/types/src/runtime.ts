@@ -1,0 +1,9 @@
+export type PodloveWebPlayerMode  = 'embed' | 'native';
+
+export interface PodloveWebPlayerRuntime {
+  display?: string;
+  browser?: string;
+  locale?: string;
+  platform?: string;
+  language?: string;
+}

@@ -410,6 +410,7 @@ importers:
       ramda: 0.29.0
       rangetouch: 2.0.1
       tailwindcss: 3.2.4
+      typescript: 5.0.4
       v-tooltip: 4.0.0-beta.17
       vite: 4.2.1
       vitest: 0.30.0
@@ -427,6 +428,7 @@ importers:
       '@vitejs/plugin-vue': 3.2.0_vite@4.2.1+vue@3.2.41
       '@vue/test-utils': 2.3.2_vue@3.2.41
       happy-dom: 9.1.9
+      typescript: 5.0.4
       vite: 4.2.1
       vitest: 0.30.0_happy-dom@9.1.9
 
@@ -437,6 +439,7 @@ importers:
       '@podlove/utils': ^5.12.0
       '@types/redux-actions': 2.6.2
       redux-actions: 3.0.0
+      typescript: 5.0.4
       vite: 4.2.1
       vite-plugin-dts: 2.2.0
     dependencies:
@@ -446,6 +449,7 @@ importers:
       '@podlove/build': link:../../build
       '@podlove/types': link:../../types
       '@types/redux-actions': 2.6.2
+      typescript: 5.0.4
       vite: 4.2.1
       vite-plugin-dts: 2.2.0_vite@4.2.1
 
@@ -455,6 +459,7 @@ importers:
       '@podlove/utils': ^5.12.0
       '@types/ramda': 0.28.24
       ramda: 0.29.0
+      typescript: 5.0.4
       vite: 4.2.1
       vite-plugin-dts: 2.2.0
       vitest: 0.30.0
@@ -464,6 +469,7 @@ importers:
     devDependencies:
       '@podlove/types': link:../../types
       '@types/ramda': 0.28.24
+      typescript: 5.0.4
       vite: 4.2.1
       vite-plugin-dts: 2.2.0_vite@4.2.1
       vitest: 0.30.0
@@ -497,22 +503,42 @@ importers:
     specifiers:
       '@podlove/build': ^5.12.0
       '@podlove/components': ^5.12.0
-      '@podlove/html5-audio-driver': 2.0.1
+      '@podlove/html5-audio-driver': 2.0.2
       '@podlove/player-actions': ^5.12.0
       '@podlove/player-config': ^5.12.0
+      '@podlove/types': ^5.12.0
       '@podlove/utils': ^5.12.0
-      detect-browser: 5.1.1
-      redux-saga: 1.1.3
+      '@types/ramda': 0.29.1
+      '@types/redux-actions': 2.6.2
+      '@types/redux-saga': 0.10.5
+      happy-dom: 9.1.9
+      ramda: 0.29.0
+      redux-actions: 3.0.0
+      redux-saga: 1.2.3
+      typescript: 5.0.4
+      vite: 4.2.1
+      vite-plugin-dts: 2.2.0
+      vitest: 0.30.1
     dependencies:
       '@podlove/components': link:../../components
-      '@podlove/html5-audio-driver': 2.0.1
+      '@podlove/html5-audio-driver': 2.0.2
       '@podlove/player-actions': link:../actions
       '@podlove/player-config': link:../config
+      '@podlove/types': link:../../types
       '@podlove/utils': link:../../utils
-      detect-browser: 5.1.1
-      redux-saga: 1.1.3
+      ramda: 0.29.0
+      redux-actions: 3.0.0
+      redux-saga: 1.2.3
     devDependencies:
       '@podlove/build': link:../../build
+      '@types/ramda': 0.29.1
+      '@types/redux-actions': 2.6.2
+      '@types/redux-saga': 0.10.5
+      happy-dom: 9.1.9
+      typescript: 5.0.4
+      vite: 4.2.1
+      vite-plugin-dts: 2.2.0_vite@4.2.1
+      vitest: 0.30.1_happy-dom@9.1.9
 
   packages/player/state:
     specifiers:
@@ -547,15 +573,18 @@ importers:
 
   packages/types:
     specifiers:
-      '@podlove/html5-audio-driver': 2.0.1
+      '@podlove/html5-audio-driver': 2.0.2
+      typescript: 5.0.4
     dependencies:
-      '@podlove/html5-audio-driver': 2.0.1
+      '@podlove/html5-audio-driver': 2.0.2
+    devDependencies:
+      typescript: 5.0.4
 
   packages/utils:
     specifiers:
       '@podlove/build': ^5.12.0
       '@podlove/types': ^5.12.0
-      '@types/ramda': 0.29.0
+      '@types/ramda': 0.29.1
       dompurify: 2.0.12
       farbraum: 0.1.2
       happy-dom: 9.1.9
@@ -563,7 +592,7 @@ importers:
       query-string: 8.1.0
       ramda: 0.29.0
       ts-toolbelt: 9.6.0
-      types-ramda: 0.29.1
+      typescript: 5.0.4
       vite: 4.2.1
       vite-plugin-dts: 2.2.0
       vitest: 0.30.0
@@ -576,10 +605,10 @@ importers:
     devDependencies:
       '@podlove/build': link:../build
       '@podlove/types': link:../types
-      '@types/ramda': 0.29.0
+      '@types/ramda': 0.29.1
       happy-dom: 9.1.9
       ts-toolbelt: 9.6.0
-      types-ramda: 0.29.1
+      typescript: 5.0.4
       vite: 4.2.1
       vite-plugin-dts: 2.2.0_vite@4.2.1
       vitest: 0.30.0_happy-dom@9.1.9
@@ -696,7 +725,7 @@ packages:
     resolution: {integrity: sha512-SD75PMIK6i9H8G/tfGvB4KKl4Nw6Ssos9nGgYwxbgyTP0iX/Z55DveoH86rmUB/YHTQQ+ZC0F7xxaY8l2OF44Q==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
       '@jridgewell/gen-mapping': 0.3.2
       jsesc: 2.5.2
 
@@ -887,7 +916,7 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       '@babel/template': 7.18.10
       '@babel/traverse': 7.20.1
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
     transitivePeerDependencies:
       - supports-color
 
@@ -946,7 +975,7 @@ packages:
     resolution: {integrity: sha512-+0woI/WPq59IrqDYbVGfshjT5Dmk/nnbdpcF8SnMhhXObpTq2KNBdLFRFrkVdbDOyUmHBCxzm5FHV1rACIkIbA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
 
   /@babel/helper-skip-transparent-expression-wrappers/7.20.0:
     resolution: {integrity: sha512-5y1JYeNKfvnT8sZcK9DVRtpTbGiomYIHviSP3OQWmDPU3DeH4a1ZlT/N2lyQ5P8egjcRaT/Y9aNqUxK0WsnIIg==}
@@ -989,7 +1018,7 @@ packages:
     dependencies:
       '@babel/template': 7.18.10
       '@babel/traverse': 7.20.1
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1014,7 +1043,7 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
 
   /@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining/7.18.9:
     resolution: {integrity: sha512-AHrP9jadvH7qlOj6PINbgSuphjQUAK7AOT7DPjBo9EHoLhQTnnK5u45e1Hd4DbSQEO9nqPWtQ89r+XEOWFScKg==}
@@ -2786,7 +2815,7 @@ packages:
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-proposal-unicode-property-regex': 7.18.6
       '@babel/plugin-transform-dotall-regex': 7.18.6
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
       esutils: 2.0.3
     dev: false
 
@@ -2799,7 +2828,7 @@ packages:
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-proposal-unicode-property-regex': 7.18.6_@babel+core@7.14.6
       '@babel/plugin-transform-dotall-regex': 7.18.6_@babel+core@7.14.6
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
       esutils: 2.0.3
     dev: true
 
@@ -2829,7 +2858,7 @@ packages:
     dependencies:
       '@babel/code-frame': 7.18.6
       '@babel/parser': 7.20.2
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
 
   /@babel/traverse/7.20.1:
     resolution: {integrity: sha512-d3tN8fkVJwFLkHkBN479SOsw4DMZnz8cdbL/gvuDuzy3TS6Nfw80HuQqhw1pITbIruHyh7d1fMA47kWzmcUEGA==}
@@ -2842,7 +2871,7 @@ packages:
       '@babel/helper-hoist-variables': 7.18.6
       '@babel/helper-split-export-declaration': 7.18.6
       '@babel/parser': 7.20.2
-      '@babel/types': 7.20.2
+      '@babel/types': 7.20.7
       debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
@@ -4173,8 +4202,8 @@ packages:
       typescript: 4.9.5
     dev: true
 
-  /@podlove/html5-audio-driver/2.0.1:
-    resolution: {integrity: sha512-/LVYf3uayHnC7jJdwW3p9OGRCZGxlwkdS9jBoAHIRMCj7LVZZaqSvbYukfzOm2Ja+gcqJ8p4IOFucDDjMQLYig==}
+  /@podlove/html5-audio-driver/2.0.2:
+    resolution: {integrity: sha512-GCl37LdwvgAM2Ty80/EbC2XW55oZ3OsAntLXq802mwZMlw4eiwNvxhwtGe2QCZ3QQtgnY/6pXDKdSlFh6a1MJQ==}
     dependencies:
       hls.js: 1.2.8
       ramda: 0.28.0
@@ -4201,30 +4230,37 @@ packages:
       typescript-tuple: 2.2.1
     dev: false
 
+  /@redux-saga/core/1.2.3:
+    resolution: {integrity: sha512-U1JO6ncFBAklFTwoQ3mjAeQZ6QGutsJzwNBjgVLSWDpZTRhobUzuVDS1qH3SKGJD8fvqoaYOjp6XJ3gCmeZWgA==}
+    dependencies:
+      '@babel/runtime': 7.14.6
+      '@redux-saga/deferred': 1.2.1
+      '@redux-saga/delay-p': 1.2.1
+      '@redux-saga/is': 1.1.3
+      '@redux-saga/symbols': 1.1.3
+      '@redux-saga/types': 1.2.1
+      redux: 4.2.0
+      typescript-tuple: 2.2.1
+
   /@redux-saga/deferred/1.2.1:
     resolution: {integrity: sha512-cmin3IuuzMdfQjA0lG4B+jX+9HdTgHZZ+6u3jRAOwGUxy77GSlTi4Qp2d6PM1PUoTmQUR5aijlA39scWWPF31g==}
-    dev: false
 
   /@redux-saga/delay-p/1.2.1:
     resolution: {integrity: sha512-MdiDxZdvb1m+Y0s4/hgdcAXntpUytr9g0hpcOO1XFVyyzkrDu3SKPgBFOtHn7lhu7n24ZKIAT1qtKyQjHqRd+w==}
     dependencies:
       '@redux-saga/symbols': 1.1.3
-    dev: false
 
   /@redux-saga/is/1.1.3:
     resolution: {integrity: sha512-naXrkETG1jLRfVfhOx/ZdLj0EyAzHYbgJWkXbB3qFliPcHKiWbv/ULQryOAEKyjrhiclmr6AMdgsXFyx7/yE6Q==}
     dependencies:
       '@redux-saga/symbols': 1.1.3
       '@redux-saga/types': 1.2.1
-    dev: false
 
   /@redux-saga/symbols/1.1.3:
     resolution: {integrity: sha512-hCx6ZvU4QAEUojETnX8EVg4ubNLBFl1Lps4j2tX7o45x/2qg37m3c6v+kSp8xjDJY+2tJw4QB3j8o8dsl1FDXg==}
-    dev: false
 
   /@redux-saga/types/1.2.1:
     resolution: {integrity: sha512-1dgmkh+3so0+LlBWRhGA33ua4MYr7tUOj+a9Si28vUi0IUFNbff1T3sgpeDJI/LaC75bBYnQ0A3wXjn0OrRNBA==}
-    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -4565,8 +4601,21 @@ packages:
       types-ramda: 0.29.1
     dev: true
 
+  /@types/ramda/0.29.1:
+    resolution: {integrity: sha512-Ff5RRG9YRqMgWOqZVVavSjGEvYHUnXnGF0YPGbzIWhB3o8qiccSJZlFX2z8qm3G1H/IC5w0ozHmlezUeQCtGfQ==}
+    dependencies:
+      types-ramda: 0.29.2
+    dev: true
+
   /@types/redux-actions/2.6.2:
     resolution: {integrity: sha512-TvcINy8rWFANcpc3EiEQX9Yv3owM3d3KIrqr2ryUIOhYIYzXA/bhDZeGSSSuai62iVR2qMZUgz9tQ5kr0Kl+Tg==}
+    dev: true
+
+  /@types/redux-saga/0.10.5:
+    resolution: {integrity: sha512-sqan7rs+PylBB5u2reL1hm+f0pDsZY1D1/o1vtgjrS4ErjxthK59zKCQyZhSLRcQDiOh3Pwp4fNQyn4A0CTdGA==}
+    deprecated: This is a stub types definition for redux-saga (https://github.com/redux-saga/redux-saga). redux-saga provides its own type definitions, so you don't need @types/redux-saga installed!
+    dependencies:
+      redux-saga: 1.2.3
     dev: true
 
   /@types/responselike/1.0.0:
@@ -8915,10 +8964,6 @@ packages:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
 
-  /detect-browser/5.1.1:
-    resolution: {integrity: sha512-5n2aWI57qC3kZaK4j2zYsG6L1LrxgLptGCNhMQgdKhVn6cSdcq43pp6xHPfTHG3TYM6myF4tIPWiZtfdVDgb9w==}
-    dev: false
-
   /detect-file/1.0.0:
     resolution: {integrity: sha512-DtCOLG98P007x7wiiOmfI0fi3eIKyWiLTGJ2MDnVi/E04lWGbf+JzrRHMm0rgIIZJGtHpKpbVgLWHrv8xXpc3Q==}
     engines: {node: '>=0.10.0'}
@@ -10498,7 +10543,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -17467,6 +17512,11 @@ packages:
       '@redux-saga/core': 1.2.1
     dev: false
 
+  /redux-saga/1.2.3:
+    resolution: {integrity: sha512-HDe0wTR5nhd8Xr5xjGzoyTbdAw6rjy1GDplFt3JKtKN8/MnkQSRqK/n6aQQhpw5NI4ekDVOaW+w4sdxPBaCoTQ==}
+    dependencies:
+      '@redux-saga/core': 1.2.3
+
   /redux-vuex/3.0.0_redux@4.0.4+vue@3.2.41:
     resolution: {integrity: sha512-QjIa0mK32yhfzHBHlR5MJYUkUgV7xJoxIIKMzAlpimGSjupa7gcHMjTuWsG6oqK0Q+X6lK6IpLt3NNuSwSmIxg==}
     peerDependencies:
@@ -17502,7 +17552,6 @@ packages:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
     dependencies:
       '@babel/runtime': 7.14.6
-    dev: false
 
   /regenerate-unicode-properties/10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
@@ -19715,21 +19764,24 @@ packages:
       ts-toolbelt: 9.6.0
     dev: true
 
+  /types-ramda/0.29.2:
+    resolution: {integrity: sha512-HpLcR0ly2EfXQwG8VSI5ov6ml7PvtT+u+cp+7lZLu7q4nhnPDVW+rUTC1uy/SNs4aAyTUXri5M/LyhgvjEXJDg==}
+    dependencies:
+      ts-toolbelt: 9.6.0
+    dev: true
+
   /typescript-compare/0.0.2:
     resolution: {integrity: sha512-8ja4j7pMHkfLJQO2/8tut7ub+J3Lw2S3061eJLFQcvs3tsmJKp8KG5NtpLn7KcY2w08edF74BSVN7qJS0U6oHA==}
     dependencies:
       typescript-logic: 0.0.0
-    dev: false
 
   /typescript-logic/0.0.0:
     resolution: {integrity: sha512-zXFars5LUkI3zP492ls0VskH3TtdeHCqu0i7/duGt60i5IGPIpAHE/DWo5FqJ6EjQ15YKXrt+AETjv60Dat34Q==}
-    dev: false
 
   /typescript-tuple/2.2.1:
     resolution: {integrity: sha512-Zcr0lbt8z5ZdEzERHAMAniTiIKerFCMgd7yjq1fPnDJ43et/k9twIFQMUYff9k5oXcsQ0WpvFcgzK2ZKASoW6Q==}
     dependencies:
       typescript-compare: 0.0.2
-    dev: false
 
   /typescript/4.8.4:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
@@ -19740,6 +19792,12 @@ packages:
   /typescript/4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/5.0.4:
+    resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
+    engines: {node: '>=12.20'}
     hasBin: true
     dev: true
 
@@ -20485,6 +20543,73 @@ packages:
       chai: 4.3.7
       concordance: 5.0.4
       debug: 4.3.4
+      local-pkg: 0.4.3
+      magic-string: 0.30.0
+      pathe: 1.1.0
+      picocolors: 1.0.0
+      source-map: 0.6.1
+      std-env: 3.3.2
+      strip-literal: 1.0.1
+      tinybench: 2.4.0
+      tinypool: 0.4.0
+      vite: 4.2.1_@types+node@18.11.9
+      vite-node: 0.30.1_@types+node@18.11.9
+      why-is-node-running: 2.2.2
+    transitivePeerDependencies:
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vitest/0.30.1_happy-dom@9.1.9:
+    resolution: {integrity: sha512-y35WTrSTlTxfMLttgQk4rHcaDkbHQwDP++SNwPb+7H8yb13Q3cu2EixrtHzF27iZ8v0XCciSsLg00RkPAzB/aA==}
+    engines: {node: '>=v14.18.0'}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
+      '@vitest/ui': '*'
+      happy-dom: '*'
+      jsdom: '*'
+      playwright: '*'
+      safaridriver: '*'
+      webdriverio: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+      playwright:
+        optional: true
+      safaridriver:
+        optional: true
+      webdriverio:
+        optional: true
+    dependencies:
+      '@types/chai': 4.3.4
+      '@types/chai-subset': 1.3.3
+      '@types/node': 18.11.9
+      '@vitest/expect': 0.30.1
+      '@vitest/runner': 0.30.1
+      '@vitest/snapshot': 0.30.1
+      '@vitest/spy': 0.30.1
+      '@vitest/utils': 0.30.1
+      acorn: 8.8.2
+      acorn-walk: 8.2.0
+      cac: 6.7.14
+      chai: 4.3.7
+      concordance: 5.0.4
+      debug: 4.3.4
+      happy-dom: 9.1.9
       local-pkg: 0.4.3
       magic-string: 0.30.0
       pathe: 1.1.0

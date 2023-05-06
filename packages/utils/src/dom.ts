@@ -1,4 +1,4 @@
-import { curry, compose, uniq, concat, join, filter, head } from 'ramda';
+import { curry, compose, uniq, join, filter, head } from 'ramda';
 import DOMPurify from 'dompurify';
 
 export const findNode = (selector: string | HTMLElement): HTMLElement => {
@@ -10,13 +10,13 @@ export const findNode = (selector: string | HTMLElement): HTMLElement => {
 };
 
 export const createNode = (tag: string): HTMLElement => document.createElement(tag);
-export const appendNode = curry((node: HTMLElement, child: HTMLElement): HTMLElement => {
+export const appendNode: any = curry((node: HTMLElement, child: HTMLElement): HTMLElement => {
   node.appendChild(child);
 
   return child;
 });
 
-export const tag = curry(
+export const tag: any = curry(
   (tag: string, value: string = '', attributes: { [key: string]: string }): string => {
     let attr = Object.entries(attributes || {})
       .map(([attribute, value]) => ` ${attribute}="${value}"`)
@@ -26,7 +26,7 @@ export const tag = curry(
   }
 );
 
-export const setStyles = curry((attrs: { [key: string]: string }, el: HTMLElement): HTMLElement => {
+export const setStyles: any = curry((attrs: { [key: string]: string }, el: HTMLElement): HTMLElement => {
   Object.entries(attrs).forEach(([property, value]) => {
     el.style[property] = value;
   });
@@ -34,7 +34,7 @@ export const setStyles = curry((attrs: { [key: string]: string }, el: HTMLElemen
   return el;
 });
 
-export const removeStyles = curry((attrs: string[], el: HTMLElement): void => {
+export const removeStyles: any = curry((attrs: string[], el: HTMLElement): void => {
   (attrs || []).forEach((attr) => {
     el.style.removeProperty(attr);
   });
@@ -47,7 +47,7 @@ export const getClasses = compose<any[], string[], string[]>(
 
 export const hasOverflow = (el: HTMLElement): boolean => el.scrollWidth > el.clientWidth;
 
-export const addClasses = curry((classes: string[] = [], el: HTMLElement): HTMLElement => {
+export const addClasses: any = curry((classes: string[] = [], el: HTMLElement): HTMLElement => {
   const existingClasses = uniq(getClasses(el).concat(classes)).join(' ');
 
   el.className = existingClasses;
@@ -55,7 +55,7 @@ export const addClasses = curry((classes: string[] = [], el: HTMLElement): HTMLE
   return el;
 });
 
-export const removeClasses = curry((classes: string[] = [], el: HTMLElement): HTMLElement => {
+export const removeClasses: any = curry((classes: string[] = [], el: HTMLElement): HTMLElement => {
   el.className = compose<any[], string[], string[], string>(
     join(' '),
     filter((className: string) => !~classes.indexOf(className)),
@@ -87,7 +87,7 @@ export const sanitize = (input: HTMLElement): HTMLElement => {
   });
 };
 
-export const setAttributes = curry(
+export const setAttributes: any = curry(
   (attrs: { [key: string]: string }, el: HTMLElement): HTMLElement => {
     Object.entries(attrs).forEach(([property, value]) => {
       el.setAttribute(property, value);
@@ -97,7 +97,7 @@ export const setAttributes = curry(
   }
 );
 
-export const resizeObserver = curry((element: HTMLElement, cb: () => void) => {
+export const resizeObserver: any = curry((element: HTMLElement, cb: () => void) => {
   const observer = new MutationObserver(cb);
 
   observer.observe(element, { childList: true });

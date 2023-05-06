@@ -17,72 +17,144 @@
   "type": "module",
   "exports": {
     "./chapters": {
-      "import": "./dist/chapters.mjs",
-      "types": "./dist/chapters.d.ts"
+      "import": "./src/chapters.ts",
+      "types": "./src/chapters.ts"
     },
     "./color": {
-      "import": "./dist/color.mjs",
-      "types": "./dist/color.d.ts"
+      "import": "./src/color.ts",
+      "types": "./src/color.ts"
     },
     "./detect": {
-      "import": "./dist/detect.mjs",
-      "types": "./dist/detect.d.ts"
+      "import": "./src/detect.ts",
+      "types": "./src/detect.ts"
     },
     "./dom": {
-      "import": "./dist/dom.mjs",
-      "types": "./dist/dom.d.ts"
+      "import": "./src/dom.ts",
+      "types": "./src/dom.ts"
     },
     "./helper": {
-      "import": "./dist/helper.mjs",
-      "types": "./dist/helper.d.ts"
+      "import": "./src/helper.ts",
+      "types": "./src/helper.ts"
     },
     "./keyboard": {
-      "import": "./dist/keyboard.mjs",
-      "types": "./dist/keyboard.d.ts"
+      "import": "./src/keyboard.ts",
+      "types": "./src/keyboard.ts"
     },
     "./localstorage": {
-      "import": "./dist/localstorage.mjs",
-      "types": "./dist/localstorage.d.ts"
+      "import": "./src/localstorage.ts",
+      "types": "./src/localstorage.ts"
     },
     "./location": {
-      "import": "./dist/location.mjs",
-      "types": "./dist/location.d.ts"
+      "import": "./src/location.ts",
+      "types": "./src/location.ts"
     },
     "./math": {
-      "import": "./dist/math.mjs",
-      "types": "./dist/math.d.ts"
+      "import": "./src/math.ts",
+      "types": "./src/math.ts"
     },
     "./predicates": {
-      "import": "./dist/predicates.mjs",
-      "types": "./dist/predicates.d.ts"
+      "import": "./src/predicates.ts",
+      "types": "./src/predicates.ts"
     },
     "./request": {
-      "import": "./dist/request.mjs",
-      "types": "./dist/request.d.ts"
+      "import": "./src/request.ts",
+      "types": "./src/request.ts"
     },
     "./sandbox": {
-      "import": "./dist/sandbox.mjs",
-      "types": "./dist/sandbox.d.ts"
+      "import": "./src/sandbox.ts",
+      "types": "./src/sandbox.ts"
     },
     "./search": {
-      "import": "./dist/search.mjs",
-      "types": "./dist/search.d.ts"
+      "import": "./src/search.ts",
+      "types": "./src/search.ts"
     },
     "./throttle": {
-      "import": "./dist/throttle.mjs",
-      "types": "./dist/throttle.d.ts"
+      "import": "./src/throttle.ts",
+      "types": "./src/throttle.ts"
     },
     "./time": {
-      "import": "./dist/time.mjs",
-      "types": "./dist/time.d.ts"
+      "import": "./src/time.ts",
+      "types": "./src/time.ts"
     },
     "./url": {
-      "import": "./dist/url.mjs",
-      "types": "./dist/url.d.ts"
+      "import": "./src/url.ts",
+      "types": "./src/url.ts"
     },
     "./useragent": {
-      "import": "./dist/useragent.mjs",
-      "types": "./dist/useragent.d.ts"
+      "import": "./src/useragent.ts",
+      "types": "./src/useragent.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./chapters": {
+        "import": "./dist/chapters.mjs",
+        "types": "./dist/chapters.d.ts"
+      },
+      "./color": {
+        "import": "./dist/color.mjs",
+        "types": "./dist/color.d.ts"
+      },
+      "./detect": {
+        "import": "./dist/detect.mjs",
+        "types": "./dist/detect.d.ts"
+      },
+      "./dom": {
+        "import": "./dist/dom.mjs",
+        "types": "./dist/dom.d.ts"
+      },
+      "./helper": {
+        "import": "./dist/helper.mjs",
+        "types": "./dist/helper.d.ts"
+      },
+      "./keyboard": {
+        "import": "./dist/keyboard.mjs",
+        "types": "./dist/keyboard.d.ts"
+      },
+      "./localstorage": {
+        "import": "./dist/localstorage.mjs",
+        "types": "./dist/localstorage.d.ts"
+      },
+      "./location": {
+        "import": "./dist/location.mjs",
+        "types": "./dist/location.d.ts"
+      },
+      "./math": {
+        "import": "./dist/math.mjs",
+        "types": "./dist/math.d.ts"
+      },
+      "./predicates": {
+        "import": "./dist/predicates.mjs",
+        "types": "./dist/predicates.d.ts"
+      },
+      "./request": {
+        "import": "./dist/request.mjs",
+        "types": "./dist/request.d.ts"
+      },
+      "./sandbox": {
+        "import": "./dist/sandbox.mjs",
+        "types": "./dist/sandbox.d.ts"
+      },
+      "./search": {
+        "import": "./dist/search.mjs",
+        "types": "./dist/search.d.ts"
+      },
+      "./throttle": {
+        "import": "./dist/throttle.mjs",
+        "types": "./dist/throttle.d.ts"
+      },
+      "./time": {
+        "import": "./dist/time.mjs",
+        "types": "./dist/time.d.ts"
+      },
+      "./url": {
+        "import": "./dist/url.mjs",
+        "types": "./dist/url.d.ts"
+      },
+      "./useragent": {
+        "import": "./dist/useragent.mjs",
+        "types": "./dist/useragent.d.ts"
+      }
     }
   },
   "dependencies": {
@@ -99,8 +171,8 @@
     "vitest": "0.30.0",
     "vite-plugin-dts": "2.2.0",
     "happy-dom": "9.1.9",
-    "@types/ramda": "0.29.0",
-    "types-ramda": "0.29.1",
+    "@types/ramda": "0.29.1",
+    "typescript": "5.0.4",
     "ts-toolbelt": "9.6.0"
   }
 }

@@ -5,7 +5,7 @@ import { isUndefinedOrNull } from './predicates'
 const timeRegex = new RegExp(/^(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:\.(\d{1,3}))?$/)
 
 // Transforms a h:mm:ss.f or mm:ss.ffff or ss time to milliseconds
-export const toPlayerTime = (time: string = '0'): number | null => {
+export const toPlayerTime = (time: string | number = '0'): number | null => {
   if (isUndefinedOrNull(time)) {
     return null;
   }
