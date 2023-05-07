@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {path} from 'ramda';
+import { path } from 'ramda';
 
 defineProps({
   disabled: {

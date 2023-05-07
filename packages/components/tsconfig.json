@@ -1,4 +1,10 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["src/"]
+  "include": ["./src"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "moduleResolution": "nodenext",
+    "lib": ["DOM", "ESNext"],
+    "allowSyntheticDefaultImports": true
+  }
 }

@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Dropdown } from 'v-tooltip';
+import { Dropdown } from 'floating-vue';
 import { ref } from 'vue';
 let hideTimeout: any;
 

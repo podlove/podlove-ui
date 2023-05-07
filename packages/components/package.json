@@ -12,23 +12,27 @@
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "type": "module",
-  "main": "./dist/podlove-ui-components.umd.js",
-  "module": "./dist/podlove-ui-components.es.js",
   "exports": {
     ".": {
-      "import": "./dist/podlove-ui-components.es.js",
-      "require": "./dist/podlove-ui-components.umd.js"
+      "import": "./src/components/main.ts",
+      "types": "./src/components/main.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/podlove-ui-components.mjs",
+        "types": "./dist/podlove-ui-components.d.ts"
+      }
     }
   },
   "dependencies": {
     "@podlove/player-actions": "^5.12.0",
     "@podlove/utils": "^5.12.0",
     "rangetouch": "2.0.1",
-    "v-tooltip": "4.0.0-beta.17",
+    "floating-vue": "2.0.0-beta.20",
+    "@floating-ui/dom": "1.2.7",
     "vue": "3.2.41",
     "tailwindcss": "3.2.4",
     "ramda": "0.29.0"
@@ -37,12 +41,15 @@
     "vue": "3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "3.2.0",
-    "@types/ramda": "0.28.22",
+    "@podlove/types": "^5.12.0",
+    "@vitejs/plugin-vue": "4.2.1",
+    "@types/ramda": "0.29.1",
     "vite": "4.2.1",
     "vitest": "0.30.0",
     "@vue/test-utils": "2.3.2",
     "happy-dom": "9.1.9",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vite-plugin-dts": "2.3.0",
+    "vite-plugin-css-injected-by-js": "3.1.0"
   }
 }

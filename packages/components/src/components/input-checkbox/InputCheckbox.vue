@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import Icon from '../icons';
 
-const props = defineProps({
+defineProps({
   disabled: {
       type: Boolean,
       default: false
@@ -60,7 +60,7 @@ const props = defineProps({
 const emits = defineEmits(['select']);
 
 const selectEvent = (event: Event) => {
-  emits('select', event.target.value);
+  emits('select', (event.target as HTMLSelectElement).value);
 }
 </script>
 

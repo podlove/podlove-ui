@@ -17,7 +17,7 @@ const props = defineProps({
   type: {
     type: String,
     required: true,
-    validator: (val) => ['forward', 'backwards'].includes(val)
+    validator: (val: 'forward' | 'backwards') => ['forward', 'backwards'].includes(val)
   }
 });
 

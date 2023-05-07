@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { toHumanTime } from '@podlove/utils/time'
+import { computed } from 'vue';
+import { toHumanTime } from '@podlove/utils/time';
 
 const props = defineProps({
   time: {

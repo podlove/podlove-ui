@@ -10,10 +10,18 @@
   },
   "keywords": [],
   "type": "module",
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "types": "./dist/index.d.ts"
+      }
+    }
+  },
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
     }
   },
   "author": "Alexander Heimbuch <github@heimbu.ch>",

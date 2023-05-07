@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { selectChannel } from '@podlove/player-actions/share';
+import { PodloveWebPlayerChannel } from '@podlove/types';
 
 import EmbedChannel from './states/Embed.vue';
 import TwitterChannel from './states/Twitter.vue';
@@ -40,7 +41,7 @@ const props = defineProps({
   type: {
     type: String,
     required: true,
-    validator: (val: string) =>
+    validator: (val: PodloveWebPlayerChannel) =>
       [
         'embed',
         'facebook',
@@ -59,7 +60,7 @@ const props = defineProps({
 const emit = defineEmits(['click']);
 
 const clickHandler = () => {
-  emit('click', selectChannel(props.type));
+  emit('click', selectChannel(props.type as PodloveWebPlayerChannel));
 };
 
 const channels: { [key: string]: any } = {
