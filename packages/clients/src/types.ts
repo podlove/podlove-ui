@@ -1,14 +1,18 @@
+import { CLIENTS } from "./index.js";
+
 export interface PodcastClient {
   title: string | null;
   scheme: (feed: string) => string | null;
   icon: string | null;
   install?: string | null;
+  service?: string;
   type: PodcastClientType | null;
   platform: PodcastPlatform | null;
 }
 
 export type PodcastPlatform = typeof platform[keyof typeof platform];
 export type PodcastClientType = typeof type[keyof typeof type];
+export type PodcatcherClientId = keyof typeof CLIENTS;
 
 export const type = {
   service: 'service',

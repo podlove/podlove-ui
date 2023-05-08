@@ -2,7 +2,6 @@ import { compose, propOr, path, prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { createObject } from '@podlove/utils/helper';
 import {
-  PodloveWebPlayerConfig,
   PodloveTheme,
   PodloveThemeTokens,
   PodloveThemeFont

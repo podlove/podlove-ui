@@ -1,6 +1,6 @@
 import { prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
-import { hide, show } from '@podlove/button-actions/finish-card';
+import { hide, hidePayload, show } from '@podlove/button-actions/finish-card';
 import { showPayload } from '@podlove/button-actions/finish-card';
 
 export interface State {
@@ -23,10 +23,10 @@ export const INITIAL_STATE: State = {
   type: null
 };
 
-export const reducer = handleActions<State>(
+export const reducer = handleActions<State, showPayload | hidePayload>(
   {
-    [show.toString()]: (_, { payload }: Action<showPayload>) => payload,
-    [hide.toString()]: () => INITIAL_STATE
+    [show.toString()]: (_, { payload }: Action<showPayload>): State => payload,
+    [hide.toString()]: (): State => INITIAL_STATE
   },
   INITIAL_STATE
 );

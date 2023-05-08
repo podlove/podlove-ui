@@ -2,6 +2,7 @@
   "include": ["./src"],
   "compilerOptions": {
     "target": "ESNext",
-    "moduleResolution": "nodenext"
+    "moduleResolution": "nodenext",
+    "allowSyntheticDefaultImports": true
   }
 }

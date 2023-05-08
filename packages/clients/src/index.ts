@@ -26,8 +26,9 @@ import spotify from './spotify';
 import stitcher from './stitcher';
 import youtube from './youtube';
 import castbox from './castbox';
+import { PodcatcherClientId } from './types.js';
 
-const CLIENTS = {
+export const CLIENTS = {
   'antenna-pod': antennaPod,
   'apple-podcasts': applePodcasts,
   'beyond-pod': beyondPod,
@@ -66,7 +67,7 @@ const match = <T>(matchers: null | T | T[], search: T): boolean => {
   }
 
   return matchers === search;
-}
+};
 
 const search =
   ({
@@ -80,10 +81,12 @@ const search =
     title?: string | null;
     type?: PodcastClientType | PodcastClientType[] | null;
   } = {}) =>
-  (client: PodcastClient & {id: string}) => {
-    const platformMatch =  match(platform, client.platform);
+  (client: PodcastClient & { id: string }) => {
+    const platformMatch = match(platform, client.platform);
     const typeMatch = match(type, client.type);
-    const titleMatch = title ? (client.title || '').toUpperCase().includes(title.toUpperCase()) : true;
+    const titleMatch = title
+      ? (client.title || '').toUpperCase().includes(title.toUpperCase())
+      : true;
     const idMatch = match(id, client.id);
 
     return idMatch && platformMatch && titleMatch && typeMatch;
@@ -95,14 +98,17 @@ export default ({
   title,
   type
 }: {
-  id?: keyof typeof CLIENTS;
+  id?: PodcatcherClientId;
   platform?: PodcastPlatform | PodcastPlatform[];
   title?: string;
   type?: PodcastClientType | PodcastClientType[];
 } = {}) =>
   Object.keys(CLIENTS)
     .reduce(
-      (result: (PodcastClient & {id: string})[], id) => [...result, ...CLIENTS[id].map((item) => ({ id, ...item }))],
+      (result: (PodcastClient & { id: string })[], id) => [
+        ...result,
+        ...CLIENTS[id].map((item) => ({ id, ...item }))
+      ],
       []
     )
     .filter(search({ id, type, title, platform }));

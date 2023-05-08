@@ -20,8 +20,8 @@ export interface State {
   cover: null | string;
 }
 
-export const reducer = handleActions<State>(
-  { [init.toString()]: (state, { payload }: Action<initPayload>) => ({ ...state, ...payload }) },
+export const reducer = handleActions<State, initPayload>(
+  { [init.toString()]: (state, { payload }: Action<initPayload>): State => ({ ...state, ...payload }) },
   INIT_STATE
 );
 

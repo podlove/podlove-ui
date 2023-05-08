@@ -22,24 +22,24 @@ export const INITIAL_STATE: State = {
   version: null
 };
 
-export const reducer = handleActions(
+export const reducer = handleActions<State, setLanguagePayload | setRuntimePayload | setVersionPayload | initPayload>(
   {
-    [setLanguage.toString()]: (state, { payload }: Action<setLanguagePayload>) => ({
+    [setLanguage.toString()]: (state, { payload }: Action<setLanguagePayload>): State => ({
       ...state,
       language: payload
     }),
-    [setRuntime.toString()]: (state, { payload }: Action<setRuntimePayload>) => ({
+    [setRuntime.toString()]: (state, { payload }: Action<setRuntimePayload>): State => ({
       ...state,
       browser: propOr(null, 'browser', payload),
       locale: propOr(null, 'locale', payload),
       platform: propOr(null, 'platform', payload),
       language: propOr(null, 'language', payload)
     }),
-    [setVersion.toString()]: (state, { payload }: Action<setVersionPayload>) => ({
+    [setVersion.toString()]: (state, { payload }: Action<setVersionPayload>): State => ({
       ...state,
       version: payload
     }),
-    [init.toString()]: (state, { payload }: Action<initPayload>) => ({
+    [init.toString()]: (state, { payload }: Action<initPayload>): State => ({
       ...state,
       language: language(payload) || state.language
     })

@@ -1,7 +1,7 @@
 import { prop, compose, propOr, path } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { createObject } from '@podlove/utils/helper';
-import type { PodloveThemeTokens, PodloveThemeFonts } from '@podlove/types';
+import type { PodloveThemeTokens, PodloveThemeFont } from '@podlove/types';
 import { init, initPayload } from '@podlove/button-actions/lifecycle';
 
 const theme = propOr({}, 'theme');
@@ -28,7 +28,7 @@ export const tokens = {
   alt: propOr(TOKENS.alt, 'alt')
 };
 
-export const FONTS: PodloveThemeFonts = {
+export const FONTS: { [key: string]: PodloveThemeFont } = {
   ci: {
     name: 'ci',
     family: [
@@ -96,7 +96,7 @@ const extractFonts = createObject({
   ),
   bold: compose(normalizeFont('bold'), propOr(FONTS.bold, 'bold'), propOr({}, 'fonts'), theme),
   ci: compose(normalizeFont('ci'), propOr(FONTS.ci, 'ci'), propOr({}, 'fonts'), theme)
-}) as (input: initPayload) => PodloveThemeFonts;
+}) as (input: initPayload) => { [key: string]: PodloveThemeFont };
 
 const getTokens = propOr({}, 'tokens');
 
@@ -113,7 +113,7 @@ const extractTokens = createObject({
 
 export interface State {
   tokens: PodloveThemeTokens;
-  fonts: PodloveThemeFonts;
+  fonts: { [key: string]: PodloveThemeFont };
 }
 
 export const INITIAL_STATE: State = {
@@ -121,9 +121,9 @@ export const INITIAL_STATE: State = {
   fonts: FONTS
 };
 
-export const reducer = handleActions<State>(
+export const reducer = handleActions<State, initPayload>(
   {
-    [init.toString()]: (_, { payload }: Action<initPayload>) => ({
+    [init.toString()]: (_, { payload }: Action<initPayload>): State => ({
       tokens: extractTokens(payload),
       fonts: extractFonts(payload)
     })

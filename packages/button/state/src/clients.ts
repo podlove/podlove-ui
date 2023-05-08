@@ -1,13 +1,13 @@
 import { Action, handleActions } from 'redux-actions';
 import { getPlatform } from '@podlove/utils/useragent';
 import getClients from '@podlove/clients';
-import { PodcastClient, platform, type } from '@podlove/clients/types';
+import { PodcastClient, PodcatcherClientId, platform, type } from '@podlove/clients/types';
 import * as config from '@podlove/button-config';
 import { init, initPayload } from '@podlove/button-actions/lifecycle';
 
-export const INITIAL_STATE: State = [];
-
 export type State = PodcastClient[];
+
+export const INITIAL_STATE: State = [];
 
 const clients = (payload: initPayload): PodcastClient[] => {
   const provided = config.clients(payload);
@@ -15,7 +15,7 @@ const clients = (payload: initPayload): PodcastClient[] => {
   const feed = config.feed(payload);
 
   return provided
-    .map((client) => {
+    .map((client: PodcastClient & { id: PodcatcherClientId }) => {
       if (client?.platform === 'custom') {
         return client;
       }
@@ -25,7 +25,7 @@ const clients = (payload: initPayload): PodcastClient[] => {
       return clients
         .filter((item) => {
           if (item.type === type.service) {
-            !!client.service;
+            return !!client?.service;
           }
 
           return true;
@@ -40,9 +40,9 @@ const clients = (payload: initPayload): PodcastClient[] => {
     .filter(Boolean);
 };
 
-export const reducer = handleActions<State>(
+export const reducer = handleActions<State, initPayload>(
   {
-    [init.toString()]: (_, { payload }: Action<initPayload>) => clients(payload)
+    [init.toString()]: (_, { payload }: Action<initPayload>): State => clients(payload)
   },
   INITIAL_STATE
 );

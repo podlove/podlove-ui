@@ -3,12 +3,13 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 const entries = [
-  'finish-card',
-  'lifecycle',
-  'list',
-  'overlay',
+  'clients',
+  'config',
+  'feed',
+  'finish',
   'runtime',
-  'types'
+  'theme',
+  'view'
 ];
 
 export default defineConfig({

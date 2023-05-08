@@ -7,8 +7,8 @@ export const INIT_STATE = null
 
 export type State = null | string;
 
-export const reducer = handleActions(
-  { [init.toString()]: (state, { payload }: Action<initPayload>) => config.feed(payload) || state },
+export const reducer = handleActions<State, initPayload>(
+  { [init.toString()]: (state, { payload }: Action<initPayload>): State => config.feed(payload) || state },
   INIT_STATE
 )
 

@@ -6,4 +6,5 @@ export interface PodloveRuntime {
   locale?: string;
   platform?: string;
   language?: string;
+  version?: string;
 }
