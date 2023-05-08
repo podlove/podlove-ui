@@ -3,7 +3,7 @@ import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  plugins: [dts({ insertTypesEntry: true ,entryRoot: '../actions/src' }), svgr()],
+  plugins: [dts({ insertTypesEntry: true, entryRoot: '../clients' }), svgr()],
   build: {
     lib: {
       formats: ['es'],
