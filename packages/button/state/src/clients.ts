@@ -1,13 +1,15 @@
-import { handleActions } from 'redux-actions';
+import { Action, handleActions } from 'redux-actions';
 import { getPlatform } from '@podlove/utils/useragent';
 import getClients from '@podlove/clients';
-import { platform, type } from '@podlove/clients/types';
-import { INIT } from '@podlove/button-actions/types';
+import { PodcastClient, platform, type } from '@podlove/clients/types';
 import * as config from '@podlove/button-config';
+import { init, initPayload } from '@podlove/button-actions/lifecycle';
 
-export const INITIAL_STATE = [];
+export const INITIAL_STATE: State = [];
 
-const clients = (payload) => {
+export type State = PodcastClient[];
+
+const clients = (payload: initPayload): PodcastClient[] => {
   const provided = config.clients(payload);
   const currentPlatform = getPlatform();
   const feed = config.feed(payload);
@@ -38,9 +40,9 @@ const clients = (payload) => {
     .filter(Boolean);
 };
 
-export const reducer = handleActions(
+export const reducer = handleActions<State>(
   {
-    [INIT]: (_, { payload }) => clients(payload)
+    [init.toString()]: (_, { payload }: Action<initPayload>) => clients(payload)
   },
   INITIAL_STATE
 );

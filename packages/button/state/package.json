@@ -2,7 +2,7 @@
   "name": "@podlove/button-state",
   "version": "5.12.0",
   "description": "Reducers for Podlove Button Framework",
-  "main": "index.js",
+  "type": "module",
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/state",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@podlove/types": "^5.12.0",
+    "@types/redux-actions": "2.6.2",
     "vite": "4.3.5",
     "vite-plugin-dts": "2.2.0",
     "typescript": "5.0.4"

@@ -12,7 +12,7 @@ const entries = [
 ];
 
 export default defineConfig({
-  plugins: [dts({ entryRoot: '../actions/src'})],
+  plugins: [dts({ entryRoot: '../state/src'})],
   build: {
     lib: {
       formats: ['es'],

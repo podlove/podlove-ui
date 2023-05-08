@@ -406,6 +406,7 @@ importers:
       '@podlove/clients': ^5.12.0
       '@podlove/types': ^5.12.0
       '@podlove/utils': ^5.12.0
+      '@types/redux-actions': 2.6.2
       redux-actions: 3.0.0
       typescript: 5.0.4
       vite: 4.3.5
@@ -418,6 +419,7 @@ importers:
       redux-actions: 3.0.0
     devDependencies:
       '@podlove/types': link:../../types
+      '@types/redux-actions': 2.6.2
       typescript: 5.0.4
       vite: 4.3.5
       vite-plugin-dts: 2.2.0_vite@4.3.5
