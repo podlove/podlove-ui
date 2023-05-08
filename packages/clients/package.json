@@ -4,16 +4,15 @@
   "description": "A comprehensive list of podcast clients",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf dist publish",
-    "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "build": "vite build --config ./vite.config.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "devDependencies": {
-    "@podlove/build": "^5.12.0",
-    "webpack": "5.45.1"
+    "vite": "4.3.5",
+    "vite-plugin-dts": "2.2.0",
+    "vite-plugin-svgr": "3.2.0",
+    "typescript": "5.0.4"
   }
 }

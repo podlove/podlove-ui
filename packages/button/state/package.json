@@ -14,8 +14,13 @@
     "@podlove/utils": "^5.12.0",
     "redux-actions": "3.0.0"
   },
+  "devDependencies": {
+    "@podlove/types": "^5.12.0",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "2.2.0",
+    "typescript": "5.0.4"
+  },
   "scripts": {
-    "test": "jest",
-    "test:dev": "jest --watch"
+    "build": "vite build --config ./vite.config.ts"
   }
 }

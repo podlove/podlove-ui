@@ -3,9 +3,9 @@ import { Action, handleActions } from 'redux-actions';
 import { createObject } from '@podlove/utils/helper';
 import {
   PodloveWebPlayerConfig,
-  PodloveWebPlayerTheme,
-  PodloveWebPlayerThemeTokens,
-  PodloveWebPlayerThemeFont
+  PodloveTheme,
+  PodloveThemeTokens,
+  PodloveThemeFont
 } from '@podlove/types';
 
 import { theme } from '@podlove/player-config';
@@ -13,9 +13,9 @@ import { constructed, constructedPayload } from '@podlove/player-actions/lifecyc
 import { setTheme } from '@podlove/player-actions/theme';
 import { setThemePayload } from '@podlove/player-actions/theme';
 
-export type State = PodloveWebPlayerTheme;
+export type State = PodloveTheme;
 
-const TOKENS: PodloveWebPlayerThemeTokens = {
+const TOKENS: PodloveThemeTokens = {
   brand: '#E64415',
   brandDark: '#235973',
   brandDarkest: '#1A3A4A',
@@ -27,27 +27,27 @@ const TOKENS: PodloveWebPlayerThemeTokens = {
 };
 
 export const tokens = {
-  brand: propOr(TOKENS.brand, 'brand') as (input: PodloveWebPlayerThemeTokens) => string,
+  brand: propOr(TOKENS.brand, 'brand') as (input: PodloveThemeTokens) => string,
   brandDark: propOr(TOKENS.brandDark, 'brandDark') as (
-    input: PodloveWebPlayerThemeTokens
+    input: PodloveThemeTokens
   ) => string,
   brandDarkest: propOr(TOKENS.brandDarkest, 'brandDarkest') as (
-    input: PodloveWebPlayerThemeTokens
+    input: PodloveThemeTokens
   ) => string,
   brandLightest: propOr(TOKENS.brandLightest, 'brandLightest') as (
-    input: PodloveWebPlayerThemeTokens
+    input: PodloveThemeTokens
   ) => string,
   shadeDark: propOr(TOKENS.shadeDark, 'shadeDark') as (
-    input: PodloveWebPlayerThemeTokens
+    input: PodloveThemeTokens
   ) => string,
   shadeBase: propOr(TOKENS.shadeBase, 'shadeBase') as (
-    input: PodloveWebPlayerThemeTokens
+    input: PodloveThemeTokens
   ) => string,
-  contrast: propOr(TOKENS.contrast, 'contrast') as (input: PodloveWebPlayerThemeTokens) => string,
-  alt: propOr(TOKENS.alt, 'alt') as (input: PodloveWebPlayerThemeTokens) => string
+  contrast: propOr(TOKENS.contrast, 'contrast') as (input: PodloveThemeTokens) => string,
+  alt: propOr(TOKENS.alt, 'alt') as (input: PodloveThemeTokens) => string
 };
 
-export const FONTS: { [key: string]: PodloveWebPlayerThemeFont } = {
+export const FONTS: { [key: string]: PodloveThemeFont } = {
   ci: {
     name: 'ci',
     family: [
@@ -104,7 +104,7 @@ const normalizeFont = (type: string) =>
     weight: propOr(path([type, 'weight'], FONTS), 'weight'),
     name: propOr(path([type, 'name'], FONTS), 'name'),
     src: propOr([], 'src')
-  }) as (input: PodloveWebPlayerThemeFont) => PodloveWebPlayerThemeFont;
+  }) as (input: PodloveThemeFont) => PodloveThemeFont;
 
 const extractFonts = createObject({
   regular: compose(
@@ -115,10 +115,10 @@ const extractFonts = createObject({
   ),
   bold: compose(normalizeFont('bold'), propOr(FONTS.bold, 'bold'), propOr({}, 'fonts'), theme),
   ci: compose(normalizeFont('ci'), propOr(FONTS.ci, 'ci'), propOr({}, 'fonts'), theme)
-}) as (input: { theme: PodloveWebPlayerTheme }) => {
-  regular: PodloveWebPlayerThemeFont;
-  bold: PodloveWebPlayerThemeFont;
-  ci: PodloveWebPlayerThemeFont;
+}) as (input: { theme: PodloveTheme }) => {
+  regular: PodloveThemeFont;
+  bold: PodloveThemeFont;
+  ci: PodloveThemeFont;
 };
 
 const getTokens = propOr({}, 'tokens');
@@ -132,7 +132,7 @@ const extractTokens = createObject({
   shadeBase: compose(tokens.shadeBase, getTokens, theme),
   contrast: compose(tokens.contrast, getTokens, theme),
   alt: compose(tokens.alt, getTokens, theme)
-}) as (input: { theme: PodloveWebPlayerTheme }) => PodloveWebPlayerThemeTokens;
+}) as (input: { theme: PodloveTheme }) => PodloveThemeTokens;
 
 export const INITIAL_STATE: State = {
   tokens: TOKENS,
@@ -153,9 +153,9 @@ export const reducer = handleActions<State, constructedPayload | setThemePayload
   INITIAL_STATE
 );
 
-const themeColors = propOr({}, 'tokens') as (input: State) => PodloveWebPlayerThemeTokens;
+const themeColors = propOr({}, 'tokens') as (input: State) => PodloveThemeTokens;
 const themeFonts = propOr({}, 'fonts') as (input: State) => {
-  [key: string]: PodloveWebPlayerThemeFont;
+  [key: string]: PodloveThemeFont;
 };
 
 export const selectors = {
@@ -167,7 +167,7 @@ export const selectors = {
   shadeBase: compose(prop('shadeBase'), themeColors) as (input: State) => string,
   contrast: compose(prop('contrast'), themeColors) as (input: State) => string,
   alt: compose(prop('alt'), themeColors) as (input: State) => string,
-  fontRegular: compose(prop('regular'), themeFonts) as (input: State) => PodloveWebPlayerThemeFont,
-  fontBold: compose(prop('bold'), themeFonts) as (input: State) => PodloveWebPlayerThemeFont,
-  fontCi: compose(prop('ci'), themeFonts) as (input: State) => PodloveWebPlayerThemeFont
+  fontRegular: compose(prop('regular'), themeFonts) as (input: State) => PodloveThemeFont,
+  fontBold: compose(prop('bold'), themeFonts) as (input: State) => PodloveThemeFont,
+  fontCi: compose(prop('ci'), themeFonts) as (input: State) => PodloveThemeFont
 };

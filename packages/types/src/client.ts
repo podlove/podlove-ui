@@ -1,4 +1,4 @@
-export interface PodloveWebPlayerClient {
+export interface PodloveSubscribeButtonClient {
   id: string;
   /**
    * Service uuid, e.g. https://podcasts.apple.com/podcast/[service],

@@ -44,7 +44,7 @@
     "@podlove/types": "^5.12.0",
     "@vitejs/plugin-vue": "4.2.1",
     "@types/ramda": "0.29.1",
-    "vite": "4.2.1",
+    "vite": "4.3.5",
     "vitest": "0.30.0",
     "@vue/test-utils": "2.3.2",
     "happy-dom": "9.1.9",

@@ -1,4 +1,4 @@
-export interface PodloveWebPlayerThemeTokens {
+export interface PodloveThemeTokens {
   brand?: string | null;
   brandDark?: string | null;
   brandDarkest?: string | null;
@@ -9,21 +9,21 @@ export interface PodloveWebPlayerThemeTokens {
   alt?: string | null;
 }
 
-export interface PodloveWebPlayerThemeFont {
+export interface PodloveThemeFont {
   name: string;
   family: string[];
   weight: number;
   src: string[];
 }
 
-export interface PodloveWebPlayerTheme {
+export interface PodloveTheme {
   /**
    * Tokens
    * - if defined the player defaults are dropped
    * - rgba as well as hex values are allowed
    * - use this generator to get a direct visual feedback:
    */
-  tokens: PodloveWebPlayerThemeTokens;
+  tokens: PodloveThemeTokens;
 
   /**
    * Fonts
@@ -35,5 +35,5 @@ export interface PodloveWebPlayerTheme {
    * - weight: font weight of the defined font
    * - src: list of web font sources (allowed: woff, woff2, ttf, eot, svg)
    */
-  fonts: { [key: string]: PodloveWebPlayerThemeFont };
+  fonts: { [key: string]: PodloveThemeFont };
 }

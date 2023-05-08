@@ -5,7 +5,7 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/actions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build --config ./vite.config.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -13,5 +13,66 @@
   "dependencies": {
     "@podlove/utils": "^5.12.0",
     "redux-actions": "3.0.0"
+  },
+  "devDependencies": {
+    "@podlove/types": "^5.12.0",
+    "@types/redux-actions": "2.6.2",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "2.3.0",
+    "typescript": "5.0.4"
+  },
+  "exports": {
+    "./finish-card": {
+      "imports": "./src/finish-card.ts",
+      "types": "./src/finish-card.ts"
+    },
+    "./lifecycle": {
+      "imports": "./src/lifecycle.ts",
+      "types": "./src/lifecycle.ts"
+    },
+    "./list": {
+      "imports": "./src/list.ts",
+      "types": "./src/list.ts"
+    },
+    "./overlay": {
+      "imports": "./src/overlay.ts",
+      "types": "./src/overlay.ts"
+    },
+    "./runtime": {
+      "imports": "./src/runtime.ts",
+      "types": "./src/runtime.ts"
+    },
+    "./types": {
+      "imports": "./src/types.ts",
+      "types": "./src/types.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./finish-card": {
+        "imports": "./dist/finish-card.mjs",
+        "types": "./dist/finish-card.d.ts"
+      },
+      "./lifecycle": {
+        "imports": "./dist/lifecycle.mjs",
+        "types": "./dist/lifecycle.d.ts"
+      },
+      "./list": {
+        "imports": "./dist/list.mjs",
+        "types": "./dist/list.d.ts"
+      },
+      "./overlay": {
+        "imports": "./dist/overlay.mjs",
+        "types": "./dist/overlay.d.ts"
+      },
+      "./runtime": {
+        "imports": "./dist/runtime.mjs",
+        "types": "./dist/runtime.d.ts"
+      },
+      "./types": {
+        "imports": "./dist/types.mjs",
+        "types": "./dist/types.d.ts"
+      }
+    }
   }
 }

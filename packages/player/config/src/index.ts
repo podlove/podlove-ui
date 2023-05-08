@@ -9,11 +9,11 @@ import type {
   PodloveWebPlayerFile,
   PodloveWebPlayerReference,
   PodloveWebPlayerResolvedConfig,
-  PodloveWebPlayerRuntime,
+  PodloveRuntime,
   PodloveWebPlayerShare,
   PodloveWebPlayerSubscribeButton,
   PodloveWebPlayerTab,
-  PodloveWebPlayerTheme,
+  PodloveTheme,
   PodloveWebPlayerTranscript,
   PodloveWebPlayerPlaylistItem
 } from '@podlove/types';
@@ -44,10 +44,10 @@ export const media = compose<any[], PodloveWebPlayerAudio[], PodloveWebPlayerAud
 
 export const chapters = propOr([], 'chapters') as (input: PodloveWebPlayerResolvedConfig) => PodloveWebPlayerChapter[];
 
-export const theme = (config: PodloveWebPlayerConfig): PodloveWebPlayerTheme => {
+export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
   const theme = propOr({}, 'theme', config) as (
     input: PodloveWebPlayerConfig
-  ) => PodloveWebPlayerTheme;
+  ) => PodloveTheme;
 
   if (version(config) === 5) {
     return {
@@ -121,10 +121,10 @@ export const validate = (config: PodloveWebPlayerResolvedConfig): boolean => {
 
 export const runtime = propOr({}, 'runtime') as (
   input: PodloveWebPlayerConfig
-) => PodloveWebPlayerRuntime;
+) => PodloveRuntime;
 
-export const language = compose<any[], PodloveWebPlayerRuntime, string>(
-  prop('language') as (input: PodloveWebPlayerRuntime) => string,
+export const language = compose<any[], PodloveRuntime, string>(
+  prop('language') as (input: PodloveRuntime) => string,
   runtime
 );
 export const platform = compose(prop('platform'), runtime);
