@@ -1,4 +1,4 @@
-import { PodcastClientType, PodcastPlatform } from './types';
+import { PodcastClient, PodcastClientType, PodcastPlatform } from './types';
 
 import antennaPod from './antenna-pod';
 import applePodcasts from './apple-podcasts';
@@ -56,13 +56,35 @@ const CLIENTS = {
   castbox: castbox
 };
 
+const match = <T>(matchers: null | T | T[], search: T): boolean => {
+  if (!matchers) {
+    return true;
+  }
+
+  if (Array.isArray(matchers)) {
+    return matchers.includes(search);
+  }
+
+  return matchers === search;
+}
+
 const search =
-  ({ id = null, platform = null, title = null, type = null } = {}) =>
-  (client) => {
-    const platformMatch = platform ? [].concat(platform).includes(client.platform) : true;
-    const typeMatch = type ? [].concat(type).includes(client.type) : true;
-    const titleMatch = title ? client.title.toUpperCase().includes(title.toUpperCase()) : true;
-    const idMatch = id ? [].concat(id).some((item) => item === client.id) : true;
+  ({
+    id = null,
+    platform = null,
+    title = null,
+    type = null
+  }: {
+    id?: string | string[] | null;
+    platform?: PodcastPlatform | PodcastPlatform[] | null;
+    title?: string | null;
+    type?: PodcastClientType | PodcastClientType[] | null;
+  } = {}) =>
+  (client: PodcastClient & {id: string}) => {
+    const platformMatch =  match(platform, client.platform);
+    const typeMatch = match(type, client.type);
+    const titleMatch = title ? (client.title || '').toUpperCase().includes(title.toUpperCase()) : true;
+    const idMatch = match(id, client.id);
 
     return idMatch && platformMatch && titleMatch && typeMatch;
   };
@@ -74,10 +96,13 @@ export default ({
   type
 }: {
   id?: keyof typeof CLIENTS;
-  platform?: PodcastPlatform;
+  platform?: PodcastPlatform | PodcastPlatform[];
   title?: string;
-  type?: PodcastClientType;
+  type?: PodcastClientType | PodcastClientType[];
 } = {}) =>
   Object.keys(CLIENTS)
-    .reduce((result, id) => [...result, ...CLIENTS[id].map((item) => ({ id, ...item }))], [])
+    .reduce(
+      (result: (PodcastClient & {id: string})[], id) => [...result, ...CLIENTS[id].map((item) => ({ id, ...item }))],
+      []
+    )
     .filter(search({ id, type, title, platform }));

@@ -1,8 +1,8 @@
 export interface PodcastClient {
   title: string | null;
-  scheme: (feed: string) => string;
-  icon: string;
-  install?: string;
+  scheme: (feed: string) => string | null;
+  icon: string | null;
+  install?: string | null;
   type: PodcastClientType | null;
   platform: PodcastPlatform | null;
 }
