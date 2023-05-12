@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import InputSlider from '@podlove/components/input-slider'
+import { InputSlider } from '@podlove/components'
 import Action from '../shared/Action.vue'
 
 const min = ref(0)

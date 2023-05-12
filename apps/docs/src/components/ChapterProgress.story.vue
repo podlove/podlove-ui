@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
+import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons';
 
-import ChapterProgress from '@podlove/components/chapter-progress/ChapterProgress.vue'
-import Action from '../shared/Action.vue'
+import { ChapterProgress } from '@podlove/components';
+import Action from '../shared/Action.vue';
 
-const start = ref(0)
-const end = ref(6 * 60 * 1000)
-const title = ref('Chapter Title')
-const href = ref('http://google.de')
-const linkTitle = ref('Link Title')
-const active = ref(false)
+const start = ref(0);
+const end = ref(6 * 60 * 1000);
+const title = ref('Chapter Title');
+const href = ref('http://google.de');
+const linkTitle = ref('Link Title');
+const active = ref(false);
 
 const chapter = ref({
   start,
@@ -20,17 +20,17 @@ const chapter = ref({
   href,
   linkTitle,
   active
-})
+});
 
-const showLink = ref(false)
-const playtime = ref(2.5 * 60 * 1000)
-const ghost = ref(0)
-const progressColor = ref('#aa0000')
-const ghostColor = ref('#00aa00')
+const showLink = ref(false);
+const playtime = ref(2.5 * 60 * 1000);
+const ghost = ref(0);
+const progressColor = ref('#aa0000');
+const ghostColor = ref('#00aa00');
 const style = ref({
   '--podlove-component-chapter-progress-background': progressColor,
-  '--podlove-component-chapter-ghost-background': ghostColor,
-})
+  '--podlove-component-chapter-ghost-background': ghostColor
+});
 </script>
 
 <template>

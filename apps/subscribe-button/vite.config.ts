@@ -1,24 +1,24 @@
-import path from 'path'
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { useDynamicPublicPath } from 'vite-plugin-dynamic-publicpath'
-import EnvironmentPlugin from 'vite-plugin-environment'
+import path from 'path';
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { useDynamicPublicPath } from 'vite-plugin-dynamic-publicpath';
+import EnvironmentPlugin from 'vite-plugin-environment';
 
-import { version } from './package.json'
+import { version } from './package.json';
 
-import alias from '../../.build/aliases'
-import extensions from '../../.build/extensions'
+import alias from '../../.build/aliases';
+import extensions from '../../.build/extensions';
 
 const resolve = {
   extensions,
   alias
-}
+};
 
 export default defineConfig({
   build: {
     lib: {
       formats: ['es'],
-      entry: path.resolve(__dirname, 'src', 'subscribe-button.js')
+      entry: path.resolve(__dirname, 'src', 'main.ts')
     },
     rollupOptions: {
       output: {
@@ -38,4 +38,4 @@ export default defineConfig({
     })
   ],
   resolve
-})
+});

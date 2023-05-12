@@ -1,17 +1,17 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue';
 
-import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
+import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons';
 
-import ProgressBar from '@podlove/components/progress-bar/ProgressBar.vue'
-import Action from '../shared/Action.vue'
+import { ProgressBar } from '@podlove/components';
+import Action from '../shared/Action.vue';
 
-const title = ref('input title')
-const time = ref(0)
-const duration = ref(1000)
-const ghost = ref(450)
-const buffer = ref([[0, 500]])
-const quantiles = ref([[50, 200]])
+const title = ref('input title');
+const time = ref(0);
+const duration = ref(1000);
+const ghost = ref(450);
+const buffer = ref([[0, 500]]);
+const quantiles = ref([[50, 200]]);
 const chapters = ref([
   {
     start: 0,
@@ -29,18 +29,18 @@ const chapters = ref([
     start: 750,
     end: 1000
   }
-])
+]);
 
-const progressColor = ref('#D1C477')
-const chaptersSeperatorColor = ref('#D1C477')
-const chaptersBackgroundColor = ref('#D1C477')
-const trackBackgroundColor = ref('#000000')
-const thumbBackgroundColor = ref('#000000')
-const thumbBorderColor = ref('#000000')
-const ghostBackgroundColor = ref('#000000')
-const ghostBorderColor = ref('#000000')
-const bufferBackgroundColor = ref('#000000')
-const label = ref('')
+const progressColor = ref('#D1C477');
+const chaptersSeperatorColor = ref('#D1C477');
+const chaptersBackgroundColor = ref('#D1C477');
+const trackBackgroundColor = ref('#000000');
+const thumbBackgroundColor = ref('#000000');
+const thumbBorderColor = ref('#000000');
+const ghostBackgroundColor = ref('#000000');
+const ghostBorderColor = ref('#000000');
+const bufferBackgroundColor = ref('#000000');
+const label = ref('');
 
 const style = ref({
   '--podlove-component-progress-bar-progress-color': progressColor,
@@ -52,7 +52,7 @@ const style = ref({
   '--podlove-component-progress-bar-ghost-background-color': ghostBackgroundColor,
   '--podlove-component-progress-bar-ghost-border-color': ghostBorderColor,
   '--podlove-component-progress-bar-buffer-background-color': bufferBackgroundColor
-})
+});
 </script>
 
 <template>

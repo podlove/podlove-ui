@@ -1,10 +1,7 @@
 import { createAction } from 'redux-actions';
-import type { PodloveSubscribeButtonConfig, PodloveRuntime, PodloveTheme } from '@podlove/types';
+import type { PodloveSubscribeButtonConfig } from '@podlove/types';
 import { INIT } from './types';
 
-export type initPayload = PodloveSubscribeButtonConfig & {
-  runtime: PodloveRuntime;
-  theme: PodloveTheme;
-};
+export type initPayload = PodloveSubscribeButtonConfig;
 
 export const init = createAction<initPayload>(INIT);

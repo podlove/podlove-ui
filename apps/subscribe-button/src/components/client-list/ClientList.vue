@@ -24,26 +24,20 @@
   </ul>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Icon from '@podlove/components/icons/Icon.vue'
-import * as select from '../../store/selectors'
+<script lang="ts" setup>
+import { mapState } from 'redux-vuex';
+import { Icon } from '@podlove/components';
+import type { PodcastClient } from '@podlove/types';
+import * as select from '../../store/selectors';
 
-export default {
-  components: { Icon },
-  setup() {
-    return {
-      state: mapState({
-        clients: select.clients,
-        font: select.theme.fontBold
-      })
-    }
-  },
+const emit = defineEmits(['clientSelect']);
 
-  methods: {
-    onClick(client) {
-      this.$emit('clientSelect', client)
-    }
-  }
-}
+const state = mapState({
+  clients: select.clients,
+  font: select.theme.fontBold
+});
+
+const onClick = (client: PodcastClient) => {
+  emit('clientSelect', client);
+};
 </script>

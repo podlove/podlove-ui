@@ -3,7 +3,8 @@ module.exports = {
     './src/**/*.vue',
     './src/**/*.story.vue',
     './.vitebook/App.vue',
-    '../../packages/components/src/**/*.vue'
+    '../../packages/components/src/**/*.vue',
+    '../../apps/subscribe-button/src/**/*.vue',
   ],
   plugins: [],
   theme: {

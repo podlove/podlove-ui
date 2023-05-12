@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import InputCheckbox from '@podlove/components/input-checkbox'
+import { InputCheckbox } from '@podlove/components'
 import Action from '../shared/Action.vue'
 
 const value = ref(false)

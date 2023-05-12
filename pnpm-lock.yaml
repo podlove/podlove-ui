@@ -96,6 +96,9 @@ importers:
 
   apps/docs:
     specifiers:
+      '@podlove/button-actions': ^5.12.0
+      '@podlove/components': ^5.12.0
+      '@podlove/subscribe-button': ^5.12.0
       '@vitebook/client': 0.100.5
       '@vitebook/core': 0.100.5
       '@vitebook/markdown-vue': 0.100.5
@@ -107,9 +110,13 @@ importers:
       postcss: 8.0.0
       svelte: 3.49.0
       tailwindcss: 3.2.4
+      typescript: 5.0.4
       vite: 4.3.5
       vue: 3.2.41
     dependencies:
+      '@podlove/button-actions': link:../../packages/button/actions
+      '@podlove/components': link:../../packages/components
+      '@podlove/subscribe-button': link:../subscribe-button
       vue: 3.2.41
     devDependencies:
       '@vitebook/client': 0.100.5_od2u5wmo7isevtbfskodv6quwy
@@ -123,6 +130,7 @@ importers:
       postcss: 8.0.0
       svelte: 3.49.0
       tailwindcss: 3.2.4_postcss@8.0.0
+      typescript: 5.0.4
       vite: 4.3.5
 
   apps/player:
@@ -187,14 +195,20 @@ importers:
       '@podlove/button-state': ^5.12.0
       '@podlove/clients': ^5.12.0
       '@podlove/components': ^5.12.0
+      '@podlove/types': ^5.12.0
       '@podlove/utils': ^5.12.0
+      '@types/ramda': 0.29.1
+      '@types/redux-saga': 0.10.5
       http-server: 14.1.1
       npm-run-all: 4.1.5
       ramda: 0.29.0
-      redux: 4.0.4
-      redux-saga: 1.1.3
+      redux: 4.2.1
+      redux-saga: 1.2.3
       redux-vuex: 3.0.0
+      reselect: 4.1.8
       tailwindcss: 3.2.4
+      typescript: 5.0.4
+      vite-plugin-dts: 2.3.0
       vite-plugin-dynamic-publicpath: 1.1.2
       vite-plugin-environment: 1.1.3
       vue: 3.2.41
@@ -206,16 +220,22 @@ importers:
       '@podlove/components': link:../../packages/components
       '@podlove/utils': link:../../packages/utils
       ramda: 0.29.0
-      redux: 4.0.4
-      redux-saga: 1.1.3
-      redux-vuex: 3.0.0_redux@4.0.4+vue@3.2.41
+      redux: 4.2.1
+      redux-saga: 1.2.3
+      redux-vuex: 3.0.0_redux@4.2.1+vue@3.2.41
+      reselect: 4.1.8
       tailwindcss: 3.2.4
       vue: 3.2.41
       vue-i18n: 9.2.2_vue@3.2.41
     devDependencies:
       '@fullhuman/postcss-purgecss': 5.0.0
+      '@podlove/types': link:../../packages/types
+      '@types/ramda': 0.29.1
+      '@types/redux-saga': 0.10.5
       http-server: 14.1.1
       npm-run-all: 4.1.5
+      typescript: 5.0.4
+      vite-plugin-dts: 2.3.0
       vite-plugin-dynamic-publicpath: 1.1.2
       vite-plugin-environment: 1.1.3
 
@@ -633,7 +653,6 @@ importers:
       dompurify: 2.0.12
       farbraum: 0.1.2
       happy-dom: 9.1.9
-      mobile-detect: 1.4.5
       query-string: 8.1.0
       ramda: 0.29.0
       ts-toolbelt: 9.6.0
@@ -644,7 +663,6 @@ importers:
     dependencies:
       dompurify: 2.0.12
       farbraum: 0.1.2
-      mobile-detect: 1.4.5
       query-string: 8.1.0
       ramda: 0.29.0
     devDependencies:
@@ -4449,19 +4467,6 @@ packages:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
-  /@redux-saga/core/1.2.1:
-    resolution: {integrity: sha512-ABCxsZy9DwmNoYNo54ZlfuTvh77RXx8ODKpxOHeWam2dOaLGQ7vAktpfOtqSeTdYrKEORtTeWnxkGJMmPOoukg==}
-    dependencies:
-      '@babel/runtime': 7.14.6
-      '@redux-saga/deferred': 1.2.1
-      '@redux-saga/delay-p': 1.2.1
-      '@redux-saga/is': 1.1.3
-      '@redux-saga/symbols': 1.1.3
-      '@redux-saga/types': 1.2.1
-      redux: 4.0.4
-      typescript-tuple: 2.2.1
-    dev: false
-
   /@redux-saga/core/1.2.3:
     resolution: {integrity: sha512-U1JO6ncFBAklFTwoQ3mjAeQZ6QGutsJzwNBjgVLSWDpZTRhobUzuVDS1qH3SKGJD8fvqoaYOjp6XJ3gCmeZWgA==}
     dependencies:
@@ -4471,7 +4476,7 @@ packages:
       '@redux-saga/is': 1.1.3
       '@redux-saga/symbols': 1.1.3
       '@redux-saga/types': 1.2.1
-      redux: 4.2.0
+      redux: 4.2.1
       typescript-tuple: 2.2.1
 
   /@redux-saga/deferred/1.2.1:
@@ -14901,10 +14906,6 @@ packages:
       ufo: 1.1.1
     dev: true
 
-  /mobile-detect/1.4.5:
-    resolution: {integrity: sha512-yc0LhH6tItlvfLBugVUEtgawwFU2sIe+cSdmRJJCTMZ5GEJyLxNyC/NIOAOGk67Fa8GNpOttO3Xz/1bHpXFD/g==}
-    dev: false
-
   /mocha/3.5.3:
     resolution: {integrity: sha512-/6na001MJWEtYxHOV1WLfsmR4YIynkUEhBwzsb+fk2qmQ3iqsi258l/Q2MWHJMImAcNpZ8DEdYAK72NHoIQ9Eg==}
     engines: {node: '>= 0.10.x', npm: '>= 1.4.x'}
@@ -17929,28 +17930,10 @@ packages:
       reduce-reducers: 1.0.4
     dev: false
 
-  /redux-saga/1.1.3:
-    resolution: {integrity: sha512-RkSn/z0mwaSa5/xH/hQLo8gNf4tlvT18qXDNvedihLcfzh+jMchDgaariQoehCpgRltEm4zHKJyINEz6aqswTw==}
-    dependencies:
-      '@redux-saga/core': 1.2.1
-    dev: false
-
   /redux-saga/1.2.3:
     resolution: {integrity: sha512-HDe0wTR5nhd8Xr5xjGzoyTbdAw6rjy1GDplFt3JKtKN8/MnkQSRqK/n6aQQhpw5NI4ekDVOaW+w4sdxPBaCoTQ==}
     dependencies:
       '@redux-saga/core': 1.2.3
-
-  /redux-vuex/3.0.0_redux@4.0.4+vue@3.2.41:
-    resolution: {integrity: sha512-QjIa0mK32yhfzHBHlR5MJYUkUgV7xJoxIIKMzAlpimGSjupa7gcHMjTuWsG6oqK0Q+X6lK6IpLt3NNuSwSmIxg==}
-    peerDependencies:
-      redux: 4.x
-      vue: 3.x
-    dependencies:
-      get-value: 3.0.1
-      redux: 4.0.4
-      set-value: 4.1.0
-      vue: 3.2.41
-    dev: false
 
   /redux-vuex/3.0.0_redux@4.2.0+vue@3.2.41:
     resolution: {integrity: sha512-QjIa0mK32yhfzHBHlR5MJYUkUgV7xJoxIIKMzAlpimGSjupa7gcHMjTuWsG6oqK0Q+X6lK6IpLt3NNuSwSmIxg==}
@@ -17964,15 +17947,26 @@ packages:
       vue: 3.2.41
     dev: false
 
-  /redux/4.0.4:
-    resolution: {integrity: sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==}
+  /redux-vuex/3.0.0_redux@4.2.1+vue@3.2.41:
+    resolution: {integrity: sha512-QjIa0mK32yhfzHBHlR5MJYUkUgV7xJoxIIKMzAlpimGSjupa7gcHMjTuWsG6oqK0Q+X6lK6IpLt3NNuSwSmIxg==}
+    peerDependencies:
+      redux: 4.x
+      vue: 3.x
     dependencies:
-      loose-envify: 1.4.0
-      symbol-observable: 1.2.0
+      get-value: 3.0.1
+      redux: 4.2.1
+      set-value: 4.1.0
+      vue: 3.2.41
     dev: false
 
   /redux/4.2.0:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
+    dependencies:
+      '@babel/runtime': 7.14.6
+    dev: false
+
+  /redux/4.2.1:
+    resolution: {integrity: sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==}
     dependencies:
       '@babel/runtime': 7.14.6
 
@@ -18106,6 +18100,10 @@ packages:
 
   /requires-port/1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
+
+  /reselect/4.1.8:
+    resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
+    dev: false
 
   /resolve-cwd/2.0.0:
     resolution: {integrity: sha512-ccu8zQTrzVr954472aUVPLEcB3YpKSYR3cg/3lo1okzobPBM+1INXBbBZlDbnI/hbEocnf8j0QVo43hQKrbchg==}
@@ -19561,11 +19559,6 @@ packages:
       upper-case: 1.1.3
     dev: false
 
-  /symbol-observable/1.2.0:
-    resolution: {integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==}
-    engines: {node: '>=0.10.0'}
-    dev: false
-
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
     dev: true
@@ -20718,6 +20711,28 @@ packages:
       magic-string: 0.29.0
       ts-morph: 17.0.1
       vite: 4.3.5
+    transitivePeerDependencies:
+      - '@types/node'
+      - rollup
+      - supports-color
+    dev: true
+
+  /vite-plugin-dts/2.3.0:
+    resolution: {integrity: sha512-WbJgGtsStgQhdm3EosYmIdTGbag5YQpZ3HXWUAPCDyoXI5qN6EY0V7NXq0lAmnv9hVQsvh0htbYcg0Or5Db9JQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: '>=2.9.0'
+    dependencies:
+      '@babel/parser': 7.21.8
+      '@microsoft/api-extractor': 7.34.4
+      '@rollup/pluginutils': 5.0.2
+      '@rushstack/node-core-library': 3.55.2
+      debug: 4.3.4
+      fast-glob: 3.2.12
+      fs-extra: 10.1.0
+      kolorist: 1.7.0
+      magic-string: 0.29.0
+      ts-morph: 18.0.0
     transitivePeerDependencies:
       - '@types/node'
       - rollup

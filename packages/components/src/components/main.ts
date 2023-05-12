@@ -1,4 +1,5 @@
 import Icon from './icons';
+import { types as iconTypes } from './icons/types';
 import PlayButton from './play-button';
 import ChapterButton from './chapter-button';
 import StepperButton from './stepper-button';
@@ -20,6 +21,7 @@ import Font from './font';
 
 export {
   Icon,
+  iconTypes,
   PlayButton,
   ChapterButton,
   StepperButton,

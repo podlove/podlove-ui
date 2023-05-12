@@ -1,5 +1,7 @@
+import { Store } from 'redux'
 import { setStyles } from '@podlove/utils/dom'
 import * as select from '../store/selectors'
+import State from '../store/state'
 
 const visibleStyle = {
   position: 'fixed',
@@ -17,7 +19,7 @@ const hiddenStyle = {
   left: 0
 }
 
-export default (store, entry) => {
+export default (store: Store<State>, entry: HTMLElement): void => {
   setStyles(hiddenStyle, entry)
 
   store.subscribe(() => {

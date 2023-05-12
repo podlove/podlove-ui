@@ -1,4 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
+import { identity } from 'ramda';
 import { getPlatform } from '@podlove/utils/useragent';
 import getClients from '@podlove/clients';
 import { PodcastClient, PodcatcherClientId, platform, type } from '@podlove/clients/types';
@@ -46,3 +47,8 @@ export const reducer = handleActions<State, initPayload>(
   },
   INITIAL_STATE
 );
+
+
+export const selectors = {
+  clients: identity as (input: State) => State
+}

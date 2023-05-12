@@ -24,6 +24,10 @@
       "import": "./src/color.ts",
       "types": "./src/color.ts"
     },
+    "./copy": {
+      "import": "./src/copy.ts",
+      "types": "./src/copy.ts"
+    },
     "./detect": {
       "import": "./src/detect.ts",
       "types": "./src/detect.ts"
@@ -95,6 +99,10 @@
         "import": "./dist/color.mjs",
         "types": "./dist/color.d.ts"
       },
+      "./copy": {
+        "import": "./dist/copy.mjs",
+        "types": "./dist/copy.d.ts"
+      },
       "./detect": {
         "import": "./dist/detect.mjs",
         "types": "./dist/detect.d.ts"
@@ -161,8 +169,7 @@
     "dompurify": "2.0.12",
     "query-string": "8.1.0",
     "ramda": "0.29.0",
-    "farbraum": "0.1.2",
-    "mobile-detect": "1.4.5"
+    "farbraum": "0.1.2"
   },
   "devDependencies": {
     "@podlove/build": "^5.12.0",

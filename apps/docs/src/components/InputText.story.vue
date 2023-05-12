@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import { ControlsAddon } from '@vitebook/vue/addons';
 
-import InputText from '@podlove/components/input-text/InputText.vue';
+import { InputText } from '@podlove/components';
 import Action from '../shared/Action.vue';
 
 const disabled = ref(false);

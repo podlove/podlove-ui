@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon } from '@vitebook/vue/addons'
+import { ControlsAddon } from '@vitebook/vue/addons';
 
-import Timer from '@podlove/components/timer/Timer.vue'
-import Action from '../shared/Action.vue'
+import { Timer } from '@podlove/components';
+import Action from '../shared/Action.vue';
 
-const time = ref(5 * 60 * 1000)
-const color = ref('#000000')
-const remaining = ref(false)
+const time = ref(5 * 60 * 1000);
+const color = ref('#000000');
+const remaining = ref(false);
 
 const style = ref({
   '--podlove-component-timer-color': color
-})
+});
 </script>
 
 <template>

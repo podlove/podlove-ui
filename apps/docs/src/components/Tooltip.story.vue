@@ -1,16 +1,16 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
+import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons';
 
-import Tooltip from '@podlove/components/tooltip/Tooltip.vue'
-import Action from '../shared/Action.vue'
+import { Tooltip } from '@podlove/components';
+import Action from '../shared/Action.vue';
 
-const trigger = ref('hover')
-const placement = ref('bottom')
-const content = ref('Tooltip Content')
-const color = ref('#ffffff')
-const background = ref('#000000')
+const trigger = ref('hover');
+const placement = ref('bottom');
+const content = ref('Tooltip Content');
+const color = ref('#ffffff');
+const background = ref('#000000');
 </script>
 
 <template>

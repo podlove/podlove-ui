@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons';
 
-import InputSelect from '@podlove/components/input-select/InputSelect.vue';
+import { InputSelect } from '@podlove/components';
 import Action from '../shared/Action.vue';
 
 const value = ref('value-2');

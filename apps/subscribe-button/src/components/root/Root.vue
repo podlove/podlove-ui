@@ -12,20 +12,13 @@
   </div>
 </template>
 
-<script>
-import Font from '@podlove/components/font/Font.vue'
-import { mapState } from 'redux-vuex'
-import * as select from '../../store/selectors'
+<script lang="ts" setup>
+import { Font } from '@podlove/components';
+import { mapState } from 'redux-vuex';
+import * as select from '../../store/selectors';
 
-export default {
-  components: { Font },
-  setup() {
-    return {
-      state: mapState({
-        font: select.theme.fontRegular,
-        fonts: select.theme.fonts
-      })
-    }
-  }
-}
+const state = mapState({
+  font: select.theme.fontRegular,
+  fonts: select.theme.fonts
+});
 </script>

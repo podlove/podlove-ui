@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
+import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons';
 
-import Channel from '@podlove/components/channel'
-import Action from '../shared/Action.vue'
+import { Channel } from '@podlove/components';
+import Action from '../shared/Action.vue';
 
-const color = ref('#ffffff')
-const background = ref('#000000')
-const link = ref('http://google.de')
-const subject = ref('The Subject')
-const filled = ref(false)
-const a11y = ref('The a11y text')
-const type = ref('embed')
+const color = ref('#ffffff');
+const background = ref('#000000');
+const link = ref('http://google.de');
+const subject = ref('The Subject');
+const filled = ref(false);
+const a11y = ref('The a11y text');
+const type = ref('embed');
 
 const style = ref({
   '--podlove-component-channel-color': color,
   '--podlove-component-channel-background': background
-})
+});
 </script>
 
 <template>

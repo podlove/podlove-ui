@@ -1,21 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
+import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons';
 
-import PlayButton from '@podlove/components/play-button/PlayButton.vue'
-import Action from '../shared/Action.vue'
+import { PlayButton } from '@podlove/components';
+import Action from '../shared/Action.vue';
 
-const type = ref('play')
-const background = ref('#000000')
-const color = ref('#ff0000')
-const label = ref('My Label')
-const size = ref(50)
+const type = ref('play');
+const background = ref('#000000');
+const color = ref('#ff0000');
+const label = ref('My Label');
+const size = ref(50);
 
 const style = ref({
   '--podlove-component-play-button-background': background,
   '--podlove-component-play-button-text-color': color
-})
+});
 </script>
 
 <template>

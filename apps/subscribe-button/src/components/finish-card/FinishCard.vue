@@ -57,39 +57,27 @@
   </div>
 </template>
 
-<script>
-import Tooltip from '@podlove/components/tooltip/Tooltip.vue'
-import copy from '@podlove/utils/copy'
-import { mapState } from 'redux-vuex'
+<script lang="ts" setup>
+import { Tooltip } from '@podlove/components';
+import copy from '@podlove/utils/copy';
+import { mapState } from 'redux-vuex';
 
-import * as select from '../../store/selectors'
-import AppStoreIcon from '../icons/AppStore'
-import PlayStoreIcon from '../icons/PlayStore'
+import * as select from '../../store/selectors';
+import AppStoreIcon from '../icons/AppStore';
+import PlayStoreIcon from '../icons/PlayStore';
 
-export default {
-  components: {
-    Tooltip,
-    AppStoreIcon,
-    PlayStoreIcon
-  },
-  setup() {
-    return {
-      state: mapState({
-        color: select.theme.brand,
-        alt: select.theme.alt,
-        link: select.finish.link,
-        install: select.finish.install,
-        os: select.finish.os,
-        rss: select.finish.rss,
-        font: select.theme.fontBold,
-        feed: select.feed
-      })
-    }
-  },
-  methods: {
-    copyLink() {
-      copy(this.state.feed)
-    }
-  }
-}
+const state = mapState({
+  color: select.theme.brand,
+  alt: select.theme.alt,
+  link: select.finish.link,
+  install: select.finish.install,
+  os: select.finish.os,
+  rss: select.finish.rss,
+  font: select.theme.fontBold,
+  feed: select.feed
+});
+
+const copyLink = () => {
+  copy(state.feed);
+};
 </script>

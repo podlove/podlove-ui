@@ -1,15 +1,15 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import { ControlsAddon } from '@vitebook/vue/addons'
+import { ControlsAddon } from '@vitebook/vue/addons';
 
-import Divider from '@podlove/components/divider/Divider.vue'
-import Action from '../shared/Action.vue'
+import { Divider } from '@podlove/components';
+import Action from '../shared/Action.vue';
 
-const color = ref('#ffffff')
+const color = ref('#ffffff');
 const style = ref({
   '--podlove-component-divider-color': color
-})
+});
 </script>
 
 <template>

@@ -3,8 +3,8 @@ import { ref } from 'vue'
 
 import { ControlsAddon } from '@vitebook/vue/addons'
 
-import Icon from '@podlove/components/icons/Icon.vue'
-import { types } from '@podlove/components/icons/types'
+import { Icon } from '@podlove/components'
+import { iconTypes as types } from '@podlove/components'
 
 import Action from '../shared/Action.vue'
 const iconTypes = Object.keys(types)

@@ -3,12 +3,18 @@
   "version": "5.12.0",
   "description": "",
   "type": "module",
-  "main": "./dist/button.umd.js",
-  "module": "./dist/button.es.js",
   "exports": {
     ".": {
-      "import": "./dist/button.es.js",
-      "require": "./dist/button.umd.js"
+      "import": "./src/main.ts",
+      "types": "./src/main.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/button.mjs",
+        "types": "./dist/button.d.ts"
+      }
     }
   },
   "scripts": {
@@ -28,18 +34,24 @@
     "@podlove/components": "^5.12.0",
     "@podlove/utils": "^5.12.0",
     "ramda": "0.29.0",
-    "redux": "4.0.4",
-    "redux-saga": "1.1.3",
+    "redux": "4.2.1",
+    "redux-saga": "1.2.3",
     "redux-vuex": "3.0.0",
     "vue": "3.2.41",
     "vue-i18n": "9.2.2",
-    "tailwindcss": "3.2.4"
+    "tailwindcss": "3.2.4",
+    "reselect": "4.1.8"
   },
   "devDependencies": {
     "vite-plugin-dynamic-publicpath": "1.1.2",
     "vite-plugin-environment": "1.1.3",
     "@fullhuman/postcss-purgecss": "5.0.0",
     "http-server": "14.1.1",
-    "npm-run-all": "4.1.5"
+    "npm-run-all": "4.1.5",
+    "@podlove/types": "^5.12.0",
+    "typescript": "5.0.4",
+    "vite-plugin-dts": "2.3.0",
+    "@types/ramda": "0.29.1",
+    "@types/redux-saga": "0.10.5"
   }
 }

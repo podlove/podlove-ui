@@ -1,27 +1,25 @@
-import MobileDetect from 'mobile-detect';
-
 type OS = 'ios' | 'android' | 'osx' | 'unix' | 'windows';
 
 export const getPlatform = (): OS => {
-  const device = new MobileDetect(window.navigator.userAgent);
+  const userAgent = window.navigator.userAgent;
 
-  if (device.match('ipod|ipad|iphone')) {
+  if (/iPhone|iPad|iPod/i.test(userAgent)) {
     return 'ios';
   }
 
-  if (device.match('android')) {
+  if (/Android/i.test(userAgent)) {
     return 'android';
   }
 
-  if (device.match('mac')) {
+  if (/Mac/i.test(userAgent)) {
     return 'osx';
   }
 
-  if (device.match('linux|openbsd|freebsd|netbsd')) {
+  if (/Linux/i.test(userAgent) || /OpenBSD/i.test(userAgent) || /FreeBSD/i.test(userAgent) || /NetBSD/i.test(userAgent)) {
     return 'unix';
   }
 
-  if (device.match('windows|win')) {
+  if (/Win/i.test(userAgent)) {
     return 'windows';
   }
 };

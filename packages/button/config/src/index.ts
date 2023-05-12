@@ -11,13 +11,13 @@ export const clients = propOr([], 'clients') as (
   input: PodloveSubscribeButtonConfig
 ) => PodloveSubscribeButtonClient[];
 export const theme = propOr({}, 'theme') as (
-  input: PodloveSubscribeButtonConfig & { theme: PodloveTheme }
+  input: PodloveSubscribeButtonConfig
 ) => PodloveTheme;
 
 export const runtime = propOr({}, 'runtime') as (
-  input: PodloveSubscribeButtonConfig & { runtime: PodloveRuntime }
+  input: PodloveSubscribeButtonConfig
 ) => PodloveRuntime;
 
 export const language = compose(prop('language'), runtime) as (
-  input: PodloveSubscribeButtonConfig & { runtime: PodloveRuntime }
+  input: PodloveSubscribeButtonConfig
 ) => string;

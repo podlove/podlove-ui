@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 import { ControlsAddon, EventsAddon, eventCallback } from '@vitebook/vue/addons'
 
-import Image from '@podlove/components/image/Image.vue'
+import { Image } from '@podlove/components'
 import Action from '../shared/Action.vue'
 
 const color = ref('#ffffff')

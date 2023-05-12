@@ -1,22 +1,19 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue';
 
-import { ControlsAddon, EventsAddon } from '@vitebook/vue/addons'
+import { ControlsAddon, EventsAddon } from '@vitebook/vue/addons';
+import { TabHeader, TabHeaderItem, TabBody, Icon } from '@podlove/components';
 
-import TabHeader from '@podlove/components/tab/Header.vue'
-import TabHeaderItem from '@podlove/components/tab/HeaderItem.vue'
-import TabBody from '@podlove/components/tab/Body.vue'
-import Icon from '@podlove/components/icons/Icon.vue'
-import Action from '../shared/Action.vue'
+import Action from '../shared/Action.vue';
 
-const color = ref('#ffffff')
-const colorActive = ref('#ff0000')
-const background = ref('#000000')
-const backgroundActive = ref('#333333')
+const color = ref('#ffffff');
+const colorActive = ref('#ff0000');
+const background = ref('#000000');
+const backgroundActive = ref('#333333');
 const tabs = {
   futurama: ref(true),
   dexter: ref(false)
-}
+};
 
 const style = ref({
   '--podlove-component-tab-header-item-color': color,
@@ -28,8 +25,8 @@ const style = ref({
 
 function selectTab(selectedTab) {
   Object.keys(tabs).forEach((tab) => {
-    tabs[tab].value = tab === selectedTab
-  })
+    tabs[tab].value = tab === selectedTab;
+  });
 }
 </script>
 

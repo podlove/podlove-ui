@@ -1,0 +1,10 @@
+{
+  "include": ["./src", "./lang"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "moduleResolution": "nodenext",
+    "lib": ["DOM", "ESNext"],
+    "allowSyntheticDefaultImports": true
+  }
+}

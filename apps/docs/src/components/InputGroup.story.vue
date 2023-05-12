@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import InputGroup from '@podlove/components/input-group/InputGroup'
-import ButtonComponent from '@podlove/components/button/Button.vue'
-import InputText from '@podlove/components/input-text/InputText.vue'
-import Icon from '@podlove/components/icons/Icon.vue'
+import { InputGroup, Button as ButtonComponent, InputText, Icon } from '@podlove/components';
 </script>
 
 <template>

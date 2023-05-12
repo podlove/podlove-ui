@@ -1,3 +1,4 @@
+import { createSelector } from 'reselect';
 import { prop, compose, propOr, path } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { createObject } from '@podlove/utils/helper';
@@ -131,19 +132,19 @@ export const reducer = handleActions<State, initPayload>(
   INITIAL_STATE
 );
 
-const themeColors = propOr({}, 'tokens');
-const themeFonts = propOr({}, 'fonts');
+const themeColors = propOr({}, 'tokens') as (input: State) => PodloveThemeTokens;
+const themeFonts = propOr({}, 'fonts') as (input: State) => { [key: string]: PodloveThemeFont };
 
 export const selectors = {
-  brand: compose(prop('brand'), themeColors) as (input: State) => string,
-  brandDark: compose(prop('brandDark'), themeColors) as (input: State) => string,
-  brandDarkest: compose(prop('brandDarkest'), themeColors) as (input: State) => string,
-  brandLightest: compose(prop('brandLightest'), themeColors) as (input: State) => string,
-  shadeDark: compose(prop('shadeDark'), themeColors) as (input: State) => string,
-  shadeBase: compose(prop('shadeBase'), themeColors) as (input: State) => string,
-  contrast: compose(prop('contrast'), themeColors) as (input: State) => string,
-  alt: compose(prop('alt'), themeColors) as (input: State) => string,
-  fontRegular: compose(prop('regular'), themeFonts) as (input: State) => string,
-  fontBold: compose(prop('bold'), themeFonts) as (input: State) => string,
-  fontCi: compose(prop('ci'), themeFonts) as (input: State) => string
+  brand: createSelector(themeColors, prop('brand')),
+  brandDark: createSelector(themeColors, prop('brandDark')),
+  brandDarkest: createSelector(themeColors, prop('brandDarkest')),
+  brandLightest: createSelector(themeColors, prop('brandLightest')),
+  shadeDark: createSelector(themeColors, prop('shadeDark')),
+  shadeBase: createSelector(themeColors, prop('shadeBase')),
+  contrast: createSelector(themeColors, prop('contrast')),
+  alt: createSelector(themeColors, prop('alt')),
+  fontRegular: createSelector(themeFonts, prop('regular') as (input: { [key: string]: PodloveThemeFont }) => PodloveThemeFont),
+  fontBold: createSelector(themeFonts, prop('bold') as (input: { [key: string]: PodloveThemeFont }) => PodloveThemeFont),
+  fontCi: createSelector(themeFonts, prop('ci') as (input: { [key: string]: PodloveThemeFont }) => PodloveThemeFont)
 };

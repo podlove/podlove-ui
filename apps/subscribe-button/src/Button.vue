@@ -13,7 +13,6 @@
         flex
         items-center
         justify-center
-        bg-podlove-primar
       "
     >
       <transition name="fade" mode="out-in">
@@ -24,63 +23,52 @@
   </transition>
 </template>
 
-<script>
-import * as overlay from '@podlove/button-actions/overlay'
-import { mapState, injectStore } from 'redux-vuex'
+<script lang="ts" setup>
+import * as overlay from '@podlove/button-actions/overlay';
+import { mapState, injectStore } from 'redux-vuex';
+import { useI18n } from 'vue-i18n';
 
-import Root from './components/root/Root.vue'
-import ClientScreen from './screens/Clients.vue'
-import FinishScreen from './screens/Finish.vue'
+import Root from './components/root/Root.vue';
+import ClientScreen from './screens/Clients.vue';
+import FinishScreen from './screens/Finish.vue';
 
-import * as select from './store/selectors'
+import * as select from './store/selectors';
+import { computed, onMounted, watch } from 'vue';
 
-export default {
-  components: {
-    Root,
-    ClientScreen,
-    FinishScreen
-  },
-  directives: {
-    'click-outside': {
-      bind(el, { value: fn }) {
-        el.addEventListener('click', (evt) => {
-          if (evt.target !== el) {
-            return
-          }
+const { locale } = useI18n({ useScope: 'global' });
 
-          fn()
-        })
+const state = mapState({
+  overlay: select.view.overlay,
+  listView: select.view.list,
+  finishView: select.view.finish,
+  language: select.runtime.language
+});
+
+const dispatch = injectStore().dispatch;
+
+const vClickOutside = {
+  bind(el: HTMLElement, { value: fn }) {
+    el.addEventListener('click', (evt) => {
+      if (evt.target !== el) {
+        return;
       }
-    }
-  },
-  setup() {
-    return {
-      state: mapState({
-        overlay: select.view.overlay,
-        listView: select.view.list,
-        finishView: select.view.finish,
-        language: select.runtime.language
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  computed: {
-    language() {
-      return this.state.language
-    }
-  },
-  watch: {
-    language() {
-      this.$i18n.locale = this.language
-    }
-  },
-  mounted() {
-    this.$i18n.locale = this.language
-  },
-  methods: {
-    close() {
-      this.dispatch(overlay.hide())
-    }
+
+      fn();
+    });
   }
-}
+};
+
+const language = computed(() => state.language);
+
+onMounted(() => {
+  locale.value = language.value;
+});
+
+watch(language, (lang) => {
+  locale.value = lang;
+});
+
+const close = () => {
+  dispatch(overlay.hide());
+};
 </script>

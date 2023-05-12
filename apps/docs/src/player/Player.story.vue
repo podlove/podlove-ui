@@ -1,18 +1,18 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-import { ControlsAddon } from '@vitebook/vue/addons'
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { ControlsAddon } from '@vitebook/vue/addons';
 
-import createPlayer from '@podlove/player/bootstrap'
-import { init } from '@podlove/player-actions/init'
-import Action from '../shared/Action.vue'
+import createPlayer from '@podlove/player/bootstrap';
+import { init } from '@podlove/player-actions/init';
+import Action from '../shared/Action.vue';
 
-import episode from './data/episode.json'
-import config from './data/config.json'
+import episode from './data/episode.json';
+import config from './data/config.json';
 
-const root = ref(null)
+const root = ref(null);
 
-const { app, store } = createPlayer()
-const size = ref('desktop')
+const { app, store } = createPlayer();
+const size = ref('desktop');
 
 onMounted(() => {
   root.value.innerHTML = `
@@ -133,11 +133,11 @@ onMounted(() => {
       </div>
       <error></error>
     </root>
-  `
+  `;
 
-  app.mount(root.value)
-  store.dispatch(init(Object.assign({}, episode, config)))
-})
+  app.mount(root.value);
+  store.dispatch(init(Object.assign({}, episode, config)));
+});
 </script>
 
 <template>

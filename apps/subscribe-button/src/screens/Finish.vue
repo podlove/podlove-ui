@@ -14,38 +14,27 @@
   </div>
 </template>
 
-<script>
-import { injectStore, mapState } from 'redux-vuex'
-import Icon from '@podlove/components/icons/Icon.vue'
-import Divider from '@podlove/components/divider/Divider.vue'
+<script lang="ts" setup>
+import { injectStore, mapState } from 'redux-vuex';
+import { Icon, Divider } from '@podlove/components';
 
-import * as overlay from '@podlove/button-actions/overlay'
-import * as list from '@podlove/button-actions/list'
+import * as overlay from '@podlove/button-actions/overlay';
+import * as list from '@podlove/button-actions/list';
 
-import FinishCard from '../components/finish-card/FinishCard.vue'
-import * as select from '../store/selectors'
+import FinishCard from '../components/finish-card/FinishCard.vue';
+import * as select from '../store/selectors';
 
-export default {
-  components: {
-    Icon,
-    Divider,
-    FinishCard
-  },
-  setup() {
-    return {
-      state: mapState({
-        shadeBase: select.theme.shadeBase
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    close() {
-      this.dispatch(overlay.hide())
-    },
-    back() {
-      this.dispatch(list.show())
-    }
-  }
-}
+const state = mapState({
+  shadeBase: select.theme.shadeBase
+});
+
+const dispatch = injectStore().dispatch;
+
+const close = () => {
+  dispatch(overlay.hide());
+};
+
+const back = () => {
+  dispatch(list.show());
+};
 </script>

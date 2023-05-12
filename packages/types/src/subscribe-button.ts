@@ -1,4 +1,6 @@
 import type { PodloveSubscribeButtonClient } from './client';
+import { PodloveRuntime } from './runtime';
+import { PodloveTheme } from './theme';
 
 /**
  * Subscribe Button
@@ -15,4 +17,8 @@ export interface PodloveSubscribeButtonConfig {
    * - order in list determines rendered order
    */
   clients: PodloveSubscribeButtonClient[];
+
+  theme?: PodloveTheme;
+
+  runtime?: PodloveRuntime;
 }
