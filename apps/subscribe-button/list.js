@@ -16,7 +16,7 @@ window.PODLOVE_STORE = store
 
 const i18n = createI18n({
   locale: 'de',
-  fallbackLocale: 'de',
+  fallbackLocale: 'en',
   messages
 })
 
