@@ -17,7 +17,7 @@
 
     <p class="mb-3" v-html="state.summary"></p>
 
-    <divider class="mb-4" />
+    <divider :color="state.altColor" class="mb-4" />
 
     <div v-for="(group, gid) in state.groups" :key="`group-${gid}`">
       <h3 class="text-sm font-bold mb-4">
@@ -58,7 +58,8 @@ export default {
         episodeTitle: select.episode.title,
         subtitle: select.episode.subtitle,
         summary: select.episode.summary,
-        groups: select.contributors.groups
+        groups: select.contributors.groups,
+        altColor: select.theme.alt
       }),
       dispatch: injectStore().dispatch
     }

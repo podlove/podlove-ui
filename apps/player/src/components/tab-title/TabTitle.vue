@@ -13,7 +13,10 @@
         <icon type="close" aria-hidden="true" />
       </button>
     </div>
-    <div class="border-dotted border-b-2 border-gray-400 w-full" />
+    <div
+      :style="{ 'border-color': state.dividerColor }"
+      class="border-dotted border-b-2 w-full"
+    ></div>
   </div>
 </template>
 
@@ -34,7 +37,8 @@ export default {
     return {
       state: mapState({
         font: select.theme.fontCi,
-        title: select.accessibility.closeTab(props.tab)
+        title: select.accessibility.closeTab(props.tab),
+        dividerColor: select.theme.alt
       })
     }
   },
