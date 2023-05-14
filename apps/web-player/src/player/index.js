@@ -47,7 +47,7 @@ export const create = async (config, target) => {
   iframeResizer(
     {
       checkOrigin: false,
-      log: true
+      log: false
     },
     player
   )
