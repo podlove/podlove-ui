@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.1](https://github.com/podlove/podlove-ui/compare/v5.12.0...v5.12.1) (2023-05-14)
+
+
+### Bug Fixes
+
+* **player:** align divider colors with theme [#1118](https://github.com/podlove/podlove-ui/issues/1118) ([a4ab698](https://github.com/podlove/podlove-ui/commit/a4ab6982408d3c40d76f06cfe61020aa0d65430c))
+* **player:** fix typo ([601b43a](https://github.com/podlove/podlove-ui/commit/601b43a9e215db86f8cd393ee9a30550d7293469))
+
+
+
+
+
 # [5.12.0](https://github.com/podlove/podlove-ui/compare/v5.11.1...v5.12.0) (2022-10-08)
 
 

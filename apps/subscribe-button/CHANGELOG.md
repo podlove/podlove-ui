@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.1](https://github.com/podlove/podlove-ui/compare/v5.12.0...v5.12.1) (2023-05-14)
+
+
+### Bug Fixes
+
+* **subscribe-button:** use english as default fallback [#1112](https://github.com/podlove/podlove-ui/issues/1112) ([71fb5a9](https://github.com/podlove/podlove-ui/commit/71fb5a93e3687cb104a78a5ef3532f8b8a6f04a4))
+
+
+
+
+
 # [5.12.0](https://github.com/podlove/podlove-ui/compare/v5.11.1...v5.12.0) (2022-10-08)
 
 **Note:** Version bump only for package @podlove/subscribe-button
