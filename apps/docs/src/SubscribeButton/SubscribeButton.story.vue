@@ -52,12 +52,16 @@ let app;
 onMounted(async () => {
   app = await createApp(config);
   app.mount(root.value);
-  app.store.dispatch(show());
 });
+
+const openButton = () => {
+  app.store.dispatch(show());
+}
 </script>
 
 <template>
   <div>
+    <button @click="openButton()">Open Subscribe Button</button>
     <div ref="root"></div>
   </div>
 </template>
