@@ -10,26 +10,18 @@
   />
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
 
-import select from '../../store/selectors'
-import ChapterButton from '@podlove/components/chapter-button/ChapterButton.vue'
+import { ChapterButton } from '@podlove/components';
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    ChapterButton
-  },
-  setup() {
-    return {
-      state: mapState({
-        nextChapterDisabled: select.components.nextChapterDisabled,
-        chapterButtons: select.components.chapterButtons,
-        color: select.theme.brandDark,
-        title: select.accessibility.chapterNext
-      }),
-      dispatch: injectStore().dispatch
-    }
-  }
-}
+const state = mapState({
+  nextChapterDisabled: select.components.nextChapterDisabled,
+  chapterButtons: select.components.chapterButtons,
+  color: select.theme.brandDark,
+  title: select.accessibility.chapterNext
+});
+
+const dispatch = injectStore().dispatch;
 </script>

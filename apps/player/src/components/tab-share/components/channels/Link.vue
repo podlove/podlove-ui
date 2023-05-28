@@ -18,37 +18,23 @@
   </tooltip>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import copy from '@podlove/utils/copy'
-import Channel from '@podlove/components/channel/Channel.vue'
-import Tooltip from '@podlove/components/tooltip/Tooltip.vue'
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { mapState } from 'redux-vuex';
+import copy from '@podlove/utils/copy';
+import { Channel, Tooltip } from '@podlove/components';
 
-import select from '../../../../store/selectors'
+import select from '../../../../store/selectors/index.js';
 
-export default {
-  components: {
-    Channel,
-    Tooltip
-  },
-  setup() {
-    return {
-      state: mapState({
-        link: select.share.link,
-        color: select.theme.brandDark,
-        background: select.theme.brandLightest
-      })
-    }
-  },
-  data() {
-    return {
-      hover: false
-    }
-  },
-  methods: {
-    copyLink() {
-      copy(this.state.link)
-    }
-  }
-}
+const state = mapState({
+  link: select.share.link,
+  color: select.theme.brandDark,
+  background: select.theme.brandLightest
+});
+
+const hover = ref(false);
+
+const copyLink = () => {
+  copy(state.link);
+};
 </script>

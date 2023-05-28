@@ -11,56 +11,46 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { onMounted, onUnmounted, ref } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
+import select from '../../store/selectors/index.js';
 
-import TabTitle from '../tab-title'
+import TabTitle from '../tab-title/TabTitle.vue';
 
-import Search from './components/Search'
-import RenderContainer from './components/Render'
-import PrerenderContainer from './components/Prerender'
+import Search from './components/Search.vue';
+import RenderContainer from './components/Render.vue';
+import PrerenderContainer from './components/Prerender.vue';
 
-export default {
-  components: {
-    TabTitle,
-    Search,
-    RenderContainer,
-    PrerenderContainer
-  },
-  setup() {
-    return {
-      state: mapState({
-        timeline: select.transcripts.timeline
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  data() {
-    return {
-      prerender: []
-    }
-  },
-  mounted() {
-    this.render()
-    window.addEventListener('resize', this.render.bind(this))
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.render.bind(this))
-  },
-  methods: {
-    loadPrerender(prerender) {
-      this.prerender = prerender
-    },
-    render() {
-      this.prerender = []
-    },
-    closeTab() {
-      this.dispatch(toggleTab('transcripts'))
-    }
-  }
-}
+const state = mapState({
+  timeline: select.transcripts.timeline
+});
+
+const dispatch = injectStore().dispatch;
+
+const prerender = ref([]);
+
+onMounted(() => {
+  render();
+  window.addEventListener('resize', render.bind(this));
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', render.bind(this));
+});
+
+const loadPrerender = (prerender) => {
+  prerender.value = prerender;
+};
+
+const render = () => {
+  prerender.value = [];
+};
+
+const closeTab = () => {
+  dispatch(toggleTab('transcripts'));
+};
 </script>
 
 <style lang="postcss" scoped>

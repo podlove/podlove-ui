@@ -36,31 +36,25 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
+import select from '../../store/selectors/index.js';
 
-export default {
-  setup() {
-    return {
-      state: mapState({
-        active: select.error.active,
-        title: select.error.title,
-        message: select.error.message,
-        retry: select.error.retry,
-        headline: select.theme.fontBold,
-        brandDark: select.theme.brandDark,
-        alt: select.theme.alt,
-        brandLightest: select.theme.brandLightest,
-        contrast: select.theme.contrast
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    retryAction() {
-      this.retry && dispatch({ type: this.retry })
-    }
-  }
-}
+const state = mapState({
+  active: select.error.active,
+  title: select.error.title,
+  message: select.error.message,
+  retry: select.error.retry,
+  headline: select.theme.fontBold,
+  brandDark: select.theme.brandDark,
+  alt: select.theme.alt,
+  brandLightest: select.theme.brandLightest,
+  contrast: select.theme.contrast
+});
+
+const dispatch = injectStore().dispatch;
+
+const retryAction = () => {
+  state.retry && dispatch({ type: state.retry });
+};
 </script>

@@ -9,25 +9,17 @@
   />
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import StepperButton from '@podlove/components/stepper-button/StepperButton.vue'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
+import { StepperButton } from '@podlove/components';
 
-import select from '../../store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    StepperButton
-  },
-  setup() {
-    return {
-      state: mapState({
-        stepperButtons: select.components.stepperButtons,
-        color: select.theme.brandDark,
-        title: select.accessibility.stepperBackwards
-      }),
-      dispatch: injectStore().dispatch
-    }
-  }
-}
+const state = mapState({
+  stepperButtons: select.components.stepperButtons,
+  color: select.theme.brandDark,
+  title: select.accessibility.stepperBackwards
+});
+
+const dispatch = injectStore().dispatch;
 </script>

@@ -3,28 +3,24 @@
     role="timer"
     :color="state.color"
     :time="state.ghost ? state.ghost : state.playtime"
-    :aria-label="$t(state.a11y.key, state.a11y.attr)"
+    :aria-label="t(state.a11y.key, state.a11y.attr)"
     tabindex="0"
     data-test="timer-current"
   />
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Timer from '@podlove/components/timer/Timer.vue'
-import select from '../../store/selectors'
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { mapState } from 'redux-vuex';
+import { Timer } from '@podlove/components';
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: { Timer },
-  setup() {
-    return {
-      state: mapState({
-        playtime: select.playtime,
-        ghost: select.ghost.time,
-        color: select.theme.contrast,
-        a11y: select.accessibility.timerCurrent
-      })
-    }
-  }
-}
+const { t } = useI18n();
+
+const state = mapState({
+  playtime: select.playtime,
+  ghost: select.ghost.time,
+  color: select.theme.contrast,
+  a11y: select.accessibility.timerCurrent
+});
 </script>

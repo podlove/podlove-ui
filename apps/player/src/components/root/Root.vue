@@ -15,32 +15,31 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Font from '@podlove/components/font/Font.vue'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { mapState } from 'redux-vuex';
+import { Font } from '@podlove/components';
+import { computed, onMounted, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: { Font },
-  setup() {
-    return {
-      state: mapState({
-        background: select.theme.brandLightest,
-        font: select.theme.fontRegular,
-        fonts: select.theme.fonts,
-        language: select.language
-      })
-    }
-  },
-  watch: {
-    language() {
-      this.$i18n.locale = this.state.language
-    }
-  },
-  mounted() {
-    this.$i18n.locale = this.state.language
-  }
-}
+const { locale } = useI18n({ useScope: 'global' });
+
+const state = mapState({
+  background: select.theme.brandLightest,
+  font: select.theme.fontRegular,
+  fonts: select.theme.fonts,
+  language: select.language
+});
+
+const language = computed(() => state.language);
+
+onMounted(() => {
+  locale.value = language.value;
+});
+
+watch(language, (lang) => {
+  locale.value = lang;
+});
 </script>
 
 <style lang="postcss">

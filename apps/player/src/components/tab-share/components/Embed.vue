@@ -41,37 +41,27 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import Tooltip from '@podlove/components/tooltip/Tooltip.vue'
-import copy from '@podlove/utils/copy'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
+import { Tooltip } from '@podlove/components';
+import copy from '@podlove/utils/copy';
 
-import select from '../../../store/selectors'
+import select from '../../../store/selectors/index.js';
 
-export default {
-  components: {
-    Tooltip
-  },
-  setup() {
-    return {
-      state: mapState({
-        embedSize: select.share.embedSize,
-        embedCode: select.share.code,
-        font: select.theme.fontBold,
-        brandColor: select.theme.brandDark,
-        brandLightest: select.theme.brandLightest,
-        contrast: select.theme.contrast,
-        background: select.theme.alt,
-        inputLabel: select.accessibility.embedCode,
-        copyLabel: select.accessibility.copyEmbedLink
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    copyCode() {
-      copy(this.state.embedCode)
-    }
-  }
-}
+const state = mapState({
+  embedSize: select.share.embedSize,
+  embedCode: select.share.code,
+  font: select.theme.fontBold,
+  brandColor: select.theme.brandDark,
+  brandLightest: select.theme.brandLightest,
+  contrast: select.theme.contrast,
+  background: select.theme.alt,
+  inputLabel: select.accessibility.embedCode,
+  copyLabel: select.accessibility.copyEmbedLink
+});
+const dispatch = injectStore().dispatch;
+
+const copyCode = () => {
+  copy(state.embedCode);
+};
 </script>

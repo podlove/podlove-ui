@@ -40,7 +40,7 @@
             :background="state.color"
             :border-color="state.color"
             :progress-color="state.progressColor"
-            @sliderInput="setVolume"
+            @sliderInput="onInput"
           />
         </div>
       </template>
@@ -48,62 +48,52 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import Icon from '@podlove/components/icons/Icon.vue'
-import InputSlider from '@podlove/components/input-slider/InputSlider.vue'
-import { setVolume } from '@podlove/player-actions/audio'
-import { Dropdown } from 'v-tooltip'
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { InputSlider, Icon } from '@podlove/components';
+import { setVolume } from '@podlove/player-actions/audio';
+import { Dropdown } from 'floating-vue';
 
-import select from '../../store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    Dropdown,
-    InputSlider,
-    Icon
-  },
-  props: {
-    placement: {
-      type: String,
-      default: 'left',
-      validator: (val) => ['left', 'right'].includes(val)
-    }
-  },
-  setup() {
-    return {
-      state: mapState({
-        volume: select.audio.volume,
-        icon: select.audio.icon,
-        color: select.theme.brandDark,
-        progressColor: select.theme.brandDark,
-        background: select.theme.brandLightest,
-        buttonTitle: select.accessibility.volumeButton,
-        volumeLabel: select.accessibility.volumeControl,
-        available: select.components.volumeControl
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    setVolume(val) {
-      this.dispatch(setVolume(val / 100))
-    },
-    focus() {
-      setTimeout(() => {
-        const control = this.$refs.volumeControl
-        if (control.$el) {
-          control.$el.querySelector('input').focus()
-        }
-      }, 300)
-    }
+const volumeControl = ref<HTMLElement | null>(null);
+
+const props = defineProps({
+  placement: {
+    type: String,
+    default: 'left',
+    validator: (val: string) => ['left', 'right'].includes(val)
   }
-}
+});
+
+const state = mapState({
+  volume: select.audio.volume,
+  icon: select.audio.icon,
+  color: select.theme.brandDark,
+  progressColor: select.theme.brandDark,
+  background: select.theme.brandLightest,
+  buttonTitle: select.accessibility.volumeButton,
+  volumeLabel: select.accessibility.volumeControl,
+  available: select.components.volumeControl
+});
+
+const dispatch = injectStore().dispatch;
+
+const onInput = (val: number) => {
+  dispatch(setVolume(val / 100));
+};
+
+const focus = () => {
+  setTimeout(() => {
+    if (volumeControl.value) {
+      volumeControl.value.querySelector('input').focus();
+    }
+  }, 300);
+};
 </script>
 
 <style lang="scss">
-@import 'v-tooltip/dist/v-tooltip.css';
-
 .v-popper--theme-dropdown .v-popper__inner {
   padding: 0;
   background: transparent;

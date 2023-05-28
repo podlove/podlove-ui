@@ -9,7 +9,7 @@ import * as chapters from '@podlove/player-actions/chapters';
 import * as audio from '@podlove/player-actions/audio';
 import type { PodloveWebPlayerKeyboardEvent } from '@podlove/types';
 
-import { channel, matchAction } from './helper';
+import { channel, matchAction } from './helper.js';
 
 export function* scrubForward(
   selectPlaytime: (input: any) => number,
@@ -28,8 +28,8 @@ export function* scrubBackward(selectPlaytime: (input: any) => number) {
   yield put(requestPlaytime(time < 0 ? 0 : time));
 }
 
-export function* playPause(selectPlaystate: (input: any) => 'initialized' | 'active' | 'ended') {
-  const playing = yield select(selectPlaystate);
+export function* playPause(selectPlaying: (input: any) => boolean) {
+  const playing = yield select(selectPlaying);
 
   if (playing) {
     yield put(requestPause());
@@ -81,14 +81,14 @@ export function* dispatchKeyDown(input) {
 export const keyboardSaga = ({
   selectPlaytime,
   selectDuration,
-  selectPlaystate,
+  selectPlaying,
   selectVolume,
   selectRate,
   selectMuted
 }: {
   selectPlaytime: (input: any) => number;
   selectDuration: (input: any) => number;
-  selectPlaystate: (input: any) => 'initialized' | 'active' | 'ended';
+  selectPlaying: (input: any) => boolean;
   selectVolume: (input: any) => number;
   selectRate: (input: any) => number;
   selectMuted: (input: any) => boolean;
@@ -124,13 +124,13 @@ export const keyboardSaga = ({
     yield takeEvery(
       matchAction(KEY_DOWN, { key: 'space', alt: false, shift: false, meta: false, ctrl: false }),
       playPause,
-      selectPlaystate
+      selectPlaying
     );
 
     yield takeEvery(
       matchAction(KEY_DOWN, { key: 'space', alt: false, shift: false, meta: false, ctrl: false }),
       playPause,
-      selectPlaystate
+      selectPlaying
     );
 
     yield takeEvery(

@@ -16,6 +16,6 @@ export const reducer = handleActions<State, constructedPayload>(
   INITIAL_STATE
 );
 
-export const selectprs = {
+export const selectors = {
   available: identity as (input: State) => boolean
 };

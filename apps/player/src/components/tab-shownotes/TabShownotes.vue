@@ -37,37 +37,25 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
+import select from '../../store/selectors/index.js';
 
-import TabTitle from '../tab-title'
-import Divider from '../divider'
+import TabTitle from '../tab-title/TabTitle.vue';
+import Divider from '../divider/Divider.vue';
 
-export default {
-  components: {
-    TabTitle,
-    Divider
-  },
+const state = mapState({
+  showTitle: select.show.title,
+  episodeTitle: select.episode.title,
+  subtitle: select.episode.subtitle,
+  summary: select.episode.summary,
+  groups: select.contributors.groups
+});
 
-  setup() {
-    return {
-      state: mapState({
-        showTitle: select.show.title,
-        episodeTitle: select.episode.title,
-        subtitle: select.episode.subtitle,
-        summary: select.episode.summary,
-        groups: select.contributors.groups
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
+const dispatch = injectStore().dispatch;
 
-  methods: {
-    closeTab() {
-      this.dispatch(toggleTab('shownotes'))
-    }
-  }
-}
+const closeTab = () => {
+  dispatch(toggleTab('shownotes'));
+};
 </script>

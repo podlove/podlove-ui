@@ -4,31 +4,22 @@
   </transition>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState } from 'redux-vuex';
+import select from '../../store/selectors/index.js';
 
-export default {
-  props: {
-    on: {
-      type: [String, Array],
-      default: () => []
-    }
-  },
-  setup() {
-    return {
-      state: mapState({
-        playstate: select.playstate
-      })
-    }
-  },
-  computed: {
-    matcher() {
-      return typeof this.on === 'string' ? [this.on] : this.on
-    },
-    active() {
-      return this.matcher.includes(this.state.playstate)
-    }
+const props = defineProps({
+  on: {
+    type: [String, Array],
+    default: () => []
   }
-}
+});
+
+const state = mapState({
+  playstate: select.playstate
+});
+
+const matcher = computed(() => (typeof props.on === 'string' ? [props.on] : props.on));
+const active = computed(() => matcher.value.includes(state.playstate));
 </script>

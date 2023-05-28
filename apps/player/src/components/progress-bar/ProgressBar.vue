@@ -17,38 +17,28 @@
   />
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { fade } from 'farbraum'
-import ProgressBar from '@podlove/components/progress-bar/ProgressBar.vue'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { fade } from 'farbraum';
+import { ProgressBar } from '@podlove/components';
 
-import select from '../../store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    ProgressBar
-  },
-  setup() {
-    return {
-      state: mapState({
-        progressColor: select.theme.brandDark,
-        thumbColor: select.theme.brandDark,
-        highlightColor: select.theme.brandLightest,
-        duration: select.duration,
-        playtime: select.playtime,
-        ghost: select.ghost.time,
-        buffer: select.network.buffer,
-        chapters: select.chapters.list,
-        quantiles: select.quantiles,
-        title: select.accessibility.progressBar
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  computed: {
-    progressColor() {
-      return fade(this.state.progressColor, 0.7)
-    }
-  }
-}
+const state = mapState({
+  progressColor: select.theme.brandDark,
+  thumbColor: select.theme.brandDark,
+  highlightColor: select.theme.brandLightest,
+  duration: select.duration,
+  playtime: select.playtime,
+  ghost: select.ghost.time,
+  buffer: select.network.buffer,
+  chapters: select.chapters.list,
+  quantiles: select.quantiles,
+  title: select.accessibility.progressBar
+});
+
+const dispatch = injectStore().dispatch;
+
+const progressColor = computed(() => fade(state.progressColor, 0.7));
 </script>

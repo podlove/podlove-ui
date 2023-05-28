@@ -32,36 +32,24 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
+import select from '../../store/selectors/index.js';
 
-import TabTitle from '../tab-title'
-import Entry from './components/Entry'
-import A11y from './components/A11y'
+import TabTitle from '../tab-title/TabTitle.vue';
+import Entry from './components/Entry.vue';
+import A11y from './components/A11y.vue';
 
-export default {
-  components: {
-    A11y,
-    Entry,
-    TabTitle
-  },
-  setup() {
-    return {
-      state: mapState({
-        playlist: select.playlist.list,
-        a11y: select.accessibility.episodeList
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    closeTab() {
-      this.dispatch(toggleTab('playlist'))
-    }
-  }
-}
+const state = mapState({
+  playlist: select.playlist.list,
+  a11y: select.accessibility.episodeList
+});
+const dispatch = injectStore().dispatch;
+
+const closeTab = () => {
+  dispatch(toggleTab('playlist'));
+};
 </script>
 
 <style lang="postcss" scoped>

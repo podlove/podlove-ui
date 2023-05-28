@@ -72,7 +72,7 @@ export const selectors = {
   list: prop('list') as (input: State) => PodloveWebPlayerChapter[],
   next: prop('next') as (input: State) => PodloveWebPlayerChapter,
   previous: prop('previous') as (input: State) => PodloveWebPlayerChapter,
-
+  current: prop('current') as (input: State) => PodloveWebPlayerChapter,
   title: compose(prop('title'), current) as (input: State) => string,
   image: compose(prop('image'), current) as (input: State) => string,
 };

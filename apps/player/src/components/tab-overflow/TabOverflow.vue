@@ -4,25 +4,17 @@
   </div>
 </template>
 
-<script>
-import { fade } from 'farbraum'
-import { mapState } from 'redux-vuex'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { fade } from 'farbraum';
+import { mapState } from 'redux-vuex';
+import select from '../../store/selectors/index.js';
 
-export default {
-  setup() {
-    return {
-      state: mapState({
-        color: select.theme.brandDark
-      })
-    }
-  },
-  computed: {
-    style() {
-      return {
-        'background-image': `linear-gradient(${fade(this.state.color, 1)}, ${this.state.color})`
-      }
-    }
-  }
-}
+const state = mapState({
+  color: select.theme.brandDark
+});
+
+const style = computed(() => ({
+  'background-image': `linear-gradient(${fade(state.color, 1)}, ${state.color})`
+}));
 </script>

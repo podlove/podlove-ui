@@ -17,31 +17,26 @@
   </div>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Icon from '@podlove/components/icons/Icon.vue'
-import select from '../../store/selectors'
+<script lang="ts" setup>
+import { mapState } from 'redux-vuex';
+import { Icon } from '@podlove/components';
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: { Icon },
-  props: {
-    tab: {
-      type: String,
-      default: null
-    }
-  },
-  setup(props) {
-    return {
-      state: mapState({
-        font: select.theme.fontCi,
-        title: select.accessibility.closeTab(props.tab)
-      })
-    }
-  },
-  methods: {
-    close() {
-      this.$emit('close')
-    }
+const emits = defineEmits(['close']);
+
+const props = defineProps({
+  tab: {
+    type: String,
+    default: null
   }
-}
+});
+
+const state = mapState({
+  font: select.theme.fontCi,
+  title: select.accessibility.closeTab(props.tab)
+});
+
+const close = () => {
+  emits('close');
+};
 </script>

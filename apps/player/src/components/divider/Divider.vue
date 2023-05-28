@@ -2,19 +2,13 @@
   <divider :color="state.color" data-test="divider" />
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Divider from '@podlove/components/divider/Divider.vue'
-import select from '../../store/selectors'
+<script setup lang="ts">
+import { mapState } from 'redux-vuex';
+import { Divider } from '@podlove/components';
 
-export default {
-  components: { Divider },
-  setup() {
-    return {
-      state: mapState({
-        color: select.theme.shadeBase
-      })
-    }
-  }
-}
+import select from '../../store/selectors/index.js';
+
+const state = mapState({
+  color: select.theme.shadeBase
+});
 </script>

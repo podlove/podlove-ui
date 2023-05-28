@@ -22,7 +22,7 @@
       class="w-8 py-2 mr-2 flex justify-center items-center"
       aria-hidden="true"
       data-test="tab-playlist--entry--interaction"
-      @click="select({ index, play: true })"
+      @click="click({ index, play: true })"
     >
       <icon v-if="hover" type="menu-play" :size="24" />
       <icon v-else type="menu-empty" :size="12" />
@@ -31,7 +31,7 @@
     <span
       class="block w-full py-2 mr-2"
       data-test="tab-playlist--entry--title"
-      @click="select({ index, play: true })"
+      @click="click({ index, play: true })"
     >
       {{ episode.title }}
     </span>
@@ -44,84 +44,61 @@
   </div>
 </template>
 
-<script>
-import { lighten } from 'farbraum'
-import { mapState, injectStore } from 'redux-vuex'
-import { selectEpisode } from '@podlove/player-actions/playlist'
-import { requestPlay, requestPause } from '@podlove/player-actions/play'
-import Timer from '@podlove/components/timer/Timer.vue'
-import Icon from '@podlove/components/icons/Icon.vue'
+<script lang="ts" setup>
+import { ref, computed } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { selectEpisode } from '@podlove/player-actions/playlist';
+import { requestPlay, requestPause } from '@podlove/player-actions/play';
+import { Timer, Icon } from '@podlove/components';
 
-import select from '../../../store/selectors'
+import select from '../../../store/selectors/index.js';
 
-export default {
-  components: {
-    Icon,
-    Timer
+const props = defineProps({
+  index: {
+    type: Number,
+    default: null
   },
-
-  props: {
-    index: {
-      type: Number,
-      default: null
-    },
-    episode: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-
-  setup() {
-    return {
-      state: mapState({
-        playing: select.driver.playing,
-        brandLightest: select.theme.brandLightest,
-        brandDark: select.theme.brandDark
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-
-  data() {
-    return {
-      hover: false
-    }
-  },
-
-  computed: {
-    active() {
-      return this.episode.active || this.hover
-    },
-    style() {
-      return this.hover
-        ? {
-            background: this.state.brandLightest,
-            color: this.state.brandDark
-          }
-        : {}
-    }
-  },
-
-  methods: {
-    mouseOverHandler() {
-      this.hover = true
-    },
-
-    mouseLeaveHandler() {
-      this.hover = false
-    },
-
-    play() {
-      if (this.state.playing) {
-        this.dispatch(requestPause())
-      } else {
-        this.dispatch(requestPlay())
-      }
-    },
-
-    select(position) {
-      this.dispatch(selectEpisode(position))
-    }
+  episode: {
+    type: Object,
+    default: () => ({})
   }
-}
+});
+
+const state = mapState({
+  playing: select.driver.playing,
+  brandLightest: select.theme.brandLightest,
+  brandDark: select.theme.brandDark
+});
+const dispatch = injectStore().dispatch;
+
+const hover = ref(false);
+
+const style = computed(() =>
+  hover.value
+    ? {
+        background: state.brandLightest,
+        color: state.brandDark
+      }
+    : {}
+);
+
+const mouseOverHandler = () => {
+  hover.value = true;
+};
+
+const mouseLeaveHandler = () => {
+  hover.value = false;
+};
+
+const play = () => {
+  if (state.playing) {
+    dispatch(requestPause());
+  } else {
+    dispatch(requestPlay());
+  }
+};
+
+const click = (position) => {
+  dispatch(selectEpisode(position));
+};
 </script>

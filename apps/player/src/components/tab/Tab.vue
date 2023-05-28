@@ -18,36 +18,26 @@
   </tab-body>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import TabBody from '@podlove/components/tab/Body.vue'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState } from 'redux-vuex';
+import { TabBody } from '@podlove/components';
 
-import select from '../../store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    TabBody
-  },
-  props: {
-    name: {
-      type: String,
-      default: null
-    }
-  },
-  setup(props) {
-    return {
-      state: mapState({
-        background: select.theme.brandDark,
-        tabs: select.tabs,
-        color: select.theme.alt,
-        a11y: select.accessibility.tabPanel(props.name)
-      })
-    }
-  },
-  computed: {
-    active() {
-      return this.state.tabs[this.name]
-    }
+const props = defineProps({
+  name: {
+    type: String,
+    default: null
   }
-}
+});
+
+const state = mapState({
+  background: select.theme.brandDark,
+  tabs: select.tabs,
+  color: select.theme.alt,
+  a11y: select.accessibility.tabPanel(props.name)
+});
+
+const active = computed(() => state.tabs[props.name])
 </script>

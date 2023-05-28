@@ -5,34 +5,23 @@
     :color="state.color"
     :background="state.background"
     :filled="hover"
-    @mouseover="hover = true"
-    @mouseleave="hover = false"
+    @mouseover="hover.value = true"
+    @mouseleave="hover.value = false"
   />
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Channel from '@podlove/components/channel/Channel.vue'
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { mapState } from 'redux-vuex';
+import { Channel } from '@podlove/components';
 
-import select from '../../../../store/selectors'
+import select from '../../../../store/selectors/index.js';
 
-export default {
-  components: {
-    Channel
-  },
-  setup() {
-    return {
-      state: mapState({
-        link: select.share.link,
-        color: select.theme.brandDark,
-        background: select.theme.alt
-      })
-    }
-  },
-  data() {
-    return {
-      hover: false
-    }
-  }
-}
+const state = mapState({
+  link: select.share.link,
+  color: select.theme.brandDark,
+  background: select.theme.alt
+});
+
+const hover = ref(false);
 </script>

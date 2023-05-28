@@ -50,7 +50,7 @@ export const componentsSaga = ({
   selectRuntimeMode,
   selectRuntimePlatform,
   selectChannels,
-  selectEmbedLink
+  selectHasEmbedLink
 }: {
   selectTranscripts: (input: any) => PodloveWebPlayerTranscript[];
   selectPlaylist: (input: any) => PodloveWebPlayerPlaylistItem[];
@@ -64,7 +64,7 @@ export const componentsSaga = ({
   selectRuntimeMode: (input: any) => PodloveWebPlayerMode;
   selectRuntimePlatform: (input: any) => string;
   selectChannels: (input: any) => PodloveWebPlayerChannel[];
-  selectEmbedLink: (input: any) => string;
+  selectHasEmbedLink: (input: any) => boolean;
 }) =>
   function* saga() {
     yield takeEvery(ready.toString(), init, {
@@ -78,7 +78,7 @@ export const componentsSaga = ({
       selectRuntimeMode,
       selectRuntimePlatform,
       selectChannels,
-      selectEmbedLink
+      selectHasEmbedLink
     });
     yield takeEvery(setTranscriptsTimeline.toString(), transcripts, { selectTranscripts });
     yield takeEvery(setChapters.toString(), chapters, { selectChapters });
@@ -101,7 +101,7 @@ export function* init({
   selectRuntimePlatform,
   selectShowTitle,
   selectChannels,
-  selectEmbedLink
+  selectHasEmbedLink
 }: {
   selectPlaylist: (input: any) => PodloveWebPlayerPlaylistItem[];
   selectFiles: (input: any) => PodloveWebPlayerFile[];
@@ -113,7 +113,7 @@ export function* init({
   selectRuntimeMode: (input: any) => PodloveWebPlayerMode;
   selectRuntimePlatform: (input: any) => string;
   selectChannels: (input: any) => PodloveWebPlayerChannel[];
-  selectEmbedLink: (input: any) => string;
+  selectHasEmbedLink: (input: any) => boolean;
 }) {
   const files = yield select(selectFiles);
   const playlist = yield select(selectPlaylist);
@@ -125,7 +125,7 @@ export function* init({
   const mode = yield select(selectRuntimeMode);
   const platform = yield select(selectRuntimePlatform);
   const channels = yield select(selectChannels);
-  const embedLink = yield select(selectEmbedLink);
+  const embedLink = yield select(selectHasEmbedLink);
 
   // Header
   yield put(!!showCover || !!episodeCover ? showInfoPoster() : hideInfoPoster());

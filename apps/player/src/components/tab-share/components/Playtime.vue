@@ -10,38 +10,27 @@
   />
 </template>
 
-<script>
-import InputCheckbox from '@podlove/components/input-checkbox/InputCheckbox.vue'
-import { selectContent } from '@podlove/player-actions/share'
-import { toHumanTime } from '@podlove/utils/time'
-import { mapState, injectStore } from 'redux-vuex'
+<script lang="ts" setup>
+import { InputCheckbox } from '@podlove/components';
+import { selectContent } from '@podlove/player-actions/share';
+import { toHumanTime } from '@podlove/utils/time';
+import { mapState, injectStore } from 'redux-vuex';
 
-import select from '../../../store/selectors'
+import select from '../../../store/selectors/index.js';
 
-export default {
-  components: {
-    InputCheckbox
-  },
-  setup() {
-    return {
-      state: mapState({
-        playtime: select.playtime,
-        content: select.share.content,
-        color: select.theme.brandDark,
-        background: select.theme.alt
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    toHumanTime,
-    toggleContent() {
-      if (this.state.content === 'time') {
-        return this.dispatch(selectContent('episode'))
-      }
+const state = mapState({
+  playtime: select.playtime,
+  content: select.share.content,
+  color: select.theme.brandDark,
+  background: select.theme.alt
+});
+const dispatch = injectStore().dispatch;
 
-      return this.dispatch(selectContent('time'))
-    }
+const toggleContent = () => {
+  if (state.content === 'time') {
+    return dispatch(selectContent('episode'));
   }
-}
+
+  return dispatch(selectContent('time'));
+};
 </script>

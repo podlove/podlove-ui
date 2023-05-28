@@ -12,41 +12,31 @@
   </button>
 </template>
 
-<script>
-import Icon from '@podlove/components/icons/Icon.vue'
-import { mapState, injectStore } from 'redux-vuex'
-import * as overlay from '@podlove/button-actions/overlay'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { Icon } from '@podlove/components';
+import { mapState, injectStore } from 'redux-vuex';
+import * as overlay from '@podlove/button-actions/overlay';
 
-import select from '../../store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: { Icon },
-  setup() {
-    return {
-      state: mapState({
-        color: select.theme.brandDark,
-        background: select.theme.alt,
-        font: select.theme.fontBold,
-        available: select.subscribeButton.available,
-        a11y: select.accessibility.subscribeButton
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  computed: {
-    style() {
-      return {
-        color: this.state.color,
-        'border-color': this.state.color,
-        background: this.state.background,
-        ...this.state.font
-      }
-    }
-  },
-  methods: {
-    show() {
-      this.dispatch(overlay.show())
-    }
-  }
-}
+const state = mapState({
+  color: select.theme.brandDark,
+  background: select.theme.alt,
+  font: select.theme.fontBold,
+  available: select.subscribeButton.available,
+  a11y: select.accessibility.subscribeButton
+});
+const dispatch = injectStore().dispatch;
+
+const style = computed(() => ({
+  color: state.color,
+  'border-color': state.color,
+  background: state.background,
+  ...state.font
+}));
+
+const show = () => {
+  dispatch(overlay.show());
+};
 </script>

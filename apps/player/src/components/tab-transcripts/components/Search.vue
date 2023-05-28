@@ -91,8 +91,8 @@
 </template>
 
 <script>
-import { mapState, injectStore } from 'redux-vuex'
-import Icon from '@podlove/components/icons/Icon.vue'
+import { mapState, injectStore } from 'redux-vuex';
+import { Icon } from '@podlove/components';
 
 import {
   searchTranscripts,
@@ -100,77 +100,63 @@ import {
   resetSearchTranscription,
   previousTranscriptsSearchResult,
   nextTranscriptsSearchResult
-} from '@podlove/player-actions/transcripts'
+} from '@podlove/player-actions/transcripts';
 
-import select from '../../../store/selectors'
+import select from '../../../store/selectors/index.js';
 
-export default {
-  components: {
-    Icon
-  },
-  setup() {
-    return {
-      state: mapState({
-        searchResults: select.transcripts.searchResults,
-        searchQuery: select.transcripts.searchQuery,
-        searchSelected: select.transcripts.searchSelected,
-        searching: select.transcripts.searching,
-        follow: select.transcripts.follow,
-        contrastColor: select.theme.contrast,
-        brandDark: select.theme.brandDark,
-        brandLightest: select.theme.brandLightest,
-        searchTitle: select.accessibility.transcriptsSearch,
-        clearSearchTitle: select.accessibility.clearTranscriptsSearch,
-        previousSearchTitle: select.accessibility.previousTranscriptsSearchResult,
-        nextSearchTitle: select.accessibility.nextTranscriptsSearchResult,
-        followTranscriptsTitle: select.accessibility.followTranscripts
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  computed: {
-    inputStyle() {
-      return {
-        color: this.state.contrastColor,
-        background: this.state.brandLightest
-      }
-    },
-    buttonStyle() {
-      return {
-        color: this.state.follow ? this.state.contrastColor : this.state.brandLightest,
-        background: this.state.follow ? this.state.brandLightest : this.state.brandDark,
-        'border-color': this.state.brandLightest
-      }
-    },
-    searchControls() {
-      return this.state.searchQuery.length > 0 && !this.state.searching
-    },
-    noResults() {
-      return this.state.searchResults.length === 0
-    },
-    results() {
-      return this.state.searchResults.length >= 1000 ? '1000+' : this.state.searchResults.length
-    }
-  },
-  methods: {
-    search(event) {
-      this.dispatch(searchTranscripts(event.target.value))
-      this.dispatch(followTranscripts(false))
-    },
-    toggleFollow() {
-      this.dispatch(followTranscripts(!this.state.follow))
-    },
-    reset() {
-      this.dispatch(resetSearchTranscription())
-    },
-    previousSearchResult() {
-      this.dispatch(previousTranscriptsSearchResult())
-    },
-    nextSearchResult() {
-      this.dispatch(nextTranscriptsSearchResult())
-    }
-  }
-}
+const state = mapState({
+  searchResults: select.transcripts.searchResults,
+  searchQuery: select.transcripts.searchQuery,
+  searchSelected: select.transcripts.searchSelected,
+  searching: select.transcripts.searching,
+  follow: select.transcripts.follow,
+  contrastColor: select.theme.contrast,
+  brandDark: select.theme.brandDark,
+  brandLightest: select.theme.brandLightest,
+  searchTitle: select.accessibility.transcriptsSearch,
+  clearSearchTitle: select.accessibility.clearTranscriptsSearch,
+  previousSearchTitle: select.accessibility.previousTranscriptsSearchResult,
+  nextSearchTitle: select.accessibility.nextTranscriptsSearchResult,
+  followTranscriptsTitle: select.accessibility.followTranscripts
+});
+
+const dispatch = injectStore().dispatch;
+
+const inputStyle = computed(() => ({
+  color: state.contrastColor,
+  background: state.brandLightest
+}));
+
+const buttonStyle = computed(() => ({
+  color: state.follow ? state.contrastColor : state.brandLightest,
+  background: state.follow ? state.brandLightest : state.brandDark,
+  'border-color': state.brandLightest
+}));
+
+const searchControls = computed(() => state.searchQuery.length > 0 && !state.searching);
+
+const noResults = computed(() => state.searchResults.length === 0);
+
+const results = computed(() =>
+  state.searchResults.length >= 1000 ? '1000+' : state.searchResults.length
+);
+
+const search = (event) => {
+  dispatch(searchTranscripts(event.target.value));
+  dispatch(followTranscripts(false));
+};
+const toggleFollow = () => {
+  dispatch(followTranscripts(!state.follow));
+};
+const reset = () => {
+  dispatch(resetSearchTranscription());
+};
+const previousSearchResult = () => {
+  dispatch(previousTranscriptsSearchResult());
+};
+const nextSearchResult = () => {
+  dispatch(nextTranscriptsSearchResult());
+};
 </script>
 
 <style lang="postcss" scoped>

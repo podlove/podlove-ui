@@ -14,29 +14,22 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
 
-import select from '../../store/selectors'
+import select from '../../store/selectors/index.js';
 
-import TabTitle from '../tab-title'
-import File from './components/File'
+import TabTitle from '../tab-title/TabTitle.vue';
+import File from './components/File.vue';
 
-export default {
-  components: { TabTitle, File },
-  setup() {
-    return {
-      state: mapState({
-        files: select.files.files
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    closeTab() {
-      this.dispatch(toggleTab('files'))
-    }
-  }
-}
+const state = mapState({
+  files: select.files.files
+});
+
+const dispatch = injectStore().dispatch;
+
+const closeTab = () => {
+  dispatch(toggleTab('files'));
+};
 </script>

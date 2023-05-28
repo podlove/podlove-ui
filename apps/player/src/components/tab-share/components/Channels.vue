@@ -6,7 +6,7 @@
       :data-test="`tab-share--channels--${channel}`"
     >
       <component
-        :is="`${channel}-channel`"
+        :is="channelComponent[channel]"
         :aria-label="$t(state.a11y(channel).key, state.a11y(channel).attr)"
         :a11y="$t(state.a11y(channel).key, { channel })"
       />
@@ -14,45 +14,38 @@
   </ul>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
+<script lang="ts" setup>
+import { mapState } from 'redux-vuex';
+import { computed } from 'vue';
 
-import select from '../../../store/selectors'
+import select from '../../../store/selectors/index.js';
 
-import FacebookChannel from './channels/Facebook'
-import TwitterChannel from './channels/Twitter'
-import MailChannel from './channels/Mail'
-import LinkChannel from './channels/Link'
-import LinkedinChannel from './channels/Linkedin'
-import PinterestChannel from './channels/Pinterest'
-import RedditChannel from './channels/Reddit'
-import XingChannel from './channels/Xing'
-import WhatsAppChannel from './channels/WhatsApp'
+import FacebookChannel from './channels/Facebook.vue';
+import TwitterChannel from './channels/Twitter.vue';
+import MailChannel from './channels/Mail.vue';
+import LinkChannel from './channels/Link.vue';
+import LinkedinChannel from './channels/Linkedin.vue';
+import PinterestChannel from './channels/Pinterest.vue';
+import RedditChannel from './channels/Reddit.vue';
+import XingChannel from './channels/Xing.vue';
+import WhatsAppChannel from './channels/WhatsApp.vue';
 
-export default {
-  components: {
-    FacebookChannel,
-    TwitterChannel,
-    MailChannel,
-    LinkChannel,
-    LinkedinChannel,
-    PinterestChannel,
-    RedditChannel,
-    XingChannel,
-    WhatsAppChannel
-  },
-  setup() {
-    return {
-      state: mapState({
-        channels: select.channels,
-        a11y: select.accessibility.shareChannel
-      })
-    }
-  },
-  computed: {
-    channels() {
-      return Object.values(this.state.channels)
-    }
-  }
+const state = mapState({
+  channels: select.channels,
+  a11y: select.accessibility.shareChannel
+});
+
+const channelComponent = {
+  facebook: FacebookChannel,
+  twitter: TwitterChannel,
+  mail: MailChannel,
+  link: LinkChannel,
+  linkedin: LinkedinChannel,
+  pinterest: PinterestChannel,
+  reddit: RedditChannel,
+  xing: XingChannel,
+  whatsapp: WhatsAppChannel
 }
+
+const channels = computed(() => Object.values(state.channels));
 </script>

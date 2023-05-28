@@ -37,122 +37,97 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { lighten } from 'farbraum'
-import { setChapter } from '@podlove/player-actions/chapters'
-import { requestPlay, requestPause } from '@podlove/player-actions/play'
+<script lang="ts" setup>
+import { mapState, injectStore } from 'redux-vuex';
+import { lighten } from 'farbraum';
+import { setChapter } from '@podlove/player-actions/chapters';
+import { requestPlay, requestPause } from '@podlove/player-actions/play';
 
-import select from '../../../store/selectors'
+import select from '../../../store/selectors/index.js';
+import { Icon, ChapterProgress } from '@podlove/components';
+import { computed, ref } from 'vue';
 
-import ChapterProgress from '@podlove/components/chapter-progress/ChapterProgress.vue'
-import Icon from '@podlove/components/icons/Icon.vue'
-
-export default {
-  components: {
-    Icon,
-    ChapterProgress
-  },
-
-  props: {
-    chapter: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-
-  setup() {
-    return {
-      state: mapState({
-        playtime: select.playtime,
-        brandLightest: select.theme.brandLightest,
-        brandDark: select.theme.brandDark,
-        ghost: select.ghost.time,
-        current: select.chapters.current,
-        playing: select.driver.playing
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-
-  data() {
-    return {
-      hover: false,
-      linkHover: false
-    }
-  },
-
-  computed: {
-    active() {
-      return this.chapter.active || this.hover
-    },
-
-    progressColor() {
-      return lighten(this.state.brandDark, 0.1)
-    },
-
-    style() {
-      return this.hover
-        ? {
-            background: this.state.brandLightest,
-            color: this.state.brandDark
-          }
-        : {}
-    },
-
-    action() {
-      if (this.linkHover) {
-        return {
-          icon: 'link'
-        }
-      }
-
-      if (this.state.current.index === this.chapter.index) {
-        return {
-          icon: this.state.playing ? 'menu-pause' : 'menu-play'
-        }
-      }
-
-      if (this.hover) {
-        return {
-          icon: 'menu-play'
-        }
-      }
-
-      return {
-        content: this.chapter.index
-      }
-    }
-  },
-
-  methods: {
-    mouseOverHandler() {
-      this.hover = true
-    },
-
-    mouseLeaveHandler() {
-      this.hover = false
-    },
-
-    linkMouseover(state) {
-      this.linkHover = state
-    },
-
-    selectChapter(event) {
-      if (this.linkHover) {
-        return false
-      }
-
-      if (this.state.current.index === this.chapter.index) {
-        this.dispatch(this.state.playing ? requestPause() : requestPlay())
-        return false
-      }
-
-      this.dispatch(setChapter(this.chapter.index - 1))
-      this.dispatch(requestPlay())
-      event && event.preventDefault()
-      return false
-    }
+const props = defineProps({
+  chapter: {
+    type: Object,
+    default: () => ({})
   }
-}
+});
+
+const state = mapState({
+  playtime: select.playtime,
+  brandLightest: select.theme.brandLightest,
+  brandDark: select.theme.brandDark,
+  ghost: select.ghost.time,
+  current: select.chapters.current,
+  playing: select.driver.playing
+});
+
+const dispatch = injectStore().dispatch;
+
+const hover = ref(false);
+const linkHover = ref(false);
+
+const active = computed(() => props.chapter.active || hover.value);
+const progressColor = computed(() => lighten(state.brandDark, 0.1));
+const style = computed(() =>
+  hover.value
+    ? {
+        background: state.brandLightest,
+        color: state.brandDark
+      }
+    : {}
+);
+
+const action = () => {
+  if (linkHover.value) {
+    return {
+      icon: 'link'
+    };
+  }
+
+  if (state.current.index === props.chapter.index) {
+    return {
+      icon: state.playing ? 'menu-pause' : 'menu-play'
+    };
+  }
+
+  if (hover.value) {
+    return {
+      icon: 'menu-play'
+    };
+  }
+
+  return {
+    content: props.chapter.index
+  };
+};
+
+const mouseOverHandler = () => {
+  hover.value = true;
+};
+
+const mouseLeaveHandler = () => {
+  hover.value = false;
+};
+
+const linkMouseover = (state: any) => {
+  linkHover.value = !!state;
+};
+
+const selectChapter = (event: MouseEvent) => {
+  if (linkHover.value) {
+    return false;
+  }
+
+  if (state.current.index === props.chapter.index) {
+    dispatch(state.playing ? requestPause() : requestPlay());
+    return false;
+  }
+
+  dispatch(setChapter(props.chapter.index - 1));
+  dispatch(requestPlay());
+  event && event.preventDefault();
+  return false;
+};
 </script>

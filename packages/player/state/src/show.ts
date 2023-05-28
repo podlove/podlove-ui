@@ -4,7 +4,6 @@ import { sanitize } from '@podlove/utils/dom';
 import { createObject } from '@podlove/utils/helper';
 import { PodloveWebPlayerConfig } from '@podlove/types';
 
-import { READY } from '@podlove/player-actions/types';
 import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
 
 export interface State {

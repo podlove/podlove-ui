@@ -1,12 +1,12 @@
 <template>
   <button
-    v-if="visibleTab"
+    v-if="visibleTab.value"
     :id="`trigger-${tab}`"
     class="block relative h-10 w-6"
     role="tab"
     :title="title"
     :aria-label="$t(state.a11y.key, { name: tab })"
-    :aria-selected="activeTab"
+    :aria-selected="activeTab.value"
     :data-test="`tab-trigger--${tab}`"
     :aria-controls="`tab-${tab}`"
     @click="toggle"
@@ -15,7 +15,7 @@
       <slot />
     </span>
     <span
-      v-if="activeTab"
+      v-if="activeTab.value"
       class="block absolute w-full bottom-0"
       :style="{ color: state.brandDark }"
     >
@@ -24,61 +24,49 @@
   </button>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { prop } from 'ramda'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { prop } from 'ramda';
 
-import Icon from '@podlove/components/icons/Icon.vue'
-import { toggleTab } from '@podlove/player-actions/tabs'
+import { Icon } from '@podlove/components';
+import { toggleTab } from '@podlove/player-actions/tabs';
 
-import select from '../../store/selectors'
+import select from '../../store/selectors/index.js';
 
-const availableTabs = ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist']
+const availableTabs = ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist'];
 
-export default {
-  components: {
-    Icon
+const props = defineProps({
+  tab: {
+    type: String,
+    default: null,
+    validator: (val: string) => availableTabs.includes(val)
   },
-  props: {
-    tab: {
-      type: String,
-      default: null,
-      validator: (val) => availableTabs.includes(val)
-    },
-    title: {
-      type: String,
-      default: ''
-    }
-  },
-  setup(props) {
-    return {
-      state: mapState({
-        tabs: select.tabs,
-        contrast: select.theme.contrast,
-        brandDark: select.theme.brandDark,
-        shownotes: select.components.shownotesTab,
-        chapters: select.components.chaptersTab,
-        transcripts: select.components.transcriptTab,
-        share: select.components.shareTab,
-        files: select.components.filesTab,
-        playlist: select.components.playlistTab,
-        a11y: select.accessibility.tabTrigger(props.tab)
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  computed: {
-    activeTab() {
-      return !!this.state.tabs[this.tab]
-    },
-    visibleTab() {
-      return prop(this.tab, this.state)
-    }
-  },
-  methods: {
-    toggle() {
-      this.dispatch(toggleTab(this.tab))
-    }
+  title: {
+    type: String,
+    default: ''
   }
-}
+});
+
+const state = mapState({
+  tabs: select.tabs,
+  contrast: select.theme.contrast,
+  brandDark: select.theme.brandDark,
+  shownotes: select.components.shownotesTab,
+  chapters: select.components.chaptersTab,
+  transcripts: select.components.transcriptTab,
+  share: select.components.shareTab,
+  files: select.components.filesTab,
+  playlist: select.components.playlistTab,
+  a11y: select.accessibility.tabTrigger(props.tab)
+});
+
+const dispatch = injectStore().dispatch;
+
+const activeTab = computed(() => !!state.tabs[props.tab]);
+const visibleTab = computed(() => prop(props.tab, state));
+
+const toggle = () => {
+  dispatch(toggleTab(props.tab));
+};
 </script>
