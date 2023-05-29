@@ -27,12 +27,12 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/utils": "^5.12.0",
+    "@podlove/utils": "workspace:*",
     "ramda": "0.29.0"
   },
   "devDependencies": {
     "@types/ramda": "0.28.24",
-    "@podlove/types": "^5.12.0",
+    "@podlove/types": "workspace:*",
     "vite": "4.3.5",
     "vitest": "0.30.0",
     "vite-plugin-dts": "2.2.0",

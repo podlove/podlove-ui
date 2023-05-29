@@ -11,11 +11,11 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/utils": "^5.12.0",
+    "@podlove/utils": "workspace:*",
     "redux-actions": "3.0.0"
   },
   "devDependencies": {
-    "@podlove/types": "^5.12.0",
+    "@podlove/types": "workspace:*",
     "@types/redux-actions": "2.6.2",
     "vite": "4.3.5",
     "vite-plugin-dts": "2.3.0",

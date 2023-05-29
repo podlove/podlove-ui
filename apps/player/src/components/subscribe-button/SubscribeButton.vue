@@ -27,6 +27,7 @@ const state = mapState({
   available: select.subscribeButton.available,
   a11y: select.accessibility.subscribeButton
 });
+
 const dispatch = injectStore().dispatch;
 
 const style = computed(() => ({

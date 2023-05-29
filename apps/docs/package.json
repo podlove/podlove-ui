@@ -2,7 +2,7 @@
   "name": "@podlove/docs",
   "private": true,
   "description": "",
-  "version": "5.12.0",
+  "version": "",
   "type": "module",
   "scripts": {
     "dev": "vitebook dev",
@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "vue": "3.2.41",
-    "@podlove/components": "^5.12.0",
-    "@podlove/subscribe-button": "^5.12.0",
-    "@podlove/button-actions": "^5.12.0"
+    "@podlove/components": "workspace:*",
+    "@podlove/player": "workspace:*",
+    "@podlove/subscribe-button": "workspace:*",
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/player-actions": "workspace:*"
   },
   "devDependencies": {
     "@vitebook/client": "0.100.5",

@@ -28,8 +28,8 @@
     }
   },
   "dependencies": {
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/utils": "workspace:*",
     "rangetouch": "2.0.1",
     "floating-vue": "2.0.0-beta.20",
     "@floating-ui/dom": "1.2.7",
@@ -41,7 +41,7 @@
     "vue": "3"
   },
   "devDependencies": {
-    "@podlove/types": "^5.12.0",
+    "@podlove/types": "workspace:*",
     "@vitejs/plugin-vue": "4.2.1",
     "@types/ramda": "0.29.1",
     "vite": "4.3.5",

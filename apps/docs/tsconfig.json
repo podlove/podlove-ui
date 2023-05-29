@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "target": "ESNext",
     "moduleResolution": "nodenext",
+    "module": "nodenext",
     "lib": ["DOM", "ESNext"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   }
 }

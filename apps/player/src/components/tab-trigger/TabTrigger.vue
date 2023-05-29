@@ -5,8 +5,8 @@
     class="block relative h-10 w-6"
     role="tab"
     :title="title"
-    :aria-label="$t(state.a11y.key, { name: tab })"
-    :aria-selected="activeTab.value"
+    :aria-label="t(state.a11y.key, { name: tab })"
+    :aria-selected="activeTab"
     :data-test="`tab-trigger--${tab}`"
     :aria-controls="`tab-${tab}`"
     @click="toggle"
@@ -15,7 +15,7 @@
       <slot />
     </span>
     <span
-      v-if="activeTab.value"
+      v-if="activeTab"
       class="block absolute w-full bottom-0"
       :style="{ color: state.brandDark }"
     >
@@ -26,6 +26,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { prop } from 'ramda';
 
@@ -34,13 +35,13 @@ import { toggleTab } from '@podlove/player-actions/tabs';
 
 import select from '../../store/selectors/index.js';
 
-const availableTabs = ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist'];
+const { t } = useI18n();
 
 const props = defineProps({
   tab: {
     type: String,
     default: null,
-    validator: (val: string) => availableTabs.includes(val)
+    validator: (val: string) => ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist'].includes(val)
   },
   title: {
     type: String,

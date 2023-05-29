@@ -13,14 +13,14 @@
     "test:dev": "vitest"
   },
   "dependencies": {
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/player-config": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/player-config": "workspace:*",
+    "@podlove/utils": "workspace:*",
     "ramda": "0.29.0",
     "redux-actions": "3.0.0"
   },
   "devDependencies": {
-    "@podlove/types": "^5.12.0",
+    "@podlove/types": "workspace:*",
     "@types/redux-actions": "2.6.2",
     "@types/ramda": "0.29.0",
     "vite": "4.3.5",

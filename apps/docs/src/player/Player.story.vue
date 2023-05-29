@@ -1,22 +1,12 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { ControlsAddon } from '@vitebook/vue/addons';
-
-import createPlayer from '@podlove/player/bootstrap';
-import { init } from '@podlove/player-actions/init';
-import Action from '../shared/Action.vue';
-
-import episode from './data/episode.json';
+import PodlovePlayer from './components/Player.vue';
 import config from './data/config.json';
+import episode from './data/episode.json';
+</script>
 
-const root = ref(null);
-
-const { app, store } = createPlayer();
-const size = ref('desktop');
-
-onMounted(() => {
-  root.value.innerHTML = `
-  <root>
+<template>
+  <PodlovePlayer :config="config" :episode="episode">
+    <player>
       <div class="tablet:px-6 tablet:pt-6 mobile:px-4 mobile:pt-4 flex flex-col">
         <div class="flex-col items-center mobile:flex tablet:hidden">
           <show-title class="text-sm"></show-title>
@@ -132,39 +122,8 @@ onMounted(() => {
         <tab-overflow></tab-overflow>
       </div>
       <error></error>
-    </root>
-  `;
-
-  app.mount(root.value);
-  store.dispatch(init(Object.assign({}, episode, config)));
-});
-</script>
-
-<template>
-  <div>
-    <div ref="root" :class="size"></div>
-    <ControlsAddon>
-      <Action label="Size">
-        <select v-model="size" class="w-full p-2">
-          <option>desktop</option>
-          <option>tablet</option>
-          <option>mobile</option>
-        </select>
-      </Action>
-    </ControlsAddon>
-  </div>
+    </player>
+  </PodlovePlayer>
 </template>
 
-<style scoped>
-.desktop {
-  width: 950px;
-}
-
-.tablet {
-  width: 600px;
-}
-
-.mobile {
-  width: 300px;
-}
-</style>
+<style scoped></style>

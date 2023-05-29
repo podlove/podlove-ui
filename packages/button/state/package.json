@@ -8,14 +8,15 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/state",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.12.0",
-    "@podlove/button-config": "^5.12.0",
-    "@podlove/clients": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "redux-actions": "3.0.0"
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/button-config": "workspace:*",
+    "@podlove/clients": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "redux-actions": "3.0.0",
+    "reselect": "4.1.8"
   },
   "devDependencies": {
-    "@podlove/types": "^5.12.0",
+    "@podlove/types": "workspace:*",
     "@types/redux-actions": "2.6.2",
     "vite": "4.3.5",
     "vite-plugin-dts": "2.2.0",

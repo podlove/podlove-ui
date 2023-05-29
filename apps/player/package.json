@@ -3,19 +3,55 @@
   "version": "5.12.0",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
+  "type": "module",
   "scripts": {
     "start": "vite",
-    "clean": "rm -rf dist publish",
+    "clean": "rm -rf dist",
     "build": "npm run clean && vite build --config vite.config.js --mode production",
     "postpublish": "npm run clean",
     "test": "cypress open --browser chrome",
     "test:ci": "cypress run --browser chrome"
   },
-  "type": "module",
+  "keywords": [],
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
+  "dependencies": {
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/components": "workspace:*",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/player-config": "workspace:*",
+    "@podlove/player-sagas": "workspace:*",
+    "@podlove/player-state": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "core-js": "3.15.2",
+    "date-fns": "2.16.1",
+    "ramda": "0.29.0",
+    "redux": "4.2.0",
+    "redux-vuex": "3.0.0",
+    "floating-vue": "2.0.0-beta.20",
+    "vue": "3.2.41",
+    "vue-i18n": "9.2.2",
+    "farbraum": "0.1.2",
+    "tailwindcss": "3.2.4",
+    "reselect": "4.1.8"
+  },
+  "devDependencies": {
+    "@podlove/build": "workspace:*",
+    "cypress": "8.5.0",
+    "@vitejs/plugin-vue": "3.2.0",
+    "vite": "4.3.5",
+    "vite-plugin-dynamic-publicpath": "1.1.2",
+    "http-server": "14.1.1",
+    "typescript": "5.0.4"
+  },
   "exports": {
     ".": {
       "import": "./src/main.ts",
       "types": "./src/main.ts"
+    },
+    "./styles": {
+      "import": "./src/styles.css",
+      "types": "./src/styles.css"
     }
   },
   "publishConfig": {
@@ -25,39 +61,5 @@
         "types": "./dist/player.d.ts"
       }
     }
-  },
-  "keywords": [],
-  "author": "Alexander Heimbuch <github@heimbu.ch>",
-  "license": "MIT",
-  "dependencies": {
-    "@podlove/button-actions": "^5.12.0",
-    "@podlove/components": "^5.12.0",
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/player-config": "^5.12.0",
-    "@podlove/player-sagas": "^5.12.0",
-    "@podlove/player-state": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "core-js": "3.15.2",
-    "date-fns": "2.16.1",
-    "normalize-scss": "7.0.1",
-    "ramda": "0.29.0",
-    "redux": "4.2.0",
-    "redux-vuex": "3.0.0",
-    "regenerator-runtime": "0.13.3",
-    "floating-vue": "2.0.0-beta.20",
-    "vue": "3.2.41",
-    "vue-i18n": "9.2.2",
-    "farbraum": "0.1.2",
-    "tailwindcss": "3.2.4",
-    "reselect": "4.1.8"
-  },
-  "devDependencies": {
-    "@podlove/build": "^5.12.0",
-    "cypress": "8.5.0",
-    "@vitejs/plugin-vue": "3.2.0",
-    "vite": "4.3.5",
-    "vite-plugin-dynamic-publicpath": "1.1.2",
-    "http-server": "14.1.1",
-    "typescript": "5.0.4"
   }
 }

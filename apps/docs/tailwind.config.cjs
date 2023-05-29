@@ -5,6 +5,7 @@ module.exports = {
     './.vitebook/App.vue',
     '../../packages/components/src/**/*.vue',
     '../../apps/subscribe-button/src/**/*.vue',
+    '../../apps/player/src/**/*.vue',
   ],
   plugins: [],
   theme: {

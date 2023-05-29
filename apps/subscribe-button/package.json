@@ -3,22 +3,8 @@
   "version": "5.12.0",
   "description": "",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./src/main.ts",
-      "types": "./src/main.ts"
-    }
-  },
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "import": "./dist/button.mjs",
-        "types": "./dist/button.d.ts"
-      }
-    }
-  },
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-p dev:*",
     "clean": "rm -rf dist publish",
     "dev:build": "vite build --config vite.config.js --watch",
@@ -26,13 +12,14 @@
     "build": "npm run clean && vite build --config vite.config.js --mode production"
   },
   "keywords": [],
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.12.0",
-    "@podlove/button-state": "^5.12.0",
-    "@podlove/clients": "^5.12.0",
-    "@podlove/components": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/button-state": "workspace:*",
+    "@podlove/clients": "workspace:*",
+    "@podlove/components": "workspace:*",
+    "@podlove/utils": "workspace:*",
     "ramda": "0.29.0",
     "redux": "4.2.1",
     "redux-saga": "1.2.3",
@@ -48,10 +35,24 @@
     "@fullhuman/postcss-purgecss": "5.0.0",
     "http-server": "14.1.1",
     "npm-run-all": "4.1.5",
-    "@podlove/types": "^5.12.0",
+    "@podlove/types": "workspace:*",
     "typescript": "5.0.4",
     "vite-plugin-dts": "2.3.0",
     "@types/ramda": "0.29.1",
     "@types/redux-saga": "0.10.5"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/main.ts",
+      "types": "./src/main.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/button.mjs",
+        "types": "./dist/button.d.ts"
+      }
+    }
   }
 }

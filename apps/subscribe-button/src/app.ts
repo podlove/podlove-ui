@@ -2,10 +2,10 @@ import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 import { provideStore } from 'redux-vuex';
 
-import messages from '../lang';
+import messages from '../lang/index.js';
 
 import Button from './Button.vue';
-import store from './store';
+import store from './store/index.js';
 
 // Use public path from application
 (window as any).__dynamicImportHandler__ = (importer) =>
