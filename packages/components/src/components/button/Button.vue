@@ -1,14 +1,8 @@
 <script setup lang="ts">
-const props = defineProps({
-  href: {
-    default: null,
-    type: String
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  }
-});
+const props = defineProps<{
+  href?: string;
+  disabled?: boolean;
+}>();
 </script>
 
 <template>

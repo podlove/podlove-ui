@@ -2,7 +2,7 @@
   <span
     v-if="title"
     class="truncate"
-    :aria-label="$t(state.label.key, state.label.attr)"
+    :aria-label="t(state.label.key, state.label.attr)"
     tabindex="0"
     data-test="current-chapter"
     :style="{ color: state.color }"
@@ -12,11 +12,14 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import { prop } from 'ramda';
 import { mapState } from 'redux-vuex';
 
 import select from '../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const state = mapState({
   currentGhostChapter: select.ghost.chapter,

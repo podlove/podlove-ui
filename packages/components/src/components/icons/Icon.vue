@@ -1,21 +1,11 @@
 <script setup lang="ts">
 import { types } from './types.js';
 
-const props = defineProps({
-  type: {
-    type: String,
-    required: true,
-    validator: (val: string) => Object.keys(types).includes(val)
-  },
-  size: {
-    type: Number,
-    default: undefined
-  },
-  filled: {
-    type: Boolean,
-    default: false
-  }
-});
+const props = defineProps<{
+  type: keyof typeof types;
+  size?: number;
+  filled?: boolean;
+}>();
 </script>
 
 <template>

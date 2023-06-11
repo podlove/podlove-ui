@@ -1,12 +1,12 @@
 <template>
   <div data-test="tab-share--embed">
     <h3 class="mb-2" :style="state.font">
-      {{ $t('SHARE.EMBED.TITLE') }}
+      {{ t('SHARE.EMBED.TITLE') }}
     </h3>
     <div class="flex w-full">
       <input
         class="block text-sm p-1 rounded-sm mr-2 w-full border"
-        :aria-label="$t(state.inputLabel.key, state.inputLabel.attr)"
+        :aria-label="t(state.inputLabel.key, state.inputLabel.attr)"
         :disabled="true"
         :value="state.embedCode"
         :style="{
@@ -17,7 +17,7 @@
         data-test="tab-share--embed--input"
       />
       <tooltip
-        :content="$t('MESSAGES.COPIED')"
+        :content="t('MESSAGES.COPIED')"
         trigger="click"
         :color="state.brandColor"
         :background="state.brandLightest"
@@ -26,7 +26,7 @@
       >
         <button
           class="block px-8 py-2 text-sm p-1 rounded-sm mr-2 w-full border"
-          :title="$t(state.copyLabel.key, state.copyLabel.attr)"
+          :title="t(state.copyLabel.key, state.copyLabel.attr)"
           :style="{
             color: state.brandColor,
             background: state.background,
@@ -34,7 +34,7 @@
             'border-color': state.brandColor
           }"
         >
-          <span aria-hidden="true">{{ $t('SHARE.ACTIONS.COPY') }}</span>
+          <span aria-hidden="true">{{ t('SHARE.ACTIONS.COPY') }}</span>
         </button>
       </tooltip>
     </div>
@@ -42,11 +42,14 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { Tooltip } from '@podlove/components';
 import copy from '@podlove/utils/copy';
 
 import select from '../../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const state = mapState({
   embedSize: select.share.embedSize,

@@ -4,32 +4,24 @@
   </channel-base>
 </template>
 
-<script>
-import { addQueryParameter } from '@podlove/utils/url'
-import ChannelBase from './Base'
-import Icon from '../../icons/Icon'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { addQueryParameter } from '@podlove/utils/url';
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-const LINK = 'https://twitter.com/intent/tweet'
+const LINK = 'https://twitter.com/intent/tweet';
 
-export default {
-  components: {
-    ChannelBase,
-    Icon
+const props = defineProps({
+  text: {
+    type: String,
+    default: ''
   },
-  props: {
-    text: {
-      type: String,
-      default: ''
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    twitterLink() {
-      return addQueryParameter(LINK, { text: this.text })
-    }
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const twitterLink = computed(() => addQueryParameter(LINK, { text: props.text }));
 </script>

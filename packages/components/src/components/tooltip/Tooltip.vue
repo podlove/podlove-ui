@@ -1,32 +1,26 @@
 <template>
-  <span>
-    <dropdown
-      :auto-hide="true"
-      :placement="placement"
-      :triggers="[]"
-      :shown="visible"
-      :offset="[0, 10]"
-      theme="dropdown"
+  <span
+    class="relative overflow-visible"
+    ref="rootElement"
+    @click="click"
+    @mouseleave="mouseLeave"
+    @mouseover="mouseOver"
+  >
+    <slot />
+    <span
+      ref="tooltipElement"
+      class="podlove-component-tooltip absolute block text-center rounded p-1 whitespace-nowrap"
+      :class="{ hidden: !visible, [$props.placement]: true }"
+      :style="{ top, left, bottom, right }"
     >
-      <span @click="click" @mouseleave="mouseLeave" @mouseover="mouseOver">
-        <slot />
-      </span>
-      <template #popper>
-        <span class="podlove-component-tooltip rounded px-3 py-1 text-center text-sm">
-          {{ content }}
-        </span>
-        <span
-          class="dropdown-arrow"
-          :class="{ [`arrow-${placement}`]: true }"
-        ></span>
-      </template>
-    </dropdown>
+      {{ content }}
+      <span class="tooltip-arrow"></span>
+    </span>
   </span>
 </template>
 
 <script lang="ts" setup>
-import { Dropdown } from 'floating-vue';
-import { ref } from 'vue';
+import { nextTick, ref, watch } from 'vue';
 let hideTimeout: any;
 
 const props = defineProps({
@@ -41,12 +35,18 @@ const props = defineProps({
   placement: {
     type: String,
     default: 'auto',
-    validator: (pos: string) => ['auto', 'top', 'right', 'bottom', 'left'].includes(pos)
+    validator: (pos: string) => ['top', 'right', 'bottom', 'left'].includes(pos)
   }
 });
 
 const emits = defineEmits(['click']);
 const visible = ref(false);
+const rootElement = ref<HTMLElement | null>(null);
+const tooltipElement = ref<HTMLElement | null>(null);
+const top = ref(null);
+const left = ref(null);
+const bottom = ref(null);
+const right = ref(null);
 
 const show = () => {
   visible.value = true;
@@ -88,83 +88,115 @@ const click = () => {
   emits('click');
   hide(3000);
 };
+
+watch(visible, async () => {
+  await nextTick();
+
+  const root = rootElement.value.getBoundingClientRect();
+  const tooltip = tooltipElement.value.getBoundingClientRect();
+
+  switch (props.placement) {
+    case 'bottom':
+      top.value = root.height + 15 + 'px';
+      right.value = 'inherit';
+      bottom.value = 'inherit';
+      left.value = (root.width - tooltip.width) / 2 + 'px';
+      break;
+
+    case 'top':
+      top.value = 'inherit';
+      right.value = 'inherit';
+      bottom.value = root.height + 15 + 'px';
+      left.value = (root.width - tooltip.width) / 2 + 'px';
+      break;
+
+    case 'left':
+      top.value = 'inherit';
+      right.value = root.width + 15 + 'px';
+      left.value = 'inherit';
+      bottom.value = ((root.height - tooltip.height / 2) / 2) * -1 + 'px';
+      break;
+
+    case 'right':
+      top.value = 'inherit';
+      right.value = 'inherit';
+      left.value = root.width + 15 + 'px';
+      bottom.value = ((root.height - tooltip.height / 2) / 2) * -1 + 'px';
+      break;
+  }
+});
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .podlove-component-tooltip {
   color: var(--podlove-component-tooltip-color, var(--podlove-components-text));
   background: var(--podlove-component-tooltip-background, var(--podlove-components-background));
-}
 
-.v-popper__arrow-container {
-  display: none;
-}
-
-.v-popper--theme-dropdown {
-  display: inline-block;
-  position: relative;
-
-  .resize-observer {
-    display: none;
-  }
-}
-
-.dropdown-arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  position: absolute;
-  margin: 5px;
-  z-index: 1;
-  border-color: var(--podlove-component-tooltip-background, var(--podlove-components-background));
-
-  &.arrow-top {
-    margin-bottom: 8px;
-    border-width: 5px 5px 0 5px;
-    border-left-color: transparent !important;
-    border-right-color: transparent !important;
-    border-bottom-color: transparent !important;
-    bottom: -5px;
-    left: calc(50% - 5px);
-    margin-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+  .tooltip-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    margin: 5px;
+    z-index: 1;
+    border-color: var(--podlove-component-tooltip-background, var(--podlove-components-background));
   }
 
-  &.arrow-bottom {
-    border-width: 0 5px 5px 5px;
-    border-left-color: transparent !important;
-    border-right-color: transparent !important;
-    border-top-color: transparent !important;
-    top: -5px;
-    left: calc(50% - 5px);
-    margin-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+  &.top {
+    .tooltip-arrow {
+      margin-bottom: 8px;
+      border-width: 5px 5px 0 5px;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      bottom: -5px;
+      left: calc(50% - 5px);
+      margin-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 
-  &.arrow-right {
-    border-width: 5px 5px 5px 0;
-    border-left-color: transparent !important;
-    border-top-color: transparent !important;
-    border-bottom-color: transparent !important;
-    left: -5px;
-    top: calc(50% - 5px);
-    margin-left: 0;
-    margin-top: 1px;
-    margin-right: 0;
+  &.bottom {
+    .tooltip-arrow {
+      border-width: 0 5px 5px 5px;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-top-color: transparent !important;
+      top: -5px;
+      left: calc(50% - 5px);
+      margin-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 
-  &.arrow-left {
-    border-width: 5px 0 5px 5px;
-    border-top-color: transparent !important;
-    border-right-color: transparent !important;
-    border-bottom-color: transparent !important;
-    right: -5px;
-    top: calc(50% - 5px);
-    margin-left: 0;
-    margin-top: 1px;
-    margin-right: 0;
+  &.right {
+    .tooltip-arrow {
+      border-width: 5px 5px 5px 0;
+      border-left-color: transparent !important;
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+      left: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-top: 1px;
+      margin-right: 0;
+    }
+  }
+
+  &.left {
+    .tooltip-arrow {
+      border-width: 5px 0 5px 5px;
+      border-top-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      right: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-top: 1px;
+      margin-right: 0;
+    }
   }
 }
 </style>

@@ -10,7 +10,7 @@
     <span
       class="cursor-pointer w-8 py-2 mr-2 flex items-center justify-center"
       aria-hidden="true"
-      @click="selectChapter()"
+      @click="selectChapter($event)"
     >
       <icon
         v-if="action.icon"
@@ -38,13 +38,13 @@
 </template>
 
 <script lang="ts" setup>
+import { Icon, ChapterProgress } from '@podlove/components';
 import { mapState, injectStore } from 'redux-vuex';
 import { lighten } from 'farbraum';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
 
 import select from '../../../store/selectors/index.js';
-import { Icon, ChapterProgress } from '@podlove/components';
 import { computed, ref } from 'vue';
 
 const props = defineProps({
@@ -68,7 +68,6 @@ const dispatch = injectStore().dispatch;
 const hover = ref(false);
 const linkHover = ref(false);
 
-const active = computed(() => props.chapter.active || hover.value);
 const progressColor = computed(() => lighten(state.brandDark, 0.1));
 const style = computed(() =>
   hover.value
@@ -79,7 +78,7 @@ const style = computed(() =>
     : {}
 );
 
-const action = () => {
+const action = computed((): { icon?: string; content?: string } => {
   if (linkHover.value) {
     return {
       icon: 'link'
@@ -101,7 +100,7 @@ const action = () => {
   return {
     content: props.chapter.index
   };
-};
+});
 
 const mouseOverHandler = () => {
   hover.value = true;

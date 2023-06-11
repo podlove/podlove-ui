@@ -24,7 +24,7 @@ export const pathname = compose<any[], URL, string, string>(stripr('/'), propOr(
 
 export const addQueryParameter = (
   url: string,
-  additionalParameters: { [key: string]: string } = {}
+  additionalParameters: { [key: string]: string | boolean } = {}
 ) => {
   const parser = document.createElement('a');
   parser.href = url;

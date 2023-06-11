@@ -1,9 +1,9 @@
 <template>
   <div class="w-full mobile:p-4 tablet:p-6 max-h-tab" data-test="tab-chapters">
     <tab-title tab="chapters" @close="closeTab">
-      {{ $t('CHAPTERS.TITLE') }}
+      {{ t('CHAPTERS.TITLE') }}
     </tab-title>
-    <ol class="sr-only" :aria-label="$t(state.a11y.key, state.a11y.attr)">
+    <ol class="sr-only" :aria-label="t(state.a11y.key, state.a11y.attr)">
       <a11y
         v-for="(chapter, index) in state.chapters"
         :key="`a11y-${index}`"
@@ -34,8 +34,11 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { toggleTab } from '@podlove/player-actions/tabs';
+
+const { t } = useI18n();
 
 import select from '../../store/selectors/index.js';
 

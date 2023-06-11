@@ -9,7 +9,7 @@
     :buffer="state.buffer"
     :chapters="state.chapters"
     :quantiles="state.quantiles"
-    :title="$t(state.title.key, state.title.attr)"
+    :title="t(state.title.key, state.title.attr)"
     data-test="progress-bar"
     @time="dispatch"
     @simulate="dispatch"
@@ -18,12 +18,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import { mapState, injectStore } from 'redux-vuex';
 import { fade } from 'farbraum';
 import { ProgressBar } from '@podlove/components';
 
 import select from '../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const state = mapState({
   progressColor: select.theme.brandDark,

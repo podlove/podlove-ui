@@ -4,32 +4,24 @@
   </channel-base>
 </template>
 
-<script>
-import { addQueryParameter } from '@podlove/utils/url'
-import ChannelBase from './Base'
-import Icon from '../../icons'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { addQueryParameter } from '@podlove/utils/url';
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-const LINK = 'https://www.facebook.com/sharer/sharer.php'
+const LINK = 'https://www.facebook.com/sharer/sharer.php';
 
-export default {
-  components: {
-    ChannelBase,
-    Icon
+const props = defineProps({
+  link: {
+    type: String,
+    default: null
   },
-  props: {
-    link: {
-      type: String,
-      default: null
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    facebookLink() {
-      return addQueryParameter(LINK, { u: this.link })
-    }
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const facebookLink = computed(() => addQueryParameter(LINK, { u: props.link }));
 </script>

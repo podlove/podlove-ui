@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-files">
     <tab-title tab="files" @close="closeTab">
-      {{ $t('FILES.TITLE') }}
+      {{ t('FILES.TITLE') }}
     </tab-title>
     <div class="tablet:flex tablet:flex-1 tablet:flex-wrap w-full">
       <file
@@ -15,8 +15,11 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { toggleTab } from '@podlove/player-actions/tabs';
+
+const { t } = useI18n();
 
 import select from '../../store/selectors/index.js';
 

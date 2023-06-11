@@ -1,0 +1,29 @@
+{
+  "name": "@podlove/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "histoire dev"
+  },
+  "dependencies": {
+    "vue": "3.2.41",
+    "@podlove/components": "workspace:*",
+    "@podlove/player": "workspace:*",
+    "@podlove/types": "workspace:*",
+    "@podlove/subscribe-button": "workspace:*",
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/player-actions": "workspace:*"
+  },
+  "devDependencies": {
+    "@histoire/app": "0.16.1",
+    "@histoire/plugin-vue": "0.16.1",
+    "@histoire/vendors": "0.16.0",
+    "@vitejs/plugin-vue": "4.2.3",
+    "histoire": "0.16.1",
+    "vite": "4.3.9",
+    "autoprefixer": "10.4.14",
+    "tailwindcss": "3.3.2",
+    "postcss-import": "15.1.0"
+  }
+}

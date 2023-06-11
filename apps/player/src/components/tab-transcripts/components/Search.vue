@@ -5,7 +5,7 @@
         <div class="flex absolute opacity-50 right-0 h-full items-center p-2">
           <button
             v-if="state.searchQuery.length > 0"
-            :title="$t(state.clearSearchTitle.key, state.clearSearchTitle.attr)"
+            :title="t(state.clearSearchTitle.key, state.clearSearchTitle.attr)"
             @click="reset"
           >
             <icon aria-hidden="true" type="close" :color="state.brandDark" :size="24" />
@@ -25,8 +25,8 @@
           data-test="tab-transcripts--search"
           :style="inputStyle"
           :value="state.searchQuery"
-          :placeholder="$t('TRANSCRIPTS.PLACEHOLDER')"
-          :title="$t(state.searchTitle.key, state.searchTitle.attr)"
+          :placeholder="t('TRANSCRIPTS.PLACEHOLDER')"
+          :title="t(state.searchTitle.key, state.searchTitle.attr)"
           @input="search"
         />
       </div>
@@ -40,13 +40,13 @@
           class="whitespace-no-wrap truncate"
           data-test="tab-transcripts--search-controls--no-results"
         >
-          {{ $t('TRANSCRIPTS.NO_SEARCH_RESULTS') }}
+          {{ t('TRANSCRIPTS.NO_SEARCH_RESULTS') }}
         </div>
         <div v-else class="flex flex-no-wrap w-32">
           <button
             class="block px-0 tablet:px-1 desktop:px-2"
             data-test="tab-transcripts--search-controls--previous"
-            :title="$t(state.previousSearchTitle.key, state.previousSearchTitle.attr)"
+            :title="t(state.previousSearchTitle.key, state.previousSearchTitle.attr)"
             @click="previousSearchResult"
           >
             <icon aria-hidden="true" type="chevron-left" />
@@ -69,7 +69,7 @@
           <button
             class="block px-0 tablet:px-1 desktop:px-2"
             data-test="tab-transcripts--search-controls--next"
-            :title="$t(state.nextSearchTitle.key, state.nextSearchTitle.attr)"
+            :title="t(state.nextSearchTitle.key, state.nextSearchTitle.attr)"
             @click="nextSearchResult"
           >
             <icon aria-hidden="true" type="chevron-right" />
@@ -82,15 +82,16 @@
       data-test="tab-transcripts--follow"
       :style="buttonStyle"
       :class="{ 'mobile:hidden': searchControls }"
-      :title="$t(state.followTranscriptsTitle.key, state.followTranscriptsTitle.attr)"
+      :title="t(state.followTranscriptsTitle.key, state.followTranscriptsTitle.attr)"
       @click="toggleFollow"
     >
-      {{ state.follow ? $t('TRANSCRIPTS.FOLLOW.ACTIVE') : $t('TRANSCRIPTS.FOLLOW.INACTIVE') }}
+      {{ state.follow ? t('TRANSCRIPTS.FOLLOW.ACTIVE') : t('TRANSCRIPTS.FOLLOW.INACTIVE') }}
     </button>
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { Icon } from '@podlove/components';
 
@@ -103,6 +104,8 @@ import {
 } from '@podlove/player-actions/transcripts';
 
 import select from '../../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const state = mapState({
   searchResults: select.transcripts.searchResults,

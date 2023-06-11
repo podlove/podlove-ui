@@ -4,36 +4,30 @@
   </channel-base>
 </template>
 
-<script>
-import { addQueryParameter } from '@podlove/utils/url'
-import ChannelBase from './Base'
-import Icon from '../../icons'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { addQueryParameter } from '@podlove/utils/url';
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-const LINK = 'https://www.linkedin.com/shareArticle'
+const LINK = 'https://www.linkedin.com/shareArticle';
 
-export default {
-  components: {
-    Icon,
-    ChannelBase
+const props = defineProps({
+  link: {
+    type: String,
+    default: null
   },
-  props: {
-    link: {
-      type: String,
-      default: null
-    },
-    text: {
-      type: String,
-      default: ''
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
+  text: {
+    type: String,
+    default: ''
   },
-  computed: {
-    linkedinLink() {
-      return addQueryParameter(LINK, { url: this.link, mini: true, summary: this.text })
-    }
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const linkedinLink = computed(() =>
+  addQueryParameter(LINK, { url: props.link, mini: true, summary: props.text })
+);
 </script>

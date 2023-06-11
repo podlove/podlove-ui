@@ -1,7 +1,7 @@
 <template>
   <tooltip
     trigger="click"
-    :content="$t('MESSAGES.COPIED')"
+    :content="t('MESSAGES.COPIED')"
     :color="state.color"
     :background="state.background"
     placement="right"
@@ -20,11 +20,14 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { mapState } from 'redux-vuex';
 import copy from '@podlove/utils/copy';
 import { Channel, Tooltip } from '@podlove/components';
 
 import select from '../../../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const state = mapState({
   link: select.share.link,

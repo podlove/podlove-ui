@@ -7,16 +7,19 @@
     >
       <component
         :is="channelComponent[channel]"
-        :aria-label="$t(state.a11y(channel).key, state.a11y(channel).attr)"
-        :a11y="$t(state.a11y(channel).key, { channel })"
+        :aria-label="t(state.a11y(channel).key, state.a11y(channel).attr)"
+        :a11y="t(state.a11y(channel).key, { channel })"
       />
     </li>
   </ul>
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState } from 'redux-vuex';
 import { computed } from 'vue';
+
+const { t } = useI18n()
 
 import select from '../../../store/selectors/index.js';
 
@@ -47,5 +50,5 @@ const channelComponent = {
   whatsapp: WhatsAppChannel
 }
 
-const channels = computed(() => Object.values(state.channels));
+const channels = computed(() => Object.values(state.channels) as unknown as string);
 </script>

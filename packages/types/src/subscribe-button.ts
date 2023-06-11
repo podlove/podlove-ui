@@ -1,6 +1,6 @@
-import type { PodloveSubscribeButtonClient } from './client';
-import { PodloveRuntime } from './runtime';
-import { PodloveTheme } from './theme';
+import type { PodloveSubscribeButtonClient } from './client.js';
+import { PodloveRuntime } from './runtime.js';
+import { PodloveTheme } from './theme.js';
 
 /**
  * Subscribe Button

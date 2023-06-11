@@ -2,7 +2,7 @@
   <div data-test="tab-transcripts">
     <div class="header mobile:p-4 tablet:p-6">
       <tab-title tab="transcripts" @close="closeTab">
-        {{ $t('TRANSCRIPTS.TITLE') }}
+        {{ t('TRANSCRIPTS.TITLE') }}
       </tab-title>
       <search class="mb-6" />
     </div>
@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { onMounted, onUnmounted, ref } from 'vue';
 import { mapState, injectStore } from 'redux-vuex';
 import { toggleTab } from '@podlove/player-actions/tabs';
@@ -22,6 +23,8 @@ import TabTitle from '../tab-title/TabTitle.vue';
 import Search from './components/Search.vue';
 import RenderContainer from './components/Render.vue';
 import PrerenderContainer from './components/Prerender.vue';
+
+const { t } = useI18n();
 
 const state = mapState({
   timeline: select.transcripts.timeline

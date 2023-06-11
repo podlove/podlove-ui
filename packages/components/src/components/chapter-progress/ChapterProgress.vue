@@ -3,36 +3,20 @@ import { disableGhost, enableGhost } from '@podlove/player-actions/progress';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
 import { requestPlay } from '@podlove/player-actions/play';
+import type {
+  PodloveWebPlayerChapter
+} from '@podlove/types';
 
-import Icon from '../icons';
-import Timer from '../timer';
+import Icon from '../icons/Icon.vue';
+import Timer from '../timer/Timer.vue';
 import { computed, ref } from 'vue';
 
-const props = defineProps({
-  chapter: {
-    type: Object,
-    default: () => ({
-      start: 0,
-      end: 0,
-      title: '',
-      href: null,
-      linkTitle: null,
-      active: false
-    })
-  },
-  showLink: {
-    type: Boolean,
-    default: false
-  },
-  playtime: {
-    type: Number,
-    default: 0
-  },
-  ghost: {
-    type: Number,
-    default: 0
-  }
-});
+const props = defineProps<{
+  chapter: PodloveWebPlayerChapter,
+  showLink?: boolean,
+  playtime?: number,
+  ghost?: number,
+}>();
 
 const emit = defineEmits(['chapter', 'play', 'playtime', 'ghost', 'simulate', 'hover']);
 

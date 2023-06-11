@@ -1,9 +1,9 @@
 <template>
   <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-playlist">
     <tab-title tab="playlist" @close="closeTab">
-      {{ $t('PLAYLIST.TITLE') }}
+      {{ t('PLAYLIST.TITLE') }}
     </tab-title>
-    <ol class="sr-only" :aria-label="$t(state.a11y.key, state.a11y.attr)">
+    <ol class="sr-only" :aria-label="t(state.a11y.key, state.a11y.attr)">
       <a11y
         v-for="(episode, index) in state.playlist"
         :key="`a11y-${index}`"
@@ -33,13 +33,17 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { toggleTab } from '@podlove/player-actions/tabs';
+
 import select from '../../store/selectors/index.js';
 
 import TabTitle from '../tab-title/TabTitle.vue';
 import Entry from './components/Entry.vue';
 import A11y from './components/A11y.vue';
+
+const { t } = useI18n();
 
 const state = mapState({
   playlist: select.playlist.list,

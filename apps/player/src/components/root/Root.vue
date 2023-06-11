@@ -1,6 +1,6 @@
 <template>
   <div
-    class="antialiased"
+    class="podlove-player antialiased"
     :style="{ background: state.background, ...state.font }"
     data-test="root"
   >
@@ -25,10 +25,10 @@ import select from '../../store/selectors/index.js';
 const { locale } = useI18n({ useScope: 'global' });
 
 const state = mapState({
-  background: select.theme.brandLightest,
   font: select.theme.fontRegular,
   fonts: select.theme.fonts,
-  language: select.language
+  language: select.language,
+  brandLightest: select.theme.brandLightest
 });
 
 const language = computed(() => state.language);
@@ -46,6 +46,14 @@ watch(language, (lang) => {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.podlove-player {
+  --podlove-player-background: v-bind('state.brandLightest');
+}
+
+.podlove-player {
+  background: var(--podlove-player-background);
+}
 
 .entry-enter-active,
 .entry-leave-active {

@@ -1,9 +1,9 @@
 <template>
   <button
     data-test="speed-control"
-    :title="$t(state.a11y(nextRate * 100).key, state.a11y(nextRate * 100).attr)"
+    :title="t(state.a11y(nextRate * 100).key, state.a11y(nextRate * 100).attr)"
     @click="setRate"
-    @dblclick="setRate(1)"
+    @dblclick="setRate()"
   >
     <icon
       aria-hidden="true"
@@ -16,11 +16,14 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { Icon } from '@podlove/components';
 import { setRate as setRateAction } from '@podlove/player-actions/audio';
 
 import select from '../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const steps = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2.0];
 

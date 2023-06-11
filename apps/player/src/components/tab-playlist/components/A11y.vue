@@ -1,21 +1,24 @@
 <template>
   <li>
     <button @click="click">
-      {{ $t(state.playText.key, state.playText.attr) }}
+      {{ t(state.playText.key, state.playText.attr) }}
     </button>
     <time
       role="timer"
       tabindex="0"
-      :aria-label="$t(state.timerDuration.key, state.timerDuration.attr)"
+      :aria-label="t(state.timerDuration.key, state.timerDuration.attr)"
     />
   </li>
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { selectEpisode } from '@podlove/player-actions/playlist';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
 import select from '../../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const props = defineProps({
   episode: {

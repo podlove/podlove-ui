@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-shownotes">
     <tab-title tab="shownotes" @close="closeTab">
-      {{ $t('SHOWNOTES.TITLE') }}
+      {{ t('SHOWNOTES.TITLE') }}
     </tab-title>
 
     <h4 class="text-sm font-bold">
@@ -38,12 +38,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { toggleTab } from '@podlove/player-actions/tabs';
 import select from '../../store/selectors/index.js';
 
 import TabTitle from '../tab-title/TabTitle.vue';
 import Divider from '../divider/Divider.vue';
+
+const { t } = useI18n()
 
 const state = mapState({
   showTitle: select.show.title,

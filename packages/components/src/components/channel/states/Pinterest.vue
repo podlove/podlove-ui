@@ -4,45 +4,39 @@
   </channel-base>
 </template>
 
-<script>
-import { addQueryParameter } from '@podlove/utils/url'
-import ChannelBase from './Base'
-import Icon from '../../icons'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { addQueryParameter } from '@podlove/utils/url';
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-const LINK = 'https://pinterest.com/pin/create/bookmarklet/'
+const LINK = 'https://pinterest.com/pin/create/bookmarklet/';
 
-export default {
-  components: {
-    ChannelBase,
-    Icon
+const props = defineProps({
+  link: {
+    type: String,
+    default: null
   },
-  props: {
-    link: {
-      type: String,
-      default: null
-    },
-    text: {
-      type: String,
-      default: ''
-    },
-    poster: {
-      type: String,
-      default: null
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
+  text: {
+    type: String,
+    default: ''
   },
-  computed: {
-    pinterestLink() {
-      return addQueryParameter(LINK, {
-        url: this.link,
-        media: this.poster,
-        is_video: false,
-        description: this.text
-      })
-    }
+  poster: {
+    type: String,
+    default: null
+  },
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const pinterestLink = computed(() =>
+  addQueryParameter(LINK, {
+    url: props.link,
+    media: props.poster,
+    is_video: false,
+    description: props.text
+  })
+);
 </script>

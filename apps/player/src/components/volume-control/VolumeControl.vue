@@ -10,8 +10,8 @@
         aria-valuemin="0"
         aria-valuemax="100"
         :aria-valuenow="state.volume * 100"
-        :aria-valuetext="$t(state.volumeLabel.key, state.volumeLabel.attr)"
-        @input="setVolume($event.target.value)"
+        :aria-valuetext="t(state.volumeLabel.key, state.volumeLabel.attr)"
+        @input="setVolume(($event.target as HTMLInputElement).value as unknown as number)"
       />
     </div>
     <dropdown ref="volumePopover" :triggers="['click']" :offset="[0, 15]" :placement="placement">
@@ -50,6 +50,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { InputSlider, Icon } from '@podlove/components';
 import { setVolume } from '@podlove/player-actions/audio';
@@ -57,9 +58,11 @@ import { Dropdown } from 'floating-vue';
 
 import select from '../../store/selectors/index.js';
 
+const { t } = useI18n();
+
 const volumeControl = ref<HTMLElement | null>(null);
 
-const props = defineProps({
+defineProps({
   placement: {
     type: String,
     default: 'left',

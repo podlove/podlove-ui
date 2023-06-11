@@ -105,10 +105,6 @@ const handleDblclick = (event: Event) => {
   background-color: var(--podlove-component-input-slider-progress, var(--podlove-components-text));
 }
 
-.podlove-component-input-slider .pin {
-  color: rgba(0, 0, 0, 0.2);
-}
-
 .podlove-component-input-slider {
   @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
 }

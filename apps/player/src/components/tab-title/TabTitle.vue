@@ -7,7 +7,7 @@
       <button
         class="h-6 mt-1"
         data-test="tab-title--close"
-        :title="$t(state.title.key, state.title.attr)"
+        :title="t(state.title.key, state.title.attr)"
         @click="close"
       >
         <icon type="close" aria-hidden="true" />
@@ -18,9 +18,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState } from 'redux-vuex';
 import { Icon } from '@podlove/components';
 import select from '../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const emits = defineEmits(['close']);
 

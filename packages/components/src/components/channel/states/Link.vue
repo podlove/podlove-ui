@@ -4,20 +4,14 @@
   </channel-base>
 </template>
 
-<script>
-import ChannelBase from './Base'
-import Icon from '../../icons'
+<script lang="ts" setup>
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-export default {
-  components: {
-    Icon,
-    ChannelBase
-  },
-  props: {
-    filled: {
-      type: Boolean,
-      default: false
-    }
+defineProps({
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
 </script>

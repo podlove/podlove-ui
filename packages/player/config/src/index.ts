@@ -11,7 +11,7 @@ import type {
   PodloveWebPlayerResolvedConfig,
   PodloveRuntime,
   PodloveWebPlayerShare,
-  PodloveWebPlayerSubscribeButton,
+  PodloveSubscribeButtonConfig,
   PodloveWebPlayerTab,
   PodloveTheme,
   PodloveWebPlayerTranscript,
@@ -152,7 +152,7 @@ export const activeTab = prop('activeTab') as (
 
 export const subscribeButton = prop('subscribe-button') as (
   input: PodloveWebPlayerConfig
-) => PodloveWebPlayerSubscribeButton;
+) => PodloveSubscribeButtonConfig;
 
 export const share = propOr({}, 'share') as (
   input: PodloveWebPlayerConfig

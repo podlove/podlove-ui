@@ -4,32 +4,24 @@
   </channel-base>
 </template>
 
-<script>
-import { addQueryParameter } from '@podlove/utils/url'
-import ChannelBase from './Base'
-import Icon from '../../icons/Icon'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { addQueryParameter } from '@podlove/utils/url';
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-const LINK = 'https://www.xing.com/spi/shares/new'
+const LINK = 'https://www.xing.com/spi/shares/new';
 
-export default {
-  components: {
-    ChannelBase,
-    Icon
+const props = defineProps({
+  link: {
+    type: String,
+    default: null
   },
-  props: {
-    link: {
-      type: String,
-      default: null
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    xingLink() {
-      return addQueryParameter(LINK, { url: this.link })
-    }
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const xingLink = computed(() => addQueryParameter(LINK, { url: props.link }));
 </script>

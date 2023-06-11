@@ -1,21 +1,24 @@
 <template>
   <li>
     <button @click="selectChapter">
-      {{ $t(state.buttonText.key, state.buttonText.attr) }}
+      {{ t(state.buttonText.key, state.buttonText.attr) }}
     </button>
     <time
       role="timer"
       tabindex="0"
-      :title="$t(state.timerRemaining.key, state.timerRemaining.attr)"
+      :title="t(state.timerRemaining.key, state.timerRemaining.attr)"
     />
   </li>
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
 import select from '../../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const props = defineProps({
   chapter: {

@@ -1,11 +1,22 @@
 <template>
   <label v-if="label" class="flex">
     <span
-      class="podlove-component-check-mark mr-2 relative inline-block w-5 h-5 border rounded-sm border-solid"
+      class="
+        podlove-component-check-mark
+        mr-2
+        flex
+        items-center
+        justify-center
+        w-5
+        h-5
+        border
+        rounded-sm
+        border-solid
+      "
     >
       <icon
         v-if="value"
-        class="top-[50%] left-[0%] -ml-2 -mt-2 absolute pointer-events-none"
+        class="absolute pointer-events-none"
         :size="16"
         type="check-mark"
       ></icon>
@@ -21,7 +32,16 @@
   </label>
   <span
     v-else
-    class="podlove-component-check-mark relative inline-block w-5 h-5 border rounded-sm border-solid"
+    class="
+      podlove-component-check-mark
+      relative
+      inline-block
+      w-5
+      h-5
+      border
+      rounded-sm
+      border-solid
+    "
   >
     <icon
       v-if="value"
@@ -40,28 +60,19 @@
 </template>
 
 <script setup lang="ts">
-import Icon from '../icons';
+import Icon from '../icons/Icon.vue';
 
-defineProps({
-  disabled: {
-      type: Boolean,
-      default: false
-    },
-    label: {
-      type: String,
-      default: null
-    },
-    value: {
-      type: Boolean,
-      default: false
-    }
-})
+defineProps<{
+  disabled?: boolean;
+  label: string;
+  value: string;
+}>();
 
 const emits = defineEmits(['select']);
 
 const selectEvent = (event: Event) => {
   emits('select', (event.target as HTMLSelectElement).value);
-}
+};
 </script>
 
 <style lang="scss" scoped>

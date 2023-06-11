@@ -1,7 +1,7 @@
 <template>
   <div class="mobile:p-4 tablet:p-6" data-test="tab-share">
     <tab-title tab="share" @close="closeTab">
-      {{ $t('SHARE.TITLE') }}
+      {{ t('SHARE.TITLE') }}
     </tab-title>
     <div class="mb-4 block items-center justify-between tablet:flex">
       <channels />
@@ -14,14 +14,18 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { toggleTab } from '@podlove/player-actions/tabs';
+
 import select from '../../store/selectors/index.js';
 
 import TabTitle from '../tab-title/TabTitle.vue';
 import Channels from './components/Channels.vue';
 import Playtime from './components/Playtime.vue';
 import EmbedCode from './components/Embed.vue';
+
+const { t } = useI18n();
 
 const state = mapState({
   hasEmbedLink: select.share.hasEmbedLink,

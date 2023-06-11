@@ -7,7 +7,7 @@
     :time="state.playtime"
     :ghost="state.ghost"
     :buffer="state.livesync ? state.buffer : []"
-    :title="$t(state.title.key, state.title.attr)"
+    :title="t(state.title.key, state.title.attr)"
     data-test="progress-bar-live"
     @time="dispatch"
     @simulate="dispatch"
@@ -17,11 +17,14 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { fade } from 'farbraum';
 import { ProgressBar } from '@podlove/components';
 
 import select from '../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const progressColor = computed(() => fade(state.progressColor, 0.7));
 

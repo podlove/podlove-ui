@@ -4,36 +4,28 @@
   </channel-base>
 </template>
 
-<script>
-import { addQueryParameter } from '@podlove/utils/url'
-import ChannelBase from './Base'
-import Icon from '../../icons'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { addQueryParameter } from '@podlove/utils/url';
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-const LINK = 'http://reddit.com/submit'
+const LINK = 'http://reddit.com/submit';
 
-export default {
-  components: {
-    ChannelBase,
-    Icon
+const props = defineProps({
+  text: {
+    type: String,
+    default: ''
   },
-  props: {
-    text: {
-      type: String,
-      default: ''
-    },
-    link: {
-      type: String,
-      default: null
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
+  link: {
+    type: String,
+    default: null
   },
-  computed: {
-    redditLink() {
-      return addQueryParameter(LINK, { url: this.link, title: this.text })
-    }
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const redditLink = computed(() => addQueryParameter(LINK, { url: props.link, title: props.text }));
 </script>

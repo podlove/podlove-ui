@@ -5,7 +5,7 @@
     :ref="name"
     :active="active"
     :name="name"
-    :aria-label="$t(state.a11y.key, { name })"
+    :aria-label="t(state.a11y.key, { name })"
     :aria-selected="active"
     :background="state.background"
     :style="{ color: state.color }"
@@ -21,9 +21,12 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { mapState } from 'redux-vuex';
+import { useI18n } from 'vue-i18n';
 import { TabBody } from '@podlove/components';
 
 import select from '../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const props = defineProps({
   name: {

@@ -1,23 +1,23 @@
-import Icon from './icons';
-import { types as iconTypes } from './icons/types';
-import PlayButton from './play-button';
-import ChapterButton from './chapter-button';
-import StepperButton from './stepper-button';
-import ProgressBar from './progress-bar';
-import Timer from './timer';
-import { TabHeader, TabHeaderItem, TabBody } from './tab';
-import Image from './image';
-import ChapterProgress from './chapter-progress';
-import Button from './button';
-import Tooltip from './tooltip';
-import Channel from './channel';
-import InputText from './input-text';
-import InputGroup from './input-group';
-import InputSelect from './input-select';
-import InputSlider from './input-slider';
-import InputCheckbox from './input-checkbox';
-import Divider from './divider';
-import Font from './font';
+import Icon from './icons/index.js';
+import { types as iconTypes } from './icons/types.js';
+import PlayButton from './play-button/index.js';
+import ChapterButton from './chapter-button/index.js';
+import StepperButton from './stepper-button/index.js';
+import ProgressBar from './progress-bar/index.js';
+import Timer from './timer/index.js';
+import { TabHeader, TabHeaderItem, TabBody } from './tab/index.js';
+import Image from './image/index.js';
+import ChapterProgress from './chapter-progress/index.js';
+import Button from './button/index.js';
+import Tooltip from './tooltip/index.js';
+import Channel from './channel/index.js';
+import InputText from './input-text/index.js';
+import InputGroup from './input-group/index.js';
+import InputSelect from './input-select/index.js';
+import InputSlider from './input-slider/index.js';
+import InputCheckbox from './input-checkbox/index.js';
+import Divider from './divider/index.js';
+import Font from './font/index.js';
 
 export {
   Icon,

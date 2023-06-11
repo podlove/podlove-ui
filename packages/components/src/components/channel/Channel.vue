@@ -13,49 +13,14 @@ import FacebookChannel from './states/Facebook.vue';
 import XingChannel from './states/Xing.vue';
 import WhatsAppChannel from './states/WhatsApp.vue';
 
-const props = defineProps({
-  filled: {
-    type: Boolean,
-    default: false
-  },
-  link: {
-    type: String,
-    default: null
-  },
-  subject: {
-    type: String,
-    default: null
-  },
-  text: {
-    type: String,
-    default: null
-  },
-  a11y: {
-    type: String,
-    default: null
-  },
-  poster: {
-    type: String,
-    default: null
-  },
-  type: {
-    type: String,
-    required: true,
-    validator: (val: PodloveWebPlayerChannel) =>
-      [
-        'embed',
-        'facebook',
-        'linkedin',
-        'mail',
-        'reddit',
-        'twitter',
-        'xing',
-        'whats-app',
-        'pinterest',
-        'link'
-      ].includes(val)
-  }
-});
+const props = defineProps<{
+  filled?: boolean;
+  link?: string;
+  subject?: string;
+  text?: string;
+  a11y?: string;
+  type: PodloveWebPlayerChannel;
+}>();
 
 const emit = defineEmits(['click']);
 
@@ -85,7 +50,7 @@ const channels: { [key: string]: any } = {
     :link="props.link"
     :text="props.text"
     :a11y="props.a11y"
-    :filled="props.filled"
+    :filled="!!props.filled"
     :poster="props.poster"
     @click="clickHandler"
   />

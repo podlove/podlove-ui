@@ -1,16 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-defineProps({
-  url: {
-    type: String,
-    default: null
-  },
-  alt: {
-    type: String,
-    default: null
-  }
-});
+defineProps<{ url: string; alt?: string }>();
 
 const emit = defineEmits(['load', 'error']);
 
@@ -31,7 +22,10 @@ const errorHandler = (event: Event) => {
 <template>
   <div class="relative">
     <transition name="fade">
-      <div v-if="!loaded" class="podlove-component-image-cover absolute top-0 left-0 w-full h-full"></div>
+      <div
+        v-if="!loaded"
+        class="podlove-component-image-cover absolute top-0 left-0 w-full h-full"
+      ></div>
     </transition>
     <img
       v-if="url && !error"

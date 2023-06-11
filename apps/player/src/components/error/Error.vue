@@ -13,7 +13,7 @@
         :style="{ font: state.headline, color: state.contrast }"
         data-test="error--title"
       >
-        {{ $t(state.title) }}
+        {{ t(state.title) }}
       </h3>
       <p
         v-if="state.message"
@@ -21,7 +21,7 @@
         data-test="error--message"
         :style="{ color: state.contrast }"
       >
-        {{ $t(state.message) }}
+        {{ t(state.message) }}
       </p>
       <button
         v-if="state.retry"
@@ -30,7 +30,7 @@
         data-test="error--retry"
         @click.native="retryAction"
       >
-        {{ $t('PLAYER.RETRY') }}
+        {{ t('PLAYER.RETRY') }}
       </button>
     </div>
   </div>
@@ -38,7 +38,11 @@
 
 <script lang="ts" setup>
 import { mapState, injectStore } from 'redux-vuex';
+import { useI18n } from 'vue-i18n';
+
 import select from '../../store/selectors/index.js';
+
+const { t } = useI18n();
 
 const state = mapState({
   active: select.error.active,

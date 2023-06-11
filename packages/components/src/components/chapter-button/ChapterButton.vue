@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { nextChapter, previousChapter } from '@podlove/player-actions/chapters';
-import Icon from '../icons';
+import Icon from '../icons/Icon.vue';
 
-const props = defineProps({
-  type: {
-    type: String,
-    required: true,
-    validator: (val: string) => ['next', 'previous'].includes(val)
-  }
-});
+const props = defineProps<{
+  type: 'next' | 'previous';
+}>();
 
 const emit = defineEmits(['next', 'previous']);
 
@@ -25,7 +21,11 @@ const clickHandler = () => {
 </script>
 
 <template>
-  <button class="podlove-component-chapter-button" :data-test="`podlove-component-chapter-button--${props.type}`" @click="clickHandler">
+  <button
+    class="podlove-component-chapter-button"
+    :data-test="`podlove-component-chapter-button--${props.type}`"
+    @click="clickHandler"
+  >
     <icon :type="props.type" />
     <slot />
   </button>

@@ -4,36 +4,30 @@
   </channel-base>
 </template>
 
-<script>
-import { queryParameter } from '@podlove/utils/url'
-import ChannelBase from './Base'
-import Icon from '../../icons'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { queryParameter } from '@podlove/utils/url';
+import ChannelBase from './Base.vue';
+import Icon from '../../icons/Icon.vue';
 
-const LINK = 'mailto:'
+const LINK = 'mailto:';
 
-export default {
-  components: {
-    ChannelBase,
-    Icon
+const props = defineProps({
+  text: {
+    type: String,
+    default: ''
   },
-  props: {
-    text: {
-      type: String,
-      default: ''
-    },
-    subject: {
-      type: String,
-      default: ''
-    },
-    filled: {
-      type: Boolean,
-      default: false
-    }
+  subject: {
+    type: String,
+    default: ''
   },
-  computed: {
-    mailLink() {
-      return `${LINK}?${queryParameter({ body: this.text, subject: this.subject })}`
-    }
+  filled: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const mailLink = computed(
+  () => `${LINK}?${queryParameter({ body: props.text, subject: props.subject })}`
+);
 </script>
