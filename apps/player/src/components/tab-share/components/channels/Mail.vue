@@ -1,20 +1,17 @@
 <template>
-  <channel
-    type="mail"
+  <mail-channel
     :text="shareText"
     :subject="shareSubject"
-    :color="state.color"
-    :background="state.background"
     :filled="hover"
-    @mouseover.native="hover.value = true"
-    @mouseleave.native="hover.value = false"
+    @mouseover.native="mouseOver"
+    @mouseleave.native="mouseLeave"
   />
 </template>
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { mapState } from 'redux-vuex';
-import { Channel } from '@podlove/components';
+import { MailChannel } from '@podlove/components';
 import { toHumanTime } from '@podlove/utils/time';
 import { useI18n } from 'vue-i18n';
 
@@ -26,12 +23,16 @@ const state = mapState({
   content: select.share.content,
   link: select.share.link,
   episodeTitle: select.episode.title,
-  playtime: select.playtime,
-  color: select.theme.brandDark,
-  background: select.theme.alt
+  playtime: select.playtime
 });
 
 const hover = ref(false);
+const mouseOver = () => {
+  hover.value = true;
+};
+const mouseLeave = () => {
+  hover.value = false;
+};
 
 const shareText = computed(() => {
   if (state.content === 'time') {
@@ -48,7 +49,7 @@ const shareText = computed(() => {
   });
 });
 
-const shareSubject = () => {
+const shareSubject = computed(() => {
   if (state.content === 'time') {
     return t('SHARE.EPISODE.SUBJECT.PLAYTIME', {
       title: state.episodeTitle,
@@ -59,5 +60,5 @@ const shareSubject = () => {
   return t('SHARE.EPISODE.SUBJECT.BEGINNING', {
     title: state.episodeTitle
   });
-};
+});
 </script>

@@ -9,7 +9,7 @@ const color = ref(saffron);
 const alt = ref('Image Alt text');
 const url = ref('https://via.placeholder.com/1500');
 const style = ref({
-  '--podlove-component-image-background': color
+  '--podlove-component--image--background': color
 });
 </script>
 

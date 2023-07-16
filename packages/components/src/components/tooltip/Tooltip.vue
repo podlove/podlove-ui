@@ -129,8 +129,8 @@ watch(visible, async () => {
 
 <style lang="scss" scoped>
 .podlove-component-tooltip {
-  color: var(--podlove-component-tooltip-color, var(--podlove-components-text));
-  background: var(--podlove-component-tooltip-background, var(--podlove-components-background));
+  color: var(--podlove-component--tooltip--color, var(--podlove-components-text));
+  background: var(--podlove-component--tooltip--background, var(--podlove-components-background));
 
   .tooltip-arrow {
     width: 0;
@@ -139,7 +139,7 @@ watch(visible, async () => {
     position: absolute;
     margin: 5px;
     z-index: 1;
-    border-color: var(--podlove-component-tooltip-background, var(--podlove-components-background));
+    border-color: var(--podlove-component--tooltip--background, var(--podlove-components-background));
   }
 
   &.top {

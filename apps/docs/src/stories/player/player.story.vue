@@ -119,11 +119,43 @@
         <error></error>
       </player>
     </PodlovePlayer>
+    <template #controls>
+      <HstColor title="brand" v-model="brand" />
+      <HstColor title="brandDark" v-model="brandDark" />
+      <HstColor title="brandDarkest" v-model="brandDarkest" />
+      <HstColor title="shadeDark" v-model="shadeDark" />
+      <HstColor title="contrast" v-model="contrast" />
+      <HstColor title="alt" v-model="alt" />
+    </template>
   </Story>
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue';
 import PodlovePlayer from './components/Player.vue';
-import config from './data/config.json';
+
+import defaultConfig from './data/config.json';
 import episode from './data/episode.json';
+
+const brand = ref(defaultConfig.theme.tokens.brand);
+const brandDark = ref(defaultConfig.theme.tokens.brandDark);
+const brandDarkest = ref(defaultConfig.theme.tokens.brandDarkest);
+const shadeDark = ref(defaultConfig.theme.tokens.shadeDark);
+const contrast = ref(defaultConfig.theme.tokens.contrast);
+const alt = ref(defaultConfig.theme.tokens.alt);
+
+const config = computed(() => ({
+  ...defaultConfig,
+  theme: {
+    ...defaultConfig.theme,
+    tokens: {
+      brand,
+      brandDark,
+      brandDarkest,
+      shadeDark,
+      contrast,
+      alt
+    }
+  }
+}));
 </script>

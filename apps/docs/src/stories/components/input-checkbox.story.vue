@@ -13,9 +13,9 @@ const borderColor = ref(persianGreen);
 const background = ref(charcoal);
 
 const style = ref({
-  '--podlove-component-checkbox-color': color,
-  '--podlove-component-checkbox-background': background,
-  '--podlove-component-checkbox-border': borderColor
+  '--podlove-component--checkbox--color': color,
+  '--podlove-component--checkbox--background': background,
+  '--podlove-component--checkbox--border': borderColor
 });
 </script>
 

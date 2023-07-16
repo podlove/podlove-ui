@@ -1,107 +1,122 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { TabHeader, TabHeaderItem, TabBody, Icon } from '@podlove/components';
+import { TabHeader, TabHeaderItem, TabBody, InfoIcon } from '@podlove/components';
 import { burntSienna, charcoal, persianGreen, sandyBrown } from '../colors.js';
 
 const color = ref(sandyBrown);
 const colorActive = ref(burntSienna);
 const background = ref(charcoal);
 const backgroundActive = ref(persianGreen);
-const tabs = {
-  futurama: ref(true),
-  dexter: ref(false)
-};
+
+const activeTab = ref('futurama');
 
 const style = ref({
-  '--podlove-component-tab-header-item-color': color,
-  '--podlove-component-tab-header-item-color-active': colorActive,
-  '--podlove-component-tab-header-item-background': background,
-  '--podlove-component-tab-body-background': background,
-  '--podlove-component-tab-header-item-background-active': backgroundActive
+  '--podlove-component--tab-header-item--color': color,
+  '--podlove-component--tab-header-item--color-active': colorActive,
+  '--podlove-component--tab-header-item--background': background,
+  '--podlove-component--tab-body--background': background,
+  '--podlove-component--tab-header-item--background-active': backgroundActive
 });
 
-function selectTab(selectedTab) {
-  Object.keys(tabs).forEach((tab) => {
-    tabs[tab].value = tab === selectedTab;
-  });
+function selectTab(tab) {
+  activeTab.value = tab;
 }
 </script>
 
 <template>
   <Story title="Components/Tab" auto-props-disabled>
-    <div class="w-48 text-white" :style="style">
+    <div class="text-white" :style="style">
       <tab-header>
         <tab-header-item
           name="futurama"
-          :active="tabs.futurama.value"
+          :active="activeTab === 'futurama'"
           display="native"
           :index="0"
           @click="selectTab('futurama')"
         >
-          <template #icon><icon type="info"></icon></template>
+          <template #icon><info-icon /></template>
           <template #title><span>futurama</span></template>
         </tab-header-item>
         <tab-header-item
           name="dexter"
-          :active="tabs.dexter.value"
+          :active="activeTab === 'dexter'"
           display="native"
           :index="0"
           @click="selectTab('dexter')"
         >
-          <template #icon><icon type="info"></icon></template>
+          <template #icon><info-icon /></template>
           <template #title><span>dexter</span></template>
         </tab-header-item>
       </tab-header>
       <tab-body
-        v-if="tabs.futurama.value"
+        v-if="activeTab === 'futurama'"
         ref="info"
-        :active="tabs.futurama.value"
+        :active="activeTab === 'futurama'"
         name="futurama"
-        :aria-selected="tabs.futurama.value"
+        :aria-selected="activeTab === 'futurama'"
       >
-        <h1>For example, if you killed your grandfather, you'd cease to exist!</h1>
+        <h1>Goodbye, friends. I never thought I'd die like this. But I always really hoped.</h1>
         <p>
-          Wow, you got that off the Internet? In my day, the Internet was only used to download
-          pornography. Morbo can't understand his teleprompter because he forgot how you say that
-          letter that's shaped like a man wearing a hat.
+          Large bet on myself in round one. Oh, how I wish I could believe or understand that!
+          There's only one reasonable course of action now: kill Flexo! You guys go on without me!
+          I'm going to go… look for more stuff to steal!
         </p>
         <p>
-          Um, is this the boring, peaceful kind of taking to the streets? And from now on you're all
-          named Bender Jr. <strong> Why would a robot need to drink?</strong>
-          <em> It must be wonderful.</em> Who are those horrible orange men?
+          Also Zoidberg. That could be 'my' beautiful soul sitting naked on a couch.
+          <strong> If I could just learn to play this stupid thing.</strong>
+          <em> Ah, the 'Breakfast Club' soundtrack!</em> I can't wait til I'm old enough to feel
+          ways about stuff!
         </p>
-        <h2>Okay, I like a challenge.</h2>
+        <h2>With gusto.</h2>
         <p>
-          This is the worst kind of discrimination: the kind against me! I videotape every customer
-          that comes in here, so that I may blackmail them later. I can explain. It's very valuable.
-          I'll get my kit! Tell them I hate them.
+          No argument here. Can we have Bender Burgers again? Ah, the 'Breakfast Club' soundtrack! I
+          can't wait til I'm old enough to feel ways about stuff! I'll get my kit! You mean while
+          I'm sleeping in it?
         </p>
+        <ol>
+          <li>
+            And so we say goodbye to our beloved pet, Nibbler, who's gone to a place where I, too,
+            hope one day to go. The toilet.
+          </li>
+          <li>This is the worst part. The calm before the battle.</li>
+          <li>She also liked to shut up!</li>
+        </ol>
       </tab-body>
 
       <tab-body
-        v-if="tabs.dexter.value"
+        v-if="activeTab === 'dexter'"
         ref="info"
-        :active="tabs.dexter.value"
+        :active="activeTab === 'dexter'"
         name="dexter"
-        :aria-selected="tabs.dexter.value"
+        :aria-selected="activeTab === 'dexter'"
       >
-        <h1>For example, if you killed your grandfather, you'd cease to exist!</h1>
+        <h1>
+          I've lived in darkness a long time. Over the years my eyes adjusted until the dark became
+          my world and I could see.
+        </h1>
         <p>
-          Wow, you got that off the Internet? In my day, the Internet was only used to download
-          pornography. Morbo can't understand his teleprompter because he forgot how you say that
-          letter that's shaped like a man wearing a hat.
+          I will not kill my sister. I will not kill my sister. I will not kill my sister. I've
+          lived in darkness a long time. Over the years my eyes adjusted until the dark became my
+          world and I could see. I'm Dexter, and I'm not sure what I am.
         </p>
         <p>
-          Um, is this the boring, peaceful kind of taking to the streets? And from now on you're all
-          named Bender Jr. <strong> Why would a robot need to drink?</strong>
-          <em> It must be wonderful.</em> Who are those horrible orange men?
+          I'm Dexter, and I'm not sure what I am. <strong> I like seafood.</strong>
+          <em> This man is a knight in shining armor.</em> Makes me a … scientist.
         </p>
-        <h2>Okay, I like a challenge.</h2>
+        <h2>You look…perfect.</h2>
         <p>
-          This is the worst kind of discrimination: the kind against me! I videotape every customer
-          that comes in here, so that I may blackmail them later. I can explain. It's very valuable.
-          I'll get my kit! Tell them I hate them.
+          I've lived in darkness a long time. Over the years my eyes adjusted until the dark became
+          my world and I could see. Under normal circumstances, I'd take that as a compliment. Under
+          normal circumstances, I'd take that as a compliment.
         </p>
+        <ol>
+          <li>
+            I've lived in darkness a long time. Over the years my eyes adjusted until the dark
+            became my world and I could see.
+          </li>
+          <li>Makes me a … scientist.</li>
+          <li>I love Halloween. The one time of year when everyone wears a mask … not just me.</li>
+        </ol>
       </tab-body>
     </div>
 

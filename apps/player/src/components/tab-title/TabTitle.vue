@@ -10,7 +10,7 @@
         :title="t(state.title.key, state.title.attr)"
         @click="close"
       >
-        <icon type="close" aria-hidden="true" />
+        <close-icon />
       </button>
     </div>
     <div class="border-dotted border-b-2 border-gray-400 w-full" />
@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { mapState } from 'redux-vuex';
-import { Icon } from '@podlove/components';
+import { CloseIcon } from '@podlove/components';
 import select from '../../store/selectors/index.js';
 
 const { t } = useI18n();

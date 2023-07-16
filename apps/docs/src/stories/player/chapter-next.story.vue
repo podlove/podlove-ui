@@ -1,22 +1,29 @@
 <template>
-  <Story title="Player/Next Chapter"  auto-props-disabled>
-    <player :config="config" :episode="episode">
-      <chapter-next class="mx-2 block"></chapter-next>
+  <Story title="Player/Next Chapter" auto-props-disabled :source="source">
+    <player :config="config" :episode="episode" :style="style">
+      <chapter-next></chapter-next>
     </player>
     <template #controls>
-      <theme-control v-model="config.theme"></theme-control>
+      <HstColor v-model="color" title="Color" />
     </template>
   </Story>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
-
-import ThemeControl from './components/ThemeControl.vue';
+import { computed, ref } from 'vue';
 import Player from './components/Player.vue';
-import defaultConfig from './data/config.json';
+
+import config from './data/config.json';
 import episode from './data/episode.json';
+import { inlineStyles } from '../helper/styles.js';
 
-const config = reactive(defaultConfig);
+const color = ref(config.theme.tokens.brandDark);
 
+const style = ref({
+  '--podlove-player--chapter-next--color': color
+});
+
+const source = computed(() =>`<div :style="${inlineStyles(style)}">
+  <chapter-next></chapter-next>
+</div>`);
 </script>

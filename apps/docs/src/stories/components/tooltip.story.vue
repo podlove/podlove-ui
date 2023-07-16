@@ -11,8 +11,8 @@ const color = ref(charcoal);
 const background = ref(saffron);
 
 const style = ref({
-  '--podlove-component-tooltip-background': background,
-  '--podlove-component-tooltip-color': color
+  '--podlove-component--tooltip--background': background,
+  '--podlove-component--tooltip--color': color
 });
 </script>
 

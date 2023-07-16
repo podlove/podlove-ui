@@ -2,14 +2,14 @@
   "version": 5,
   "theme": {
     "tokens": {
-      "brand": "#166255",
-      "brandDark": "#166255",
+      "brand": "#E64415",
+      "brandDark": "#235973",
       "brandDarkest": "#1A3A4A",
-      "brandLightest": "#E5EAECFF",
+      "brandLightest": "#E9F1F5",
       "shadeDark": "#807E7C",
       "shadeBase": "#807E7C",
-      "contrast": "#000",
-      "alt": "#fff"
+      "contrast": "#000000",
+      "alt": "#ffffff"
     }
   },
   "subscribe-button": {

@@ -48,11 +48,11 @@ watch(language, (lang) => {
 @tailwind utilities;
 
 .podlove-player {
-  --podlove-player-background: v-bind('state.brandLightest');
+  --podlove-player--background: v-bind('state.brandLightest');
 }
 
 .podlove-player {
-  background: var(--podlove-player-background);
+  background: var(--podlove-player--background);
 }
 
 .entry-enter-active,

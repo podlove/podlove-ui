@@ -46,8 +46,9 @@ export const reducer = handleActions<
   setChaptersPayload | setChapterPayload | updateChapterPayload
 >(
   {
-    [setChapters.toString()]: (_, { payload = [] }: Action<setChaptersPayload>) =>
-      generateState(payload.map((item, index) => (index === 0 ? { active: true, ...item } : item))),
+    [setChapters.toString()]: (_, { payload }: Action<setChaptersPayload>) => {
+      return generateState(payload.map((item, index) => (index === 0 ? { active: true, ...item } : item)))
+    },
 
     [setChapter.toString()]: (state, { payload }: Action<setChapterPayload>) => {
       const chapters = state.list.map(setActiveByIndex(payload));

@@ -19,7 +19,7 @@
       class="block absolute w-full bottom-0"
       :style="{ color: state.brandDark }"
     >
-      <icon class="block m-auto" type="active-tab" />
+      <active-tab-icon class="block m-auto" />
     </span>
   </button>
 </template>
@@ -30,7 +30,7 @@ import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { prop } from 'ramda';
 
-import { Icon } from '@podlove/components';
+import { ActiveTabIcon } from '@podlove/components';
 import { toggleTab } from '@podlove/player-actions/tabs';
 
 import select from '../../store/selectors/index.js';

@@ -1,10 +1,10 @@
 <template>
   <chapter-button
     v-if="state.chapterButtons"
+    class="podlove-player--chapter-previous"
     data-test="chapter-previous"
     type="previous"
     :disabled="state.previousChapterDisabled"
-    :color="state.color"
     :title="t(state.title.key, state.title.attr)"
     @previous="dispatch"
   />
@@ -22,9 +22,14 @@ const { t } = useI18n();
 const state = mapState({
   previousChapterDisabled: select.components.previousChapterDisabled,
   chapterButtons: select.components.chapterButtons,
-  color: select.theme.brandDark,
   title: select.accessibility.chapterPrevious
 });
 
 const dispatch = injectStore().dispatch;
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--chapter-previous {
+  --podlove-component--chapter-button--color: var(--podlove-player--chapter-previous--color);
+}
+</style>

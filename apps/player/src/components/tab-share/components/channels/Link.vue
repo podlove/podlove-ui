@@ -7,13 +7,11 @@
     placement="right"
     @click="copyLink"
   >
-    <channel
-      type="link"
-      :color="state.color"
-      :background="state.background"
+    <link-channel
       :filled="hover"
-      @mouseover="hover = true"
-      @mouseleavee="hover = false"
+      :link="state.link"
+      @mouseover="mouseOver"
+      @mouseleavee="mouseLeave"
     />
   </tooltip>
 </template>
@@ -23,7 +21,7 @@ import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { mapState } from 'redux-vuex';
 import copy from '@podlove/utils/copy';
-import { Channel, Tooltip } from '@podlove/components';
+import { LinkChannel, Tooltip } from '@podlove/components';
 
 import select from '../../../../store/selectors/index.js';
 
@@ -31,11 +29,16 @@ const { t } = useI18n();
 
 const state = mapState({
   link: select.share.link,
-  color: select.theme.brandDark,
-  background: select.theme.brandLightest
 });
 
+
 const hover = ref(false);
+const mouseOver = () => {
+  hover.value = true;
+};
+const mouseLeave = () => {
+  hover.value = false;
+};
 
 const copyLink = () => {
   copy(state.link);

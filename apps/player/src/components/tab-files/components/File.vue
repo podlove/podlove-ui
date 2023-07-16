@@ -9,7 +9,11 @@
   >
     <div class="flex h-10">
       <span class="h-full flex items-center pr-4">
-        <icon :type="icon" :filled="true" />
+        <download-icon :filled="true" v-if="icon === 'download'" />
+        <audio-file-icon :filled="true" v-if="icon === 'audio-file'" />
+        <video-file-icon :filled="true" v-if="icon === 'video-file'" />
+        <text-file-icon :filled="true" v-if="icon === 'text-file'" />
+        <pdf-file-icon :filled="true" v-if="icon === 'pdf-file'" />
       </span>
       <div class="w-full">
         <h3 :style="state.font">{{ file.title }}</h3>
@@ -27,7 +31,7 @@
 import { computed } from 'vue';
 import { mapState, injectStore } from 'redux-vuex';
 import { compose, includes, defaultTo, toLower } from 'ramda';
-import { Icon } from '@podlove/components';
+import { DownloadIcon, AudioFileIcon, VideoFileIcon, TextFileIcon, PdfFileIcon } from '@podlove/components';
 import { toMegabyte } from '@podlove/utils/math';
 import { hoverFile, selectFile } from '@podlove/player-actions/files';
 import { useI18n } from 'vue-i18n';

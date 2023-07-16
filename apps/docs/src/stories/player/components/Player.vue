@@ -10,13 +10,16 @@ const props = defineProps({
   config: Object
 });
 
+const emits = defineEmits(['init']);
+
 const player = ref(null);
 
 const { app, store } = createPlayer({ baseUrl: './' });
 
 onMounted(() => {
+  emits('init', store);
+  store.dispatch(init({ ...props.episode, ...props.config }));
   app.mount(player.value);
-  store.dispatch(init(Object.assign({}, props.episode, props.config)));
 });
 </script>
 

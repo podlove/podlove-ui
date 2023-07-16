@@ -51,6 +51,6 @@ const errorHandler = (event: Event) => {
 }
 
 .podlove-component-image-cover {
-  background-color: var(--podlove-component-image-background, var(--podlove-components-background));
+  background-color: var(--podlove-component--image--background, var(--podlove-components-background));
 }
 </style>

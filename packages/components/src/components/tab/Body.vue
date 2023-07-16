@@ -40,7 +40,7 @@ defineProps({
 }
 
 .podlove-component-tab-body .tab-content {
-  background: var(--podlove-component-tab-body-background, var(--podlove-components-background));
+  background: var(--podlove-component--tab-body--background, var(--podlove-components-background));
 }
 
 .podlove-component-tab-body.active {

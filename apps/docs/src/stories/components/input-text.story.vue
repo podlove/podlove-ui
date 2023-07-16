@@ -11,9 +11,9 @@ const background = ref(charcoal);
 const block = ref(false);
 
 const style = ref({
-  '--podlove-component-input-text-background': background,
-  '--podlove-component-input-text-border': borderColor,
-  '--podlove-component-input-text-color': color
+  '--podlove-component--input-text--background': background,
+  '--podlove-component--input-text--border': borderColor,
+  '--podlove-component--input-text--color': color
 });
 </script>
 

@@ -8,13 +8,11 @@
             :title="t(state.clearSearchTitle.key, state.clearSearchTitle.attr)"
             @click="reset"
           >
-            <icon aria-hidden="true" type="close" :color="state.brandDark" :size="24" />
+            <close-icon :color="state.brandDark" :size="24" />
           </button>
-          <icon
+          <search-icon
             v-else
             class="pointer-events-none"
-            aria-hidden="true"
-            type="search"
             :color="state.brandDark"
             :size="24"
           />
@@ -93,7 +91,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
-import { Icon } from '@podlove/components';
+import { CloseIcon, SearchIcon } from '@podlove/components';
 
 import {
   searchTranscripts,

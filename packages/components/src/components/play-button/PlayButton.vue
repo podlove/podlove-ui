@@ -84,8 +84,8 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
 
 <style lang="postcss" scoped>
 .podlove-component-play-button {
-  --podlove-component-icon-color: var(
-    --podlove-component-play-button-text-color,
+  --podlove-component--icon--color: var(
+    --podlove-component--play-button--text-color,
     var(--podlove-components-text)
   );
 }
@@ -93,7 +93,7 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
 .podlove-component-play-button .play-button--wrapper {
   transition: all 1800ms;
   background-color: var(
-    --podlove-component-play-button-background,
+    --podlove-component--play-button--background,
     var(--podlove-components-background)
   );
   height: v-bind('styleSize');
@@ -103,7 +103,7 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
 }
 
 .podlove-component-play-button .play-button--label {
-  color: var(--podlove-component-play-button-text-color, var(--podlove-components-text));
+  color: var(--podlove-component--play-button--text-color, var(--podlove-components-text));
 }
 
 .component-enter-active,

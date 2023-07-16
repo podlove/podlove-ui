@@ -1,5 +1,4 @@
 import { defineAsyncComponent } from 'vue';
-import { Icon } from '@podlove/components';
 
 import Root from './root/index.js';
 import EpisodeTitle from './episode-title/index.js';
@@ -61,7 +60,5 @@ export default {
   TabPlaylist: defineAsyncComponent(() => import('./tab-playlist/index.js')),
   TabShownotes: defineAsyncComponent(() => import('./tab-shownotes/index.js')),
 
-  ProgressBarLive: defineAsyncComponent(() => import('./progress-bar-live/index.js')),
-
-  Icon
+  ProgressBarLive: defineAsyncComponent(() => import('./progress-bar-live/index.js'))
 };

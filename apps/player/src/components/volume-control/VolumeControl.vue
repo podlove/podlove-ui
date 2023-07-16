@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state.available" class="block">
+  <div v-if="state.available" class="podlove-player--volume-control block">
     <div class="sr-only">
       <input
         type="number"
@@ -21,6 +21,12 @@
         aria-hidden="true"
         @click="focus"
       >
+        <speaker-0-icon v-if="state === 'speaker-0'" />
+        <speaker-25-icon v-if="state === 'speaker-25'" />
+        <speaker-50-icon v-if="state === 'speaker-50'" />
+        <speaker-75-icon v-if="state === 'speaker-75'" />
+        <speaker-100-icon v-if="state === 'speaker-100'" />
+
         <icon aria-hidden="true" :type="state.icon" :color="state.color" />
       </button>
       <template #popper>
@@ -52,7 +58,7 @@
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
-import { InputSlider, Icon } from '@podlove/components';
+import { InputSlider, Speaker0Icon, Speaker25Icon, Speaker50Icon, Speaker75Icon, Speed100Icon } from '@podlove/components';
 import { setVolume } from '@podlove/player-actions/audio';
 import { Dropdown } from 'floating-vue';
 
@@ -96,7 +102,12 @@ const focus = () => {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.podlove-player--volume-control {
+  --podlove-component--icon--color: var(--podlove-player--volume-control--color);
+
+}
+
 .v-popper--theme-dropdown .v-popper__inner {
   padding: 0;
   background: transparent;

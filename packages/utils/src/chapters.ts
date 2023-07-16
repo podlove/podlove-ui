@@ -21,16 +21,10 @@ export const currentChapterIndex = compose<any[], PodloveWebPlayerChapter[], num
   defaultTo([])
 );
 
-export const currentChapter = compose<
-  any[],
-  PodloveWebPlayerChapter[],
-  PodloveWebPlayerChapter,
-  PodloveWebPlayerChapter
->(
-  fallbackTo(emptyChapter),
-  find(propEq('active', true)) as (input: PodloveWebPlayerChapter[]) => PodloveWebPlayerChapter,
-  defaultTo([])
-);
+export const currentChapter = (input: PodloveWebPlayerChapter[] = []): PodloveWebPlayerChapter => {
+  const chapter = input.find(chapter => chapter.active)
+  return chapter ? chapter : emptyChapter
+}
 
 export const nextChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter =>
   compose<any[], number, number, PodloveWebPlayerChapter>(

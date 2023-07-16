@@ -1,29 +1,28 @@
 <template>
-  <channel
-    type="facebook"
+  <facebook-channel
     :link="state.link"
-    :color="state.color"
-    :background="state.background"
     :filled="hover"
-    @mouseover.native="hover.value = true"
-    @mouseleave.native="hover.value = false"
-  >
-    {{ state.link }}
-  </channel>
+    @mouseover.native="mouseOver"
+    @mouseleave.native="mouseLeave"
+  />
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { mapState } from 'redux-vuex';
-import { Channel } from '@podlove/components';
+import { FacebookChannel } from '@podlove/components';
 
 import select from '../../../../store/selectors/index.js';
 
 const state = mapState({
-  link: select.share.link,
-  color: select.theme.brandDark,
-  background: select.theme.alt
+  link: select.share.link
 });
 
 const hover = ref(false);
+const mouseOver = () => {
+  hover.value = true;
+};
+const mouseLeave = () => {
+  hover.value = false;
+};
 </script>

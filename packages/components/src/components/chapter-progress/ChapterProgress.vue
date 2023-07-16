@@ -7,7 +7,7 @@ import type {
   PodloveWebPlayerChapter
 } from '@podlove/types';
 
-import Icon from '../icons/Icon.vue';
+import LinkIcon from '../icons/Link.vue';
 import Timer from '../timer/Timer.vue';
 import { computed, ref } from 'vue';
 
@@ -107,7 +107,7 @@ const linkLeave = () => {
       {{ chapter.title }}
     </span>
     <span v-if="hasLink" class="flex max-w-[40%]">
-      <icon class="flex-shrink-0 -mt-[2px]" type="link" />
+      <link-icon class="flex-shrink-0 -mt-[2px]" />
       <a
         class="font-medium whitespace-no-wrap"
         :href="chapter.href"
@@ -143,7 +143,7 @@ const linkLeave = () => {
 <style lang="postcss" scoped>
 .podlove-component-chapter-progress-bar {
   background-color: var(
-    --podlove-component-chapter-progress-background,
+    --podlove-component--chapter-progress--background,
     var(--podlove-components-background)
   );
   width: v-bind('progressWidth');
@@ -151,7 +151,7 @@ const linkLeave = () => {
 
 .podlove-component-chapter-ghost-bar {
   background-color: var(
-    --podlove-component-chapter-ghost-background,
+    --podlove-component--chapter-ghost--background,
     var(--podlove-components-highlight)
   );
   width: v-bind('ghostWidth');

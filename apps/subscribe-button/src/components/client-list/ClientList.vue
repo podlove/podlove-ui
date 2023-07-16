@@ -18,7 +18,7 @@
           <img v-if="entry.icon" aria-hidden="true" :src="entry.icon" />
         </span>
         <span class="mr-2">{{ entry.title }}</span>
-        <icon type="arrow-to-right"></icon>
+        <arrow-to-right-icon />
       </a>
     </li>
   </ul>
@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import { mapState } from 'redux-vuex';
-import { Icon } from '@podlove/components';
+import { ArrowToRightIcon } from '@podlove/components';
 import type { PodcastClient } from '@podlove/types';
 import * as select from '../../store/selectors';
 

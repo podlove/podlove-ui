@@ -8,7 +8,7 @@ const type = ref('next');
 const color = ref(burntSienna);
 
 const style = ref({
-  '--podlove-component-chapter-button-color': color
+  '--podlove-component--chapter-button--color': color
 });
 </script>
 

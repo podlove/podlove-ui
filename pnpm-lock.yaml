@@ -105,8 +105,10 @@ importers:
       '@podlove/player-actions': workspace:*
       '@podlove/subscribe-button': workspace:*
       '@podlove/types': workspace:*
+      '@podlove/utils': workspace:*
       '@vitejs/plugin-vue': 4.2.3
       autoprefixer: 10.4.14
+      farbraum: 0.1.2
       histoire: 0.16.1
       postcss-import: 15.1.0
       tailwindcss: 3.3.2
@@ -119,6 +121,8 @@ importers:
       '@podlove/player-actions': link:../../packages/player/actions
       '@podlove/subscribe-button': link:../subscribe-button
       '@podlove/types': link:../../packages/types
+      '@podlove/utils': link:../../packages/utils
+      farbraum: 0.1.2
       vue: 3.2.41
     devDependencies:
       '@histoire/app': 0.16.1_vite@4.3.9

@@ -12,9 +12,9 @@ const color = ref(saffron);
 const options = ref(['value-1', 'value-2', 'value-3', 'value-4']);
 
 const style = ref({
-  '--podlove-component-input-select-color': color,
-  '--podlove-component-input-select-background': background,
-  '--podlove-component-input-select-border': borderColor
+  '--podlove-component--input-select--color': color,
+  '--podlove-component--input-select--background': background,
+  '--podlove-component--input-select--border': borderColor
 });
 </script>
 

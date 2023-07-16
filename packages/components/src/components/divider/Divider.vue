@@ -12,7 +12,7 @@
   image-rendering: pixelated;
   background-image: linear-gradient(
     90deg,
-    var(--podlove-component-divider-color, var(--podlove-components-background)) 25%,
+    var(--podlove-component--divider--color, var(--podlove-components-background)) 25%,
     rgba(128, 126, 124, 0) 0
   );
 }

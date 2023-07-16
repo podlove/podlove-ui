@@ -94,15 +94,15 @@ const handleDblclick = (event: Event) => {
 .podlove-component-input-slider .thumb {
   left: v-bind('thumbLeft');
   background-color: var(
-    --podlove-component-input-slider-thumb,
+    --podlove-component--input-slider--thumb,
     var(--podlove-components-background)
   );
-  border-color: var(--podlove-component-input-slider-border, var(--podlove-components-text));
+  border-color: var(--podlove-component--input-slider--border, var(--podlove-components-text));
 }
 
 .podlove-component-input-slider .track {
   background-color: rgba(0, 0, 0, 0.2);
-  background-color: var(--podlove-component-input-slider-progress, var(--podlove-components-text));
+  background-color: var(--podlove-component--input-slider--progress, var(--podlove-components-text));
 }
 
 .podlove-component-input-slider {

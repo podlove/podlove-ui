@@ -24,8 +24,8 @@ const href = ref('');
 const disabled = ref(false);
 
 const style = ref({
-  '--podlove-component-button-text': textColor,
-  '--podlove-component-button-background': backgroundColor,
-  '--podlove-component-button-border': borderColor
+  '--podlove-component--button--text': textColor,
+  '--podlove-component--button--background': backgroundColor,
+  '--podlove-component--button--border': borderColor
 });
 </script>

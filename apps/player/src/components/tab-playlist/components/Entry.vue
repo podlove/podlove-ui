@@ -24,8 +24,8 @@
       data-test="tab-playlist--entry--interaction"
       @click="click({ index, play: true })"
     >
-      <icon v-if="hover" type="menu-play" :size="24" />
-      <icon v-else type="menu-empty" :size="12" />
+      <menu-play-icon v-if="hover" :size="24" />
+      <menu-empty-icon v-else :size="12" />
     </span>
 
     <span
@@ -49,11 +49,11 @@ import { ref, computed } from 'vue';
 import { mapState, injectStore } from 'redux-vuex';
 import { selectEpisode } from '@podlove/player-actions/playlist';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
-import { Timer, Icon } from '@podlove/components';
+import { Timer, MenuPlayIcon, MenuEmptyIcon } from '@podlove/components';
 
 import select from '../../../store/selectors/index.js';
 
-const props = defineProps({
+defineProps({
   index: {
     type: Number,
     default: null

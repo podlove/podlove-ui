@@ -42,15 +42,15 @@ const bufferBackgroundColor = ref(burntSienna);
 const label = ref('');
 
 const style = ref({
-  '--podlove-component-progress-bar-progress-color': progressColor,
-  '--podlove-component-progress-bar-chapters-separator-color': chaptersSeperatorColor,
-  '--podlove-component-progress-bar-chapters-background-color': chaptersBackgroundColor,
-  '--podlove-component-progress-bar-track-background-color': trackBackgroundColor,
-  '--podlove-component-progress-bar-thumb-background-color': thumbBackgroundColor,
-  '--podlove-component-progress-bar-thumb-border-color': thumbBorderColor,
-  '--podlove-component-progress-bar-ghost-background-color': ghostBackgroundColor,
-  '--podlove-component-progress-bar-ghost-border-color': ghostBorderColor,
-  '--podlove-component-progress-bar-buffer-background-color': bufferBackgroundColor
+  '--podlove-component--progress-bar--progress-color': progressColor,
+  '--podlove-component--progress-bar--chapters-separator-color': chaptersSeperatorColor,
+  '--podlove-component--progress-bar--chapters-background-color': chaptersBackgroundColor,
+  '--podlove-component--progress-bar--track-background-color': trackBackgroundColor,
+  '--podlove-component--progress-bar--thumb-background-color': thumbBackgroundColor,
+  '--podlove-component--progress-bar--thumb-border-color': thumbBorderColor,
+  '--podlove-component--progress-bar--ghost-background-color': ghostBackgroundColor,
+  '--podlove-component--progress-bar--ghost-border-color': ghostBorderColor,
+  '--podlove-component--progress-bar--buffer-background-color': bufferBackgroundColor
 });
 </script>
 

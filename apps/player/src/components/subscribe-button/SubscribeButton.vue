@@ -7,14 +7,14 @@
     :style="style"
     @click="show"
   >
-    <icon class="mr-1" aria-hidden="true" type="plus" />
+    <plus-icon class="mr-1" />
     <span>{{ t('SUBSCRIBE') }}</span>
   </button>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { Icon } from '@podlove/components';
+import { PlusIcon } from '@podlove/components';
 import { mapState, injectStore } from 'redux-vuex';
 import { useI18n } from 'vue-i18n';
 import * as overlay from '@podlove/button-actions/overlay';

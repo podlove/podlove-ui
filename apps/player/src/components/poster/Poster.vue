@@ -1,5 +1,5 @@
 <template>
-  <div data-test="poster">
+  <div class="podlove-player--poster" data-test="poster">
     <lazy-image
       :url="state.posterSrc"
       :color="state.coverColor"
@@ -22,3 +22,9 @@ const state = mapState({
 
 const actions = mapActions('errorPosterLoad');
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--poster {
+  --podlove-component--image--background: var(--podlove-player--poster--background);
+}
+</style>

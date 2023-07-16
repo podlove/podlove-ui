@@ -30,8 +30,8 @@ defineProps({
 
 <style lang="postcss" scoped>
 .podlove-component-input-text {
-  background: var(--podlove-component-input-text-background, var(--podlove-components-text));
-  border-color: var(--podlove-component-input-text-border, var(--podlove-components-background));
-  color: var(--podlove-component-input-text-color, var(--podlove-components-background));
+  background: var(--podlove-component--input-text--background, var(--podlove-components-text));
+  border-color: var(--podlove-component--input-text--border, var(--podlove-components-background));
+  color: var(--podlove-component--input-text--color, var(--podlove-components-background));
 }
 </style>

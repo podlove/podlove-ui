@@ -1,12 +1,12 @@
 <template>
   <span class="flex justify-center items-center" aria-hidden="true">
-    <icon type="play" :size="size" />
+    <icon :size="size" />
     <slot />
   </span>
 </template>
 
 <script setup lang="ts">
-import Icon from '../../icons';
+import Icon from '../../icons/Play.vue';
 
 defineProps({
   size: {

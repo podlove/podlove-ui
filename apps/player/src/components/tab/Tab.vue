@@ -1,14 +1,13 @@
 <template>
   <tab-body
     v-if="active"
+    class="podlove-player--tab"
     :id="`tab-${name}`"
     :ref="name"
     :active="active"
     :name="name"
     :aria-label="t(state.a11y.key, { name })"
     :aria-selected="active"
-    :background="state.background"
-    :style="{ color: state.color }"
     data-test="tab"
     tabindex="1"
   >
@@ -31,16 +30,21 @@ const { t } = useI18n();
 const props = defineProps({
   name: {
     type: String,
-    default: null
+    default: ''
   }
 });
 
 const state = mapState({
-  background: select.theme.brandDark,
   tabs: select.tabs,
-  color: select.theme.alt,
   a11y: select.accessibility.tabPanel(props.name)
 });
 
 const active = computed(() => state.tabs[props.name])
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab {
+  color: var(--podlove-player--tab--color);
+  --podlove-component--tab-body--background: var(--podlove-player--tab--background);
+}
+</style>

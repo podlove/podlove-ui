@@ -3,7 +3,7 @@ import { selectors as content } from '@podlove/player-state/content'
 import { selectors as embed } from '@podlove/player-state/embed'
 import { toHumanTime } from '@podlove/utils/time'
 import { addQueryParameter } from '@podlove/utils/url'
-import { compose, prop } from 'ramda'
+import { prop } from 'ramda'
 
 import root from './root.js'
 
@@ -12,6 +12,7 @@ import episode from './episode.js'
 import chapter from './chapters.js'
 import reference from './reference.js'
 import timepiece from './timepiece.js'
+import State from '../state.js'
 
 const contentSlice = prop('content')
 const embedSlice = prop('embed')
@@ -19,17 +20,17 @@ const type = createSelector(root.share, contentSlice, content.content)
 const embedSize = createSelector(root.share, embedSlice, embed.size)
 const availableEmbedSizes = createSelector(root.share, embedSlice, embed.available)
 
-const hasLink = (state) =>
+const hasLink = (state: State) =>
   (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state))
 
-const hasEmbedLink = (state) =>
+const hasEmbedLink = (state: State) =>
   !!(
     type(state) !== 'show' &&
     reference.episode(state) &&
     (reference.share(state) || reference.origin(state))
   )
 
-const link = (state) => {
+const link = (state: State) => {
   switch (type(state)) {
     case 'episode':
       return episode.link(state)
@@ -40,7 +41,7 @@ const link = (state) => {
   }
 }
 
-const code = (state) => {
+const code = (state: State) => {
   const showTitle = show.title(state)
   const episodeTitle = episode.title(state)
   const currentChapter = chapter.current(state)

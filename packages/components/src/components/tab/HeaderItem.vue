@@ -39,13 +39,13 @@
     >
       <span class="icon mr-1" aria-hidden="true"><slot name="icon" /></span>
       <span class="uppercase ml-1"><slot name="title" /></span>
-      <icon v-if="active" type="close" class="hidden" aria-hidden="true" />
+      <icon v-if="active" class="hidden" aria-hidden="true" />
     </button>
   </li>
 </template>
 
 <script lang="ts" setup>
-import Icon from '../icons';
+import Icon from '../icons/Close.vue';
 
 defineProps({
   index: {
@@ -76,35 +76,35 @@ const clickHandler = () => {
 <style lang="postcss" scoped>
 .podlove-component-tab-header-item {
   transition: all 300ms;
-  --podlove-component-icon-color: var(
-    --podlove-component-header-item-color-active,
+  --podlove-component--icon--color: var(
+    --podlove-component--header-item--color-active,
     var(--podlove-components-background)
   );
 }
 
 .podlove-component-tab-header-item .icon {
   line-height: 0;
-  fill: var(--podlove-component-tab-header-item-color, var(--podlove-components-text));
+  fill: var(--podlove-component--tab-header-item--color, var(--podlove-components-text));
 }
 
 .podlove-component-tab-header-item.active .icon {
-  fill: var(--podlove-component-tab-header-item-color-active, var(--podlove-components-background));
+  fill: var(--podlove-component--tab-header-item--color-active, var(--podlove-components-background));
 }
 
 .podlove-component-tab-header-item.active {
   @apply hover:opacity-100;
 
-  color: var(--podlove-component-tab-header-item-color-active, var(--podlove-components-background));
+  color: var(--podlove-component--tab-header-item--color-active, var(--podlove-components-background));
   background: var(
-    --podlove-component-tab-header-item-background-active,
+    --podlove-component--tab-header-item--background-active,
     var(--podlove-components-text)
   );
 }
 
 .podlove-component-tab-header-item,
 .podlove-component-tab-header-item.embed {
-  color: var(--podlove-component-tab-header-item-color, var(--podlove-components-text));
-  background: var(--podlove-component-tab-header-item-background, var(--podlove-components-background));
+  color: var(--podlove-component--tab-header-item--color, var(--podlove-components-text));
+  background: var(--podlove-component--tab-header-item--background, var(--podlove-components-background));
 }
 
 .podlove-component-tab-header-item.embed {

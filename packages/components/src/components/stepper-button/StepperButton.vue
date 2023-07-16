@@ -4,14 +4,15 @@
     class="podlove-component-stepper-button opacity-100 hover:opacity-75"
     @click="clickHandler"
   >
-    <icon :type="type" />
+    <component :is="icons[type]" />
     <slot />
   </button>
 </template>
 
 <script lang="ts" setup>
 import { stepForward, stepBackwards } from '@podlove/player-actions/stepper';
-import Icon from '../icons';
+import ForwardIcon from '../icons/Forward.vue';
+import BackwardIcon from '../icons/Backwards.vue';
 
 const props = defineProps({
   type: {
@@ -22,6 +23,11 @@ const props = defineProps({
 });
 
 const emits = defineEmits(['forward', 'backwards']);
+
+const icons = {
+  forward: ForwardIcon,
+  backward: BackwardIcon
+};
 
 const clickHandler = () => {
   switch (props.type) {
@@ -37,8 +43,8 @@ const clickHandler = () => {
 
 <style lang="postcss" scoped>
 .podlove-component-stepper-button {
-  --podlove-component-icon-color: var(
-    --podlove-component-stepper-button-color,
+  --podlove-component--icon--color: var(
+    --podlove-component--stepper-button--color,
     var(--podlove-components-text)
   );
 }

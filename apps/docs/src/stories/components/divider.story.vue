@@ -6,7 +6,7 @@ import { persianGreen } from '../colors.js';
 
 const color = ref(persianGreen);
 const style = ref({
-  '--podlove-component-divider-color': color
+  '--podlove-component--divider--color': color
 });
 </script>
 

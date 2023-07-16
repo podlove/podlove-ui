@@ -1,21 +1,20 @@
 <template>
-  <channel
-    type="pinterest"
+  <pinterest-channel
     :text="shareText"
     :link="state.link"
     :poster="state.episodePoster"
     :color="state.color"
     :background="state.background"
     :filled="hover"
-    @mouseover.native="hover.value = true"
-    @mouseleave.native="hover.value = false"
+    @mouseover.native="mouseOver"
+    @mouseleave.native="mouseLeave"
   />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { mapState } from 'redux-vuex';
-import { Channel } from '@podlove/components';
+import { PinterestChannel } from '@podlove/components';
 import { toHumanTime } from '@podlove/utils/time';
 import { useI18n } from 'vue-i18n';
 
@@ -28,14 +27,18 @@ const state = mapState({
   link: select.share.link,
   episodeTitle: select.episode.title,
   episodePoster: select.episode.poster,
-  playtime: select.playtime,
-  color: select.theme.brandDark,
-  background: select.theme.alt
+  playtime: select.playtime
 });
 
 const hover = ref(false);
+const mouseOver = () => {
+  hover.value = true;
+};
+const mouseLeave = () => {
+  hover.value = false;
+};
 
-const shareText = () => {
+const shareText = computed(() => {
   if (state.content === 'time') {
     return t('SHARE.EPISODE.TEXT.PLAYTIME', {
       title: state.episodeTitle,
@@ -48,5 +51,5 @@ const shareText = () => {
     title: state.episodeTitle,
     link: state.link
   });
-};
+});
 </script>

@@ -2,14 +2,14 @@
   <h1 :style="style" data-test="episode-title">
     <a
       v-if="state.link"
-      class="episode-title block overflow-hidden"
+      class="podlove-player--episode-title block overflow-hidden"
       :href="state.link"
       :target="state.target"
       data-test="episode-title--link"
     >
       {{ state.title }}
     </a>
-    <span v-else class="episode-title block overflow-hidden" data-test="episode-title--text">{{
+    <span v-else class="podlove-player--episode-title block overflow-hidden" data-test="episode-title--text">{{
       state.title
     }}</span>
   </h1>
@@ -22,22 +22,21 @@ import select from '../../store/selectors/index.js';
 
 const state = mapState({
   font: select.theme.fontBold,
-  color: select.theme.contrast,
   title: select.episode.title,
   link: select.episode.link,
   target: select.target
 });
 
 const style = computed(() => ({
-  color: state.color,
   ...state.font
 }));
 </script>
 
 <style lang="postcss" scoped>
-.episode-title {
+.podlove-player--episode-title {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: var(--podlove-player--episode-title--color);
 }
 </style>

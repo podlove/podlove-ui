@@ -1,12 +1,12 @@
 <template>
   <span class="flex justify-center items-center" aria-hidden="true">
-    <icon type="restart" :size="size" />
+    <icon :size="size" />
     <slot />
   </span>
 </template>
 
 <script lang="ts" setup>
-import Icon from '../../icons';
+import Icon from '../../icons/Restart.vue';
 
 defineProps({
   size: {

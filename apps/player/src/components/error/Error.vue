@@ -2,31 +2,29 @@
   <div
     v-if="state.active"
     id="error"
-    class="fixed flex items-center justify-center w-full h-full inset-0"
-    :style="{ background: state.brandLightest }"
+    class="podlove-player--error fixed flex items-center justify-center w-full h-full inset-0"
     data-test="error"
   >
     <div class="p-6 text-center">
       <h3
         v-if="state.title"
-        class="text-2xl mb-5"
-        :style="{ font: state.headline, color: state.contrast }"
+        class="podlove-player--error--title text-2xl mb-5"
+        :style="{ font: state.headline }"
         data-test="error--title"
       >
         {{ t(state.title) }}
       </h3>
       <p
         v-if="state.message"
-        class="max-w-xl mb-5"
+        class="podlove-player--error--message max-w-xl mb-5"
         data-test="error--message"
-        :style="{ color: state.contrast }"
       >
         {{ t(state.message) }}
       </p>
       <button
         v-if="state.retry"
-        class="px-5 py-2 rounded-sm"
-        :style="{ color: state.alt, background: state.brandDark, ...state.headline }"
+        class="podlove-player--error--retry-button px-5 py-2 rounded-sm"
+        :style="{ ...state.headline }"
         data-test="error--retry"
         @click.native="retryAction"
       >
@@ -49,11 +47,7 @@ const state = mapState({
   title: select.error.title,
   message: select.error.message,
   retry: select.error.retry,
-  headline: select.theme.fontBold,
-  brandDark: select.theme.brandDark,
-  alt: select.theme.alt,
-  brandLightest: select.theme.brandLightest,
-  contrast: select.theme.contrast
+  headline: select.theme.fontBold
 });
 
 const dispatch = injectStore().dispatch;
@@ -62,3 +56,22 @@ const retryAction = () => {
   state.retry && dispatch({ type: state.retry });
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--error {
+  background: var(--podlove-player--error--background);
+}
+
+.podlove-player--error--title {
+  color: var(--podlove-player--error--title-color);
+}
+
+.podlove-player--error--message {
+  color: var(--podlove-player--error--message-color);
+}
+
+.podlove-player--error--retry-button {
+  color: var(--podlove-player--error--retry-button-color);
+  background: var(--podlove-player--error--retry-button-background);
+}
+</style>

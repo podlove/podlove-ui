@@ -1,45 +1,73 @@
+<script lang="ts">
+import {
+  LinkChannel,
+  RedditChannel,
+  MailChannel,
+  XingChannel,
+  EmbedChannel,
+  TwitterChannel,
+  FacebookChannel,
+  LinkedinChannel,
+  WhatsAppChannel,
+  PinterestChannel
+} from '@podlove/components';
+
+export default {
+  components: {
+    LinkChannel,
+    RedditChannel,
+    MailChannel,
+    XingChannel,
+    EmbedChannel,
+    TwitterChannel,
+    FacebookChannel,
+    LinkedinChannel,
+    WhatsAppChannel,
+    PinterestChannel
+  }
+};
+</script>
+
 <script setup lang="ts">
 import { ref } from 'vue';
 import { logEvent } from 'histoire/client';
-
-import { Channel } from '@podlove/components';
 import { charcoal, saffron } from '../colors.js';
 
-const type = ref('embed');
+const type = ref('embedChannel');
 const color = ref(saffron);
 const background = ref(charcoal);
 
-const filled = ref(false)
-const link = ref('')
-const subject = ref('')
-const text = ref('')
-const a11y = ref('')
+const filled = ref(false);
+const link = ref('');
+const subject = ref('');
+const text = ref('');
+const a11y = ref('');
 
 const style = ref({
-  '--podlove-component-channel-color': color,
-  '--podlove-component-channel-background': background
+  '--podlove-component--channel--color': color,
+  '--podlove-component--channel--background': background
 });
 </script>
 
 <template>
   <Story title="Components/Channel" auto-props-disabled>
-    <Channel :style="style" :type="type" @click="logEvent('click', $event)" />
+    <component :is="type" :style="style" :type="type" @click="logEvent('click', $event)" />
 
     <template #controls>
       <HstSelect
         v-model="type"
         title="Type"
         :options="[
-          'embed',
-          'facebook',
-          'linkedin',
-          'mail',
-          'reddit',
-          'twitter',
-          'xing',
-          'whatsapp',
-          'pinterest',
-          'link'
+          'embedChannel',
+          'facebookChannel',
+          'linkedinChannel',
+          'mailChannel',
+          'redditChannel',
+          'twitterChannel',
+          'xingChannel',
+          'whatsappChannel',
+          'pinterestChannel',
+          'linkChannel'
         ]"
       />
 

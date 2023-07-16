@@ -1,5 +1,5 @@
 <template>
-  <span :style="style" data-test="publication-date">{{ date }}</span>
+  <span class="podlove-player--publication-date" data-test="publication-date">{{ date }}</span>
 </template>
 
 <script lang="ts" setup>
@@ -16,13 +16,8 @@ const props = defineProps({
 });
 
 const state = mapState({
-  color: select.theme.contrast,
   publicationDate: select.episode.publicationDate
 });
-
-const style = computed(() => ({
-  color: state.color
-}));
 
 const date = computed(() => {
   const date = new Date(state.publicationDate);
@@ -30,3 +25,9 @@ const date = computed(() => {
   return props.format ? format(date, props.format) : date.toLocaleDateString();
 });
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--publication-date {
+  color: var(--podlove-player--publication-date--color);
+}
+</style>

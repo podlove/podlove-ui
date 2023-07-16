@@ -42,8 +42,8 @@ const changeEvent = (event: Event) => {
 
 <style lang="postcss" scoped>
 .podlove-component-select {
-  color: var(--podlove-component-input-select-color, var(--podlove-components-background));
-  background: var(--podlove-component-input-select-background, var(--podlove-components-text));
-  border-color: var(--podlove-component-input-select-border, var(--podlove-components-background));
+  color: var(--podlove-component--input-select--color, var(--podlove-components-background));
+  background: var(--podlove-component--input-select--background, var(--podlove-components-text));
+  border-color: var(--podlove-component--input-select--border, var(--podlove-components-background));
 }
 </style>

@@ -9,7 +9,7 @@ const type = ref('forward');
 const color = ref(burntSienna);
 
 const style = ref({
-  '--podlove-component-stepper-button-color': color
+  '--podlove-component--stepper-button--color': color
 });
 </script>
 

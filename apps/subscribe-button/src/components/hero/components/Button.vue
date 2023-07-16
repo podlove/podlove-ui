@@ -1,13 +1,13 @@
 <template>
   <button :style="filling" @click="onClick">
-    <icon type="subscribe" :size="iconSize"></icon>
+    <subscribe-icon :size="iconSize" />
     <span v-if="state.format !== 'square'">{{ $t('SUBSCRIBE') }}</span>
   </button>
 </template>
 
 <script lang="ts" setup>
 import { mapState } from 'redux-vuex';
-import Icon from '@podlove/components/icons';
+import { SubscribeIcon } from '@podlove/components';
 
 import {
   selectColor,

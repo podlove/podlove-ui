@@ -1,18 +1,18 @@
 <template>
   <play-button
+    class="podlove-player--play-button"
+    :class="{ hover}"
     v-if="button.type"
     :type="button.type"
     :title="button.a11y"
-    :color="background"
-    :background="color"
     :size="size"
     :label="button.label"
     data-test="play-button"
     @play="dispatch"
     @pause="dispatch"
     @restart="dispatch"
-    @mouseover="mouseOver"
-    @mouseleave="mouseLeave"
+    @mouseover="mouseOver()"
+    @mouseleave="mouseLeave()"
   />
 </template>
 
@@ -46,9 +46,6 @@ const props = defineProps({
 const hover = ref(false);
 
 const state = mapState({
-  brandDark: select.theme.brandDark,
-  brandDarkest: select.theme.brandDarkest,
-  brandLightest: select.theme.brandLightest,
   playButton: select.components.playButton,
   duration: select.duration,
   playtime: select.playtime,
@@ -61,8 +58,6 @@ const state = mapState({
 
 const dispatch = injectStore().dispatch;
 
-const background = computed(() => state.brandLightest);
-const color = computed(() => (hover.value ? state.brandDarkest : state.brandDark));
 const button = computed(() => {
   switch (state.playButton) {
     case 'paused':
@@ -126,3 +121,14 @@ const mouseLeave = () => {
   hover.value = false;
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--play-button {
+  --podlove-component--play-button--text-color: var(--podlove-player--play-button--color);
+  --podlove-component--play-button--background: var(--podlove-player--play-button--background);
+}
+
+.podlove-player--play-button.hover {
+  --podlove-component--play-button--text-color: var(--podlove-player--play-button--color-hover);
+}
+</style>

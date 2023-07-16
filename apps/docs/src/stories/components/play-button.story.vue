@@ -11,8 +11,8 @@ const label = ref('My Label');
 const size = ref(50);
 
 const style = ref({
-  '--podlove-component-play-button-background': background,
-  '--podlove-component-play-button-text-color': color
+  '--podlove-component--play-button--background': background,
+  '--podlove-component--play-button--text-color': color
 });
 </script>
 

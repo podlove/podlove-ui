@@ -1,8 +1,6 @@
 <template>
   <progress-bar
-    :progress-color="progressColor"
-    :thumb-color="state.thumbColor"
-    :highlight-color="state.highlightColor"
+    class="podlove-player--progress-bar-live"
     :duration="state.livesync"
     :time="state.playtime"
     :ghost="state.ghost"
@@ -16,22 +14,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
-import { fade } from 'farbraum';
 import { ProgressBar } from '@podlove/components';
 
 import select from '../../store/selectors/index.js';
 
 const { t } = useI18n();
 
-const progressColor = computed(() => fade(state.progressColor, 0.7));
-
 const state = mapState({
-  progressColor: select.theme.brandDark,
-  thumbColor: select.theme.brandDark,
-  highlightColor: select.theme.brandLightest,
   playtime: select.playtime,
   ghost: select.ghost.time,
   buffer: select.network.buffer,
@@ -41,3 +32,15 @@ const state = mapState({
 
 const dispatch = injectStore().dispatch;
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--progress-bar-live {
+  --podlove-component--progress-bar--progress-color: var(--podlove-player--progress-bar-live--progress-color);
+  --podlove-component--progress-bar--track-background-color: var(--podlove-player--progress-bar-live--track-color);
+  --podlove-component--progress-bar--thumb-background-color: var(--podlove-player--progress-bar-live--thumb-color);
+  --podlove-component--progress-bar--thumb-border-color: var(--podlove-player--progress-bar-live--thumb-border-color);
+  --podlove-component--progress-bar--ghost-background-color: var(--podlove-player--progress-bar-live--ghost-color);
+  --podlove-component--progress-bar--ghost-border-color: var(--podlove-player--progress-bar-live--ghost-border-color);
+  --podlove-component--progress-bar--buffer-background-color: var(--podlove-player--progress-bar-live--buffer-background-color);
+}
+</style>

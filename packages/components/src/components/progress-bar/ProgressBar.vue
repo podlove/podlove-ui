@@ -208,7 +208,7 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
     top: calc(50% - calc($track-height / 2));
     height: $track-height;
     background-color: var(
-      --podlove-component-progress-bar-progress-color,
+      --podlove-component--progress-bar--progress-color,
       var(--podlove-components-text)
     );
   }
@@ -219,7 +219,7 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
     top: calc(50% - 1px);
     border-right: 2px solid
       var(
-        --podlove-component-progress-bar-chapters-separator-color,
+        --podlove-component--progress-bar--chapters-separator-color,
         var(--podlove-components-highlight)
       );
 
@@ -228,7 +228,7 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
       top: calc(50% - 2px);
 
       background: var(
-        --podlove-component-progress-bar-chapters-background-color,
+        --podlove-component--progress-bar--chapters-background-color,
         var(--podlove-components-text)
       );
     }
@@ -238,7 +238,7 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
     top: calc(50% - calc($track-height / 2));
     height: $track-height;
     background-color: var(
-      --podlove-component-progress-bar-track-background-color,
+      --podlove-component--progress-bar--track-background-color,
       var(--podlove-components-text)
     );
   }
@@ -252,11 +252,11 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
 
     transition: left 150ms;
     background-color: var(
-      --podlove-component-progress-bar-thumb-background-color,
+      --podlove-component--progress-bar--thumb-background-color,
       var(--podlove-components-text)
     );
     border-color: var(
-      --podlove-component-progress-bar-thumb-border-color,
+      --podlove-component--progress-bar--thumb-border-color,
       var(--podlove-components-highlight)
     );
 
@@ -275,11 +275,11 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
     top: calc(50% - calc($thumb-size / 2));
     width: $thumb-size;
     background-color: var(
-      --podlove-component-progress-bar-ghost-background-color,
+      --podlove-component--progress-bar--ghost-background-color,
       var(--podlove-components-text)
     );
     border-color: var(
-      --podlove-component-progress-bar-ghost-border-color,
+      --podlove-component--progress-bar--ghost-border-color,
       var(--podlove-components-highlight)
     );
   }
@@ -293,7 +293,7 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
     left: 0;
     pointer-events: none;
     background-color: var(
-      --podlove-component-progress-bar-buffer-background-color,
+      --podlove-component--progress-bar--buffer-background-color,
       var(--podlove-components-highlight)
     );
   }

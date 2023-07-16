@@ -1,20 +1,19 @@
 <template>
-  <channel
-    type="linkedin"
+  <linkedin-channel
     :text="shareText"
     :link="state.link"
     :color="state.color"
     :background="state.background"
     :filled="hover"
-    @mouseover="hover.value = true"
-    @mouseleave="hover.value = false"
+    @mouseover="mouseOver"
+    @mouseleave="mouseLeave"
   />
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { mapState } from 'redux-vuex';
-import { Channel } from '@podlove/components';
+import { LinkedinChannel } from '@podlove/components';
 import { toHumanTime } from '@podlove/utils/time';
 import { useI18n } from 'vue-i18n';
 
@@ -26,12 +25,17 @@ const state = mapState({
   content: select.share.content,
   link: select.share.link,
   episodeTitle: select.episode.title,
-  playtime: select.playtime,
-  color: select.theme.brandDark,
-  background: select.theme.alt
+  playtime: select.playtime
 });
 
+
 const hover = ref(false);
+const mouseOver = () => {
+  hover.value = true;
+};
+const mouseLeave = () => {
+  hover.value = false;
+};
 
 const shareText = computed(() => {
   if (state.content === 'time') {

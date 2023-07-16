@@ -1,9 +1,9 @@
 <template>
-  <icon type="loading" :size="size" aria-hidden="true" />
+  <icon :size="size" aria-hidden="true" />
 </template>
 
 <script lang="ts" setup>
-import Icon from '../../icons';
+import Icon from '../../icons/Loading.vue';
 
 defineProps({
   size: {

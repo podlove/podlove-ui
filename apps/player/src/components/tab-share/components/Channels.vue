@@ -1,5 +1,8 @@
 <template>
-  <ul class="flex flex-wrap justify-space-between" data-test="tab-share--channels">
+  <ul
+    class="podlove-player--tab-share--channels flex flex-wrap justify-space-between"
+    data-test="tab-share--channels"
+  >
     <li
       v-for="channel in channels"
       :key="`channel-${channel}`"
@@ -19,7 +22,7 @@ import { useI18n } from 'vue-i18n';
 import { mapState } from 'redux-vuex';
 import { computed } from 'vue';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 import select from '../../../store/selectors/index.js';
 
@@ -48,7 +51,14 @@ const channelComponent = {
   reddit: RedditChannel,
   xing: XingChannel,
   whatsapp: WhatsAppChannel
-}
+};
 
 const channels = computed(() => Object.values(state.channels) as unknown as string);
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-share--channels {
+  --podlove-component--channel--color: var(--podlove-player--tab-share--channels--color);
+  --podlove-component--channel--background: var(--podlove-player--tab-share--channels--background);
+}
+</style>

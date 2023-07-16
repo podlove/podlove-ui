@@ -39,9 +39,9 @@ const props = defineProps<{
 <style lang="postcss" scoped>
 .podlove-component-button {
   font-variant: small-caps;
-  color: var(--podlove-component-button-text, var(--podlove-components-background));
-  background: var(--podlove-component-button-background, var(--podlove-components-text));
-  border-color: var(--podlove-component-button-border, var(--podlove-components-background));
+  color: var(--podlove-component--button--text, var(--podlove-components-background));
+  background: var(--podlove-component--button--background, var(--podlove-components-text));
+  border-color: var(--podlove-component--button--border, var(--podlove-components-background));
 }
 
 .podlove-component-button svg {
