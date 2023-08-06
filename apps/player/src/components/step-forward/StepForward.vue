@@ -1,11 +1,10 @@
 <template>
   <stepper-button
     v-if="state.stepperButtons"
-    class="control-button"
+    class="podlove-player--stepper-button--forward"
     data-test="step-forward"
     type="forward"
     :title="t(state.title.key, state.title.attr)"
-    :color="state.color"
     @forward="dispatch"
   />
 </template>
@@ -21,8 +20,14 @@ const { t } = useI18n();
 
 const state = mapState({
   stepperButtons: select.components.stepperButtons,
-  color: select.theme.brandDark,
   title: select.accessibility.stepperForward
 });
 const dispatch = injectStore().dispatch;
 </script>
+
+
+<style lang="postcss" scoped>
+.podlove-player--stepper-button--forward {
+  --podlove-component--stepper-button--color: var(--podlove-player--stepper-button--forward--color);
+}
+</style>

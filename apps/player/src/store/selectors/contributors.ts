@@ -3,10 +3,11 @@ import { selectors } from '@podlove/player-state/contributors';
 import { createSelector } from 'reselect';
 
 import root from './root.js';
+import State from '../state.js';
 
 const list = createSelector(root.contributors, selectors.contributors);
 
-const groups = (state) => {
+const groups = (state: State) => {
   const contributors = list(state);
 
   return values(

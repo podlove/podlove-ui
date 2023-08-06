@@ -4,7 +4,9 @@
     class="podlove-component-stepper-button opacity-100 hover:opacity-75"
     @click="clickHandler"
   >
-    <component :is="icons[type]" />
+    <forward-icon v-if="type === 'forward'" />
+    <backward-icon v-if="type === 'backwards'" />
+
     <slot />
   </button>
 </template>
@@ -23,11 +25,6 @@ const props = defineProps({
 });
 
 const emits = defineEmits(['forward', 'backwards']);
-
-const icons = {
-  forward: ForwardIcon,
-  backward: BackwardIcon
-};
 
 const clickHandler = () => {
   switch (props.type) {

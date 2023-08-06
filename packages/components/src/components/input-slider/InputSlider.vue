@@ -61,7 +61,7 @@ const handleDblclick = (event: Event) => {
 </script>
 
 <template>
-  <div class="podlove-component-input-slider w-full relative h-[30px]">
+  <div class="podlove-component--input-slider w-full relative h-[30px]">
     <input
       type="range"
       :min="min"
@@ -72,7 +72,9 @@ const handleDblclick = (event: Event) => {
       @change="handleChange"
       @dblclick="handleDblclick"
     />
-    <span class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm" />
+    <span
+      class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    />
     <span
       v-for="(pin, index) in pins"
       :key="index"
@@ -82,7 +84,17 @@ const handleDblclick = (event: Event) => {
       {{ pin.label }}
     </span>
     <span
-      class="thumb absolute border border-solid pointer-events-none rounded-lg top-[calc(50%-4px)] h-[10px] w-[10px] -ml-[7.5px]"
+      class="
+        thumb
+        absolute
+        border border-solid
+        pointer-events-none
+        rounded-lg
+        top-[calc(50%-4px)]
+        h-[10px]
+        w-[10px]
+        -ml-[7.5px]
+      "
     />
     <slot />
   </div>
@@ -91,21 +103,26 @@ const handleDblclick = (event: Event) => {
 <style lang="scss" scoped>
 @import '../../styles/range.scss';
 
-.podlove-component-input-slider .thumb {
+.podlove-component--input-slider .thumb {
   left: v-bind('thumbLeft');
   background-color: var(
-    --podlove-component--input-slider--thumb,
+    --podlove-component--input-slider--thumb-color,
     var(--podlove-components-background)
   );
-  border-color: var(--podlove-component--input-slider--border, var(--podlove-components-text));
+  border-color: var(
+    --podlove-component--input-slider--border-color,
+    var(--podlove-components-text)
+  );
 }
 
-.podlove-component-input-slider .track {
-  background-color: rgba(0, 0, 0, 0.2);
-  background-color: var(--podlove-component--input-slider--progress, var(--podlove-components-text));
+.podlove-component--input-slider .track {
+  background-color: var(
+    --podlove-component--input-slider--progress-color,
+    var(--podlove-components-text)
+  );
 }
 
-.podlove-component-input-slider {
+.podlove-component--input-slider {
   @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
 }
 </style>

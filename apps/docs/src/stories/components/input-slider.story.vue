@@ -35,9 +35,9 @@ const pins = ref([
   }
 ]);
 const style = ref({
-  '--podlove-component--input-slider--thumb': thumbColor,
-  '--podlove-component--input-slider--border': borderColor,
-  '--podlove-component--input-slider--progress': progressColor
+  '--podlove-component--input-slider--thumb-color': thumbColor,
+  '--podlove-component--input-slider--border-color': borderColor,
+  '--podlove-component--input-slider--progress-color': progressColor
 });
 </script>
 

@@ -1,5 +1,6 @@
 <template>
   <timer
+    class="podlove-player--timer-current"
     role="timer"
     :color="state.color"
     :time="state.ghost ? state.ghost : state.playtime"
@@ -20,7 +21,12 @@ const { t } = useI18n();
 const state = mapState({
   playtime: select.playtime,
   ghost: select.ghost.time,
-  color: select.theme.contrast,
   a11y: select.accessibility.timerCurrent
 });
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--timer-current {
+  color: var(--podlove-player--timer-current--color);
+}
+</style>

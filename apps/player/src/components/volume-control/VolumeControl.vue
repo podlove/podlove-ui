@@ -14,25 +14,23 @@
         @input="setVolume(($event.target as HTMLInputElement).value as unknown as number)"
       />
     </div>
-    <dropdown ref="volumePopover" :triggers="['click']" :offset="[0, 15]" :placement="placement">
+
+    <tooltip trigger="click" :placement="placement" :autohide="false" :showArrow="false">
       <button
         class="block cursor-pointer"
         data-test="volume-control"
         aria-hidden="true"
         @click="focus"
       >
-        <speaker-0-icon v-if="state === 'speaker-0'" />
-        <speaker-25-icon v-if="state === 'speaker-25'" />
-        <speaker-50-icon v-if="state === 'speaker-50'" />
-        <speaker-75-icon v-if="state === 'speaker-75'" />
-        <speaker-100-icon v-if="state === 'speaker-100'" />
-
-        <icon aria-hidden="true" :type="state.icon" :color="state.color" />
+        <speaker-0-icon v-if="state.icon === 'speaker-0'" />
+        <speaker-25-icon v-if="state.icon === 'speaker-25'" />
+        <speaker-50-icon v-if="state.icon === 'speaker-50'" />
+        <speaker-75-icon v-if="state.icon === 'speaker-75'" />
       </button>
-      <template #popper>
+
+      <template v-slot:content>
         <div
-          class="w-40 px-4 rounded"
-          :style="{ background: state.background, color: state.background }"
+          class="w-40 px-4 py-1 rounded shadow-lg"
         >
           <input-slider
             ref="volumeControl"
@@ -43,14 +41,11 @@
             :max="100"
             :value="state.volume * 100"
             :step="1"
-            :background="state.color"
-            :border-color="state.color"
-            :progress-color="state.progressColor"
             @sliderInput="onInput"
           />
         </div>
       </template>
-    </dropdown>
+    </tooltip>
   </div>
 </template>
 
@@ -58,9 +53,8 @@
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
-import { InputSlider, Speaker0Icon, Speaker25Icon, Speaker50Icon, Speaker75Icon, Speed100Icon } from '@podlove/components';
+import { InputSlider, Speaker0Icon, Speaker25Icon, Speaker50Icon, Speaker75Icon, Tooltip } from '@podlove/components';
 import { setVolume } from '@podlove/player-actions/audio';
-import { Dropdown } from 'floating-vue';
 
 import select from '../../store/selectors/index.js';
 
@@ -79,9 +73,6 @@ defineProps({
 const state = mapState({
   volume: select.audio.volume,
   icon: select.audio.icon,
-  color: select.theme.brandDark,
-  progressColor: select.theme.brandDark,
-  background: select.theme.brandLightest,
   buttonTitle: select.accessibility.volumeButton,
   volumeLabel: select.accessibility.volumeControl,
   available: select.components.volumeControl
@@ -94,26 +85,21 @@ const onInput = (val: number) => {
 };
 
 const focus = () => {
-  setTimeout(() => {
-    if (volumeControl.value) {
-      volumeControl.value.querySelector('input').focus();
-    }
-  }, 300);
+  // setTimeout(() => {
+  //   if (volumeControl.value) {
+  //     volumeControl.value.querySelector('input').focus();
+  //   }
+  // }, 300);
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .podlove-player--volume-control {
-  --podlove-component--icon--color: var(--podlove-player--volume-control--color);
-
-}
-
-.v-popper--theme-dropdown .v-popper__inner {
-  padding: 0;
-  background: transparent;
-}
-
-.v-popper--theme-dropdown .v-popper__arrow {
-  border-color: red;
+  --podlove-component--tooltip--color: var(--podlove-player--volume-control--color);
+  --podlove-component--tooltip--background: var(--podlove-player--volume-control--background);
+  --podlove-component--icon--color: var(--podlove-player--volume-control--icon-color);
+  --podlove-component--input-slider--progress-color: var(--podlove-player--volume-control--progress-color);
+  --podlove-component--input-slider--thumb-color: var(--podlove-player--volume-control--thumb-color);
+  --podlove-component--input-slider--border-color: var(--podlove-player--volume-control--border-color);
 }
 </style>

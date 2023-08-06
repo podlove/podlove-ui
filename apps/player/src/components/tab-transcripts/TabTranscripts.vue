@@ -1,5 +1,5 @@
 <template>
-  <div data-test="tab-transcripts">
+  <div data-test="tab-transcripts" class="podlove-player--tab-transcripts">
     <div class="header mobile:p-4 tablet:p-6">
       <tab-title tab="transcripts" @close="closeTab">
         {{ t('TRANSCRIPTS.TITLE') }}
@@ -43,8 +43,8 @@ onUnmounted(() => {
   window.removeEventListener('resize', render.bind(this));
 });
 
-const loadPrerender = (prerender) => {
-  prerender.value = prerender;
+const loadPrerender = (data) => {
+  prerender.value = data;
 };
 
 const render = () => {

@@ -1,7 +1,9 @@
 <template>
   <Story title="Player/Progress Bar Live" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style" class="p-5">
-      <progress-bar-live></progress-bar-live>
+    <player :config="config" :episode="episode">
+      <root :style="style" class="p-5">
+        <progress-bar-live></progress-bar-live>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="progressColor" title="Progress Color" />
@@ -49,9 +51,9 @@ const style = ref({
 
 const source = computed(
   () => `
-  <div style="${inlineStyles(style)}">
+  <root style="${inlineStyles(style)}" class="p-5">
     <progress-bar-live></progress-bar-live>
-  </div>
+  </root>
 `
 );
 </script>

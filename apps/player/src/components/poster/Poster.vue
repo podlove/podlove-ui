@@ -2,7 +2,6 @@
   <div class="podlove-player--poster" data-test="poster">
     <lazy-image
       :url="state.posterSrc"
-      :color="state.coverColor"
       alt=""
       @error="actions.errorPosterLoad"
     />
@@ -17,7 +16,6 @@ import select from '../../store/selectors/index.js';
 
 const state = mapState({
   posterSrc: select.header.posterSrc,
-  coverColor: select.theme.brandLightest
 });
 
 const actions = mapActions('errorPosterLoad');

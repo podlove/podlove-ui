@@ -1,8 +1,7 @@
 <template>
   <div
-    class="flex px-2 cursor-pointer rounded-sm"
-    :class="{ 'font-medium': episode.active, 'bg-opacity-25': hover }"
-    :style="style"
+    class="podlove-player--tab-playlist--entry flex px-2 cursor-pointer rounded-sm"
+    :class="{ 'font-medium': episode.active, 'bg-opacity-25': hover, hover }"
     :data-test="`tab-playlist--entry${episode.active ? '--active' : ''}`"
     @mouseover="mouseOverHandler"
     @mouseleave="mouseLeaveHandler"
@@ -45,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { mapState, injectStore } from 'redux-vuex';
 import { selectEpisode } from '@podlove/player-actions/playlist';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
@@ -65,22 +64,12 @@ defineProps({
 });
 
 const state = mapState({
-  playing: select.driver.playing,
-  brandLightest: select.theme.brandLightest,
-  brandDark: select.theme.brandDark
+  playing: select.driver.playing
 });
+
 const dispatch = injectStore().dispatch;
 
 const hover = ref(false);
-
-const style = computed(() =>
-  hover.value
-    ? {
-        background: state.brandLightest,
-        color: state.brandDark
-      }
-    : {}
-);
 
 const mouseOverHandler = () => {
   hover.value = true;
@@ -102,3 +91,10 @@ const click = (position) => {
   dispatch(selectEpisode(position));
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-playlist--entry.hover  {
+  background: var(--podlove-player--tab-playlist--entry--background-hover);
+  color: var(--podlove-player--tab-playlist--entry--color-hover);
+}
+</style>

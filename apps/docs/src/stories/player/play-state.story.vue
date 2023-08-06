@@ -1,10 +1,12 @@
 <template>
   <Story title="Player/Play State" auto-props-disabled :source="source">
     <player :config="config" :episode="episode">
-      <play-state on="initialized">Initialized!</play-state>
-      <play-state on="active">Initiaactivelized!</play-state>
-      <play-state on="ended">Ended!</play-state>
-      <play-state :on="['initialized', 'active', 'ended']">All!</play-state>
+      <root class="flex p-2 justify-center items-center">
+        <play-state on="initialized">Initialized!</play-state>
+        <play-state on="active">Initiaactivelized!</play-state>
+        <play-state on="ended">Ended!</play-state>
+        <play-state :on="['initialized', 'active', 'ended']">All!</play-state>
+      </root>
     </player>
   </Story>
 </template>
@@ -17,11 +19,11 @@ import config from './data/config.json';
 import episode from './data/episode.json';
 
 const source = computed(
-  () => `<div>
+  () => `<root>
     <play-state on="initialized">Initialized!</play-state>
     <play-state on="active">Initiaactivelized!</play-state>
     <play-state on="ended">Ended!</play-state>
     <play-state :on="['initialized', 'active', 'ended']">All!</play-state>
-</div>`
+</root>`
 );
 </script>

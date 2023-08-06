@@ -29,9 +29,9 @@ export const selectStyle = createSelector(slices.config, configSelectors.style);
 
 export const headless = createSelector(slices.config, configSelectors.headless);
 
-const fontString = ({ weight = 300, family = [] } : PodloveThemeFont = {}) => ({
-  'font-family': family.map((font) => `"${font}"`).join(', '),
-  'font-weight': weight
+const fontString = (font: PodloveThemeFont) => ({
+  'font-family': (font.family || []).map((font) => `"${font}"`).join(', '),
+  'font-weight': font.weight || 300
 });
 
 export const theme = {

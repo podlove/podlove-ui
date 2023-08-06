@@ -27,19 +27,14 @@ import select from '../../store/selectors/index.js';
 
 const { t } = useI18n();
 
-const props = defineProps({
-  name: {
-    type: String,
-    default: ''
-  }
-});
+const props = defineProps<{ name: string }>();
 
 const state = mapState({
   tabs: select.tabs,
   a11y: select.accessibility.tabPanel(props.name)
 });
 
-const active = computed(() => state.tabs[props.name])
+const active = computed(() => state.tabs[props.name]);
 </script>
 
 <style lang="postcss" scoped>

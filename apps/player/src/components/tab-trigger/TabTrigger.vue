@@ -1,8 +1,8 @@
 <template>
   <button
-    v-if="visibleTab.value"
+    v-if="visibleTab"
     :id="`trigger-${tab}`"
-    class="block relative h-10 w-6"
+    class="podlove-player--tab-trigger block relative h-10 w-6"
     role="tab"
     :title="title"
     :aria-label="t(state.a11y.key, { name: tab })"
@@ -11,13 +11,12 @@
     :aria-controls="`tab-${tab}`"
     @click="toggle"
   >
-    <span class="block absolute top-0" :style="{ color: state.contrast }">
+    <span class="podlove-player--tab-trigger--icon block absolute top-0">
       <slot />
     </span>
     <span
       v-if="activeTab"
-      class="block absolute w-full bottom-0"
-      :style="{ color: state.brandDark }"
+      class="podlove-player--tab-trigger--icon-active block absolute w-full bottom-0"
     >
       <active-tab-icon class="block m-auto" />
     </span>
@@ -37,22 +36,13 @@ import select from '../../store/selectors/index.js';
 
 const { t } = useI18n();
 
-const props = defineProps({
-  tab: {
-    type: String,
-    default: null,
-    validator: (val: string) => ['chapters', 'files', 'shownotes', 'transcripts', 'share', 'playlist'].includes(val)
-  },
-  title: {
-    type: String,
-    default: ''
-  }
-});
+const props = defineProps<{
+  title?: string;
+  tab: 'chapters' | 'files' | 'shownotes' | 'transcripts' | 'share' | 'playlist';
+}>();
 
 const state = mapState({
   tabs: select.tabs,
-  contrast: select.theme.contrast,
-  brandDark: select.theme.brandDark,
   shownotes: select.components.shownotesTab,
   chapters: select.components.chaptersTab,
   transcripts: select.components.transcriptTab,
@@ -65,9 +55,19 @@ const state = mapState({
 const dispatch = injectStore().dispatch;
 
 const activeTab = computed(() => !!state.tabs[props.tab]);
-const visibleTab = computed(() => prop(props.tab, state));
+const visibleTab = computed(() => prop(props.tab, state.tabs) !== undefined);
 
 const toggle = () => {
   dispatch(toggleTab(props.tab));
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-trigger--icon {
+  --podlove-component--icon--color: var(--podlove-player--tab-trigger--color);
+}
+
+.podlove-player--tab-trigger--icon-active {
+  --podlove-component--icon--color: var(--podlove-player--tab-trigger--color-active);
+}
+</style>

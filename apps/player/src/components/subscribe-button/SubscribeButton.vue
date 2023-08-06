@@ -1,7 +1,17 @@
 <template>
   <button
     v-if="state.available"
-    class="h-6 px-2 flex items-center text-xs rounded-sm border whitespace-no-wrap"
+    class="
+      podlove-player--subscribe-button
+      h-6
+      px-2
+      flex
+      items-center
+      text-xs
+      rounded-sm
+      border
+      whitespace-nowrap
+    "
     data-test="subscribe-button"
     :aria-label="t(state.a11y.key, state.a11y.attr)"
     :style="style"
@@ -24,8 +34,6 @@ import select from '../../store/selectors/index.js';
 const { t } = useI18n();
 
 const state = mapState({
-  color: select.theme.brandDark,
-  background: select.theme.alt,
   font: select.theme.fontBold,
   available: select.subscribeButton.available,
   a11y: select.accessibility.subscribeButton
@@ -34,9 +42,6 @@ const state = mapState({
 const dispatch = injectStore().dispatch;
 
 const style = computed(() => ({
-  color: state.color,
-  'border-color': state.color,
-  background: state.background,
   ...state.font
 }));
 
@@ -44,3 +49,12 @@ const show = () => {
   dispatch(overlay.show());
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--subscribe-button {
+  --podlove-component--icon--color: var(--podlove-player--subscribe-button--icon-color);
+  color: var(--podlove-player--subscribe-button--color);
+  border-color: var(--podlove-player--subscribe-button--border-color);
+  background: var(--podlove-player--subscribe-button--background);
+}
+</style>

@@ -1,7 +1,9 @@
 <template>
-  <Story title="Player/Previous Chapter" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style">
-      <chapter-previous></chapter-previous>
+  <Story title="Player/Chapter Previous Button" auto-props-disabled :source="source">
+    <player :config="config" :episode="episode">
+      <root class="flex justify-center content-center p-2" :style="style">
+        <chapter-previous></chapter-previous>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="color" title="Color" />
@@ -23,7 +25,9 @@ const style = ref({
   '--podlove-player--chapter-previous--color': color
 });
 
-const source = computed(() =>`<div :style="${inlineStyles(style)}">
+const source = computed(
+  () => `<root class="flex justify-center content-center p-2" :style="${inlineStyles(style)}">
   <chapter-previous></chapter-previous>
-</div>`);
+</root>`
+);
 </script>

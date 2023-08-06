@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between">
+  <div class="podlove-player--tab-transcripts--search flex justify-between">
     <div class="w-full flex max-w-2xl">
       <div class="relative w-full">
         <div class="flex absolute opacity-50 right-0 h-full items-center p-2">
@@ -8,20 +8,24 @@
             :title="t(state.clearSearchTitle.key, state.clearSearchTitle.attr)"
             @click="reset"
           >
-            <close-icon :color="state.brandDark" :size="24" />
+            <close-icon :size="24" />
           </button>
-          <search-icon
-            v-else
-            class="pointer-events-none"
-            :color="state.brandDark"
-            :size="24"
-          />
+          <search-icon v-else class="pointer-events-none" :size="24" />
         </div>
         <input
-          class="input px-4 p-2 w-full rounded-sm text-sm mr-2 shadow"
+          class="
+            podlove-player--tab-transcripts--search-input
+            px-4
+            p-2
+            w-full
+            rounded-sm
+            text-sm
+            mr-2
+            shadow
+            h-full
+          "
           type="text"
           data-test="tab-transcripts--search"
-          :style="inputStyle"
           :value="state.searchQuery"
           :placeholder="t('TRANSCRIPTS.PLACEHOLDER')"
           :title="t(state.searchTitle.key, state.searchTitle.attr)"
@@ -35,22 +39,22 @@
       >
         <div
           v-if="noResults"
-          class="whitespace-no-wrap truncate"
+          class="whitespace-nowrap truncate"
           data-test="tab-transcripts--search-controls--no-results"
         >
           {{ t('TRANSCRIPTS.NO_SEARCH_RESULTS') }}
         </div>
-        <div v-else class="flex flex-no-wrap w-32">
+        <div v-else class="flex flex-no-wrap justify-center w-32">
           <button
             class="block px-0 tablet:px-1 desktop:px-2"
             data-test="tab-transcripts--search-controls--previous"
             :title="t(state.previousSearchTitle.key, state.previousSearchTitle.attr)"
             @click="previousSearchResult"
           >
-            <icon aria-hidden="true" type="chevron-left" />
+            <chevron-left-icon />
           </button>
           <span
-            class="whitespace-no-wrap block stepper"
+            class="podlove-player--tab-transcripts--stepper whitespace-nowrap block"
             data-test="tab-transcripts--search-results"
           >
             <span data-test="tab-transcripts--search-controls--current-result">{{
@@ -70,16 +74,29 @@
             :title="t(state.nextSearchTitle.key, state.nextSearchTitle.attr)"
             @click="nextSearchResult"
           >
-            <icon aria-hidden="true" type="chevron-right" />
+            <chevron-right-icon />
           </button>
         </div>
       </div>
     </div>
     <button
-      class="block rounded-sm whitespace-no-wrap text-sm px-4 py-2 ml-2 border w-32 shadow"
+      class="
+        podlove-player--tab-transcripts--search-button
+        block
+        rounded-sm
+        whitespace-nowrap
+        text-sm
+        px-4
+        py-2
+        ml-2
+        border
+        shadow
+        h-full
+        w-40
+        truncate
+      "
       data-test="tab-transcripts--follow"
-      :style="buttonStyle"
-      :class="{ 'mobile:hidden': searchControls }"
+      :class="{ 'mobile:hidden': searchControls, active: state.follow }"
       :title="t(state.followTranscriptsTitle.key, state.followTranscriptsTitle.attr)"
       @click="toggleFollow"
     >
@@ -89,9 +106,10 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
-import { CloseIcon, SearchIcon } from '@podlove/components';
+import { CloseIcon, SearchIcon, ChevronLeftIcon, ChevronRightIcon } from '@podlove/components';
 
 import {
   searchTranscripts,
@@ -111,9 +129,6 @@ const state = mapState({
   searchSelected: select.transcripts.searchSelected,
   searching: select.transcripts.searching,
   follow: select.transcripts.follow,
-  contrastColor: select.theme.contrast,
-  brandDark: select.theme.brandDark,
-  brandLightest: select.theme.brandLightest,
   searchTitle: select.accessibility.transcriptsSearch,
   clearSearchTitle: select.accessibility.clearTranscriptsSearch,
   previousSearchTitle: select.accessibility.previousTranscriptsSearchResult,
@@ -122,17 +137,6 @@ const state = mapState({
 });
 
 const dispatch = injectStore().dispatch;
-
-const inputStyle = computed(() => ({
-  color: state.contrastColor,
-  background: state.brandLightest
-}));
-
-const buttonStyle = computed(() => ({
-  color: state.follow ? state.contrastColor : state.brandLightest,
-  background: state.follow ? state.brandLightest : state.brandDark,
-  'border-color': state.brandLightest
-}));
 
 const searchControls = computed(() => state.searchQuery.length > 0 && !state.searching);
 
@@ -161,10 +165,30 @@ const nextSearchResult = () => {
 </script>
 
 <style lang="postcss" scoped>
-.input::placeholder {
+.podlove-player--tab-transcripts--search {
+  --podlove-component--icon--color: var(--podlove-player--tab-transcripts--search-icon--color);
+}
+
+.podlove-player--tab-transcripts--search-input {
+  color: var(--podlove-player--tab-transcripts--search-input--color);
+  background: var(--podlove-player--tab-transcripts--search-input--background);
+}
+
+.podlove-player--tab-transcripts--search-button {
+  color: var(--podlove-player--tab-transcripts--search-button--color);
+  background: var(--podlove-player--tab-transcripts--search-button--background);
+  border-color: var(--podlove-player--tab-transcripts--search-button--border);
+}
+
+.podlove-player--tab-transcripts--search-button.active {
+  color: var(--podlove-player--tab-transcripts--search-button--color-active);
+  background: var(--podlove-player--tab-transcripts--search-button--background-active);
+}
+
+.podlove-player--tab-transcripts--search-input::placeholder {
   opacity: 0.5;
 }
-.stepper {
+.podlove-player--tab-transcripts--stepper {
   font-variant-numeric: tabular-nums;
 }
 </style>

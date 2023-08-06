@@ -1,7 +1,9 @@
 <template>
   <Story title="Player/Error" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style" @init="emulateError">
-      <error></error>
+    <player :config="config" :episode="episode" @init="emulateError">
+      <root :style="style">
+        <error></error>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="background" title="Background" />
@@ -48,8 +50,8 @@ const emulateError = (store) => {
 };
 
 const source = computed(
-  () => `<div :style="${inlineStyles(style)}">
+  () => `<root :style="${inlineStyles(style)}">
   <error></error>
-</div>`
+</root>`
 );
 </script>

@@ -1,6 +1,7 @@
 <template>
   <timer
     v-if="!live || ghostTime"
+    class="podlove-player--timer-live"
     role="timer"
     :color="state.color"
     :time="ghostTime ? ghostTime : time"
@@ -25,7 +26,6 @@ const state = mapState({
   playtime: select.playtime,
   livesync: select.livesync,
   ghost: select.ghost.time,
-  color: select.theme.contrast,
   a11y: select.accessibility.timerLive
 });
 
@@ -33,3 +33,9 @@ const ghostTime = computed(() => (state.ghost ? state.livesync - state.ghost : n
 const time = computed(() => state.livesync - state.playtime);
 const live = computed(() => time.value <= 5000);
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--timer-live {
+  color: var(--podlove-player--timer-live--color);
+}
+</style>

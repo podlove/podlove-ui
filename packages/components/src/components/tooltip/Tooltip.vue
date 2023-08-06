@@ -9,18 +9,20 @@
     <slot />
     <span
       ref="tooltipElement"
-      class="podlove-component-tooltip absolute block text-center rounded p-1 whitespace-nowrap"
+      class="podlove-component--tooltip absolute block text-center rounded p-1 whitespace-nowrap"
       :class="{ hidden: !visible, [$props.placement]: true }"
       :style="{ top, left, bottom, right }"
     >
       {{ content }}
-      <span class="tooltip-arrow"></span>
+      <slot name="content"></slot>
+      <span v-if="showArrow" class="tooltip-arrow"></span>
     </span>
   </span>
 </template>
 
 <script lang="ts" setup>
 import { nextTick, ref, watch } from 'vue';
+import { prop } from 'ramda';
 let hideTimeout: any;
 
 const props = defineProps({
@@ -31,6 +33,14 @@ const props = defineProps({
   content: {
     type: String,
     default: ''
+  },
+  autohide: {
+    type: Boolean,
+    default: true
+  },
+  showArrow: {
+    type: Boolean,
+    default: true
   },
   placement: {
     type: String,
@@ -60,14 +70,14 @@ const hide = (timeout: number) => {
 };
 
 const mouseLeave = () => {
+  if (!props.autohide) {
+    return;
+  }
+
   hide(500);
 };
 
 const mouseOver = () => {
-  if (!props.content) {
-    return;
-  }
-
   if (props.trigger !== 'hover') {
     return;
   }
@@ -76,17 +86,33 @@ const mouseOver = () => {
 };
 
 const click = () => {
-  if (!props.content) {
-    return;
-  }
-
   if (props.trigger !== 'click') {
     return;
   }
 
   show();
   emits('click');
-  hide(3000);
+
+  if (props.autohide) {
+    hide(3000);
+  }
+};
+
+const clickOutside = (event: Event) => {
+  const target = prop('target', event) as HTMLElement;
+  const containsTarget = (elem: HTMLElement) => {
+    if (!elem) {
+      return false;
+    }
+
+    return elem.contains(target);
+  }
+
+  if (containsTarget(tooltipElement.value) || containsTarget(rootElement.value)) {
+    return;
+  }
+
+  hide(10);
 };
 
 watch(visible, async () => {
@@ -111,24 +137,32 @@ watch(visible, async () => {
       break;
 
     case 'left':
-      top.value = 'inherit';
+      top.value = (root.height - tooltip.height) / 2 + 'px';
       right.value = root.width + 15 + 'px';
       left.value = 'inherit';
       bottom.value = ((root.height - tooltip.height / 2) / 2) * -1 + 'px';
       break;
 
     case 'right':
-      top.value = 'inherit';
+      top.value = (root.height - tooltip.height) / 2 + 'px';
       right.value = 'inherit';
       left.value = root.width + 15 + 'px';
       bottom.value = ((root.height - tooltip.height / 2) / 2) * -1 + 'px';
       break;
   }
+
+  if (visible) {
+    window.addEventListener('click', clickOutside);
+  }
+
+  if (!visible) {
+    window.removeEventListener('click', clickOutside);
+  }
 });
 </script>
 
 <style lang="scss" scoped>
-.podlove-component-tooltip {
+.podlove-component--tooltip {
   color: var(--podlove-component--tooltip--color, var(--podlove-components-text));
   background: var(--podlove-component--tooltip--background, var(--podlove-components-background));
 
@@ -139,7 +173,10 @@ watch(visible, async () => {
     position: absolute;
     margin: 5px;
     z-index: 1;
-    border-color: var(--podlove-component--tooltip--background, var(--podlove-components-background));
+    border-color: var(
+      --podlove-component--tooltip--background,
+      var(--podlove-components-background)
+    );
   }
 
   &.top {

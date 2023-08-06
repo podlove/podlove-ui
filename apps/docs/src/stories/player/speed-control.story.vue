@@ -1,7 +1,9 @@
 <template>
   <Story title="Player/Speed Control" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style">
-      <speed-control></speed-control>
+    <player :config="config" :episode="episode">
+      <root :style="style" class="p-5">
+        <speed-control></speed-control>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="color" title="Color" />
@@ -24,8 +26,8 @@ const style = ref({
 });
 
 const source = computed(
-  () => `<div :style="${inlineStyles(style)}">
+  () => `<root :style="${inlineStyles(style)}" class="p-5">
   <speed-control></speed-control>
-</div>`
+</root>`
 );
 </script>

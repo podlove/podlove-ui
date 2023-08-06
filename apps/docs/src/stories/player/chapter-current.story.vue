@@ -1,7 +1,9 @@
 <template>
-  <Story title="Player/Current Chapter" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style">
-      <current-chapter></current-chapter>
+  <Story title="Player/Chapter Current Title" auto-props-disabled :source="source">
+    <player :config="config" :episode="episode">
+      <root class="flex justify-center content-center p-2" :style="style">
+        <current-chapter></current-chapter>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="color" title="Color" />
@@ -24,8 +26,8 @@ const style = ref({
 });
 
 const source = computed(
-  () => `<div :style="${inlineStyles(style)}">
+  () => `<root class="flex justify-center content-center p-2" :style="${inlineStyles(style)}">
   <current-chapter></current-chapter>
-</div>`
+</root>`
 );
 </script>

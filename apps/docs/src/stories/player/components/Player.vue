@@ -4,11 +4,12 @@ import '@podlove/player/styles';
 
 import createPlayer from '@podlove/player';
 import { init } from '@podlove/player-actions/init';
+import { PodloveWebPlayerConfig, PodloveWebPlayerEpisode } from '@podlove/types';
 
-const props = defineProps({
-  episode: Object,
-  config: Object
-});
+const props = defineProps<{
+  episode: PodloveWebPlayerEpisode;
+  config: PodloveWebPlayerConfig;
+}>();
 
 const emits = defineEmits(['init']);
 

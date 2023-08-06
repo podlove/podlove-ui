@@ -54,7 +54,7 @@ onMounted(() => {
   nextTick()
     .then(() =>
       Promise.all(
-        Array.from(root.value.children).map(asyncAnimation((entry) => entry.clientHeight))
+        Array.from(root.value.children).map((entry) => asyncAnimation().then(() => entry.clientHeight))
       )
     )
     .then((entries) => emit('load', entries));

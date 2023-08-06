@@ -1,7 +1,9 @@
 <template>
   <Story title="Player/Progress Bar" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style" class="p-5">
-      <progress-bar></progress-bar>
+    <player :config="config" :episode="episode">
+      <root :style="style" class="p-5">
+        <progress-bar></progress-bar>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="progressColor" title="Progress Color" />
@@ -28,7 +30,7 @@ import config from './data/config.json';
 import episode from './data/episode.json';
 import { inlineStyles } from '../helper/styles.js';
 
-const progressColor = ref(config.theme.tokens.brandDark);
+const progressColor = ref(fade(config.theme.tokens.brandDark, 0.7));
 const chapterBackgroundColor = ref(config.theme.tokens.brandDark);
 const chapterSeperatorColor = ref(config.theme.tokens.brandLightest);
 const trackColor = ref(config.theme.tokens.brandDark);
@@ -55,9 +57,9 @@ const style = ref({
 
 const source = computed(
   () => `
-  <div style="${inlineStyles(style)}">
+  <root style="${inlineStyles(style)}" class="p-5">
     <progress-bar></progress-bar>
-  </div>
+  </root>
 `
 );
 </script>

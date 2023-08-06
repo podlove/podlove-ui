@@ -1,8 +1,8 @@
 <template>
-  <Story title="Player/Episode Subtitle" auto-props-disabled :source="source">
+  <Story title="Player/Timer Duration" auto-props-disabled :source="source">
     <player :config="config" :episode="episode">
-      <root class="p-2" :style="style">
-        <episode-subtitle></episode-subtitle>
+      <root :style="style" class="flex justify-center p-10">
+        <timer-duration></timer-duration>
       </root>
     </player>
     <template #controls>
@@ -21,13 +21,13 @@ import { inlineStyles } from '../helper/styles.js';
 
 const color = ref(config.theme.tokens.contrast);
 
-const style = ref({
-  '--podlove-player--episode-subtitle--color': color
-});
+const style = computed(() => ({
+  '--podlove-player--timer-duration--color': color.value
+}));
 
-const source = computed(
-  () => `<root class="p-2" :style="${inlineStyles(style)}">
-  <episode-subtitle></episode-subtitle>
-</root>`
+const source = ref(
+  `<root :style="${inlineStyles(style)}" class="flex justify-center p-10">
+    <timer-duration></timer-duration>
+  </root>`
 );
 </script>

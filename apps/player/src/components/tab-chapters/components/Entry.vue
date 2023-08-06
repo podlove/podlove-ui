@@ -1,9 +1,8 @@
 <template>
   <div
-    class="flex px-2 rounded-sm"
+    class="podlove-player--tab-chapters--entry flex px-2 rounded-sm"
     data-test="tab-chapters--entry"
-    :class="{ 'font-medium': chapter.active, 'bg-opacity-25': hover }"
-    :style="style"
+    :class="{ 'font-medium': chapter.active, 'bg-opacity-25': hover, hover }"
     @mouseover="mouseOverHandler"
     @mouseleave="mouseLeaveHandler"
   >
@@ -12,8 +11,19 @@
       aria-hidden="true"
       @click="selectChapter($event)"
     >
-      <icon
-        v-if="action.icon"
+      <link-icon
+        v-if="action.icon === 'link-icon'"
+        :size="24"
+        :data-test="`tab-chapters--trigger--${action.icon}`"
+      />
+      <menu-pause-icon
+        v-if="action.icon === 'menu-pause'"
+        :type="action.icon"
+        :size="24"
+        :data-test="`tab-chapters--trigger--${action.icon}`"
+      />
+      <menu-play-icon
+        v-if="action.icon === 'menu-play'"
         :type="action.icon"
         :size="24"
         :data-test="`tab-chapters--trigger--${action.icon}`"
@@ -26,7 +36,6 @@
       :show-link="true"
       :playtime="state.playtime"
       :ghost="state.ghost"
-      :progress-color="progressColor"
       @chapter="dispatch"
       @play="dispatch"
       @ghost="dispatch"
@@ -38,9 +47,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Icon, ChapterProgress } from '@podlove/components';
+import { LinkIcon, MenuPauseIcon, MenuPlayIcon, ChapterProgress } from '@podlove/components';
 import { mapState, injectStore } from 'redux-vuex';
-import { lighten } from 'farbraum';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
 
@@ -56,8 +64,6 @@ const props = defineProps({
 
 const state = mapState({
   playtime: select.playtime,
-  brandLightest: select.theme.brandLightest,
-  brandDark: select.theme.brandDark,
   ghost: select.ghost.time,
   current: select.chapters.current,
   playing: select.driver.playing
@@ -67,16 +73,6 @@ const dispatch = injectStore().dispatch;
 
 const hover = ref(false);
 const linkHover = ref(false);
-
-const progressColor = computed(() => lighten(state.brandDark, 0.1));
-const style = computed(() =>
-  hover.value
-    ? {
-        background: state.brandLightest,
-        color: state.brandDark
-      }
-    : {}
-);
 
 const action = computed((): { icon?: string; content?: string } => {
   if (linkHover.value) {
@@ -130,3 +126,15 @@ const selectChapter = (event: MouseEvent) => {
   return false;
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-chapters--entry {
+  --podlove-component--chapter-progress--background: var(--podlove-player--tab-chapters--entry--progress-background);
+  --podlove-component--chapter-ghost--background: var(--podlove-player--tab-chapters--entry--ghost-background);
+}
+
+.podlove-player--tab-chapters--entry.hover  {
+  background: var(--podlove-player--tab-chapters--entry--background-hover);
+  color: var(--podlove-player--tab-chapters--entry--color-hover);
+}
+</style>

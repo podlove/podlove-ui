@@ -129,6 +129,7 @@ const mouseLeave = () => {
 }
 
 .podlove-player--play-button.hover {
+  --podlove-component--play-button--background: var(--podlove-player--play-button--background-hover);
   --podlove-component--play-button--text-color: var(--podlove-player--play-button--color-hover);
 }
 </style>

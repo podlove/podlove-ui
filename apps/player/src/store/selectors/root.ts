@@ -1,4 +1,7 @@
-import { prop } from 'ramda';
+import { prop, path } from 'ramda';
+import { State as ContentState } from '@podlove/player-state/content';
+import { State as EmbedState } from '@podlove/player-state/embed';
+import State from '../state.js';
 
 export default {
   runtime: prop('runtime'),
@@ -17,7 +20,10 @@ export default {
   tabs: prop('tabs'),
   contributors: prop('contributors'),
   files: prop('files'),
-  share: prop('share'),
+  share: {
+    content: path<State, ContentState>(['share', 'content']),
+    embed: path<State, EmbedState>(['share', 'embed']),
+  },
   reference: prop('reference'),
   audio: prop('audio'),
   transcripts: prop('transcripts'),

@@ -1,11 +1,9 @@
 <template>
   <input-checkbox
-    data-test="tab-share--playtime"
+    class="podlove-player--tab-share--share-playtime"
+    data-test="tab-share--share-playtime"
     :label="t('SHARE.PLAYTIME', { playtime: toHumanTime(state.playtime) })"
     :value="state.content === 'time'"
-    :color="state.color"
-    :border-color="state.color"
-    :background="state.background"
     @select="toggleContent"
   />
 </template>
@@ -24,9 +22,8 @@ const { t } = useI18n();
 const state = mapState({
   playtime: select.playtime,
   content: select.share.content,
-  color: select.theme.brandDark,
-  background: select.theme.alt
 });
+
 const dispatch = injectStore().dispatch;
 
 const toggleContent = () => {
@@ -37,3 +34,11 @@ const toggleContent = () => {
   return dispatch(selectContent('time'));
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-share--share-playtime {
+  --podlove-component--checkbox--color: var(--podlove-player--tab-share--share-playtime--color);
+  --podlove-component--checkbox--background: var(--podlove-player--tab-share--share-playtime--background);
+  --podlove-component--checkbox--border: var(--podlove-player--tab-share--share-playtime--border);
+}
+</style>

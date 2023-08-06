@@ -1,5 +1,5 @@
 <template>
-  <div class="podlove-component-progress-bar w-full relative cursor-pointer">
+  <div class="podlove-component--progress-bar w-full relative cursor-pointer">
     <input
       v-if="isMobile"
       ref="inputElement"
@@ -9,8 +9,8 @@
       :value="interpolate(time)"
       tabindex="-1"
       aria-hidden="true"
-      @change="onChange($event.target.value)"
-      @input="onInput($event.target.value)"
+      @change="onChange(extractValue($event))"
+      @input="onInput(extractValue($event))"
     />
     <input
       v-else
@@ -21,8 +21,8 @@
       :value="interpolate(time)"
       tabindex="-1"
       aria-hidden="true"
-      @change="onChange($event.target.value)"
-      @input="onInput($event.target.value)"
+      @change="onChange(extractValue($event))"
+      @input="onInput(extractValue($event))"
       @mousemove="onMouseMove"
       @mouseout="onMouseOut"
     />
@@ -81,8 +81,8 @@
       max="100"
       steps="1"
       :value="(time / duration) * 100"
-      @change="onChange(($event.target.value / 100) * duration)"
-      @input="onInput(($event.target.value / 100) * duration)"
+      @change="onChange((extractValue($event) / 100) * duration)"
+      @input="onInput((extractValue($event) / 100) * duration)"
     />
   </div>
 </template>
@@ -96,7 +96,7 @@ import { requestPlaytime, simulatePlaytime } from '@podlove/player-actions/timep
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress';
 
 import { computed, onMounted, ref } from 'vue';
-import { pathOr } from 'ramda';
+import { pathOr, path } from 'ramda';
 
 const props = defineProps({
   time: {
@@ -154,6 +154,8 @@ const onInput = (value: number) => {
   emits('ghost', disableGhost());
 };
 
+const extractValue = (input: Event): number => path(['target', 'value'], input);
+
 const onMouseMove = (event: MouseEvent) => {
   const width = pathOr(0, ['target', 'clientWidth'], event);
 
@@ -199,7 +201,7 @@ const chapterStyle = (chapter: { start: number; end: number }) => ({
 <style lang="scss" scoped>
 @import '../../styles/range';
 
-.podlove-component-progress-bar {
+.podlove-component--progress-bar {
   @include range($progress-height, $thumb-width-desktop, $thumb-width-desktop-hover);
   height: $progress-height;
   transition: opacity 150ms, height 300ms;

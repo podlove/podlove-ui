@@ -109,7 +109,7 @@ const linkLeave = () => {
     <span v-if="hasLink" class="flex max-w-[40%]">
       <link-icon class="flex-shrink-0 -mt-[2px]" />
       <a
-        class="font-medium whitespace-no-wrap"
+        class="font-medium whitespace-nowrap"
         :href="chapter.href"
         target="_blank"
         @mouseover="linkOver"

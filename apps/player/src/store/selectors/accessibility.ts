@@ -4,6 +4,7 @@ import chapters from './chapters.js';
 import timepiece from './timepiece.js';
 import driver from './driver.js';
 import transcripts from './transcripts.js';
+import State from '../state.js';
 
 const translation = (key: string, attr: { [key: string] : string | number } = {}) => ({ key, attr });
 
@@ -86,10 +87,10 @@ export default {
   },
 
   tabPanel: (tab) => () => {
-    return translation('A11Y.TAB_PANEL.' + tab.toUpperCase());
+    return translation('A11Y.TAB_PANEL', tab);
   },
 
-  chapterPlay: (chapter) => (state) => {
+  chapterPlay: (chapter) => (state: State) => {
     const playing = driver.playing(state);
     const current = chapters.current(state);
 

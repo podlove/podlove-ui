@@ -3,7 +3,7 @@
     ref="root"
     class="overflow-auto body mobile:p-4 tablet:p-6"
     data-test="tab-transcripts--results"
-    :style="heightByIndex(0, prerender.length - 1)"
+    :style="{ height: heightByIndex(0, prerender.length - 1) }"
     @scroll="renderWindow()"
     @mousewheel="disableFollow()"
     @DOMMouseScroll="disableFollow()"
@@ -14,16 +14,13 @@
         v-for="(entry, index) in slice(start, end)"
         :key="index"
         data-test="tab-transcripts--entry"
+        :prerender="false"
         :entry="entry"
         :playtime="state.playtime"
         :search-query="state.query"
         :ghost-active="state.ghostActive"
         :ghost-time="state.ghostTime"
         :search-results="state.searchResults"
-        :chapter-style="chapterStyle"
-        :speaker-style="speakerStyle"
-        :highlight-style="highlightStyle"
-        :active-style="activeStyle"
         @onClick="onClick"
         @onMouseOver="onMouseOver"
         @onMouseLeave="onMouseLeave"
@@ -34,13 +31,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { mapState, injectStore } from 'redux-vuex';
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
 import { requestPlay } from '@podlove/player-actions/play';
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress';
 import { followTranscripts } from '@podlove/player-actions/transcripts';
-import { fade } from 'farbraum';
 import { asyncAnimation } from '@podlove/utils/helper';
 import select from '../../../store/selectors/index.js';
 
@@ -63,11 +59,7 @@ const state = mapState({
   follow: select.transcripts.follow,
   searchResults: select.transcripts.searchResults,
   query: select.transcripts.searchQuery,
-  selected: select.transcripts.searchSelected,
-  fontCi: select.theme.fontCi,
-  fontBold: select.theme.fontBold,
-  shadeDark: select.theme.shadeDark,
-  alt: select.theme.alt
+  selected: select.transcripts.searchSelected
 });
 
 const dispatch = injectStore().dispatch;
@@ -75,15 +67,8 @@ const dispatch = injectStore().dispatch;
 const start = ref(0);
 const end = ref(0);
 
-const chapterStyle = computed(() => state.fontCi);
-const speakerStyle = computed(() => state.fontBold);
-const highlightStyle = computed(() => state.shadeDark);
-const activeStyle = computed(() => ({
-  cursor: 'pointer',
-  background: fade(state.alt, 0.8)
-}));
 
-watch(state.active, () => {
+watch(() => state.active, () => {
   if (state.selected !== -1 || !state.follow) {
     return;
   }
@@ -91,11 +76,11 @@ watch(state.active, () => {
   scrollWindow();
 });
 
-watch(state.follow, () => {
+watch(() => state.follow, () => {
   scrollWindow();
 });
 
-watch(state.selected, () => {
+watch(() => state.selected, () => {
   if (state.query.length === 0 || state.selected === -1) {
     return;
   }
@@ -166,7 +151,7 @@ const slice = (start = 0, end = 0) => {
 };
 
 const renderWindow = (startIndex = -1) => {
-  asyncAnimation(() => {
+  asyncAnimation().then(() => {
     let endIndex;
 
     if (startIndex === -1) {
@@ -182,7 +167,7 @@ const renderWindow = (startIndex = -1) => {
 };
 
 const scrollWindow = () => {
-  asyncAnimation(() => {
+  asyncAnimation().then(() => {
     // If transcript isn't in rendered slice, mostly initial or on scrub
     if (start.value > state.active || end.value < state.active) {
       scrollTo(state.active);
@@ -211,3 +196,7 @@ const scrollTo = (index) => {
   root.value.scroll && root.value.scroll({ top: heightByIndex(0, index) });
 };
 </script>
+
+<style lang="postcss" scoped>
+
+</style>

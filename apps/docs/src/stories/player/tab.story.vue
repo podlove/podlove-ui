@@ -1,7 +1,9 @@
 <template>
   <Story title="Player/Tab" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style" @init="initTab">
-      <tab name="chapters">My Tab Content</tab>
+    <player :config="config" :episode="episode" @init="initTab">
+      <root :style="style">
+        <tab name="chapters"><div class="p-5">My Tab Content</div></tab>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="color" title="Color" />
@@ -29,11 +31,11 @@ const style = ref({
 
 const initTab = (store) => {
   store.dispatch(toggleTab('chapters'));
-}
+};
 
 const source = computed(
-  () => `<div :style="${inlineStyles(style)}">
-    <tab name="chapters">My Tab Content</tab>
-</div>`
+  () => `<root :style="${inlineStyles(style)}">
+    <tab name="chapters"><div class="p-5">My Tab Content</div></tab>
+</root>`
 );
 </script>

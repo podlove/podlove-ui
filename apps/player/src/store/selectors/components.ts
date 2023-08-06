@@ -20,8 +20,8 @@ export default {
   shareTab: createSelector(root.components, components.shareTab),
   filesTab: createSelector(root.components, components.filesTab),
   playlistTab: createSelector(root.components, components.playlistTab),
-  nextChapterDisabled: compose(equals(-1), propOr(-1, 'index'), chapters.next),
-  previousChapterDisabled: compose(equals(-1), propOr(-1, 'index'), chapters.previous),
-  chaptersChannel: compose(lt(0), length, chapters.list),
+  nextChapterDisabled: createSelector(chapters.next, compose(equals(-1), propOr(-1, 'index'))),
+  previousChapterDisabled: createSelector(chapters.previous, compose(equals(-1), propOr(-1, 'index'))),
+  chaptersChannel: createSelector(chapters.list, compose(lt(0), length)),
   sharePlaytime: createSelector(root.components, components.sharePlaytime)
 };

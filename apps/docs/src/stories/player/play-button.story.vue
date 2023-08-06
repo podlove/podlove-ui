@@ -1,12 +1,15 @@
 <template>
   <Story title="Player/Play Button" auto-props-disabled :source="source">
-    <player :config="config" :episode="episode" :style="style">
-      <play-button></play-button>
+    <player :config="config" :episode="episode">
+      <root class="flex p-2 justify-center items-center" :style="style">
+        <play-button></play-button>
+      </root>
     </player>
     <template #controls>
       <HstColor v-model="textColor" title="Text Color" />
       <HstColor v-model="textHoverColor" title="Text Hover Color" />
       <HstColor v-model="background" title="Background" />
+      <HstColor v-model="backgroundHover" title="Background Hover" />
     </template>
   </Story>
 </template>
@@ -19,19 +22,21 @@ import config from './data/config.json';
 import episode from './data/episode.json';
 import { inlineStyles } from '../helper/styles.js';
 
-const textColor = ref(config.theme.tokens.brandDark);
-const textHoverColor = ref(config.theme.tokens.brandDarkest);
-const background = ref(config.theme.tokens.brandLightest);
+const textColor = ref(config.theme.tokens.brandLightest);
+const textHoverColor = ref(config.theme.tokens.brandLightest);
+const background = ref(config.theme.tokens.brandDark);
+const backgroundHover = ref(config.theme.tokens.brandDarkest);
 
 const style = ref({
   '--podlove-player--play-button--color': textColor,
   '--podlove-player--play-button--color-hover': textHoverColor,
   '--podlove-player--play-button--background': background,
+  '--podlove-player--play-button--background-hover': backgroundHover,
 });
 
 const source = computed(
-  () => `<div :style="${inlineStyles(style)}">
+  () => `<root class="flex p-2 justify-center items-center" :style="${inlineStyles(style)}">
   <play-button></play-button>
-</div>`
+</root>`
 );
 </script>

@@ -108,7 +108,7 @@ importers:
       '@podlove/utils': workspace:*
       '@vitejs/plugin-vue': 4.2.3
       autoprefixer: 10.4.14
-      farbraum: 0.1.2
+      farbraum: 0.1.3
       histoire: 0.16.1
       postcss-import: 15.1.0
       tailwindcss: 3.3.2
@@ -122,7 +122,7 @@ importers:
       '@podlove/subscribe-button': link:../subscribe-button
       '@podlove/types': link:../../packages/types
       '@podlove/utils': link:../../packages/utils
-      farbraum: 0.1.2
+      farbraum: 0.1.3
       vue: 3.2.41
     devDependencies:
       '@histoire/app': 0.16.1_vite@4.3.9
@@ -149,7 +149,7 @@ importers:
       core-js: 3.15.2
       cypress: 8.5.0
       date-fns: 2.16.1
-      farbraum: 0.1.2
+      farbraum: 0.1.3
       floating-vue: 2.0.0-beta.20
       http-server: 14.1.1
       ramda: 0.29.0
@@ -172,7 +172,7 @@ importers:
       '@podlove/utils': link:../../packages/utils
       core-js: 3.15.2
       date-fns: 2.16.1
-      farbraum: 0.1.2
+      farbraum: 0.1.3
       floating-vue: 2.0.0-beta.20_vue@3.2.41
       ramda: 0.29.0
       redux: 4.2.0
@@ -657,7 +657,7 @@ importers:
       '@podlove/types': workspace:*
       '@types/ramda': 0.29.1
       dompurify: 2.0.12
-      farbraum: 0.1.2
+      farbraum: 0.1.3
       happy-dom: 9.1.9
       query-string: 8.1.0
       ramda: 0.29.0
@@ -668,7 +668,7 @@ importers:
       vitest: 0.30.0
     dependencies:
       dompurify: 2.0.12
-      farbraum: 0.1.2
+      farbraum: 0.1.3
       query-string: 8.1.0
       ramda: 0.29.0
     devDependencies:
@@ -10558,8 +10558,8 @@ packages:
     engines: {'0': node >=0.6.0}
     dev: true
 
-  /farbraum/0.1.2:
-    resolution: {integrity: sha512-o9erEyfxSiK6tqIRzk9aEhMWStmTEbTgWlJzc3HLQbaV0FofOlzHRifOjwqaFtlj9ROZRYZkUloYvoObPW7KNA==}
+  /farbraum/0.1.3:
+    resolution: {integrity: sha512-z64a9G0c+IUWpQPPz7PolCqPDd+FcBG2BkVJlVK4M5CmeSRIXBxIqBrpEQDPUT/zPVgZn+jl+XAK7aWQvigu/Q==}
     dependencies:
       color-name: 2.0.0
       colortranslator: 1.9.3

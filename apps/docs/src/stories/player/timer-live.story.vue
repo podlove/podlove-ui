@@ -1,8 +1,8 @@
 <template>
-  <Story title="Player/Divider" auto-props-disabled :source="source">
+  <Story title="Player/Timer Live" auto-props-disabled :source="source">
     <player :config="config" :episode="episode">
-      <root class="p-4" :style="style">
-        <divider class="w-full"></divider>
+      <root :style="style" class="flex justify-center p-10">
+        <timer-live></timer-live>
       </root>
     </player>
     <template #controls>
@@ -19,15 +19,15 @@ import config from './data/config.json';
 import episode from './data/episode.json';
 import { inlineStyles } from '../helper/styles.js';
 
-const color = ref(config.theme.tokens.brandDark);
+const color = ref(config.theme.tokens.contrast);
 
-const style = ref({
-  '--podlove-player--divider--color': color
-});
+const style = computed(() => ({
+  '--podlove-player--timer-live--color': color.value
+}));
 
-const source = computed(
-  () => `<root class="p-4" :style="${inlineStyles(style)}">
-  <divider class="w-full"></divider>
-</root>`
+const source = ref(
+  `<root :style="${inlineStyles(style)}" class="flex justify-center p-10">
+    <timer-live></timer-live>
+  </root>`
 );
 </script>

@@ -145,14 +145,7 @@
       "PLAYLIST": "Ähnliche Folgen",
       "SHARE": "Teilen"
     },
-    "TAB_PANEL": {
-      "SHOWNOTES": "Shownotes",
-      "CHAPTERS": "Kapitel",
-      "TRANSCRIPTS": "Transkripte",
-      "FILES": "Dateien",
-      "PLAYLIST": "Ähnliche Folgen",
-      "SHARE": "Teilen"
-    },
+    "TAB_PANEL": "Tab Panel {name}",
     "TAB_CLOSE": {
       "SHOWNOTES": "Shownotes ausblenden",
       "CHAPTERS": "Kapitel ausblenden",

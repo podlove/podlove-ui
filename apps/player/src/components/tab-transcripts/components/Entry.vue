@@ -1,30 +1,37 @@
 <template><render /></template>
 
 <script lang="ts" setup>
+import { mapState } from 'redux-vuex';
+
 import { computed, h } from 'vue';
 import { useI18n } from 'vue-i18n';
+import {
+  PodloveWebPlayerTimelineTranscriptEntry,
+  PodloveWebPlayerTimelineChapterEntry
+} from '@podlove/types';
+
+import select from '../../../store/selectors/index.js';
 
 const { t } = useI18n();
 
-const container =
-  (children = []) =>
-    h(
-      'div',
-      {
-        class: {
-          entry: true,
-          'pb-6': true
-        }
-      },
-      [...children]
-    );
+const container = (children = []) =>
+  h(
+    'div',
+    {
+      class: {
+        entry: true,
+        'pb-6': true
+      }
+    },
+    [...children]
+  );
 
 const chapter = (children = []) =>
   h(
     'div',
     {
-      class: { 'text-lg': true },
-      style: props.chapterStyle,
+      class: { 'text-lg': true, 'podlove-player--transcript-entry--chapter': true },
+      style: chapterStyle.value,
       ...(props.prerender
         ? {}
         : {
@@ -35,29 +42,36 @@ const chapter = (children = []) =>
   );
 
 const speaker = () =>
-  h('div', { class: { '-ml-6': true }, style: props.speakerStyle }, [
-    props.entry.speaker.avatar
-      ? h('img', {
-          class: {
-            'w-4': true,
-            'h-4': true,
-            'rounded-sm': true,
-            'inline-block': true,
-            'mr-2': true
-          },
-          src: props.entry.speaker.avatar
-        })
-      : null,
-    props.entry.speaker.name
-      ? h(
-          'span',
-          {
-            class: { 'text-xs': true, uppercase: true, 'opacity-50': true }
-          },
-          props.entry.speaker.name
-        )
-      : null
-  ]);
+  h(
+    'div',
+    {
+      class: { '-ml-6': true, 'podlove-player--transcript-entry--speaker': true },
+      style: speakerStyle.value
+    },
+    [
+      props.entry.speaker.avatar
+        ? h('img', {
+            class: {
+              'w-4': true,
+              'h-4': true,
+              'rounded-sm': true,
+              'inline-block': true,
+              'mr-2': true
+            },
+            src: props.entry.speaker.avatar
+          })
+        : null,
+      props.entry.speaker.name
+        ? h(
+            'span',
+            {
+              class: { 'text-xs': true, uppercase: true, 'opacity-50': true }
+            },
+            props.entry.speaker.name
+          )
+        : null
+    ]
+  );
 
 const transcript = (children = []) =>
   h('div', { class: { transcript: true, 'ml-6': props.entry.speaker } }, [
@@ -73,7 +87,17 @@ const highlightText = (text) => {
   return text
     .replace(query.value, (matched) => `|||${matched}|||`)
     .split('|||')
-    .map((text) => (text.match(query.value) ? h('span', { style: props.highlightStyle }, text) : text));
+    .map((text) =>
+      text.match(query.value)
+        ? h(
+            'span',
+            {
+              class: { 'podlove-player--transcript-entry--highlight': true }
+            },
+            text
+          )
+        : text
+    );
 };
 
 const text = (transcript, index) =>
@@ -83,9 +107,12 @@ const text = (transcript, index) =>
       class: {
         'opacity-75': props.playtime > transcript.end,
         'mr-1': index < props.entry.texts.length - 1,
-        'active-transcript': activePlaytime(transcript)
+        'active-transcript': activePlaytime(transcript),
+        'cursor-pointer':
+          !props.prerender && (activePlaytime(transcript) || activeGhost(transcript)),
+        'podlove-player--transcript-entry--active':
+          !props.prerender && (activePlaytime(transcript) || activeGhost(transcript))
       },
-      style: transcriptStyle(transcript),
       ...(props.prerender
         ? {}
         : {
@@ -99,50 +126,19 @@ const text = (transcript, index) =>
 
 const emit = defineEmits(['onClick', 'onMouseLeave', 'onMouseOver']);
 
-const props = defineProps({
-  prerender: {
-    type: Boolean,
-    default: false
-  },
-  entry: {
-    type: Object,
-    default: () => ({})
-  },
-  playtime: {
-    type: Number,
-    default: null
-  },
-  ghostActive: {
-    type: Boolean
-  },
-  searchQuery: {
-    type: String,
-    default: ''
-  },
-  ghostTime: {
-    type: Number,
-    default: null
-  },
-  searchResults: {
-    type: Array,
-    default: () => []
-  },
-  chapterStyle: {
-    type: Object,
-    default: () => ({})
-  },
-  speakerStyle: {
-    type: Object,
-    default: () => ({})
-  },
-  highlightStyle: {
-    type: Object,
-    default: () => ({})
-  },
-  activeStyle: {
-    type: Object,
-    default: () => ({})
-  }
+const props = defineProps<{
+  prerender: boolean;
+  entry: PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry;
+  playtime: number | null;
+  ghostActive: boolean;
+  searchQuery: string | null;
+  ghostTime: number | null;
+  searchResults: number[];
+}>();
+
+const state = mapState({
+  fontCi: select.theme.fontCi,
+  fontBold: select.theme.fontBold
 });
 
 const query = computed(() => {
@@ -152,6 +148,9 @@ const query = computed(() => {
 
   return new RegExp(props.searchQuery, 'ig');
 });
+
+const chapterStyle = computed(() => state.fontCi);
+const speakerStyle = computed(() => state.fontBold);
 
 // Event Bindings
 const onClick = (entry) => {
@@ -198,22 +197,23 @@ const activeGhost = (transcript) => {
 
   return true;
 };
-const transcriptStyle = (transcript) => {
-  if (props.prerender) {
-    return {};
-  }
-
-  if (activePlaytime(transcript)) {
-    return props.activeStyle;
-  }
-
-  if (activeGhost(transcript)) {
-    return props.activeStyle;
-  }
-
-  return {};
-};
 
 const render = () =>
   container([props.entry.type === 'chapter' ? chapter() : transcript(props.entry.texts.map(text))]);
 </script>
+
+<style lang="postcss">
+.podlove-player--transcript-entry--chapter {
+}
+
+.podlove-player--transcript-entry--speaker {
+}
+
+.podlove-player--transcript-entry--highlight {
+  background: var(--podlove-player--tab-transcripts--entry--background-highlight);
+}
+
+.podlove-player--transcript-entry--active {
+  background: var(--podlove-player--tab-transcripts--entry--background-active);
+}
+</style>

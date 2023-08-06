@@ -1,4 +1,4 @@
-import { curry, map, compose, join, toUpper, juxt, head, tail, identity } from 'ramda';
+import { curry, map, compose, identity } from 'ramda';
 import { isUndefinedOrNull } from './predicates';
 
 /**
@@ -11,12 +11,10 @@ export const inAnimationFrame =
     window.requestAnimationFrame(() => func.apply(null, args));
   };
 
-export const asyncAnimation =
-  <T>(func: Function) =>
-  (...args: any[]): Promise<T> =>
-    new Promise((resolve) => {
-      window.requestAnimationFrame(() => resolve(func.apply(null, args)));
-    });
+export const asyncAnimation = (): Promise<void> =>
+  new Promise((resolve) => {
+    window.requestAnimationFrame(() => resolve());
+  });
 
 export const callWith =
   (...args: any[]) =>
