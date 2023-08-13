@@ -7,7 +7,7 @@ import {
   HIDE_ERROR,
   ERROR_CONFIG_MEDIA,
   ERROR_CONFIG_MISSING
-} from './types';
+} from './types.js';
 
 export type errorPosterLoadPayload = Event;
 export type showErrorPayload = PodloveWebPlayerError;

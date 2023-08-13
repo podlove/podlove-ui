@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions'
-import { NEXT_PLAYLIST_ENTRY, SELECT_PLAYLIST_ENTRY, MARK_PLAYLIST_ENTRY_ACTIVE } from './types'
+import { NEXT_PLAYLIST_ENTRY, SELECT_PLAYLIST_ENTRY, MARK_PLAYLIST_ENTRY_ACTIVE } from './types.js'
 
 export type nextEpisodePayload = { play: boolean };
 export type selectEpisodePayload = { index: number, play: boolean };

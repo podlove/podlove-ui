@@ -35,5 +35,5 @@ export interface PodloveTheme {
    * - weight: font weight of the defined font
    * - src: list of web font sources (allowed: woff, woff2, ttf, eot, svg)
    */
-  fonts: { [key: string]: PodloveThemeFont };
+  fonts?: { [key: string]: PodloveThemeFont };
 }

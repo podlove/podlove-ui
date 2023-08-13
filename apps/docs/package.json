@@ -15,7 +15,7 @@
     "@podlove/button-actions": "workspace:*",
     "@podlove/player-actions": "workspace:*",
     "@podlove/utils": "workspace:*",
-    "farbraum": "0.1.3"
+    "farbraum": "0.1.4"
   },
   "devDependencies": {
     "@histoire/app": "0.16.1",

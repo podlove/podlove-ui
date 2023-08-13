@@ -6,25 +6,26 @@ import EnvironmentPlugin from 'vite-plugin-environment';
 
 import { version } from './package.json';
 
-import alias from '../../.build/aliases';
+import aliases from '../../.build/aliases';
 import extensions from '../../.build/extensions';
 
 const resolve = {
   extensions,
-  alias
+  aliases
 };
 
-export default defineConfig({
+const productionConfig = {
   build: {
     lib: {
       formats: ['es'],
-      entry: path.resolve(__dirname, 'src', 'main.ts')
+      entry: path.resolve(__dirname, 'src', 'main.js'),
+      fileName: () => `subscribe-button.[format].js`
     },
     rollupOptions: {
       output: {
-        entryFileNames: '[name].js',
+        entryFileNames: '[name].[format].js',
         chunkFileNames: `[name].[hash].js`,
-        assetFileNames: `subscribe-button.css`
+        assetFileNames: `[name].css`
       }
     }
   },
@@ -38,4 +39,21 @@ export default defineConfig({
     })
   ],
   resolve
-});
+};
+
+const developmentConfig = {
+  server: {
+    port: 9000
+  },
+  plugins: [vue(), useDynamicPublicPath()],
+  resolve
+}
+
+export default defineConfig(({ command }) => {
+  if (command === 'serve') {
+    return developmentConfig
+  } else {
+    // command === 'build'
+    return productionConfig
+  }
+})

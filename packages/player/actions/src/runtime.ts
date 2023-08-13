@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions'
 
-import { SET_LANGUAGE, SET_RUNTIME, SET_VERSION, SET_MODE } from './types'
+import { SET_LANGUAGE, SET_RUNTIME, SET_VERSION, SET_MODE } from './types.js'
 import type { PodloveRuntime } from '@podlove/types'
 
 export type setLanguagePayload = string;

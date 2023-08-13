@@ -7,7 +7,7 @@ import {
   BACKEND_DURATION,
   BACKEND_LIVESYNC,
   UPDATE_PLAYTIME
-} from './types';
+} from './types.js';
 
 export type backendPlaytimePayload = number;
 export type requestPlaytimePayload = number;

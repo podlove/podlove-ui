@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions'
-import { SHOW_LIST, HIDE_LIST } from './types'
+import { SHOW_LIST, HIDE_LIST } from './types.js'
 
 export type hidePayload = void;
 export type showPayload = void;

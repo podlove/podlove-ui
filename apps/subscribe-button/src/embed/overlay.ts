@@ -1,7 +1,7 @@
 import { Store } from 'redux'
 import { setStyles } from '@podlove/utils/dom'
-import * as select from '../store/selectors'
-import State from '../store/state'
+import * as select from '../store/selectors.js'
+import State from '../store/state.js'
 
 const visibleStyle = {
   position: 'fixed',

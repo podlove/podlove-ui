@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions'
-import { INIT } from './types'
+import { createAction } from 'redux-actions';
+import { INIT } from './types.js';
 
-export const init = createAction<any>(INIT)
+export const init = createAction<any>(INIT);

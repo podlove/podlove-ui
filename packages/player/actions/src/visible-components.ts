@@ -29,7 +29,7 @@ import {
   HIDE_VISIBLE_COMPONENTS_CONTROLS_CHAPTERS,
   HIDE_VISIBLE_COMPONENTS_CONTROLS_PROGRESSBAR,
   HIDE_SHARE_PLAYTIME
-} from './types'
+} from './types.js'
 
 // Tabs
 export const showInfoTab = createAction<void>(SHOW_VISIBLE_COMPONENTS_TAB_INFO)

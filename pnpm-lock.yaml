@@ -108,7 +108,7 @@ importers:
       '@podlove/utils': workspace:*
       '@vitejs/plugin-vue': 4.2.3
       autoprefixer: 10.4.14
-      farbraum: 0.1.3
+      farbraum: 0.1.4
       histoire: 0.16.1
       postcss-import: 15.1.0
       tailwindcss: 3.3.2
@@ -122,7 +122,7 @@ importers:
       '@podlove/subscribe-button': link:../subscribe-button
       '@podlove/types': link:../../packages/types
       '@podlove/utils': link:../../packages/utils
-      farbraum: 0.1.3
+      farbraum: 0.1.4
       vue: 3.2.41
     devDependencies:
       '@histoire/app': 0.16.1_vite@4.3.9
@@ -149,8 +149,7 @@ importers:
       core-js: 3.15.2
       cypress: 8.5.0
       date-fns: 2.16.1
-      farbraum: 0.1.3
-      floating-vue: 2.0.0-beta.20
+      farbraum: 0.1.4
       http-server: 14.1.1
       ramda: 0.29.0
       redux: 4.2.0
@@ -172,8 +171,7 @@ importers:
       '@podlove/utils': link:../../packages/utils
       core-js: 3.15.2
       date-fns: 2.16.1
-      farbraum: 0.1.3
-      floating-vue: 2.0.0-beta.20_vue@3.2.41
+      farbraum: 0.1.4
       ramda: 0.29.0
       redux: 4.2.0
       redux-vuex: 3.0.0_redux@4.2.0+vue@3.2.41
@@ -201,6 +199,8 @@ importers:
       '@podlove/utils': workspace:*
       '@types/ramda': 0.29.1
       '@types/redux-saga': 0.10.5
+      '@vitejs/plugin-vue': 4.2.3
+      detect-browser: 5.3.0
       http-server: 14.1.1
       npm-run-all: 4.1.5
       ramda: 0.29.0
@@ -210,6 +210,7 @@ importers:
       reselect: 4.1.8
       tailwindcss: 3.2.4
       typescript: 5.0.4
+      vite: 4.3.9
       vite-plugin-dts: 2.3.0
       vite-plugin-dynamic-publicpath: 1.1.2
       vite-plugin-environment: 1.1.3
@@ -221,6 +222,7 @@ importers:
       '@podlove/clients': link:../../packages/clients
       '@podlove/components': link:../../packages/components
       '@podlove/utils': link:../../packages/utils
+      detect-browser: 5.3.0
       ramda: 0.29.0
       redux: 4.2.1
       redux-saga: 1.2.3
@@ -234,12 +236,14 @@ importers:
       '@podlove/types': link:../../packages/types
       '@types/ramda': 0.29.1
       '@types/redux-saga': 0.10.5
+      '@vitejs/plugin-vue': 4.2.3_vite@4.3.9+vue@3.2.41
       http-server: 14.1.1
       npm-run-all: 4.1.5
       typescript: 5.0.4
-      vite-plugin-dts: 2.3.0
+      vite: 4.3.9
+      vite-plugin-dts: 2.3.0_vite@4.3.9
       vite-plugin-dynamic-publicpath: 1.1.2
-      vite-plugin-environment: 1.1.3
+      vite-plugin-environment: 1.1.3_vite@4.3.9
 
   apps/web-player:
     specifiers:
@@ -657,7 +661,7 @@ importers:
       '@podlove/types': workspace:*
       '@types/ramda': 0.29.1
       dompurify: 2.0.12
-      farbraum: 0.1.3
+      farbraum: 0.1.4
       happy-dom: 9.1.9
       query-string: 8.1.0
       ramda: 0.29.0
@@ -668,7 +672,7 @@ importers:
       vitest: 0.30.0
     dependencies:
       dompurify: 2.0.12
-      farbraum: 0.1.3
+      farbraum: 0.1.4
       query-string: 8.1.0
       ramda: 0.29.0
     devDependencies:
@@ -10558,8 +10562,8 @@ packages:
     engines: {'0': node >=0.6.0}
     dev: true
 
-  /farbraum/0.1.3:
-    resolution: {integrity: sha512-z64a9G0c+IUWpQPPz7PolCqPDd+FcBG2BkVJlVK4M5CmeSRIXBxIqBrpEQDPUT/zPVgZn+jl+XAK7aWQvigu/Q==}
+  /farbraum/0.1.4:
+    resolution: {integrity: sha512-1wUlUgTn9oZjrmYeay0CEgPvs822DeBrYilcHVLM8Su+V9n1YN5SlYeM3PKzu1euOdSeT2tC6zwe8LY3FA7uIw==}
     dependencies:
       color-name: 2.0.0
       colortranslator: 1.9.3
@@ -20994,28 +20998,6 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-dts/2.3.0:
-    resolution: {integrity: sha512-WbJgGtsStgQhdm3EosYmIdTGbag5YQpZ3HXWUAPCDyoXI5qN6EY0V7NXq0lAmnv9hVQsvh0htbYcg0Or5Db9JQ==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    peerDependencies:
-      vite: '>=2.9.0'
-    dependencies:
-      '@babel/parser': 7.21.8
-      '@microsoft/api-extractor': 7.34.4
-      '@rollup/pluginutils': 5.0.2
-      '@rushstack/node-core-library': 3.55.2
-      debug: 4.3.4
-      fast-glob: 3.2.12
-      fs-extra: 10.1.0
-      kolorist: 1.7.0
-      magic-string: 0.29.0
-      ts-morph: 18.0.0
-    transitivePeerDependencies:
-      - '@types/node'
-      - rollup
-      - supports-color
-    dev: true
-
   /vite-plugin-dts/2.3.0_vite@4.3.5:
     resolution: {integrity: sha512-WbJgGtsStgQhdm3EosYmIdTGbag5YQpZ3HXWUAPCDyoXI5qN6EY0V7NXq0lAmnv9hVQsvh0htbYcg0Or5Db9JQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -21039,16 +21021,41 @@ packages:
       - supports-color
     dev: true
 
+  /vite-plugin-dts/2.3.0_vite@4.3.9:
+    resolution: {integrity: sha512-WbJgGtsStgQhdm3EosYmIdTGbag5YQpZ3HXWUAPCDyoXI5qN6EY0V7NXq0lAmnv9hVQsvh0htbYcg0Or5Db9JQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: '>=2.9.0'
+    dependencies:
+      '@babel/parser': 7.21.8
+      '@microsoft/api-extractor': 7.34.4
+      '@rollup/pluginutils': 5.0.2
+      '@rushstack/node-core-library': 3.55.2
+      debug: 4.3.4
+      fast-glob: 3.2.12
+      fs-extra: 10.1.0
+      kolorist: 1.7.0
+      magic-string: 0.29.0
+      ts-morph: 18.0.0
+      vite: 4.3.9
+    transitivePeerDependencies:
+      - '@types/node'
+      - rollup
+      - supports-color
+    dev: true
+
   /vite-plugin-dynamic-publicpath/1.1.2:
     resolution: {integrity: sha512-oZpGyNviJQ6cBJizvjuqp+gVj4H3NphSm5ipP1N3AeRTzCMbwix9kvlbwNnRXLJh3FiE53s4beKIlS6w6/gGXQ==}
     dependencies:
       es-module-lexer: 0.6.0
     dev: true
 
-  /vite-plugin-environment/1.1.3:
+  /vite-plugin-environment/1.1.3_vite@4.3.9:
     resolution: {integrity: sha512-9LBhB0lx+2lXVBEWxFZC+WO7PKEyE/ykJ7EPWCq95NEcCpblxamTbs5Dm3DLBGzwODpJMEnzQywJU8fw6XGGGA==}
     peerDependencies:
       vite: '>= 2.7'
+    dependencies:
+      vite: 4.3.9
     dev: true
 
   /vite-plugin-svgr/3.2.0_vite@4.3.5:

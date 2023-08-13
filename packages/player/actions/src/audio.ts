@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions'
-import { SET_VOLUME, MUTE, UNMUTE, SET_RATE } from './types'
+import { SET_VOLUME, MUTE, UNMUTE, SET_RATE } from './types.js'
 
 export type setVolumeActionPayload = number;
 export type muteActionPayload = void;

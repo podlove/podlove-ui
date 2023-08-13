@@ -14,7 +14,7 @@ import {
   BACKEND_ERROR,
   REQUEST_LOAD,
   REQUEST_STOP
-} from './types';
+} from './types.js';
 
 export type requestPlayPayload = void;
 export type backendPlayPayload = void;

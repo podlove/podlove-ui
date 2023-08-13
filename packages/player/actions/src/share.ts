@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 import type { PodloveWebPlayerChannel, PodloveWebPlayerContent } from '@podlove/types';
-import { SELECT_CONTENT, SELECT_CHANNEL } from './types';
+import { SELECT_CONTENT, SELECT_CHANNEL } from './types.js';
 
 export type selectContentPayload = PodloveWebPlayerContent;
 export type selectChannelPayload = PodloveWebPlayerChannel;

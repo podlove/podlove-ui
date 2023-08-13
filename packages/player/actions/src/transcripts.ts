@@ -9,7 +9,7 @@ import {
   SET_SEARCH_TRANSCRIPTS_RESULTS,
   NEXT_SEARCH_RESULT,
   PREVIOUS_SEARCH_RESULT
-} from './types';
+} from './types.js';
 
 import type {
   PodloveWebPlayerTimelineChapterEntry,

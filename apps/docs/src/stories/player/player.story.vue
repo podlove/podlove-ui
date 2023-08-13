@@ -1,5 +1,5 @@
 <template>
-  <Story title="Player" auto-props-disabled>
+  <Story title="Player/Overview" auto-props-disabled>
     <PodlovePlayer :config="config" :episode="episode">
       <player class="w-full">
         <root>

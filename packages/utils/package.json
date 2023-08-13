@@ -169,7 +169,7 @@
     "dompurify": "2.0.12",
     "query-string": "8.1.0",
     "ramda": "0.29.0",
-    "farbraum": "0.1.3"
+    "farbraum": "0.1.4"
   },
   "devDependencies": {
     "@podlove/build": "workspace:*",

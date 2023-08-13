@@ -7,19 +7,15 @@ import extensions from '../../.build/extensions'
 
 const resolve = {
   extensions,
-  alias: {
-    ...aliases,
-    store: path.resolve(__dirname, './src/store')
-  }
+  aliases
 }
 
 const productionConfig = {
   build: {
     lib: {
-      formats: ['es', 'umd'],
+      formats: ['es'],
       entry: path.resolve(__dirname, 'src', 'main.js'),
-      fileName: () => `player.[format].js`,
-      name: 'PodlovePlayer'
+      fileName: () => `player.[format].js`
     },
     rollupOptions: {
       output: {

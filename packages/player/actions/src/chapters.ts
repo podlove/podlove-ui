@@ -7,7 +7,7 @@ import {
   PREVIOUS_CHAPTER,
   SET_CHAPTER,
   UPDATE_CHAPTER
-} from './types';
+} from './types.js';
 
 export type setChaptersPayload = PodloveWebPlayerChapter[];
 export type setChapterPayload = number;

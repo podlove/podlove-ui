@@ -1,4 +1,4 @@
-import { ENABLE_GHOST_MODE, DISABLE_GHOST_MODE } from './types';
+import { ENABLE_GHOST_MODE, DISABLE_GHOST_MODE } from './types.js';
 import { createAction } from 'redux-actions';
 
 export type enableGhostPayload = void;

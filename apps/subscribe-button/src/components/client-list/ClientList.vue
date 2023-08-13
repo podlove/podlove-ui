@@ -4,7 +4,7 @@
       v-for="(entry, index) in state.clients"
       :key="index"
       class="block mb-2 mobile:w-full tablet:w-1/2"
-      :aria-label="$t('A11Y.CLIENT', entry)"
+      :aria-label="t('A11Y.CLIENT', entry)"
     >
       <a
         class="flex items-center w-full p-2 hover:bg-gray-200 rounded-sm cursor-pointer"
@@ -27,8 +27,11 @@
 <script lang="ts" setup>
 import { mapState } from 'redux-vuex';
 import { ArrowToRightIcon } from '@podlove/components';
-import type { PodcastClient } from '@podlove/types';
-import * as select from '../../store/selectors';
+import { useI18n } from 'vue-i18n';
+import { PodloveSubscribeButtonClient } from '@podlove/types';
+import * as select from '../../store/selectors.js';
+
+const { t } = useI18n();
 
 const emit = defineEmits(['clientSelect']);
 
@@ -37,7 +40,7 @@ const state = mapState({
   font: select.theme.fontBold
 });
 
-const onClick = (client: PodcastClient) => {
+const onClick = (client: PodloveSubscribeButtonClient) => {
   emit('clientSelect', client);
 };
 </script>

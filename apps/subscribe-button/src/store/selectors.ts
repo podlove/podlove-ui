@@ -9,7 +9,7 @@ import { selectors as clientSelectors, type State as ClientsState } from '@podlo
 import type { PodloveThemeFont } from '@podlove/types';
 import { scope } from '@podlove/utils/helper';
 
-import State from './state';
+import State from './state.js';
 
 const slices = {
   config: propOr({}, 'config') as (input: State) => ConfigState,
@@ -20,14 +20,6 @@ const slices = {
   runtime: propOr({}, 'runtime') as (input: State) => RuntimeState,
   clients: propOr([], 'clients') as (input: State) => ClientsState,
 };
-
-export const selectColor = createSelector(slices.config, configSelectors.color);
-export const selectCover = createSelector(slices.config, configSelectors.cover);
-export const selectFormat = createSelector(slices.config, configSelectors.format);
-export const selectSize = createSelector(slices.config, configSelectors.size);
-export const selectStyle = createSelector(slices.config, configSelectors.style);
-
-export const headless = createSelector(slices.config, configSelectors.headless);
 
 const fontString = (font: PodloveThemeFont) => ({
   'font-family': (font.family || []).map((font) => `"${font}"`).join(', '),

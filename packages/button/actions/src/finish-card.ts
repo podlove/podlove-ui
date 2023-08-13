@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { SHOW_FINISH_CARD, HIDE_FINISH_CARD } from './types';
+import { SHOW_FINISH_CARD, HIDE_FINISH_CARD } from './types.js';
 
 export type hidePayload = void;
 export interface showPayload {
