@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import '@podlove/player/styles';
+// import '@podlove/player/styles';
 
 import createPlayer from '@podlove/player';
 import { init } from '@podlove/player-actions/init';

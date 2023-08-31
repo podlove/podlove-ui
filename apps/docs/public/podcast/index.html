@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <script src="embed.js"></script>
+    <script src="extensions/external-events.js"></script>
+</head>
+<body>
+  <div id="player" data-variant="xl"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        podlovePlayer('#player', 'episode.json', 'config.json').then(registerExternalEvents('player'))
+      }
+    })
+  </script>
+</body>
+</html>

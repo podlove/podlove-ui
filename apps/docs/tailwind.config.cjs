@@ -5,6 +5,7 @@ module.exports = {
     '../../packages/components/src/**/*.vue',
     '../../apps/subscribe-button/src/**/*.vue',
     '../../apps/player/src/**/*.vue',
+    '../../apps/web-player/src/**/*.html',
   ],
   plugins: [],
   theme: {

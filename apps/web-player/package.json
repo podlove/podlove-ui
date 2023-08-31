@@ -20,6 +20,7 @@
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "@podlove/button-actions": "workspace:*",
     "@podlove/player": "workspace:*",
@@ -27,6 +28,7 @@
     "@podlove/player-config": "workspace:*",
     "@podlove/player-state": "workspace:*",
     "@podlove/subscribe-button": "workspace:*",
+    "@podlove/types": "workspace:*",
     "@podlove/utils": "workspace:*",
     "color": "4.2.3",
     "hashcode": "1.0.3",
@@ -38,6 +40,14 @@
     "cypress": "8.5.0",
     "http-server": "0.11.1",
     "webpack": "5.45.1",
-    "webpack-dev-server": "3.11.2"
+    "webpack-dev-server": "3.11.2",
+    "@types/ramda": "0.29.3",
+    "redux": "4.2.1"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/main.ts",
+      "types": "./src/main.ts"
+    }
   }
 }

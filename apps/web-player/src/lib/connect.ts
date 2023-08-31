@@ -1,7 +1,8 @@
 /* eslint-disable no-empty */
 import { prop } from 'ramda'
+import { Store } from 'redux'
 
-export default (...stores) =>
+export default (...stores: { store: Store, prefix: string }[]) =>
   stores.forEach((sender) => {
     sender.store.subscribe(() => {
       const action = prop('lastAction', sender.store.getState())

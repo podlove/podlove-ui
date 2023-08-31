@@ -6,9 +6,9 @@ const getHeaders = <T>(header: string, fallback: T, response: Response): T => {
   return response.headers.get(header) as T;
 }
 
-export const json = async <T>(url): Promise<T | null> => {
+export const json = async <T>(url: string | T): Promise<T | null> => {
   if (!url || typeof url !== 'string') {
-    return url;
+    return url as T;
   }
 
   try {

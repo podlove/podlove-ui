@@ -106,6 +106,7 @@ importers:
       '@podlove/subscribe-button': workspace:*
       '@podlove/types': workspace:*
       '@podlove/utils': workspace:*
+      '@podlove/web-player': workspace:*
       '@vitejs/plugin-vue': 4.2.3
       autoprefixer: 10.4.14
       farbraum: 0.1.4
@@ -122,6 +123,7 @@ importers:
       '@podlove/subscribe-button': link:../subscribe-button
       '@podlove/types': link:../../packages/types
       '@podlove/utils': link:../../packages/utils
+      '@podlove/web-player': link:../web-player
       farbraum: 0.1.4
       vue: 3.2.41
     devDependencies:
@@ -254,13 +256,16 @@ importers:
       '@podlove/player-config': workspace:*
       '@podlove/player-state': workspace:*
       '@podlove/subscribe-button': workspace:*
+      '@podlove/types': workspace:*
       '@podlove/utils': workspace:*
+      '@types/ramda': 0.29.3
       color: 4.2.3
       cypress: 8.5.0
       hashcode: 1.0.3
       http-server: 0.11.1
       iframe-resizer: 4.3.2
       ramda: 0.29.0
+      redux: 4.2.1
       webpack: 5.45.1
       webpack-dev-server: 3.11.2
     dependencies:
@@ -270,6 +275,7 @@ importers:
       '@podlove/player-config': link:../../packages/player/config
       '@podlove/player-state': link:../../packages/player/state
       '@podlove/subscribe-button': link:../subscribe-button
+      '@podlove/types': link:../../packages/types
       '@podlove/utils': link:../../packages/utils
       color: 4.2.3
       hashcode: 1.0.3
@@ -277,8 +283,10 @@ importers:
       ramda: 0.29.0
     devDependencies:
       '@podlove/build': link:../../packages/build
+      '@types/ramda': 0.29.3
       cypress: 8.5.0
       http-server: 0.11.1
+      redux: 4.2.1
       webpack: 5.45.1
       webpack-dev-server: 3.11.2_webpack@5.45.1
 
@@ -5085,6 +5093,12 @@ packages:
     resolution: {integrity: sha512-Ff5RRG9YRqMgWOqZVVavSjGEvYHUnXnGF0YPGbzIWhB3o8qiccSJZlFX2z8qm3G1H/IC5w0ozHmlezUeQCtGfQ==}
     dependencies:
       types-ramda: 0.29.2
+    dev: true
+
+  /@types/ramda/0.29.3:
+    resolution: {integrity: sha512-Yh/RHkjN0ru6LVhSQtTkCRo6HXkfL9trot/2elzM/yXLJmbLm2v6kJc8yftTnwv1zvUob6TEtqI2cYjdqG3U0Q==}
+    dependencies:
+      types-ramda: 0.29.4
     dev: true
 
   /@types/redux-actions/2.6.2:
@@ -20435,6 +20449,12 @@ packages:
 
   /types-ramda/0.29.2:
     resolution: {integrity: sha512-HpLcR0ly2EfXQwG8VSI5ov6ml7PvtT+u+cp+7lZLu7q4nhnPDVW+rUTC1uy/SNs4aAyTUXri5M/LyhgvjEXJDg==}
+    dependencies:
+      ts-toolbelt: 9.6.0
+    dev: true
+
+  /types-ramda/0.29.4:
+    resolution: {integrity: sha512-XO/820iRsCDwqLjE8XE+b57cVGPyk1h+U9lBGpDWvbEky+NQChvHVwaKM05WnW1c5z3EVQh8NhXFmh2E/1YazQ==}
     dependencies:
       ts-toolbelt: 9.6.0
     dev: true
