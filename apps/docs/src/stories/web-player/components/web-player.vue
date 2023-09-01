@@ -1,11 +1,11 @@
 <template>
-    <div ref="player" :data-variant="$props.variant"><slot></slot></div>
+  <div ref="player" :data-variant="$props.variant"><slot></slot></div>
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { createApp } from '@podlove/web-player';
+import createApp from '@podlove/web-player';
 
-defineProps<{variant?: 'xl' | 'l' |  'm' }>()
+defineProps<{ variant?: 'xl' | 'l' | 'm' }>();
 
 const player = ref(null);
 

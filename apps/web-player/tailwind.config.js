@@ -1,6 +1,17 @@
+/** @type {import('tailwindcss').Config} */
+
+import safelist from './safelist.js';
+
 export default {
-  content: ['./src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    './src/**/*.{vue,html}',
+    '../../packages/components/src/**/*.vue',
+    '../../apps/subscribe-button/src/**/*.vue',
+    '../../apps/player/src/**/*.vue',
+    '../../apps/web-player/src/**/*.html'
+  ],
   theme: {
+    colors: {},
     screens: {
       mobile: { min: '0px', max: '599px' },
       tablet: '600px',
@@ -11,5 +22,6 @@ export default {
       auto: 'auto',
       8: '2rem'
     }
-  }
+  },
+  safelist
 };

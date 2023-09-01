@@ -75,7 +75,7 @@
     ]
   },
 
-  "playlist": "playlist.json",
+  "playlist": "/podcast/playlist.json",
 
   "share": {
     "channels": [

@@ -11,8 +11,9 @@ import pkg from '../package.json';
 import { parseConfig, subscribeButtonConfig } from './lib/config.js';
 import { createEntry } from './lib/entry.js';
 import connect from './lib/connect.js';
+import restore from './lib/restore.js';
 
-export async function createApp(
+export default async function (
   episode: string | PodloveWebPlayerEpisode,
   meta: string | PodloveWebPlayerConfig
 ) {
@@ -22,8 +23,10 @@ export async function createApp(
     const config = await parseConfig(episode, meta);
     const baseUrl = propOr('', 'base', config.reference);
 
-    const player = createPlayer(baseUrl);
-    const subscribeButton = createSubscribeButton(baseUrl);
+    globalThis.__dynamicImportHandler__ = (importer) => baseUrl || '/' + importer;
+
+    const player = createPlayer();
+    const subscribeButton = createSubscribeButton();
 
     player.store.dispatch(playerInit(config));
 
@@ -35,6 +38,8 @@ export async function createApp(
         { store: player.store, prefix: 'PLAYER' },
         { store: subscribeButton.store, prefix: 'BUTTON' }
       );
+
+      restore(config, player.store);
 
       const mount = async (
         selector: string | HTMLElement

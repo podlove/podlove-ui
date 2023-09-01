@@ -5,17 +5,12 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/web-player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run clean && npm run build:dependencies && webpack serve --progress --config .build/webpack.config.dev.js",
-    "clean": "rm -rf dist publish",
-    "build:dependencies": "lerna run build --scope '@podlove/{subscribe-button,player}' --stream",
-    "build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.prod.js",
-    "build:cdn": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.cdn.js",
-    "build:dev": "npm run clean && webpack --config .build/webpack.config.dev.js",
     "integration:build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.dev.js",
     "integration:server": "http-server -p 9000 dist/ > http.log 2>&1 &",
     "integration:ci": "cypress run --browser chrome",
     "integration:dev": "cypress open --browser chrome",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "build": "vite build",
+    "serve": "vite serve"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -37,12 +32,15 @@
   },
   "devDependencies": {
     "@podlove/build": "workspace:*",
-    "cypress": "8.5.0",
+    "cypress": "13.1.0",
     "http-server": "0.11.1",
     "webpack": "5.45.1",
     "webpack-dev-server": "3.11.2",
     "@types/ramda": "0.29.3",
-    "redux": "4.2.1"
+    "redux": "4.2.1",
+    "vite": "4.3.9",
+    "@vitejs/plugin-vue": "4.2.3",
+    "vite-plugin-dynamic-publicpath": "1.1.2"
   },
   "exports": {
     ".": {

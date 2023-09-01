@@ -22,6 +22,7 @@
     "@podlove/player-config": "workspace:*",
     "@podlove/player-sagas": "workspace:*",
     "@podlove/player-state": "workspace:*",
+    "@podlove/types": "workspace:*",
     "@podlove/utils": "workspace:*",
     "core-js": "3.15.2",
     "date-fns": "2.16.1",

@@ -12,10 +12,7 @@ import translations from '../lang/index.js'
 // Components
 import components from './components/index.js'
 
-export default function ({ baseUrl }: { baseUrl?: string }) {
-  // Use public path from application
-  (window as any).__dynamicImportHandler__ = (importer) => baseUrl || '/' + importer
-
+export default function () {
   const i18n = createI18n({
     locale: 'en',
     legacy: false,

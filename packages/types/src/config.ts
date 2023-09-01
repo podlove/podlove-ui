@@ -35,7 +35,13 @@ export interface PodloveWebPlayerConfig {
   share?: PodloveWebPlayerShare;
 
   /** Files */
-  files: PodloveWebPlayerFile[]
+  files: PodloveWebPlayerFile[];
+
+  /** Features */
+  features?: {
+    persistPlaystate?: boolean;
+    persistTab?: boolean;
+  }
 }
 
 export interface PodloveWebPlayerResolvedConfig extends PodloveWebPlayerConfig {

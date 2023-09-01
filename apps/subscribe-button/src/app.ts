@@ -7,10 +7,6 @@ import messages from '../lang/index.js';
 import Button from './Button.vue';
 import store from './store/index.js';
 
-// Use public path from application
-(window as any).__dynamicImportHandler__ = (importer) =>
-  (window as any).resourceBaseUrl || '/' + importer;
-
 export default () => {
   const i18n = createI18n({
     legacy: false,
