@@ -1,0 +1,103 @@
+{
+  "version": 5,
+  "show": {
+    "title": "Podlovers",
+    "subtitle": "Der Podlove Entwickler:innen Podcast",
+    "summary": "Podlove ist eine Initiative zur Verbesserung der Open Source Infrastruktur zum Podcasting. Podlove ist gleichzeitig auch ein Netzwerk an Entwickler:innen zur Diskussion von Features und Standardisierung.",
+    "poster": "/podcast/show.png",
+    "link": "https://podlovers.org"
+  },
+  "title": "Podlove Web Player",
+  "subtitle": "Podlove Web Player: Motivation, Geschichte, Features, Ausblick",
+  "summary": "Wir holen uns Simon zur Hilfe um \u00fcber die Anf\u00e4nge des Podlove Web Player zu sprechen: Warum es ihn gibt und wie die ersten Versionen aussahen. In der zweiten H\u00e4lfte geht es tief in den Technik-Kaninchenbau: Alex erl\u00e4utert seine Motivation f\u00fcr den Neubau f\u00fcr Podlove Web Player 4 und 5. Zum Schluss besprechen wir das holprige Release des aktuellen Web Player Plugins.",
+  "publicationDate": "2020-08-16T11:58:58+00:00",
+  "duration": "01:31:18.610",
+  "poster": "/podcast/episode.png",
+  "link": "https://podlovers.org/podlove-web-player",
+  "chapters": "/podcast/chapters.json",
+  "audio": [
+    {
+      "url": "/podcast/podlove.mp3",
+      "size": "486839",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "files": [
+    {
+      "url": "/podcast/podlove.mp3",
+      "size": "486839",
+      "title": "MP3 Audio",
+      "mimeType": "audio\/mpeg"
+    },
+    {
+      "url": "/podcast/podlove.m4a",
+      "size": "1931981",
+      "title": "M4A Audio (m4a)",
+      "mimeType": "audio\/mp4"
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Alexander Heimbuch",
+      "avatar": "/podcast/alexander-heimbuch.jpeg",
+      "role": {
+        "id": "1",
+        "slug": "team",
+        "title": "Team"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Michaela Lehr",
+      "avatar": "/podcast/michaela-lehr.jpeg",
+      "role": {
+        "id": "1",
+        "slug": "team",
+        "title": "Team"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Eric Teubert",
+      "avatar": "/podcast/eric-teubert.jpeg",
+      "role": {
+        "id": "1",
+        "slug": "team",
+        "title": "Team"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Simon",
+      "avatar": "/podcast/simon.jpeg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    }
+  ],
+  "transcripts": "/podcast/transcripts.json"
+}

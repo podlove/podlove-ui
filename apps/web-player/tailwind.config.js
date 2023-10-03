@@ -8,7 +8,7 @@ export default {
     '../../packages/components/src/**/*.vue',
     '../../apps/subscribe-button/src/**/*.vue',
     '../../apps/player/src/**/*.vue',
-    '../../apps/web-player/src/**/*.html'
+    '../../apps/web-player/**/*.html'
   ],
   theme: {
     colors: {},

@@ -192,10 +192,15 @@ const bufferStyle = ([start, end]: [number, number]) => ({
   width: relativePosition(end - start, props.duration)
 });
 
-const chapterStyle = (chapter: { start: number; end: number }) => ({
-  left: (chapter.start * 100) / props.duration + '%',
-  width: ((chapter.end - chapter.start) * 100) / props.duration + '%'
-});
+const chapterStyle = (chapter: { start: number; end: number }) => {
+  const left = (chapter.start * 100) / props.duration;
+  const width = ((chapter.end - chapter.start) * 100) / props.duration;
+
+  return {
+    left: (left > 100 ? 100 : left) + '%',
+    width: (width > 100 ? 100 : width) + '%'
+  };
+};
 </script>
 
 <style lang="scss" scoped>

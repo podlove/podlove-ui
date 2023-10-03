@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="test"></div>
+
+    <script type="module">
+      import createApp from './src/main.ts';
+
+      const container = document.getElementById('test');
+      window.BOOTSTRAP = async (
+        template = '',
+        data = { episode: {}, config: {} }
+      ) => {
+        container.innerHTML = template;
+
+        const app = await createApp(data.episode, data.config);
+        app.mount(container.firstChild);
+
+        return app;
+      };
+    </script>
+  </body>
+</html>

@@ -15,7 +15,6 @@ import reference from './reference.js';
 import timepiece from './timepiece.js';
 import State from '../state.js';
 
-const embedSlice = prop('embed');
 const type = createSelector(
   root.share.content,
   content.content
@@ -26,12 +25,13 @@ const availableEmbedSizes = createSelector(root.share.embed, embed.available);
 const hasLink = (state: State) =>
   (type(state) === 'show' && show.link(state)) || (type(state) !== 'show' && episode.link(state));
 
-const hasEmbedLink = (state: State) =>
-  !!(
+const hasEmbedLink = (state: State) => {
+  return !!(
     type(state) !== 'show' &&
     reference.episode(state) &&
-    (reference.share(state) || reference.origin(state))
+    reference.share(state)
   );
+  }
 
 const link = (state: State) => {
   switch (type(state)) {

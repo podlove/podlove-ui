@@ -1,16 +1,14 @@
-import type { PodloveWebPlayerPlaylistItem } from './playlist-item';
-import type { PodloveSubscribeButtonConfig } from './subscribe-button';
-import type { PodloveWebPlayerShare } from './share';
-import type { PodloveTheme } from './theme';
-import type { PodloveWebPlayerTab } from './tab';
-import type { PodloveWebPlayerReference } from './reference';
-import type { PodloveWebPlayerFile } from './file';
+import { PodloveWebPlayerPlaylistItem } from './playlist-item.js';
+import { PodloveSubscribeButtonConfig } from './subscribe-button.js';
+import { PodloveWebPlayerShare } from './share.js';
+import { PodloveTheme } from './theme.js';
+import { PodloveWebPlayerTab } from './tab.js';
+import { PodloveWebPlayerReference } from './reference.js';
+import { PodloveWebPlayerFile } from './file.js';
+import { PodloveWebPlayerFeatures } from './features.js';
 
 export interface PodloveWebPlayerConfig {
   version: 5;
-
-  /** player asset base path, falls back to ./ */
-  base: string;
 
   /** default active tab, can be set to [none, shownotes, chapters, files, share, playlist] */
   activeTab?: PodloveWebPlayerTab;
@@ -29,7 +27,7 @@ export interface PodloveWebPlayerConfig {
    * - can be a plain list or a reference to a json file
    * - if present playlist tab will be available
    */
-  playlist?: PodloveWebPlayerPlaylistItem[];
+  playlist?: PodloveWebPlayerPlaylistItem[] | string;
 
   /** Share Tab */
   share?: PodloveWebPlayerShare;
@@ -38,10 +36,7 @@ export interface PodloveWebPlayerConfig {
   files: PodloveWebPlayerFile[];
 
   /** Features */
-  features?: {
-    persistPlaystate?: boolean;
-    persistTab?: boolean;
-  }
+  features?: PodloveWebPlayerFeatures;
 }
 
 export interface PodloveWebPlayerResolvedConfig extends PodloveWebPlayerConfig {

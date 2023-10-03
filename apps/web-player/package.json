@@ -40,7 +40,9 @@
     "redux": "4.2.1",
     "vite": "4.3.9",
     "@vitejs/plugin-vue": "4.2.3",
-    "vite-plugin-dynamic-publicpath": "1.1.2"
+    "vite-plugin-dynamic-publicpath": "1.1.2",
+    "typescript": "5.0.4",
+    "@types/node": "20.8.2"
   },
   "exports": {
     ".": {

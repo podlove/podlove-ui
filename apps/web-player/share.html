@@ -10,8 +10,6 @@
         overflow: hidden;
       }
     </style>
-
-    <link href="./styles.css" />
   </head>
 
   <body>
@@ -43,8 +41,11 @@
       import { urlParameters } from '@podlove/utils/location';
       import createApp from './src/share.ts';
 
-      const app = createApp(urlParameters());
-      app.mount('#app');
+      createApp(urlParameters())
+        .then(async (player) => {
+          await player.app.mount('#app');
+          window.PODLOVE_APP = player;
+        })
     </script>
   </body>
 </html>

@@ -9,6 +9,7 @@
     :aria-labelledby="`trigger-${name}`"
     tabindex="0"
     :aria-hidden="!active"
+    :data-test="`tab-content-${name}`"
   >
     <div class="tab-content">
       <slot tabindex="0" />

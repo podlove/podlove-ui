@@ -23,7 +23,6 @@ import { setAttributes } from '@podlove/utils/dom';
 import { ready } from '@podlove/player-actions/lifecycle';
 import type { PodloveWebPlayerAudio } from '@podlove/types';
 
-import { channel } from './helper';
 import { setChapter, updateChapter } from '@podlove/player-actions/chapters';
 import type { Action } from 'redux-actions';
 import { setRate, setVolume, type setRateActionPayload, type setVolumeActionPayload, mute, unmute } from '@podlove/player-actions/audio';
@@ -31,7 +30,9 @@ import type { backendLoadingEndPayload } from '@podlove/player-actions/play';
 import type { backendBufferPayload } from '@podlove/player-actions/play';
 import type { backendErrorPayload } from '@podlove/player-actions/play';
 import { requestPlay, requestRestart, requestLoad, requestStop } from '@podlove/player-actions/play';
+import { propOr } from 'ramda';
 
+import { channel } from './helper.js';
 
 export const playerSaga = ({
   selectMedia,
@@ -83,7 +84,12 @@ export function* initPlayer({
     yield put(errorMissingMedia());
   }
 
-  connector.load(mediaFiles);
+  connector.load(mediaFiles.map(file => ({
+    src: propOr(null, 'url', file),
+    size: propOr(null, 'size', file),
+    title: propOr(null, 'title', file),
+    mimeType: propOr(null, 'mimeType', file),
+  })));
 
   // AudioAttributes
   yield fork(syncAttributes, { connector, selectTitle, selectPoster });

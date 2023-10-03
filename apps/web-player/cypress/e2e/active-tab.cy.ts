@@ -1,5 +1,7 @@
+import { PodloveWebPlayerConfig } from "@podlove/types"
+
 describe('active tab', () => {
-  const config = {
+  const config: PodloveWebPlayerConfig = {
     version: 5,
     activeTab: 'chapters',
     theme: {
@@ -14,13 +16,12 @@ describe('active tab', () => {
         alt: '#fff'
       }
     },
-    playlist: '/playlist.json',
-    channels: ['facebook', 'twitter', 'mail', 'link'],
+    playlist: '/podcast/playlist.json',
     share: {
+      channels: ['facebook', 'twitter', 'mail', 'link'],
       outlet: '/share.html',
       sharePlaytime: true
-    },
-    base: '/'
+    }
   }
 
   beforeEach(cy.setup)
@@ -28,20 +29,20 @@ describe('active tab', () => {
   describe('predefined tab', () => {
     it('should open the player with the configured tab', function () {
       cy.embed('<div></div>', {
-        episode: { ...this.episode, chapters: '/chapters.json' },
+        episode: { ...this.episode, chapters: '/podcast/chapters.json' },
         config
       })
 
       cy.wait(100)
 
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--chapters').should('exist')
-      cy.select('tab-chapters').should('exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--chapters').should('exist')
+      cy.query('tab-chapters').should('exist')
     })
   })
 
   describe('chapters', () => {
-    it('should not select the chapters tab if no chapters are available', function () {
+    it('should not query the chapters tab if no chapters are available', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, chapters: null },
         config
@@ -49,9 +50,9 @@ describe('active tab', () => {
 
       cy.wait(100)
 
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--chapters').should('not.exist')
-      cy.select('tab-chapters').should('not.exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--chapters').should('not.exist')
+      cy.query('tab-chapters').should('not.exist')
     })
   })
 })

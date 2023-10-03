@@ -4,63 +4,63 @@ describe('config parsing', () => {
   describe('chapters', () => {
     it('should resolve chapters from an url', function () {
       cy.embed('<div></div>', {
-        episode: { ...this.episode, chapters: '/chapters.json' },
-        config: '/test/config.json'
+        episode: { ...this.episode, chapters: '/podcast/chapters.json' },
+        config: '/podcast/config.json'
       })
 
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--chapters').should('exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--chapters').should('exist')
     })
 
     it('should resolve chapters from the episode', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, chapters: this.chapters },
-        config: '/test/config.json'
+        config: '/podcast/config.json'
       })
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--chapters').should('exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--chapters').should('exist')
     })
   })
 
   describe('transcripts', () => {
     it('should resolve transcripts from an url', function () {
       cy.embed('<div></div>', {
-        episode: { ...this.episode, transcripts: '/transcripts.json' },
-        config: '/test/config.json'
+        episode: { ...this.episode, transcripts: '/podcast/transcripts.json' },
+        config: '/podcast/config.json'
       })
       cy.wait(100)
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--transcripts').should('exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--transcripts').should('exist')
     })
 
     it('should resolve transcripts from the config', function () {
       cy.embed('<div></div>', {
         episode: { ...this.episode, transcripts: this.transcripts },
-        config: '/test/config.json'
+        config: '/podcast/config.json'
       })
       cy.wait(100)
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--transcripts').should('exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--transcripts').should('exist')
     })
   })
 
   describe('playlist', () => {
     it('should resolve playlist from an url', function () {
       cy.embed('<div></div>', {
-        episode: '/episode.json',
-        config: { ...this.config, playlist: '/playlist.json' }
+        episode: '/podcast/episode.json',
+        config: { ...this.config, playlist: '/podcast/playlist.json' }
       })
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--playlist').should('exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--playlist').should('exist')
     })
 
     it('should resolve playlist from the config', function () {
       cy.embed('<div></div>', {
-        episode: '/episode.json',
+        episode: '/podcast/episode.json',
         config: { ...this.config, playlist: this.playlist }
       })
-      cy.select('player').should('exist')
-      cy.select('tab-trigger--playlist').should('exist')
+      cy.query('player--xl').should('exist')
+      cy.query('tab-trigger--playlist').should('exist')
     })
   })
 
@@ -70,12 +70,12 @@ describe('config parsing', () => {
     tabs.forEach((tab) => {
       it(`should make the ${tab} tab active`, function () {
         cy.embed('<div></div>', {
-          episode: '/episode.json',
+          episode: '/podcast/episode.json',
           config: { ...this.config, activeTab: tab }
         })
         cy.wait(100)
-        cy.select('player').should('exist')
-        cy.select(`tab-${tab}`).should('exist')
+        cy.query('player--xl').should('exist')
+        cy.query(`tab-${tab}`).should('exist')
       })
     })
   })

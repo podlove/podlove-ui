@@ -15,9 +15,9 @@ export * from './tab.js';
 export * from './theme.js';
 export * from './transcript.js';
 export * from './web-player.js';
-
 export * from './chapter.js';
 export * from './error.js';
 export * from './keyboard.js';
 export * from './runtime.js';
 export * from './reference.js';
+export * from './features.js';

@@ -1,4 +1,4 @@
-const { prop } = require('ramda')
+import { prop } from 'ramda';
 
 const getItem = (key) =>
   cy
@@ -27,4 +27,4 @@ const getItem = (key) =>
 const mock = (value = {}) =>
   cy.window().then((win) => (win.localStorage.getItem = () => JSON.stringify(value)))
 
-module.exports = { getItem, mock }
+export default { getItem, mock }

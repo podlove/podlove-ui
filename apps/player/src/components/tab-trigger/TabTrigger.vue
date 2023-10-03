@@ -1,6 +1,6 @@
 <template>
   <button
-    v-if="visibleTab"
+    v-if="visibleTabs[tab]"
     :id="`trigger-${tab}`"
     class="podlove-player--tab-trigger block relative h-10 w-6"
     role="tab"
@@ -43,19 +43,21 @@ const props = defineProps<{
 
 const state = mapState({
   tabs: select.tabs,
-  shownotes: select.components.shownotesTab,
-  chapters: select.components.chaptersTab,
-  transcripts: select.components.transcriptTab,
-  share: select.components.shareTab,
-  files: select.components.filesTab,
-  playlist: select.components.playlistTab,
   a11y: select.accessibility.tabTrigger(props.tab)
 });
 
 const dispatch = injectStore().dispatch;
 
+const visibleTabs = mapState({
+  chapters: select.components.chaptersTab,
+  files: select.components.filesTab,
+  shownotes: select.components.shownotesTab,
+  transcripts: select.components.transcriptTab,
+  share: select.components.shareTab,
+  playlist: select.components.playlistTab
+});
+
 const activeTab = computed(() => !!state.tabs[props.tab]);
-const visibleTab = computed(() => prop(props.tab, state.tabs) !== undefined);
 
 const toggle = () => {
   dispatch(toggleTab(props.tab));

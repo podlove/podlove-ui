@@ -31,7 +31,6 @@ const recordState = curry((key: string, storage: ReturnType<typeof LocalStorage>
       const playtime = selectPlaytime(state);
       const tabs = selectTabs(state);
       const quantiles = selectQuantiles(state);
-
       storage.put(key, { playtime, tabs, quantiles });
     }, 1000)
   );
@@ -47,6 +46,7 @@ export const persistPlayer = (config: PodloveWebPlayerResolvedConfig, store: Sto
       [key: string]: boolean;
     };
   }>(key);
+
   const record = recordState(key, storage) as (store: Store) => void;
 
   ready(store).then(() => {
@@ -68,15 +68,13 @@ export const persistPlayer = (config: PodloveWebPlayerResolvedConfig, store: Sto
       }
     }
 
-    if (config.features.persistTab) {
-      if (existing.tabs) {
-        const tab = Object.keys(existing.tabs).find(
-          (tab) => existing.tabs[tab]
-        ) as PodloveWebPlayerTab;
-        // prevent double toggling
-        if (!tabs[tab]) {
-          store.dispatch(toggleTab(tab));
-        }
+    if (config.features.persistTab && existing?.tabs) {
+      const tab = Object.keys(existing.tabs).find(
+        (tab) => existing.tabs[tab]
+      ) as PodloveWebPlayerTab;
+      // prevent double toggling
+      if (!tabs[tab]) {
+        store.dispatch(toggleTab(tab));
       }
     }
 

@@ -15,7 +15,8 @@ import type {
   PodloveWebPlayerTab,
   PodloveTheme,
   PodloveWebPlayerTranscript,
-  PodloveWebPlayerPlaylistItem
+  PodloveWebPlayerPlaylistItem,
+  PodloveWebPlayerEpisode
 } from '@podlove/types';
 
 export const duration = compose<any[], string, number | null>(
@@ -42,7 +43,7 @@ export const media = compose<any[], PodloveWebPlayerAudio[], PodloveWebPlayerAud
   propOr([], 'audio')
 );
 
-export const chapters = propOr([], 'chapters') as (input: PodloveWebPlayerResolvedConfig) => PodloveWebPlayerChapter[];
+export const chapters = propOr([], 'chapters') as (input: PodloveWebPlayerEpisode) => PodloveWebPlayerChapter[];
 
 export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
   const theme = propOr({}, 'theme', config) as (
@@ -77,7 +78,7 @@ export const reference = propOr({}, 'reference') as (
   input: PodloveWebPlayerResolvedConfig
 ) => PodloveWebPlayerReference;
 export const transcripts = propOr([], 'transcripts') as (
-  input: PodloveWebPlayerConfig
+  input: PodloveWebPlayerEpisode
 ) => PodloveWebPlayerTranscript[];
 export const shareReference = compose(
   propOr(null, 'share') as (input: PodloveWebPlayerReference) => string | null,
@@ -130,7 +131,7 @@ export const language = compose<any[], PodloveRuntime, string>(
 export const platform = compose(prop('platform'), runtime);
 
 export const playlist = propOr([], 'playlist') as (
-  input: PodloveWebPlayerResolvedConfig
+  input: PodloveWebPlayerConfig
 ) => PodloveWebPlayerPlaylistItem[];
 
 export const files = (config: PodloveWebPlayerResolvedConfig): PodloveWebPlayerFile[] => {

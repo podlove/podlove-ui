@@ -32,18 +32,15 @@ const productionConfig = {
 }
 
 const developmentConfig = {
-  build: {
-    lib: {
-      formats: ['es'],
-      entry: {
-        main: path.resolve(__dirname, 'src', 'main.ts'),
-        share: path.resolve(__dirname, 'share.html')
-      }
-    }
+  entry: {
+    share: path.resolve(__dirname, 'share.html'),
+    test: path.resolve(__dirname, 'test.html'),
+    index: path.resolve(__dirname, 'index.html'),
   },
   server: {
     port: 9000
   },
+  plugins: [vue()],
   resolve
 }
 

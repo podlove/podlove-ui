@@ -31,6 +31,7 @@ const state = mapState({
   hasEmbedLink: select.share.hasEmbedLink,
   sharePlaytime: select.components.sharePlaytime
 });
+
 const dispatch = injectStore().dispatch;
 
 const closeTab = () => {

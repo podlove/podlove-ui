@@ -1,14 +1,14 @@
-const { onUpdate } = require('../helpers/state')
-const storage = require('../helpers/storage')
+import { onUpdate } from '../helpers/state';
+import storage from '../helpers/storage';
 
 describe('persist', () => {
   let assert, store
   beforeEach(cy.setup)
   beforeEach(() => {
-    cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
-      (app) => {
-        assert = onUpdate(app)
-        store = app
+    cy.embed('<div></div>', { episode: '/podcast/episode.json', config: '/podcast/config.json' }).then(
+      ({ player }) => {
+        assert = onUpdate(player.store)
+        store = player.store
       }
     )
   })
@@ -34,9 +34,9 @@ describe('persist', () => {
       // throttled time
       cy.wait(1000)
 
-      cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
-        (app) => {
-          expect(app.getState().timepiece.playtime).to.equal(60000)
+      cy.embed('<div></div>', { episode: '/podcast/episode.json', config: '/podcast/config.json' }).then(
+        ({ player }) => {
+          expect(player.store.getState().timepiece.playtime).to.equal(60000)
         }
       )
     })
@@ -62,13 +62,12 @@ describe('persist', () => {
 
       it(`should restore the persisted ${tab} tab`, () => {
         store.dispatch({ type: 'PLAYER_TOGGLE_TAB', payload: tab })
-
         // throttled time
         cy.wait(1000)
 
-        cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
-          (app) => {
-            expect(app.getState().tabs[tab]).to.equal(true)
+        cy.embed('<div></div>', { episode: '/podcast/episode.json', config: '/podcast/config.json' }).then(
+          ({ player }) => {
+            expect(player.store.getState().tabs[tab]).to.equal(true)
           }
         )
       })
@@ -111,9 +110,9 @@ describe('persist', () => {
       // throttled time
       cy.wait(1000)
 
-      cy.embed('<div></div>', { episode: '/episode.json', config: '/test/config.json' }).then(
-        (app) => {
-          expect(app.getState().quantiles).to.deep.equal([
+      cy.embed('<div></div>', { episode: '/podcast/episode.json', config: '/podcast/config.json' }).then(
+        ({ player }) => {
+          expect(player.store.getState().quantiles).to.deep.equal([
             [0, 10],
             [100, 200]
           ])

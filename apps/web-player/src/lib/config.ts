@@ -8,75 +8,98 @@ import {
   PodloveWebPlayerChapter,
   PodloveWebPlayerConfig,
   PodloveWebPlayerEpisode,
+  PodloveWebPlayerFeatures,
   PodloveWebPlayerPlaylistItem,
   PodloveWebPlayerReference,
   PodloveWebPlayerResolvedConfig,
   PodloveWebPlayerTranscript
 } from '@podlove/types';
 
+import pkg from '../../package.json';
 const fetchChapters = async (
-  config: PodloveWebPlayerResolvedConfig
+  config: PodloveWebPlayerEpisode
 ): Promise<PodloveWebPlayerChapter[]> => {
   try {
     return await json(playerConfig.chapters(config));
   } catch (err) {
-    console.warn(`Couldn't parse chapters, falling back to empty list`);
+    console.warn(
+      `Podlove Web Player ${pkg.version}`,
+      `Couldn't parse chapters, falling back to empty list`
+    );
     return [];
   }
 };
 
 const fetchTranscripts = async (
-  config: PodloveWebPlayerResolvedConfig
+  config: PodloveWebPlayerEpisode
 ): Promise<PodloveWebPlayerTranscript[]> => {
   try {
     return await json(playerConfig.transcripts(config));
   } catch (err) {
-    console.warn(`Couldn't parse transcripts, falling back to empty list`);
+    console.warn(
+      `Podlove Web Player ${pkg.version}`,
+      `Couldn't parse transcripts, falling back to empty list`
+    );
     return [];
   }
 };
 
 const fetchPlaylist = async (
-  config: PodloveWebPlayerResolvedConfig
+  config: PodloveWebPlayerConfig
 ): Promise<PodloveWebPlayerPlaylistItem[]> => {
   try {
     return json(playerConfig.playlist(config));
   } catch (err) {
-    console.warn(`Couldn't parse playlist, falling back to empty list`);
+    console.warn(
+      `Podlove Web Player ${pkg.version}`,
+      `Couldn't parse playlist, falling back to empty list`
+    );
     return [];
   }
 };
 
-const reference = (
-  { episode, config }: { episode: PodloveWebPlayerEpisode; config: PodloveWebPlayerConfig },
-  resolved
-): PodloveWebPlayerReference => ({
-  episode: typeof episode === 'string' ? episode : null,
-  config: typeof config === 'string' ? config : null,
-  base: propOr(null, 'base', resolved.config) as unknown as string | null,
-  share: pathOr(null, ['share', 'outlet'], resolved.config)
+const fetchReference = async (
+  refs: { episode: string; config: string },
+  resolved: { episode: PodloveWebPlayerEpisode, config: PodloveWebPlayerConfig }
+): Promise<PodloveWebPlayerReference> => ({
+  episode: typeof refs.episode === 'string' ? refs.episode : null,
+  config: typeof refs.config === 'string' ? refs.config : null,
+  share: pathOr(await import.meta.resolve('./share.html'), ['share', 'outlet'], resolved.config)
 });
 
-const features = ({ config }: { config: PodloveWebPlayerConfig }): { persistTab: boolean, persistPlaystate: boolean } => ({
+const fetchFeatures = async ({
+  config
+}: {
+  config: PodloveWebPlayerConfig;
+}): Promise<PodloveWebPlayerFeatures> => ({
   persistTab: pathOr(true, ['features', 'persistTab'], config),
   persistPlaystate: pathOr(true, ['features', 'persistPlaystate'], config)
 });
 
-const resolve = async (url: string | object): Promise<PodloveWebPlayerResolvedConfig> => {
+const resolve = async <T>(
+  url: string | object,
+  fallback?: any
+): Promise<T> => {
   try {
-    return await json(url) as PodloveWebPlayerResolvedConfig;
+    return (await json(url)) as T;
   } catch (err) {
-    throw new Error(`Couldn't parse configuration "${url}"`);
+    console.warn(`Podlove Web Player ${pkg.version}`, `Couldn't parse configuration "${url}"`);
+    return fallback;
   }
 };
 
-export const parseConfig = (episode: string | PodloveWebPlayerEpisode, config: string | PodloveWebPlayerConfig): Promise<PodloveWebPlayerResolvedConfig> =>
-  Promise.all([resolve(episode), resolve(config)]).then(
+export const parseConfig = (
+  episode: string | PodloveWebPlayerEpisode,
+  config: string | PodloveWebPlayerConfig
+): Promise<PodloveWebPlayerResolvedConfig> =>
+  Promise.all([resolve<PodloveWebPlayerEpisode>(episode, {}), resolve<PodloveWebPlayerConfig>(config, {})]).then(
     async ([resolvedEpisode, resolvedConfig]) => {
-      const [transcripts, chapters, playlist] = await Promise.all([
+      const [transcripts, chapters, playlist, reference, features] = await Promise.all([
         fetchTranscripts(resolvedEpisode),
         fetchChapters(resolvedEpisode),
-        fetchPlaylist(resolvedConfig)
+        fetchPlaylist(resolvedConfig),
+        fetchReference({ episode: episode as string, config: config as string }, { episode: resolvedEpisode, config: resolvedConfig }),
+        fetchFeatures({ config: resolvedConfig })
       ]);
 
       return mergeDeepRight(
@@ -86,24 +109,23 @@ export const parseConfig = (episode: string | PodloveWebPlayerEpisode, config: s
         }),
         Object.assign({}, resolvedConfig, {
           playlist,
-          reference: reference(
-            { episode, config } as { episode: PodloveWebPlayerEpisode, config: PodloveWebPlayerConfig },
-            { episode: resolvedEpisode, config: resolvedConfig }
-          ),
-          features: features({ config: resolvedConfig })
+          reference,
+          features
         })
-      );
+      ) as PodloveWebPlayerResolvedConfig;
     }
   );
 
-  export const subscribeButtonConfig = (config: PodloveWebPlayerResolvedConfig): PodloveSubscribeButtonConfig => {
-    const theme = propOr({}, 'theme', config) as PodloveTheme
-    const button = propOr({}, 'subscribe-button', config) as PodloveSubscribeButtonConfig
-    const runtime = propOr({}, 'runtime', config)
+export const subscribeButtonConfig = (
+  config: PodloveWebPlayerResolvedConfig
+): PodloveSubscribeButtonConfig => {
+  const theme = propOr({}, 'theme', config) as PodloveTheme;
+  const button = propOr({}, 'subscribe-button', config) as PodloveSubscribeButtonConfig;
+  const runtime = propOr({}, 'runtime', config);
 
-    return {
-      theme,
-      runtime,
-      ...button
-    }
-  }
+  return {
+    theme,
+    runtime,
+    ...button
+  };
+};

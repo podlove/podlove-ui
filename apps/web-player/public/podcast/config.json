@@ -93,7 +93,7 @@
   },
 
   "features": {
-    "persistTab": false,
+    "persistTab": true,
     "persistPlaystate": true
   }
 }
