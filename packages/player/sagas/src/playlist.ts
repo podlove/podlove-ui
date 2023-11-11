@@ -11,7 +11,7 @@ import type { Action } from 'redux-actions';
 import type { nextEpisodePayload } from '@podlove/player-actions/playlist';
 import type { selectEpisodePayload } from '@podlove/player-actions/playlist';
 
-import { takeOnce } from './helper';
+import { takeOnce } from './helper.js';
 
 export const playlistSaga = ({
   selectEpisodeConfig,

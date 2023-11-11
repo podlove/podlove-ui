@@ -11,7 +11,7 @@ export const setState =
 export const onUpdate = curry((store, type, assertion) => {
   const subscription = store.subscribe(() => {
     const action = store.getState().lastAction;
-    console.log('call!')
+
     if (action.type !== type) {
       return;
     }

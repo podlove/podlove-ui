@@ -1,11 +1,11 @@
 import { createAction } from 'redux-actions';
-import type { PodloveWebPlayerResolvedConfig } from '@podlove/types';
+import type { PodloveWebPlayerEpisode } from '@podlove/types';
 import { INIT, READY, RESTORE, CONSTRUCTED } from './types.js';
 
-export type initPayload = PodloveWebPlayerResolvedConfig;
-export type readyPayload = PodloveWebPlayerResolvedConfig;
+export type initPayload = PodloveWebPlayerEpisode;
+export type readyPayload = PodloveWebPlayerEpisode;
 export type restorePayload = void;
-export type constructedPayload = PodloveWebPlayerResolvedConfig;
+export type constructedPayload = PodloveWebPlayerEpisode;
 
 export const init = createAction<initPayload>(INIT);
 export const ready = createAction<readyPayload>(READY);

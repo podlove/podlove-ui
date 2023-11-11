@@ -17,15 +17,11 @@ import { mapState, injectStore } from 'redux-vuex';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
 import select from '../../../store/selectors/index.js';
+import { PodloveWebPlayerChapter } from '@podlove/types';
 
 const { t } = useI18n();
 
-const props = defineProps({
-  chapter: {
-    type: Object,
-    default: () => ({})
-  }
-});
+const props = defineProps<{ chapter: PodloveWebPlayerChapter }>();
 
 const state = mapState({
   buttonText: select.accessibility.chapterPlay(props.chapter),

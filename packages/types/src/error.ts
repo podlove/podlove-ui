@@ -1,5 +1,5 @@
 export interface PodloveWebPlayerError {
-  title: string,
-  message: string,
+  title?: string,
+  message?: string,
   retry?: boolean
 }

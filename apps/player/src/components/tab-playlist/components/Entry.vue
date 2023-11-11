@@ -21,7 +21,7 @@
       class="w-8 py-2 mr-2 flex justify-center items-center"
       aria-hidden="true"
       data-test="tab-playlist--entry--interaction"
-      @click="click({ index, play: true })"
+      @click="click({ index: $props.index, play: true })"
     >
       <menu-play-icon v-if="hover" :size="24" />
       <menu-empty-icon v-else :size="12" />
@@ -30,7 +30,7 @@
     <span
       class="block w-full py-2 mr-2"
       data-test="tab-playlist--entry--title"
-      @click="click({ index, play: true })"
+      @click="click({ index: $props.index, play: true })"
     >
       {{ episode.title }}
     </span>
@@ -51,17 +51,9 @@ import { requestPlay, requestPause } from '@podlove/player-actions/play';
 import { Timer, MenuPlayIcon, MenuEmptyIcon } from '@podlove/components';
 
 import select from '../../../store/selectors/index.js';
+import { PlaylistItem } from '@podlove/player-state/playlist';
 
-defineProps({
-  index: {
-    type: Number,
-    default: null
-  },
-  episode: {
-    type: Object,
-    default: () => ({})
-  }
-});
+defineProps<{ index: number; episode: PlaylistItem }>()
 
 const state = mapState({
   playing: select.driver.playing
@@ -87,8 +79,8 @@ const play = () => {
   }
 };
 
-const click = (position) => {
-  dispatch(selectEpisode(position));
+const click = (payload: { index: number, play: boolean }) => {
+  dispatch(selectEpisode(payload));
 };
 </script>
 

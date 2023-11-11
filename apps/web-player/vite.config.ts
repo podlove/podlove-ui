@@ -1,16 +1,16 @@
-import path from 'path'
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { useDynamicPublicPath } from 'vite-plugin-dynamic-publicpath'
-import aliases from '../../.build/aliases'
-import extensions from '../../.build/extensions'
+import path from 'path';
+import { UserConfigExport, defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { useDynamicPublicPath } from 'vite-plugin-dynamic-publicpath';
+import aliases from '../../.build/aliases';
+import extensions from '../../.build/extensions';
 
 const resolve = {
   extensions,
   aliases
-}
+};
 
-const productionConfig = {
+const productionConfig: UserConfigExport = {
   build: {
     lib: {
       formats: ['es'],
@@ -29,26 +29,22 @@ const productionConfig = {
   },
   plugins: [vue(), useDynamicPublicPath()],
   resolve
-}
+};
 
-const developmentConfig = {
-  entry: {
-    share: path.resolve(__dirname, 'share.html'),
-    test: path.resolve(__dirname, 'test.html'),
-    index: path.resolve(__dirname, 'index.html'),
-  },
+const developmentConfig: UserConfigExport = {
   server: {
     port: 9000
   },
+
   plugins: [vue()],
   resolve
-}
+};
 
 export default defineConfig(({ command }) => {
   if (command === 'serve') {
-    return developmentConfig
+    return developmentConfig;
   } else {
     // command === 'build'
-    return productionConfig
+    return productionConfig;
   }
-})
+});

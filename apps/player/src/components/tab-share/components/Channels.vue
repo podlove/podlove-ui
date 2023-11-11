@@ -50,7 +50,7 @@ const channelComponent = {
   pinterest: PinterestChannel,
   reddit: RedditChannel,
   xing: XingChannel,
-  whatsapp: WhatsAppChannel
+  'whats-app': WhatsAppChannel
 };
 
 const channels = computed(() => Object.values(state.channels) as unknown as string);

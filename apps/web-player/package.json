@@ -27,7 +27,6 @@
     "@podlove/utils": "workspace:*",
     "color": "4.2.3",
     "hashcode": "1.0.3",
-    "iframe-resizer": "4.3.2",
     "ramda": "0.29.0"
   },
   "devDependencies": {

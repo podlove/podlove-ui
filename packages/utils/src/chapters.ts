@@ -1,6 +1,5 @@
-import { find, propEq, compose, curry, findIndex, defaultTo, add, prop } from 'ramda';
+import { find, curry, propOr } from 'ramda';
 import { PodloveWebPlayerChapter } from '@podlove/types';
-import { fallbackTo } from './helper';
 
 const emptyChapter: PodloveWebPlayerChapter = {
   start: null,
@@ -12,33 +11,19 @@ const emptyChapter: PodloveWebPlayerChapter = {
 
 export const getChapterByIndex = curry(
   (chapters: PodloveWebPlayerChapter[], index: number): PodloveWebPlayerChapter =>
-    index < 0 ? emptyChapter : (prop(index, chapters) as unknown as PodloveWebPlayerChapter)
+    propOr(emptyChapter, index, chapters)
 );
 
-export const currentChapterIndex = compose<any[], PodloveWebPlayerChapter[], number, number>(
-  fallbackTo(-1),
-  findIndex(propEq('active', true)) as (input: PodloveWebPlayerChapter[]) => number,
-  defaultTo([])
-);
+export const currentChapterIndex = (chapters: PodloveWebPlayerChapter[]): number =>
+  (chapters || []).findIndex((chapter) => chapter.active) || -1;
 
 export const currentChapter = (input: PodloveWebPlayerChapter[] = []): PodloveWebPlayerChapter => {
-  const chapter = input.find(chapter => chapter.active)
-  return chapter ? chapter : emptyChapter
-}
+  const chapter = input.find((chapter) => chapter.active);
+  return chapter ? chapter : emptyChapter;
+};
 
-export const nextChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter =>
-  compose<any[], number, number, PodloveWebPlayerChapter>(
-    getChapterByIndex(chapters),
-    add(1),
-    currentChapterIndex
-  )(chapters);
-
-export const previousChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter =>
-  compose<any[], number, number, PodloveWebPlayerChapter>(
-    getChapterByIndex(chapters),
-    add(-1),
-    currentChapterIndex
-  )(chapters);
+export const nextChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter =>  getChapterByIndex(chapters, currentChapterIndex(chapters) + 1);
+export const previousChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter => getChapterByIndex(chapters, currentChapterIndex(chapters) - 1);
 
 export const currentChapterByPlaytime = curry(
   (chapters: PodloveWebPlayerChapter[], playtime: number): PodloveWebPlayerChapter =>

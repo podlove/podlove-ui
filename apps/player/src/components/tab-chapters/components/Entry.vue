@@ -47,20 +47,16 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, ref } from 'vue';
+import { PodloveWebPlayerChapter } from '@podlove/types';
 import { LinkIcon, MenuPauseIcon, MenuPlayIcon, ChapterProgress } from '@podlove/components';
 import { mapState, injectStore } from 'redux-vuex';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
 
 import select from '../../../store/selectors/index.js';
-import { computed, ref } from 'vue';
 
-const props = defineProps({
-  chapter: {
-    type: Object,
-    default: () => ({})
-  }
-});
+const props = defineProps<{ chapter: PodloveWebPlayerChapter }>();
 
 const state = mapState({
   playtime: select.playtime,
@@ -77,7 +73,7 @@ const linkHover = ref(false);
 const action = computed((): { icon?: string; content?: string } => {
   if (linkHover.value) {
     return {
-      icon: 'link'
+      icon: 'link-icon'
     };
   }
 
@@ -94,7 +90,7 @@ const action = computed((): { icon?: string; content?: string } => {
   }
 
   return {
-    content: props.chapter.index
+    content: props.chapter.index.toString()
   };
 });
 
@@ -120,7 +116,7 @@ const selectChapter = (event: MouseEvent) => {
     return false;
   }
 
-  dispatch(setChapter(props.chapter.index - 1));
+  dispatch(setChapter(props.chapter.index));
   dispatch(requestPlay());
   event && event.preventDefault();
   return false;

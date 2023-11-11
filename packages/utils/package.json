@@ -168,7 +168,7 @@
   "dependencies": {
     "dompurify": "2.0.12",
     "query-string": "8.1.0",
-    "ramda": "0.29.0",
+    "ramda": "0.29.1",
     "farbraum": "0.1.4"
   },
   "devDependencies": {
@@ -178,7 +178,7 @@
     "vitest": "0.30.0",
     "vite-plugin-dts": "2.2.0",
     "happy-dom": "9.1.9",
-    "@types/ramda": "0.29.1",
+    "@types/ramda": "0.29.7",
     "typescript": "5.0.4",
     "ts-toolbelt": "9.6.0"
   }

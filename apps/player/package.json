@@ -5,12 +5,11 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "clean": "rm -rf dist",
-    "build": "npm run clean && vite build --config vite.config.js --mode production",
+    "serve": "vite serve",
+    "build": "vite build",
     "postpublish": "npm run clean",
-    "test": "cypress open --browser chrome",
-    "test:ci": "cypress run --browser chrome"
+    "integration:ci": "cypress run --browser chrome",
+    "integration:dev": "cypress open --browser chrome"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -37,12 +36,14 @@
   },
   "devDependencies": {
     "@podlove/build": "workspace:*",
-    "cypress": "8.5.0",
     "@vitejs/plugin-vue": "3.2.0",
+    "cypress-vite": "1.4.2",
     "vite": "4.3.5",
     "vite-plugin-dynamic-publicpath": "1.1.2",
     "http-server": "14.1.1",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "cypress": "13.1.0",
+    "@types/node": "20.8.4"
   },
   "exports": {
     ".": {

@@ -72,9 +72,9 @@ export function* previousChapter({ selectPlaytime, selectCurrentChapter }: { sel
   }
 
   if (playtime - start <= 1000) {
-    yield put(chapter.setChapter(index - 2 < 0 ? 0 : index - 2));
-  } else {
     yield put(chapter.setChapter(index - 1 < 0 ? 0 : index - 1));
+  } else {
+    yield put(chapter.setChapter(index < 0 ? 0 : index));
   }
 }
 
@@ -82,7 +82,7 @@ export function* nextChapter({ selectChapterList, selectCurrentChapter }: { sele
   const chapters: PodloveWebPlayerChapter[] = yield select(selectChapterList);
   const { index }: PodloveWebPlayerChapter = yield select(selectCurrentChapter);
 
-  yield put(chapter.setChapter(index > chapters.length - 1 ? chapters.length - 1 : index));
+  yield put(chapter.setChapter(index > chapters.length - 1 ? chapters.length - 1 : index + 1));
 }
 
 export function* initChapters({ selectDuration }: { selectDuration: (input: any) => number }, { payload }: Action<readyPayload>) {
@@ -96,7 +96,7 @@ export function* initChapters({ selectDuration }: { selectDuration: (input: any)
     return [
       ...result,
       {
-        index: index + 1,
+        index,
         start: toPlayerTime(chapter?.start || 0),
         end: toPlayerTime(end?.start || 0),
         title: prop('title', chapter),

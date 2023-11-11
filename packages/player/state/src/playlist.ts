@@ -42,9 +42,9 @@ export const reducer = handleActions<
     },
     [selectEpisode.toString()]: (
       state: State,
-      { payload: { index: index } }: Action<selectEpisodePayload>
+      { payload: { index } }: Action<selectEpisodePayload>
     ) => {
-      if (state.length > 0) {
+      if (state.length === 0) {
         return state;
       }
 

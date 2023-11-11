@@ -1,1 +1,1 @@
-export const select = (selector) => `[data-test="${selector}"]`
+export const select = (selector) => `[data-test="${selector}"]`;
