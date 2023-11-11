@@ -55,10 +55,6 @@ Embedded Subscribe Button with client detection:
 
 ## Packages
 
-### [@podlove/build [internal]](packages/build/README.md)
-
-Webpack Tooling for all projects. Building blocks for bundling.
-
 ### [@podlove/button-actions](packages/button/actions/README.md)
 
 Button actions API, types and events that are used in state and subscribe-button.

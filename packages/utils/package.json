@@ -172,7 +172,6 @@
     "farbraum": "0.1.4"
   },
   "devDependencies": {
-    "@podlove/build": "workspace:*",
     "@podlove/types": "workspace:*",
     "vite": "4.3.5",
     "vitest": "0.30.0",
