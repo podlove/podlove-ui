@@ -22,6 +22,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -45,6 +50,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -68,6 +78,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -102,6 +117,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -116,6 +136,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -152,6 +177,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -170,6 +200,11 @@ jobs:
     needs: apps_web-player
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -186,6 +221,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -202,6 +242,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -218,6 +263,11 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
@@ -232,6 +282,11 @@ jobs:
     needs: apps_subscribe-button
     steps:
     - uses: actions/checkout@v3
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      with:
+        version: 8
+        run_install: false
     - uses: actions/setup-node@v3
       with:
         node-version: 20
