@@ -8,11 +8,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
-          cache: 'npm'
-      - run: npm set unsafe-perm true
-      - run: npm ci
-      - run: npx lerna bootstrap --hoist
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm set unsafe-perm true
+      - run: pnpm install --frozen-lockfile
 
   apps_player:
     runs-on: ubuntu-latest
@@ -21,10 +20,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'apps/player/**/*.{js,vue}'
     - name: integration
@@ -44,10 +43,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'apps/web-player/**/*.{js,vue}'
     - name: integration
@@ -67,10 +66,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'apps/subscribe-button/**/*.{js,vue}'
     - name: build
@@ -83,10 +82,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/components/**/*.{js,vue}'
     - name: test
@@ -101,10 +100,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/player/actions/**/*.{js,vue}'
 
@@ -115,10 +114,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/player/sagas/**/*.{js,vue}'
     - name: test
@@ -133,10 +132,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/player/state/**/*.{js,vue}'
     - name: test
@@ -151,10 +150,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/player/config/**/*.{js,vue}'
     - name: test
@@ -169,10 +168,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/player/react/**/*.{js,vue}'
     - name: build
@@ -185,10 +184,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/utils/**/*.{js,vue}'
     - name: test
@@ -201,10 +200,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/clients/**/*.{js,vue}'
     - name: build
@@ -217,10 +216,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/button/actions/**/*.{js,vue}'
 
@@ -231,10 +230,10 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
-        cache: 'npm'
+        node-version: 20
+        cache: 'pnpm'
     - name: install
-      run: npm ci
+      run: pnpm install --offline
     - name: lint
       run: npx eslint 'packages/button/react/**/*.{js,vue}'
     - name: build
