@@ -46,7 +46,8 @@
     "http-server": "14.1.1",
     "typescript": "5.0.4",
     "vite": "4.3.5",
-    "vite-plugin-dynamic-publicpath": "1.1.2"
+    "vite-plugin-dynamic-publicpath": "1.1.2",
+    "sass": "1.69.5"
   },
   "exports": {
     ".": {
