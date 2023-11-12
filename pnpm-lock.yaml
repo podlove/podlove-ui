@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      cypress:
+        specifier: 13.5.0
+        version: 13.5.0
       cz-conventional-changelog:
         specifier: 3.3.0
         version: 3.3.0
@@ -149,29 +152,26 @@ importers:
         specifier: 20.8.4
         version: 20.8.4
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.10.0
+        specifier: 6.10.0
         version: 6.10.0(@typescript-eslint/parser@6.10.0)(eslint@8.53.0)(typescript@5.0.4)
       '@typescript-eslint/parser':
-        specifier: ^6.10.0
+        specifier: 6.10.0
         version: 6.10.0(eslint@8.53.0)(typescript@5.0.4)
       '@vitejs/plugin-vue':
         specifier: 3.2.0
         version: 3.2.0(vite@4.3.5)(vue@3.2.41)
       cypress:
-        specifier: 13.1.0
-        version: 13.1.0
+        specifier: 13.5.0
+        version: 13.5.0
       cypress-vite:
         specifier: 1.4.2
         version: 1.4.2(vite@4.3.5)
       eslint:
-        specifier: ^8.53.0
+        specifier: 8.53.0
         version: 8.53.0
       eslint-plugin-vue:
-        specifier: ^9.18.1
+        specifier: 9.18.1
         version: 9.18.1(eslint@8.53.0)
-      http-server:
-        specifier: 14.1.1
-        version: 14.1.1
       sass:
         specifier: 1.69.5
         version: 1.69.5
@@ -181,9 +181,6 @@ importers:
       vite:
         specifier: 4.3.5
         version: 4.3.5(@types/node@20.8.4)(sass@1.69.5)
-      vite-plugin-dynamic-publicpath:
-        specifier: 1.1.2
-        version: 1.1.2
 
   apps/subscribe-button:
     dependencies:
@@ -1761,7 +1758,7 @@ packages:
       debug: 4.3.4(supports-color@6.1.0)
       espree: 9.6.1
       globals: 13.23.0
-      ignore: 5.2.0
+      ignore: 5.2.4
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       minimatch: 3.1.2
@@ -2977,6 +2974,12 @@ packages:
 
   /@types/node@16.18.46:
     resolution: {integrity: sha512-Mnq3O9Xz52exs3mlxMcQuA7/9VFe/dXcrgAyfjLkABIqxXKOgBRjyazTxUbjsxDa4BP7hhPliyjVTP9RDP14xg==}
+    dev: true
+
+  /@types/node@18.18.9:
+    resolution: {integrity: sha512-0f5klcuImLnG4Qreu9hPj/rEfFq6YRc5n2mAjSsH+ec/mJL+3voBH0+8T7o8RpFjH7ovc+TRsL/c7OYIQsPTfQ==}
+    dependencies:
+      undici-types: 5.26.5
     dev: true
 
   /@types/node@20.8.2:
@@ -5182,6 +5185,57 @@ packages:
       yauzl: 2.10.0
     dev: true
 
+  /cypress@13.5.0:
+    resolution: {integrity: sha512-oh6U7h9w8wwHfzNDJQ6wVcAeXu31DlIYlNOBvfd6U4CcB8oe4akawQmH+QJVOMZlM42eBoCne015+svVqdwdRQ==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@cypress/request': 3.0.0
+      '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
+      '@types/node': 18.18.9
+      '@types/sinonjs__fake-timers': 8.1.1
+      '@types/sizzle': 2.3.3
+      arch: 2.2.0
+      blob-util: 2.0.2
+      bluebird: 3.7.2
+      buffer: 5.7.1
+      cachedir: 2.3.0
+      chalk: 4.1.2
+      check-more-types: 2.24.0
+      cli-cursor: 3.1.0
+      cli-table3: 0.6.3
+      commander: 6.2.1
+      common-tags: 1.8.2
+      dayjs: 1.11.6
+      debug: 4.3.4(supports-color@8.1.1)
+      enquirer: 2.3.6
+      eventemitter2: 6.4.7
+      execa: 4.1.0
+      executable: 4.1.1
+      extract-zip: 2.0.1(supports-color@8.1.1)
+      figures: 3.2.0
+      fs-extra: 9.1.0
+      getos: 3.2.1
+      is-ci: 3.0.1
+      is-installed-globally: 0.4.0
+      lazy-ass: 1.6.0
+      listr2: 3.14.0(enquirer@2.3.6)
+      lodash: 4.17.21
+      log-symbols: 4.1.0
+      minimist: 1.2.8
+      ospath: 1.2.2
+      pretty-bytes: 5.6.0
+      process: 0.11.10
+      proxy-from-env: 1.0.0
+      request-progress: 3.0.0
+      semver: 7.5.4
+      supports-color: 8.1.1
+      tmp: 0.2.1
+      untildify: 4.0.0
+      yauzl: 2.10.0
+    dev: true
+
   /cz-conventional-changelog@3.3.0:
     resolution: {integrity: sha512-U466fIzU5U22eES5lTNiNbZ+d8dfcHcssH4o7QsdWaCcRs/feIPCxKYSWkYBNs5mny7MvEfwpTLWjvbm94hecw==}
     engines: {node: '>= 10'}
@@ -5896,7 +5950,7 @@ packages:
       glob-parent: 6.0.2
       globals: 13.23.0
       graphemer: 1.4.0
-      ignore: 5.2.0
+      ignore: 5.2.4
       imurmurhash: 0.1.4
       is-glob: 4.0.3
       is-path-inside: 3.0.3
@@ -12574,6 +12628,10 @@ packages:
   /undici-types@5.25.3:
     resolution: {integrity: sha512-Ga1jfYwRn7+cP9v8auvEXN1rX3sWqlayd4HP7OKk4mZWylEmu3KzXDUGrQUN6Ol7qo1gPvB2e5gX6udnyEPgdA==}
 
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /union-value@1.0.1:
     resolution: {integrity: sha512-tJfXmxMeWYnczCVs7XAEvIV7ieppALdyepWMkHkwciRpZraG/xwT+s2JN8+pr1+8jCRf80FFzvr+MpQeeoF4Xg==}
     engines: {node: '>=0.10.0'}
@@ -13240,7 +13298,7 @@ packages:
       eslint-scope: 7.2.2
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
-      esquery: 1.4.0
+      esquery: 1.5.0
       lodash: 4.17.21
       semver: 7.5.4
     transitivePeerDependencies:
