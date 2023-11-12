@@ -38,11 +38,11 @@ jobs:
     - name: build
       run: pnpm build --scope @podlove/player
     - name: integration
-      uses: cypress-io/github-action@v5
+      uses: cypress-io/github-action@v6
       with:
         browser: chrome
         start: pnpm start --scope @podlove/player --stream
-        project: ./apps/player
+        working-directory: ./apps/player
 
   apps_web-player:
     runs-on: ubuntu-latest
