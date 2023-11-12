@@ -14,7 +14,7 @@ const productionConfig: UserConfigExport = {
   build: {
     lib: {
       formats: ['es'],
-      entry: path.resolve(__dirname, 'src', 'main.js'),
+      entry: path.resolve(__dirname, 'src', 'main.ts'),
       fileName: () => `player.[format].js`
     },
     rollupOptions: {
