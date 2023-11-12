@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-unused-vars: 0 */
 import { State as runtime } from '@podlove/player-state/runtime';
 import { State as theme } from '@podlove/player-state/theme';
 import { State as episode } from '@podlove/player-state/episode';

@@ -2,16 +2,14 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "clean": "rm -rf apps/**/dist apps/**/publish packages/**/dist packages/**/publish",
-    "format": "eslint --fix '**/*.{js,jsx,vue}'",
-    "lint": "eslint -f codeframe '**/*.{js,jsx,vue}'",
+    "start": "lerna run dev --scope @podlove/docs --stream",
+    "lint": "lerna run lint",
     "test": "lerna run test",
     "test:dev": "lerna run test:dev",
     "build": "lerna run build",
     "integration:dev": "lerna run integration:dev",
     "update": "lernaupdate",
-    "version": "lerna version --conventional-commits --changelog-preset angular",
-    "start": "lerna run dev --scope @podlove/docs --stream"
+    "version": "lerna version --conventional-commits --changelog-preset angular"
   },
   "devDependencies": {
     "cz-conventional-changelog": "3.3.0",

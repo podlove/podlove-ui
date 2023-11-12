@@ -4,16 +4,13 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { format } from 'date-fns';
+import { format as dateFormat } from 'date-fns';
 import { mapState } from 'redux-vuex';
 import select from '../../store/selectors/index.js';
 
-const props = defineProps({
-  format: {
-    type: String,
-    default: null
-  }
-});
+const props = defineProps<{
+  format: string;
+}>();
 
 const state = mapState({
   publicationDate: select.episode.publicationDate
@@ -22,7 +19,7 @@ const state = mapState({
 const date = computed(() => {
   const date = new Date(state.publicationDate);
 
-  return props.format ? format(date, props.format) : date.toLocaleDateString();
+  return props.format ? dateFormat(date, props.format) : date.toLocaleDateString();
 });
 </script>
 

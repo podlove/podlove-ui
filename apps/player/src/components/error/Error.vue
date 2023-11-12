@@ -26,7 +26,7 @@
         class="podlove-player--error--retry-button px-5 py-2 rounded-sm"
         :style="{ ...state.headline }"
         data-test="error--retry"
-        @click.native="retryAction"
+        @click="retryAction"
       >
         {{ t('PLAYER.RETRY') }}
       </button>

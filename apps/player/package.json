@@ -7,9 +7,9 @@
   "scripts": {
     "serve": "vite serve",
     "build": "vite build",
-    "postpublish": "npm run clean",
     "integration:ci": "cypress run --browser chrome",
-    "integration:dev": "cypress open --browser chrome"
+    "integration:dev": "cypress open --browser chrome",
+    "lint": "eslint src/**/*.{vue,ts} cypress/**/*.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -25,24 +25,28 @@
     "@podlove/utils": "workspace:*",
     "core-js": "3.15.2",
     "date-fns": "2.16.1",
+    "farbraum": "0.1.4",
     "ramda": "0.29.0",
     "redux": "4.2.0",
     "redux-vuex": "3.0.0",
-    "vue": "3.2.41",
-    "vue-i18n": "9.2.2",
-    "farbraum": "0.1.4",
+    "reselect": "4.1.8",
     "tailwindcss": "3.2.4",
-    "reselect": "4.1.8"
+    "vue": "3.2.41",
+    "vue-i18n": "9.2.2"
   },
   "devDependencies": {
+    "@types/node": "20.8.4",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-vue": "3.2.0",
+    "cypress": "13.1.0",
     "cypress-vite": "1.4.2",
-    "vite": "4.3.5",
-    "vite-plugin-dynamic-publicpath": "1.1.2",
+    "eslint": "^8.53.0",
+    "eslint-plugin-vue": "^9.18.1",
     "http-server": "14.1.1",
     "typescript": "5.0.4",
-    "cypress": "13.1.0",
-    "@types/node": "20.8.4"
+    "vite": "4.3.5",
+    "vite-plugin-dynamic-publicpath": "1.1.2"
   },
   "exports": {
     ".": {

@@ -34,16 +34,15 @@ jobs:
     - name: install
       run: pnpm install --offline
     - name: lint
-      run: npx eslint 'apps/player/**/*.{js,vue}'
+      run: pnpm lint --scope @podlove/player
+    - name: build
+      run: pnpm build --scope @podlove/player
     - name: integration
       uses: cypress-io/github-action@v5
       with:
         browser: chrome
-        build: npx lerna run integration:build --scope @podlove/player --stream
-        start: npx lerna run integration:server --scope @podlove/player --stream
+        start: pnpm start --scope @podlove/player --stream
         project: ./apps/player
-    - name: build
-      run: npx lerna run build --scope @podlove/player --stream
 
   apps_web-player:
     runs-on: ubuntu-latest

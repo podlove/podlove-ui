@@ -3,8 +3,8 @@
     :text="shareText"
     :subject="shareSubject"
     :filled="hover"
-    @mouseover.native="mouseOver"
-    @mouseleave.native="mouseLeave"
+    @mouseover="mouseOver"
+    @mouseleave="mouseLeave"
   />
 </template>
 

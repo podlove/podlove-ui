@@ -27,7 +27,6 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
-import { prop } from 'ramda';
 
 import { ActiveTabIcon } from '@podlove/components';
 import { toggleTab } from '@podlove/player-actions/tabs';

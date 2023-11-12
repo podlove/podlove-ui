@@ -17,8 +17,8 @@
 !.prettierignore
 !.storybook
 !.drone.yml
-!.drone.yml
 !.browserslistrc
+!.eslintrc.json
 
 coverage
 
