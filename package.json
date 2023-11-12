@@ -9,69 +9,20 @@
     "test:dev": "lerna run test:dev",
     "build": "lerna run build",
     "integration:dev": "lerna run integration:dev",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "serve": "lerna run serve",
     "update": "lernaupdate",
     "version": "lerna version --conventional-commits --changelog-preset angular",
-    "dev:player": "lerna run start --scope @podlove/player --stream",
-    "dev:web-player": "lerna run dev --scope @podlove/web-player --stream",
-    "build:web-player": "lerna run build --scope @podlove/web-player --stream",
-    "dev:subscribe-button": "lerna run start --scope @podlove/subscribe-button --stream",
-    "start": "lerna run dev --scope @podlove/docs --stream",
-    "dev:docs-web-player": "lerna run dev --scope @podlove/docs-web-player --stream",
-    "build:components": "lerna run build --scope @podlove/components --stream",
-    "build:utils": "lerna run build --scope @podlove/utils --stream",
-    "build:player": "lerna run build --scope @podlove/player --stream",
-    "build:subscribe-button": "lerna run build --scope @podlove/subscribe-button --stream"
+    "start": "lerna run dev --scope @podlove/docs --stream"
   },
   "devDependencies": {
-    "@babel/core": "7.14.6",
-    "@babel/plugin-proposal-object-rest-spread": "7.14.7",
-    "@babel/plugin-syntax-dynamic-import": "7.8.3",
-    "@babel/plugin-transform-modules-commonjs": "7.14.5",
-    "@babel/plugin-transform-regenerator": "7.14.5",
-    "@babel/plugin-transform-runtime": "7.14.5",
-    "@babel/preset-env": "7.14.7",
-    "@babel/runtime": "7.14.6",
-    "@types/jest": "26.0.24",
-    "@vue/eslint-config-prettier": "6.0.0",
-    "@vue/test-utils": "2.0.0-alpha.1",
-    "babel-bridge": "1.12.11",
-    "babel-eslint": "10.1.0",
-    "babel-jest": "27.0.6",
-    "babel-loader": "8.2.2",
-    "core-js": "3.15.2",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "7.30.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-cypress": "2.11.3",
-    "eslint-plugin-jest": "24.3.6",
-    "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-vue": "7.13.0",
-    "fs-extra": "10.0.0",
-    "glob": "7.1.7",
-    "glob-promise": "4.2.0",
     "husky": "7.0.1",
-    "jest": "27.0.6",
-    "jest-html-reporters": "2.1.6",
-    "jest-serializer-vue": "2.0.2",
     "lerna": "6.6.1",
     "lerna-update-wizard": "0.17.8",
     "lint-staged": "11.0.1",
-    "prettier": "2.3.2",
-    "ramda": "0.29.0",
-    "regenerator-transform": "0.14.5",
-    "stream-to-promise": "3.0.0",
-    "vue": "3.2.41",
-    "@vue/vue3-jest": "27.0.0-alpha.1",
-    "vue-loader": "16.5.0",
-    "@vue/compiler-sfc": "3.2.19",
-    "webpack": "5.45.1",
-    "webpack-cli": "4.9.0",
-    "postcss-color-mod-function": "3.0.3"
+    "prettier": "2.3.2"
   },
   "lint-staged": {
-    "**/*.{js,vue}": [
+    "**/*.{ts,vue}": [
       "eslint --fix",
       "git add"
     ]
@@ -82,18 +33,10 @@
     }
   },
   "engines": {
-    "node": "18",
+    "node": "20",
     "pnpm": "7"
   },
   "dependencies": {},
-  "jest": {
-    "projects": [
-      "packages/utils/jest.config.js",
-      "packages/components/jest.config.js",
-      "packages/player/sagas/jest.config.js",
-      "packages/player/state/jest.config.js"
-    ]
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

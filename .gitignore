@@ -1,6 +1,7 @@
 # dotfiles
 .*
 !.gitignore
+!.github
 !.jshintrc
 !.eslintrc
 !.eslintrc.js
