@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import { prop } from 'ramda';
 import { selectors as content } from '@podlove/player-state/content';
 import { selectors as embed } from '@podlove/player-state/embed';
 import { toHumanTime } from '@podlove/utils/time';
