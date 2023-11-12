@@ -17,7 +17,8 @@
     "lerna": "6.6.1",
     "lerna-update-wizard": "0.17.8",
     "lint-staged": "11.0.1",
-    "prettier": "2.3.2"
+    "prettier": "2.3.2",
+    "cypress": "13.5.0"
   },
   "lint-staged": {
     "**/*.{ts,vue}": [
