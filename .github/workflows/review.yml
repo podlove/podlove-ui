@@ -43,8 +43,9 @@ jobs:
       with:
         browser: chrome
         install: true
-        start: pnpm start --scope @podlove/player --stream
-        project: ./apps/player
+        start: pnpm start --stream
+        working-directory: ./apps/player
+
 
   apps_web-player:
     runs-on: ubuntu-latest
