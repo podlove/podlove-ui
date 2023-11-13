@@ -32,7 +32,7 @@ jobs:
         node-version: 20
         cache: 'pnpm'
     - name: install
-      run: pnpm install
+      run: pnpm install --frozen-lockfile
     - name: lint
       run: pnpm lint --scope @podlove/player
     - name: build
