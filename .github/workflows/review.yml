@@ -6,6 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: files cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/Cypress
+          key: files-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.json') }}
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
@@ -22,6 +28,12 @@ jobs:
     needs: bootstrap
     steps:
     - uses: actions/checkout@v3
+    - name: files cache
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cache/Cypress
+        key: files-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.json') }}
     - uses: pnpm/action-setup@v2
       name: Install pnpm
       with:
