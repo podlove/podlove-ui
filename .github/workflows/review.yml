@@ -43,8 +43,8 @@ jobs:
       with:
         browser: chrome
         install: false
-        start: pnpm start --stream
-        working-directory: ./apps/player
+        start: pnpm start --scope @podlove/player --stream
+        project: ./apps/player
 
 
   apps_web-player:
