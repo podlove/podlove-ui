@@ -42,7 +42,7 @@ jobs:
       uses: cypress-io/github-action@v6
       with:
         browser: chrome
-        install: true
+        install: false
         start: pnpm start --stream
         working-directory: ./apps/player
 
