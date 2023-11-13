@@ -37,9 +37,9 @@ jobs:
       run: pnpm lint --scope @podlove/player
     - name: build
       run: pnpm build --scope @podlove/player
-
     - name: install cypress
-      run: pnpm install -g cypress
+      run: pnpm install cypress
+
     - name: integration
       uses: cypress-io/github-action@v6
       with:
