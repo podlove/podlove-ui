@@ -37,10 +37,12 @@ jobs:
       run: pnpm lint --scope @podlove/player
     - name: build
       run: pnpm build --scope @podlove/player
+
     - name: integration
       uses: cypress-io/github-action@v6
       with:
         browser: chrome
+        install: true
         start: pnpm start --scope @podlove/player --stream
         project: ./apps/player
 

@@ -8,9 +8,6 @@ importers:
 
   .:
     devDependencies:
-      cypress:
-        specifier: 13.5.0
-        version: 13.5.0
       cz-conventional-changelog:
         specifier: 3.3.0
         version: 3.3.0
