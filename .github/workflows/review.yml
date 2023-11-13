@@ -38,7 +38,7 @@ jobs:
     - name: build
       run: pnpm build --scope @podlove/player
     - name: install cypress
-      run: pnpm install cypress
+      run: pnpm install --workspace-root cypress
 
     - name: integration
       uses: cypress-io/github-action@v6
