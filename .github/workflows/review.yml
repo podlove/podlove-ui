@@ -11,7 +11,7 @@ jobs:
         with:
           path: |
             ~/.cache/Cypress
-          key: files-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.json') }}
+          key: files-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
@@ -33,7 +33,7 @@ jobs:
       with:
         path: |
           ~/.cache/Cypress
-        key: files-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.json') }}
+        key: files-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
     - uses: pnpm/action-setup@v2
       name: Install pnpm
       with:
