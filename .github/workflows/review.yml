@@ -43,7 +43,7 @@ jobs:
       uses: cypress-io/github-action@v6
       with:
         browser: chrome
-        start: pnpm serve --scope @podlove/player --stream
+        start: pnpm serve
         install: false
         wait-on: http://localhost:9000
         working-directory: ./apps/player
