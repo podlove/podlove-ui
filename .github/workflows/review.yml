@@ -45,7 +45,6 @@ jobs:
         browser: chrome
         start: pnpm serve
         install: false
-        wait-on: http://localhost:9000
         working-directory: ./apps/player
 
 
