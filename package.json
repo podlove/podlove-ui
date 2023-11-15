@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "start": "lerna run dev --scope @podlove/docs --stream",
+    "serve": "lerna run serve",
     "lint": "lerna run lint",
     "test": "lerna run test",
     "test:dev": "lerna run test:dev",

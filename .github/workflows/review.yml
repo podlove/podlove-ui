@@ -37,15 +37,17 @@ jobs:
       run: pnpm lint --scope @podlove/player
     - name: build
       run: pnpm build --scope @podlove/player
-    - name: install cypress
-      run: pnpm install --workspace-root cypress
+    - name: setup integration
+      run: pnpm lerna run setup --scope @apps/player
+    - name: start test server
+      run: pnpm serve --scope @podlove/player --stream &
     - name: integration
       uses: cypress-io/github-action@v6
       with:
         browser: chrome
         install: false
-        start: pnpm start --scope @podlove/player --stream
-        project: ./apps/player
+        wait-on: http://localhost:9000
+        working-directory: ./apps/player
 
 
   apps_web-player:
