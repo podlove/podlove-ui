@@ -5,10 +5,9 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "type": "module",
   "scripts": {
-    "serve": "vite serve",
+    "serve": "vite serve --port 9000",
     "build": "vite build",
     "integration:setup": "cypress install --force",
-    "integration:ci": "cypress run --browser chrome",
     "integration:dev": "cypress open --browser chrome",
     "lint": "eslint src/**/*.{vue,ts} cypress/**/*.ts"
   },
