@@ -38,7 +38,7 @@ jobs:
     - name: build
       run: pnpm build --scope @podlove/player
     - name: setup integration
-      run: pnpm lerna run setup --scope @podlove/player
+      run: pnpm lerna run integration:setup --scope @podlove/player
     - name: integration
       uses: cypress-io/github-action@v6
       with:
