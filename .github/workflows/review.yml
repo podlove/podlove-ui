@@ -39,12 +39,11 @@ jobs:
       run: pnpm build --scope @podlove/player
     - name: setup integration
       run: pnpm lerna run setup --scope @podlove/player
-    - name: start test server
-      run: pnpm serve --scope @podlove/player --stream  -- --host &
     - name: integration
       uses: cypress-io/github-action@v6
       with:
         browser: chrome
+        start: pnpm serve --scope @podlove/player --stream
         install: false
         wait-on: http://localhost:9000
         working-directory: ./apps/player
