@@ -42,9 +42,9 @@ jobs:
     - name: integration
       uses: cypress-io/github-action@v6
       with:
+        env: NODE_OPTIONS=--openssl-legacy-provider
         browser: chrome
         start: pnpm serve &
-        config-file: cypress.config.ts
         install: false
         working-directory: ./apps/player
 
