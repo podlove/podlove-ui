@@ -44,7 +44,7 @@ jobs:
       with:
         env: NODE_OPTIONS=--openssl-legacy-provider
         browser: chrome
-        start: pnpm serve
+        start: pnpm serve &
         install: false
         working-directory: ./apps/player
 
