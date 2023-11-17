@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "start": "lerna run dev --scope @podlove/docs --stream",
     "serve": "lerna run serve",
     "lint": "lerna run lint",
