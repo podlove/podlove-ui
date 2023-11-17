@@ -39,12 +39,13 @@ jobs:
       run: pnpm build --scope @podlove/player
     - name: setup integration
       run: pnpm lerna run integration:setup --scope @podlove/player
+    - name: run server
+      run: pnpm serve --scope @podlove/player &
     - name: integration
       uses: cypress-io/github-action@v6
       with:
         env: NODE_OPTIONS=--openssl-legacy-provider
         browser: chrome
-        start: pnpm serve &
         install: false
         working-directory: ./apps/player
 
