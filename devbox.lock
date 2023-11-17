@@ -1,0 +1,39 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "nodePackages.pnpm@8": {
+      "last_modified": "2023-11-02T13:29:18Z",
+      "resolved": "github:NixOS/nixpkgs/b644d97bda6dae837d577e28383c10aa51e5e2d2#nodePackages.pnpm",
+      "source": "devbox-search",
+      "version": "8.10.2",
+      "systems": {
+        "aarch64-linux": {
+          "store_path": "/nix/store/n7ml2bssqq1rdlzbz8bgp4bgc2a8z2wd-pnpm-8.10.2"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/fxgnndi9lyb8py91mg0hdq9wy0giqbfk-pnpm-8.10.2"
+        }
+      }
+    },
+    "nodejs@20": {
+      "last_modified": "2023-10-25T20:49:13Z",
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#nodejs_20",
+      "source": "devbox-search",
+      "version": "20.9.0",
+      "systems": {
+        "aarch64-darwin": {
+          "store_path": "/nix/store/r8ppkdpxlmlv4magszy4xl816yf1s859-nodejs-20.9.0"
+        },
+        "aarch64-linux": {
+          "store_path": "/nix/store/j0diijav3hh37amjl67wnq5n3f782ipn-nodejs-20.9.0"
+        },
+        "x86_64-darwin": {
+          "store_path": "/nix/store/zxh8gvmynd5mzx9hf5bhidb4yy0k4g2s-nodejs-20.9.0"
+        },
+        "x86_64-linux": {
+          "store_path": "/nix/store/17g2kfxglsl3rncfasqrxqs2g3bjin3k-nodejs-20.9.0"
+        }
+      }
+    }
+  }
+}
