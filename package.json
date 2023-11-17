@@ -10,6 +10,7 @@
     "test:dev": "lerna run test:dev",
     "build": "lerna run build",
     "integration:dev": "lerna run integration:dev",
+    "run": "lerna run",
     "update": "lernaupdate",
     "version": "lerna version --conventional-commits --changelog-preset angular"
   },

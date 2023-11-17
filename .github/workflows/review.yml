@@ -46,13 +46,7 @@ jobs:
     - name: run server
       run: pnpm serve --scope @podlove/player &
     - name: integration
-      uses: cypress-io/github-action@v6
-      with:
-        env: NODE_OPTIONS=--openssl-legacy-provider
-        browser: chrome
-        install: false
-        working-directory: ./apps/player
-
+      run: env NODE_OPTIONS=--openssl-legacy-provider pnpm lerna run integration --scope @podlove/player
 
   apps_web-player:
     runs-on: ubuntu-latest
