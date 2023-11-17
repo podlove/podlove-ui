@@ -3,13 +3,10 @@
   "version": "5.12.0",
   "description": "",
   "type": "module",
-
   "scripts": {
     "start": "run-p dev:*",
-    "clean": "rm -rf dist publish",
-    "dev:build": "vite build --config vite.config.js --watch",
-    "dev:server": "http-server ./ -c 0",
-    "build": "npm run clean && vite build --config vite.config.js --mode production"
+    "build": "vite build",
+    "lint": "eslint src/**/*.{vue,ts}"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -24,24 +21,27 @@
     "redux": "4.2.1",
     "redux-saga": "1.2.3",
     "redux-vuex": "3.0.0",
+    "reselect": "4.1.8",
+    "tailwindcss": "3.2.4",
     "vue": "3.2.41",
     "vue-i18n": "9.2.2",
-    "tailwindcss": "3.2.4",
-    "reselect": "4.1.8",
     "detect-browser": "5.3.0"
   },
   "devDependencies": {
-    "vite-plugin-environment": "1.1.3",
     "@fullhuman/postcss-purgecss": "5.0.0",
-    "http-server": "14.1.1",
-    "npm-run-all": "4.1.5",
     "@podlove/types": "workspace:*",
-    "typescript": "5.0.4",
+    "@types/ramda": "0.29.1",
+    "@types/redux-saga": "0.10.5",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
     "@vitejs/plugin-vue": "4.2.3",
+    "eslint": "8.53.0",
+    "eslint-plugin-vue": "9.18.1",
+    "npm-run-all": "4.1.5",
+    "typescript": "5.0.4",
     "vite": "4.3.9",
     "vite-plugin-dts": "2.3.0",
-    "@types/ramda": "0.29.1",
-    "@types/redux-saga": "0.10.5"
+    "vite-plugin-environment": "1.1.3"
   },
   "exports": {
     ".": {

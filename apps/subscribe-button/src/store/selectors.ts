@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { propOr } from 'ramda';
-import { selectors as configSelectors, type State as ConfigState } from '@podlove/button-state/config';
+import { type State as ConfigState } from '@podlove/button-state/config';
 import { selectors as viewSelectors, type State as ViewState } from '@podlove/button-state/view';
 import { selectors as themeSelectors, type State as ThemeState } from '@podlove/button-state/theme';
 import { selectors as finishSelectors, type State as FinishState } from '@podlove/button-state/finish';

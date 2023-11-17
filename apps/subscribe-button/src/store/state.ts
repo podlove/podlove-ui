@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-unused-vars: 0 */
 import type { State as view } from '@podlove/button-state/view';
 import type { State as clients } from '@podlove/button-state/clients';
 import type { State as theme } from '@podlove/button-state/theme';
