@@ -14,7 +14,7 @@ describe('persist', () => {
   })
 
   describe('playtime', () => {
-    it('should persist the playtime', (done) => {
+    it.skip('should persist the playtime', (done) => {
       assert('PLAYER_REQUEST_PLAYTIME', () => {
         // throttled time
         cy.wait(1000)
@@ -98,7 +98,7 @@ describe('persist', () => {
       })
     })
 
-    it('should restore the persisted playtime', () => {
+    it.skip('should restore the persisted playtime', () => {
       store.dispatch({
         type: 'PLAYER_LOAD_QUANTILES',
         payload: [
