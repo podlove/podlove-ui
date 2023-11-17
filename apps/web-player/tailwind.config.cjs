@@ -1,8 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+const safelist = require('./safelist.cjs');
 
-import safelist from './safelist.js';
-
-export default {
+module.exports = {
   content: [
     './src/**/*.{vue,html}',
     '../../packages/components/src/**/*.vue',

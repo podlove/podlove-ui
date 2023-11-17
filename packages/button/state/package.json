@@ -13,7 +13,8 @@
     "@podlove/clients": "workspace:*",
     "@podlove/utils": "workspace:*",
     "redux-actions": "3.0.0",
-    "reselect": "4.1.8"
+    "reselect": "4.1.8",
+    "ramda": "0.29.0"
   },
   "devDependencies": {
     "@podlove/types": "workspace:*",

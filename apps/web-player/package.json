@@ -27,7 +27,8 @@
     "@podlove/utils": "workspace:*",
     "color": "4.2.3",
     "hashcode": "1.0.3",
-    "ramda": "0.29.0"
+    "ramda": "0.29.0",
+    "vue": "3.2.41"
   },
   "devDependencies": {
     "@types/node": "20.8.2",
