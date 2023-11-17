@@ -9,6 +9,7 @@
     "build": "vite build",
     "integration:setup": "cypress install --force",
     "integration:dev": "cypress open --browser chrome",
+    "integration": "cypress run --browser chrome",
     "lint": "eslint src/**/*.{vue,ts} cypress/**/*.ts"
   },
   "keywords": [],
