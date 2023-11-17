@@ -5,9 +5,8 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/web-player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "integration:build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.dev.js",
-    "integration:server": "http-server -p 9000 dist/ > http.log 2>&1 &",
-    "integration:ci": "cypress run --browser chrome",
+    "integration": "cypress run --browser chrome",
+    "integration:setup": "cypress install --force",
     "integration:dev": "cypress open --browser chrome",
     "build": "vite build",
     "serve": "vite serve",
