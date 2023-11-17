@@ -13,8 +13,11 @@ jobs:
       pnpm_hash_key: ${{ steps.pnpm.outputs.pnpm_hash_key }}
       pnpm_restore_key: ${{ steps.pnpm.outputs.pnpm_restore_key }}
     steps:
+      - uses: actions/checkout@v3
       - name: install
-        uses: jetpack-io/devbox-install-action@v0.6.0
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
       - name: pnpm env
         id: pnpm
         shell: bash
@@ -23,7 +26,7 @@ jobs:
           echo "pnpm_hash_key=${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}" >> "$GITHUB_OUTPUT"
           echo "pnpm_restore_key=${{ runner.os }}-pnpm-store-" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v3
-        name: Setup pnpm cache
+        name: setup pnpm cache
         with:
           path: ${{ steps.pnpm.outputs.pnpm_store_path }}
           key: ${{ steps.pnpm.outputs.pnpm_hash_key }}
@@ -37,9 +40,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: install
-      uses: jetpack-io/devbox-install-action@v0.6.0
+      uses: jetpack-io/devbox-install-action@v0.7.0
+      with:
+        enable-cache: true
     - uses: actions/cache@v3
-      name: Setup pnpm cache
+      name: setup pnpm cache
       with:
         path: ${{ needs.bootstrap.pnpm.outputs.pnpm_store_path }}
         key: ${{ needs.bootstrap.pnpm.outputs.pnpm_hash_key }}
