@@ -8,7 +8,7 @@ export default {
       default: null
     },
     src: {
-      type: Array<String>,
+      type: Array<string>,
       default: () => []
     },
     weight: {

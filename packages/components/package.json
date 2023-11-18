@@ -4,10 +4,10 @@
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
-    "clean": "rm -rf dist/*",
-    "build": "vite build --config ./vite.config.js",
+    "build": "vite build",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.{vue,ts}"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -28,28 +28,32 @@
     }
   },
   "dependencies": {
+    "@floating-ui/dom": "1.2.7",
     "@podlove/player-actions": "workspace:*",
     "@podlove/utils": "workspace:*",
-    "rangetouch": "2.0.1",
     "floating-vue": "2.0.0-beta.20",
-    "@floating-ui/dom": "1.2.7",
-    "vue": "3.2.41",
+    "ramda": "0.29.0",
+    "rangetouch": "2.0.1",
     "tailwindcss": "3.2.4",
-    "ramda": "0.29.0"
+    "vue": "3.2.41"
   },
   "peerDependencies": {
     "vue": "3"
   },
   "devDependencies": {
     "@podlove/types": "workspace:*",
-    "@vitejs/plugin-vue": "4.2.1",
     "@types/ramda": "0.29.1",
-    "vite": "4.3.5",
-    "vitest": "0.30.0",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "@vitejs/plugin-vue": "4.2.1",
     "@vue/test-utils": "2.3.2",
+    "eslint": "8.54.0",
+    "eslint-plugin-vue": "9.18.1",
     "happy-dom": "9.1.9",
     "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-css-injected-by-js": "3.1.0",
     "vite-plugin-dts": "2.3.0",
-    "vite-plugin-css-injected-by-js": "3.1.0"
+    "vitest": "0.30.0"
   }
 }

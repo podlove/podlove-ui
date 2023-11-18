@@ -39,7 +39,7 @@ const remainingTime = computed(() => {
     return props.chapter.end - props.playtime;
   }
 
-  if (ghostActive) {
+  if (ghostActive.value) {
     return props.chapter.end - props.ghost;
   }
 

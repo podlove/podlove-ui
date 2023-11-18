@@ -151,11 +151,11 @@ watch(visible, async () => {
       break;
   }
 
-  if (visible) {
+  if (visible.value) {
     window.addEventListener('click', clickOutside);
   }
 
-  if (!visible) {
+  if (!visible.value) {
     window.removeEventListener('click', clickOutside);
   }
 });

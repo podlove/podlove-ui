@@ -4,7 +4,6 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "run-p dev:*",
     "build": "vite build",
     "lint": "eslint src/**/*.{vue,ts}"
   },
