@@ -3,7 +3,7 @@
 exports[`InputSlider > props > should render type 'background' 1`] = `
 <div
   background="#fff"
-  class="podlove-component-input-slider w-full relative h-[30px]"
+  class="podlove-component--input-slider w-full relative h-[30px]"
   data-v-aad1c04c=""
 >
   <input
@@ -31,7 +31,7 @@ exports[`InputSlider > props > should render type 'background' 1`] = `
 exports[`InputSlider > props > should render type 'borderColor' 1`] = `
 <div
   bordercolor="#fff"
-  class="podlove-component-input-slider w-full relative h-[30px]"
+  class="podlove-component--input-slider w-full relative h-[30px]"
   data-v-aad1c04c=""
 >
   <input
@@ -58,7 +58,7 @@ exports[`InputSlider > props > should render type 'borderColor' 1`] = `
 
 exports[`InputSlider > props > should render type 'pins' 1`] = `
 <div
-  class="podlove-component-input-slider w-full relative h-[30px]"
+  class="podlove-component--input-slider w-full relative h-[30px]"
   data-v-aad1c04c=""
 >
   <input
@@ -99,7 +99,7 @@ exports[`InputSlider > props > should render type 'pins' 1`] = `
 
 exports[`InputSlider > props > should render type 'progressColor' 1`] = `
 <div
-  class="podlove-component-input-slider w-full relative h-[30px]"
+  class="podlove-component--input-slider w-full relative h-[30px]"
   data-v-aad1c04c=""
   progresscolor="#fff"
 >
@@ -127,7 +127,7 @@ exports[`InputSlider > props > should render type 'progressColor' 1`] = `
 
 exports[`InputSlider > props > should render type 'step' 1`] = `
 <div
-  class="podlove-component-input-slider w-full relative h-[30px]"
+  class="podlove-component--input-slider w-full relative h-[30px]"
   data-v-aad1c04c=""
 >
   <input
@@ -154,7 +154,7 @@ exports[`InputSlider > props > should render type 'step' 1`] = `
 
 exports[`InputSlider > props > should render type 'value' 1`] = `
 <div
-  class="podlove-component-input-slider w-full relative h-[30px]"
+  class="podlove-component--input-slider w-full relative h-[30px]"
   data-v-aad1c04c=""
 >
   <input
@@ -181,7 +181,7 @@ exports[`InputSlider > props > should render type 'value' 1`] = `
 
 exports[`InputSlider > props > should render without props 1`] = `
 <div
-  class="podlove-component-input-slider w-full relative h-[30px]"
+  class="podlove-component--input-slider w-full relative h-[30px]"
   data-v-aad1c04c=""
 >
   <input

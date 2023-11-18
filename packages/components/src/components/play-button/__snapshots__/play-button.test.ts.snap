@@ -21,19 +21,18 @@ exports[`PlayButton > props > should render type 'loading' with 'background' 1`]
     >
       <div
         aria-hidden="true"
-        class="spinner podlove-component-icon component py-0"
+        class="spinner component py-0"
         data-v-03d7d96a=""
-        data-v-fab4c753=""
-        filled="false"
+        data-v-825025bb=""
         id="play-button--loading"
       >
         <div
           class="double-bounce1"
-          data-v-fab4c753=""
+          data-v-825025bb=""
         />
         <div
           class="double-bounce2"
-          data-v-fab4c753=""
+          data-v-825025bb=""
         />
       </div>
     </transition-stub>
@@ -62,19 +61,18 @@ exports[`PlayButton > props > should render type 'loading' with 'color' 1`] = `
     >
       <div
         aria-hidden="true"
-        class="spinner podlove-component-icon component py-0"
+        class="spinner component py-0"
         data-v-03d7d96a=""
-        data-v-fab4c753=""
-        filled="false"
+        data-v-825025bb=""
         id="play-button--loading"
       >
         <div
           class="double-bounce1"
-          data-v-fab4c753=""
+          data-v-825025bb=""
         />
         <div
           class="double-bounce2"
-          data-v-fab4c753=""
+          data-v-825025bb=""
         />
       </div>
     </transition-stub>
@@ -102,19 +100,18 @@ exports[`PlayButton > props > should render type 'loading' with 'label' 1`] = `
     >
       <div
         aria-hidden="true"
-        class="spinner podlove-component-icon component py-0"
+        class="spinner component py-0"
         data-v-03d7d96a=""
-        data-v-fab4c753=""
-        filled="false"
+        data-v-825025bb=""
         id="play-button--loading"
       >
         <div
           class="double-bounce1"
-          data-v-fab4c753=""
+          data-v-825025bb=""
         />
         <div
           class="double-bounce2"
-          data-v-fab4c753=""
+          data-v-825025bb=""
         />
       </div>
     </transition-stub>
@@ -150,13 +147,14 @@ exports[`PlayButton > props > should render type 'pause' with 'background' 1`] =
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
+          data-v-258dccf6=""
           fill="none"
-          filled="false"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <rect
             fill="currentColor"
             height="16"
@@ -173,6 +171,7 @@ exports[`PlayButton > props > should render type 'pause' with 'background' 1`] =
             x="14"
             y="4"
           />
+          
         </svg>
         
         
@@ -210,13 +209,14 @@ exports[`PlayButton > props > should render type 'pause' with 'color' 1`] = `
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
+          data-v-258dccf6=""
           fill="none"
-          filled="false"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <rect
             fill="currentColor"
             height="16"
@@ -233,6 +233,7 @@ exports[`PlayButton > props > should render type 'pause' with 'color' 1`] = `
             x="14"
             y="4"
           />
+          
         </svg>
         
         
@@ -269,13 +270,14 @@ exports[`PlayButton > props > should render type 'pause' with 'label' 1`] = `
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
+          data-v-258dccf6=""
           fill="none"
-          filled="false"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <rect
             fill="currentColor"
             height="16"
@@ -292,6 +294,7 @@ exports[`PlayButton > props > should render type 'pause' with 'label' 1`] = `
             x="14"
             y="4"
           />
+          
         </svg>
         
         <span
@@ -336,17 +339,19 @@ exports[`PlayButton > props > should render type 'play' with 'background' 1`] = 
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
+          data-v-258dccf6=""
           fill="none"
-          filled="false"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <path
             d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
             fill="currentColor"
           />
+          
         </svg>
         
         
@@ -384,17 +389,19 @@ exports[`PlayButton > props > should render type 'play' with 'color' 1`] = `
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
+          data-v-258dccf6=""
           fill="none"
-          filled="false"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <path
             d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
             fill="currentColor"
           />
+          
         </svg>
         
         
@@ -431,17 +438,19 @@ exports[`PlayButton > props > should render type 'play' with 'label' 1`] = `
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
+          data-v-258dccf6=""
           fill="none"
-          filled="false"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <path
             d="M6 5.76341C6 5.19411 6.60936 4.83238 7.10914 5.10498L18.5429 11.3416C19.064 11.6258 19.064 12.3742 18.5429 12.6584L7.10914 18.895C6.60936 19.1676 6 18.8059 6 18.2366V5.76341Z"
             fill="currentColor"
           />
+          
         </svg>
         
         <span
@@ -486,16 +495,19 @@ exports[`PlayButton > props > should render type 'restart' with 'background' 1`]
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
-          filled="false"
+          data-v-258dccf6=""
+          fill="none"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <path
             d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
             fill="currentColor"
           />
+          
         </svg>
         
         
@@ -533,16 +545,19 @@ exports[`PlayButton > props > should render type 'restart' with 'color' 1`] = `
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
-          filled="false"
+          data-v-258dccf6=""
+          fill="none"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <path
             d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
             fill="currentColor"
           />
+          
         </svg>
         
         
@@ -579,16 +594,19 @@ exports[`PlayButton > props > should render type 'restart' with 'label' 1`] = `
         <svg
           aria-hidden="true"
           class="podlove-component-icon"
-          filled="false"
+          data-v-258dccf6=""
+          fill="none"
           height="25"
           viewBox="0 0 24 24"
           width="25"
           xmlns="http://www.w3.org/2000/svg"
         >
+          
           <path
             d="M23 12c0 1.042-.154 2.045-.425 3h-2.101c.335-.94.526-1.947.526-3 0-4.962-4.037-9-9-9-1.706 0-3.296.484-4.655 1.314l1.858 2.686h-6.994l2.152-7 1.849 2.673c1.684-1.049 3.659-1.673 5.79-1.673 6.074 0 11 4.925 11 11zm-6.354 7.692c-1.357.826-2.944 1.308-4.646 1.308-4.962 0-9-4.038-9-9 0-1.053.191-2.06.525-3h-2.1c-.271.955-.425 1.958-.425 3 0 6.075 4.925 11 11 11 2.127 0 4.099-.621 5.78-1.667l1.853 2.667 2.152-6.989h-6.994l1.855 2.681z"
             fill="currentColor"
           />
+          
         </svg>
         
         <span

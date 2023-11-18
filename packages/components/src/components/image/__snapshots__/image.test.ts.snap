@@ -1,5 +1,31 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Image > props > should render 1`] = `
+<div
+  class="relative"
+  data-v-2f3a6608=""
+>
+  <transition-stub
+    appear="false"
+    css="true"
+    data-v-2f3a6608=""
+    name="fade"
+    persisted="false"
+  >
+    <div
+      class="podlove-component-image-cover absolute top-0 left-0 w-full h-full"
+      data-v-2f3a6608=""
+    />
+  </transition-stub>
+  <img
+    alt="alternative title"
+    class="max-h-full w-auto h-0"
+    data-v-2f3a6608=""
+    src="http://foo.bar"
+  />
+</div>
+`;
+
 exports[`Image > props > should render with prop alt 1`] = `
 <div
   class="relative"

@@ -3,19 +3,19 @@
 exports[`ChapterButton > props > should render type 'next' with prop color 1`] = `
 <button
   class="podlove-component-chapter-button"
-  color="#fff"
   data-test="podlove-component-chapter-button--next"
 >
   <svg
     aria-hidden="true"
     class="podlove-component-icon"
+    data-v-258dccf6=""
     fill="none"
-    filled="false"
     height="24"
     viewBox="0 0 24 24"
     width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
+    
     <path
       d="M10 5.75263C10 5.18583 10.6045 4.82386 11.1042 5.09152L22.7659 11.3389C23.2937 11.6216 23.2937 12.3784 22.7659 12.6611L11.1042 18.9085C10.6045 19.1761 10 18.8142 10 18.2474V5.75263Z"
       fill="currentColor"
@@ -24,6 +24,7 @@ exports[`ChapterButton > props > should render type 'next' with prop color 1`] =
       d="M22 5.75C22 5.33579 22.3358 5 22.75 5H23.25C23.6642 5 24 5.33579 24 5.75V18.25C24 18.6642 23.6642 19 23.25 19H22.75C22.3358 19 22 18.6642 22 18.25V5.75Z"
       fill="currentColor"
     />
+    
   </svg>
   
   
@@ -33,19 +34,19 @@ exports[`ChapterButton > props > should render type 'next' with prop color 1`] =
 exports[`ChapterButton > props > should render type 'previous' with prop color 1`] = `
 <button
   class="podlove-component-chapter-button"
-  color="#fff"
   data-test="podlove-component-chapter-button--previous"
 >
   <svg
     aria-hidden="true"
     class="podlove-component-icon"
+    data-v-258dccf6=""
     fill="none"
-    filled="false"
     height="24"
     viewBox="0 0 24 24"
     width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
+    
     <path
       d="M14 5.75263C14 5.18583 13.3955 4.82386 12.8958 5.09152L1.23407 11.3389C0.706292 11.6216 0.706293 12.3784 1.23407 12.6611L12.8958 18.9085C13.3955 19.1761 14 18.8142 14 18.2474V5.75263Z"
       fill="currentColor"
@@ -54,6 +55,7 @@ exports[`ChapterButton > props > should render type 'previous' with prop color 1
       d="M2 5.75C2 5.33579 1.66421 5 1.25 5H0.75C0.335787 5 0 5.33579 0 5.75V18.25C0 18.6642 0.335787 19 0.75 19H1.25C1.66421 19 2 18.6642 2 18.25V5.75Z"
       fill="currentColor"
     />
+    
   </svg>
   
   

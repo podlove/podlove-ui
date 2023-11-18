@@ -12,7 +12,7 @@ import Timer from '../timer/Timer.vue';
 import { computed, ref } from 'vue';
 
 const props = defineProps<{
-  chapter: PodloveWebPlayerChapter,
+  chapter: PodloveWebPlayerChapter & { linkTitle?: string },
   showLink?: boolean,
   playtime?: number,
   ghost?: number,

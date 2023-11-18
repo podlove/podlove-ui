@@ -2,7 +2,7 @@
 
 exports[`ProgressBar > props > should render 'buffer' 1`] = `
 <div
-  class="podlove-component-progress-bar w-full relative cursor-pointer"
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
   data-v-0f66235d=""
 >
   <input
@@ -68,7 +68,7 @@ exports[`ProgressBar > props > should render 'buffer' 1`] = `
 
 exports[`ProgressBar > props > should render 'chapters' 1`] = `
 <div
-  class="podlove-component-progress-bar w-full relative cursor-pointer"
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
   data-v-0f66235d=""
 >
   <input
@@ -136,7 +136,7 @@ exports[`ProgressBar > props > should render 'chapters' 1`] = `
 
 exports[`ProgressBar > props > should render 'ghost' 1`] = `
 <div
-  class="podlove-component-progress-bar w-full relative cursor-pointer"
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
   data-v-0f66235d=""
 >
   <input
@@ -188,7 +188,7 @@ exports[`ProgressBar > props > should render 'ghost' 1`] = `
 
 exports[`ProgressBar > props > should render 'quantiles' 1`] = `
 <div
-  class="podlove-component-progress-bar w-full relative cursor-pointer"
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
   data-v-0f66235d=""
 >
   <input
@@ -254,7 +254,7 @@ exports[`ProgressBar > props > should render 'quantiles' 1`] = `
 
 exports[`ProgressBar > props > should render 'time' 1`] = `
 <div
-  class="podlove-component-progress-bar w-full relative cursor-pointer"
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
   data-v-0f66235d=""
 >
   <input
@@ -306,7 +306,7 @@ exports[`ProgressBar > props > should render 'time' 1`] = `
 
 exports[`ProgressBar > props > should render 'title' 1`] = `
 <div
-  class="podlove-component-progress-bar w-full relative cursor-pointer"
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
   data-v-0f66235d=""
 >
   <input
@@ -358,7 +358,7 @@ exports[`ProgressBar > props > should render 'title' 1`] = `
 
 exports[`ProgressBar > props > should render with default props 1`] = `
 <div
-  class="podlove-component-progress-bar w-full relative cursor-pointer"
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
   data-v-0f66235d=""
 >
   <input
