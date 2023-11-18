@@ -52,13 +52,13 @@ jobs:
     - name: install
       run: devbox run pnpm install --offline
     - name: lint
-      run: devbox run pnpm lint --scope @podlove/player
+      run: devbox run pnpm run lint --scope @podlove/player
     - name: build
-      run: devbox run pnpm build --scope @podlove/player
+      run: devbox run pnpm run build --scope @podlove/player
     - name: setup integration
       run: devbox run pnpm lerna run integration:setup --scope @podlove/player
     - name: run server
-      run: devbox run pnpm serve --scope @podlove/player &
+      run: devbox run pnpm run serve --scope @podlove/player &
     - name: integration
       run: devbox run pnpm lerna run integration --scope @podlove/player
 
@@ -80,13 +80,13 @@ jobs:
     - name: install
       run: devbox run pnpm install --offline
     - name: lint
-      run: devbox run pnpm lint --scope @podlove/web-player
+      run: devbox run pnpm run lint --scope @podlove/web-player
     - name: build
-      run: devbox run pnpm build --scope @podlove/web-player
+      run: devbox run pnpm run build --scope @podlove/web-player
     - name: setup integration
       run: devbox run pnpm lerna run integration:setup --scope @podlove/web-player
     - name: run server
-      run: devbox run pnpm serve --scope @podlove/web-player &
+      run: devbox run pnpm run serve --scope @podlove/web-player &
     - name: integration
       run: devbox run pnpm lerna run integration --scope @podlove/web-player
 
@@ -108,9 +108,9 @@ jobs:
       - name: install
         run: devbox run pnpm install --offline
       - name: lint
-        run: devbox run pnpm lint --scope @podlove/subscribe-button
+        run: devbox run pnpm run lint --scope @podlove/subscribe-button
       - name: build
-        run: devbox run pnpm build --scope @podlove/subscribe-button
+        run: devbox run pnpm run build --scope @podlove/subscribe-button
 
   packages_components:
     runs-on: ubuntu-latest
@@ -130,11 +130,11 @@ jobs:
     - name: install
       run: devbox run pnpm install --offline
     - name: lint
-      run: devbox run pnpm lint --scope @podlove/components
+      run: devbox run pnpm run lint --scope @podlove/components
     - name: test
-      run: devbox run pnpm test --scope @podlove/components
+      run: devbox run pnpm run test --scope @podlove/components
     - name: build
-      run: devbox run pnpm build --scope @podlove/components
+      run: devbox run pnpm run build --scope @podlove/components
 
   # packages_player-actions:
   #   runs-on: ubuntu-latest
