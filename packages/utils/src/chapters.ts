@@ -11,19 +11,32 @@ const emptyChapter: PodloveWebPlayerChapter = {
 
 export const getChapterByIndex = curry(
   (chapters: PodloveWebPlayerChapter[], index: number): PodloveWebPlayerChapter =>
-    propOr(emptyChapter, index, chapters)
+    propOr(emptyChapter, index >= 0 ? index : null, chapters)
 );
 
-export const currentChapterIndex = (chapters: PodloveWebPlayerChapter[]): number =>
-  (chapters || []).findIndex((chapter) => chapter.active) || -1;
+export const currentChapterIndex = (chapters: PodloveWebPlayerChapter[]): number => {
+  const index = (chapters || []).findIndex((chapter) => chapter.active);
+
+  if (index >= 0) {
+    return index;
+  }
+
+  return -1;
+};
 
 export const currentChapter = (input: PodloveWebPlayerChapter[] = []): PodloveWebPlayerChapter => {
   const chapter = input.find((chapter) => chapter.active);
   return chapter ? chapter : emptyChapter;
 };
 
-export const nextChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter =>  getChapterByIndex(chapters, currentChapterIndex(chapters) + 1);
-export const previousChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter => getChapterByIndex(chapters, currentChapterIndex(chapters) - 1);
+export const nextChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter => {
+  const currentIndex = currentChapterIndex(chapters);
+  return getChapterByIndex(chapters, currentIndex >= 0 ? currentIndex + 1 : -1);
+};
+export const previousChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerChapter => {
+  const currentIndex = currentChapterIndex(chapters);
+  return getChapterByIndex(chapters, currentIndex >= 0 ? currentIndex - 1 : -1);
+};
 
 export const currentChapterByPlaytime = curry(
   (chapters: PodloveWebPlayerChapter[], playtime: number): PodloveWebPlayerChapter =>

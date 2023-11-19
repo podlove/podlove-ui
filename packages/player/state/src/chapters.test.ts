@@ -1,5 +1,6 @@
-import { UPDATE_CHAPTER, SET_CHAPTERS_LIST, SET_CHAPTER } from '@podlove/player-actions/types'
-import { reducer, INITIAL_STATE } from './chapters'
+import { describe, expect, test } from 'vitest';
+import { UPDATE_CHAPTER, SET_CHAPTERS_LIST, SET_CHAPTER } from '@podlove/player-actions/types';
+import { reducer, INITIAL_STATE } from './chapters.js';
 
 const chapter1 = {
   start: 0,
@@ -7,38 +8,38 @@ const chapter1 = {
   title: 'chapter 1',
   href: '',
   image: ''
-}
+};
 const chapter2 = {
   start: 100,
   end: 199,
   title: 'chapter 2',
   href: '',
   image: ''
-}
+};
 const chapter3 = {
   start: 200,
   end: 299,
   title: 'chapter 3',
   href: '',
   image: ''
-}
+};
 const chapter4 = {
   start: 300,
   end: 399,
   title: 'chapter 4',
   href: '',
   image: ''
-}
+};
 const chapter5 = {
   start: 400,
   end: 499,
   title: 'chapter 5',
   href: '',
   image: ''
-}
+};
 
 describe('chapters', () => {
-  test('should set the chapter list on SET_CHAPTERS_LIST', () => {
+  test.only('should set the chapter list on SET_CHAPTERS_LIST', () => {
     expect(
       reducer(INITIAL_STATE, {
         type: SET_CHAPTERS_LIST,
@@ -68,14 +69,14 @@ describe('chapters', () => {
         chapter4,
         chapter5
       ]
-    })
-  })
+    });
+  });
 
   test('should set the chapter by index on SET_CHAPTER', () => {
     const state = reducer(INITIAL_STATE, {
       type: SET_CHAPTERS_LIST,
       payload: [chapter1, chapter2, chapter3, chapter4, chapter5]
-    })
+    });
 
     expect(
       reducer(state, {
@@ -118,14 +119,14 @@ describe('chapters', () => {
           active: false
         }
       ]
-    })
-  })
+    });
+  });
 
   test('should set the chapter by index on UPDATE_CHAPTER', () => {
     const state = reducer(INITIAL_STATE, {
       type: SET_CHAPTERS_LIST,
       payload: [chapter1, chapter2, chapter3, chapter4, chapter5]
-    })
+    });
 
     expect(
       reducer(state, {
@@ -168,6 +169,6 @@ describe('chapters', () => {
           active: false
         }
       ]
-    })
-  })
-})
+    });
+  });
+});
