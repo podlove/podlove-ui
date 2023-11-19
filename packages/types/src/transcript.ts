@@ -15,26 +15,26 @@ export interface PodloveWebPlayerTimelineChapterEntry {
   start: number;
   end: number;
   title: string;
-  image: string;
-  href: string;
-  linkTitle: string;
+  image?: string;
+  href?: string;
+  linkTitle?: string;
 }
 
 export interface PodloveWebPlayerSpeaker {
   id: string;
   name: string;
   avatar: string;
-  role: {
+  role?: {
     id: string;
     slug: string;
     title: string;
   };
-  group: {
+  group?: {
     id: string;
     slug: string;
     title: string;
   };
-  comment: null | string;
+  comment?: null | string;
 }
 
 export interface PodloveWebPlayerTimelineTranscriptEntry {

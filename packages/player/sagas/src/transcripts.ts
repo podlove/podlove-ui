@@ -86,7 +86,7 @@ const transformChapters = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlaye
   chapters.map((chapter, index) => ({
     ...chapter,
     type: 'chapter',
-    index: index + 1
+    index: index
   })) as PodloveWebPlayerTimelineChapterEntry[];
 
 const mapSpeakers = (speakers: PodloveWebPlayerSpeaker[]) =>

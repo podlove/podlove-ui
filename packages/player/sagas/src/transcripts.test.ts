@@ -8,7 +8,7 @@ import {
   debouncedUpdate,
   search,
   resetToPlaytime
-} from './transcripts';
+} from './transcripts.js';
 import {
   READY,
   BACKEND_PLAYTIME,
@@ -89,12 +89,12 @@ describe('transcripts', () => {
     const speakers = [
       {
         id: '1',
-        speaker: 'Carl',
+        name: 'Carl',
         avatar: 'http://foo.bar/carl.jpg'
       },
       {
         id: '2',
-        speaker: 'Peter',
+        name: 'Peter',
         avatar: 'http://foo.bar/peter.jpg'
       }
     ];
@@ -103,11 +103,13 @@ describe('transcripts', () => {
       {
         start: 0,
         end: 2500,
+        index: 0,
         title: 'start'
       },
       {
         start: 35000,
         end: 36000,
+        index: 1,
         title: 'end'
       }
     ];
@@ -144,7 +146,7 @@ describe('transcripts', () => {
             timeline: [
               {
                 end: 2500,
-                index: 1,
+                index: 0,
                 start: 0,
                 title: 'start',
                 type: 'chapter'
@@ -154,7 +156,7 @@ describe('transcripts', () => {
                 speaker: {
                   avatar: 'http://foo.bar/carl.jpg',
                   id: '1',
-                  speaker: 'Carl'
+                  name: 'Carl'
                 },
                 start: 10000,
                 texts: [
@@ -171,7 +173,7 @@ describe('transcripts', () => {
                 speaker: {
                   avatar: 'http://foo.bar/peter.jpg',
                   id: '2',
-                  speaker: 'Peter'
+                  name: 'Peter'
                 },
                 start: 20000,
                 texts: [
@@ -188,7 +190,7 @@ describe('transcripts', () => {
                 speaker: {
                   avatar: 'http://foo.bar/carl.jpg',
                   id: '1',
-                  speaker: 'Carl'
+                  name: 'Carl'
                 },
                 start: 25000,
                 texts: [
@@ -205,7 +207,7 @@ describe('transcripts', () => {
                 speaker: {
                   avatar: 'http://foo.bar/peter.jpg',
                   id: '2',
-                  speaker: 'Peter'
+                  name: 'Peter'
                 },
                 start: 30000,
                 texts: [
@@ -219,7 +221,7 @@ describe('transcripts', () => {
               },
               {
                 end: 36000,
-                index: 2,
+                index: 1,
                 start: 35000,
                 title: 'end',
                 type: 'chapter'
@@ -231,15 +233,15 @@ describe('transcripts', () => {
       );
     });
 
-    test.only('should register update on BACKEND_PLAYTIME', () => {
+    test('should register update on BACKEND_PLAYTIME', () => {
       gen.next();
       gen.next();
       gen.next(speakers);
       gen.next(chapters);
 
-      const [type, func] = params(gen.next().value)
-      expect(type).toEqual(BACKEND_PLAYTIME)
-      expect(func).toEqual(update)
+      const [type, func] = params(gen.next().value) as any;
+      expect(type).toEqual(BACKEND_PLAYTIME);
+      expect(func).toEqual(update);
     });
 
     test('should register update on REQUEST_PLAYTIME', () => {
@@ -249,7 +251,7 @@ describe('transcripts', () => {
       gen.next(chapters);
       gen.next();
 
-      const [type, func] = params(gen.next().value);
+      const [type, func] = params(gen.next().value) as any;
       expect(type).toEqual(REQUEST_PLAYTIME);
       expect(func).toEqual(update);
     });
@@ -262,7 +264,7 @@ describe('transcripts', () => {
       gen.next();
       gen.next();
 
-      const [type, func] = params(gen.next().value);
+      const [type, func] = params(gen.next().value) as any;
       expect(type).toEqual(SIMULATE_PLAYTIME);
       expect(func).toEqual(debouncedUpdate);
     });

@@ -97,12 +97,12 @@ describe('chapters', () => {
 
   describe('chapterUpdate()', () => {
     test('should be a generator', () => {
-      expect(typeof chapterUpdate({ payload: 'foo' }).next).toBe('function');
+      expect(typeof chapterUpdate({ payload: 'foo' } as any).next).toBe('function');
     });
 
     test('should dispatch UPDATE_CHAPTER', () => {
-      const gen = chapterUpdate({ payload: 'foo' });
-      expect(gen.next().value).toEqual(put(chapter.updateChapter('foo')));
+      const gen = chapterUpdate({ payload: 'foo' } as any);
+      expect(gen.next().value).toEqual(put(chapter.updateChapter('foo' as any)));
       expect(gen.next().done).toBeTruthy();
     });
   });
@@ -267,18 +267,18 @@ describe('chapters', () => {
     ];
 
     test('should be a generator', () => {
-      expect(typeof initChapters({ selectDuration }, { payload: { chapters } }).next).toBe(
+      expect(typeof initChapters({ selectDuration }, { payload: { chapters } } as any).next).toBe(
         'function'
       );
     });
 
     test('should select the duration', () => {
-      const gen = initChapters({ selectDuration }, { payload: { chapters } });
+      const gen = initChapters({ selectDuration }, { payload: { chapters } } as any);
       expect(gen.next().value).toEqual(select(selectDuration));
     });
 
     test('should dispatch SET_CHAPTERS_LIST with parsed chapters', () => {
-      const gen = initChapters({ selectDuration }, { payload: { chapters } });
+      const gen = initChapters({ selectDuration }, { payload: { chapters } } as any);
       gen.next(50000);
       expect(gen.next().value).toEqual(
         put(
