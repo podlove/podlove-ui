@@ -19,7 +19,7 @@ import type {
 export interface setTranscriptsTimelinePayload {
   timeline: (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry)[];
   hasTranscripts: boolean;
-};
+}
 export type updateTranscriptsPayload = number;
 export type followTranscriptsPayload = boolean;
 export type searchTranscriptsPayload = string;
@@ -28,15 +28,10 @@ export type setTranscriptsSearchResultsPayload = number[];
 export type nextTranscriptsSearchResultPayload = void;
 export type previousTranscriptsSearchResultPayload = void;
 
-export const setTranscriptsTimeline = createAction<setTranscriptsTimelinePayload>(
-  SET_TRANSCRIPTS_TIMELINE
-);
-export const updateTranscripts = createAction<updateTranscriptsPayload>(
-  UPDATE_TRANSCRIPTS
-);
-export const followTranscripts = createAction<followTranscriptsPayload>(
-  TOGGLE_FOLLOW_TRANSCRIPTS
-);
+export const setTranscriptsTimeline =
+  createAction<setTranscriptsTimelinePayload>(SET_TRANSCRIPTS_TIMELINE);
+export const updateTranscripts = createAction<updateTranscriptsPayload>(UPDATE_TRANSCRIPTS);
+export const followTranscripts = createAction<followTranscriptsPayload>(TOGGLE_FOLLOW_TRANSCRIPTS);
 export const searchTranscripts = createAction<searchTranscriptsPayload>(SEARCH_TRANSCRIPTS);
 export const resetSearchTranscription =
   createAction<resetSearchTranscriptionPayload>(RESET_SEARCH_TRANSCRIPTS);
