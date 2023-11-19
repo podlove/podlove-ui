@@ -334,47 +334,43 @@ describe('player', () => {
     describe('audio events', () => {
       const readyEvent = {
         type: 'READY'
-      };
-
-      const loadedEvent = {
-        type: 'LOADED'
-      };
+      } as any;
 
       const playEvent = {
         type: 'PLAY'
-      };
+      } as any;
 
       const pauseEvent = {
         type: 'PAUSE'
-      };
+      } as any;
 
       const endEvent = {
         type: 'END'
-      };
+      } as any;
 
       const playtimeEvent = {
         type: 'PLAYTIME'
-      };
+      } as any;
 
       const durationEvent = {
         type: 'DURATION'
-      };
+      } as any;
 
       const livesyncEvent = {
         type: 'LIVESYNC'
-      };
+      } as any;
 
       const bufferChangeEvent = {
         type: 'BUFFER_CHANGE'
-      };
+      } as any;
 
       const bufferingEvent = {
         type: 'BUFFERING'
-      };
+      } as any;
 
       const errorEvent = {
         type: 'ERROR'
-      };
+      } as any;
 
       beforeEach(() => {
         // Init
@@ -629,7 +625,7 @@ describe('player', () => {
       actions = {
         setPlaytime: vi.fn()
       };
-      gen = playtime(actions, { payload: 1337 });
+      gen = playtime(actions, { payload: 1337 } as any);
     });
 
     test('shoud export a generator', () => {
@@ -654,7 +650,7 @@ describe('player', () => {
       actions = {
         setRate: vi.fn()
       };
-      gen = rate(actions, { payload: 2 });
+      gen = rate(actions, { payload: 2 } as any);
     });
 
     test('shoud export a generator', () => {
@@ -679,7 +675,7 @@ describe('player', () => {
       actions = {
         setVolume: vi.fn()
       };
-      gen = volume(actions, { payload: 2 });
+      gen = volume(actions, { payload: 2 } as any);
     });
 
     test('shoud export a generator', () => {
@@ -751,7 +747,7 @@ describe('player', () => {
     let gen;
 
     beforeEach(() => {
-      gen = onReady({ paused: true });
+      gen = onReady({ paused: true } as any);
     });
 
     test('shoud export a generator', () => {
@@ -759,7 +755,7 @@ describe('player', () => {
     });
 
     test('should dispatch BACKEND_LOADING_END', () => {
-      expect(gen.next().value).toEqual(put(backendLoadingEnd({ paused: true })));
+      expect(gen.next().value).toEqual(put(backendLoadingEnd({ paused: true } as any)));
     });
 
     test('should end the saga', () => {
@@ -950,7 +946,7 @@ describe('player', () => {
     let gen;
 
     beforeEach(() => {
-      gen = onError('SOME_ERROR');
+      gen = onError('MEDIA_ERROR');
     });
 
     test('shoud export a generator', () => {
@@ -958,7 +954,7 @@ describe('player', () => {
     });
 
     test('should dispatch BACKEND_ERROR', () => {
-      expect(gen.next().value).toEqual(put(backendError('SOME_ERROR')));
+      expect(gen.next().value).toEqual(put(backendError('MEDIA_ERROR')));
     });
 
     test('should end the saga', () => {

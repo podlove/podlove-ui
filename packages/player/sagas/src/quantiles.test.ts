@@ -1,5 +1,5 @@
 import { describe, test, beforeEach, expect } from 'vitest';
-import { takeEvery, put } from 'typed-redux-saga';
+import { takeEvery, put } from 'redux-saga/effects';
 import {
   BACKEND_PLAYTIME,
   NEXT_CHAPTER,
@@ -8,7 +8,7 @@ import {
 } from '@podlove/player-actions/types';
 import { setQuantiles } from '@podlove/player-actions/quantiles';
 
-import { quantilesSaga, resetTime, updateQuantiles } from './quantiles';
+import { quantilesSaga, resetTime, updateQuantiles } from './quantiles.js';
 
 describe('quantiles', () => {
   describe('quantilesSaga()', () => {
@@ -57,7 +57,7 @@ describe('quantiles', () => {
     let gen;
 
     beforeEach(() => {
-      gen = updateQuantiles({ payload: 10 });
+      gen = updateQuantiles({ payload: 10 } as any);
     });
 
     test('should export a generator', () => {

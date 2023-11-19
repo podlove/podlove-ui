@@ -7,7 +7,7 @@ import {
   NEXT_PLAYLIST_ENTRY,
   BACKEND_END
 } from '@podlove/player-actions/types';
-import { put, takeEvery, select } from 'typed-redux-saga';
+import { put, takeEvery, select } from 'redux-saga/effects';
 import { json } from '@podlove/utils/request';
 import { init } from '@podlove/player-actions/lifecycle';
 import { requestPause } from '@podlove/player-actions/play';
@@ -24,8 +24,8 @@ import {
   setActiveEntry,
   requestPlay,
   resetMeta
-} from './playlist';
-import * as helpers from './helper';
+} from './playlist.js';
+import * as helpers from './helper.js';
 
 describe('playlist', () => {
   let selectEpisodeConfig, selectRate, selectVolume, selectMuted, selectPlaylist, selectReference;
@@ -132,7 +132,7 @@ describe('playlist', () => {
     beforeEach(() => {
       gen = loadEpisode(
         { selectEpisodeConfig, selectRate, selectVolume, selectMuted },
-        { payload: { play: true } }
+        { payload: { play: true } } as any
       );
     });
 
@@ -196,7 +196,7 @@ describe('playlist', () => {
       gen.next();
       gen.next();
       gen.next();
-      expect(gen.next().value).toEqual(put(init({ my: 'config' })));
+      expect(gen.next().value).toEqual(put(init({ my: 'config' } as any)));
     });
 
     test('should play the episode if provided', () => {
@@ -246,7 +246,7 @@ describe('playlist', () => {
     let gen;
 
     beforeEach(() => {
-      gen = nextEpisode({ selectPlaylist }, { payload: { play: true } });
+      gen = nextEpisode({ selectPlaylist }, { payload: { play: true } } as any);
     });
 
     test('should export a generator', () => {

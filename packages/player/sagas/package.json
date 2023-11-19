@@ -8,9 +8,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "vite build --config ./vite.config.ts",
+    "build": "vite build",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
   },
   "exports": {
     "./chapters": {
@@ -132,24 +133,26 @@
   },
   "dependencies": {
     "@podlove/components": "workspace:*",
+    "@podlove/html5-audio-driver": "2.0.2",
     "@podlove/player-actions": "workspace:*",
     "@podlove/player-config": "workspace:*",
-    "@podlove/utils": "workspace:*",
     "@podlove/types": "workspace:*",
-    "@podlove/html5-audio-driver": "2.0.2",
-    "redux-saga": "1.2.3",
+    "@podlove/utils": "workspace:*",
+    "detect-browser": "5.3.0",
     "ramda": "0.29.0",
     "redux-actions": "3.0.0",
-    "detect-browser": "5.3.0"
+    "redux-saga": "1.2.3"
   },
   "devDependencies": {
-    "vite-plugin-dts": "3.6.3",
-    "vite": "4.3.5",
     "@types/ramda": "0.29.1",
     "@types/redux-actions": "2.6.2",
-    "@types/redux-saga": "0.10.5",
-    "vitest": "0.30.1",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "eslint": "8.54.0",
     "happy-dom": "9.1.9",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3",
+    "vitest": "0.30.1"
   }
 }

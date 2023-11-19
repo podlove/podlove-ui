@@ -1,16 +1,13 @@
 import { put, takeEvery, select, debounce, delay } from 'redux-saga/effects';
 import {
   last,
-  propEq,
-  find,
   compose,
   map,
   is,
   endsWith,
   sortBy,
   prop,
-  reduce,
-  concat
+  reduce
 } from 'ramda';
 
 import {

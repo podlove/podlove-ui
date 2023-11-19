@@ -61,7 +61,7 @@ describe('components', () => {
       selectRuntimePlatform: vi.fn(),
       selectPlaylist: vi.fn(),
       selectChannels: vi.fn(),
-      selectEmbedLink: vi.fn()
+      selectHasEmbedLink: vi.fn()
     }
   })
 
@@ -94,7 +94,7 @@ describe('components', () => {
           selectRuntimeMode: selectors.selectRuntimeMode,
           selectRuntimePlatform: selectors.selectRuntimePlatform,
           selectChannels: selectors.selectChannels,
-          selectEmbedLink: selectors.selectEmbedLink
+          selectHasEmbedLink: selectors.selectHasEmbedLink
         })
       )
     })
@@ -202,7 +202,7 @@ describe('components', () => {
         selectRuntimeMode: selectors.selectRuntimeMode,
         selectRuntimePlatform: selectors.selectRuntimePlatform,
         selectChannels: selectors.selectChannels,
-        selectEmbedLink: selectors.selectEmbedLink
+        selectHasEmbedLink: selectors.selectHasEmbedLink
       })
     })
 
@@ -294,7 +294,7 @@ describe('components', () => {
       gen.next()
       gen.next()
       gen.next()
-      expect(gen.next().value).toEqual(select(selectors.selectEmbedLink))
+      expect(gen.next().value).toEqual(select(selectors.selectHasEmbedLink))
     })
 
     test('should dispatch SHOW_COMPONENT_INFO_POSTER if showCover is available', () => {
@@ -816,18 +816,18 @@ describe('components', () => {
 
   describe('loaded()', () => {
     test('shoud export a generator', () => {
-      const gen = loaded({ payload: null })
+      const gen = loaded({ payload: null } as any)
       expect(typeof gen.next).toBe('function')
     })
 
     test('should dispatch SHOW_COMPONENT_CONTROLS_BUTTON_PAUSE on paused', () => {
-      const gen = loaded({ payload: { paused: true } })
+      const gen = loaded({ payload: { paused: true } } as any)
       expect(gen.next().value).toEqual(put(showPauseButton()))
       expect(gen.next().done).toBeTruthy()
     })
 
     test('should dispatch SHOW_COMPONENT_CONTROLS_BUTTON_PLAYING on paused', () => {
-      const gen = loaded({ payload: { paused: false } })
+      const gen = loaded({ payload: { paused: false } } as any)
       expect(gen.next().value).toEqual(put(showPlayingButton()))
       expect(gen.next().done).toBeTruthy()
     })

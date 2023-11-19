@@ -1,10 +1,8 @@
 {
   "include": ["./src"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "moduleResolution": "nodenext",
-    "preserveValueImports": true,
-    "isolatedModules": true,
-    "importsNotUsedAsValues": "preserve"
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   }
 }

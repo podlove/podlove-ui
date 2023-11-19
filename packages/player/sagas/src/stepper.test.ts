@@ -1,8 +1,8 @@
 import { describe, test, beforeEach, expect, vi } from 'vitest';
-import { takeEvery, select, put } from 'typed-redux-saga';
+import { takeEvery, select, put } from 'redux-saga/effects';
 import { STEP_FORWARD, STEP_BACKWARDS } from '@podlove/player-actions/types';
 import { requestPlaytime } from '@podlove/player-actions/timepiece';
-import { stepperSaga, stepForward, stepBackward } from './stepper';
+import { stepperSaga, stepForward, stepBackward } from './stepper.js';
 
 describe('stepper', () => {
   describe('stepperSaga()', () => {

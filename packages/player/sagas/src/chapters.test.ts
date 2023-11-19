@@ -7,7 +7,7 @@ import {
   resetChapter,
   previousChapter,
   nextChapter
-} from './chapters';
+} from './chapters.js';
 import {
   READY,
   REQUEST_PLAYTIME,
@@ -165,7 +165,7 @@ describe('chapters', () => {
       const gen = previousChapter({ selectPlaytime, selectCurrentChapter });
       gen.next();
       gen.next(22000);
-      expect(gen.next({ start: 21000, index: 3 }).value).toEqual(put(chapter.setChapter(1)));
+      expect(gen.next({ start: 21000, index: 3 }).value).toEqual(put(chapter.setChapter(2)));
       expect(gen.next().done).toBeTruthy();
     });
 
@@ -173,7 +173,7 @@ describe('chapters', () => {
       const gen = previousChapter({ selectPlaytime, selectCurrentChapter });
       gen.next();
       gen.next(24000);
-      expect(gen.next({ start: 20000, index: 4 }).value).toEqual(put(chapter.setChapter(3)));
+      expect(gen.next({ start: 20000, index: 4 }).value).toEqual(put(chapter.setChapter(4)));
       expect(gen.next().done).toBeTruthy();
     });
 
@@ -189,7 +189,7 @@ describe('chapters', () => {
       const gen = previousChapter({ selectPlaytime, selectCurrentChapter });
       gen.next();
       gen.next(24000);
-      expect(gen.next({ start: 20000, index: 1 }).value).toEqual(put(chapter.setChapter(0)));
+      expect(gen.next({ start: 20000, index: 1 }).value).toEqual(put(chapter.setChapter(1)));
       expect(gen.next().done).toBeTruthy();
     });
   });
@@ -228,7 +228,7 @@ describe('chapters', () => {
       });
       gen.next();
       gen.next([{ start: 0 }, { start: 10000 }, { start: 20000 }]);
-      expect(gen.next({ start: 10000, index: 1 }).value).toEqual(put(chapter.setChapter(1)));
+      expect(gen.next({ start: 10000, index: 1 }).value).toEqual(put(chapter.setChapter(2)));
       expect(gen.next().done).toBeTruthy();
     });
 
@@ -239,7 +239,7 @@ describe('chapters', () => {
       });
       gen.next();
       gen.next([{ start: 0 }, { start: 10000 }, { start: 20000 }]);
-      expect(gen.next({ start: 10000, index: 4 }).value).toEqual(put(chapter.setChapter(2)));
+      expect(gen.next({ start: 10000, index: 3 }).value).toEqual(put(chapter.setChapter(2)));
       expect(gen.next().done).toBeTruthy();
     });
   });
@@ -287,7 +287,7 @@ describe('chapters', () => {
               end: 20000,
               href: 'http://chapter-href-1.bar',
               image: 'chapter-image-1',
-              index: 1,
+              index: 0,
               linkTitle: 'chapter-href-1.bar',
               start: 10000,
               title: 'chapter-1'
@@ -296,7 +296,7 @@ describe('chapters', () => {
               end: 30000,
               href: 'http://chapter-href-2.bar',
               image: 'chapter-image-2',
-              index: 2,
+              index: 1,
               linkTitle: 'chapter-href-2.bar',
               start: 20000,
               title: 'chapter-2'
@@ -305,7 +305,7 @@ describe('chapters', () => {
               end: 0,
               href: 'http://chapter-href-3.bar',
               image: 'chapter-image-3',
-              index: 3,
+              index: 2,
               linkTitle: 'chapter-href-3.bar',
               start: 30000,
               title: 'chapter-3'
