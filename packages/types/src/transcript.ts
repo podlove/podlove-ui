@@ -10,7 +10,7 @@ export interface PodloveWebPlayerTranscript {
 
 export interface PodloveWebPlayerTimelineChapterEntry {
   type: 'chapter';
-  active: boolean;
+  active?: boolean;
   index: number;
   start: number;
   end: number;

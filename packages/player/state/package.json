@@ -8,9 +8,10 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/state",
   "license": "MIT",
   "scripts": {
-    "build": "vite build --config ./vite.config.ts",
+    "build": "vite build",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
   },
   "dependencies": {
     "@podlove/player-actions": "workspace:*",
@@ -21,12 +22,15 @@
   },
   "devDependencies": {
     "@podlove/types": "workspace:*",
-    "@types/redux-actions": "2.6.2",
     "@types/ramda": "0.29.0",
+    "@types/redux-actions": "2.6.2",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "eslint": "8.54.0",
+    "ts-toolbelt": "9.6.0",
+    "types-ramda": "0.29.1",
     "vite": "4.3.5",
     "vite-plugin-dts": "3.6.3",
-    "types-ramda": "0.29.1",
-    "ts-toolbelt": "9.6.0",
     "vitest": "0.30.1"
   },
   "exports": {

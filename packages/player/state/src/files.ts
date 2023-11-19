@@ -2,7 +2,6 @@ import { Action, handleActions } from 'redux-actions';
 import { prop, identity } from 'ramda';
 
 import { PodloveWebPlayerFile } from '@podlove/types';
-import { READY, FILE_HOVER } from '@podlove/player-actions/types';
 import { files } from '@podlove/player-config';
 import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
 import { selectFile, selectFilePayload } from '@podlove/player-actions/files';

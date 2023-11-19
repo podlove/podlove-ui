@@ -4,7 +4,8 @@ import { createObject } from '@podlove/utils/helper';
 import {
   PodloveTheme,
   PodloveThemeTokens,
-  PodloveThemeFont
+  PodloveThemeFont,
+  PodloveWebPlayerEpisode
 } from '@podlove/types';
 
 import { theme } from '@podlove/player-config';
@@ -114,7 +115,7 @@ const extractFonts = createObject({
   ),
   bold: compose(normalizeFont('bold'), propOr(FONTS.bold, 'bold'), propOr({}, 'fonts'), theme),
   ci: compose(normalizeFont('ci'), propOr(FONTS.ci, 'ci'), propOr({}, 'fonts'), theme)
-}) as (input: { theme: PodloveTheme }) => {
+}) as (input: PodloveWebPlayerEpisode) => {
   regular: PodloveThemeFont;
   bold: PodloveThemeFont;
   ci: PodloveThemeFont;
@@ -131,7 +132,7 @@ const extractTokens = createObject({
   shadeBase: compose(tokens.shadeBase, getTokens, theme),
   contrast: compose(tokens.contrast, getTokens, theme),
   alt: compose(tokens.alt, getTokens, theme)
-}) as (input: { theme: PodloveTheme }) => PodloveThemeTokens;
+}) as (input: PodloveWebPlayerEpisode) => PodloveThemeTokens;
 
 export const INITIAL_STATE: State = {
   tokens: TOKENS,

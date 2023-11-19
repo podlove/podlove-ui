@@ -13,7 +13,7 @@ export interface State {
   share: string;
   origin: string;
   episode: string;
-};
+}
 
 export const INITIAL_STATE: State = {
   config: null,

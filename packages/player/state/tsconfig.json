@@ -2,6 +2,7 @@
   "include": ["./src/**/*.ts"],
   "compilerOptions": {
     "target": "ESNext",
-    "moduleResolution": "nodenext"
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
   }
 }

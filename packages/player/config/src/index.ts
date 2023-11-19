@@ -8,15 +8,14 @@ import type {
   PodloveWebPlayerConfig,
   PodloveWebPlayerFile,
   PodloveWebPlayerReference,
-  PodloveWebPlayerResolvedConfig,
+  PodloveWebPlayerEpisode,
   PodloveRuntime,
   PodloveWebPlayerShare,
   PodloveSubscribeButtonConfig,
   PodloveWebPlayerTab,
   PodloveTheme,
   PodloveWebPlayerTranscript,
-  PodloveWebPlayerPlaylistItem,
-  PodloveWebPlayerEpisode
+  PodloveWebPlayerPlaylistItem
 } from '@podlove/types';
 
 export const duration = compose<any[], string, number | null>(
@@ -57,7 +56,7 @@ export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
     };
   }
 
-  const brand = propOr(null, 'main', theme) as string;
+  const brand = propOr(null, 'main', theme) as unknown as string;
 
   if (brand) {
     return {
@@ -75,7 +74,7 @@ export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
 };
 
 export const reference = propOr({}, 'reference') as (
-  input: PodloveWebPlayerResolvedConfig
+  input: PodloveWebPlayerEpisode
 ) => PodloveWebPlayerReference;
 export const transcripts = propOr([], 'transcripts') as (
   input: PodloveWebPlayerEpisode
@@ -90,27 +89,27 @@ export const originReference = compose(
   reference
 );
 
-export const episodeReference = (config: PodloveWebPlayerResolvedConfig): string | null => {
+export const episodeReference = (config: PodloveWebPlayerEpisode): string | null => {
   const ref = reference(config);
 
   if (version(config) === 5) {
-    return propOr(null, 'episode', ref);
+    return propOr(null, 'episode', ref) as unknown as string | null;
   }
 
-  return propOr(null, 'config', ref);
+  return propOr(null, 'config', ref) as unknown as string | null;
 };
 
-export const configReference = (config: PodloveWebPlayerResolvedConfig): string | null => {
+export const configReference = (config: PodloveWebPlayerEpisode): string | null => {
   const ref = reference(config);
 
   if (version(config) === 5) {
-    return propOr(null, 'config', ref);
+    return propOr(null, 'config', ref) as unknown as string | null;
   }
 
   return null;
 };
 
-export const validate = (config: PodloveWebPlayerResolvedConfig): boolean => {
+export const validate = (config: PodloveWebPlayerEpisode): boolean => {
   if (media(config).length === 0) {
     return false;
   }
@@ -134,7 +133,7 @@ export const playlist = propOr([], 'playlist') as (
   input: PodloveWebPlayerConfig
 ) => PodloveWebPlayerPlaylistItem[];
 
-export const files = (config: PodloveWebPlayerResolvedConfig): PodloveWebPlayerFile[] => {
+export const files = (config: PodloveWebPlayerEpisode): PodloveWebPlayerFile[] => {
   const files: PodloveWebPlayerFile[] = propOr(media(config), 'files', config);
   return files
     .filter(({ url }) => !!url)

@@ -1,6 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
 import { propOr, prop } from 'ramda';
-import { TOGGLE_TAB } from '@podlove/player-actions/types';
 import { toggleTab } from '@podlove/player-actions/tabs';
 import { toggleTabPayload } from '@podlove/player-actions/tabs';
 
