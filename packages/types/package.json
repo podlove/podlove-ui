@@ -8,14 +8,18 @@
   "main": "./src/index.ts",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@podlove/html5-audio-driver": "2.0.2"
+    "@podlove/html5-audio-driver": "2.0.2",
+    "redux": "4.2.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "eslint": "8.54.0",
     "typescript": "5.0.4"
   }
 }
