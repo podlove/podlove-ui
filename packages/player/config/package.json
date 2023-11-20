@@ -4,9 +4,10 @@
   "description": "Configuration for Podlove Player Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/config",
   "scripts": {
-    "build": "vite build --config ./vite.config.ts",
+    "build": "vite build",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
   "type": "module",
@@ -31,11 +32,14 @@
     "ramda": "0.29.0"
   },
   "devDependencies": {
-    "@types/ramda": "0.28.24",
     "@podlove/types": "workspace:*",
+    "@types/ramda": "0.28.24",
+    "@typescript-eslint/eslint-plugin": "6.12.0",
+    "@typescript-eslint/parser": "6.12.0",
+    "eslint": "8.54.0",
+    "typescript": "5.0.4",
     "vite": "4.3.5",
-    "vitest": "0.30.0",
     "vite-plugin-dts": "3.6.3",
-    "typescript": "5.0.4"
+    "vitest": "0.30.0"
   }
 }

@@ -1,7 +1,8 @@
 {
   "include": ["./src"],
   "compilerOptions": {
-    "moduleResolution": "nodenext",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "target": "ESNext",
   }
 }
