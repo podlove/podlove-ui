@@ -39,7 +39,7 @@ const chapter5 = {
 };
 
 describe('chapters', () => {
-  test.only('should set the chapter list on SET_CHAPTERS_LIST', () => {
+  test('should set the chapter list on SET_CHAPTERS_LIST', () => {
     expect(
       reducer(INITIAL_STATE, {
         type: SET_CHAPTERS_LIST,
