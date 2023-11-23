@@ -20,7 +20,7 @@ const initState = (store: Store, state: any) =>
   });
 
 (window as any).BOOTSTRAP = (template = '', state = {}) => {
-  const container = document.getElementById('app');
+  const container = document.getElementById('test');
 
   if (!container) {
     return;
