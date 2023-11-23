@@ -1,5 +1,5 @@
 export interface PodloveWebPlayerChapter {
-  start: number | null;
+  start: number | string | null;
   duration?: number | null;
   end?: number | null;
   index?: number;

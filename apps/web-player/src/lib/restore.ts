@@ -1,7 +1,7 @@
-import { PodloveWebPlayerResolvedConfig, PodloveWebPlayerTab } from '@podlove/types';
+import { PodloveWebPlayerConfig, PodloveWebPlayerTab } from '@podlove/types';
 import { Store } from 'redux';
 
-import throttle from '@podlove/utils/throttle';
+import debounce from 'debounce';
 import { selectors } from '@podlove/player-state/timepiece';
 import { backendPlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
 import { restore } from '@podlove/player-actions/lifecycle';
@@ -26,7 +26,7 @@ const selectTabs = propOr({}, 'tabs');
 
 const recordState = curry((key: string, storage: ReturnType<typeof LocalStorage>, store: Store) => {
   store.subscribe(
-    throttle(() => {
+    debounce(() => {
       const state = store.getState();
       const playtime = selectPlaytime(state);
       const tabs = selectTabs(state);
@@ -36,7 +36,7 @@ const recordState = curry((key: string, storage: ReturnType<typeof LocalStorage>
   );
 });
 
-export const persistPlayer = (config: PodloveWebPlayerResolvedConfig, store: Store) => {
+export const persistPlayer = (config: PodloveWebPlayerConfig, store: Store) => {
   const storage = LocalStorage('pwp');
   const key = hashCode().value(config);
   const [, existing = {}] = storage.get<{
@@ -132,6 +132,8 @@ const stopAt = (stoptime, store) => {
 export const applyUrlParameters = (store) => {
   ready(store).then(() => {
     const { starttime, stoptime, autoplay } = urlParameters();
+
+    console.log({ starttime, stoptime, autoplay });
     if (starttime || autoplay || stoptime) {
       store.dispatch(restore());
       store.dispatch(showPauseButton());
@@ -151,7 +153,7 @@ export const applyUrlParameters = (store) => {
   });
 };
 
-export default (config: PodloveWebPlayerResolvedConfig, store: Store) => {
+export default (config: PodloveWebPlayerConfig, store: Store) => {
   persistPlayer(config, store);
   activeTab(config, store);
   visibleComponents(config, store);

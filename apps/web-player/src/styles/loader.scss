@@ -1,8 +1,0 @@
-#app {
-  transition: opacity 600ms ease-out;
-  opacity: 0;
-
-  &.loaded {
-    opacity: 1;
-  }
-}

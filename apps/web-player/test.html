@@ -2,21 +2,26 @@
 <html>
   <body>
     <div id="test"></div>
-
+    <script src="./src/main.ts" type="module"></script>
     <script type="module">
-      import createApp from './src/main.ts';
-
       const container = document.getElementById('test');
-      window.BOOTSTRAP = async (
-        template = '',
-        data = { episode: {}, config: {} }
-      ) => {
-        container.innerHTML = template;
+      window.BOOTSTRAP = async ({ episode, config, variant, template, templateUrl }) => {
+        const elem = document.createElement('podlove-web-player');
 
-        const app = await createApp(data.episode, data.config);
-        app.mount(container.firstChild);
+        if (variant) {
+          elem.setAttribute('variant', variant);
+        }
 
-        return app;
+        if (templateUrl) {
+          elem.setAttribute('template', templateUrl);
+        }
+
+        if (template) {
+          elem.innerHTML = template;
+        }
+
+        container.appendChild(elem);
+        return await elem.init(episode, config);
       };
     </script>
   </body>

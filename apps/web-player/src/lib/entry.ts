@@ -1,11 +1,10 @@
-import { findNode } from '@podlove/utils/dom';
 import { html } from '@podlove/utils/request';
 import variant from '../templates/index.js';
 import styles from '../styles.css?inline';
 
 const fetchTemplate = async (node: HTMLElement): Promise<string> => {
-  const templateUrl = node.getAttribute('data-template');
-  const type = node.getAttribute('data-variant');
+  const templateUrl = node.getAttribute('template');
+  const type = node.getAttribute('variant');
 
   if (templateUrl) {
     return await html(templateUrl);
@@ -23,11 +22,12 @@ const fetchTemplate = async (node: HTMLElement): Promise<string> => {
 };
 
 export const createEntry = async (
-  selector: HTMLElement | string
+  entry: HTMLElement
 ): Promise<{ player: HTMLElement; subscribeButton: HTMLElement }> => {
-  const entry = findNode(selector);
   const shadow = import.meta.env.MODE === 'development' ? entry : entry.attachShadow({ mode: 'open' });
   const template = await fetchTemplate(entry);
+
+  entry.innerHTML = '';
 
   const styling = document.createElement('style');
   styling.appendChild(document.createTextNode(styles));

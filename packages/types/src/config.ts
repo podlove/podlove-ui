@@ -3,12 +3,11 @@ import { PodloveSubscribeButtonConfig } from './subscribe-button.js';
 import { PodloveWebPlayerShare } from './share.js';
 import { PodloveTheme } from './theme.js';
 import { PodloveWebPlayerTab } from './tab.js';
-import { PodloveWebPlayerReference } from './reference.js';
-import { PodloveWebPlayerFile } from './file.js';
 import { PodloveWebPlayerFeatures } from './features.js';
+import { PodloveWebPlayerReference } from './reference.js';
 
 export interface PodloveWebPlayerConfig {
-  version: 5;
+  version: number;
 
   /** default active tab, can be set to [none, shownotes, chapters, files, share, playlist] */
   activeTab?: PodloveWebPlayerTab;
@@ -32,13 +31,9 @@ export interface PodloveWebPlayerConfig {
   /** Share Tab */
   share?: PodloveWebPlayerShare;
 
-  /** Files */
-  files: PodloveWebPlayerFile[];
-
   /** Features */
   features?: PodloveWebPlayerFeatures;
-}
 
-export interface PodloveWebPlayerResolvedConfig extends PodloveWebPlayerConfig {
-  reference: PodloveWebPlayerReference;
+  /** Reference */
+  reference?: PodloveWebPlayerReference;
 }

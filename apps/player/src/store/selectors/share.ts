@@ -62,7 +62,7 @@ const code = (state: State) => {
   };
 
   return `<iframe title="${title}" height="200" src="${addQueryParameter(
-    reference.share(state) || reference.origin(state) || '' + '/share.html',
+    reference.share(state) || '/share.html',
     parameters
   )}" frameborder="0" scrolling="no" tabindex="0"></iframe>`;
 };

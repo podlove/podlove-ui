@@ -9,6 +9,7 @@ Cypress.Commands.add(
       {}
     );
     cy.visit('/test.html');
+    cy.get('#test').should('exist');
     return cy
       .url()
       .should('include', '/test.html')

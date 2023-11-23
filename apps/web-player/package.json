@@ -28,7 +28,8 @@
     "color": "4.2.3",
     "hashcode": "1.0.3",
     "ramda": "0.29.0",
-    "vue": "3.2.41"
+    "vue": "3.2.41",
+    "debounce": "2.0.0"
   },
   "devDependencies": {
     "@types/node": "20.8.2",
@@ -36,13 +37,13 @@
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "@vitejs/plugin-vue": "4.2.3",
+    "cypress-vite": "1.4.2",
     "cypress": "13.5.1",
     "eslint": "8.53.0",
     "http-server": "0.11.1",
     "redux": "4.2.1",
     "typescript": "5.0.4",
-    "vite": "4.3.9",
-    "vite-plugin-dynamic-publicpath": "1.1.2"
+    "vite": "4.3.9"
   },
   "exports": {
     ".": {

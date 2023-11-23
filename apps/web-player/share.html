@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div id="app">
+    <podlove-web-player id="app">
       <root data-test="player--share">
         <div class="p-4 flex flex-col">
           <div class="flex flex-grow">
@@ -35,17 +35,16 @@
         </div>
         <error></error>
       </root>
-    </div>
+    </podlove-web-player>
 
     <script type="module">
       import { urlParameters } from '@podlove/utils/location';
-      import createApp from './src/share.ts';
+      import './src/main.ts';
 
-      createApp(urlParameters())
-        .then(async (player) => {
-          await player.app.mount('#app');
-          window.PODLOVE_APP = player;
-        })
+      const app = document.getElementById('app');
+      const { episode, config } = urlParameters();
+      app.init(episode, config);
+      window.PODLOVE_APP = app.player;
     </script>
   </body>
 </html>

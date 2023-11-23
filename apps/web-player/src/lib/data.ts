@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { mergeDeepRight, propOr, pathOr } from 'ramda';
+import { propOr, pathOr } from 'ramda';
 import { json } from '@podlove/utils/request';
 import * as playerConfig from '@podlove/player-config';
 import {
@@ -11,7 +11,6 @@ import {
   PodloveWebPlayerFeatures,
   PodloveWebPlayerPlaylistItem,
   PodloveWebPlayerReference,
-  PodloveWebPlayerResolvedConfig,
   PodloveWebPlayerTranscript
 } from '@podlove/types';
 
@@ -60,26 +59,21 @@ const fetchPlaylist = async (
 
 const fetchReference = async (
   refs: { episode: string; config: string },
-  resolved: { episode: PodloveWebPlayerEpisode, config: PodloveWebPlayerConfig }
+  config: PodloveWebPlayerConfig
 ): Promise<PodloveWebPlayerReference> => ({
   episode: typeof refs.episode === 'string' ? refs.episode : null,
   config: typeof refs.config === 'string' ? refs.config : null,
-  share: pathOr(await import.meta.resolve('./share.html'), ['share', 'outlet'], resolved.config)
+  share: pathOr(await import.meta.resolve('./share.html'), ['share', 'outlet'], config)
 });
 
-const fetchFeatures = async ({
-  config
-}: {
-  config: PodloveWebPlayerConfig;
-}): Promise<PodloveWebPlayerFeatures> => ({
+const fetchFeatures = async (
+  config: PodloveWebPlayerConfig
+): Promise<PodloveWebPlayerFeatures> => ({
   persistTab: pathOr(true, ['features', 'persistTab'], config),
   persistPlaystate: pathOr(true, ['features', 'persistPlaystate'], config)
 });
 
-const resolve = async <T>(
-  url: string | object,
-  fallback?: any
-): Promise<T> => {
+const resolve = async <T>(url: string | object, fallback?: any): Promise<T> => {
   try {
     return (await json(url)) as T;
   } catch (err) {
@@ -88,36 +82,8 @@ const resolve = async <T>(
   }
 };
 
-export const parseConfig = (
-  episode: string | PodloveWebPlayerEpisode,
-  config: string | PodloveWebPlayerConfig
-): Promise<PodloveWebPlayerResolvedConfig> =>
-  Promise.all([resolve<PodloveWebPlayerEpisode>(episode, {}), resolve<PodloveWebPlayerConfig>(config, {})]).then(
-    async ([resolvedEpisode, resolvedConfig]) => {
-      const [transcripts, chapters, playlist, reference, features] = await Promise.all([
-        fetchTranscripts(resolvedEpisode),
-        fetchChapters(resolvedEpisode),
-        fetchPlaylist(resolvedConfig),
-        fetchReference({ episode: episode as string, config: config as string }, { episode: resolvedEpisode, config: resolvedConfig }),
-        fetchFeatures({ config: resolvedConfig })
-      ]);
-
-      return mergeDeepRight(
-        Object.assign({}, resolvedEpisode, {
-          transcripts,
-          chapters
-        }),
-        Object.assign({}, resolvedConfig, {
-          playlist,
-          reference,
-          features
-        })
-      ) as PodloveWebPlayerResolvedConfig;
-    }
-  );
-
 export const subscribeButtonConfig = (
-  config: PodloveWebPlayerResolvedConfig
+  config: PodloveWebPlayerConfig
 ): PodloveSubscribeButtonConfig => {
   const theme = propOr({}, 'theme', config) as PodloveTheme;
   const button = propOr({}, 'subscribe-button', config) as PodloveSubscribeButtonConfig;
@@ -129,3 +95,34 @@ export const subscribeButtonConfig = (
     ...button
   };
 };
+
+export const parseEpisode = async (input: string | PodloveWebPlayerEpisode) =>
+  resolve<PodloveWebPlayerEpisode>(input, {}).then(async (episode) => {
+    const [transcripts, chapters] = await Promise.all([
+      fetchTranscripts(episode),
+      fetchChapters(episode)
+    ]);
+
+    return Object.assign({}, episode, {
+      transcripts,
+      chapters
+    });
+  });
+
+export const parseConfig = async (
+  input: string | PodloveWebPlayerConfig,
+  episode: string | PodloveWebPlayerEpisode
+) =>
+  resolve<PodloveWebPlayerConfig>(input, {}).then(async (config) => {
+    const [playlist, reference, features] = await Promise.all([
+      fetchPlaylist(config),
+      fetchReference({ episode: episode as string, config: input as string }, config),
+      fetchFeatures(config)
+    ]);
+
+    return Object.assign({}, config, {
+      playlist,
+      reference,
+      features
+    }) as PodloveWebPlayerConfig;
+  });

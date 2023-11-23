@@ -6,10 +6,18 @@ declare global {
   namespace Cypress {
     interface Chainable {
       embed(
-        template: string,
-        data: {
+        {
+          episode,
+          config,
+          variant,
+          template,
+          templateUrl,
+        }: {
           episode: string | PodloveWebPlayerEpisode;
           config: string | PodloveWebPlayerConfig;
+          variant?: string;
+          template?: string;
+          templateUrl?: string;
         },
         params?: { [key: string]: string | number | boolean }
       ): Promise<{ player: { app: any; store: any }; subscribeButton: { app: any; store: any } }>;

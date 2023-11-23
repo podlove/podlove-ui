@@ -7,6 +7,7 @@ const onLifecycle = curry(
     new Promise((resolve) => {
       const unsubscribe = store.subscribe(() => {
         const { lifecycle }: { lifecycle: State } = store.getState();
+
         if (lifecycle !== event) {
           return;
         }

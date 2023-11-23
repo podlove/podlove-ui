@@ -1,7 +1,6 @@
 import path from 'path';
 import { UserConfigExport, defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { useDynamicPublicPath } from 'vite-plugin-dynamic-publicpath';
 import aliases from '../../.build/aliases';
 import extensions from '../../.build/extensions';
 
@@ -27,7 +26,7 @@ const productionConfig: UserConfigExport = {
       }
     }
   },
-  plugins: [vue(), useDynamicPublicPath()],
+  plugins: [vue()],
   resolve
 };
 

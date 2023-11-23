@@ -3,7 +3,10 @@
     "baseUrl": ".",
     "target": "ESNext",
     "lib": ["ESNext", "dom"],
-    "types": ["cypress", "node", "cypress-real-events"]
+    "types": ["cypress", "node"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "../src/test.ts"]
 }

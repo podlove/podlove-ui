@@ -1,49 +1,25 @@
 <template>
   <Story title="Web Player/Templates" auto-props-disabled>
-    <Variant title="XL" :source="source('xl')">
-      <web-player variant="xl" />
+    <Variant title="XL">
+      <podlove-web-player episode="/podcast/episode.json" config="/podcast/config.json" variant="xl"></podlove-web-player>
     </Variant>
-    <Variant title="L" :source="source('l')">
-      <web-player variant="l" />
+    <Variant title="L">
+      <podlove-web-player episode="/podcast/episode.json" config="/podcast/config.json" variant="l"></podlove-web-player>
     </Variant>
-    <Variant title="M" :source="source('m')">
-      <web-player variant="m" />
+    <Variant title="M">
+      <podlove-web-player episode="/podcast/episode.json" config="/podcast/config.json" variant="m"></podlove-web-player>
     </Variant>
-    <Variant title="Custom" :source="customTemplate">
-      <web-player>
-        <root style="max-width:950px;min-width:260px;" class="p-4 flex justify-center rounded">
+    <Variant title="Custom">
+      <podlove-web-player episode="/podcast/episode.json" config="/podcast/config.json">
+        <root style="max-width: 950px; min-width: 260px" class="p-4 flex justify-center rounded">
           <play-button></play-button>
         </root>
-      </web-player>
+      </podlove-web-player>
     </Variant>
+
   </Story>
 </template>
 <script setup lang="ts">
-import WebPlayer from './components/web-player.vue';
-
-const source = (variant: string) => `
-  <div id="player" data-variant="${variant}"></div>
-  <\script async type="module">
-    import { createApp } from '@podlove/web-player';
-    const { player, subscribeButton, mount } = await createApp('/path/to/episode.json', '/path/to/config.json');
-
-    await mount('#player');
-  </\script>
-`;
-
-const customTemplate = `
-  <div id="player">
-    <root style="max-width:950px;min-width:260px;" class="p-4 flex justify-center rounded">
-      <play-button></play-button>
-    </root>
-  </div>
-  <\script async type="module">
-    import { createApp } from '@podlove/web-player';
-    const { player, subscribeButton, mount } = await createApp('/path/to/episode.json', '/path/to/config.json');
-
-    await mount('#player');
-  </\script>
-`
-
+import '@podlove/web-player';
 </script>
 <style lang="postcss"></style>

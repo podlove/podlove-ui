@@ -1,9 +1,9 @@
-import type { PodloveWebPlayerShow } from './show';
-import type { PodloveWebPlayerChapter } from './chapter';
-import type { PodloveWebPlayerAudio } from './audio';
-import type { PodloveWebPlayerFile } from './file';
-import type { PodloveWebPlayerContributor } from './contributor';
-import type { PodloveWebPlayerTranscript } from './transcript';
+import type { PodloveWebPlayerShow } from './show.js';
+import type { PodloveWebPlayerChapter } from './chapter.js';
+import type { PodloveWebPlayerAudio } from './audio.js';
+import type { PodloveWebPlayerFile } from './file.js';
+import type { PodloveWebPlayerContributor } from './contributor.js';
+import type { PodloveWebPlayerTranscript } from './transcript.js';
 
 /**
  * Episode
@@ -11,7 +11,7 @@ import type { PodloveWebPlayerTranscript } from './transcript';
  */
 export interface PodloveWebPlayerEpisode {
   // Configuration Version
-  version: 5;
+  version: number;
 
   /**
    * Show Related Information

@@ -1,12 +1,9 @@
 describe('url-parameters', () => {
-  beforeEach(cy.setup);
-
   describe('start time', () => {
     let store;
 
     beforeEach(() => {
       cy.embed(
-        '<div></div>',
         {
           episode: '/podcast/episode.json',
           config: '/podcast/config.json'
@@ -26,7 +23,7 @@ describe('url-parameters', () => {
     let store;
 
     beforeEach(() => {
-      cy.embed('<div></div>', {
+      cy.embed({
         episode: '/podcast/episode.json',
         config: '/podcast/config.json'},
         { t: '00:01,00:02' }
@@ -54,7 +51,7 @@ describe('url-parameters', () => {
     let store;
 
     beforeEach(() => {
-      cy.embed('<div></div>', {
+      cy.embed({
         episode: '/podcast/episode.json',
         config: '/podcast/config.json'},
         { autoplay: true }

@@ -1,59 +1,64 @@
-import { propOr } from 'ramda';
 import createPlayer from '@podlove/player';
+import { Store } from 'redux';
+import { App } from 'vue';
 import createSubscribeButton from '@podlove/subscribe-button';
 import { init as playerInit } from '@podlove/player-actions/lifecycle';
 import { init as buttonInit } from '@podlove/button-actions/lifecycle';
 import { PodloveWebPlayerConfig, PodloveWebPlayerEpisode } from '@podlove/types';
 import * as configParser from '@podlove/player-config';
 
-import { parseConfig, subscribeButtonConfig } from './lib/config.js';
+import { parseConfig, parseEpisode, subscribeButtonConfig } from './lib/data.js';
 import { createEntry } from './lib/entry.js';
 import connect from './lib/connect.js';
 import restore from './lib/restore.js';
+import { mergeDeepRight } from 'ramda';
 
-export default async function (
-  episode: string | PodloveWebPlayerEpisode,
-  meta: string | PodloveWebPlayerConfig
-) {
-  // Use public path from application
-  const config = await parseConfig(episode, meta);
+class PodloveWebPlayer extends HTMLElement {
+  public player: { store: Store; app: App };
+  public subscribeButton: { store: Store; app: App };
 
-  const baseUrl = propOr('', 'base', config.reference);
+  async connectedCallback() {
+    this.player = createPlayer();
+    this.subscribeButton = createSubscribeButton();
 
-  globalThis.__dynamicImportHandler__ = (importer) => baseUrl || '/' + importer;
+    if (!this.getAttribute('episode')) {
+      return;
+    }
 
-  const player = createPlayer();
-  const subscribeButton = createSubscribeButton();
-
-  player.store.dispatch(playerInit(config));
-
-  if (configParser.subscribeButton(config)) {
-    subscribeButton.store.dispatch(buttonInit(subscribeButtonConfig(config)));
+    await this.init(this.getAttribute('episode'), this.getAttribute('config'));
   }
-  // inter store connection
-  connect(
-    { store: player.store, prefix: 'PLAYER' },
-    { store: subscribeButton.store, prefix: 'BUTTON' }
-  );
 
-  restore(config, player.store);
+  public async init(
+    episode: string | PodloveWebPlayerEpisode,
+    config: string | PodloveWebPlayerConfig
+  ) {
+    const [resolvedEpisode, resolvedConfig] = await Promise.all([
+      parseEpisode(episode),
+      parseConfig(config, episode)
+    ]);
 
-  const mount = async (
-    selector: string | HTMLElement
-  ): Promise<{
-    player: HTMLElement;
-    subscribeButton: HTMLElement;
-  }> => {
-    const entry = await createEntry(selector);
+    const data = mergeDeepRight(resolvedEpisode, resolvedConfig);
+    this.player.store.dispatch(playerInit(data as unknown as PodloveWebPlayerEpisode));
 
-    player.app.mount(entry.player);
-    subscribeButton.app.mount(entry.subscribeButton);
+    if (configParser.subscribeButton(data)) {
+      this.subscribeButton.store.dispatch(buttonInit(subscribeButtonConfig(data)));
+    }
 
-    return {
-      player: entry.player,
-      subscribeButton: entry.subscribeButton
-    };
-  };
+    // inter store connection
+    connect(
+      { store: this.player.store, prefix: 'PLAYER' },
+      { store: this.subscribeButton.store, prefix: 'BUTTON' }
+    );
 
-  return { mount, player, subscribeButton };
+    restore(resolvedConfig, this.player.store);
+
+    const entry = await createEntry(this);
+
+    this.player.app.mount(entry.player);
+    this.subscribeButton.app.mount(entry.subscribeButton);
+
+    return { player: this.player, subscribeButton: this.subscribeButton };
+  }
 }
+
+customElements.define('podlove-web-player', PodloveWebPlayer);
