@@ -3,15 +3,43 @@
   "version": "5.12.0",
   "description": "Configuration for Podlove Player Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/config",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
+  "type": "module",
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "types": "./dist/index.d.ts"
+      }
+    }
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/utils": "^5.12.0",
-    "ramda": "0.27.1"
+    "@podlove/utils": "workspace:*",
+    "ramda": "0.29.0"
+  },
+  "devDependencies": {
+    "@podlove/types": "workspace:*",
+    "@types/ramda": "0.28.24",
+    "@typescript-eslint/eslint-plugin": "6.12.0",
+    "@typescript-eslint/parser": "6.12.0",
+    "eslint": "8.54.0",
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3",
+    "vitest": "0.30.0"
   }
 }

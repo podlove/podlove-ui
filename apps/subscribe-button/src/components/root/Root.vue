@@ -1,5 +1,5 @@
-<template lang="html">
-  <div class="antialiased" :style="state.font">
+<template>
+  <div class="podlove-subscribe-button antialiased" :style="state.font">
     <slot></slot>
 
     <font
@@ -12,36 +12,32 @@
   </div>
 </template>
 
-<script>
-import Font from '@podlove/components/font'
-import { mapState } from 'redux-vuex'
-import * as select from 'store/selectors'
+<script lang="ts" setup>
+import { Font } from '@podlove/components';
+import { mapState } from 'redux-vuex';
+import * as select from '../../store/selectors.js';
 
-export default {
-  components: { Font },
-  setup() {
-    return {
-      state: mapState({
-        font: select.theme.fontRegular,
-        fonts: select.theme.fonts
-      })
-    }
-  }
-}
+const state = mapState({
+  font: select.theme.fontRegular,
+  fonts: select.theme.fonts,
+
+});
+
+const theme = mapState({
+  brand: select.theme.brand,
+  brandLightest: select.theme.brandLightest,
+  brandDarkest: select.theme.brandDarkest,
+  brandDark: select.theme.brandDark,
+  contrast: select.theme.contrast,
+  alt: select.theme.alt
+})
 </script>
 
 <style lang="postcss">
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 300ms;
-  opacity: 1;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+.podlove-subscribe-button {
+  --podlove-subscribe-button--finish-card--tooltip--color: v-bind('theme.alt');
+  --podlove-subscribe-button--finish-card--tooltip--background: v-bind('theme.brand');
+  --podlove-subscribe-button--finish-card--tooltip-button--color: v-bind('theme.alt');
+  --podlove-subscribe-button--finish-card--tooltip-button--background: v-bind('theme.brand');
 }
 </style>

@@ -1,8 +1,7 @@
 <template>
   <div
-    class="flex px-2 -mx-2 cursor-pointer rounded-sm"
-    :class="{ 'font-medium': episode.active }"
-    :style="style"
+    class="podlove-player--tab-playlist--entry flex px-2 cursor-pointer rounded-sm"
+    :class="{ 'font-medium': episode.active, 'bg-opacity-25': hover, hover }"
     :data-test="`tab-playlist--entry${episode.active ? '--active' : ''}`"
     @mouseover="mouseOverHandler"
     @mouseleave="mouseLeaveHandler"
@@ -22,16 +21,16 @@
       class="w-8 py-2 mr-2 flex justify-center items-center"
       aria-hidden="true"
       data-test="tab-playlist--entry--interaction"
-      @click="select({ index, play: true })"
+      @click="click({ index: $props.index, play: true })"
     >
-      <icon v-if="hover" type="menu-play" :size="24" />
-      <icon v-else type="menu-empty" :size="12" />
+      <menu-play-icon v-if="hover" :size="24" />
+      <menu-empty-icon v-else :size="12" />
     </span>
 
     <span
       class="block w-full py-2 mr-2"
       data-test="tab-playlist--entry--title"
-      @click="select({ index, play: true })"
+      @click="click({ index: $props.index, play: true })"
     >
       {{ episode.title }}
     </span>
@@ -44,84 +43,50 @@
   </div>
 </template>
 
-<script>
-import color from 'color'
-import { compose } from 'ramda'
-import { mapState, injectStore } from 'redux-vuex'
-import { selectEpisode } from '@podlove/player-actions/playlist'
-import { requestPlay, requestPause } from '@podlove/player-actions/play'
-import Timer from '@podlove/components/timer'
-import Icon from '@podlove/components/icons'
-import { toHumanTime } from '@podlove/utils/time'
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { selectEpisode } from '@podlove/player-actions/playlist';
+import { requestPlay, requestPause } from '@podlove/player-actions/play';
+import { Timer, MenuPlayIcon, MenuEmptyIcon } from '@podlove/components';
 
-import select from 'store/selectors'
+import select from '../../../store/selectors/index.js';
+import { PlaylistItem } from '@podlove/player-state/playlist';
 
-export default {
-  components: {
-    Icon,
-    Timer
-  },
+defineProps<{ index: number; episode: PlaylistItem }>()
 
-  props: {
-    index: {
-      type: Number,
-      default: null
-    },
-    episode: {
-      type: Object,
-      default: () => ({})
-    }
-  },
+const state = mapState({
+  playing: select.driver.playing
+});
 
-  setup() {
-    return {
-      state: mapState({
-        color: select.theme.brandLightest,
-        playing: select.driver.playing
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
+const dispatch = injectStore().dispatch;
 
-  data() {
-    return {
-      hover: false
-    }
-  },
+const hover = ref(false);
 
-  computed: {
-    active() {
-      return this.episode.active || this.hover
-    },
-    style() {
-      return this.hover
-        ? {
-            background: color(this.state.color).alpha(0.3).string()
-          }
-        : {}
-    }
-  },
+const mouseOverHandler = () => {
+  hover.value = true;
+};
 
-  methods: {
-    mouseOverHandler() {
-      this.hover = true
-    },
+const mouseLeaveHandler = () => {
+  hover.value = false;
+};
 
-    mouseLeaveHandler() {
-      this.hover = false
-    },
-
-    play() {
-      if (this.state.playing) {
-        this.dispatch(requestPause())
-      } else {
-        this.dispatch(requestPlay())
-      }
-    },
-
-    select(position) {
-      this.dispatch(selectEpisode(position))
-    }
+const play = () => {
+  if (state.playing) {
+    dispatch(requestPause());
+  } else {
+    dispatch(requestPlay());
   }
-}
+};
+
+const click = (payload: { index: number, play: boolean }) => {
+  dispatch(selectEpisode(payload));
+};
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-playlist--entry.hover  {
+  background: var(--podlove-player--tab-playlist--entry--background-hover);
+  color: var(--podlove-player--tab-playlist--entry--color-hover);
+}
+</style>

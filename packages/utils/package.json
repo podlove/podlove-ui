@@ -4,25 +4,185 @@
   "description": "Utils for Podlove Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/utils",
   "scripts": {
-    "clean": "rm -rf dist publish",
-    "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "build": "vite build",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    "./chapters": {
+      "import": "./src/chapters.ts",
+      "types": "./src/chapters.ts"
+    },
+    "./color": {
+      "import": "./src/color.ts",
+      "types": "./src/color.ts"
+    },
+    "./copy": {
+      "import": "./src/copy.ts",
+      "types": "./src/copy.ts"
+    },
+    "./detect": {
+      "import": "./src/detect.ts",
+      "types": "./src/detect.ts"
+    },
+    "./dom": {
+      "import": "./src/dom.ts",
+      "types": "./src/dom.ts"
+    },
+    "./helper": {
+      "import": "./src/helper.ts",
+      "types": "./src/helper.ts"
+    },
+    "./keyboard": {
+      "import": "./src/keyboard.ts",
+      "types": "./src/keyboard.ts"
+    },
+    "./localstorage": {
+      "import": "./src/localstorage.ts",
+      "types": "./src/localstorage.ts"
+    },
+    "./location": {
+      "import": "./src/location.ts",
+      "types": "./src/location.ts"
+    },
+    "./math": {
+      "import": "./src/math.ts",
+      "types": "./src/math.ts"
+    },
+    "./predicates": {
+      "import": "./src/predicates.ts",
+      "types": "./src/predicates.ts"
+    },
+    "./request": {
+      "import": "./src/request.ts",
+      "types": "./src/request.ts"
+    },
+    "./sandbox": {
+      "import": "./src/sandbox.ts",
+      "types": "./src/sandbox.ts"
+    },
+    "./search": {
+      "import": "./src/search.ts",
+      "types": "./src/search.ts"
+    },
+    "./throttle": {
+      "import": "./src/throttle.ts",
+      "types": "./src/throttle.ts"
+    },
+    "./time": {
+      "import": "./src/time.ts",
+      "types": "./src/time.ts"
+    },
+    "./url": {
+      "import": "./src/url.ts",
+      "types": "./src/url.ts"
+    },
+    "./useragent": {
+      "import": "./src/useragent.ts",
+      "types": "./src/useragent.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./chapters": {
+        "import": "./dist/chapters.mjs",
+        "types": "./dist/chapters.d.ts"
+      },
+      "./color": {
+        "import": "./dist/color.mjs",
+        "types": "./dist/color.d.ts"
+      },
+      "./copy": {
+        "import": "./dist/copy.mjs",
+        "types": "./dist/copy.d.ts"
+      },
+      "./detect": {
+        "import": "./dist/detect.mjs",
+        "types": "./dist/detect.d.ts"
+      },
+      "./dom": {
+        "import": "./dist/dom.mjs",
+        "types": "./dist/dom.d.ts"
+      },
+      "./helper": {
+        "import": "./dist/helper.mjs",
+        "types": "./dist/helper.d.ts"
+      },
+      "./keyboard": {
+        "import": "./dist/keyboard.mjs",
+        "types": "./dist/keyboard.d.ts"
+      },
+      "./localstorage": {
+        "import": "./dist/localstorage.mjs",
+        "types": "./dist/localstorage.d.ts"
+      },
+      "./location": {
+        "import": "./dist/location.mjs",
+        "types": "./dist/location.d.ts"
+      },
+      "./math": {
+        "import": "./dist/math.mjs",
+        "types": "./dist/math.d.ts"
+      },
+      "./predicates": {
+        "import": "./dist/predicates.mjs",
+        "types": "./dist/predicates.d.ts"
+      },
+      "./request": {
+        "import": "./dist/request.mjs",
+        "types": "./dist/request.d.ts"
+      },
+      "./sandbox": {
+        "import": "./dist/sandbox.mjs",
+        "types": "./dist/sandbox.d.ts"
+      },
+      "./search": {
+        "import": "./dist/search.mjs",
+        "types": "./dist/search.d.ts"
+      },
+      "./throttle": {
+        "import": "./dist/throttle.mjs",
+        "types": "./dist/throttle.d.ts"
+      },
+      "./time": {
+        "import": "./dist/time.mjs",
+        "types": "./dist/time.d.ts"
+      },
+      "./url": {
+        "import": "./dist/url.mjs",
+        "types": "./dist/url.d.ts"
+      },
+      "./useragent": {
+        "import": "./dist/useragent.mjs",
+        "types": "./dist/useragent.d.ts"
+      }
+    }
+  },
   "dependencies": {
-    "color": "3.1.2",
     "dompurify": "2.0.12",
-    "keycode": "2.2.0",
-    "mobile-detect": "1.4.4",
-    "query-string-for-all": "6.13.7",
-    "ramda": "0.27.1",
-    "unfetch": "4.1.0"
+    "farbraum": "0.1.4",
+    "query-string": "8.1.0",
+    "ramda": "0.29.1"
   },
   "devDependencies": {
-    "@podlove/build": "^5.12.0",
-    "webpack": "5.45.1"
+    "@podlove/types": "workspace:*",
+    "@types/ramda": "0.29.7",
+    "@typescript-eslint/eslint-plugin": "6.12.0",
+    "@typescript-eslint/parser": "6.12.0",
+    "eslint": "8.54.0",
+    "happy-dom": "9.1.9",
+    "ts-toolbelt": "9.6.0",
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3",
+    "vitest": "0.30.0"
   }
 }

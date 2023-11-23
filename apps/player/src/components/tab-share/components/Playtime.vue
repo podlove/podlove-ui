@@ -1,46 +1,44 @@
 <template>
   <input-checkbox
-    data-test="tab-share--playtime"
-    :label="$t('SHARE.PLAYTIME', { playtime: toHumanTime(state.playtime) })"
+    class="podlove-player--tab-share--share-playtime"
+    data-test="tab-share--share-playtime"
+    :label="t('SHARE.PLAYTIME', { playtime: toHumanTime(state.playtime) })"
     :value="state.content === 'time'"
-    :color="state.color"
-    :border-color="state.color"
-    :background="state.background"
     @select="toggleContent"
   />
 </template>
 
-<script>
-import InputCheckbox from '@podlove/components/input-checkbox'
-import { selectContent } from '@podlove/player-actions/share'
-import { toHumanTime } from '@podlove/utils/time'
-import { mapState, injectStore } from 'redux-vuex'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { InputCheckbox } from '@podlove/components';
+import { selectContent } from '@podlove/player-actions/share';
+import { toHumanTime } from '@podlove/utils/time';
+import { mapState, injectStore } from 'redux-vuex';
 
-export default {
-  components: {
-    InputCheckbox
-  },
-  setup() {
-    return {
-      state: mapState({
-        playtime: select.playtime,
-        content: select.share.content,
-        color: select.theme.brandDark,
-        background: select.theme.alt
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    toHumanTime,
-    toggleContent() {
-      if (this.state.content === 'time') {
-        return this.dispatch(selectContent('episode'))
-      }
+import select from '../../../store/selectors/index.js';
 
-      return this.dispatch(selectContent('time'))
-    }
+const { t } = useI18n();
+
+const state = mapState({
+  playtime: select.playtime,
+  content: select.share.content,
+});
+
+const dispatch = injectStore().dispatch;
+
+const toggleContent = () => {
+  if (state.content === 'time') {
+    return dispatch(selectContent('episode'));
   }
-}
+
+  return dispatch(selectContent('time'));
+};
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-share--share-playtime {
+  --podlove-component--checkbox--color: var(--podlove-player--tab-share--share-playtime--color);
+  --podlove-component--checkbox--background: var(--podlove-player--tab-share--share-playtime--background);
+  --podlove-component--checkbox--border: var(--podlove-player--tab-share--share-playtime--border);
+}
+</style>

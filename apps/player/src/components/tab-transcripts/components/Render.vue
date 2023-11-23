@@ -1,8 +1,9 @@
 <template>
   <div
+    ref="root"
     class="overflow-auto body mobile:p-4 tablet:p-6"
     data-test="tab-transcripts--results"
-    :style="heightByIndex(0, prerender.length - 1)"
+    :style="{ height: heightByIndex(0, prerender.length - 1) }"
     @scroll="renderWindow()"
     @mousewheel="disableFollow()"
     @DOMMouseScroll="disableFollow()"
@@ -13,16 +14,13 @@
         v-for="(entry, index) in slice(start, end)"
         :key="index"
         data-test="tab-transcripts--entry"
+        :prerender="false"
         :entry="entry"
         :playtime="state.playtime"
         :search-query="state.query"
         :ghost-active="state.ghostActive"
         :ghost-time="state.ghostTime"
         :search-results="state.searchResults"
-        :chapter-style="chapterStyle"
-        :speaker-style="speakerStyle"
-        :highlight-style="highlightStyle"
-        :active-style="activeStyle"
         @onClick="onClick"
         @onMouseOver="onMouseOver"
         @onMouseLeave="onMouseLeave"
@@ -32,200 +30,173 @@
   </div>
 </template>
 
-<script>
-import color from 'color'
-import { mapState, injectStore } from 'redux-vuex'
-import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
-import { requestPlay } from '@podlove/player-actions/play'
-import { enableGhost, disableGhost } from '@podlove/player-actions/progress'
-import { followTranscripts } from '@podlove/player-actions/transcripts'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { onMounted, ref, watch } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
+import { requestPlay } from '@podlove/player-actions/play';
+import { enableGhost, disableGhost } from '@podlove/player-actions/progress';
+import { followTranscripts } from '@podlove/player-actions/transcripts';
+import { asyncAnimation } from '@podlove/utils/helper';
+import select from '../../../store/selectors/index.js';
 
-import TranscriptEntry from './Entry'
+import TranscriptEntry from './Entry.vue';
 
-const RENDER_BUFFER = 10
+const RENDER_BUFFER = 10;
 
-export default {
-  components: {
-    TranscriptEntry
-  },
-  props: {
-    prerender: {
-      type: Array,
-      default: () => []
-    }
-  },
-  setup() {
-    return {
-      state: mapState({
-        playtime: select.playtime,
-        ghostActive: select.ghost.active,
-        ghostTime: select.ghost.time,
-        timeline: select.transcripts.timeline,
-        active: select.transcripts.active,
-        follow: select.transcripts.follow,
-        searchResults: select.transcripts.searchResults,
-        query: select.transcripts.searchQuery,
-        selected: select.transcripts.searchSelected,
-        fontCi: select.theme.fontCi,
-        fontBold: select.theme.fontBold,
-        shadeDark: select.theme.shadeDark,
-        alt: select.theme.alt
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  data() {
-    return {
-      start: 0,
-      end: 0
-    }
-  },
-  computed: {
-    chapterStyle() {
-      return {
-        ...this.state.fontCi
-      }
-    },
-    speakerStyle() {
-      return {
-        ...this.state.fontBold
-      }
-    },
-    highlightStyle() {
-      return {
-        background: this.state.shadeDark
-      }
-    },
-    activeStyle() {
-      return {
-        cursor: 'pointer',
-        background: color(this.state.alt).fade(0.8).toString()
-      }
-    },
-    active() {
-      return this.state.active
-    },
-    follow() {
-      return this.state.follow
-    },
-    selected() {
-      return this.state.selected
-    }
-  },
-  watch: {
-    active() {
-      this.follow && this.selected === -1 && this.scrollWindow()
-    },
-    follow() {
-      this.follow && this.scrollWindow()
-    },
-    selected() {
-      if (this.state.query.length === 0 || this.selected === -1) {
-        return
-      }
+const root = ref<HTMLElement | null>(null);
 
-      this.scrollTo(this.state.searchResults[this.selected - 1])
-    }
-  },
-  mounted() {
-    // Render the transcripts
-    this.renderWindow(this.state.active)
+const props = defineProps<{
+  prerender: number[]
+}>();
 
-    // Scroll to the active transcript
-    this.scrollTo(this.state.active)
-  },
-  methods: {
-    onMouseOver({ start }) {
-      this.dispatch(enableGhost())
-      this.dispatch(simulatePlaytime(start))
-    },
-    onMouseLeave() {
-      this.dispatch(disableGhost())
-    },
-    onClick({ start }) {
-      this.dispatch(requestPlaytime(start))
-      this.dispatch(requestPlay())
-    },
-    disableFollow() {
-      this.dispatch(followTranscripts(false))
-    },
-    inRange(index) {
-      if (index < 0) {
-        return 0
-      }
+const state = mapState({
+  playtime: select.playtime,
+  ghostActive: select.ghost.active,
+  ghostTime: select.ghost.time,
+  timeline: select.transcripts.timeline,
+  active: select.transcripts.active,
+  follow: select.transcripts.follow,
+  searchResults: select.transcripts.searchResults,
+  query: select.transcripts.searchQuery,
+  selected: select.transcripts.searchSelected
+});
 
-      if (index >= this.prerender.length - 1) {
-        return this.prerender.length - 1
-      }
+const dispatch = injectStore().dispatch;
 
-      return index
-    },
-    indexByHeight(search, index = 0, height = 0) {
-      if (search <= height) {
-        return index - 1
-      }
+const start = ref(0);
+const end = ref(0);
 
-      if (index < 0) {
-        return 0
-      }
 
-      if (index > this.prerender.length - 1) {
-        return this.prerender.length - 1
-      }
-
-      return this.indexByHeight(search, index + 1, height + this.prerender[index])
-    },
-    heightByIndex(start = 0, end = -1) {
-      return this.prerender.slice(start, end).reduce((result, element) => result + element, 0)
-    },
-    slice(start = 0, end = 0) {
-      // slice not includes the last end element, therefore + 1
-      return this.state.timeline.slice(start, end + 1)
-    },
-    renderWindow(startIndex = -1) {
-      window.requestAnimationFrame(() => {
-        let endIndex
-
-        if (startIndex === -1) {
-          startIndex = this.indexByHeight(this.$el.scrollTop)
-          endIndex = this.indexByHeight(this.$el.scrollTop + this.$el.clientHeight)
-        } else {
-          endIndex = this.indexByHeight(this.heightByIndex(0, startIndex) + this.$el.clientHeight)
-        }
-
-        this.start = this.inRange(startIndex - RENDER_BUFFER)
-        this.end = this.inRange(endIndex + RENDER_BUFFER)
-      })
-    },
-    scrollWindow() {
-      window.requestAnimationFrame(() => {
-        // If transcript isn't in rendered slice, mostly initial or on scrub
-        if (this.start > this.state.active || this.end < this.state.active) {
-          this.scrollTo(this.state.active)
-        }
-
-        // Follow mode is off or ghost mode is on
-        if (!this.follow || this.state.ghostActive) {
-          return
-        }
-
-        // Get the active element
-        const activeNode = this.$el.querySelector('.active-transcript')
-
-        if (!activeNode) {
-          return
-        }
-
-        // Header + buffer ~> 190px height
-        const scrollPosition = activeNode.offsetTop - activeNode.clientHeight - 190
-
-        this.$el.scroll && this.$el.scroll({ behavior: 'smooth', top: scrollPosition })
-      })
-    },
-    scrollTo(index) {
-      this.$el.scroll && this.$el.scroll({ top: this.heightByIndex(0, index) })
-    }
+watch(() => state.active, () => {
+  if (state.selected !== -1 || !state.follow) {
+    return;
   }
-}
+
+  scrollWindow();
+});
+
+watch(() => state.follow, () => {
+  scrollWindow();
+});
+
+watch(() => state.selected, () => {
+  if (state.query.length === 0 || state.selected === -1) {
+    return;
+  }
+
+  scrollTo(state.searchResults[state.selected - 1]);
+});
+
+onMounted(() => {
+  // Render the transcripts
+  renderWindow(state.active);
+
+  // Scroll to the active transcript
+  scrollTo(state.active);
+});
+
+// Methods
+const onMouseOver = ({ start }) => {
+  dispatch(enableGhost());
+  dispatch(simulatePlaytime(start));
+};
+
+const onMouseLeave = () => {
+  dispatch(disableGhost());
+};
+
+const onClick = ({ start }) => {
+  dispatch(requestPlaytime(start));
+  dispatch(requestPlay());
+};
+
+const disableFollow = () => {
+  dispatch(followTranscripts(false));
+};
+
+const inRange = (index) => {
+  if (index < 0) {
+    return 0;
+  }
+
+  if (index >= props.prerender.length - 1) {
+    return props.prerender.length - 1;
+  }
+
+  return index;
+};
+
+const indexByHeight = (search: number, index = 0, height = 0) => {
+  if (search <= height) {
+    return index - 1;
+  }
+
+  if (index < 0) {
+    return 0;
+  }
+
+  if (index > props.prerender.length - 1) {
+    return props.prerender.length - 1;
+  }
+
+  return indexByHeight(search, index + 1, height + props.prerender[index]);
+};
+
+const heightByIndex = (start = 0, end = -1): number => props.prerender.slice(start, end).reduce((result: number, element) => result + element, 0);
+
+const slice = (start = 0, end = 0) => {
+  // slice not includes the last end element, therefore + 1
+  return state.timeline.slice(start, end + 1);
+};
+
+const renderWindow = (startIndex = -1) => {
+  asyncAnimation().then(() => {
+    let endIndex;
+
+    if (startIndex === -1) {
+      startIndex = indexByHeight(root.value.scrollTop);
+      endIndex = indexByHeight(root.value.scrollTop + root.value.clientHeight);
+    } else {
+      endIndex = indexByHeight(heightByIndex(0, startIndex) + root.value.clientHeight);
+    }
+
+    start.value = inRange(startIndex - RENDER_BUFFER);
+    end.value = inRange(endIndex + RENDER_BUFFER);
+  });
+};
+
+const scrollWindow = () => {
+  asyncAnimation().then(() => {
+    // If transcript isn't in rendered slice, mostly initial or on scrub
+    if (start.value > state.active || end.value < state.active) {
+      scrollTo(state.active);
+    }
+
+    // Follow mode is off or ghost mode is on
+    if (!state.follow || state.ghostActive) {
+      return;
+    }
+
+    // Get the active element
+    const activeNode: HTMLElement = root.value.querySelector('.active-transcript');
+
+    if (!activeNode) {
+      return;
+    }
+
+    // Header + buffer ~> 190px height
+    const scrollPosition = activeNode.offsetTop - activeNode.clientHeight - 190;
+
+    root.value.scroll && root.value.scroll({ behavior: 'smooth', top: scrollPosition });
+  });
+};
+
+const scrollTo = (index) => {
+  root.value.scroll && root.value.scroll({ top: heightByIndex(0, index) });
+};
 </script>
+
+<style lang="postcss" scoped>
+
+</style>

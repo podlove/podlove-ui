@@ -4,7 +4,7 @@
       v-for="(entry, index) in state.clients"
       :key="index"
       class="block mb-2 mobile:w-full tablet:w-1/2"
-      :aria-label="$t('A11Y.CLIENT', entry)"
+      :aria-label="t('A11Y.CLIENT', entry)"
     >
       <a
         class="flex items-center w-full p-2 hover:bg-gray-200 rounded-sm cursor-pointer"
@@ -18,32 +18,29 @@
           <img v-if="entry.icon" aria-hidden="true" :src="entry.icon" />
         </span>
         <span class="mr-2">{{ entry.title }}</span>
-        <icon type="arrow-to-right"></icon>
+        <arrow-to-right-icon />
       </a>
     </li>
   </ul>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Icon from '@podlove/components/icons'
-import * as select from 'store/selectors'
+<script lang="ts" setup>
+import { mapState } from 'redux-vuex';
+import { ArrowToRightIcon } from '@podlove/components';
+import { useI18n } from 'vue-i18n';
+import { PodloveSubscribeButtonClient } from '@podlove/types';
+import * as select from '../../store/selectors.js';
 
-export default {
-  components: { Icon },
-  setup() {
-    return {
-      state: mapState({
-        clients: select.clients,
-        font: select.theme.fontBold
-      })
-    }
-  },
+const { t } = useI18n();
 
-  methods: {
-    onClick(client) {
-      this.$emit('clientSelect', client)
-    }
-  }
-}
+const emit = defineEmits(['clientSelect']);
+
+const state = mapState({
+  clients: select.clients,
+  font: select.theme.fontBold
+});
+
+const onClick = (client: PodloveSubscribeButtonClient) => {
+  emit('clientSelect', client);
+};
 </script>

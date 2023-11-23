@@ -1,0 +1,60 @@
+/* eslint @typescript-eslint/no-unused-vars: 0 */
+import { State as runtime } from '@podlove/player-state/runtime';
+import { State as theme } from '@podlove/player-state/theme';
+import { State as episode } from '@podlove/player-state/episode';
+import { State as chapters } from '@podlove/player-state/chapters';
+import { State as timepiece } from '@podlove/player-state/timepiece';
+import { State as show } from '@podlove/player-state/show';
+import { State as media } from '@podlove/player-state/media';
+import { State as components } from '@podlove/player-state/components';
+import { State as ghost } from '@podlove/player-state/ghost';
+import { State as network } from '@podlove/player-state/network';
+import { State as quantiles } from '@podlove/player-state/quantiles';
+import { State as tabs } from '@podlove/player-state/tabs';
+import { State as contributors } from '@podlove/player-state/contributors';
+import { State as files } from '@podlove/player-state/files';
+import { State as content } from '@podlove/player-state/content';
+import { State as embed } from '@podlove/player-state/embed';
+import { State as reference } from '@podlove/player-state/reference';
+import { State as audio } from '@podlove/player-state/audio';
+import { State as transcripts } from '@podlove/player-state/transcripts';
+import { State as lastAction } from '@podlove/player-state/last-action';
+import { State as error } from '@podlove/player-state/error';
+import { State as driver } from '@podlove/player-state/driver';
+import { State as playstate } from '@podlove/player-state/playstate';
+import { State as playlist } from '@podlove/player-state/playlist';
+import { State as subscribeButton } from '@podlove/player-state/subscribe-button';
+import { State as channels } from '@podlove/player-state/channels';
+import { State as lifecycle } from '@podlove/player-state/lifecycle';
+
+export default interface State {
+  lifecycle;
+  runtime;
+  theme;
+  show;
+  episode;
+  chapters;
+  timepiece;
+  media;
+  components;
+  ghost;
+  network;
+  quantiles;
+  tabs;
+  contributors;
+  files;
+  reference;
+  audio;
+  transcripts;
+  share: {
+    content;
+    embed;
+  };
+  lastAction;
+  error;
+  driver;
+  playstate;
+  playlist;
+  subscribeButton;
+  channels;
+}

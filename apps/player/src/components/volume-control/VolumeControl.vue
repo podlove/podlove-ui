@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state.available" class="block">
+  <div v-if="state.available" class="podlove-player--volume-control block">
     <div class="sr-only">
       <input
         type="number"
@@ -10,23 +10,27 @@
         aria-valuemin="0"
         aria-valuemax="100"
         :aria-valuenow="state.volume * 100"
-        :aria-valuetext="$t(state.volumeLabel.key, state.volumeLabel.attr)"
-        @input="setVolume($event.target.value)"
+        :aria-valuetext="t(state.volumeLabel.key, state.volumeLabel.attr)"
+        @input="setVolume(($event.target as HTMLInputElement).value as unknown as number)"
       />
     </div>
-    <dropdown ref="volumePopover" :triggers="['click']" :offset="[0, 15]" :placement="placement">
+
+    <tooltip trigger="click" :placement="placement" :autohide="false" :showArrow="false">
       <button
         class="block cursor-pointer"
         data-test="volume-control"
         aria-hidden="true"
         @click="focus"
       >
-        <icon aria-hidden="true" :type="state.icon" :color="state.color" />
+        <speaker-0-icon v-if="state.icon === 'speaker-0'" />
+        <speaker-25-icon v-if="state.icon === 'speaker-25'" />
+        <speaker-50-icon v-if="state.icon === 'speaker-50'" />
+        <speaker-75-icon v-if="state.icon === 'speaker-75'" />
       </button>
-      <template #popper>
+
+      <template v-slot:content>
         <div
-          class="w-40 px-4 rounded"
-          :style="{ background: state.background, color: state.background }"
+          class="w-40 px-4 py-1 rounded shadow-lg"
         >
           <input-slider
             ref="volumeControl"
@@ -37,79 +41,65 @@
             :max="100"
             :value="state.volume * 100"
             :step="1"
-            :background="state.color"
-            :border-color="state.color"
-            :progress-color="state.progressColor"
-            @sliderInput="setVolume"
+            @sliderInput="onInput"
           />
         </div>
       </template>
-    </dropdown>
+    </tooltip>
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import Icon from '@podlove/components/icons'
-import InputSlider from '@podlove/components/input-slider'
-import { setVolume } from '@podlove/player-actions/audio'
-import { Dropdown } from 'v-tooltip'
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { mapState, injectStore } from 'redux-vuex';
+import { InputSlider, Speaker0Icon, Speaker25Icon, Speaker50Icon, Speaker75Icon, Tooltip } from '@podlove/components';
+import { setVolume } from '@podlove/player-actions/audio';
 
-import select from 'store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    Dropdown,
-    InputSlider,
-    Icon
-  },
-  props: {
-    placement: {
-      type: String,
-      default: 'left',
-      validator: (val) => ['left', 'right'].includes(val)
-    }
-  },
-  setup() {
-    return {
-      state: mapState({
-        volume: select.audio.volume,
-        icon: select.audio.icon,
-        color: select.theme.brandDark,
-        progressColor: select.theme.brandDark,
-        background: select.theme.brandLightest,
-        buttonTitle: select.accessibility.volumeButton,
-        volumeLabel: select.accessibility.volumeControl,
-        available: select.components.volumeControl
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    setVolume(val) {
-      this.dispatch(setVolume(val / 100))
-    },
-    focus() {
-      setTimeout(() => {
-        const control = this.$refs.volumeControl
-        if (control.$el) {
-          control.$el.querySelector('input').focus()
-        }
-      }, 300)
-    }
+const { t } = useI18n();
+
+const volumeControl = ref<HTMLElement | null>(null);
+
+defineProps({
+  placement: {
+    type: String,
+    default: 'left',
+    validator: (val: string) => ['left', 'right'].includes(val)
   }
-}
+});
+
+const state = mapState({
+  volume: select.audio.volume,
+  icon: select.audio.icon,
+  buttonTitle: select.accessibility.volumeButton,
+  volumeLabel: select.accessibility.volumeControl,
+  available: select.components.volumeControl
+});
+
+const dispatch = injectStore().dispatch;
+
+const onInput = (val: number) => {
+  dispatch(setVolume(val / 100));
+};
+
+const focus = () => {
+  // setTimeout(() => {
+  //   if (volumeControl.value) {
+  //     volumeControl.value.querySelector('input').focus();
+  //   }
+  // }, 300);
+};
 </script>
 
-<style lang="scss">
-@import 'v-tooltip/dist/v-tooltip.css';
-
-.v-popper--theme-dropdown .v-popper__inner {
-  padding: 0;
-  background: transparent;
-}
-
-.v-popper--theme-dropdown .v-popper__arrow {
-  border-color: red;
+<style lang="postcss" scoped>
+.podlove-player--volume-control {
+  --podlove-component--tooltip--color: var(--podlove-player--volume-control--color);
+  --podlove-component--tooltip--background: var(--podlove-player--volume-control--background);
+  --podlove-component--icon--color: var(--podlove-player--volume-control--icon-color);
+  --podlove-component--input-slider--progress-color: var(--podlove-player--volume-control--progress-color);
+  --podlove-component--input-slider--thumb-color: var(--podlove-player--volume-control--thumb-color);
+  --podlove-component--input-slider--border-color: var(--podlove-player--volume-control--border-color);
 }
 </style>

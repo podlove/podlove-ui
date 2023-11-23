@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InputText > props > should render type 'background' 1`] = `
+<input
+  background="#fff"
+  class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+  data-v-41de188a=""
+/>
+`;
+
+exports[`InputText > props > should render type 'block' 1`] = `
+<input
+  block="true"
+  class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+  data-v-41de188a=""
+/>
+`;
+
+exports[`InputText > props > should render type 'borderColor' 1`] = `
+<input
+  bordercolor="#fff"
+  class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+  data-v-41de188a=""
+/>
+`;
+
+exports[`InputText > props > should render type 'color' 1`] = `
+<input
+  class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+  color="#fff"
+  data-v-41de188a=""
+/>
+`;
+
+exports[`InputText > props > should render type 'disabled' 1`] = `
+<input
+  class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+  data-v-41de188a=""
+  disabled=""
+/>
+`;
+
+exports[`InputText > props > should render type 'value' 1`] = `
+<input
+  class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+  data-v-41de188a=""
+/>
+`;
+
+exports[`InputText > props > should render without props 1`] = `
+<input
+  class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
+  data-v-41de188a=""
+/>
+`;

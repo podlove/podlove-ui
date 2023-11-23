@@ -2,20 +2,90 @@
   "name": "@podlove/button-state",
   "version": "5.12.0",
   "description": "Reducers for Podlove Button Framework",
-  "main": "index.js",
+  "type": "module",
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/state",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.12.0",
-    "@podlove/button-config": "^5.12.0",
-    "@podlove/clients": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "redux-actions": "2.6.5"
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/button-config": "workspace:*",
+    "@podlove/clients": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "redux-actions": "3.0.0",
+    "reselect": "4.1.8",
+    "ramda": "0.29.0"
+  },
+  "devDependencies": {
+    "@podlove/types": "workspace:*",
+    "@types/redux-actions": "2.6.2",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3",
+    "typescript": "5.0.4"
   },
   "scripts": {
-    "test": "jest",
-    "test:dev": "jest --watch"
+    "build": "vite build --config ./vite.config.ts"
+  },
+  "exports": {
+    "./clients": {
+      "import": "./src/clients.ts",
+      "types": "./src/clients.ts"
+    },
+    "./config": {
+      "import": "./src/config.ts",
+      "types": "./src/config.ts"
+    },
+    "./feed": {
+      "import": "./src/feed.ts",
+      "types": "./src/feed.ts"
+    },
+    "./finish": {
+      "import": "./src/finish.ts",
+      "types": "./src/finish.ts"
+    },
+    "./runtime": {
+      "import": "./src/runtime.ts",
+      "types": "./src/runtime.ts"
+    },
+    "./theme": {
+      "import": "./src/theme.ts",
+      "types": "./src/theme.ts"
+    },
+    "./view": {
+      "import": "./src/view.ts",
+      "types": "./src/view.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./clients": {
+        "import": "./dist/clients.mjs",
+        "types": "./dist/clients.d.ts"
+      },
+      "./config": {
+        "import": "./dist/config.mjs",
+        "types": "./dist/config.d.ts"
+      },
+      "./feed": {
+        "import": "./dist/feed.mjs",
+        "types": "./dist/feed.d.ts"
+      },
+      "./finish": {
+        "import": "./dist/finish.mjs",
+        "types": "./dist/finish.d.ts"
+      },
+      "./runtime": {
+        "import": "./dist/runtime.mjs",
+        "types": "./dist/runtime.d.ts"
+      },
+      "./theme": {
+        "import": "./dist/theme.mjs",
+        "types": "./dist/theme.d.ts"
+      },
+      "./view": {
+        "import": "./dist/view.mjs",
+        "types": "./dist/view.d.ts"
+      }
+    }
   }
 }

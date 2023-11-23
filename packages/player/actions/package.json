@@ -3,18 +3,208 @@
   "version": "5.12.0",
   "description": "Actions for Podlove Player Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/actions",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/utils": "^5.12.0",
-    "redux-actions": "2.6.5"
+    "@podlove/utils": "workspace:*",
+    "redux-actions": "3.0.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.12.0"
+    "@podlove/types": "workspace:*",
+    "@types/redux-actions": "2.6.2",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "eslint": "8.54.0",
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3"
+  },
+  "type": "module",
+  "exports": {
+    "./audio": {
+      "import": "./src/audio.ts",
+      "types": "./src/audio.ts"
+    },
+    "./embed": {
+      "import": "./src/embed.ts",
+      "types": "./src/embed.ts"
+    },
+    "./error": {
+      "import": "./src/error.ts",
+      "types": "./src/error.ts"
+    },
+    "./keyboard": {
+      "import": "./src/keyboard.ts",
+      "types": "./src/keyboard.ts"
+    },
+    "./playlist": {
+      "import": "./src/playlist.ts",
+      "types": "./src/playlist.ts"
+    },
+    "./runtime": {
+      "import": "./src/runtime.ts",
+      "types": "./src/runtime.ts"
+    },
+    "./tabs": {
+      "import": "./src/tabs.ts",
+      "types": "./src/tabs.ts"
+    },
+    "./transcripts": {
+      "import": "./src/transcripts.ts",
+      "types": "./src/transcripts.ts"
+    },
+    "./chapters": {
+      "import": "./src/chapters.ts",
+      "types": "./src/chapters.ts"
+    },
+    "./files": {
+      "import": "./src/files.ts",
+      "types": "./src/files.ts"
+    },
+    "./lifecycle": {
+      "import": "./src/lifecycle.ts",
+      "types": "./src/lifecycle.ts"
+    },
+    "./progress": {
+      "import": "./src/progress.ts",
+      "types": "./src/progress.ts"
+    },
+    "./share": {
+      "import": "./src/share.ts",
+      "types": "./src/share.ts"
+    },
+    "./theme": {
+      "import": "./src/theme.ts",
+      "types": "./src/theme.ts"
+    },
+    "./types": {
+      "import": "./src/types.ts",
+      "types": "./src/types.ts"
+    },
+    "./components": {
+      "import": "./src/components.ts",
+      "types": "./src/components.ts"
+    },
+    "./init": {
+      "import": "./src/init.ts",
+      "types": "./src/init.ts"
+    },
+    "./play": {
+      "import": "./src/play.ts",
+      "types": "./src/play.ts"
+    },
+    "./quantiles": {
+      "import": "./src/quantiles.ts",
+      "types": "./src/quantiles.ts"
+    },
+    "./stepper": {
+      "import": "./src/stepper.ts",
+      "types": "./src/stepper.ts"
+    },
+    "./timepiece": {
+      "import": "./src/timepiece.ts",
+      "types": "./src/timepiece.ts"
+    },
+    "./visible-components": {
+      "import": "./src/visible-components.ts",
+      "types": "./src/visible-components.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./audio": {
+        "import": "./dist/audio.mjs",
+        "types": "./dist/audio.d.ts"
+      },
+      "./embed": {
+        "import": "./dist/embed.mjs",
+        "types": "./dist/embed.d.ts"
+      },
+      "./error": {
+        "import": "./dist/error.mjs",
+        "types": "./dist/error.d.ts"
+      },
+      "./keyboard": {
+        "import": "./dist/keyboard.mjs",
+        "types": "./dist/keyboard.d.ts"
+      },
+      "./playlist": {
+        "import": "./dist/playlist.mjs",
+        "types": "./dist/playlist.d.ts"
+      },
+      "./runtime": {
+        "import": "./dist/runtime.mjs",
+        "types": "./dist/runtime.d.ts"
+      },
+      "./tabs": {
+        "import": "./dist/tabs.mjs",
+        "types": "./dist/tabs.d.ts"
+      },
+      "./transcripts": {
+        "import": "./dist/transcripts.mjs",
+        "types": "./dist/transcripts.d.ts"
+      },
+      "./chapters": {
+        "import": "./dist/chapters.mjs",
+        "types": "./dist/chapters.d.ts"
+      },
+      "./files": {
+        "import": "./dist/files.mjs",
+        "types": "./dist/files.d.ts"
+      },
+      "./lifecycle": {
+        "import": "./dist/lifecycle.mjs",
+        "types": "./dist/lifecycle.d.ts"
+      },
+      "./progress": {
+        "import": "./dist/progress.mjs",
+        "types": "./dist/progress.d.ts"
+      },
+      "./share": {
+        "import": "./dist/share.mjs",
+        "types": "./dist/share.d.ts"
+      },
+      "./theme": {
+        "import": "./dist/theme.mjs",
+        "types": "./dist/theme.d.ts"
+      },
+      "./types": {
+        "import": "./dist/types.mjs",
+        "types": "./dist/types.d.ts"
+      },
+      "./components": {
+        "import": "./dist/components.mjs",
+        "types": "./dist/components.d.ts"
+      },
+      "./init": {
+        "import": "./dist/init.mjs",
+        "types": "./dist/init.d.ts"
+      },
+      "./play": {
+        "import": "./dist/play.mjs",
+        "types": "./dist/play.d.ts"
+      },
+      "./quantiles": {
+        "import": "./dist/quantiles.mjs",
+        "types": "./dist/quantiles.d.ts"
+      },
+      "./stepper": {
+        "import": "./dist/stepper.mjs",
+        "types": "./dist/stepper.d.ts"
+      },
+      "./timepiece": {
+        "import": "./dist/timepiece.mjs",
+        "types": "./dist/timepiece.d.ts"
+      },
+      "./visible-components": {
+        "import": "./dist/visible-components.mjs",
+        "types": "./dist/visible-components.d.ts"
+      }
+    }
   }
 }

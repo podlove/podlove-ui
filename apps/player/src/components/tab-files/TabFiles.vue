@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-files">
     <tab-title tab="files" @close="closeTab">
-      {{ $t('FILES.TITLE') }}
+      {{ t('FILES.TITLE') }}
     </tab-title>
     <div class="tablet:flex tablet:flex-1 tablet:flex-wrap w-full">
       <file
@@ -14,29 +14,25 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
 
-import select from 'store/selectors'
+const { t } = useI18n();
 
-import TabTitle from '../tab-title'
-import File from './components/File'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: { TabTitle, File },
-  setup() {
-    return {
-      state: mapState({
-        files: select.files.files
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    closeTab() {
-      this.dispatch(toggleTab('files'))
-    }
-  }
-}
+import TabTitle from '../tab-title/TabTitle.vue';
+import File from './components/File.vue';
+
+const state = mapState({
+  files: select.files.files
+});
+
+const dispatch = injectStore().dispatch;
+
+const closeTab = () => {
+  dispatch(toggleTab('files'));
+};
 </script>

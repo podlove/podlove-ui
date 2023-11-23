@@ -1,14 +1,13 @@
 <template>
   <tab-body
     v-if="active"
+    class="podlove-player--tab"
     :id="`tab-${name}`"
     :ref="name"
     :active="active"
     :name="name"
-    :aria-label="$t(state.a11y.key, { name })"
+    :aria-label="t(state.a11y.key, { name })"
     :aria-selected="active"
-    :background="state.background"
-    :style="{ color: state.color }"
     data-test="tab"
     tabindex="1"
   >
@@ -18,36 +17,29 @@
   </tab-body>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Tab from '@podlove/components/tab'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState } from 'redux-vuex';
+import { useI18n } from 'vue-i18n';
+import { TabBody } from '@podlove/components';
 
-import select from 'store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    TabBody: Tab.Body
-  },
-  props: {
-    name: {
-      type: String,
-      default: null
-    }
-  },
-  setup(props) {
-    return {
-      state: mapState({
-        background: select.theme.brandDark,
-        tabs: select.tabs,
-        color: select.theme.alt,
-        a11y: select.accessibility.tabPanel(props.name)
-      })
-    }
-  },
-  computed: {
-    active() {
-      return this.state.tabs[this.name]
-    }
-  }
-}
+const { t } = useI18n();
+
+const props = defineProps<{ name: string }>();
+
+const state = mapState({
+  tabs: select.tabs,
+  a11y: select.accessibility.tabPanel(props.name)
+});
+
+const active = computed(() => state.tabs[props.name]);
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab {
+  color: var(--podlove-player--tab--color);
+  --podlove-component--tab-body--background: var(--podlove-player--tab--background);
+}
+</style>

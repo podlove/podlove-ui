@@ -2,24 +2,257 @@
   "name": "@podlove/player-state",
   "version": "5.12.0",
   "description": "Reducers for Podlove Player Framework",
-  "main": "index.js",
+  "type": "module",
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/state",
   "license": "MIT",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
+  },
   "dependencies": {
-    "@podlove/components": "^5.12.0",
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/player-config": "^5.12.0",
-    "@podlove/player-sagas": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "color": "3.1.2",
-    "object-mapper": "6.0.1",
-    "ramda": "0.27.1",
-    "redux-actions": "2.6.5",
-    "vue-i18n": "9.1.7"
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/player-config": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "ramda": "0.29.0",
+    "redux-actions": "3.0.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.12.0"
+    "@podlove/types": "workspace:*",
+    "@types/ramda": "0.29.0",
+    "@types/redux-actions": "2.6.2",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "eslint": "8.54.0",
+    "ts-toolbelt": "9.6.0",
+    "types-ramda": "0.29.1",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3",
+    "vitest": "0.30.1"
+  },
+  "exports": {
+    "./audio": {
+      "import": "./src/audio.ts",
+      "types": "./src/audio.ts"
+    },
+    "./lifecycle": {
+      "import": "./src/lifecycle.ts",
+      "types": "./src/lifecycle.ts"
+    },
+    "./subscribe-button": {
+      "import": "./src/subscribe-button.ts",
+      "types": "./src/subscribe-button.ts"
+    },
+    "./tabs": {
+      "import": "./src/tabs.ts",
+      "types": "./src/tabs.ts"
+    },
+    "./transcripts": {
+      "import": "./src/transcripts.ts",
+      "types": "./src/transcripts.ts"
+    },
+    "./timepiece": {
+      "import": "./src/timepiece.ts",
+      "types": "./src/timepiece.ts"
+    },
+    "./theme": {
+      "import": "./src/theme.ts",
+      "types": "./src/theme.ts"
+    },
+    "./show": {
+      "import": "./src/show.ts",
+      "types": "./src/show.ts"
+    },
+    "./runtime": {
+      "import": "./src/runtime.ts",
+      "types": "./src/runtime.ts"
+    },
+    "./reference": {
+      "import": "./src/reference.ts",
+      "types": "./src/reference.ts"
+    },
+    "./quantiles": {
+      "import": "./src/quantiles.ts",
+      "types": "./src/quantiles.ts"
+    },
+    "./playstate": {
+      "import": "./src/playstate.ts",
+      "types": "./src/playstate.ts"
+    },
+    "./playlist": {
+      "import": "./src/playlist.ts",
+      "types": "./src/playlist.ts"
+    },
+    "./network": {
+      "import": "./src/network.ts",
+      "types": "./src/network.ts"
+    },
+    "./media": {
+      "import": "./src/media.ts",
+      "types": "./src/media.ts"
+    },
+    "./last-action": {
+      "import": "./src/last-action.ts",
+      "types": "./src/last-action.ts"
+    },
+    "./ghost": {
+      "import": "./src/ghost.ts",
+      "types": "./src/ghost.ts"
+    },
+    "./files": {
+      "import": "./src/files.ts",
+      "types": "./src/files.ts"
+    },
+    "./error": {
+      "import": "./src/error.ts",
+      "types": "./src/error.ts"
+    },
+    "./episode": {
+      "import": "./src/episode.ts",
+      "types": "./src/episode.ts"
+    },
+    "./embed": {
+      "import": "./src/embed.ts",
+      "types": "./src/embed.ts"
+    },
+    "./driver": {
+      "import": "./src/driver.ts",
+      "types": "./src/driver.ts"
+    },
+    "./contributors": {
+      "import": "./src/contributors.ts",
+      "types": "./src/contributors.ts"
+    },
+    "./content": {
+      "import": "./src/content.ts",
+      "types": "./src/content.ts"
+    },
+    "./components": {
+      "import": "./src/components.ts",
+      "types": "./src/components.ts"
+    },
+    "./chapters": {
+      "import": "./src/chapters.ts",
+      "types": "./src/chapters.ts"
+    },
+    "./channels": {
+      "import": "./src/channels.ts",
+      "types": "./src/channels.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./audio": {
+        "import": "./dist/audio.mjs",
+        "types": "./dist/audio.d.ts"
+      },
+      "./lifecycle": {
+        "import": "./dist/lifecycle.mjs",
+        "types": "./dist/lifecycle.d.ts"
+      },
+      "./subscribe-button": {
+        "import": "./dist/subscribe-button.mjs",
+        "types": "./dist/subscribe-button.d.ts"
+      },
+      "./tabs": {
+        "import": "./dist/tabs.mjs",
+        "types": "./dist/tabs.d.ts"
+      },
+      "./transcripts": {
+        "import": "./dist/transcripts.mjs",
+        "types": "./dist/transcripts.d.ts"
+      },
+      "./timepiece": {
+        "import": "./dist/timepiece.mjs",
+        "types": "./dist/timepiece.d.ts"
+      },
+      "./theme": {
+        "import": "./dist/theme.mjs",
+        "types": "./dist/theme.d.ts"
+      },
+      "./show": {
+        "import": "./dist/show.mjs",
+        "types": "./dist/show.d.ts"
+      },
+      "./runtime": {
+        "import": "./dist/runtime.mjs",
+        "types": "./dist/runtime.d.ts"
+      },
+      "./reference": {
+        "import": "./dist/reference.mjs",
+        "types": "./dist/reference.d.ts"
+      },
+      "./quantiles": {
+        "import": "./dist/quantiles.mjs",
+        "types": "./dist/quantiles.d.ts"
+      },
+      "./playstate": {
+        "import": "./dist/playstate.mjs",
+        "types": "./dist/playstate.d.ts"
+      },
+      "./playlist": {
+        "import": "./dist/playlist.mjs",
+        "types": "./dist/playlist.d.ts"
+      },
+      "./network": {
+        "import": "./dist/network.mjs",
+        "types": "./dist/network.d.ts"
+      },
+      "./media": {
+        "import": "./dist/media.mjs",
+        "types": "./dist/media.d.ts"
+      },
+      "./last-action": {
+        "import": "./dist/last-action.mjs",
+        "types": "./dist/last-action.d.ts"
+      },
+      "./ghost": {
+        "import": "./dist/ghost.mjs",
+        "types": "./dist/ghost.d.ts"
+      },
+      "./files": {
+        "import": "./dist/files.mjs",
+        "types": "./dist/files.d.ts"
+      },
+      "./error": {
+        "import": "./dist/error.mjs",
+        "types": "./dist/error.d.ts"
+      },
+      "./episode": {
+        "import": "./dist/episode.mjs",
+        "types": "./dist/episode.d.ts"
+      },
+      "./embed": {
+        "import": "./dist/embed.mjs",
+        "types": "./dist/embed.d.ts"
+      },
+      "./driver": {
+        "import": "./dist/driver.mjs",
+        "types": "./dist/driver.d.ts"
+      },
+      "./contributors": {
+        "import": "./dist/contributors.mjs",
+        "types": "./dist/contributors.d.ts"
+      },
+      "./content": {
+        "import": "./dist/content.mjs",
+        "types": "./dist/content.d.ts"
+      },
+      "./components": {
+        "import": "./dist/components.mjs",
+        "types": "./dist/components.d.ts"
+      },
+      "./chapters": {
+        "import": "./dist/chapters.mjs",
+        "types": "./dist/chapters.d.ts"
+      },
+      "./channels": {
+        "import": "./dist/channels.mjs",
+        "types": "./dist/channels.d.ts"
+      }
+    }
   }
 }

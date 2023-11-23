@@ -7,41 +7,39 @@
       <button
         class="h-6 mt-1"
         data-test="tab-title--close"
-        :title="$t(state.title.key, state.title.attr)"
+        :title="t(state.title.key, state.title.attr)"
         @click="close"
       >
-        <icon type="close" aria-hidden="true" />
+        <close-icon />
       </button>
     </div>
     <div class="border-dotted border-b-2 border-gray-400 w-full" />
   </div>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Icon from '@podlove/components/icons'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { mapState } from 'redux-vuex';
+import { CloseIcon } from '@podlove/components';
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: { Icon },
-  props: {
-    tab: {
-      type: String,
-      default: null
-    }
-  },
-  setup(props) {
-    return {
-      state: mapState({
-        font: select.theme.fontCi,
-        title: select.accessibility.closeTab(props.tab)
-      })
-    }
-  },
-  methods: {
-    close() {
-      this.$emit('close')
-    }
+const { t } = useI18n();
+
+const emits = defineEmits(['close']);
+
+const props = defineProps({
+  tab: {
+    type: String,
+    default: null
   }
-}
+});
+
+const state = mapState({
+  font: select.theme.fontCi,
+  title: select.accessibility.closeTab(props.tab)
+});
+
+const close = () => {
+  emits('close');
+};
 </script>

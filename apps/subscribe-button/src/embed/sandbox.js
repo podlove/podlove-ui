@@ -1,35 +1,22 @@
-/* global BASE, STYLES, SCRIPTS, MODE, VERSION */
 import { propOr } from 'ramda'
 import { sandbox } from '@podlove/utils/sandbox'
-import { iframeResizer } from 'iframe-resizer'
+import { setStyles } from '@podlove/utils/dom'
 
-// eslint-disable-next-line
-import iframeResizerContentWindow from 'raw-loader!iframe-resizer/js/iframeResizer.contentWindow.min.js'
-import embedButtonDom from './embed.mustache'
+import embedButtonDom from './embed'
 
 export default async (config, entry) => {
-  const reference = MODE === 'cdn' ? BASE : propOr(BASE, 'base', config)
+  const reference =
+    import.meta.env.MODE === 'cdn'
+      ? import.meta.env.BASE
+      : propOr(import.meta.env.BASE, 'base', config)
 
   const buttonDom = embedButtonDom({
-    version: VERSION,
-    base: reference,
-    styles: STYLES,
-    scripts: SCRIPTS,
-    resizer: iframeResizerContentWindow
+    version: import.meta.env.VERSION,
+    base: reference
   })
 
-  const subscribeButton = await sandbox(entry, buttonDom, { fullWidth: false })
-
-  iframeResizer(
-    {
-      checkOrigin: false,
-      log: false,
-      sizeWidth: true,
-      sizeHeight: true,
-      maxHeight: window.innerHeight - 20
-    },
-    subscribeButton
-  )
+  const subscribeButton = await sandbox(entry, buttonDom, { fullWidth: true })
+  setStyles({ width: '100%', height: '100%' }, subscribeButton)
 
   return subscribeButton
 }

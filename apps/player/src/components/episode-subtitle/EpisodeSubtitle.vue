@@ -1,38 +1,29 @@
 <template>
-  <div class="episode-subtitle block overflow-hidden" :style="style" data-test="episode-subtitle">
+  <div class="podlove-player--episode-subtitle block overflow-hidden" :style="style" data-test="episode-subtitle">
     {{ state.subtitle }}
   </div>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState } from 'redux-vuex';
+import select from '../../store/selectors/index.js';
 
-export default {
-  setup() {
-    return {
-      state: mapState({
-        font: select.theme.fontRegular,
-        color: select.theme.contrast,
-        subtitle: select.episode.subtitle
-      })
-    }
-  },
-  computed: {
-    style() {
-      return {
-        color: this.state.color,
-        ...this.state.font
-      }
-    }
-  }
-}
+const state = mapState({
+  font: select.theme.fontRegular,
+  subtitle: select.episode.subtitle
+});
+
+const style = computed(() => ({
+  ...state.font
+}));
 </script>
 
 <style lang="postcss" scoped>
-.episode-subtitle {
+.podlove-player--episode-subtitle {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  color: var(--podlove-player--episode-subtitle--color);
 }
 </style>

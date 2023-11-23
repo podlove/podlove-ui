@@ -1,25 +1,28 @@
 <template>
-  <div data-test="poster">
-    <lazy-image :url="state.posterSrc" :color="state.coverColor" alt="" @error="errorPosterLoad" />
+  <div class="podlove-player--poster" data-test="poster">
+    <lazy-image
+      :url="state.posterSrc"
+      alt=""
+      @error="actions.errorPosterLoad"
+    />
   </div>
 </template>
 
-<script>
-import { mapState, mapActions } from 'redux-vuex'
-import Image from '@podlove/components/image'
+<script lang="ts" setup>
+import { mapState, mapActions } from 'redux-vuex';
+import { Image as LazyImage } from '@podlove/components';
 
-import select from 'store/selectors'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: { LazyImage: Image },
-  setup() {
-    return {
-      state: mapState({
-        posterSrc: select.header.posterSrc,
-        coverColor: select.theme.brandLightest
-      }),
-      ...mapActions('errorPosterLoad')
-    }
-  }
-}
+const state = mapState({
+  posterSrc: select.header.posterSrc,
+});
+
+const actions = mapActions('errorPosterLoad');
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--poster {
+  --podlove-component--image--background: var(--podlove-player--poster--background);
+}
+</style>

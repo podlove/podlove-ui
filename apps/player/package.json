@@ -3,48 +3,67 @@
   "version": "5.12.0",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --progress --config .build/webpack.config.dev.js",
-    "build:dev": "webpack --config .build/webpack.config.dev.js",
-    "clean": "rm -rf dist publish",
-    "build": "npm run clean && webpack --config .build/webpack.config.prod.js",
-    "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish",
-    "integration:build": "npm run clean && webpack --config .build/webpack.config.dev.js",
-    "integration:server": "http-server -p 9000 dist/ > http.log 2>&1 &",
-    "integration:ci": "cypress run --browser chrome",
-    "integration:dev": "cypress open --browser chrome"
+    "serve": "vite serve --port 9000",
+    "build": "vite build",
+    "integration:setup": "cypress install --force",
+    "integration:dev": "cypress open --browser chrome",
+    "integration": "cypress run --browser chrome",
+    "lint": "eslint src/**/*.{vue,ts} cypress/**/*.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/button-actions": "^5.12.0",
-    "@podlove/components": "^5.12.0",
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/player-config": "^5.12.0",
-    "@podlove/player-sagas": "^5.12.0",
-    "@podlove/player-state": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "color": "3.1.2",
-    "copy-to-clipboard": "3.2.0",
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/components": "workspace:*",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/player-config": "workspace:*",
+    "@podlove/player-sagas": "workspace:*",
+    "@podlove/player-state": "workspace:*",
+    "@podlove/types": "workspace:*",
+    "@podlove/utils": "workspace:*",
     "core-js": "3.15.2",
     "date-fns": "2.16.1",
-    "normalize-scss": "7.0.1",
-    "ramda": "0.27.1",
-    "redux": "4.0.4",
-    "redux-vuex": "3.0.0-beta.4",
-    "regenerator-runtime": "0.13.3",
-    "v-tooltip": "4.0.0-alpha.1",
-    "vue": "3.2.11",
-    "vue-i18n": "9.1.7"
+    "farbraum": "0.1.4",
+    "ramda": "0.29.0",
+    "redux": "4.2.0",
+    "redux-vuex": "3.0.0",
+    "reselect": "4.1.8",
+    "tailwindcss": "3.2.4",
+    "vue": "3.2.41",
+    "vue-i18n": "9.2.2"
   },
   "devDependencies": {
-    "@podlove/build": "^5.12.0",
-    "cypress": "8.5.0",
-    "http-server": "0.11.1",
-    "webpack": "5.45.1",
-    "webpack-dev-server": "3.11.2"
+    "@types/node": "20.8.4",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
+    "@vitejs/plugin-vue": "3.2.0",
+    "cypress": "13.5.1",
+    "cypress-vite": "1.4.2",
+    "eslint": "8.53.0",
+    "eslint-plugin-vue": "9.18.1",
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "sass": "1.69.5"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/main.ts",
+      "types": "./src/main.ts"
+    },
+    "./styles": {
+      "import": "./src/styles.css",
+      "types": "./src/styles.css"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/player.mjs",
+        "types": "./dist/player.d.ts"
+      }
+    }
   }
 }

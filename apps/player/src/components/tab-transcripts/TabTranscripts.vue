@@ -1,8 +1,8 @@
 <template>
-  <div data-test="tab-transcripts">
+  <div data-test="tab-transcripts" class="podlove-player--tab-transcripts">
     <div class="header mobile:p-4 tablet:p-6">
       <tab-title tab="transcripts" @close="closeTab">
-        {{ $t('TRANSCRIPTS.TITLE') }}
+        {{ t('TRANSCRIPTS.TITLE') }}
       </tab-title>
       <search class="mb-6" />
     </div>
@@ -11,56 +11,49 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { onMounted, onUnmounted, ref } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
+import select from '../../store/selectors/index.js';
 
-import TabTitle from '../tab-title'
+import TabTitle from '../tab-title/TabTitle.vue';
 
-import Search from './components/Search'
-import RenderContainer from './components/Render'
-import PrerenderContainer from './components/Prerender'
+import Search from './components/Search.vue';
+import RenderContainer from './components/Render.vue';
+import PrerenderContainer from './components/Prerender.vue';
 
-export default {
-  components: {
-    TabTitle,
-    Search,
-    RenderContainer,
-    PrerenderContainer
-  },
-  setup() {
-    return {
-      state: mapState({
-        timeline: select.transcripts.timeline
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  data() {
-    return {
-      prerender: []
-    }
-  },
-  mounted() {
-    this.render()
-    window.addEventListener('resize', this.render.bind(this))
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.render.bind(this))
-  },
-  methods: {
-    loadPrerender(prerender) {
-      this.prerender = prerender
-    },
-    render() {
-      this.prerender = []
-    },
-    closeTab() {
-      this.dispatch(toggleTab('transcripts'))
-    }
-  }
-}
+const { t } = useI18n();
+
+const state = mapState({
+  timeline: select.transcripts.timeline
+});
+
+const dispatch = injectStore().dispatch;
+
+const prerender = ref([]);
+
+onMounted(() => {
+  render();
+  window.addEventListener('resize', render.bind(this));
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', render.bind(this));
+});
+
+const loadPrerender = (data) => {
+  prerender.value = data;
+};
+
+const render = () => {
+  prerender.value = [];
+};
+
+const closeTab = () => {
+  dispatch(toggleTab('transcripts'));
+};
 </script>
 
 <style lang="postcss" scoped>

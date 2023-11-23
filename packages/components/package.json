@@ -4,37 +4,56 @@
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
-    "dev": "start-storybook -p 6006",
-    "clean": "rm -rf dist publish",
-    "build": "npm run clean && webpack --config .build/webpack.config.js",
-    "postpublish": "npm run clean",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "build": "vite build",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.{vue,ts}"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/components/main.ts",
+      "types": "./src/components/main.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/podlove-ui-components.mjs",
+        "types": "./dist/podlove-ui-components.d.ts"
+      }
+    }
+  },
   "dependencies": {
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "normalize.css": "8.0.1",
-    "rangetouch": "2.0.0",
-    "v-tooltip": "4.0.0-alpha.1",
-    "vue": "3.2.11",
-    "vue-mutation-observer": "0.1.2"
+    "@floating-ui/dom": "1.2.7",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "floating-vue": "2.0.0-beta.20",
+    "ramda": "0.29.0",
+    "rangetouch": "2.0.1",
+    "tailwindcss": "3.2.4",
+    "vue": "3.2.41"
+  },
+  "peerDependencies": {
+    "vue": "3"
   },
   "devDependencies": {
-    "@babel/core": "7.14.6",
-    "@podlove/build": "^5.12.0",
-    "@storybook/addon-actions": "^6.4.0-alpha.25",
-    "@storybook/addon-essentials": "^6.4.0-alpha.25",
-    "@storybook/addon-links": "^6.4.0-alpha.25",
-    "@storybook/builder-webpack5": "^6.4.0-alpha.25",
-    "@storybook/manager-webpack5": "^6.4.0-alpha.25",
-    "@storybook/vue3": "^6.4.0-alpha.25",
-    "babel-loader": "8.2.2",
-    "terser": "5.6.1",
-    "vue-loader": "16.5.0",
-    "webpack": "5.45.1",
-    "webpack-dev-server": "3.11.2"
+    "@podlove/types": "workspace:*",
+    "@types/ramda": "0.29.1",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "@vitejs/plugin-vue": "4.2.1",
+    "@vue/test-utils": "2.3.2",
+    "eslint": "8.54.0",
+    "eslint-plugin-vue": "9.18.1",
+    "happy-dom": "9.1.9",
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-css-injected-by-js": "3.1.0",
+    "vite-plugin-dts": "2.3.0",
+    "vitest": "0.30.0"
   }
 }

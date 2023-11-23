@@ -1,20 +1,115 @@
+<script setup lang="ts">
+import { disableGhost, enableGhost } from '@podlove/player-actions/progress';
+import { setChapter } from '@podlove/player-actions/chapters';
+import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
+import { requestPlay } from '@podlove/player-actions/play';
+import type {
+  PodloveWebPlayerChapter
+} from '@podlove/types';
+
+import LinkIcon from '../icons/Link.vue';
+import Timer from '../timer/Timer.vue';
+import { computed, ref } from 'vue';
+
+const props = defineProps<{
+  chapter: PodloveWebPlayerChapter & { linkTitle?: string },
+  showLink?: boolean,
+  playtime?: number,
+  ghost?: number,
+}>();
+
+const emit = defineEmits(['chapter', 'play', 'playtime', 'ghost', 'simulate', 'hover']);
+
+const progressContainer = ref<HTMLElement>();
+
+// computed
+const progress = (time: number) =>
+  `${((time - props.chapter.start) * 100) / (props.chapter.end - props.chapter.start)}%`;
+
+const progressActive = computed(() => props.chapter.active && props.playtime < props.chapter.end);
+const ghostActive = computed(
+  () => props.ghost && props.ghost > props.chapter.start && props.ghost < props.chapter.end
+);
+
+const progressWidth = computed(() => progress(props.playtime))
+const ghostWidth = computed(() => progress(props.ghost))
+
+const remainingTime = computed(() => {
+  if (props.chapter.active) {
+    return props.chapter.end - props.playtime;
+  }
+
+  if (ghostActive.value) {
+    return props.chapter.end - props.ghost;
+  }
+
+  return props.chapter.end - props.chapter.start;
+});
+
+const hasLink = computed(() => props.chapter.href && props.showLink);
+
+// methods
+const hoverPlaytime = (event: MouseEvent): number | null => {
+  if (!progressContainer.value) {
+    return null;
+  }
+  const clientRect = progressContainer.value?.getBoundingClientRect();
+  return (
+    props.chapter.start +
+    ((props.chapter.end - props.chapter.start) * (event.clientX - clientRect.left)) /
+      clientRect.width
+  );
+};
+
+const progressClick = () => {
+  emit('chapter', setChapter(props.chapter.index - 1));
+  emit('play', requestPlay());
+  return false;
+};
+
+const contextProgressClick = (event: MouseEvent) => {
+  emit('playtime', requestPlaytime(hoverPlaytime(event)));
+  emit('play', requestPlay());
+  event.preventDefault();
+  return false;
+};
+
+const progressOut = () => {
+  emit('ghost', disableGhost());
+};
+
+const progressMove = (event: MouseEvent) => {
+  emit('ghost', enableGhost());
+
+  emit('simulate', simulatePlaytime(hoverPlaytime(event)));
+};
+
+const linkOver = () => {
+  emit('hover', true);
+};
+
+const linkLeave = () => {
+  emit('hover', false);
+};
+</script>
+
 <template>
   <div
+    class="podlove-component-chapter-progress relative flex items-center px-2 py-0"
     ref="progressContainer"
-    class="relative flex items-center px-2 py-0"
     aria-hidden="true"
     @mouseout="progressOut"
     @mousemove.alt="progressMove"
     @click.exact="progressClick"
     @click.alt="contextProgressClick"
   >
-    <span class="title pointer-events-none" aria-hidden="true">
+    <span class="pointer-events-none w-[calc(100%-4.4em)]" aria-hidden="true">
       {{ chapter.title }}
     </span>
-    <span v-if="hasLink" class="link flex">
-      <icon class="icon flex-shrink-0" type="link" />
+    <span v-if="hasLink" class="flex max-w-[40%]">
+      <link-icon class="flex-shrink-0 -mt-[2px]" />
       <a
-        class="font-medium whitespace-no-wrap"
+        class="font-medium whitespace-nowrap"
         :href="chapter.href"
         target="_blank"
         @mouseover="linkOver"
@@ -24,179 +119,41 @@
       </a>
     </span>
     <timer
-      class="timer block text-right pointer-events-none pr-2"
+      class="block text-right pointer-events-none pr-2 min-w-[4.4em]"
       :time="remainingTime"
       :remaining="(chapter.active || !!ghostActive) && playtime > 0"
     />
     <span
-      class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
-      :style="progressStyle"
-      aria-hidden="true"
-    />
-    <span
-      class="chapter-progress-bar absolute left-0 bottom-0 pointer-events-none"
-      :style="progressGhostStyle"
+      class="
+        absolute
+        left-0
+        bottom-0
+        pointer-events-none
+        h-[3px]
+      "
+      :class="{
+        'podlove-component-chapter-progress-bar': progressActive,
+        'podlove-component-chapter-ghost-bar': ghostActive
+      }"
       aria-hidden="true"
     />
   </div>
 </template>
 
-<script>
-import { disableGhost, enableGhost } from '@podlove/player-actions/progress'
-import { setChapter } from '@podlove/player-actions/chapters'
-import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece'
-import { requestPlay } from '@podlove/player-actions/play'
-
-import { background } from 'defaults'
-import color from 'color'
-import Icon from '../icons'
-import Timer from '../timer'
-
-export default {
-  components: {
-    Icon,
-    Timer
-  },
-  props: {
-    chapter: {
-      type: Object,
-      default: () => ({
-        start: 0,
-        end: 0,
-        title: '',
-        href: null,
-        linkTitle: null,
-        active: false
-      })
-    },
-    showLink: {
-      type: Boolean,
-      default: false
-    },
-    playtime: {
-      type: Number,
-      default: 0
-    },
-    ghost: {
-      type: Number,
-      default: 0
-    },
-    progressColor: {
-      type: String,
-      default: background
-    }
-  },
-
-  computed: {
-    progressStyle() {
-      if (!this.chapter.active || this.playtime > this.chapter.end) {
-        return {}
-      }
-
-      return {
-        width: this.progress(this.playtime),
-        'background-color': this.progressColor
-      }
-    },
-
-    ghostActive() {
-      return this.ghost && this.ghost > this.chapter.start && this.ghost < this.chapter.end
-    },
-
-    progressGhostStyle() {
-      if (!this.ghostActive) {
-        return {}
-      }
-
-      return {
-        width: this.progress(this.ghost),
-        'background-color': color(this.progressColor).fade(0.7)
-      }
-    },
-
-    remainingTime() {
-      if (this.chapter.active) {
-        return this.chapter.end - this.playtime
-      }
-
-      if (this.ghostActive) {
-        return this.chapter.end - this.ghost
-      }
-
-      return this.chapter.end - this.chapter.start
-    },
-
-    hasLink() {
-      return this.chapter.href && this.showLink
-    }
-  },
-
-  methods: {
-    hoverPlaytime(event) {
-      const clientRect = this.$refs.progressContainer.getBoundingClientRect()
-      return (
-        this.chapter.start +
-        ((this.chapter.end - this.chapter.start) * (event.clientX - clientRect.left)) /
-          clientRect.width
-      )
-    },
-
-    progress(time) {
-      return `${((time - this.chapter.start) * 100) / (this.chapter.end - this.chapter.start)}%`
-    },
-
-    progressClick() {
-      this.$emit('chapter', setChapter(this.chapter.index - 1))
-      this.$emit('play', requestPlay())
-      return false
-    },
-
-    contextProgressClick(event) {
-      this.$emit('playtime', requestPlaytime(this.hoverPlaytime(event)))
-      this.$emit('play', requestPlay())
-      event.preventDefault()
-      return false
-    },
-
-    progressOut() {
-      this.$emit('ghost', disableGhost())
-    },
-
-    progressMove(event) {
-      this.$emit('ghost', enableGhost())
-
-      this.$emit('simulate', simulatePlaytime(this.hoverPlaytime(event)))
-    },
-
-    linkOver() {
-      this.$emit('hover', true)
-    },
-
-    linkLeave() {
-      this.$emit('hover', false)
-    }
-  }
-}
-</script>
-
-<style lang="scss" scoped>
-.title {
-  width: calc(100% - 4.4em);
+<style lang="postcss" scoped>
+.podlove-component-chapter-progress-bar {
+  background-color: var(
+    --podlove-component--chapter-progress--background,
+    var(--podlove-components-background)
+  );
+  width: v-bind('progressWidth');
 }
 
-.link {
-  max-width: calc(40%);
-}
-
-.icon {
-  margin-top: -2px;
-}
-
-.timer {
-  min-width: 4.4em;
-}
-
-.chapter-progress-bar {
-  height: 3px;
+.podlove-component-chapter-ghost-bar {
+  background-color: var(
+    --podlove-component--chapter-ghost--background,
+    var(--podlove-components-highlight)
+  );
+  width: v-bind('ghostWidth');
 }
 </style>

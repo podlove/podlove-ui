@@ -1,26 +1,16 @@
 <template>
-  <icon :color="color" type="loading" :size="size" aria-hidden="true" />
+  <icon :size="size" aria-hidden="true" />
 </template>
 
-<script>
-import { color } from 'defaults'
-import Icon from '../../icons'
+<script lang="ts" setup>
+import Icon from '../../icons/Loading.vue';
 
-export default {
-  components: {
-    Icon
-  },
-  props: {
-    color: {
-      type: String,
-      default: color
-    },
-    size: {
-      type: Number,
-      default: 25
-    }
+defineProps({
+  size: {
+    type: Number,
+    default: 25
   }
-}
+});
 </script>
 
 <style lang="scss" scoped></style>

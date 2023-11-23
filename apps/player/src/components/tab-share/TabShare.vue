@@ -1,7 +1,7 @@
 <template>
   <div class="mobile:p-4 tablet:p-6" data-test="tab-share">
     <tab-title tab="share" @close="closeTab">
-      {{ $t('SHARE.TITLE') }}
+      {{ t('SHARE.TITLE') }}
     </tab-title>
     <div class="mb-4 block items-center justify-between tablet:flex">
       <channels />
@@ -13,36 +13,28 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
 
-import TabTitle from '../tab-title'
-import Channels from './components/Channels'
-import Playtime from './components/Playtime'
-import EmbedCode from './components/Embed'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    TabTitle,
-    Channels,
-    Playtime,
-    EmbedCode
-  },
-  setup() {
-    return {
-      state: mapState({
-        hasEmbedLink: select.share.hasEmbedLink,
-        sharePlaytime: select.components.sharePlaytime
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-  methods: {
-    closeTab() {
-      this.dispatch(toggleTab('share'))
-    }
-  }
-}
+import TabTitle from '../tab-title/TabTitle.vue';
+import Channels from './components/Channels.vue';
+import Playtime from './components/Playtime.vue';
+import EmbedCode from './components/Embed.vue';
+
+const { t } = useI18n();
+
+const state = mapState({
+  hasEmbedLink: select.share.hasEmbedLink,
+  sharePlaytime: select.components.sharePlaytime
+});
+
+const dispatch = injectStore().dispatch;
+
+const closeTab = () => {
+  dispatch(toggleTab('share'));
+};
 </script>

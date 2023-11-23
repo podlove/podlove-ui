@@ -1,0 +1,9 @@
+{
+  "include": ["./src"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "Nodenext",
+    "module": "Nodenext",
+    "preserveSymlinks": true
+  }
+}

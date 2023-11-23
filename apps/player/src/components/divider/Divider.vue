@@ -1,20 +1,14 @@
 <template>
-  <divider :color="state.color" data-test="divider" />
+  <divider data-test="divider" class="podlove-player--divider"/>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import Divider from '@podlove/components/divider'
-import select from 'store/selectors'
-
-export default {
-  components: { Divider },
-  setup() {
-    return {
-      state: mapState({
-        color: select.theme.shadeBase
-      })
-    }
-  }
-}
+<script setup lang="ts">
+import { Divider } from '@podlove/components';
 </script>
+
+
+<style lang="postcss" scoped>
+.podlove-player--divider {
+  --podlove-component--divider--color: var(--podlove-player--divider--color);
+}
+</style>

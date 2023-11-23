@@ -1,8 +1,15 @@
+<script setup lang="ts">
+const props = defineProps<{
+  href?: string;
+  disabled?: boolean;
+}>();
+</script>
+
 <template>
   <component
     :is="href ? 'a' : 'button'"
     class="
-      button
+      podlove-component-button
       flex
       justify-center
       h-8
@@ -20,9 +27,8 @@
       uppercase
       text-center
     "
-    :class="{ 'opacity-50': disabled, 'opacity-100': !disabled }"
-    :href="href"
-    :style="style"
+    :class="{ 'opacity-50': props.disabled, 'opacity-100': !props.disabled }"
+    :href="props.href"
   >
     <span class="truncate w-full h-full flex items-center justify-center">
       <slot />
@@ -30,50 +36,15 @@
   </component>
 </template>
 
-<script>
-import { color, background } from 'defaults'
-
-export default {
-  props: {
-    textColor: {
-      type: String,
-      default: background
-    },
-    backgroundColor: {
-      type: String,
-      default: color
-    },
-    borderColor: {
-      type: String,
-      default: background
-    },
-    href: {
-      type: String,
-      default: null
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  },
-
-  computed: {
-    style() {
-      return {
-        color: this.textColor,
-        background: this.backgroundColor,
-        'border-color': this.borderColor
-      }
-    }
-  }
-}
-</script>
-
-<style lang="scss" scoped>
-.button {
+<style lang="postcss" scoped>
+.podlove-component-button {
   font-variant: small-caps;
-  svg {
-    display: inline;
-  }
+  color: var(--podlove-component--button--text, var(--podlove-components-background));
+  background: var(--podlove-component--button--background, var(--podlove-components-text));
+  border-color: var(--podlove-component--button--border, var(--podlove-components-background));
+}
+
+.podlove-component-button svg {
+  display: inline;
 }
 </style>

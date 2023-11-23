@@ -1,43 +1,21 @@
-<template>
-  <time class="tabular-nums" :style="timerStyle" :datetime="toHumanTime(time)">{{
-    `${remaining ? '-' : ''}${toHumanTime(time)}`
-  }}</time>
-</template>
+<script setup lang="ts">
+import { computed } from 'vue';
+import { toHumanTime } from '@podlove/utils/time';
 
-<script>
-import { toHumanTime } from '@podlove/utils/time'
-
-export default {
-  props: {
-    color: {
-      type: String,
-      default: undefined
-    },
-    time: {
-      type: Number,
-      default: 0
-    },
-    remaining: {
-      type: Boolean,
-      default: false
-    }
+const props = defineProps({
+  time: {
+    type: Number,
+    default: 0
   },
-
-  computed: {
-    timerStyle() {
-      if (!this.color) {
-        return {}
-      }
-
-      return {
-        color: this.color
-      }
-    }
-  },
-  methods: {
-    toHumanTime
+  remaining: {
+    type: Boolean,
+    default: false
   }
-}
+});
+
+const time = computed(() => toHumanTime(props.time));
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+  <time :datetime="time">{{ `${remaining ? '-' : ''}${time}` }}</time>
+</template>

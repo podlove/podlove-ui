@@ -1,36 +1,35 @@
 <template>
   <chapter-button
     v-if="state.chapterButtons"
+    class="podlove-player--chapter-previous"
     data-test="chapter-previous"
     type="previous"
     :disabled="state.previousChapterDisabled"
-    :color="state.color"
-    :title="$t(state.title.key, state.title.attr)"
+    :title="t(state.title.key, state.title.attr)"
     @previous="dispatch"
   />
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { mapState, injectStore } from 'redux-vuex';
+import { ChapterButton } from '@podlove/components';
 
-import select from 'store/selectors'
+import select from '../../store/selectors/index.js';
 
-import ChapterButton from '@podlove/components/chapter-button'
+const { t } = useI18n();
 
-export default {
-  components: {
-    ChapterButton
-  },
-  setup() {
-    return {
-      state: mapState({
-        previousChapterDisabled: select.components.previousChapterDisabled,
-        chapterButtons: select.components.chapterButtons,
-        color: select.theme.brandDark,
-        title: select.accessibility.chapterPrevious
-      }),
-      dispatch: injectStore().dispatch
-    }
-  }
-}
+const state = mapState({
+  previousChapterDisabled: select.components.previousChapterDisabled,
+  chapterButtons: select.components.chapterButtons,
+  title: select.accessibility.chapterPrevious
+});
+
+const dispatch = injectStore().dispatch;
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--chapter-previous {
+  --podlove-component--chapter-button--color: var(--podlove-player--chapter-previous--color);
+}
+</style>

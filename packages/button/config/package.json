@@ -5,12 +5,25 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/config",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build --config ./vite.config.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "ramda": "0.27.1"
+    "ramda": "0.29.0"
+  },
+  "devDependencies": {
+    "@types/ramda": "0.29.1",
+    "@podlove/types": "workspace:*",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "2.3.0",
+    "typescript": "5.0.4"
+  },
+  "exports": "./src/index.ts",
+  "types": "./src/index.ts",
+  "publishConfig": {
+    "exports": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
   }
 }

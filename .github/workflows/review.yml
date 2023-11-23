@@ -1,0 +1,300 @@
+name: Review
+on: [pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    outputs:
+      pnpm_store_path: ${{ steps.pnpm.outputs.pnpm_store_path }}
+      pnpm_hash_key: ${{ steps.pnpm.outputs.pnpm_hash_key }}
+      pnpm_restore_key: ${{ steps.pnpm.outputs.pnpm_restore_key }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - name: pnpm env
+        id: pnpm
+        shell: bash
+        run: |
+          echo "pnpm_store_path=$(devbox run pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+          echo "pnpm_hash_key=${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}" >> "$GITHUB_OUTPUT"
+          echo "pnpm_restore_key=${{ runner.os }}-pnpm-store-" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ steps.pnpm.outputs.pnpm_store_path }}
+          key: ${{ steps.pnpm.outputs.pnpm_hash_key }}
+          restore-keys: ${{ steps.pnpm.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --frozen-lockfile
+
+  apps_player:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      uses: jetpack-io/devbox-install-action@v0.7.0
+      with:
+        enable-cache: true
+    - uses: actions/cache@v3
+      name: setup pnpm cache
+      with:
+        path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+        key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+        restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+    - name: install
+      run: devbox run pnpm install --offline
+    - name: lint
+      run: devbox run pnpm run lint --scope @podlove/player
+    - name: build
+      run: devbox run pnpm run build --scope @podlove/player
+    - name: setup integration
+      run: devbox run pnpm lerna run integration:setup --scope @podlove/player
+    - name: run server
+      run: devbox run pnpm run serve --scope @podlove/player &
+    - name: integration
+      run: devbox run pnpm lerna run integration --scope @podlove/player
+
+  apps_web-player:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      uses: jetpack-io/devbox-install-action@v0.7.0
+      with:
+        enable-cache: true
+    - uses: actions/cache@v3
+      name: setup pnpm cache
+      with:
+        path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+        key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+        restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+    - name: install
+      run: devbox run pnpm install --offline
+    - name: lint
+      run: devbox run pnpm run lint --scope @podlove/web-player
+    - name: build
+      run: devbox run pnpm run build --scope @podlove/web-player
+    - name: setup integration
+      run: devbox run pnpm lerna run integration:setup --scope @podlove/web-player
+    - name: run server
+      run: devbox run pnpm run serve --scope @podlove/web-player &
+    - name: integration
+      run: devbox run pnpm lerna run integration --scope @podlove/web-player
+
+  apps_subscribe-button:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/subscribe-button
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/subscribe-button
+
+  packages_components:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      uses: jetpack-io/devbox-install-action@v0.7.0
+      with:
+        enable-cache: true
+    - uses: actions/cache@v3
+      name: setup pnpm cache
+      with:
+        path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+        key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+        restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+    - name: install
+      run: devbox run pnpm install --offline
+    - name: lint
+      run: devbox run pnpm run lint --scope @podlove/components
+    - name: test
+      run: devbox run pnpm run test --scope @podlove/components
+    - name: build
+      run: devbox run pnpm run build --scope @podlove/components
+
+  packages_player-actions:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      uses: jetpack-io/devbox-install-action@v0.7.0
+      with:
+        enable-cache: true
+    - uses: actions/cache@v3
+      name: setup pnpm cache
+      with:
+        path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+        key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+        restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+    - name: install
+      run: devbox run pnpm install --offline
+    - name: lint
+      run: devbox run pnpm run lint --scope @podlove/player-actions
+    - name: build
+      run: devbox run pnpm run build --scope @podlove/player-actions
+
+  packages_player-sagas:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      uses: jetpack-io/devbox-install-action@v0.7.0
+      with:
+        enable-cache: true
+    - uses: actions/cache@v3
+      name: setup pnpm cache
+      with:
+        path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+        key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+        restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+    - name: install
+      run: devbox run pnpm install --offline
+    - name: lint
+      run: devbox run pnpm run lint --scope @podlove/player-sagas
+    - name: test
+      run: devbox run pnpm run test --scope @podlove/player-sagas
+    - name: build
+      run: devbox run pnpm run build --scope @podlove/player-sagas
+
+  packages_player-state:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+    - uses: actions/checkout@v3
+    - name: install
+      uses: jetpack-io/devbox-install-action@v0.7.0
+      with:
+        enable-cache: true
+    - uses: actions/cache@v3
+      name: setup pnpm cache
+      with:
+        path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+        key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+        restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+    - name: install
+      run: devbox run pnpm install --offline
+    - name: lint
+      run: devbox run pnpm run lint --scope @podlove/player-state
+    - name: test
+      run: devbox run pnpm run test --scope @podlove/player-state
+    - name: build
+      run: devbox run pnpm run build --scope @podlove/player-state
+
+  packages_player-config:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/player-config
+      - name: test
+        run: devbox run pnpm run test --scope @podlove/player-config
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/player-config
+
+  packages_utils:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/player-config
+      - name: test
+        run: devbox run pnpm run test --scope @podlove/player-config
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/player-config
+
+  packages_clients:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/clients
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/clients
+
+  packages_button-actions:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/button-actions
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/button-actions
+

@@ -5,39 +5,50 @@
   "homepage": "https://github.com/podlove/ui/tree/development/apps/web-player",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run clean && npm run build:dependencies && webpack serve --progress --config .build/webpack.config.dev.js",
-    "clean": "rm -rf dist publish",
-    "build:dependencies": "lerna run build --scope '@podlove/{subscribe-button,player}' --stream",
-    "build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.prod.js",
-    "build:cdn": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.cdn.js",
-    "build:dev": "npm run clean && webpack --config .build/webpack.config.dev.js",
-    "integration:build": "npm run clean && npm run build:dependencies && webpack --config .build/webpack.config.dev.js",
-    "integration:server": "http-server -p 9000 dist/ > http.log 2>&1 &",
-    "integration:ci": "cypress run --browser chrome",
+    "integration": "cypress run --browser chrome",
+    "integration:setup": "cypress install --force",
     "integration:dev": "cypress open --browser chrome",
-    "publish:prepare": "npm run clean && npm run build && podlove-prepublish"
+    "build": "vite build",
+    "serve": "vite serve",
+    "lint": "eslint src/**/*.ts cypress/**/*.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "@podlove/button-actions": "^5.12.0",
-    "@podlove/player": "^5.12.0",
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/player-config": "^5.12.0",
-    "@podlove/player-state": "^5.12.0",
-    "@podlove/subscribe-button": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "color": "3.1.2",
+    "@podlove/button-actions": "workspace:*",
+    "@podlove/player": "workspace:*",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/player-config": "workspace:*",
+    "@podlove/player-state": "workspace:*",
+    "@podlove/subscribe-button": "workspace:*",
+    "@podlove/types": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "color": "4.2.3",
     "hashcode": "1.0.3",
-    "iframe-resizer": "4.3.2",
-    "ramda": "0.27.1"
+    "ramda": "0.29.0",
+    "vue": "3.2.41",
+    "debounce": "2.0.0"
   },
   "devDependencies": {
-    "@podlove/build": "^5.12.0",
-    "cypress": "8.5.0",
+    "@types/node": "20.8.2",
+    "@types/ramda": "0.29.3",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "@vitejs/plugin-vue": "4.2.3",
+    "cypress-vite": "1.4.2",
+    "cypress": "13.5.1",
+    "eslint": "8.53.0",
     "http-server": "0.11.1",
-    "webpack": "5.45.1",
-    "webpack-dev-server": "3.11.2"
+    "redux": "4.2.1",
+    "typescript": "5.0.4",
+    "vite": "4.3.9"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/main.ts",
+      "types": "./src/main.ts"
+    }
   }
 }

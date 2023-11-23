@@ -6,16 +6,153 @@
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "exports": {
+    "./chapters": {
+      "import": "./src/chapters.ts",
+      "types": "./src/chapters.ts"
+    },
+    "./components": {
+      "import": "./src/components.ts",
+      "types": "./src/components.ts"
+    },
+    "./error": {
+      "import": "./src/error.ts",
+      "types": "./src/error.ts"
+    },
+    "./keyboard": {
+      "import": "./src/keyboard.ts",
+      "types": "./src/keyboard.ts"
+    },
+    "./media-session": {
+      "import": "./src/media-session.ts",
+      "types": "./src/media-session.ts"
+    },
+    "./lifecycle": {
+      "import": "./src/lifecycle.ts",
+      "types": "./src/lifecycle.ts"
+    },
+    "./middleware": {
+      "import": "./src/middleware.ts",
+      "types": "./src/middleware.ts"
+    },
+    "./player": {
+      "import": "./src/player.ts",
+      "types": "./src/player.ts"
+    },
+    "./playlist": {
+      "import": "./src/playlist.ts",
+      "types": "./src/playlist.ts"
+    },
+    "./quantiles": {
+      "import": "./src/quantiles.ts",
+      "types": "./src/quantiles.ts"
+    },
+    "./runtime": {
+      "import": "./src/runtime.ts",
+      "types": "./src/runtime.ts"
+    },
+    "./stepper": {
+      "import": "./src/stepper.ts",
+      "types": "./src/stepper.ts"
+    },
+    "./transcripts": {
+      "import": "./src/transcripts.ts",
+      "types": "./src/transcripts.ts"
+    },
+    "./version": {
+      "import": "./src/version.ts",
+      "types": "./src/version.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./chapters": {
+        "import": "./dist/chapters.mjs",
+        "types": "./dist/chapters.d.ts"
+      },
+      "./components": {
+        "import": "./dist/components.mjs",
+        "types": "./dist/components.d.ts"
+      },
+      "./error": {
+        "import": "./dist/error.mjs",
+        "types": "./dist/error.d.ts"
+      },
+      "./keyboard": {
+        "import": "./dist/keyboard.mjs",
+        "types": "./dist/keyboard.d.ts"
+      },
+      "./media-session": {
+        "import": "./dist/media-session.mjs",
+        "types": "./dist/media-session.d.ts"
+      },
+      "./lifecycle": {
+        "import": "./dist/lifecycle.mjs",
+        "types": "./dist/lifecycle.d.ts"
+      },
+      "./middleware": {
+        "import": "./dist/middleware.mjs",
+        "types": "./dist/middleware.d.ts"
+      },
+      "./player": {
+        "import": "./dist/player.mjs",
+        "types": "./dist/player.d.ts"
+      },
+      "./playlist": {
+        "import": "./dist/playlist.mjs",
+        "types": "./dist/playlist.d.ts"
+      },
+      "./quantiles": {
+        "import": "./dist/quantiles.mjs",
+        "types": "./dist/quantiles.d.ts"
+      },
+      "./runtime": {
+        "import": "./dist/runtime.mjs",
+        "types": "./dist/runtime.d.ts"
+      },
+      "./stepper": {
+        "import": "./dist/stepper.mjs",
+        "types": "./dist/stepper.d.ts"
+      },
+      "./transcripts": {
+        "import": "./dist/transcripts.mjs",
+        "types": "./dist/transcripts.d.ts"
+      },
+      "./version": {
+        "import": "./dist/version.mjs",
+        "types": "./dist/version.d.ts"
+      }
+    }
+  },
   "dependencies": {
-    "@podlove/components": "^5.12.0",
-    "@podlove/html5-audio-driver": "1.5.0",
-    "@podlove/player-actions": "^5.12.0",
-    "@podlove/player-config": "^5.12.0",
-    "@podlove/utils": "^5.12.0",
-    "detect-browser": "5.1.1",
-    "redux-saga": "1.1.3"
+    "@podlove/components": "workspace:*",
+    "@podlove/html5-audio-driver": "2.0.2",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/player-config": "workspace:*",
+    "@podlove/types": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "detect-browser": "5.3.0",
+    "ramda": "0.29.0",
+    "redux-actions": "3.0.0",
+    "redux-saga": "1.2.3"
   },
   "devDependencies": {
-    "@podlove/build": "^5.12.0"
+    "@types/ramda": "0.29.1",
+    "@types/redux-actions": "2.6.2",
+    "@typescript-eslint/eslint-plugin": "6.11.0",
+    "@typescript-eslint/parser": "6.11.0",
+    "eslint": "8.54.0",
+    "happy-dom": "9.1.9",
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3",
+    "vitest": "0.30.1"
   }
 }

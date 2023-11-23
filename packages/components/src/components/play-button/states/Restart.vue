@@ -1,29 +1,19 @@
 <template>
   <span class="flex justify-center items-center" aria-hidden="true">
-    <icon type="restart" :color="color" :size="size" />
+    <icon :size="size" />
     <slot />
   </span>
 </template>
 
-<script>
-import Icon from '../../icons'
-import { color } from 'defaults'
+<script lang="ts" setup>
+import Icon from '../../icons/Restart.vue';
 
-export default {
-  components: {
-    Icon
-  },
-  props: {
-    color: {
-      type: String,
-      default: color
-    },
-    size: {
-      type: Number,
-      default: 25
-    }
+defineProps({
+  size: {
+    type: Number,
+    default: 25
   }
-}
+});
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mobile:p-4 tablet:p-6" data-test="tab-shownotes">
     <tab-title tab="shownotes" @close="closeTab">
-      {{ $t('SHOWNOTES.TITLE') }}
+      {{ t('SHOWNOTES.TITLE') }}
     </tab-title>
 
     <h4 class="text-sm font-bold">
@@ -37,37 +37,28 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { toggleTab } from '@podlove/player-actions/tabs'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { mapState, injectStore } from 'redux-vuex';
+import { toggleTab } from '@podlove/player-actions/tabs';
+import select from '../../store/selectors/index.js';
 
-import TabTitle from '../tab-title'
-import Divider from '../divider'
+import TabTitle from '../tab-title/TabTitle.vue';
+import Divider from '../divider/Divider.vue';
 
-export default {
-  components: {
-    TabTitle,
-    Divider
-  },
+const { t } = useI18n()
 
-  setup() {
-    return {
-      state: mapState({
-        showTitle: select.show.title,
-        episodeTitle: select.episode.title,
-        subtitle: select.episode.subtitle,
-        summary: select.episode.summary,
-        groups: select.contributors.groups
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
+const state = mapState({
+  showTitle: select.show.title,
+  episodeTitle: select.episode.title,
+  subtitle: select.episode.subtitle,
+  summary: select.episode.summary,
+  groups: select.contributors.groups
+});
 
-  methods: {
-    closeTab() {
-      this.dispatch(toggleTab('shownotes'))
-    }
-  }
-}
+const dispatch = injectStore().dispatch;
+
+const closeTab = () => {
+  dispatch(toggleTab('shownotes'));
+};
 </script>

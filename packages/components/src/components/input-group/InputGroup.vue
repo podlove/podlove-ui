@@ -1,31 +1,29 @@
+<script lang="ts" setup>
+import { ref, onMounted } from 'vue';
+
+const elements = ref(0);
+const container = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+  if (!container.value) {
+    return;
+  }
+
+  elements.value = container.value.children.length;
+})
+</script>
+
 <template>
-  <div class="input-group h-8 box-border" :class="{ [`elements-${elements}`]: true }">
+  <div class="podlove-component-input-group h-8 box-border flex" :class="{ [`elements-${elements}`]: true }" ref="container">
     <slot name="button" />
     <slot name="input" />
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      elements: 0
-    }
-  },
-
-  mounted() {
-    this.elements = this.$el.children.length
-  }
-}
-</script>
-
 <style lang="scss">
 $addon-button-width: 80px;
 
-.input-group {
-  box-sizing: border-box;
-  display: flex;
-
+.podlove-component-input-group {
   .input-text,
   .input-select {
     padding: 0.25rem;

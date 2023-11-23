@@ -1,0 +1,9 @@
+{
+  "include": ["./src"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "lib": ["DOM", "ESNext"]
+  }
+}

@@ -3,15 +3,80 @@
   "version": "5.12.0",
   "description": "Actions for Podlove Subscribe Button Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/actions",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
-    "@podlove/utils": "^5.12.0",
-    "redux-actions": "2.6.5"
+    "@podlove/utils": "workspace:*",
+    "redux-actions": "3.0.0"
+  },
+  "devDependencies": {
+    "@podlove/types": "workspace:*",
+    "@types/redux-actions": "2.6.2",
+    "@typescript-eslint/eslint-plugin": "6.12.0",
+    "@typescript-eslint/parser": "6.12.0",
+    "eslint": "8.54.0",
+    "typescript": "5.0.4",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "2.3.0"
+  },
+  "exports": {
+    "./finish-card": {
+      "import": "./src/finish-card.ts",
+      "types": "./src/finish-card.ts"
+    },
+    "./lifecycle": {
+      "import": "./src/lifecycle.ts",
+      "types": "./src/lifecycle.ts"
+    },
+    "./list": {
+      "import": "./src/list.ts",
+      "types": "./src/list.ts"
+    },
+    "./overlay": {
+      "import": "./src/overlay.ts",
+      "types": "./src/overlay.ts"
+    },
+    "./runtime": {
+      "import": "./src/runtime.ts",
+      "types": "./src/runtime.ts"
+    },
+    "./types": {
+      "import": "./src/types.ts",
+      "types": "./src/types.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      "./finish-card": {
+        "import": "./dist/finish-card.mjs",
+        "types": "./dist/finish-card.d.ts"
+      },
+      "./lifecycle": {
+        "import": "./dist/lifecycle.mjs",
+        "types": "./dist/lifecycle.d.ts"
+      },
+      "./list": {
+        "import": "./dist/list.mjs",
+        "types": "./dist/list.d.ts"
+      },
+      "./overlay": {
+        "import": "./dist/overlay.mjs",
+        "types": "./dist/overlay.d.ts"
+      },
+      "./runtime": {
+        "import": "./dist/runtime.mjs",
+        "types": "./dist/runtime.d.ts"
+      },
+      "./types": {
+        "import": "./dist/types.mjs",
+        "types": "./dist/types.d.ts"
+      }
+    }
   }
 }

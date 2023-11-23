@@ -1,19 +1,29 @@
 <template>
   <div
-    class="flex px-2 -mx-2 rounded-sm"
+    class="podlove-player--tab-chapters--entry flex px-2 rounded-sm"
     data-test="tab-chapters--entry"
-    :class="{ 'font-medium': chapter.active }"
-    :style="style"
+    :class="{ 'font-medium': chapter.active, 'bg-opacity-25': hover, hover }"
     @mouseover="mouseOverHandler"
     @mouseleave="mouseLeaveHandler"
   >
     <span
       class="cursor-pointer w-8 py-2 mr-2 flex items-center justify-center"
       aria-hidden="true"
-      @click="selectChapter()"
+      @click="selectChapter($event)"
     >
-      <icon
-        v-if="action.icon"
+      <link-icon
+        v-if="action.icon === 'link-icon'"
+        :size="24"
+        :data-test="`tab-chapters--trigger--${action.icon}`"
+      />
+      <menu-pause-icon
+        v-if="action.icon === 'menu-pause'"
+        :type="action.icon"
+        :size="24"
+        :data-test="`tab-chapters--trigger--${action.icon}`"
+      />
+      <menu-play-icon
+        v-if="action.icon === 'menu-play'"
         :type="action.icon"
         :size="24"
         :data-test="`tab-chapters--trigger--${action.icon}`"
@@ -26,7 +36,6 @@
       :show-link="true"
       :playtime="state.playtime"
       :ghost="state.ghost"
-      :progress-color="progressColor"
       @chapter="dispatch"
       @play="dispatch"
       @ghost="dispatch"
@@ -37,120 +46,91 @@
   </div>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import color from 'color'
-import { setChapter } from '@podlove/player-actions/chapters'
-import { requestPlay, requestPause } from '@podlove/player-actions/play'
+<script lang="ts" setup>
+import { computed, ref } from 'vue';
+import { PodloveWebPlayerChapter } from '@podlove/types';
+import { LinkIcon, MenuPauseIcon, MenuPlayIcon, ChapterProgress } from '@podlove/components';
+import { mapState, injectStore } from 'redux-vuex';
+import { setChapter } from '@podlove/player-actions/chapters';
+import { requestPlay, requestPause } from '@podlove/player-actions/play';
 
-import select from 'store/selectors'
+import select from '../../../store/selectors/index.js';
 
-import ChapterProgress from '@podlove/components/chapter-progress'
-import Icon from '@podlove/components/icons'
+const props = defineProps<{ chapter: PodloveWebPlayerChapter }>();
 
-export default {
-  components: {
-    Icon,
-    ChapterProgress
-  },
+const state = mapState({
+  playtime: select.playtime,
+  ghost: select.ghost.time,
+  current: select.chapters.current,
+  playing: select.driver.playing
+});
 
-  props: {
-    chapter: {
-      type: Object,
-      default: () => ({})
-    }
-  },
+const dispatch = injectStore().dispatch;
 
-  setup() {
+const hover = ref(false);
+const linkHover = ref(false);
+
+const action = computed((): { icon?: string; content?: string } => {
+  if (linkHover.value) {
     return {
-      state: mapState({
-        playtime: select.playtime,
-        color: select.theme.brandLightest,
-        ghost: select.ghost.time,
-        current: select.chapters.current,
-        playing: select.driver.playing
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-
-  data() {
-    return {
-      hover: false,
-      linkHover: false
-    }
-  },
-
-  computed: {
-    active() {
-      return this.chapter.active || this.hover
-    },
-
-    progressColor() {
-      return color(this.state.color).alpha(0.5).string()
-    },
-
-    style() {
-      return this.hover
-        ? {
-            background: color(this.state.color).alpha(0.3).string()
-          }
-        : {}
-    },
-
-    action() {
-      if (this.linkHover) {
-        return {
-          icon: 'link'
-        }
-      }
-
-      if (this.state.current.index === this.chapter.index) {
-        return {
-          icon: this.state.playing ? 'menu-pause' : 'menu-play'
-        }
-      }
-
-      if (this.hover) {
-        return {
-          icon: 'menu-play'
-        }
-      }
-
-      return {
-        content: this.chapter.index
-      }
-    }
-  },
-
-  methods: {
-    mouseOverHandler() {
-      this.hover = true
-    },
-
-    mouseLeaveHandler() {
-      this.hover = false
-    },
-
-    linkMouseover(state) {
-      this.linkHover = state
-    },
-
-    selectChapter(event) {
-      if (this.linkHover) {
-        return false
-      }
-
-      if (this.state.current.index === this.chapter.index) {
-        this.dispatch(this.state.playing ? requestPause() : requestPlay())
-        return false
-      }
-
-      this.dispatch(setChapter(this.chapter.index - 1))
-      this.dispatch(requestPlay())
-      event && event.preventDefault()
-      return false
-    }
+      icon: 'link-icon'
+    };
   }
-}
+
+  if (state.current.index === props.chapter.index) {
+    return {
+      icon: state.playing ? 'menu-pause' : 'menu-play'
+    };
+  }
+
+  if (hover.value) {
+    return {
+      icon: 'menu-play'
+    };
+  }
+
+  return {
+    content: props.chapter.index.toString()
+  };
+});
+
+const mouseOverHandler = () => {
+  hover.value = true;
+};
+
+const mouseLeaveHandler = () => {
+  hover.value = false;
+};
+
+const linkMouseover = (state: any) => {
+  linkHover.value = !!state;
+};
+
+const selectChapter = (event: MouseEvent) => {
+  if (linkHover.value) {
+    return false;
+  }
+
+  if (state.current.index === props.chapter.index) {
+    dispatch(state.playing ? requestPause() : requestPlay());
+    return false;
+  }
+
+  dispatch(setChapter(props.chapter.index));
+  dispatch(requestPlay());
+  event && event.preventDefault();
+  return false;
+};
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--tab-chapters--entry {
+  --podlove-component--chapter-progress--background: var(--podlove-player--tab-chapters--entry--progress-background);
+  --podlove-component--chapter-ghost--background: var(--podlove-player--tab-chapters--entry--ghost-background);
+}
+
+.podlove-player--tab-chapters--entry.hover  {
+  background: var(--podlove-player--tab-chapters--entry--background-hover);
+  color: var(--podlove-player--tab-chapters--entry--color-hover);
+}
+</style>

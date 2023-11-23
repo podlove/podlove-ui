@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TabHeader > props > should render with prop backgroundActive 1`] = `
+<ul
+  backgroundactive="#fff"
+  class="podlove-component-tab-header relative w-full flex items-center justify-center font-hairline h-8"
+  role="tablist"
+>
+  <span
+    class="block absolute pointer-events-none bottom-0 left-0 right-0 h-4 z-30 -mb-4"
+  />
+  
+  <span>
+    Inner Tab Header
+  </span>
+  
+</ul>
+`;
+
+exports[`TabHeader > props > should render without props 1`] = `
+<ul
+  class="podlove-component-tab-header relative w-full flex items-center justify-center font-hairline h-8"
+  role="tablist"
+>
+  <span
+    class="block absolute pointer-events-none bottom-0 left-0 right-0 h-4 z-30 -mb-4"
+  />
+  
+  <span>
+    Inner Tab Header
+  </span>
+  
+</ul>
+`;

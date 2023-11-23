@@ -1,12 +1,36 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+defineProps<{ url: string; alt?: string }>();
+
+const emit = defineEmits(['load', 'error']);
+
+const loaded = ref(false);
+const error = ref(false);
+
+const loadHandler = (event: Event) => {
+  loaded.value = true;
+  emit('load', event);
+};
+
+const errorHandler = (event: Event) => {
+  error.value = true;
+  emit('error', event);
+};
+</script>
+
 <template>
-  <div class="relative image">
+  <div class="relative">
     <transition name="fade">
-      <div v-if="!loaded" class="absolute top-0 left-0 w-full h-full" :style="coverStyle"></div>
+      <div
+        v-if="!loaded"
+        class="podlove-component-image-cover absolute top-0 left-0 w-full h-full"
+      ></div>
     </transition>
     <img
       v-if="url && !error"
       class="max-h-full w-auto"
-      :style="imageStyle"
+      :class="{ 'h-0': !loaded }"
       :src="url"
       :alt="alt"
       @error="errorHandler"
@@ -15,67 +39,18 @@
   </div>
 </template>
 
-<script>
-import { background } from 'defaults'
-
-export default {
-  props: {
-    url: {
-      type: String,
-      default: null
-    },
-    alt: {
-      type: String,
-      default: null
-    },
-    color: {
-      type: String,
-      default: background
-    }
-  },
-  emits: ['load', 'error'],
-  data() {
-    return {
-      loaded: false,
-      width: null,
-      error: false
-    }
-  },
-
-  computed: {
-    coverStyle() {
-      return {
-        'background-color': this.color
-      }
-    },
-    imageStyle() {
-      if (!this.loaded) {
-        return {
-          height: 0
-        }
-      }
-
-      return {}
-    }
-  },
-
-  methods: {
-    loadHandler(event) {
-      this.loaded = true
-      this.$emit('load', event)
-    },
-
-    errorHandler(event) {
-      this.error = true
-      this.$emit('error', event)
-    }
-  }
+<style lang="postcss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 600ms;
+  opacity: 1;
 }
-</script>
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 
-<style lang="scss" scoped>
-@import '../../theme/tokens/animation';
-.image {
-  @extend %fade-animation;
+.podlove-component-image-cover {
+  background-color: var(--podlove-component--image--background, var(--podlove-components-background));
 }
 </style>

@@ -1,6 +1,7 @@
 # dotfiles
 .*
 !.gitignore
+!.github
 !.jshintrc
 !.eslintrc
 !.eslintrc.js
@@ -10,13 +11,14 @@
 !.babelrc
 !.circleci
 !.vuepress
+!.vitebook
 !.build
 !.prettierrc
 !.prettierignore
 !.storybook
 !.drone.yml
-!.drone.yml
 !.browserslistrc
+!.eslintrc.json
 
 coverage
 

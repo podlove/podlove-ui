@@ -1,0 +1,10 @@
+{
+  "include": ["./src", "./lang"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "lib": ["DOM", "ESNext"],
+    "allowSyntheticDefaultImports": true
+  }
+}

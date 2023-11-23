@@ -1,44 +1,45 @@
 <template>
   <span
     v-if="title"
-    class="truncate"
-    :aria-label="$t(state.label.key, state.label.attr)"
+    class="podlove-player--chapter-current truncate"
+    :aria-label="t(state.label.key, state.label.attr)"
     tabindex="0"
     data-test="current-chapter"
-    :style="{ color: state.color }"
   >
     {{ title }}
   </span>
 </template>
 
-<script>
-import { prop } from 'ramda'
-import { mapState } from 'redux-vuex'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+import { prop } from 'ramda';
+import { mapState } from 'redux-vuex';
 
-export default {
-  setup() {
-    return {
-      state: mapState({
-        currentGhostChapter: select.ghost.chapter,
-        currentChapter: select.chapters.current,
-        ghost: select.ghost.time,
-        color: select.theme.contrast,
-        label: select.accessibility.currentChapter
-      })
-    }
-  },
-  computed: {
-    chapter() {
-      if (this.state.ghost) {
-        return this.state.currentGhostChapter
-      }
+import select from '../../store/selectors/index.js';
 
-      return this.state.currentChapter
-    },
-    title() {
-      return prop('title', this.chapter)
-    }
+const { t } = useI18n();
+
+const state = mapState({
+  currentGhostChapter: select.ghost.chapter,
+  currentChapter: select.chapters.current,
+  ghost: select.ghost.time,
+  label: select.accessibility.currentChapter
+});
+
+const chapter = computed(() => {
+  if (state.ghost) {
+    return state.currentGhostChapter;
   }
-}
+
+  return state.currentChapter;
+});
+
+const title = computed(() => prop('title', chapter.value));
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--chapter-current {
+  color: var(--podlove-player--chapter-current--color);
+}
+</style>

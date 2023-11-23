@@ -5,11 +5,15 @@
     data-test="tab-files--download"
     @mouseover="hover(file)"
     @mouseout="hover()"
-    @click="select(file)"
+    @click="click(file)"
   >
     <div class="flex h-10">
       <span class="h-full flex items-center pr-4">
-        <icon :type="icon" :filled="true" />
+        <download-icon :filled="true" v-if="icon === 'download'" />
+        <audio-file-icon :filled="true" v-if="icon === 'audio-file'" />
+        <video-file-icon :filled="true" v-if="icon === 'video-file'" />
+        <text-file-icon :filled="true" v-if="icon === 'text-file'" />
+        <pdf-file-icon :filled="true" v-if="icon === 'pdf-file'" />
       </span>
       <div class="w-full">
         <h3 :style="state.font">{{ file.title }}</h3>
@@ -23,101 +27,92 @@
   </a>
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
-import { compose, includes, defaultTo, toLower } from 'ramda'
-import Icon from '@podlove/components/icons'
-import { toMegabyte } from '@podlove/utils/math'
-import { hoverFile, selectFile } from '@podlove/player-actions/files'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { compose, includes, defaultTo, toLower } from 'ramda';
+import { DownloadIcon, AudioFileIcon, VideoFileIcon, TextFileIcon, PdfFileIcon } from '@podlove/components';
+import { toMegabyte } from '@podlove/utils/math';
+import { hoverFile, selectFile } from '@podlove/player-actions/files';
+import { useI18n } from 'vue-i18n';
 
-import select from 'store/selectors'
+import select from '../../../store/selectors/index.js';
 
-const isType = (type) => compose(includes(type), toLower, defaultTo(''))
-const audio = isType('audio')
-const video = isType('video')
-const pdf = isType('pdf')
-const text = isType('text')
+const { t } = useI18n();
+const isType = (type) => compose(includes(type), toLower, defaultTo(''));
+const audio = isType('audio');
+const video = isType('video');
+const pdf = isType('pdf');
+const text = isType('text');
 
-export default {
-  components: {
-    Icon
-  },
-
-  props: {
-    file: {
-      type: Object,
-      default: () => ({
-        title: null,
-        size: null,
-        mimeType: null,
-        url: null,
-        hover: false
-      })
-    }
-  },
-
-  setup() {
-    return {
-      state: mapState({
-        font: select.theme.fontBold
-      }),
-      dispatch: injectStore().dispatch
-    }
-  },
-
-  computed: {
-    type() {
-      if (audio(this.file.mimeType)) {
-        return this.$t('FILES.TYPES.AUDIO')
-      }
-
-      if (video(this.file.mimeType)) {
-        return this.$t('FILES.TYPES.VIDEO')
-      }
-
-      if (text(this.file.mimeType)) {
-        return this.$t('FILES.TYPES.TEXT')
-      }
-
-      if (pdf(this.file.mimeType)) {
-        return this.$t('FILES.TYPES.PDF')
-      }
-
-      return ''
-    },
-    icon() {
-      if (this.file.hover) {
-        return 'download'
-      }
-
-      if (audio(this.file.mimeType)) {
-        return 'audio-file'
-      }
-
-      if (video(this.file.mimeType)) {
-        return 'video-file'
-      }
-
-      if (text(this.file.mimeType)) {
-        return 'text-file'
-      }
-
-      if (pdf(this.file.mimeType)) {
-        return 'pdf-file'
-      }
-
-      return 'download'
-    }
-  },
-
-  methods: {
-    toMegabyte,
-    hover(file) {
-      this.dispatch(hoverFile(file))
-    },
-    select(file) {
-      this.dispatch(selectFile(file))
-    }
+const props = defineProps({
+  file: {
+    type: Object,
+    default: () => ({
+      title: null,
+      size: null,
+      mimeType: null,
+      url: null,
+      hover: false
+    })
   }
-}
+});
+
+const state = mapState({
+  font: select.theme.fontBold
+});
+
+const dispatch = injectStore().dispatch;
+
+const type = computed(() => {
+  if (audio(props.file.mimeType)) {
+    return t('FILES.TYPES.AUDIO');
+  }
+
+  if (video(props.file.mimeType)) {
+    return t('FILES.TYPES.VIDEO');
+  }
+
+  if (text(props.file.mimeType)) {
+    return t('FILES.TYPES.TEXT');
+  }
+
+  if (pdf(props.file.mimeType)) {
+    return t('FILES.TYPES.PDF');
+  }
+
+  return '';
+});
+
+const icon = computed(() => {
+  if (props.file.hover) {
+    return 'download';
+  }
+
+  if (audio(props.file.mimeType)) {
+    return 'audio-file';
+  }
+
+  if (video(props.file.mimeType)) {
+    return 'video-file';
+  }
+
+  if (text(props.file.mimeType)) {
+    return 'text-file';
+  }
+
+  if (pdf(props.file.mimeType)) {
+    return 'pdf-file';
+  }
+
+  return 'download';
+});
+
+const hover = (file) => {
+  dispatch(hoverFile(file));
+};
+
+const click = (file) => {
+  dispatch(selectFile(file));
+};
 </script>

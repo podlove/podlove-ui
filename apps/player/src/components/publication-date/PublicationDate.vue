@@ -1,38 +1,30 @@
 <template>
-  <span :style="style" data-test="publication-date">{{ date }}</span>
+  <span class="podlove-player--publication-date" data-test="publication-date">{{ date }}</span>
 </template>
 
-<script>
-import { format } from 'date-fns'
-import { mapState } from 'redux-vuex'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { format as dateFormat } from 'date-fns';
+import { mapState } from 'redux-vuex';
+import select from '../../store/selectors/index.js';
 
-export default {
-  props: {
-    format: {
-      type: String,
-      default: null
-    }
-  },
-  setup() {
-    return {
-      state: mapState({
-        color: select.theme.contrast,
-        publicationDate: select.episode.publicationDate
-      })
-    }
-  },
-  computed: {
-    style() {
-      return {
-        color: this.state.color
-      }
-    },
-    date() {
-      const date = new Date(this.state.publicationDate)
+const props = defineProps<{
+  format: string;
+}>();
 
-      return this.format ? format(date, this.format) : date.toLocaleDateString()
-    }
-  }
-}
+const state = mapState({
+  publicationDate: select.episode.publicationDate
+});
+
+const date = computed(() => {
+  const date = new Date(state.publicationDate);
+
+  return props.format ? dateFormat(date, props.format) : date.toLocaleDateString();
+});
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--publication-date {
+  color: var(--podlove-player--publication-date--color);
+}
+</style>

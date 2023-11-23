@@ -1,0 +1,409 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProgressBar > props > should render 'buffer' 1`] = `
+<div
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
+  data-v-0f66235d=""
+>
+  <input
+    aria-hidden="true"
+    data-v-0f66235d=""
+    max="10000"
+    min="0"
+    tabindex="-1"
+    type="range"
+  />
+  <span
+    class="progress-range block absolute w-full left-0 pointer-events-none"
+    data-v-0f66235d=""
+  />
+  
+  <span
+    aria-hidden="true"
+    class="progress-buffer"
+    data-v-0f66235d=""
+    style="left: 0%; width: 10%;"
+    tabindex="-1"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-buffer"
+    data-v-0f66235d=""
+    style="left: 50%; width: 10%;"
+    tabindex="-1"
+  />
+  
+  
+  
+  <div
+    data-v-0f66235d=""
+  >
+    
+    
+  </div>
+  <span
+    aria-hidden="true"
+    class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none hidden"
+    data-v-0f66235d=""
+    style="left: 0%;"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-thumb absolute block border border-solid pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 0%;"
+    tabindex="-1"
+  />
+  <input
+    class="sr-only"
+    data-v-0f66235d=""
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
+  />
+</div>
+`;
+
+exports[`ProgressBar > props > should render 'chapters' 1`] = `
+<div
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
+  data-v-0f66235d=""
+>
+  <input
+    aria-hidden="true"
+    data-v-0f66235d=""
+    max="10000"
+    min="0"
+    tabindex="-1"
+    type="range"
+  />
+  <span
+    class="progress-range block absolute w-full left-0 pointer-events-none"
+    data-v-0f66235d=""
+  />
+  
+  
+  
+  
+  <div
+    data-v-0f66235d=""
+  >
+    
+    <span
+      aria-hidden="true"
+      class="chapters-progress absolute pointer-events-none"
+      data-test="progress-bar--chapter-progress--indicator"
+      data-v-0f66235d=""
+      style=""
+      tabindex="-1"
+    />
+    <span
+      aria-hidden="true"
+      class="chapters-progress absolute pointer-events-none"
+      data-test="progress-bar--chapter-progress--indicator"
+      data-v-0f66235d=""
+      style=""
+      tabindex="-1"
+    />
+    
+  </div>
+  <span
+    aria-hidden="true"
+    class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none hidden"
+    data-v-0f66235d=""
+    style="left: 0%;"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-thumb absolute block border border-solid pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 0%;"
+    tabindex="-1"
+  />
+  <input
+    class="sr-only"
+    data-v-0f66235d=""
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
+  />
+</div>
+`;
+
+exports[`ProgressBar > props > should render 'ghost' 1`] = `
+<div
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
+  data-v-0f66235d=""
+>
+  <input
+    aria-hidden="true"
+    data-v-0f66235d=""
+    max="10000"
+    min="0"
+    tabindex="-1"
+    type="range"
+  />
+  <span
+    class="progress-range block absolute w-full left-0 pointer-events-none"
+    data-v-0f66235d=""
+  />
+  
+  
+  
+  
+  <div
+    data-v-0f66235d=""
+  >
+    
+    
+  </div>
+  <span
+    aria-hidden="true"
+    class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none block"
+    data-v-0f66235d=""
+    style="left: 0.3%;"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-thumb absolute block border border-solid pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 0%;"
+    tabindex="-1"
+  />
+  <input
+    class="sr-only"
+    data-v-0f66235d=""
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
+  />
+</div>
+`;
+
+exports[`ProgressBar > props > should render 'quantiles' 1`] = `
+<div
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
+  data-v-0f66235d=""
+>
+  <input
+    aria-hidden="true"
+    data-v-0f66235d=""
+    max="10000"
+    min="0"
+    tabindex="-1"
+    type="range"
+  />
+  <span
+    class="progress-range block absolute w-full left-0 pointer-events-none"
+    data-v-0f66235d=""
+  />
+  
+  
+  
+  <span
+    aria-hidden="true"
+    class="progress-track block absolute left-0 pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 0%; width: 3%;"
+    tabindex="-1"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-track block absolute left-0 pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 55%; width: 5%;"
+    tabindex="-1"
+  />
+  
+  <div
+    data-v-0f66235d=""
+  >
+    
+    
+  </div>
+  <span
+    aria-hidden="true"
+    class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none hidden"
+    data-v-0f66235d=""
+    style="left: 0%;"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-thumb absolute block border border-solid pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 0%;"
+    tabindex="-1"
+  />
+  <input
+    class="sr-only"
+    data-v-0f66235d=""
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
+  />
+</div>
+`;
+
+exports[`ProgressBar > props > should render 'time' 1`] = `
+<div
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
+  data-v-0f66235d=""
+>
+  <input
+    aria-hidden="true"
+    data-v-0f66235d=""
+    max="10000"
+    min="0"
+    tabindex="-1"
+    type="range"
+  />
+  <span
+    class="progress-range block absolute w-full left-0 pointer-events-none"
+    data-v-0f66235d=""
+  />
+  
+  
+  
+  
+  <div
+    data-v-0f66235d=""
+  >
+    
+    
+  </div>
+  <span
+    aria-hidden="true"
+    class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none hidden"
+    data-v-0f66235d=""
+    style="left: 0%;"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-thumb absolute block border border-solid pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 50%;"
+    tabindex="-1"
+  />
+  <input
+    class="sr-only"
+    data-v-0f66235d=""
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
+  />
+</div>
+`;
+
+exports[`ProgressBar > props > should render 'title' 1`] = `
+<div
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
+  data-v-0f66235d=""
+>
+  <input
+    aria-hidden="true"
+    data-v-0f66235d=""
+    max="10000"
+    min="0"
+    tabindex="-1"
+    type="range"
+  />
+  <span
+    class="progress-range block absolute w-full left-0 pointer-events-none"
+    data-v-0f66235d=""
+  />
+  
+  
+  
+  
+  <div
+    data-v-0f66235d=""
+  >
+    
+    
+  </div>
+  <span
+    aria-hidden="true"
+    class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none hidden"
+    data-v-0f66235d=""
+    style="left: 0%;"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-thumb absolute block border border-solid pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 0%;"
+    tabindex="-1"
+  />
+  <input
+    class="sr-only"
+    data-v-0f66235d=""
+    max="100"
+    min="0"
+    steps="1"
+    title="title"
+    type="range"
+  />
+</div>
+`;
+
+exports[`ProgressBar > props > should render with default props 1`] = `
+<div
+  class="podlove-component--progress-bar w-full relative cursor-pointer"
+  data-v-0f66235d=""
+>
+  <input
+    aria-hidden="true"
+    data-v-0f66235d=""
+    max="0"
+    min="0"
+    tabindex="-1"
+    type="range"
+  />
+  <span
+    class="progress-range block absolute w-full left-0 pointer-events-none"
+    data-v-0f66235d=""
+  />
+  
+  
+  
+  
+  <div
+    data-v-0f66235d=""
+  >
+    
+    
+  </div>
+  <span
+    aria-hidden="true"
+    class="ghost-thumb absolute border-transparent border bg-opacity-75 pointer-events-none hidden"
+    data-v-0f66235d=""
+    style="left: 100%;"
+  />
+  <span
+    aria-hidden="true"
+    class="progress-thumb absolute block border border-solid pointer-events-none"
+    data-v-0f66235d=""
+    style="left: 100%;"
+    tabindex="-1"
+  />
+  <input
+    class="sr-only"
+    data-v-0f66235d=""
+    max="100"
+    min="0"
+    steps="1"
+    title=""
+    type="range"
+  />
+</div>
+`;

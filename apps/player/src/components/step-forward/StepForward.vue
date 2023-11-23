@@ -1,34 +1,33 @@
 <template>
   <stepper-button
     v-if="state.stepperButtons"
-    class="control-button"
+    class="podlove-player--stepper-button--forward"
     data-test="step-forward"
     type="forward"
-    :title="$t(state.title.key, state.title.attr)"
-    :color="state.color"
+    :title="t(state.title.key, state.title.attr)"
     @forward="dispatch"
   />
 </template>
 
-<script>
-import { mapState, injectStore } from 'redux-vuex'
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
+import { mapState, injectStore } from 'redux-vuex';
+import { StepperButton } from '@podlove/components';
 
-import select from 'store/selectors'
-import StepperButton from '@podlove/components/stepper-button'
+import select from '../../store/selectors/index.js';
 
-export default {
-  components: {
-    StepperButton
-  },
-  setup() {
-    return {
-      state: mapState({
-        stepperButtons: select.components.stepperButtons,
-        color: select.theme.brandDark,
-        title: select.accessibility.stepperForward
-      }),
-      dispatch: injectStore().dispatch
-    }
-  }
-}
+const { t } = useI18n();
+
+const state = mapState({
+  stepperButtons: select.components.stepperButtons,
+  title: select.accessibility.stepperForward
+});
+const dispatch = injectStore().dispatch;
 </script>
+
+
+<style lang="postcss" scoped>
+.podlove-player--stepper-button--forward {
+  --podlove-component--stepper-button--color: var(--podlove-player--stepper-button--forward--color);
+}
+</style>

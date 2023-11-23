@@ -1,5 +1,5 @@
 <template>
-  <h1 :style="style" data-test="show-title">
+  <h1 class="podlove-player--show-title" :style="style" data-test="show-title">
     <a v-if="state.link" :href="state.link" :target="state.target" data-test="show-title--link">{{
       state.title
     }}</a>
@@ -7,29 +7,25 @@
   </h1>
 </template>
 
-<script>
-import { mapState } from 'redux-vuex'
-import select from 'store/selectors'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState } from 'redux-vuex';
+import select from '../../store/selectors/index.js';
 
-export default {
-  setup() {
-    return {
-      state: mapState({
-        font: select.theme.fontBold,
-        color: select.theme.brand,
-        title: select.show.title,
-        link: select.show.link,
-        target: select.target
-      })
-    }
-  },
-  computed: {
-    style() {
-      return {
-        color: this.state.color,
-        ...this.state.font
-      }
-    }
-  }
-}
+const state = mapState({
+  font: select.theme.fontBold,
+  title: select.show.title,
+  link: select.show.link,
+  target: select.target
+});
+
+const style = computed(() => ({
+  ...state.font
+}));
 </script>
+
+<style lang="postcss" scoped>
+.podlove-player--show-title {
+  color: var(--podlove-player--show-title--color);
+}
+</style>
