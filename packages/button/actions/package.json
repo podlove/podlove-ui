@@ -5,7 +5,8 @@
   "homepage": "https://github.com/podlove/ui/tree/development/packages/button/actions",
   "type": "module",
   "scripts": {
-    "build": "vite build --config ./vite.config.ts"
+    "build": "vite build",
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
@@ -17,9 +18,12 @@
   "devDependencies": {
     "@podlove/types": "workspace:*",
     "@types/redux-actions": "2.6.2",
+    "@typescript-eslint/eslint-plugin": "6.12.0",
+    "@typescript-eslint/parser": "6.12.0",
+    "eslint": "8.54.0",
+    "typescript": "5.0.4",
     "vite": "4.3.5",
-    "vite-plugin-dts": "2.3.0",
-    "typescript": "5.0.4"
+    "vite-plugin-dts": "2.3.0"
   },
   "exports": {
     "./finish-card": {

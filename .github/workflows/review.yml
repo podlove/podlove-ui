@@ -254,80 +254,47 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-config
 
-    # - uses: actions/checkout@v3
-    # - uses: pnpm/action-setup@v2
-    #   name: Install pnpm
-    #   with:
-    #     version: 8
-    #     run_install: false
-    # - uses: actions/setup-node@v3
-    #   with:
-    #     node-version: 20
-    #     cache: 'pnpm'
-    # - name: install
-    #   run: pnpm install --offline
-    # - name: lint
-    #   run: npx eslint 'packages/utils/**/*.{js,vue}'
-    # - name: test
-    #   run: npx jest packages/utils
+  packages_clients:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/clients
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/clients
 
-  # packages_clients:
-  #   runs-on: ubuntu-latest
-  #   needs: bootstrap
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: pnpm/action-setup@v2
-  #     name: Install pnpm
-  #     with:
-  #       version: 8
-  #       run_install: false
-  #   - uses: actions/setup-node@v3
-  #     with:
-  #       node-version: 20
-  #       cache: 'pnpm'
-  #   - name: install
-  #     run: pnpm install --offline
-  #   - name: lint
-  #     run: npx eslint 'packages/clients/**/*.{js,vue}'
-  #   - name: build
-  #     run: npx lerna run build --scope @podlove/clients --stream
+  packages_button-actions:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/button-actions
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/button-actions
 
-  # packages_button-actions:
-  #   runs-on: ubuntu-latest
-  #   needs: bootstrap
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: pnpm/action-setup@v2
-  #     name: Install pnpm
-  #     with:
-  #       version: 8
-  #       run_install: false
-  #   - uses: actions/setup-node@v3
-  #     with:
-  #       node-version: 20
-  #       cache: 'pnpm'
-  #   - name: install
-  #     run: pnpm install --offline
-  #   - name: lint
-  #     run: npx eslint 'packages/button/actions/**/*.{js,vue}'
-
-  # packages_button-react:
-  #   runs-on: ubuntu-latest
-  #   needs: apps_subscribe-button
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: pnpm/action-setup@v2
-  #     name: Install pnpm
-  #     with:
-  #       version: 8
-  #       run_install: false
-  #   - uses: actions/setup-node@v3
-  #     with:
-  #       node-version: 20
-  #       cache: 'pnpm'
-  #   - name: install
-  #     run: pnpm install --offline
-  #   - name: lint
-  #     run: npx eslint 'packages/button/react/**/*.{js,vue}'
-  #   - name: build
-  #     run: npx lerna run build --scope @podlove/button-react --stream
