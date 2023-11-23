@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach } from 'vitest';
-import { currentChapter, currentChapterIndex, currentChapterByPlaytime } from './chapters'
+import { currentChapter, currentChapterIndex, currentChapterByPlaytime } from './chapters.js'
 
 describe('chapters', () => {
   let inactiveChapter, activeChapter, additionalChapter

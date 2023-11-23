@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { binarySearch, textSearch } from './search'
+import { binarySearch, textSearch } from './search.js'
 
 describe('search', () => {
   describe('binarySearch()', () => {

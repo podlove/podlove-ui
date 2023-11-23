@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach } from 'vitest';
-import { locationParams, urlParameters } from './location'
+import { locationParams, urlParameters } from './location.js'
 
 describe('location', () => {
   beforeEach(() => {

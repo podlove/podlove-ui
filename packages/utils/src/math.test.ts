@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { toPercent, roundUp, round, interpolate, relativePosition } from './math'
+import { toPercent, roundUp, round, interpolate, relativePosition } from './math.js'
 
 describe('math', () => {
   describe('toPercent()', () => {

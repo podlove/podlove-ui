@@ -1,5 +1,5 @@
 import { curry, map, compose, identity } from 'ramda';
-import { isUndefinedOrNull } from './predicates';
+import { isUndefinedOrNull } from './predicates.js';
 
 /**
  * Collection of functional helpers
@@ -8,7 +8,7 @@ import { isUndefinedOrNull } from './predicates';
 export const inAnimationFrame =
   (func: Function) =>
   (...args: any[]): void => {
-    window.requestAnimationFrame(() => func.apply(null, args));
+    window.requestAnimationFrame(() => func(...args));
   };
 
 export const asyncAnimation = (): Promise<void> =>
@@ -19,7 +19,7 @@ export const asyncAnimation = (): Promise<void> =>
 export const callWith =
   (...args: any[]) =>
   (func: Function) =>
-    func.apply(null, args);
+    func(...args);
 
 // Math helpers
 export const toInt = (input: string | number = 0): number =>

@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { json, html } from './request';
+import { json, html } from './request.js';
 
 const mockFetch = (status: number, header: string, result: any): Promise<Response> =>
   Promise.resolve({

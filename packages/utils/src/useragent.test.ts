@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach } from 'vitest';
-import { getPlatform } from './useragent'
+import { getPlatform } from './useragent.js'
 
 const platforms = {
   osx: ['MacIntel', 'Macintosh', 'MacPPC', 'Mac68K'],

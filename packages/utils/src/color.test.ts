@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { luminosity, isNegative } from './color'
+import { luminosity, isNegative } from './color.js'
 
 describe('color', () => {
   describe('luminosity()', () => {

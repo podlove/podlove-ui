@@ -91,7 +91,7 @@ const keycodes = () => {
   });
 
   // Add aliases
-  for (var alias in aliases) {
+  for (const alias in aliases) {
     codes[alias] = aliases[alias];
   }
 

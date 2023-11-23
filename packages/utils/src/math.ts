@@ -1,5 +1,5 @@
 import { curry } from 'ramda';
-import { toFloat, toInt } from './helper';
+import { toFloat, toInt } from './helper.js';
 
 export const toPercent = (input: string | number): number => {
   input = toFloat(input || 0) * 100;

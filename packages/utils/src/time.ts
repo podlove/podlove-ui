@@ -1,6 +1,6 @@
 import { is, compose } from 'ramda'
-import { toInt, toFloat } from './helper'
-import { isUndefinedOrNull } from './predicates'
+import { toInt, toFloat } from './helper.js'
+import { isUndefinedOrNull } from './predicates.js'
 
 const timeRegex = new RegExp(/^(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:\.(\d{1,3}))?$/)
 
@@ -37,9 +37,9 @@ const leadingZero = (time: number): string => (time > 9 ? `${time}` : `0${time}`
 
 // Transforms milliseconds to (hh:)mm:ss
 export const toHumanTime = (time: number | string = 0): string => {
-  let hours = compose(calcHours, fallbackToZero, toInt)(time || 0)
-  let minutes = compose(calcMinutes, fallbackToZero, toInt)(time || 0)
-  let seconds = compose(calcSeconds, fallbackToZero, toInt)(time || 0)
+  const hours = compose(calcHours, fallbackToZero, toInt)(time || 0)
+  const minutes = compose(calcMinutes, fallbackToZero, toInt)(time || 0)
+  const seconds = compose(calcSeconds, fallbackToZero, toInt)(time || 0)
 
   let result = `${leadingZero(minutes)}:${leadingZero(seconds)}`
 

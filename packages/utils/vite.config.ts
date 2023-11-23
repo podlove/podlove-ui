@@ -16,7 +16,6 @@ const entries = [
   'predicates',
   'request',
   'search',
-  'throttle',
   'time',
   'url',
   'useragent'

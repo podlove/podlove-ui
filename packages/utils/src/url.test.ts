@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { hostname, pathname, addQueryParameter } from './url'
+import { hostname, pathname, addQueryParameter } from './url.js'
 
 describe('url', () => {
   describe('hostname()', () => {

@@ -18,7 +18,7 @@ export const appendNode: any = curry((node: HTMLElement, child: HTMLElement): HT
 
 export const tag: any = curry(
   (tag: string, value: string = '', attributes: { [key: string]: string }): string => {
-    let attr = Object.entries(attributes || {})
+    const attr = Object.entries(attributes || {})
       .map(([attribute, value]) => ` ${attribute}="${value}"`)
       .join('');
 

@@ -1,9 +1,9 @@
 {
   "include": ["./src", "./lang"],
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "ESNext",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "lib": ["DOM", "ESNext"],
     "allowSyntheticDefaultImports": true
   }

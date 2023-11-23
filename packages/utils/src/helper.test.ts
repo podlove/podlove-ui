@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach, vi } from 'vitest';
-import { inAnimationFrame, asyncAnimation, callWith } from './helper';
+import { inAnimationFrame, asyncAnimation, callWith } from './helper.js';
 
 describe('helper', () => {
   beforeEach(() => {
@@ -24,15 +24,14 @@ describe('helper', () => {
       expect(typeof asyncAnimation).toBe('function');
     });
 
-    test(`returns a promise`, () => {
-      const testStub = vi.fn();
-      const result = asyncAnimation(testStub)('foo', 'bar');
+    test(`returns a promise`, async () => {
+      const result = asyncAnimation();
       expect(typeof result.then).toBe('function');
     });
 
     test(`resolves stub in promise`, async () => {
       const testStub = vi.fn();
-      await asyncAnimation(testStub)('foo', 'bar');
+      await asyncAnimation().then(() => testStub('foo', 'bar'));
 
       expect(testStub).toHaveBeenCalledWith('foo', 'bar');
     });

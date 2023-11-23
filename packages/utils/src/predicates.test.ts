@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { or, and, not, isUndefined, isUndefinedOrNull, isDefinedAndNotNull } from './predicates'
+import { or, and, not, isUndefined, isUndefinedOrNull, isDefinedAndNotNull } from './predicates.js'
 
 describe('predicates', () => {
   const pTrue = () => true

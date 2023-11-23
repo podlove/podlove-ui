@@ -6,7 +6,7 @@ import {
   secondsToMilliseconds,
   millisecondsToSeconds,
   parseDate
-} from './time'
+} from './time.js'
 
 describe('time', () => {
   describe('toHumanTime()', () => {

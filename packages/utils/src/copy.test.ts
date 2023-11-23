@@ -1,6 +1,6 @@
 import { describe, test, expect, vi } from 'vitest';
 
-import copy from './copy';
+import copy from './copy.js';
 
 const clipboardMock = {
   writeText: vi.fn()

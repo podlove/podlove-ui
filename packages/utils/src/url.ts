@@ -1,6 +1,6 @@
 import { compose, propOr, replace } from 'ramda';
 import queryString from 'query-string';
-import { stripr } from './helper';
+import { stripr } from './helper.js';
 
 const url = (href: string): URL => {
   try {
