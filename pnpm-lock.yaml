@@ -313,10 +313,10 @@ importers:
         specifier: 0.29.3
         version: 0.29.3
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.11.0
+        specifier: 6.11.0
         version: 6.11.0(@typescript-eslint/parser@6.11.0)(eslint@8.53.0)(typescript@5.0.4)
       '@typescript-eslint/parser':
-        specifier: ^6.11.0
+        specifier: 6.11.0
         version: 6.11.0(eslint@8.53.0)(typescript@5.0.4)
       '@vitejs/plugin-vue':
         specifier: 4.2.3
@@ -359,13 +359,13 @@ importers:
         specifier: 2.6.2
         version: 2.6.2
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.12.0
+        specifier: 6.12.0
         version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.0.4)
       '@typescript-eslint/parser':
-        specifier: ^6.12.0
+        specifier: 6.12.0
         version: 6.12.0(eslint@8.54.0)(typescript@5.0.4)
       eslint:
-        specifier: ^8.54.0
+        specifier: 8.54.0
         version: 8.54.0
       typescript:
         specifier: 5.0.4
@@ -442,13 +442,13 @@ importers:
   packages/clients:
     devDependencies:
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.12.0
+        specifier: 6.12.0
         version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.0.4)
       '@typescript-eslint/parser':
-        specifier: ^6.12.0
+        specifier: 6.12.0
         version: 6.12.0(eslint@8.54.0)(typescript@5.0.4)
       eslint:
-        specifier: ^8.54.0
+        specifier: 8.54.0
         version: 8.54.0
       react:
         specifier: 18.2.0
@@ -767,13 +767,13 @@ importers:
         specifier: 0.29.7
         version: 0.29.7
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.12.0
+        specifier: 6.12.0
         version: 6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.0.4)
       '@typescript-eslint/parser':
-        specifier: ^6.12.0
+        specifier: 6.12.0
         version: 6.12.0(eslint@8.54.0)(typescript@5.0.4)
       eslint:
-        specifier: ^8.54.0
+        specifier: 8.54.0
         version: 8.54.0
       happy-dom:
         specifier: 9.1.9
