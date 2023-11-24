@@ -7,150 +7,177 @@ on:
 jobs:
   bootstrap:
     runs-on: ubuntu-latest
+    outputs:
+      pnpm_store_path: ${{ steps.pnpm.outputs.pnpm_store_path }}
+      pnpm_hash_key: ${{ steps.pnpm.outputs.pnpm_hash_key }}
+      pnpm_restore_key: ${{ steps.pnpm.outputs.pnpm_restore_key }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
         with:
-          node-version: 14
-          cache: 'npm'
-      - run: npm set unsafe-perm true
-      - run: npm ci
-      - run: npx lerna bootstrap --hoist
+          enable-cache: true
+      - name: pnpm env
+        id: pnpm
+        shell: bash
+        run: |
+          echo "pnpm_store_path=$(devbox run pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+          echo "pnpm_hash_key=${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}" >> "$GITHUB_OUTPUT"
+          echo "pnpm_restore_key=${{ runner.os }}-pnpm-store-" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ steps.pnpm.outputs.pnpm_store_path }}
+          key: ${{ steps.pnpm.outputs.pnpm_hash_key }}
+          restore-keys: ${{ steps.pnpm.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --frozen-lockfile
 
   apps_player:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-
       - name: install
-        run: npm ci
-
-      - name: release:prepare
-        run: npx lerna run publish:prepare --scope @podlove/player --stream
-
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/player
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: apps/player/publish
+          package: apps/player
 
   apps_web-player:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 14
-        cache: 'npm'
-
-    - name: install
-      run: npm ci
-
-    - name: release:prepare
-      run: npx lerna run publish:prepare --scope @podlove/web-player --stream
-
-    - name: publish:npm
-      uses: JS-DevTools/npm-publish@v2
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
-        package: apps/web-player/publish
-
-    - name: cdn:prepare
-      run: |
-        rm -rf apps/web-player/publish
-        npx lerna run build:cdn --scope @podlove/web-player --stream
-
-    - uses: webfactory/ssh-agent@v0.7.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: checkout repo
-      run: git clone git@github.com:podlove/cdn.git cdn
-
-    - name: config
-      run: |
-        git config --global user.email "ci@github.com"
-        git config --global user.name "CI"
-
-    - name: publish:cdn
-      run: |
-        cp -R apps/web-player/dist/* cdn/web-player/5.x/
-        ls -la cdn/web-player/5.x/
-        cd cdn
-        git add .
-        git commit -m "ci: upgrade cdn"
-        git push origin
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/web-player
+      - name: publish:npm
+        uses: JS-DevTools/npm-publish@v2
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: apps/web-player
 
   packages_components:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-
       - name: install
-        run: npm ci
-
-      - name: release:prepare
-        run: npx lerna run publish:prepare --scope @podlove/components --stream
-
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/components
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: packages/components/publish
+          package: packages/components
 
   packages_player-actions:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
         with:
-          node-version: 14
-          cache: 'npm'
-
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/player-actions
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: packages/player/actions
+
 
   packages_player-state:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
         with:
-          node-version: 14
-          cache: 'npm'
-
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/player-state
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: packages/player/actions
+          package: packages/player/state
 
   packages_player-config:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
         with:
-          node-version: 14
-          cache: 'npm'
-
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/player-config
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
@@ -162,17 +189,20 @@ jobs:
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-
       - name: install
-        run: npm ci
-
-      - name: release:prepare
-        run: npx lerna run publish:prepare --scope @podlove/utils --stream
-
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/utils
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
@@ -184,79 +214,47 @@ jobs:
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-
       - name: install
-        run: npm ci
-
-      - name: release:prepare
-        run: npx lerna run publish:prepare --scope @podlove/clients --stream
-
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/clients
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: packages/clients/publish
+          package: packages/clients
 
   packages_button-actions:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
         with:
-          node-version: 14
-          cache: 'npm'
-
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/button-actions
       - name: publish:npm
         uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: packages/button/actions
-
-  packages_player-react:
-    runs-on: ubuntu-latest
-    needs: bootstrap
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-
-      - name: install
-        run: npm ci
-
-      - name: release:prepare
-        run: npx lerna run publish:prepare --scope @podlove/player-react --stream
-
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/player/react/publish
-
-  packages_button-react:
-    runs-on: ubuntu-latest
-    needs: bootstrap
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          cache: 'npm'
-
-      - name: install
-        run: npm ci
-
-      - name: release:prepare
-        run: npx lerna run publish:prepare --scope @podlove/button-react --stream
-
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/button/react/publish
