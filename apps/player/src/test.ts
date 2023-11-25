@@ -1,8 +1,10 @@
 import { Store } from 'redux';
 import { init } from '@podlove/player-actions/init';
 import { CONSTRUCTED } from '@podlove/player-actions/types';
-import createPlayer from './main.js';
+import './main.js';
+import createPlayer from './app.js';
 import '../src/styles.css';
+const container = document.getElementById('test');
 
 const initState = (store: Store, state: any) =>
   new Promise((resolve) => {
@@ -19,9 +21,7 @@ const initState = (store: Store, state: any) =>
     subscription();
   });
 
-(window as any).BOOTSTRAP = (template = '', state = {}) => {
-  const container = document.getElementById('test');
-
+(window as any).BOOTSTRAP_APP = (template = '', state = {}) => {
   if (!container) {
     return;
   }
@@ -31,4 +31,29 @@ const initState = (store: Store, state: any) =>
 
   app.mount(container);
   return initState(store, state);
+};
+
+(window as any).BOOTSTRAP_WEB_COMPONENT = async ({
+  episode,
+  config,
+  variant,
+  template,
+  templateUrl
+}) => {
+  const elem = document.createElement('podlove-web-player');
+
+  if (variant) {
+    elem.setAttribute('variant', variant);
+  }
+
+  if (templateUrl) {
+    elem.setAttribute('template', templateUrl);
+  }
+
+  if (template) {
+    elem.innerHTML = template;
+  }
+
+  container.appendChild(elem);
+  return await (elem as any).init(episode, config);
 };

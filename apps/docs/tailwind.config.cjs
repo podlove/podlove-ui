@@ -4,8 +4,7 @@ module.exports = {
     './src/**/*.story.vue',
     '../../packages/components/src/**/*.vue',
     '../../apps/subscribe-button/src/**/*.vue',
-    '../../apps/player/src/**/*.vue',
-    '../../apps/web-player/src/**/*.html',
+    '../../apps/player/src/**/*.{vue,html}'
   ],
   plugins: [],
   theme: {

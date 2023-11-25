@@ -1,6 +1,7 @@
 import path from 'path';
 import { UserConfigExport, defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import dts from 'vite-plugin-dts';
 
 import aliases from '../../.build/aliases';
 import extensions from '../../.build/extensions';
@@ -14,18 +15,21 @@ const productionConfig: UserConfigExport = {
   build: {
     lib: {
       formats: ['es'],
-      entry: path.resolve(__dirname, 'src', 'main.ts'),
-      fileName: () => `player.[format].js`
+      entry: {
+        main: path.resolve(__dirname, 'src', 'main.ts'),
+        app: path.resolve(__dirname, 'src', 'app.ts'),
+        share: path.resolve(__dirname, 'share.html')
+      }
     },
     rollupOptions: {
       output: {
-        entryFileNames: '[name].[format].js',
-        chunkFileNames: `[name].[hash].js`,
+        entryFileNames: '[name].mjs',
+        chunkFileNames: `[name].[hash].mjs`,
         assetFileNames: `[name].css`
       }
     }
   },
-  plugins: [vue()],
+  plugins: [vue(), dts()],
   resolve
 };
 
