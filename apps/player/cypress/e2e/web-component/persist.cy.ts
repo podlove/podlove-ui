@@ -3,9 +3,9 @@ import { toggleTab } from '@podlove/player-actions/tabs';
 import { PodloveWebPlayerConfig, PodloveWebPlayerTab } from '@podlove/types';
 import { loadQuantiles } from '@podlove/player-actions/quantiles';
 import { onUpdate } from '../../helpers/state.js';
+import storage from '../../helpers/storage.js';
 
 import config from '../../../public/config.json';
-import storage from 'helpers/storage.js';
 
 describe('persist', () => {
   let assert, store;

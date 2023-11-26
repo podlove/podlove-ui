@@ -43,8 +43,9 @@
 
       const app = document.getElementById('app');
       const { episode, config } = urlParameters();
-      app.init(episode, config);
-      window.PODLOVE_APP = app.player;
+      app.init(episode, config).then(store => {
+        window.PODLOVE_APP = store;
+      });
     </script>
   </body>
 </html>
