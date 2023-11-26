@@ -1,10 +1,11 @@
-import { put } from 'redux-saga/effects';
 import { setRuntime } from '@podlove/button-actions/runtime';
 import { isMobile } from '@podlove/utils/detect';
 import { head } from 'ramda';
 import { detect } from 'detect-browser';
+import { Action } from 'redux';
+import { put } from 'redux-saga/effects';
 
-export default function* runtimeSaga() {
+export default function* runtimeSaga(): Generator<Action> {
   const browser = detect();
   const locale = navigator.language || 'en-us';
   yield put(

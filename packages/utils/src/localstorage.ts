@@ -1,8 +1,6 @@
-import { curry } from 'ramda';
-
 const STORE: Storage = window.localStorage;
 
-const selector = curry((scope: string, key: string): string => [scope, key].join('\x00'));
+const selector = (scope: string) => (key: string): string => [scope, key].join('\x00');
 const notFound = (selector: string): Error & { notFound: boolean; key: string } => {
   const error = new Error(`Not Found [${selector}]`);
 
@@ -13,7 +11,13 @@ const notFound = (selector: string): Error & { notFound: boolean; key: string } 
   };
 };
 
-export default (scope: string) => ({
+export default (
+  scope: string
+): {
+  get: <T>(key: string) => [Error | null, T | null];
+  selector: (key: string) => string;
+  put: <T>(key: string, value: T) => [Error | null, string | null];
+} => ({
   selector: selector(scope),
 
   get<T>(key: string): [Error | null, T | null] {

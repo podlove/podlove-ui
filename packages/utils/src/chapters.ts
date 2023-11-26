@@ -1,4 +1,4 @@
-import { find, curry, propOr } from 'ramda';
+import { find, propOr } from 'ramda';
 import { PodloveWebPlayerChapter } from '@podlove/types';
 
 const emptyChapter: PodloveWebPlayerChapter = {
@@ -9,10 +9,8 @@ const emptyChapter: PodloveWebPlayerChapter = {
   index: -1
 };
 
-export const getChapterByIndex = curry(
-  (chapters: PodloveWebPlayerChapter[], index: number): PodloveWebPlayerChapter =>
-    propOr(emptyChapter, index >= 0 ? index : null, chapters)
-);
+export const getChapterByIndex = (chapters: PodloveWebPlayerChapter[], index: number) =>
+  propOr(emptyChapter, index >= 0 ? index : null, chapters);
 
 export const currentChapterIndex = (chapters: PodloveWebPlayerChapter[]): number => {
   const index = (chapters || []).findIndex((chapter) => chapter.active);
@@ -38,20 +36,21 @@ export const previousChapter = (chapters: PodloveWebPlayerChapter[]): PodloveWeb
   return getChapterByIndex(chapters, currentIndex >= 0 ? currentIndex - 1 : -1);
 };
 
-export const currentChapterByPlaytime = curry(
-  (chapters: PodloveWebPlayerChapter[], playtime: number): PodloveWebPlayerChapter =>
-    find((chapter: PodloveWebPlayerChapter) => {
-      if (playtime < chapter.start) {
-        return false;
-      }
+export const currentChapterByPlaytime = (
+  chapters: PodloveWebPlayerChapter[],
+  playtime: number
+): PodloveWebPlayerChapter =>
+  find((chapter: PodloveWebPlayerChapter) => {
+    if (playtime < chapter.start) {
+      return false;
+    }
 
-      if (playtime >= chapter.end) {
-        return false;
-      }
+    if (playtime >= chapter.end) {
+      return false;
+    }
 
-      return true;
-    })(chapters)
-);
+    return true;
+  })(chapters);
 
 export const inactiveChapter = (chapter: PodloveWebPlayerChapter): PodloveWebPlayerChapter => ({
   ...chapter,

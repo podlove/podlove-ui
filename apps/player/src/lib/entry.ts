@@ -24,6 +24,7 @@ const fetchTemplate = async (node: HTMLElement): Promise<string> => {
 export const createEntry = async (
   entry: HTMLElement
 ): Promise<{ player: HTMLElement; subscribeButton: HTMLElement }> => {
+  // @ts-ignore
   const shadow = import.meta.env.MODE === 'development' ? entry : entry.attachShadow({ mode: 'open' });
   const template = await fetchTemplate(entry);
 

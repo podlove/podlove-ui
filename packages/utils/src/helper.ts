@@ -33,7 +33,7 @@ export const fallbackTo =
   (value: T) =>
     isUndefinedOrNull(value) ? fallback : value;
 export const createObject: any = curry(
-  <T>(specification: { [key: string]: Function }, value: any): T =>
+  <T>(specification: { [key: string]: Function }, value: any): any =>
     map((f: Function) => f(value), specification)
 );
 export const scope: any = curry(
