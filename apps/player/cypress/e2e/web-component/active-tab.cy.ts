@@ -1,6 +1,6 @@
+import { PodloveWebPlayerConfig } from '@podlove/types';
 import episode from '../../../public/episode.json';
 import config from '../../../public/config.json';
-import { PodloveWebPlayerConfig } from '@podlove/types';
 
 describe('active tab', () => {
   describe('predefined tab', () => {

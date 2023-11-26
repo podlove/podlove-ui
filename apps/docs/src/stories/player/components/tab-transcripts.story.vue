@@ -58,7 +58,7 @@ const style = computed(() => ({
 }));
 
 const initTab = (event) => {
-  const store = event.detail.player.store;
+  const store = event.detail;
   store.dispatch(toggleTab('transcripts'));
 };
 </script>

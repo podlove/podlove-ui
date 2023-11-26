@@ -1,21 +1,20 @@
 import { backendPlaytime } from '@podlove/player-actions/timepiece';
-import { onUpdate } from '../../../../web-player/cypress/helpers/state.js';
-import storage from '../../../../web-player/cypress/helpers/storage.js';
 import { toggleTab } from '@podlove/player-actions/tabs';
 import { PodloveWebPlayerConfig, PodloveWebPlayerTab } from '@podlove/types';
 import { loadQuantiles } from '@podlove/player-actions/quantiles';
+import { onUpdate } from '../../helpers/state.js';
 
 import config from '../../../public/config.json';
+import storage from 'helpers/storage.js';
 
 describe('persist', () => {
   let assert, store;
   beforeEach(() => {
     cy.embed({
       episode: 'episode.json',
-      config: {...config, activeTab: 'none'} as PodloveWebPlayerConfig
-    }).then(({ player }) => {
-      assert = onUpdate(player.store);
-      store = player.store;
+      config: { ...config, activeTab: 'none' } as PodloveWebPlayerConfig
+    }).then((store) => {
+      assert = onUpdate(store);
     });
   });
 
@@ -42,9 +41,9 @@ describe('persist', () => {
 
       cy.embed({
         episode: 'episode.json',
-        config: {...config, activeTab: 'none'} as PodloveWebPlayerConfig
-      }).then(({ player }) => {
-        expect(player.store.getState().timepiece.playtime).to.equal(1000);
+        config: { ...config, activeTab: 'none' } as PodloveWebPlayerConfig
+      }).then((store) => {
+        expect(store.getState().timepiece.playtime).to.equal(1000);
         done();
       });
     });
@@ -106,9 +105,9 @@ describe('persist', () => {
 
       cy.embed({
         episode: 'episode.json',
-        config: {...config, activeTab: 'none'} as PodloveWebPlayerConfig
-      }).then(({ player }) => {
-        expect(player.store.getState().quantiles).to.deep.equal([
+        config: { ...config, activeTab: 'none' } as PodloveWebPlayerConfig
+      }).then((store) => {
+        expect(store.getState().quantiles).to.deep.equal([
           [0, 10],
           [100, 200]
         ]);

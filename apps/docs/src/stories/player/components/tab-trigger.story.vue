@@ -25,7 +25,7 @@ const color = ref(config.theme.tokens.contrast);
 const colorActive = ref(config.theme.tokens.brandDark);
 
 const initTab = (event) => {
-  const store = event.detail.player.store;
+  const store = event.detail;
   store.dispatch(toggleTab('shownotes'));
 };
 

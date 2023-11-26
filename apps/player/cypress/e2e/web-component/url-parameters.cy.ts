@@ -9,8 +9,8 @@ describe('url-parameters', () => {
           config: 'config.json'
         },
         { t: '00:02' }
-      ).then(({ player }) => {
-        store = player.store;
+      ).then((result) => {
+        store = result;
       });
     });
 
@@ -27,8 +27,8 @@ describe('url-parameters', () => {
         episode: 'episode.json',
         config: 'config.json'},
         { t: '00:01,00:02' }
-      ).then(({ player }) => {
-        store = player.store;
+      ).then((result) => {
+        store = result;
       });
     });
 
@@ -55,8 +55,8 @@ describe('url-parameters', () => {
         episode: 'episode.json',
         config: 'config.json'},
         { autoplay: true }
-      ).then(({ player }) => {
-        store = player.store;
+      ).then((result) => {
+        store = result;
       });
     });
 

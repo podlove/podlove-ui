@@ -38,7 +38,7 @@ Cypress.Commands.add(
       templateUrl?: string;
     },
     params?: { [key: string]: string | number }
-  ): Promise<{ player: { app: any; store: any }; subscribeButton: { app: any; store: any } }> => {
+  ): Promise<Store> => {
     const query = Object.keys(params || {})
       .reduce((result, key) => [...result, `${key}=${params[key]}`], [])
       .join('&');
@@ -51,14 +51,11 @@ Cypress.Commands.add(
       .should('exist')
       .then((bootstrap) =>
         bootstrap({ episode, config, variant, template, templateUrl })
-      ) as unknown as Promise<{
-      player: { app: any; store: any };
-      subscribeButton: { app: any; store: any };
-    }>;
+      ) as unknown as Promise<Store>;
   }
 );
 
-Cypress.Commands.add('share', (data: { episode: string; config: string }, params = {}): any => {
+Cypress.Commands.add('share', (data: { episode: string; config: string }, params = {}): Promise<Store> => {
   const urlParams = { ...params, ...data };
 
   const query = Object.keys(urlParams)
@@ -67,5 +64,5 @@ Cypress.Commands.add('share', (data: { episode: string; config: string }, params
 
   cy.visit(`/share.html${query ? '?' + query : ''}`);
   cy.get('#app').should('exist');
-  return cy.window().its('PODLOVE_APP').should('exist');
+  return cy.window().its('PODLOVE_APP').should('exist') as unknown as Promise<Store>;
 });

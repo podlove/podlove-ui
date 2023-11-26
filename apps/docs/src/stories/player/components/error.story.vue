@@ -41,7 +41,7 @@ const style = ref({
 });
 
 const emulateError = (event) => {
-  const store = event.detail.player.store;
+  const store = event.detail;
 
   store.dispatch(
     showError({

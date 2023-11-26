@@ -22,7 +22,7 @@ declare global {
           templateUrl?: string;
         },
         params?: { [key: string]: string | number | boolean }
-      ): Promise<{ player: { app: any; store: any }; subscribeButton: { app: any; store: any } }>;
+      ): Promise<Store>;
 
       query(selector: string, ...query: string[]): Chainable<JQuery<HTMLElement>>;
 
@@ -32,7 +32,7 @@ declare global {
           config: string;
         },
         params?: { [key: string]: string | number | boolean }
-      ): Promise<{ app: any; store: any }>;
+      ): Promise<Store>;
     }
   }
 }

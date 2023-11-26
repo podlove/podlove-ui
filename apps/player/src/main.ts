@@ -13,14 +13,14 @@ import connect from './lib/connect.js';
 import restore from './lib/restore.js';
 import createPlayer from './app.js';
 
-interface PodloveWebPlayerInit {
-  player: { store: Store; app: App };
-  subscribeButton: { store: Store; app: App };
+interface AppInstance {
+  store: Store;
+  app: App;
 }
 
 class PodloveWebPlayer extends HTMLElement {
-  public player: { store: Store; app: App };
-  public subscribeButton: { store: Store; app: App };
+  private player: AppInstance;
+  private subscribeButton: AppInstance;
 
   async connectedCallback() {
     this.player = createPlayer();
@@ -36,7 +36,7 @@ class PodloveWebPlayer extends HTMLElement {
   public async init(
     episode: string | PodloveWebPlayerEpisode,
     config: string | PodloveWebPlayerConfig
-  ): Promise<PodloveWebPlayerInit> {
+  ): Promise<Store> {
     const [resolvedEpisode, resolvedConfig] = await Promise.all([
       parseEpisode(episode),
       parseConfig(config, episode)
@@ -62,17 +62,15 @@ class PodloveWebPlayer extends HTMLElement {
     this.player.app.mount(entry.player);
     this.subscribeButton.app.mount(entry.subscribeButton);
 
-    const result = { player: this.player, subscribeButton: this.subscribeButton };
-
     this.dispatchEvent(
-      new CustomEvent<PodloveWebPlayerInit>('init', {
+      new CustomEvent<Store>('init', {
         bubbles: true,
         cancelable: false,
-        detail: result
+        detail: this.player.store
       })
     );
 
-    return result;
+    return this.player.store;
   }
 }
 

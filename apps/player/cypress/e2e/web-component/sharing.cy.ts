@@ -28,8 +28,8 @@ describe('sharing', () => {
         config: 'config.json'
       },
       { t: '00:10' }
-    ).then((player) => {
-      onUpdate(player.store, requestPlaytime.toString(), (state) => {
+    ).then((store) => {
+      onUpdate(store, requestPlaytime.toString(), (state) => {
         expect(state.timepiece.playtime).to.equal(10000);
         done();
       });
