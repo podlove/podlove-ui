@@ -14,7 +14,7 @@ Cypress.Commands.add('app', (template: string = '', stateFragments?: any[]): Pro
     .window()
     .its('BOOTSTRAP_APP')
     .should('exist')
-    .then((bootstrap) => bootstrap({ template, state })) as unknown as Promise<Store>;
+    .then((bootstrap) => bootstrap(template, state)) as unknown as Promise<Store>;
 });
 
 Cypress.Commands.add('query', (selector, ...query) =>
