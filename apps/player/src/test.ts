@@ -55,5 +55,7 @@ const initState = (store: Store, state: any) =>
   }
 
   container.appendChild(elem);
-  return await (elem as any).init(episode, config);
+  const result = await (elem as any).init(episode, config);
+
+  return result;
 };

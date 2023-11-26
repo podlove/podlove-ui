@@ -1,6 +1,3 @@
-import { requestPlaytime } from '@podlove/player-actions/timepiece';
-import { onUpdate } from '../../helpers/state.js';
-
 describe('sharing', () => {
   it('should generate the correct embed code', () => {
     cy.embed({ episode: 'episode.json', config: 'config.json' });
@@ -9,9 +6,7 @@ describe('sharing', () => {
     cy.query('tab-share--embed--input').then((input) => {
       expect(input.val()).to.include('title="Podlove Web Player: Podlovers - Podlove Web Player"');
       expect(input.val()).to.include('height="200"');
-      expect(input.val()).to.include(
-        'share.html?config=%2Fpodcast%2Fconfig.json&episode=%2Fpodcast%2Fepisode.json'
-      );
+      expect(input.val()).to.include('share.html?config=config.json&episode=episode.json');
       expect(input.val()).to.include('frameborder="0" scrolling="no" tabindex="0"');
     });
   });
@@ -21,7 +16,7 @@ describe('sharing', () => {
     cy.query('player--share').should('exist');
   });
 
-  it('should parse the start time', (done) => {
+  it('should parse the start time', () => {
     cy.share(
       {
         episode: 'episode.json',
@@ -29,10 +24,7 @@ describe('sharing', () => {
       },
       { t: '00:10' }
     ).then((store) => {
-      onUpdate(store, requestPlaytime.toString(), (state) => {
-        expect(state.timepiece.playtime).to.equal(10000);
-        done();
-      });
+      expect(store.getState().timepiece.playtime).to.equal(10000);
     });
   });
 });

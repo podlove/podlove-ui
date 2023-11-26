@@ -44,6 +44,7 @@ Cypress.Commands.add(
       .join('&');
 
     cy.visit(`/test.html${query ? '?' + query : ''}`);
+    cy.get('#test').should('exist');
 
     return cy
       .window()

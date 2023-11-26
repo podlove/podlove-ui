@@ -13,8 +13,9 @@ describe('persist', () => {
     cy.embed({
       episode: 'episode.json',
       config: { ...config, activeTab: 'none' } as PodloveWebPlayerConfig
-    }).then((store) => {
-      assert = onUpdate(store);
+    }).then((result) => {
+      assert = onUpdate(result);
+      store = result;
     });
   });
 
