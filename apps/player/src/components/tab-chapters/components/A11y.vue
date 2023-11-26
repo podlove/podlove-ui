@@ -16,8 +16,8 @@ import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { requestPlay, requestPause } from '@podlove/player-actions/play';
-import select from '../../../store/selectors/index.js';
 import { PodloveWebPlayerChapter } from '@podlove/types';
+import select from '../../../store/selectors/index.js';
 
 const { t } = useI18n();
 

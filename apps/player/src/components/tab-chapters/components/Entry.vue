@@ -90,7 +90,7 @@ const action = computed((): { icon?: string; content?: string } => {
   }
 
   return {
-    content: props.chapter.index.toString()
+    content: (props.chapter.index + 1).toString()
   };
 });
 

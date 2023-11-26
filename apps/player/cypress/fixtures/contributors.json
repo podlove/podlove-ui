@@ -1,7 +1,7 @@
 {
   "contributors": [
     {
-      "avatar": "assets/fry.jpg",
+      "avatar": "fry.jpg",
       "name": "Philip J. Fry",
       "role": {
         "id": "9",
@@ -16,7 +16,7 @@
       "comment": null
     },
     {
-      "avatar": "assets/farnsworth.png",
+      "avatar": "farnsworth.png",
       "name": "Professor Farnsworth",
       "role": {
         "id": "9",
@@ -31,7 +31,7 @@
       "comment": null
     },
     {
-      "avatar": "assets/leela.jpg",
+      "avatar": "leela.jpg",
       "name": "Turanga Leela",
       "role": {
         "id": "9",

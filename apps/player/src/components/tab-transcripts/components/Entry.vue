@@ -38,7 +38,7 @@ const chapter = (children = []) =>
             onClick: () => onClick(props.entry)
           })
     },
-    [t('TRANSCRIPTS.CHAPTER', props.entry), ...children]
+    [t('TRANSCRIPTS.CHAPTER', { ...props.entry, index: props.entry.index + 1}), ...children]
   );
 
 const speaker = () =>

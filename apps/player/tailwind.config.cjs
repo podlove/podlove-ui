@@ -1,9 +1,10 @@
-/** @type {import('tailwindcss').Config} */
+const safelist = require('./safelist.cjs');
 
 module.exports = {
   content: [
-    './**/*.{vue,html}',
-    '../../packages/components/src/**/*.vue'
+    './src/**/*.{vue,html}',
+    '../../packages/components/src/**/*.vue',
+    '../../apps/subscribe-button/src/**/*.vue'
   ],
   theme: {
     colors: {},
@@ -17,5 +18,6 @@ module.exports = {
       auto: 'auto',
       8: '2rem'
     }
-  }
+  },
+  safelist
 };
