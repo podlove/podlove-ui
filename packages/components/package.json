@@ -51,7 +51,7 @@
     "eslint-plugin-vue": "9.18.1",
     "happy-dom": "9.1.9",
     "typescript": "5.0.4",
-    "vite": "4.3.5",
+    "vite": "4.3.9",
     "vite-plugin-css-injected-by-js": "3.1.0",
     "vite-plugin-dts": "2.3.0",
     "vitest": "0.30.0"

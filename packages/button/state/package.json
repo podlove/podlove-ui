@@ -19,7 +19,7 @@
   "devDependencies": {
     "@podlove/types": "workspace:*",
     "@types/redux-actions": "2.6.2",
-    "vite": "4.3.5",
+    "vite": "4.3.9",
     "vite-plugin-dts": "3.6.3",
     "typescript": "5.0.4"
   },
