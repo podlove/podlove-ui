@@ -29,7 +29,7 @@ const productionConfig: UserConfigExport = {
       }
     }
   },
-  plugins: [vue(), dts()],
+  plugins: [vue(), dts({ entryRoot: '../player/src' })],
   resolve
 };
 

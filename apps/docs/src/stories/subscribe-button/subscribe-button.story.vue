@@ -21,7 +21,7 @@ import '@podlove/subscribe-button/styles';
 import { init } from '@podlove/button-actions/lifecycle';
 import { show } from '@podlove/button-actions/overlay';
 
-import createButton from '@podlove/subscribe-button';
+import createButton from '@podlove/subscribe-button/app';
 import config from './data/config.json';
 
 const button = ref(null);
@@ -42,7 +42,7 @@ const theme = ref({
   alt
 });
 
-const { app, store } = createButton({ baseUrl: './' });
+const { app, store } = createButton();
 
 const showButton = () => {
   store.dispatch(show());

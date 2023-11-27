@@ -1,7 +1,7 @@
 import { Store } from 'redux';
 import { App } from 'vue';
 import { mergeDeepRight } from 'ramda';
-import createSubscribeButton from '@podlove/subscribe-button';
+import createSubscribeButton from '@podlove/subscribe-button/app';
 import { init as playerInit } from '@podlove/player-actions/lifecycle';
 import { init as buttonInit } from '@podlove/button-actions/lifecycle';
 import { PodloveWebPlayerConfig, PodloveWebPlayerEpisode } from '@podlove/types';

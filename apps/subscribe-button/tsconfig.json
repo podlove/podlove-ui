@@ -5,6 +5,7 @@
     "moduleResolution": "NodeNext",
     "module": "NodeNext",
     "lib": ["DOM", "ESNext"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   }
 }

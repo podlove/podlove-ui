@@ -1,9 +1,8 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import EnvironmentPlugin from 'vite-plugin-environment';
-
-import { version } from './package.json';
+import dts from 'vite-plugin-dts';
+import svgr from 'vite-plugin-svgr';
 
 import aliases from '../../.build/aliases';
 import extensions from '../../.build/extensions';
@@ -17,24 +16,22 @@ const productionConfig = {
   build: {
     lib: {
       formats: ['es'],
-      entry: path.resolve(__dirname, 'src', 'main.ts'),
-      fileName: () => `subscribe-button.[format].js`
+      entry: {
+        main: path.resolve(__dirname, 'src', 'main.ts'),
+        app: path.resolve(__dirname, 'src', 'app.ts')
+      }
     },
     rollupOptions: {
       output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: `[name].[hash].js`,
+        entryFileNames: '[name].mjs',
+        chunkFileNames: `[name].[hash].mjs`,
         assetFileNames: `[name].css`
       }
     }
   },
   plugins: [
     vue(),
-    EnvironmentPlugin({
-      NODE_ENV: 'production',
-      MODE: 'production',
-      VERSION: version
-    })
+    dts({ entryRoot: '../subscribe-button/src' }), svgr()
   ],
   resolve
 };

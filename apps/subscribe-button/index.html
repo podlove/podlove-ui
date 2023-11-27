@@ -8,95 +8,22 @@
   </head>
 
   <body>
-    <div id="button"></div>
+    <podlove-subscribe-button id="button" config="config.json"></podlove-subscribe-button>
     <div id="playground">
       <button id="show-button">Show Subscribe Button</button>
     </div>
 
     <script type="module">
-      // import { show } from '@podlove/button-actions/overlay'
-      import createSubscribeButton from './dist/subscribe-button.js'
+      import './src/main.ts';
 
-      const config = {
-        feed: 'https://feeds.podlovers.org/mp3',
-        clients: [
-          {
-            id: 'apple-podcasts',
-            service: 'id1523714548'
-          },
-          {
-            id: 'antenna-pod'
-          },
-          {
-            id: 'beyond-pod'
-          },
-          {
-            id: 'castbox',
-            service: 'Podlovers-id3117097'
-          },
-          {
-            id: 'castro',
-            service: 'id1523714548'
-          },
-          {
-            id: 'clementine'
-          },
-          {
-            id: 'downcast'
-          },
-          {
-            id: 'google-podcasts',
-            service: 'https://feeds.podlovers.org/mp3'
-          },
-          {
-            id: 'itunes'
-          },
-          {
-            id: 'i-catcher'
-          },
-          {
-            id: 'overcast'
-          },
-          {
-            id: 'player-fm'
-          },
-          {
-            id: 'pocket-casts',
-            service: '194w03r3'
-          },
-          {
-            id: 'pod-grasp'
-          },
-          {
-            id: 'podcast-addict'
-          },
-          {
-            id: 'podcast-republic'
-          },
-          {
-            id: 'podcat'
-          },
-          {
-            id: 'podscout'
-          },
-          {
-            id: 'rss-radio'
-          },
-          {
-            id: 'website',
-            link: 'https://podlovers.org/',
-            icon: 'https://github.com/podlove/podlovers.org/raw/master/static/favicon.png',
-            title: 'Podlovers',
-            platform: 'custom'
-          }
-        ]
-      }
+      document.getElementById('button').addEventListener('init', (event) => {
+        const store = event.detail;
 
-      createSubscribeButton('#button', config).then((store) => {
         document.getElementById('show-button').addEventListener('click', () => {
-          store.dispatch({ type: 'BUTTON_SHOW_OVERLAY' })
-        })
-      })
+          console.log('call!')
+          store.dispatch({ type: 'BUTTON_SHOW_OVERLAY' });
+        });
+      });
     </script>
 
     <style>
