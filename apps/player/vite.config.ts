@@ -12,6 +12,7 @@ const resolve = {
 };
 
 const productionConfig: UserConfigExport = {
+  publicDir: false,
   build: {
     lib: {
       formats: ['es'],

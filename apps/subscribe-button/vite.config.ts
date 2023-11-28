@@ -13,6 +13,7 @@ const resolve = {
 };
 
 const productionConfig = {
+  publicDir: false,
   build: {
     lib: {
       formats: ['es'],
