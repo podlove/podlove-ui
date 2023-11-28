@@ -42,14 +42,14 @@ export const media = compose<any[], PodloveWebPlayerAudio[], PodloveWebPlayerAud
   propOr([], 'audio')
 );
 
-export const chapters = propOr([], 'chapters') as (input: PodloveWebPlayerEpisode) => PodloveWebPlayerChapter[];
+export const chapters = propOr([], 'chapters') as (
+  input: PodloveWebPlayerEpisode
+) => PodloveWebPlayerChapter[];
 
 export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
-  const theme = propOr({}, 'theme', config) as (
-    input: PodloveWebPlayerConfig
-  ) => PodloveTheme;
+  const theme = propOr({}, 'theme', config) as (input: PodloveWebPlayerConfig) => PodloveTheme;
 
-  if (version(config) === 5) {
+  if ([5, 6].includes(version(config))) {
     return {
       tokens: propOr({}, 'tokens', theme)
     };
@@ -89,7 +89,7 @@ export const originReference = compose(
 export const episodeReference = (config: PodloveWebPlayerEpisode): string | null => {
   const ref = reference(config);
 
-  if (version(config) === 5) {
+  if ([5, 6].includes(version(config))) {
     return propOr(null, 'episode', ref) as unknown as string | null;
   }
 
@@ -99,7 +99,7 @@ export const episodeReference = (config: PodloveWebPlayerEpisode): string | null
 export const configReference = (config: PodloveWebPlayerEpisode): string | null => {
   const ref = reference(config);
 
-  if (version(config) === 5) {
+  if ([5, 6].includes(version(config))) {
     return propOr(null, 'config', ref) as unknown as string | null;
   }
 
@@ -116,9 +116,7 @@ export const validate = (config: PodloveWebPlayerEpisode): boolean => {
   return true;
 };
 
-export const runtime = propOr({}, 'runtime') as (
-  input: PodloveWebPlayerConfig
-) => PodloveRuntime;
+export const runtime = propOr({}, 'runtime') as (input: PodloveWebPlayerConfig) => PodloveRuntime;
 
 export const language = compose<any[], PodloveRuntime, string>(
   prop('language') as (input: PodloveRuntime) => string,

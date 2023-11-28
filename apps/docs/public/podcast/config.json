@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "subscribe-button": {
     "feed": "https://feeds.podlovers.org/mp3",
     "clients": [
