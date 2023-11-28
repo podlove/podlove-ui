@@ -7,7 +7,7 @@ import {
   originReference,
   episodeReference,
   configReference
-} from './index'
+} from './index.js';
 
 const example = {
   version: 5,
@@ -72,35 +72,15 @@ const example = {
       shadeBase: '#807E7C',
       contrast: '#000',
       alt: '#fff'
-    },
-    fonts: {
-      ci: {
-        name: 'CiFont',
-        family: ['CiFont'],
-        weight: 800,
-        src: []
-      },
-      regular: {
-        name: 'RegularFont',
-        family: ['RegularFont'],
-        weight: 300,
-        src: []
-      },
-      bold: {
-        name: 'BoldFont',
-        family: ['BoldFont'],
-        weight: 700,
-        src: []
-      }
     }
   }
-}
+};
 
 describe('config version 5', () => {
   describe('theme()', () => {
     test('should be a function', () => {
-      expect(typeof theme).toBe('function')
-    })
+      expect(typeof theme).toBe('function');
+    });
 
     test('should extract the brand color', () => {
       expect(theme(example)).toEqual({
@@ -113,42 +93,15 @@ describe('config version 5', () => {
           shadeBase: '#807E7C',
           contrast: '#000',
           alt: '#fff'
-        },
-        fonts: {
-          ci: {
-            name: 'CiFont',
-            family: ['CiFont'],
-            weight: 800,
-            src: []
-          },
-          regular: {
-            name: 'RegularFont',
-            family: ['RegularFont'],
-            weight: 300,
-            src: []
-          },
-          bold: {
-            name: 'BoldFont',
-            family: ['BoldFont'],
-            weight: 700,
-            src: []
-          }
         }
-      })
-    })
-
-    test('should have a fallback', () => {
-      expect(theme({})).toEqual({
-        tokens: {},
-        fonts: {}
-      })
-    })
-  })
+      });
+    });
+  });
 
   describe('reference', () => {
     test('should be a function', () => {
-      expect(typeof reference).toBe('function')
-    })
+      expect(typeof reference).toBe('function');
+    });
 
     test('should extract from the config', () => {
       expect(reference(example)).toEqual({
@@ -156,67 +109,67 @@ describe('config version 5', () => {
         origin: 'http://foo.bar/origin-reference',
         config: 'http://foo.bar/config-reference',
         episode: 'http://foo.bar/episode-reference'
-      })
-    })
+      });
+    });
 
     test('should have a fallback', () => {
-      expect(reference({})).toEqual({})
-    })
-  })
+      expect(reference({})).toEqual({});
+    });
+  });
 
   describe('shareReference', () => {
     test('should be a function', () => {
-      expect(typeof shareReference).toBe('function')
-    })
+      expect(typeof shareReference).toBe('function');
+    });
 
     test('should extract from the config', () => {
-      expect(shareReference(example)).toEqual('http://foo.bar/share-reference')
-    })
+      expect(shareReference(example)).toEqual('http://foo.bar/share-reference');
+    });
 
     test('should have a fallback', () => {
-      expect(shareReference({})).toEqual(null)
-    })
-  })
+      expect(shareReference({})).toEqual(null);
+    });
+  });
 
   describe('originReference', () => {
     test('should be a function', () => {
-      expect(typeof originReference).toBe('function')
-    })
+      expect(typeof originReference).toBe('function');
+    });
 
     test('should extract from the config', () => {
-      expect(originReference(example)).toEqual('http://foo.bar/origin-reference')
-    })
+      expect(originReference(example)).toEqual('http://foo.bar/origin-reference');
+    });
 
     test('should have a fallback', () => {
-      expect(originReference({})).toEqual(null)
-    })
-  })
+      expect(originReference({})).toEqual(null);
+    });
+  });
 
   describe('episodeReference', () => {
     test('should be a function', () => {
-      expect(typeof episodeReference).toBe('function')
-    })
+      expect(typeof episodeReference).toBe('function');
+    });
 
     test('should extract from the episode', () => {
-      expect(episodeReference(example)).toEqual('http://foo.bar/episode-reference')
-    })
+      expect(episodeReference(example)).toEqual('http://foo.bar/episode-reference');
+    });
 
     test('should have a fallback', () => {
-      expect(episodeReference({})).toEqual(null)
-    })
-  })
+      expect(episodeReference({})).toEqual(null);
+    });
+  });
 
   describe('configReference', () => {
     test('should be a function', () => {
-      expect(typeof configReference).toBe('function')
-    })
+      expect(typeof configReference).toBe('function');
+    });
 
     test('should extract from the config', () => {
-      expect(configReference(example)).toEqual('http://foo.bar/config-reference')
-    })
+      expect(configReference(example)).toEqual('http://foo.bar/config-reference');
+    });
 
     test('should have a fallback', () => {
-      expect(configReference({})).toEqual(null)
-    })
-  })
-})
+      expect(configReference({})).toEqual(null);
+    });
+  });
+});

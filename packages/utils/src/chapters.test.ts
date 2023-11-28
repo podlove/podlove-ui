@@ -68,13 +68,13 @@ describe('chapters', () => {
 
     test('hould find the active chapter by playtime', () => {
       expect(
-        currentChapterByPlaytime([inactiveChapter, activeChapter, additionalChapter])(11)
+        currentChapterByPlaytime([inactiveChapter, activeChapter, additionalChapter], 11)
       ).toEqual(inactiveChapter)
       expect(
-        currentChapterByPlaytime([inactiveChapter, activeChapter, additionalChapter])(4000)
+        currentChapterByPlaytime([inactiveChapter, activeChapter, additionalChapter], 4000)
       ).toEqual(activeChapter)
       expect(
-        currentChapterByPlaytime([activeChapter, additionalChapter, inactiveChapter])(3500)
+        currentChapterByPlaytime([activeChapter, additionalChapter, inactiveChapter], 3500)
       ).toEqual(inactiveChapter)
     })
   })

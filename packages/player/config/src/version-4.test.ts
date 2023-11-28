@@ -258,15 +258,13 @@ describe('config version 4', () => {
       expect(theme(example)).toEqual({
         tokens: {
           brand: '#a00'
-        },
-        fonts: {}
+        }
       })
     })
 
     test('should have a fallback', () => {
       expect(theme({})).toEqual({
-        tokens: {},
-        fonts: {}
+        tokens: {}
       })
     })
   })
