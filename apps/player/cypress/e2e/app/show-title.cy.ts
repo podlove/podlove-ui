@@ -16,7 +16,6 @@ describe('<show-title>', () => {
         })}"></show-title>`,
         [show, { version: 5, theme }]
       );
-      cy.query('show-title').should('have.css', 'font-family', 'boldFont');
       cy.query('show-title').should('have.css', 'color', 'rgb(0, 0, 0)');
     });
   });

@@ -51,8 +51,7 @@ export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
 
   if (version(config) === 5) {
     return {
-      tokens: propOr({}, 'tokens', theme),
-      fonts: propOr({}, 'fonts', theme)
+      tokens: propOr({}, 'tokens', theme)
     };
   }
 
@@ -62,14 +61,12 @@ export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
     return {
       tokens: {
         brand
-      },
-      fonts: {}
+      }
     };
   }
 
   return {
-    tokens: {},
-    fonts: {}
+    tokens: {}
   };
 };
 

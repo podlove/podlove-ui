@@ -1,16 +1,12 @@
 <template><render /></template>
 
 <script lang="ts" setup>
-import { mapState } from 'redux-vuex';
-
 import { computed, h } from 'vue';
 import { useI18n } from 'vue-i18n';
 import {
   PodloveWebPlayerTimelineTranscriptEntry,
   PodloveWebPlayerTimelineChapterEntry
 } from '@podlove/types';
-
-import select from '../../../store/selectors/index.js';
 
 const { t } = useI18n();
 
@@ -30,8 +26,7 @@ const chapter = (children = []) =>
   h(
     'div',
     {
-      class: { 'text-lg': true, 'podlove-player--transcript-entry--chapter': true },
-      style: chapterStyle.value,
+      class: { 'text-lg': true, 'podlove-player--transcript-entry--chapter': true, 'font-extrabold': true },
       ...(props.prerender
         ? {}
         : {
@@ -45,8 +40,7 @@ const speaker = () =>
   h(
     'div',
     {
-      class: { '-ml-6': true, 'podlove-player--transcript-entry--speaker': true },
-      style: speakerStyle.value
+      class: { '-ml-6': true, 'podlove-player--transcript-entry--speaker': true, 'font-bold': true }
     },
     [
       props.entry.speaker.avatar
@@ -136,11 +130,6 @@ const props = defineProps<{
   searchResults: number[];
 }>();
 
-const state = mapState({
-  fontCi: select.theme.fontCi,
-  fontBold: select.theme.fontBold
-});
-
 const query = computed(() => {
   if (!props.searchQuery || props.searchResults.length === 0) {
     return null;
@@ -148,9 +137,6 @@ const query = computed(() => {
 
   return new RegExp(props.searchQuery, 'ig');
 });
-
-const chapterStyle = computed(() => state.fontCi);
-const speakerStyle = computed(() => state.fontBold);
 
 // Event Bindings
 const onClick = (entry) => {

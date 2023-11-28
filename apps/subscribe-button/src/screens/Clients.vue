@@ -1,6 +1,7 @@
 <template>
   <div
     class="
+      podlove-subscribe-button--clients
       m-6
       p-6
       mobile:p-4
@@ -14,34 +15,28 @@
     "
   >
     <div class="mb-6 mobile:mb-4 flex justify-between items-center">
-      <h1 class="tablet:text-2xl mobile:text-xl" :style="state.font">
+      <h1 class="tablet:text-2xl mobile:text-xl font-extrabold">
         {{ t('SUBSCRIBE') }}
       </h1>
       <button :title="t('A11Y.CLOSE')" @click="close">
         <close-icon />
       </button>
     </div>
-    <divider class="mb-6" :color="state.shadeBase"></divider>
+    <divider class="mb-6"></divider>
     <client-list @clientSelect="finish" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { injectStore, mapState } from 'redux-vuex';
+import { injectStore } from 'redux-vuex';
 import { Divider, CloseIcon } from '@podlove/components';
 import { useI18n } from 'vue-i18n';
 import * as overlay from '@podlove/button-actions/overlay';
 import * as finishCard from '@podlove/button-actions/finish-card';
 
 import ClientList from '../components/client-list/ClientList.vue';
-import * as select from '../store/selectors.js';
 
 const { t } = useI18n();
-
-const state = mapState({
-  font: select.theme.fontCi,
-  shadeBase: select.theme.shadeBase
-});
 
 const dispatch = injectStore().dispatch;
 
@@ -53,3 +48,9 @@ const finish = (client: finishCard.showPayload) => {
   dispatch(finishCard.show(client));
 };
 </script>
+
+<style lang="postcss" scoped>
+.podlove-subscribe-button--clients {
+  --podlove-component--divider--color: var(--podlove-subscribe-button--divider--color);
+}
+</style>

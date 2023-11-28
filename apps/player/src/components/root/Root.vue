@@ -1,19 +1,12 @@
 <template>
   <div class="podlove-player antialiased text-base" :style="{ ...theme.font }" data-test="root" source="">
     <slot />
-    <font
-      v-for="(font, index) in theme.fonts"
-      :key="index"
-      :src="font.src"
-      :name="font.name"
-      :weight="font.weight"
-    />
+
   </div>
 </template>
 
 <script lang="ts" setup>
 import { mapState } from 'redux-vuex';
-import { Font } from '@podlove/components';
 import { computed, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { fade, lighten } from 'farbraum';
@@ -23,8 +16,6 @@ import select from '../../store/selectors/index.js';
 const { locale } = useI18n({ useScope: 'global' });
 
 const theme = mapState({
-  font: select.theme.fontRegular,
-  fonts: select.theme.fonts,
   language: select.language,
   brand: select.theme.brand,
   brandLightest: select.theme.brandLightest,
@@ -162,10 +153,15 @@ const transcriptsEntryBackgroundActive = computed(() => fade(theme.alt, 0.8));
   --podlove-player--subscribe-button--color: v-bind('theme.brandDark');
   --podlove-player--subscribe-button--border-color: v-bind('theme.brandDark');
   --podlove-player--subscribe-button--background: v-bind('theme.alt');
+
+  --podlove-player--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --podlove-player--font-weight: 300;
 }
 
 .podlove-player {
   background: var(--podlove-player--background);
+  font-family: var(--podlove-player--font);
+  font-weight: var(--podlove-player--font-weight);
 }
 
 .entry-enter-active,

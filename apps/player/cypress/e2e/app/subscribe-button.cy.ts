@@ -28,7 +28,6 @@ describe('<subscribe-button>', () => {
       cy.query('subscribe-button').should('have.css', 'color', 'rgb(0, 128, 0)');
       cy.query('subscribe-button').should('have.css', 'border-color', 'rgb(255, 255, 0)');
       cy.query('subscribe-button').should('have.css', 'background-color', 'rgb(0, 0, 255)');
-      cy.query('subscribe-button').should('have.css', 'font-family', 'boldFont');
     });
   });
 

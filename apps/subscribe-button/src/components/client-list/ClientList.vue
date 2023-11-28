@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex mobile:flex-col tablet:flex-row flex-wrap w-full">
+  <ul class="podlove-subscribe-button--client-list flex mobile:flex-col tablet:flex-row flex-wrap w-full">
     <li
       v-for="(entry, index) in state.clients"
       :key="index"
@@ -7,7 +7,7 @@
       :aria-label="t('A11Y.CLIENT', entry)"
     >
       <a
-        class="flex items-center w-full p-2 hover:bg-gray-200 rounded-sm cursor-pointer"
+        class="flex items-center w-full p-2 hover:bg-gray-200 rounded-sm cursor-pointer font-bold"
         rel="noopener"
         target="_blank"
         :style="state.font"
@@ -36,8 +36,7 @@ const { t } = useI18n();
 const emit = defineEmits(['clientSelect']);
 
 const state = mapState({
-  clients: select.clients,
-  font: select.theme.fontBold
+  clients: select.clients
 });
 
 const onClick = (client: PodloveSubscribeButtonClient) => {

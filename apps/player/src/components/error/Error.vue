@@ -8,8 +8,7 @@
     <div class="p-6 text-center">
       <h3
         v-if="state.title"
-        class="podlove-player--error--title text-2xl mb-5"
-        :style="{ font: state.headline }"
+        class="podlove-player--error--title text-2xl mb-5 font-bold"
         data-test="error--title"
       >
         {{ t(state.title) }}
@@ -46,8 +45,7 @@ const state = mapState({
   active: select.error.active,
   title: select.error.title,
   message: select.error.message,
-  retry: select.error.retry,
-  headline: select.theme.fontBold
+  retry: select.error.retry
 });
 
 const dispatch = injectStore().dispatch;

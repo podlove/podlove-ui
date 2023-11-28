@@ -43,9 +43,6 @@
             font-bold
           "
           :title="t(state.copyLabel.key, state.copyLabel.attr)"
-          :style="{
-            ...state.font
-          }"
         >
           <span aria-hidden="true">{{ t('SHARE.ACTIONS.COPY') }}</span>
         </button>
@@ -67,7 +64,6 @@ const { t } = useI18n();
 const state = mapState({
   embedSize: select.share.embedSize,
   embedCode: select.share.code,
-  font: select.theme.fontBold,
   inputLabel: select.accessibility.embedCode,
   copyLabel: select.accessibility.copyEmbedLink
 });

@@ -29,76 +29,6 @@ export const tokens = {
   alt: propOr(TOKENS.alt, 'alt')
 };
 
-export const FONTS: { [key: string]: PodloveThemeFont } = {
-  ci: {
-    name: 'ci',
-    family: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      'Segoe UI',
-      'Roboto',
-      'Helvetica',
-      'Arial',
-      'sans-serif',
-      'Apple Color Emoji',
-      'Segoe UI Emoji", "Segoe UI Symbol'
-    ],
-    src: [],
-    weight: 800
-  },
-  regular: {
-    name: 'regular',
-    family: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      'Segoe UI',
-      'Roboto',
-      'Helvetica',
-      'Arial',
-      'sans-serif',
-      'Apple Color Emoji',
-      'Segoe UI Emoji", "Segoe UI Symbol'
-    ],
-    src: [],
-    weight: 300
-  },
-  bold: {
-    name: 'bold',
-    family: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      'Segoe UI',
-      'Roboto',
-      'Helvetica',
-      'Arial',
-      'sans-serif',
-      'Apple Color Emoji',
-      'Segoe UI Emoji", "Segoe UI Symbol'
-    ],
-    src: [],
-    weight: 700
-  }
-};
-
-const normalizeFont = (type) =>
-  createObject({
-    family: propOr(path([type, 'family'], FONTS), 'family'),
-    weight: propOr(path([type, 'weight'], FONTS), 'weight'),
-    name: propOr(path([type, 'name'], FONTS), 'name'),
-    src: propOr([], 'src')
-  });
-
-const extractFonts = createObject({
-  regular: compose(
-    normalizeFont('regular'),
-    propOr(FONTS.regular, 'regular'),
-    propOr({}, 'fonts'),
-    theme
-  ),
-  bold: compose(normalizeFont('bold'), propOr(FONTS.bold, 'bold'), propOr({}, 'fonts'), theme),
-  ci: compose(normalizeFont('ci'), propOr(FONTS.ci, 'ci'), propOr({}, 'fonts'), theme)
-}) as (input: initPayload) => { [key: string]: PodloveThemeFont };
-
 const getTokens = propOr({}, 'tokens');
 
 const extractTokens = createObject({
@@ -113,27 +43,23 @@ const extractTokens = createObject({
 }) as (input: initPayload) => PodloveThemeTokens;
 
 export interface State {
-  tokens: PodloveThemeTokens;
-  fonts: { [key: string]: PodloveThemeFont };
+  tokens: PodloveThemeTokens
 }
 
 export const INITIAL_STATE: State = {
-  tokens: TOKENS,
-  fonts: FONTS
+  tokens: TOKENS
 };
 
 export const reducer = handleActions<State, initPayload>(
   {
     [init.toString()]: (_, { payload }: Action<initPayload>): State => ({
-      tokens: extractTokens(payload),
-      fonts: extractFonts(payload)
+      tokens: extractTokens(payload)
     })
   },
   INITIAL_STATE
 );
 
 const themeColors = propOr({}, 'tokens') as (input: State) => PodloveThemeTokens;
-const themeFonts = propOr({}, 'fonts') as (input: State) => { [key: string]: PodloveThemeFont };
 
 export const selectors = {
   brand: createSelector(themeColors, prop('brand')),
@@ -143,8 +69,5 @@ export const selectors = {
   shadeDark: createSelector(themeColors, prop('shadeDark')),
   shadeBase: createSelector(themeColors, prop('shadeBase')),
   contrast: createSelector(themeColors, prop('contrast')),
-  alt: createSelector(themeColors, prop('alt')),
-  fontRegular: createSelector(themeFonts, prop('regular') as (input: { [key: string]: PodloveThemeFont }) => PodloveThemeFont),
-  fontBold: createSelector(themeFonts, prop('bold') as (input: { [key: string]: PodloveThemeFont }) => PodloveThemeFont),
-  fontCi: createSelector(themeFonts, prop('ci') as (input: { [key: string]: PodloveThemeFont }) => PodloveThemeFont)
+  alt: createSelector(themeColors, prop('alt'))
 };

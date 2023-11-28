@@ -20,11 +20,6 @@ describe('<root>', () => {
     it('should set the correct background color', () => {
       cy.query('root').should('have.css', 'background-color', 'rgb(233, 241, 245)');
     });
-
-    it('should set the correct font', () => {
-      cy.query('root').should('have.css', 'font-family', 'regularFont');
-      cy.query('root').should('have.css', 'font-weight', '300');
-    });
   });
 
   describe('slot', () => {

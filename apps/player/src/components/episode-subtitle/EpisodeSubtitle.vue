@@ -1,22 +1,17 @@
 <template>
-  <div class="podlove-player--episode-subtitle block overflow-hidden" :style="style" data-test="episode-subtitle">
+  <div class="podlove-player--episode-subtitle block overflow-hidden" data-test="episode-subtitle">
     {{ state.subtitle }}
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
 import { mapState } from 'redux-vuex';
 import select from '../../store/selectors/index.js';
 
 const state = mapState({
-  font: select.theme.fontRegular,
   subtitle: select.episode.subtitle
 });
 
-const style = computed(() => ({
-  ...state.font
-}));
 </script>
 
 <style lang="postcss" scoped>
