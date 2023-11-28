@@ -46,8 +46,7 @@
     >
       <button
         :title="t('A11Y.COPY_FEED')"
-        class="podlove-subscribe-button--finish-card--tooltip-button py-2 px-4 rounded-sm text-sm"
-        :style="{ ...state.font }"
+        class="podlove-subscribe-button--finish-card--tooltip-button py-2 px-4 rounded-sm text-sm font-bold"
       >
         {{ t('FINISH_SCREEN.COPY_URL') }}
       </button>
@@ -72,7 +71,6 @@ const state = mapState({
   install: select.finish.install,
   os: select.finish.os,
   rss: select.finish.rss,
-  font: select.theme.fontBold,
   feed: select.feed
 });
 

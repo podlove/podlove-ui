@@ -4,7 +4,7 @@
     :href="file.url"
     data-test="tab-files--download"
     @mouseover="hover(file)"
-    @mouseout="hover()"
+    @mouseout="hover(file)"
     @click="click(file)"
   >
     <div class="flex h-10">
@@ -16,9 +16,9 @@
         <pdf-file-icon :filled="true" v-if="icon === 'pdf-file'" />
       </span>
       <div class="w-full">
-        <h3 :style="state.font">{{ file.title }}</h3>
+        <h3 class="font-bold">{{ file.title }}</h3>
         <div class="opacity-50 text-sm">
-          <span class="uppercase" :style="state.font">{{ type }}</span>
+          <span class="uppercase font-bold">{{ type }}</span>
           <span class="px-2">-</span>
           <span>{{ toMegabyte(file.size) }} MB</span>
         </div>
@@ -29,14 +29,12 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { mapState, injectStore } from 'redux-vuex';
+import { injectStore } from 'redux-vuex';
 import { compose, includes, defaultTo, toLower } from 'ramda';
 import { DownloadIcon, AudioFileIcon, VideoFileIcon, TextFileIcon, PdfFileIcon } from '@podlove/components';
 import { toMegabyte } from '@podlove/utils/math';
 import { hoverFile, selectFile } from '@podlove/player-actions/files';
 import { useI18n } from 'vue-i18n';
-
-import select from '../../../store/selectors/index.js';
 
 const { t } = useI18n();
 const isType = (type) => compose(includes(type), toLower, defaultTo(''));
@@ -56,10 +54,6 @@ const props = defineProps({
       hover: false
     })
   }
-});
-
-const state = mapState({
-  font: select.theme.fontBold
 });
 
 const dispatch = injectStore().dispatch;

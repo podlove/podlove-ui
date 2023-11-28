@@ -6,7 +6,6 @@ import { selectors as themeSelectors, type State as ThemeState } from '@podlove/
 import { selectors as finishSelectors, type State as FinishState } from '@podlove/button-state/finish';
 import { selectors as runtimeSelectors, type State as RuntimeState } from '@podlove/button-state/runtime';
 import { selectors as clientSelectors, type State as ClientsState } from '@podlove/button-state/clients';
-import type { PodloveThemeFont } from '@podlove/types';
 import { scope } from '@podlove/utils/helper';
 
 import State from './state.js';
@@ -21,21 +20,10 @@ const slices = {
   clients: propOr([], 'clients') as (input: State) => ClientsState,
 };
 
-const fontString = (font: PodloveThemeFont) => ({
-  'font-family': (font.family || []).map((font) => `"${font}"`).join(', '),
-  'font-weight': font.weight || 300
-});
+
 
 export const theme = {
   ...scope(themeSelectors, slices.theme),
-  fonts: createSelector(slices.theme, (state) => [
-    themeSelectors.fontRegular(state),
-    themeSelectors.fontBold(state),
-    themeSelectors.fontCi(state)
-  ]),
-  fontRegular: createSelector(slices.theme, createSelector(themeSelectors.fontRegular, fontString)),
-  fontBold: createSelector(slices.theme, createSelector(themeSelectors.fontBold, fontString)),
-  fontCi: createSelector(slices.theme, createSelector(themeSelectors.fontCi, fontString)),
 };
 
 export const view = scope(viewSelectors, slices.view);

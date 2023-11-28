@@ -26,7 +26,6 @@ import InputSelect from './input-select/index.js';
 import InputSlider from './input-slider/index.js';
 import InputCheckbox from './input-checkbox/index.js';
 import Divider from './divider/index.js';
-import Font from './font/index.js';
 
 import {
   PlayIcon,
@@ -118,7 +117,6 @@ export {
   InputSlider,
   InputCheckbox,
   Divider,
-  Font,
   PlayIcon,
   PlusIcon,
   PauseIcon,

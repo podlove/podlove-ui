@@ -1,5 +1,5 @@
 <template>
-  <h1 :style="style" data-test="episode-title">
+  <h1 class="font-bold" data-test="episode-title">
     <a
       v-if="state.link"
       class="podlove-player--episode-title block overflow-hidden"
@@ -16,20 +16,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
 import { mapState } from 'redux-vuex';
 import select from '../../store/selectors/index.js';
 
 const state = mapState({
-  font: select.theme.fontBold,
   title: select.episode.title,
   link: select.episode.link,
   target: select.target
 });
 
-const style = computed(() => ({
-  ...state.font
-}));
 </script>
 
 <style lang="postcss" scoped>

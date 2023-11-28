@@ -1,27 +1,12 @@
 <template>
-  <div class="podlove-subscribe-button antialiased" :style="state.font">
+  <div class="podlove-subscribe-button antialiased">
     <slot></slot>
-
-    <font
-      v-for="(font, index) in state.fonts"
-      :key="index"
-      :src="font.src"
-      :name="font.name"
-      :weight="font.weight"
-    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { Font } from '@podlove/components';
 import { mapState } from 'redux-vuex';
 import * as select from '../../store/selectors.js';
-
-const state = mapState({
-  font: select.theme.fontRegular,
-  fonts: select.theme.fonts,
-
-});
 
 const theme = mapState({
   brand: select.theme.brand,
@@ -29,7 +14,8 @@ const theme = mapState({
   brandDarkest: select.theme.brandDarkest,
   brandDark: select.theme.brandDark,
   contrast: select.theme.contrast,
-  alt: select.theme.alt
+  alt: select.theme.alt,
+  shadeBase: select.theme.shadeBase,
 })
 </script>
 
@@ -39,5 +25,7 @@ const theme = mapState({
   --podlove-subscribe-button--finish-card--tooltip--background: v-bind('theme.brand');
   --podlove-subscribe-button--finish-card--tooltip-button--color: v-bind('theme.alt');
   --podlove-subscribe-button--finish-card--tooltip-button--background: v-bind('theme.brand');
+
+  --podlove-subscribe-button--divider--color: v-bind('theme.shadeBase')
 }
 </style>

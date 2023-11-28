@@ -1,7 +1,7 @@
 <template>
   <div class="mb-6" data-test="tab-title">
     <div class="flex justify-between">
-      <h1 class="text-xl mb-4" :style="state.font">
+      <h1 class="text-xl mb-4 font-extrabold">
         <slot />
       </h1>
       <button
@@ -35,7 +35,6 @@ const props = defineProps({
 });
 
 const state = mapState({
-  font: select.theme.fontCi,
   title: select.accessibility.closeTab(props.tab)
 });
 

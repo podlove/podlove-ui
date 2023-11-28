@@ -14,27 +14,6 @@ const tokens = {
   alt: '#fff'
 }
 
-const fonts = {
-  ci: {
-    name: 'CiFont',
-    family: ['CiFont'],
-    weight: 800,
-    src: ['./ci/font/src']
-  },
-  regular: {
-    name: 'RegularFont',
-    family: ['RegularFont'],
-    weight: 300,
-    src: ['./regular/font/src']
-  },
-  bold: {
-    name: 'BoldFont',
-    family: ['BoldFont'],
-    weight: 700,
-    src: ['./bold/font/src']
-  }
-}
-
 describe('theme', () => {
   test(`theme: is a reducer function`, () => {
     expect(typeof theme).toBe('function')
@@ -43,23 +22,6 @@ describe('theme', () => {
   const actions = [CONSTRUCTED, SET_THEME]
 
   actions.forEach((type) => {
-    test(`theme: it sets the fonts on ${type}`, () => {
-      const result = theme(INITIAL_STATE, {
-        type,
-        payload: {
-          version: 5,
-          theme: {
-            fonts
-          }
-        } as unknown as PodloveWebPlayerEpisode
-      })
-
-      expect(result).toEqual({
-        ...INITIAL_STATE,
-        fonts
-      })
-    })
-
     test(`theme: it sets the tokens on ${type}`, () => {
       const result = theme(INITIAL_STATE, {
         type,

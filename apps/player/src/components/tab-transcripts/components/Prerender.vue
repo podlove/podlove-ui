@@ -10,15 +10,13 @@
       :ghost-active="state.ghostActive"
       :ghost-time="state.ghostTime"
       :search-results="state.searchResults"
-      :chapter-style="chapterStyle"
-      :speaker-style="speakerStyle"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { mapState } from 'redux-vuex';
-import { computed, nextTick, onMounted, ref } from 'vue';
+import { nextTick, onMounted, ref } from 'vue';
 import { asyncAnimation } from '@podlove/utils/helper';
 
 import select from '../../../store/selectors/index.js';
@@ -41,14 +39,8 @@ const state = mapState({
   ghostActive: select.ghost.active,
   ghostTime: select.ghost.time,
   searchResults: select.transcripts.searchResults,
-  searchQuery: select.transcripts.searchQuery,
-  fontCi: select.theme.fontCi,
-  fontBold: select.theme.fontBold
+  searchQuery: select.transcripts.searchQuery
 });
-
-const chapterStyle = computed(() => state.fontCi);
-
-const speakerStyle = computed(() => state.fontBold);
 
 onMounted(() => {
   nextTick()
