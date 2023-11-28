@@ -37,6 +37,6 @@ export default defineConfig({
 
     setupFile: './src/histoire.setup.ts',
     storyMatch: ['./src/stories/**/*.story.vue'],
-    storyIgnored: ['./node_modules/**']
+    storyIgnored: ['**/node_modules/**']
   }
 });

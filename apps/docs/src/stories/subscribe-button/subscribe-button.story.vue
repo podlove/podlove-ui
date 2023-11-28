@@ -1,6 +1,7 @@
 <template>
   <Story title="Subscribe Button" auto-props-disabled>
-    <div ref="button"></div>
+    <podlove-subscribe-button config="/subscribe-button/config.json" @init="initButton"></podlove-subscribe-button>
+
     <div class="flex p-48 w-full justify-center items-center">
       <button class="rounded bg-gray-100 shadow p-2" @click="showButton()">Show Button</button>
     </div>
@@ -16,15 +17,12 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
-import '@podlove/subscribe-button/styles';
-import { init } from '@podlove/button-actions/lifecycle';
+import { ref } from 'vue';
+import '@podlove/subscribe-button';
 import { show } from '@podlove/button-actions/overlay';
-
-import createButton from '@podlove/subscribe-button/app';
 import config from './data/config.json';
 
-const button = ref(null);
+let store;
 
 const brand = ref(config.theme.tokens.brand);
 const brandDark = ref(config.theme.tokens.brandDark);
@@ -33,37 +31,12 @@ const shadeDark = ref(config.theme.tokens.shadeDark);
 const contrast = ref(config.theme.tokens.contrast);
 const alt = ref(config.theme.tokens.alt);
 
-const theme = ref({
-  brand,
-  brandDark,
-  brandDarkest,
-  shadeDark,
-  contrast,
-  alt
-});
-
-const { app, store } = createButton();
+const initButton = (event) => {
+  store = event.detail;
+  store.dispatch(show());
+}
 
 const showButton = () => {
   store.dispatch(show());
 };
-
-const initialize = () => {
-  store.dispatch(
-    init({
-      ...config,
-      theme: {
-        ...config.theme,
-        ...theme
-      }
-    })
-  );
-};
-
-
-onMounted(() => {
-  initialize();
-  app.mount(button.value);
-  store.dispatch(show());
-});
 </script>

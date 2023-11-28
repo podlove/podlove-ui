@@ -63,8 +63,6 @@ class PodloveSubscribeButton extends HTMLElement {
 
     this.mount();
 
-
-
     return this.instance.store;
   }
 }
