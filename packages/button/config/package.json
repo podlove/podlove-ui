@@ -14,7 +14,7 @@
     "ramda": "0.29.0"
   },
   "devDependencies": {
-    "@types/ramda": "0.29.1",
+    "@types/ramda": "0.29.0",
     "@podlove/types": "workspace:*",
     "vite": "4.3.5",
     "vite-plugin-dts": "2.3.0",
