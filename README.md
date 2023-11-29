@@ -33,16 +33,6 @@ Note: These are recommended and well supported libraries. The usage within each 
 
 Core Podlove Player State Bound Components. Building blocks with state bindings to create the web player 
 
-### [@podlove/web-player](apps/web-player/README.md) 
-
-Embedded version of Podlove Player with the following features:
-
-- Sandbox
-- Persistance
-- Configuration Resolving
-- Share Endpoint
-- Templating
-
 ### [@podlove/subscribe-button](apps/subscribe-button/README.md)
 
 Embedded Subscribe Button with client detection:

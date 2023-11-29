@@ -1,11 +1,11 @@
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 
-const middleware = createSagaMiddleware()
+const middleware = createSagaMiddleware();
 const run = (...sagas) => {
-  sagas.forEach((saga) => middleware.run(saga))
-}
+  sagas.forEach((saga) => middleware.run(saga));
+};
 
 export default {
   middleware,
   run
-}
+};
