@@ -15,23 +15,23 @@
         }
       }
     },
-    "nodejs@20": {
-      "last_modified": "2023-10-25T20:49:13Z",
-      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#nodejs_20",
+    "nodejs@20.5.1": {
+      "last_modified": "2023-09-06T20:35:33Z",
+      "resolved": "github:NixOS/nixpkgs/efd23a1c9ae8c574e2ca923c2b2dc336797f4cc4#nodejs_20",
       "source": "devbox-search",
-      "version": "20.9.0",
+      "version": "20.5.1",
       "systems": {
         "aarch64-darwin": {
-          "store_path": "/nix/store/r8ppkdpxlmlv4magszy4xl816yf1s859-nodejs-20.9.0"
+          "store_path": "/nix/store/zkq4wlwz83gg6ad32pip8kbqmfh26hsj-nodejs-20.5.1"
         },
         "aarch64-linux": {
-          "store_path": "/nix/store/j0diijav3hh37amjl67wnq5n3f782ipn-nodejs-20.9.0"
+          "store_path": "/nix/store/7llknbk7n5076lmx2mia7v0wxx1maaik-nodejs-20.5.1"
         },
         "x86_64-darwin": {
-          "store_path": "/nix/store/zxh8gvmynd5mzx9hf5bhidb4yy0k4g2s-nodejs-20.9.0"
+          "store_path": "/nix/store/zzgyzjsj7xwykv4rmywpmkg8yz6zdppw-nodejs-20.5.1"
         },
         "x86_64-linux": {
-          "store_path": "/nix/store/17g2kfxglsl3rncfasqrxqs2g3bjin3k-nodejs-20.9.0"
+          "store_path": "/nix/store/cdmfy10nxyzzd7z60csax1bagy7h6c5g-nodejs-20.5.1"
         }
       }
     }
