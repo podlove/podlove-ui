@@ -2,8 +2,6 @@
 
 > Mono Repo for all UI Related Podlove Projects
 
-[![Build Status](https://cloud.drone.io/api/badges/podlove/ui/status.svg?ref=/refs/heads/develop)](https://cloud.drone.io/podlove/ui)
-
 ## Getting Started
 
 ### For Contribution
@@ -20,12 +18,12 @@ This mono repo creates a set of different packages within the `@podlove` NPM org
 ## Used Libraries and Frameworks
 
 - Workspace Management: [Lerna](https://lerna.js.org/)
-- Bundling: [Webpack](https://webpack.js.org/)
+- Bundling: [Vite](https://vitejs.dev/)
 - View Renderer: [Vue](https://vuejs.org/)
 - Statemanagement: [Redux](https://redux.js.org/)
 - Helpers: [Ramda](https://ramdajs.com/)
 - Styling: [Tailwind](https://tailwindcss.com/)
-- Testing: [Jest](https://jestjs.io/) and [Cypress](https://www.cypress.io/)
+- Testing: [Vitest](https://vitest.dev/) and [Cypress](https://www.cypress.io/)
 
 Note: These are recommended and well supported libraries. The usage within each application/package may vary.
 
