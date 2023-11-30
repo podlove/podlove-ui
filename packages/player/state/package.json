@@ -4,6 +4,7 @@
   "description": "Reducers for Podlove Player Framework",
   "type": "module",
   "keywords": [],
+  "files": ["./dist"],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/state",
   "license": "MIT",

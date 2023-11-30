@@ -12,6 +12,7 @@
     "integration": "cypress run --browser chrome",
     "lint": "eslint src/**/*.{vue,ts} cypress/**/*.ts"
   },
+  "files": ["./dist"],
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",

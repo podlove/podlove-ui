@@ -9,6 +9,7 @@
     "serve": "vite"
   },
   "keywords": [],
+  "files": ["./dist"],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {

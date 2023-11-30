@@ -12,9 +12,7 @@
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "files": ["./dist"],
   "type": "module",
   "exports": {
     "./chapters": {

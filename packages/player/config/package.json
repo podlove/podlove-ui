@@ -10,6 +10,7 @@
     "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
+  "files": ["./dist"],
   "type": "module",
   "publishConfig": {
     "exports": {

@@ -5,6 +5,7 @@
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "type": "module",
+  "files": ["./dist"],
   "publishConfig": {
     "exports": {
       ".": {

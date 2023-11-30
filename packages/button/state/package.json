@@ -23,6 +23,7 @@
     "vite": "4.3.5",
     "vite-plugin-dts": "3.6.3"
   },
+  "files": ["./dist"],
   "scripts": {
     "build": "vite build --config ./vite.config.ts"
   },

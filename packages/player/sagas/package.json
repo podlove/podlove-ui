@@ -4,6 +4,7 @@
   "description": "Sagas for Podlove Web Player",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/sagas",
   "keywords": [],
+  "files": ["./dist"],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "type": "module",

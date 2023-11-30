@@ -52,11 +52,10 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/player
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: apps/player
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/player
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_components:
     runs-on: ubuntu-latest
@@ -77,11 +76,11 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/components
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/components
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/components
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 
   packages_player-actions:
     runs-on: ubuntu-latest
@@ -102,12 +101,10 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-actions
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/player/actions
-
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/player-actions
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_player-state:
     runs-on: ubuntu-latest
@@ -128,11 +125,10 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-state
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/player/state
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/player-state
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_player-config:
     runs-on: ubuntu-latest
@@ -153,12 +149,10 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-config
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/player/config
-
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/player-config
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   packages_utils:
     runs-on: ubuntu-latest
     needs: bootstrap
@@ -178,11 +172,10 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/utils
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/utils
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/utils
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_clients:
     runs-on: ubuntu-latest
@@ -203,11 +196,10 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/clients
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/clients
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/clients
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_button-actions:
     runs-on: ubuntu-latest
@@ -228,11 +220,10 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/button-actions
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/button/actions
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/button-actions
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_media-backend:
     runs-on: ubuntu-latest
@@ -253,8 +244,7 @@ jobs:
         run: devbox run pnpm install --offline
       - name: build
         run: devbox run pnpm run build --scope @podlove/media-backend
-      - name: publish:npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: packages/button/actions
+      - name: publish
+        run: pnpm publish --no-git-checks --access public --filter @podlove/media-backend
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

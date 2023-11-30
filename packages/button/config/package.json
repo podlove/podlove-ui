@@ -10,6 +10,7 @@
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
+  "files": ["./dist"],
   "dependencies": {
     "ramda": "0.29.0"
   },

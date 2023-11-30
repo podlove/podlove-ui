@@ -9,6 +9,7 @@
     "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
+  "files": ["./dist"],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {
