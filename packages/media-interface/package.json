@@ -1,0 +1,135 @@
+{
+  "name": "@podlove/media-backend",
+  "version": "5.12.0",
+  "description": "Pure html5 media backend",
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "./actions": {
+        "import": "./dist/actions.js",
+        "types": "./dist/actions.d.ts"
+      },
+      "./audio": {
+        "import": "./dist/audio.js",
+        "types": "./dist/audio.d.ts"
+      },
+      "./connect": {
+        "import": "./dist/connect.js",
+        "types": "./dist/connect.d.ts"
+      },
+      "./events": {
+        "import": "./dist/events.js",
+        "types": "./dist/events.d.ts"
+      },
+      "./filters": {
+        "import": "./dist/filters.js",
+        "types": "./dist/filters.d.ts"
+      },
+      "./hls": {
+        "import": "./dist/hls.js",
+        "types": "./dist/hls.d.ts"
+      },
+      "./media": {
+        "import": "./dist/media.js",
+        "types": "./dist/media.d.ts"
+      },
+      "./props": {
+        "import": "./dist/props.js",
+        "types": "./dist/props.d.ts"
+      },
+      "./utils": {
+        "import": "./dist/utils.js",
+        "types": "./dist/utils.d.ts"
+      },
+      "./video": {
+        "import": "./dist/video.js",
+        "types": "./dist/video.d.ts"
+      },
+      "./types": {
+        "types": "./dist/types.d.ts"
+      }
+    }
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./actions": {
+      "import": "./src/actions.ts",
+      "types": "./src/actions.ts"
+    },
+    "./audio": {
+      "import": "./src/audio.ts",
+      "types": "./src/audio.ts"
+    },
+    "./connect": {
+      "import": "./src/connect.ts",
+      "types": "./src/connect.ts"
+    },
+    "./events": {
+      "import": "./src/events.ts",
+      "types": "./src/events.ts"
+    },
+    "./filters": {
+      "import": "./src/filters.ts",
+      "types": "./src/filters.ts"
+    },
+    "./hls": {
+      "import": "./src/hls.ts",
+      "types": "./src/hls.ts"
+    },
+    "./media": {
+      "import": "./src/media.ts",
+      "types": "./src/media.ts"
+    },
+    "./props": {
+      "import": "./src/props.ts",
+      "types": "./src/props.ts"
+    },
+    "./utils": {
+      "import": "./src/utils.ts",
+      "types": "./src/utils.ts"
+    },
+    "./video": {
+      "import": "./src/video.ts",
+      "types": "./src/video.ts"
+    },
+    "./types": {
+      "types": "./src/types.ts"
+    }
+  },
+  "scripts": {
+    "serve": "vite serve",
+    "build": "vite build",
+    "integration": "cypress run --browser chrome",
+    "integration:dev": "cypress open --browser chrome",
+    "lint": "eslint src/**/*.ts",
+    "integration:setup": "cypress install --force"
+  },
+  "dependencies": {
+    "hls.js": "1.4.12",
+    "ramda": "0.29.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "6.13.1",
+    "@typescript-eslint/parser": "6.13.1",
+    "@types/ramda": "0.29.0",
+    "cypress": "13.6.0",
+    "eslint": "8.54.0",
+    "milligram": "1.4.0",
+    "normalize.css": "8.0.1",
+    "typescript": "5.0.4",
+    "vite": "3.2.5",
+    "vite-plugin-dts": "1.7.1",
+    "vitest": "0.25.5",
+    "ts-toolbelt": "9.6.0",
+    "cypress-vite": "1.5.0"
+  }
+}

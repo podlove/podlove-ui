@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>Podlove Html5 Audio Driver Test Env</title>
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
+    />
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" />
+
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="node_modules/milligram/dist/milligram.css" />
+
+    <style>
+      body {
+        padding: 1em;
+      }
+
+      .media video {
+        width: 100%;
+        height: auto;
+      }
+
+      td {
+        max-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <h1 id="title"></h1>
+          <div id="media-node" class="media"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column column-50">
+          <h3>Properties</h3>
+          <table>
+            <thead>
+              <th width="25%">property</th>
+              <th width="75%%">value</th>
+            </thead>
+            <tbody id="props"></tbody>
+          </table>
+        </div>
+        <div class="column column-50">
+          <h3>Audio Actions</h3>
+          <button id="load">load</button>
+          <button id="play">play</button>
+          <button id="pause">pause</button>
+          <button id="restart">restart</button>
+          <button id="mute">mute</button>
+          <button id="unmute">unmute</button>
+
+          <fieldset>
+            <label for="volume">Volume</label>
+            <input
+              type="number"
+              id="volume"
+              placeholder="Volume"
+              min="0"
+              max="1"
+              value="1"
+              step="0.1"
+            />
+            <label for="rate">Rate</label>
+            <input
+              type="number"
+              id="rate"
+              placeholder="Rate"
+              value="1"
+              min="0"
+              max="4"
+              step="0.1"
+            />
+          </fieldset>
+
+          <h3>Progress</h3>
+          <input
+            id="progress"
+            style="width: 100%"
+            type="range"
+            value="0"
+            min="0"
+            max="1"
+            step="0.01"
+          />
+
+          <div>
+            <button id="backward">-30</button>
+            <button id="forward">+30</button>
+          </div>
+
+          <h3>Audio Filters</h3>
+          <button id="mono">mono</button>
+          <button id="stereo">stereo</button>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import audio from './example/audio';
+      import audioHls from './example/audio-hls';
+      import video from './example/video';
+      import videoHls from './example/video-hls';
+      import audioConnect from './example/audio-connect';
+      import liveHls from './example/live-hls';
+      import live from './example/live';
+
+      const title = document.getElementById('title');
+      const params = new URL(location).searchParams;
+      const test = params.get('mode');
+
+      const modes = {
+        audio: {
+          title: 'Audio Driver',
+          fn: audio
+        },
+        'audio-hls': {
+          title: 'Audio Driver HLS',
+          fn: audioHls
+        },
+        video: {
+          title: 'Video Driver',
+          fn: video
+        },
+        'video-hls': {
+          title: 'Video Driver HLS',
+          fn: videoHls
+        },
+        'audio-connect': {
+          title: 'Audio Connect',
+          fn: audioConnect
+        },
+        'live-hls': {
+          title: 'Audio Driver HLS Live',
+          fn: liveHls
+        },
+        live: {
+          title: 'Audio Driver Live',
+          fn: live
+        }
+      };
+
+      const mode = modes[test];
+
+      if (mode) {
+        title.innerText = mode.title;
+        mode.fn();
+      }
+    </script>
+  </body>
+</html>
