@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player",
-  "version": "5.12.0",
+  "version": "5.12.1-alpha.0",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "type": "module",
@@ -27,16 +27,16 @@
     "@podlove/utils": "workspace:*",
     "core-js": "3.15.2",
     "date-fns": "2.16.1",
+    "debounce": "2.0.0",
     "farbraum": "0.1.4",
+    "hashcode": "1.0.3",
     "ramda": "0.29.0",
     "redux": "4.2.0",
     "redux-vuex": "3.0.0",
     "reselect": "4.1.8",
     "tailwindcss": "3.2.4",
     "vue": "3.2.41",
-    "vue-i18n": "9.2.2",
-    "debounce": "2.0.0",
-    "hashcode": "1.0.3"
+    "vue-i18n": "9.2.2"
   },
   "devDependencies": {
     "@types/node": "20.8.4",
@@ -47,9 +47,9 @@
     "cypress-vite": "1.4.2",
     "eslint": "8.53.0",
     "eslint-plugin-vue": "9.18.1",
+    "sass": "1.69.5",
     "typescript": "5.0.4",
     "vite": "4.3.5",
-    "sass": "1.69.5",
     "vite-plugin-dts": "3.6.3"
   },
   "exports": {

@@ -1,6 +1,6 @@
 {
   "name": "@podlove/button-state",
-  "version": "5.12.0",
+  "version": "5.12.1-alpha.0",
   "description": "Reducers for Podlove Button Framework",
   "type": "module",
   "keywords": [],
@@ -12,16 +12,16 @@
     "@podlove/button-config": "workspace:*",
     "@podlove/clients": "workspace:*",
     "@podlove/utils": "workspace:*",
+    "ramda": "0.29.0",
     "redux-actions": "3.0.0",
-    "reselect": "4.1.8",
-    "ramda": "0.29.0"
+    "reselect": "4.1.8"
   },
   "devDependencies": {
     "@podlove/types": "workspace:*",
     "@types/redux-actions": "2.6.2",
+    "typescript": "5.0.4",
     "vite": "4.3.5",
-    "vite-plugin-dts": "3.6.3",
-    "typescript": "5.0.4"
+    "vite-plugin-dts": "3.6.3"
   },
   "scripts": {
     "build": "vite build --config ./vite.config.ts"
