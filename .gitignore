@@ -19,6 +19,7 @@
 !.drone.yml
 !.browserslistrc
 !.eslintrc.json
+!.npmrc
 
 coverage
 
