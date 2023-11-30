@@ -53,7 +53,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
@@ -79,14 +79,11 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/components
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/components
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
 
   packages_player-actions:
     runs-on: ubuntu-latest
@@ -108,13 +105,11 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-actions
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/player-actions
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_player-state:
     runs-on: ubuntu-latest
@@ -136,13 +131,11 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-state
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/player-state
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_player-config:
     runs-on: ubuntu-latest
@@ -164,13 +157,12 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-config
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/player-config
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   packages_utils:
     runs-on: ubuntu-latest
     needs: bootstrap
@@ -191,13 +183,11 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/utils
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/utils
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_clients:
     runs-on: ubuntu-latest
@@ -219,13 +209,11 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/clients
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/clients
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_button-actions:
     runs-on: ubuntu-latest
@@ -247,13 +235,11 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/button-actions
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/button-actions
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   packages_media-backend:
     runs-on: ubuntu-latest
@@ -275,10 +261,8 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/media-backend
       - name: set config
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/media-backend
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
