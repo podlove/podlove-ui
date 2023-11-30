@@ -1,6 +1,6 @@
 {
   "name": "@podlove/button-state",
-  "version": "5.12.1-alpha.2",
+  "version": "5.12.1-alpha.3",
   "description": "Reducers for Podlove Button Framework",
   "type": "module",
   "keywords": [],

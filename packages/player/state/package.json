@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-state",
-  "version": "5.12.1-alpha.2",
+  "version": "5.12.1-alpha.3",
   "description": "Reducers for Podlove Player Framework",
   "type": "module",
   "keywords": [],

@@ -1,6 +1,6 @@
 {
   "name": "@podlove/docs",
-  "version": "5.12.1-alpha.2",
+  "version": "5.12.1-alpha.3",
   "private": true,
   "type": "module",
   "scripts": {
