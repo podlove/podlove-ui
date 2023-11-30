@@ -1,5 +1,5 @@
 {
   "packages": ["apps/**", "packages/**"],
-  "version": "5.12.1-alpha.0",
+  "version": "5.12.1-alpha.1",
   "npmClient": "pnpm"
 }

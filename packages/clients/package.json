@@ -1,6 +1,6 @@
 {
   "name": "@podlove/clients",
-  "version": "5.12.1-alpha.0",
+  "version": "5.12.1-alpha.1",
   "description": "A comprehensive list of podcast clients",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "type": "module",

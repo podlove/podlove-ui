@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.12.1-alpha.1](https://github.com/podlove/podlove-ui/compare/v5.12.1-alpha.0...v5.12.1-alpha.1) (2023-11-30)
+
+### Bug Fixes
+
+- release workflow ([3b2df8e](https://github.com/podlove/podlove-ui/commit/3b2df8e3acdb661a90720e051f27f0dba3775065))
+
 ## [5.12.1-alpha.0](https://github.com/podlove/podlove-ui/compare/v5.12.0...v5.12.1-alpha.0) (2023-11-30)
 
 **Note:** Version bump only for package root
