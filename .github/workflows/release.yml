@@ -53,7 +53,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/player
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/player
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -77,7 +77,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/components
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/components
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/components
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -102,7 +102,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-actions
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/player-actions
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/player-actions
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -126,7 +126,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-state
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/player-state
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/player-state
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -150,7 +150,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/player-config
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/player-config
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/player-config
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   packages_utils:
@@ -173,7 +173,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/utils
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/utils
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/utils
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -197,7 +197,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/clients
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/clients
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/clients
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -221,7 +221,7 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/button-actions
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/button-actions
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/button-actions
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -245,6 +245,6 @@ jobs:
       - name: build
         run: devbox run pnpm run build --scope @podlove/media-backend
       - name: publish
-        run: pnpm publish --no-git-checks --access public --filter @podlove/media-backend
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/media-backend
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
