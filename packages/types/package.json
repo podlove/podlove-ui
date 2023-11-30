@@ -13,7 +13,7 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
-    "@podlove/html5-audio-driver": "2.0.2",
+    "@podlove/media-backend": "workspace:*",
     "redux": "4.2.0"
   },
   "devDependencies": {

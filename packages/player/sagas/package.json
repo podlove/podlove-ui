@@ -133,7 +133,7 @@
   },
   "dependencies": {
     "@podlove/components": "workspace:*",
-    "@podlove/html5-audio-driver": "2.0.2",
+    "@podlove/media-backend": "workspace:*",
     "@podlove/player-actions": "workspace:*",
     "@podlove/player-config": "workspace:*",
     "@podlove/types": "workspace:*",
@@ -144,7 +144,7 @@
     "redux-saga": "1.2.3"
   },
   "devDependencies": {
-    "@types/ramda": "0.29.1",
+    "@types/ramda": "0.29.0",
     "@types/redux-actions": "2.6.2",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",

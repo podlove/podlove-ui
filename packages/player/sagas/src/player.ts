@@ -1,5 +1,5 @@
-import { audio } from '@podlove/html5-audio-driver/connect';
-import type { MediaActions } from '@podlove/html5-audio-driver/types';
+import { audio } from '@podlove/media-backend/connect';
+import type { MediaActions } from '@podlove/media-backend/types';
 import { select, call, put, takeEvery, fork } from 'redux-saga/effects';
 import { requestPause } from '@podlove/player-actions/play';
 import { requestPlaytime, type backendPlaytimePayload, type requestPlaytimePayload, type backendDurationPayload, type backendLiveSyncPayload } from '@podlove/player-actions/timepiece';

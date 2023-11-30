@@ -30,7 +30,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "5.0.0",
     "@podlove/types": "workspace:*",
-    "@types/ramda": "0.29.1",
+    "@types/ramda": "0.29.0",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@vitejs/plugin-vue": "4.2.3",

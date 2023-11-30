@@ -61,7 +61,7 @@ import {
   onStop
 } from './player.js';
 
-vi.mock('@podlove/html5-audio-driver/connect', () => ({
+vi.mock('@podlove/media-backend/connect', () => ({
   audio: () => ({
     load: vi.fn(),
     actions: {},
@@ -69,7 +69,7 @@ vi.mock('@podlove/html5-audio-driver/connect', () => ({
   })
 }));
 
-import { audio } from '@podlove/html5-audio-driver/connect';
+import { audio } from '@podlove/media-backend/connect';
 
 describe('player', () => {
   describe('playerSaga()', () => {

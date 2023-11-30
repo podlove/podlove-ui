@@ -1,5 +1,3 @@
-const safelist = require('./safelist.cjs');
-
 module.exports = {
   content: [
     './src/**/*.{vue,html}',
@@ -18,6 +16,5 @@ module.exports = {
       auto: 'auto',
       8: '2rem'
     }
-  },
-  safelist
+  }
 };
