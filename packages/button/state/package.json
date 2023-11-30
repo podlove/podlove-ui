@@ -1,6 +1,6 @@
 {
   "name": "@podlove/button-state",
-  "version": "5.12.1-alpha.1",
+  "version": "5.12.1-alpha.2",
   "description": "Reducers for Podlove Button Framework",
   "type": "module",
   "keywords": [],
@@ -23,7 +23,9 @@
     "vite": "4.3.5",
     "vite-plugin-dts": "3.6.3"
   },
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "build": "vite build --config ./vite.config.ts"
   },

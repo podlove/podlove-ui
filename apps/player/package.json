@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player",
-  "version": "5.12.1-alpha.1",
+  "version": "5.12.1-alpha.2",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "type": "module",
@@ -12,7 +12,9 @@
     "integration": "cypress run --browser chrome",
     "lint": "eslint src/**/*.{vue,ts} cypress/**/*.ts"
   },
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "keywords": [],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",

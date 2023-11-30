@@ -1,6 +1,6 @@
 {
   "name": "@podlove/subscribe-button",
-  "version": "5.12.1-alpha.1",
+  "version": "5.12.1-alpha.2",
   "description": "",
   "type": "module",
   "scripts": {
@@ -9,7 +9,9 @@
     "serve": "vite"
   },
   "keywords": [],
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "dependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@podlove/components",
-  "version": "5.12.1-alpha.1",
+  "version": "5.12.1-alpha.2",
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
@@ -10,7 +10,9 @@
     "lint": "eslint src/**/*.{vue,ts}"
   },
   "keywords": [],
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "author": "Alexander Heimbuch <github@heimbu.ch>",
   "license": "MIT",
   "type": "module",
