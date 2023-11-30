@@ -182,7 +182,7 @@ jobs:
         uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          package: packages/utils/publish
+          package: packages/utils
 
   packages_clients:
     runs-on: ubuntu-latest
