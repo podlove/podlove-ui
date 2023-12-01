@@ -1,6 +1,6 @@
 {
   "name": "@podlove/components",
-  "version": "6.0.1-alpha.6",
+  "version": "6.0.1-alpha.7",
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {

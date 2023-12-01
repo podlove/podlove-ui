@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1-alpha.7](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.6...v6.0.1-alpha.7) (2023-12-01)
+
+**Note:** Version bump only for package @podlove/player
+
 ## [6.0.1-alpha.6](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.5...v6.0.1-alpha.6) (2023-12-01)
 
 **Note:** Version bump only for package @podlove/player

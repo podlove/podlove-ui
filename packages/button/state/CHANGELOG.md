@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1-alpha.7](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.6...v6.0.1-alpha.7) (2023-12-01)
+
+### Bug Fixes
+
+- release ([d80a116](https://github.com/podlove/podlove-ui/commit/d80a116081e767e7400cf3f00dea52fcc21cc2c7))
+
 ## [6.0.1-alpha.6](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.5...v6.0.1-alpha.6) (2023-12-01)
 
 **Note:** Version bump only for package @podlove/button-state
