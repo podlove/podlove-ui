@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1-alpha.4](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.3...v6.0.1-alpha.4) (2023-12-01)
+
+### Bug Fixes
+
+- release ([3f1c633](https://github.com/podlove/podlove-ui/commit/3f1c63390fc2718fa61826c8780c2fff52ecd829))
+
 ## [6.0.1-alpha.3](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.2...v6.0.1-alpha.3) (2023-11-30)
 
 **Note:** Version bump only for package @podlove/subscribe-button
