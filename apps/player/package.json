@@ -82,6 +82,9 @@
       "./style": {
         "import": "./dist/style.css"
       }
-    }
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "scripts": {}
   }
 }
