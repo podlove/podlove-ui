@@ -266,3 +266,27 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: publish
         run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/media-backend
+
+  packages_types:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: set config
+        run: devbox run pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - name: publish
+        run: devbox run pnpm publish --no-git-checks --access public --filter @podlove/types
