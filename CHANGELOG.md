@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1-alpha.6](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.5...v6.0.1-alpha.6) (2023-12-01)
+
+### Bug Fixes
+
+- release ([e21e3b2](https://github.com/podlove/podlove-ui/commit/e21e3b2992587bbab39adf4c8d3612bc38dfb04d))
+
 ## [6.0.1-alpha.5](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.4...v6.0.1-alpha.5) (2023-12-01)
 
 ### Bug Fixes
