@@ -62,28 +62,6 @@ jobs:
     - name: integration
       run: devbox run pnpm lerna run integration --scope @podlove/player
 
-  apps_subscribe-button:
-    runs-on: ubuntu-latest
-    needs: bootstrap
-    steps:
-      - uses: actions/checkout@v3
-      - name: install
-        uses: jetpack-io/devbox-install-action@v0.7.0
-        with:
-          enable-cache: true
-      - uses: actions/cache@v3
-        name: setup pnpm cache
-        with:
-          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
-          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
-          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
-      - name: install
-        run: devbox run pnpm install --offline
-      - name: lint
-        run: devbox run pnpm run lint --scope @podlove/subscribe-button
-      - name: build
-        run: devbox run pnpm run build --scope @podlove/subscribe-button
-
   packages_components:
     runs-on: ubuntu-latest
     needs: bootstrap
@@ -129,6 +107,30 @@ jobs:
       run: devbox run pnpm run lint --scope @podlove/player-actions
     - name: build
       run: devbox run pnpm run build --scope @podlove/player-actions
+
+  packages_player-config:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/player-config
+      - name: test
+        run: devbox run pnpm run test --scope @podlove/player-config
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/player-config
 
   packages_player-sagas:
     runs-on: ubuntu-latest
@@ -178,7 +180,7 @@ jobs:
     - name: build
       run: devbox run pnpm run build --scope @podlove/player-state
 
-  packages_player-config:
+  apps_subscribe-button:
     runs-on: ubuntu-latest
     needs: bootstrap
     steps:
@@ -196,11 +198,75 @@ jobs:
       - name: install
         run: devbox run pnpm install --offline
       - name: lint
-        run: devbox run pnpm run lint --scope @podlove/player-config
-      - name: test
-        run: devbox run pnpm run test --scope @podlove/player-config
+        run: devbox run pnpm run lint --scope @podlove/subscribe-button
       - name: build
-        run: devbox run pnpm run build --scope @podlove/player-config
+        run: devbox run pnpm run build --scope @podlove/subscribe-button
+
+  packages_button-actions:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/button-actions
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/button-actions
+
+  packages_button-config:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/button-config
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/button-config
+
+  packages_button-state:
+    runs-on: ubuntu-latest
+    needs: bootstrap
+    steps:
+      - uses: actions/checkout@v3
+      - name: install
+        uses: jetpack-io/devbox-install-action@v0.7.0
+        with:
+          enable-cache: true
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
+          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
+          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
+      - name: install
+        run: devbox run pnpm install --offline
+      - name: lint
+        run: devbox run pnpm run lint --scope @podlove/button-state
+      - name: build
+        run: devbox run pnpm run build --scope @podlove/button-state
 
   packages_utils:
     runs-on: ubuntu-latest
@@ -247,28 +313,6 @@ jobs:
         run: devbox run pnpm run lint --scope @podlove/clients
       - name: build
         run: devbox run pnpm run build --scope @podlove/clients
-
-  packages_button-actions:
-    runs-on: ubuntu-latest
-    needs: bootstrap
-    steps:
-      - uses: actions/checkout@v3
-      - name: install
-        uses: jetpack-io/devbox-install-action@v0.7.0
-        with:
-          enable-cache: true
-      - uses: actions/cache@v3
-        name: setup pnpm cache
-        with:
-          path: ${{ needs.bootstrap.outputs.pnpm_store_path }}
-          key: ${{ needs.bootstrap.outputs.pnpm_hash_key }}
-          restore-keys: ${{ needs.bootstrap.outputs.pnpm_restore_key }}
-      - name: install
-        run: devbox run pnpm install --offline
-      - name: lint
-        run: devbox run pnpm run lint --scope @podlove/button-actions
-      - name: build
-        run: devbox run pnpm run build --scope @podlove/button-actions
 
   packages_media-backend:
     runs-on: ubuntu-latest

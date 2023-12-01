@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
-import { prop, compose, propOr, path } from 'ramda';
+import { prop, compose, propOr } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { createObject } from '@podlove/utils/helper';
-import type { PodloveThemeTokens, PodloveThemeFont } from '@podlove/types';
+import type { PodloveThemeTokens } from '@podlove/types';
 import { init, initPayload } from '@podlove/button-actions/lifecycle';
 
 const theme = propOr({}, 'theme');
