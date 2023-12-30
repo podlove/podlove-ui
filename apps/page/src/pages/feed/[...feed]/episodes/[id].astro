@@ -1,8 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { store, selectors } from '../../logic';
-import Hero from '../../screens/episodes/Hero.vue'
-import { useTranslations } from '../../i18n'
+import Layout from '../../../../layouts/Layout.astro';
+import Hero from '../../../../screens/episodes/Hero.vue'
+import Navigation from '../../../../screens/episodes/Navigation.vue'
+
+import { store, selectors } from '../../../../logic';
+import { useTranslations } from '../../../../i18n'
 
 const { id } = Astro.params;
 const $t = useTranslations();
@@ -11,7 +13,9 @@ const episode = selectors.episode.data(id as string)(store.getState());
 ---
 
 <Layout title={`${podcastTitle} - ${episode.title}`}>
-  { id && <Hero id={id} client:load /> }
+  { id && <Hero id={id.toString()} client:idle>
+      <Navigation client:only="vue" shownotes={!!episode.description} timeline={false} discuss={false} />
+    </Hero> }
   <div class="lg:w-full lg:flex lg:justify-center pt-20">
     <div class="lg:w-app">
       <section id="summary">

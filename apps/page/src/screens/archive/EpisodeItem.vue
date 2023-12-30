@@ -27,7 +27,7 @@
       <div class="flex flex-col overflow-hidden">
         <div class="h-20 mb-2 sm:h-auto sm:mb-0">
           <a
-            :href="`/episodes/${state.episode.id}`"
+            :href="`${base}/${state.episode.id}`"
             v-if="state.episode.title"
             class="leading-tight sm:leading block text-xl mb-1 uppercase whitespace-nowrap truncate"
             >{{ state.episode.mnemonic }} {{ state.episode.title }}</a
@@ -77,6 +77,7 @@ import Contributor from '../../components/Contributor.vue';
 
 const props = defineProps<{
   id: string;
+  base: string;
   first: boolean;
   last: boolean;
 }>();

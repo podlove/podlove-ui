@@ -16,11 +16,11 @@
     "
   >
     <nav class="flex w-app items-center justify-center">
-      <a href="/" class="mr-4 text-gray-100 font-semibold">
+      <a :href="`/${state.feed}`" class="mr-4 text-gray-100 font-semibold">
         {{ state.title }}
       </a>
-      <a class="mr-4 font-light" href="/" :title="state.title">{{ t('HEADER.EPISODES') }}</a>
-      <a class="mr-4 font-light" href="/contributors">{{ t('HEADER.CONTRIBUTORS') }}</a>
+      <a class="mr-4 font-light" :href="`/${state.feed}`" :title="state.title">{{ t('HEADER.EPISODES') }}</a>
+      <!-- <a class="mr-4 font-light" href="/contributors">{{ t('HEADER.CONTRIBUTORS') }}</a> -->
       <a class="mr-4 font-light cursor-pointer" @click="showOverlay">{{
         $t('HEADER.SUBSCRIBE')
       }}</a>
@@ -41,7 +41,8 @@ const store = injectStore();
 
 const state = mapState({
   title: selectors.podcast.title,
-  image: selectors.podcast.image
+  image: selectors.podcast.image,
+  feed: selectors.podcast.feed
 });
 
 const showOverlay = () => {

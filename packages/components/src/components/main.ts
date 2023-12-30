@@ -96,7 +96,11 @@ import {
   ChevronRightIcon,
   ChevronLeftIcon,
   XingIcon,
-  WhatsAppIcon
+  WhatsAppIcon,
+  TimelineIcon,
+  SummaryIcon,
+  ShownotesIcon,
+  DiscussIcon
 } from './icons/index.js';
 
 export {
@@ -196,5 +200,9 @@ export {
   TwitterChannel,
   WhatsAppChannel,
   XingChannel,
-  PinterestChannel
+  PinterestChannel,
+  TimelineIcon,
+  SummaryIcon,
+  ShownotesIcon,
+  DiscussIcon
 };

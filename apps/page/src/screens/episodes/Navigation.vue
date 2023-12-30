@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="navigation"
     class="w-full bottom-0 h-16 flex mt-0"
     :class="{ 'fixed top-0 z-40': docked, absolute: !docked }"
   >
@@ -13,9 +14,8 @@
     <div
       class="text-gray-100 h-16 flex justify-center items-center py-4 px-8 w-full"
       :class="{ 'bg-primary-900 shadow rounded-b': docked }"
-      :style="style"
     >
-      <!-- Discuss -->
+      <!-- Summary -->
       <button
         class="mx-4 font-light flex items-center overflow-visible"
         @click="scrollTo('header')"
@@ -32,7 +32,7 @@
         <shownotes-icon class="mr-3" />
         <span class="uppercase hidden md:block">{{ $t('EPISODE.SHOWNOTES') }}</span>
       </button>
-      <!-- Subscribe -->
+      <!-- Timeline -->
       <button
         class="mx-4 font-light flex items-center justify-center overflow-visible"
         @click="scrollTo('timeline')"
@@ -40,9 +40,9 @@
         <timeline-icon class="mr-3" />
         <span class="uppercase hidden md:block">{{ $t('EPISODE.TIMELINE') }}</span>
       </button>
-      <!-- Comments -->
+      <!-- Discuss -->
       <button
-        v-if="comments"
+        v-if="discuss"
         class="mx-4 font-light flex items-center overflow-visible"
         @click="scrollTo('discuss')"
       >
@@ -58,67 +58,43 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type Ref } from 'vue'
 import scrollIntoView from 'scroll-into-view-if-needed'
+import { TimelineIcon, SummaryIcon, ShownotesIcon, DiscussIcon } from '@podlove/components';
 
-import { Icon } from '~/externals'
-import { background } from '~/config'
-import TimelineIcon from '~/components/icon/Timeline'
-import SummaryIcon from '~/components/icon/Summary'
-import ShownotesIcon from '~/components/icon/Shownotes'
+import { onMounted } from 'vue';
+import { throttle } from 'lodash-es';
 
-const props = defineProps<{
+defineProps<{
   shownotes: boolean;
+  discuss: boolean;
+  timeline: boolean;
 }>()
+
+const navigation: Ref<HTMLElement | null>  = ref(null);
 
 const docked = ref(false);
 
-export default {
-  props: {
-    comments: {
-      type: Boolean,
-      default: false
-    },
-    shownotes: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-      docked: false
-    }
-  },
-  components: { Icon, DiscussIcon, TimelineIcon, SummaryIcon, ShownotesIcon },
-  mounted() {
-    this.handleScroll()
-    window && window.addEventListener('scroll', throttle(100, this.handleScroll.bind(this)))
-  },
-  methods: {
-    handleScroll() {
-      const height = this.$el.clientHeight
-      const top = this.$el.offsetTop
+
+const handleScroll = () => {
+  const height = navigation.value?.clientHeight || 0
+      const top = navigation.value?.offsetTop || 0
       const scroll = window.scrollY
 
-      this.docked = scroll > height + top + 100
-    },
 
-    scrollTo(id) {
+
+      docked.value = scroll > height + top + 100
+}
+
+const scrollTo = (id: string) => {
       const node = document.getElementById(id)
       node && scrollIntoView(node, { behavior: 'smooth', scrollMode: 'always', block: 'start' })
     }
-  },
-  computed: {
-    style() {
-      if (background && this.docked) {
-        return {
-          'background-image': `url(${background})`
-        }
-      }
-      return {}
-    }
-  }
-}
+
+onMounted(() => {
+  handleScroll()
+    window && window.addEventListener('scroll', throttle(handleScroll, 100))
+})
 </script>
 
 <style scoped>

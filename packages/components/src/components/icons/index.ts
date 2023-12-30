@@ -67,6 +67,10 @@ import ChevronRightIcon from './ChevronRight.vue';
 import ChevronLeftIcon from './ChevronLeft.vue';
 import XingIcon from './Xing.vue';
 import WhatsAppIcon from './WhatsApp.vue';
+import TimelineIcon from './Timeline.vue';
+import SummaryIcon from './Summary.vue';
+import ShownotesIcon from './Shownotes.vue';
+import DiscussIcon from './Discuss.vue';
 
 export {
   PlayIcon,
@@ -137,5 +141,9 @@ export {
   ChevronRightIcon,
   ChevronLeftIcon,
   XingIcon,
-  WhatsAppIcon
+  WhatsAppIcon,
+  TimelineIcon,
+  SummaryIcon,
+  ShownotesIcon,
+  DiscussIcon
 };
