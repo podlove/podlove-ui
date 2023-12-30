@@ -72,6 +72,10 @@
     "./version": {
       "import": "./src/version.ts",
       "types": "./src/version.ts"
+    },
+    "./helper": {
+      "import": "./src/helper.ts",
+      "types": "./src/helper.ts"
     }
   },
   "publishConfig": {
@@ -131,6 +135,10 @@
       "./version": {
         "import": "./dist/version.mjs",
         "types": "./dist/version.d.ts"
+      },
+      "./helper": {
+        "import": "./dist/helper.mjs",
+        "types": "./dist/helper.d.ts"
       }
     }
   },

@@ -18,7 +18,8 @@ const entries = [
   'search',
   'time',
   'url',
-  'useragent'
+  'useragent',
+  'promise'
 ];
 
 export default defineConfig({

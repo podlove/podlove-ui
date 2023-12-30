@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EpisodeItem from '../screens/archive/EpisodeItem.vue';
+import { selectors, store } from '../logic';
+import HeroIndex from '../screens/archive/Hero.vue';
+
+const title = selectors.podcast.title(store.getState());
+const episodes = selectors.podcast.episodes(store.getState());
+---
+
+<Layout title={title}>
+	<HeroIndex  />
+
+  <div class="flex justify-center">
+    <div class="lg:w-app p-8 overflow-hidden">
+      {
+        episodes.map((episode, index) => <EpisodeItem id={episode.toString()} first={index === 0} last={index < episodes.length - 1} client:idle />)
+      }
+    </div>
+  </div>
+</Layout>
+
+<style>
+
+</style>

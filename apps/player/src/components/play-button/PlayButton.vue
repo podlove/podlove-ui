@@ -1,7 +1,7 @@
 <template>
   <play-button
     class="podlove-player--play-button"
-    :class="{ hover}"
+    :class="{ hover }"
     v-if="button.type"
     :type="button.type"
     :title="button.a11y"

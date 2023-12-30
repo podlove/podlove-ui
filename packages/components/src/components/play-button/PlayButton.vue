@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { requestPlay, requestPause, requestRestart } from '@podlove/player-actions/play';
-import { computed, type Component } from 'vue';
+import { computed } from 'vue';
 
 import Play from './states/Play.vue';
 import Pause from './states/Pause.vue';
 import Loading from './states/Loading.vue';
 import Restart from './states/Restart.vue';
 
-const types: { [key: string]: Component } = {
+const types: { [key: string]: any } = {
   play: Play,
   pause: Pause,
   loading: Loading,
@@ -57,7 +57,7 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
     class="podlove-component-play-button"
     @click="clickHandler()"
   >
-    <div class="play-button--wrapper flex items-center justify-center overflow-hidden">
+    <div class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full">
       <transition name="component" mode="out-in">
         <component
           :is="types[type]"
@@ -91,7 +91,6 @@ const maxWidth = computed(() => props.label && props.type !== 'loading' ? '150px
 }
 
 .podlove-component-play-button .play-button--wrapper {
-  transition: all 1800ms;
   background-color: var(
     --podlove-component--play-button--background,
     var(--podlove-components-background)

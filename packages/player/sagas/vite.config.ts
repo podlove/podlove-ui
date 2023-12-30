@@ -17,7 +17,8 @@ const entries = [
   'stepper',
   'transcripts',
   'version',
-  'middleware'
+  'middleware',
+  'helper'
 ];
 
 export default defineConfig({

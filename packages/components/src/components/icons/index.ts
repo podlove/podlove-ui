@@ -18,6 +18,7 @@ import AudioFileIcon from './AudioFile.vue';
 import ImageFileIcon from './ImageFile.vue';
 import PdfFileIcon from './PdfFile.vue';
 import TextFileIcon from './TextFile.vue';
+import UserIcon from './User.vue';
 import VideoFileIcon from './VideoFile.vue';
 import EmbedIcon from './Embed.vue';
 import TwitterIcon from './Twitter.vue';
@@ -89,6 +90,7 @@ export {
   PdfFileIcon,
   TextFileIcon,
   VideoFileIcon,
+  UserIcon,
   EmbedIcon,
   TwitterIcon,
   RedditIcon,

@@ -1,0 +1,94 @@
+import type { App } from 'vue';
+import sagasEngine from '@podlove/player-sagas/middleware';
+import { createStore as createReduxStore, applyMiddleware, compose } from 'redux';
+import { provideStore } from 'redux-vuex';
+import { quantilesSaga } from '@podlove/player-sagas/quantiles';
+import { chaptersSaga } from '@podlove/player-sagas/chapters';
+import { stepperSaga } from '@podlove/player-sagas/stepper';
+
+import episodeSaga from './sagas/episode.sagas';
+import playbarSaga from './sagas/playbar.sagas';
+import routerSaga from './sagas/router.sagas';
+import searchSaga from './sagas/search.sagas';
+
+import { reducers, actions, selectors } from './store';
+
+export function createStore(app: App, { isClient }: { isClient: boolean, router: { navigate: (path: string) => void }}) {
+  let composeEnhancers = compose;
+
+  if (isClient) {
+    composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  }
+
+  const store = createReduxStore(
+    reducers,
+    composeEnhancers(applyMiddleware(sagasEngine.middleware))
+  );
+
+  provideStore({ app, store, actions });
+
+  const sagas = [
+    episodeSaga({
+      selectEpisode: selectors.episode.data,
+      selectMuted: selectors.player.audio.muted,
+      selectRate: selectors.player.audio.rate,
+      selectVolume: selectors.player.audio.volume,
+      selectCurrentEpisode: selectors.current.episode,
+      selectPlaying: selectors.player.playing
+    }),
+    chaptersSaga({
+      selectDuration: selectors.player.duration,
+      selectPlaytime: selectors.player.playtime,
+      selectCurrentChapter: selectors.player.chapters.current,
+      selectChapterList: selectors.player.chapters.list
+    }),
+    stepperSaga({
+      selectDuration: selectors.player.duration,
+      selectPlaytime: selectors.player.playtime,
+      selectLivesync: selectors.
+    }),
+    quantilesSaga,
+    playbarSaga({
+      selectRate: selectors.player.audio.rate,
+      selectMuted: selectors.player.audio.muted
+    })
+  ];
+
+  if (isClient) {
+    const { playerSaga } = require('@podlove/player-sagas/player');
+
+    sagas.push(
+      playerSaga({
+        selectMedia: selectors.player.media,
+        selectPlaytime: selectors.player.playtime,
+        selectPoster: selectors.player.image,
+        selectTitle: selectors.player.title
+      })
+    );
+
+    sagas.push(
+      routerSaga({
+        selectEpisode: selectors.current.episode,
+        selectCurrentId: selectors.router.id,
+        selectPlaybarActive: selectors.playbar.active,
+        selectFollowContent: selectors.playbar.followContent,
+        router
+      })
+    );
+
+    sagas.push(
+      searchSaga({
+        selectVisible: selectors.search.visible,
+        selectResults: selectors.search.results,
+        selectInitialized: selectors.search.initialized,
+        selectSelectedResult: selectors.search.selectedResult,
+        Vue,
+        router
+      })
+    );
+  }
+
+  sagasEngine.run.apply(this, sagas);
+
+  return store;
+}

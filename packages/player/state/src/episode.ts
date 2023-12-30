@@ -5,7 +5,7 @@ import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
 import { parseDate } from '@podlove/utils/time';
 import { sanitize } from '@podlove/utils/dom';
 import { createObject } from '@podlove/utils/helper';
-import { PodloveWebPlayerResolvedConfig } from '@podlove/types';
+import { PodloveWebPlayerConfig } from '@podlove/types';
 
 export interface State {
   title: string | null;
@@ -32,7 +32,7 @@ const update = createObject({
   link: propOr(null, 'link'),
   poster: propOr(null, 'poster'),
   publicationDate: compose(parseDate, propOr(null, 'publicationDate'))
-}) as (input: PodloveWebPlayerResolvedConfig) => State;
+}) as (input: PodloveWebPlayerConfig) => State;
 
 export const reducer = handleActions<State, readyPayload>(
   {
