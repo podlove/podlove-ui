@@ -20,7 +20,6 @@
         const store = event.detail;
 
         document.getElementById('show-button').addEventListener('click', () => {
-          console.log('call!')
           store.dispatch({ type: 'BUTTON_SHOW_OVERLAY' });
         });
       });

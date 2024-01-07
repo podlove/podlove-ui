@@ -22,6 +22,7 @@ export interface Episode {
   content: string | null;
   contributors: Person[];
   poster: string;
+  chapters: Chapter[];
 }
 
 export interface Person {
@@ -30,4 +31,12 @@ export interface Person {
   image: string | null;
   id: string | null;
   slug: string | null;
+}
+
+export interface Chapter {
+  start: number | null;
+  end: number | null;
+  title: string | null;
+  image: string | null;
+  href: string | null;
 }

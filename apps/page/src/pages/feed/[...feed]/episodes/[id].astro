@@ -2,6 +2,7 @@
 import Layout from '../../../../layouts/Layout.astro';
 import Hero from '../../../../screens/episodes/Hero.vue'
 import Navigation from '../../../../screens/episodes/Navigation.vue'
+import Timeline from '../../../../features/timeline/Timeline.vue'
 
 import { store, selectors } from '../../../../logic';
 import { useTranslations } from '../../../../i18n'
@@ -10,11 +11,17 @@ const { id } = Astro.params;
 const $t = useTranslations();
 const podcastTitle = selectors.podcast.title(store.getState());
 const episode = selectors.episode.data(id as string)(store.getState());
+
+const timeline = [
+  { start: 0, title: $t('TIMELINE.START'), type: 'marker' },
+  ...episode.chapters.map(chapter => ({...chapter, type: 'chapter'})),
+  { start: episode.duration, title: $t('TIMELINE.END'), type: 'marker' }
+];
 ---
 
 <Layout title={`${podcastTitle} - ${episode.title}`}>
   { id && <Hero id={id.toString()} client:idle>
-      <Navigation client:only="vue" shownotes={!!episode.description} timeline={false} discuss={false} />
+      <Navigation client:only="vue" shownotes={!!episode.description} timeline={timeline.length > 0} discuss={false} />
     </Hero> }
   <div class="lg:w-full lg:flex lg:justify-center pt-20">
     <div class="lg:w-app">
@@ -35,16 +42,16 @@ const episode = selectors.episode.data(id as string)(store.getState());
           set:html={episode.content}
         ></div>
       </section> }
-      <section id="timeline">
+      { timeline.length > 0 && <section id="timeline">
         <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
           { $t('EPISODE.TIMELINE') }
         </h2>
-        <!-- <timeline
-          class="font-light border-gray-400 border-b mb-12 pb-12 pl-12 pr-6"
-          :id="episode.id"
-          :timeline="episode.timeline"
-        /> -->
-      </section>
+        <Timeline
+          episodeId={episode.id}
+          entries={timeline}
+          client:idle
+        />
+      </section> }
     </div>
   </div>
 </Layout>

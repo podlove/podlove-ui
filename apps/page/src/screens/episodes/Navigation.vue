@@ -75,21 +75,17 @@ const navigation: Ref<HTMLElement | null>  = ref(null);
 
 const docked = ref(false);
 
-
 const handleScroll = () => {
   const height = navigation.value?.clientHeight || 0
-      const top = navigation.value?.offsetTop || 0
-      const scroll = window.scrollY
-
-
-
-      docked.value = scroll > height + top + 100
+  const top = navigation.value?.offsetTop || 0
+  const scroll = window.scrollY
+  docked.value = scroll > height + top + 100
 }
 
 const scrollTo = (id: string) => {
-      const node = document.getElementById(id)
-      node && scrollIntoView(node, { behavior: 'smooth', scrollMode: 'always', block: 'start' })
-    }
+  const node = document.getElementById(id)
+  node && scrollIntoView(node, { behavior: 'smooth', scrollMode: 'always', block: 'start' })
+}
 
 onMounted(() => {
   handleScroll()

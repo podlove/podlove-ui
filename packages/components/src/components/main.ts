@@ -100,7 +100,8 @@ import {
   TimelineIcon,
   SummaryIcon,
   ShownotesIcon,
-  DiscussIcon
+  DiscussIcon,
+  HourGlassIcon
 } from './icons/index.js';
 
 export {
@@ -204,5 +205,6 @@ export {
   TimelineIcon,
   SummaryIcon,
   ShownotesIcon,
-  DiscussIcon
+  DiscussIcon,
+  HourGlassIcon
 };

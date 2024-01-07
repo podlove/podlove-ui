@@ -1,6 +1,6 @@
 import { get, castArray } from 'lodash-es';
 import { XMLParser } from 'fast-xml-parser';
-import type { Episode, Person, Podcast, Show } from '../../types/feed.types';
+import type { Chapter, Episode, Person, Podcast, Show } from '../../types/feed.types';
 import { toPlayerTime } from '@podlove/utils/time';
 
 let CACHE = new Map<string, Promise<Podcast>>();
@@ -12,8 +12,25 @@ const parser = new XMLParser({
 const transformPerson = (input: any): Person => ({
   name: get(input, '#text', null),
   role: get(input, '@_role', null),
-  image: get(input, '@_img', null)
+  image: get(input, '@_img', null),
+  slug: null,
+  id: null
 });
+
+const transformChapter = (input: any): Chapter => ({
+  start: toPlayerTime(get(input, ['@_start'], null)),
+  title: get(input, ['@_title'], null),
+  end: null,
+  image: null,
+  href: null
+});
+
+const buildChapterList =
+  (duration: number | null) =>
+  (input: Chapter, index: number, list: Chapter[]): Chapter => ({
+    ...input,
+    end: get(list, [index + 1, 'start'], duration)
+  });
 
 const transformShow = (data: any): Show => ({
   title: get(data, ['channel', 'title'], null),
@@ -24,16 +41,21 @@ const transformShow = (data: any): Show => ({
 });
 
 const transformEpisode = (data: any): Episode => {
+  const duration = toPlayerTime(get(data, 'itunes:duration', 0));
+
   return {
     id: get(data, 'itunes:episode', null),
     title: get(data, 'title', null),
     description: get(data, 'description', null),
     subtitle: get(data, 'itunes:subtitle', null),
     publicationDate: get(data, 'pubDate', null),
-    duration: toPlayerTime(get(data, 'duration', 0)),
+    duration,
     content: get(data, 'content:encoded', null),
     poster: get(data, ['itunes:image', '@_href'], null),
-    contributors: castArray(get(data, ['podcast:person'], [])).map(transformPerson)
+    contributors: castArray(get(data, ['podcast:person'], [])).map(transformPerson),
+    chapters: castArray(get(data, ['psc:chapters', 'psc:chapter'], []))
+      .map(transformChapter)
+      .map(buildChapterList(duration))
   };
 };
 

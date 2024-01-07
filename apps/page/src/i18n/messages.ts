@@ -62,6 +62,10 @@ const de = {
     PLAYER_ERROR: 'Nochmals versuchen Episode abzuspielen',
     PLAYER_PAUSE: 'Episode pausieren',
     PLAYER_LOADING: 'Episode lädt'
+  },
+  TIMELINE: {
+    START: 'Start',
+    END: 'End',
   }
 };
 

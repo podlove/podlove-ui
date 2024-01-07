@@ -71,6 +71,7 @@ import TimelineIcon from './Timeline.vue';
 import SummaryIcon from './Summary.vue';
 import ShownotesIcon from './Shownotes.vue';
 import DiscussIcon from './Discuss.vue';
+import HourGlassIcon from './HourGlass.vue';
 
 export {
   PlayIcon,
@@ -145,5 +146,6 @@ export {
   TimelineIcon,
   SummaryIcon,
   ShownotesIcon,
-  DiscussIcon
+  DiscussIcon,
+  HourGlassIcon
 };
