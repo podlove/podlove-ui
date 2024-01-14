@@ -70,18 +70,19 @@ const translation = (key: string, attr = {}) => ({ key, attr });
 export default {
   runtime: {
     initialized: createSelector(slices.runtime, runtime.initialized),
-    locale: createSelector(slices.runtime, runtime.locale),
+    locale: createSelector(slices.runtime, runtime.locale)
   },
   theme: {
     background: createSelector(slices.theme, theme.background)
   },
   podcast: {
+    show: createSelector(slices.podcast, podcast.show),
     feed: createSelector(slices.podcast, podcast.feed),
     title: createSelector(slices.podcast, podcast.title),
-    image: createSelector(slices.podcast, podcast.image),
+    poster: createSelector(slices.podcast, podcast.poster),
     description: createSelector(slices.podcast, podcast.description),
     summary: createSelector(slices.podcast, podcast.summary),
-    episodes: createSelector(slices.podcast, podcast.episodes),
+    episodes: createSelector(slices.podcast, podcast.episodes)
   },
   current: {
     episode: currentEpisode
@@ -122,7 +123,7 @@ export default {
       chapter: createSelector(
         [chaptersList, playerGhostTime],
         (chapters: PodloveWebPlayerChapter[], ghostPlaytime: number | null) =>
-          currentChapterByPlaytime(chapters, ghostPlaytime || 0)
+          currentChapterByPlaytime(chapters || [], ghostPlaytime || 0)
       )
     },
     media: createSelector(slices.player, select('media'), media.media),
@@ -142,7 +143,6 @@ export default {
   },
   playbar: {
     active: createSelector(slices.playbar, playbar.active),
-    path: createSelector(slices.playbar, playbar.path),
     button: createSelector(slices.playbar, playbar.button),
     followContent: createSelector(slices.playbar, playbar.followContent),
     volume: (state: State) => {
@@ -191,7 +191,7 @@ export default {
 
       return 'speed-200';
     },
-    chapters: createSelector(slices.playbar, playbar.chapters),
+    chapters: createSelector(slices.playbar, playbar.chapters)
   },
   subscribeButton: {
     visible: createSelector(slices.subscribeButton, subscribeButton.visible)

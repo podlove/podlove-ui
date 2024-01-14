@@ -13,7 +13,6 @@
     <speed150-icon v-if="icon === 'speed-150'" :data-test="`speed-control--${icon}`" />
     <speed175-icon v-if="icon === 'speed-175'" :data-test="`speed-control--${icon}`" />
     <speed200-icon v-if="icon === 'speed-200'" :data-test="`speed-control--${icon}`" />
-    <icon :type="icon" :data-test="`speed-control--${icon}`"></icon>
   </button>
 </template>
 

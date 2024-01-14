@@ -18,7 +18,7 @@
       <!-- Summary -->
       <button
         class="mx-4 font-light flex items-center overflow-visible"
-        @click="scrollTo('header')"
+        @click="scrollTo('summary')"
       >
         <summary-icon class="mr-3" />
         <span class="uppercase hidden md:block">{{ $t('EPISODE.SUMMARY') }}</span>

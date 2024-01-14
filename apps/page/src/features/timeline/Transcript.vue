@@ -2,11 +2,16 @@
   <div class="p-2">
     <div class="flex items-center mb-2">
       <bullet :top="true" :bottom="true" :time="start">
-        <g-link :to="speaker.link">
-          <span v-if="speaker.avatar" @mouseover="showPopover" @mouseleave="hidePopover">
-            <res-image :src="speaker.avatar" :width="48" :height="48" class="mr-2" />
+        <a v-if="speaker.slug" :href="`/feed/${state.feed}/contributor/${speaker.slug}`">
+          <span @mouseover="showPopover" @mouseleave="hidePopover">
+            <img v-if="speaker.avatar" :src="speaker.avatar" :width="48" :height="48" />
+            <user-icon v-else :size="48" />
           </span>
-        </g-link>
+        </a>
+        <span v-else @mouseover="showPopover" @mouseleave="hidePopover">
+          <img v-if="speaker.avatar" :src="speaker.avatar" :width="48" :height="48" />
+          <user-icon v-else :size="48" />
+        </span>
         <popover direction="right">
           <div class="text-sm text-gray-800 p-1 text-center whitespace-nowrap">
             <h3 class="font-bold">{{ speaker.name }}</h3>
@@ -32,7 +37,7 @@
           }"
           class="mr-1 break-words cursor-pointer"
           @click="play(text.start)"
-          @mouseover="simulateSection(text.start, text.end)"
+          @mouseover="simulateSection(text.start)"
           @mouseout="disableGhost"
           v-for="(text, index) in texts"
           :key="text.start"
@@ -43,103 +48,92 @@
   </div>
 </template>
 
-<script>
-import { path, prop, propOr, join } from 'ramda'
-import { toHumanTime } from '@podlove/utils/time'
-import { mapActions, mapState } from 'redux-vuex'
+<script lang="ts" setup>
+import { computed } from 'vue';
+import { mapState, injectStore } from 'redux-vuex';
+import { toHumanTime } from '@podlove/utils/time';
+import { UserIcon } from '@podlove/components';
 
-import { selectors } from '~/store/reducers'
-import Bullet from './Bullet'
-import ResImage from '~/components/ResImage'
-import Popover from '~/components/Popover'
+import { selectors, actions } from '../../logic';
+import Popover from '../../components/Popover.vue';
+import Bullet from './Bullet.vue';
+import { ref } from 'vue';
 
-export default {
-  components: { Bullet, ResImage, Popover },
+const props = defineProps<{
+  episodeId: string;
+  start: number;
+  end: number;
+  speaker: {
+    id?: string;
+    slug?: string;
+    avatar?: string;
+    name: string;
+    nickname?: string;
+  };
+  texts: {
+    start: number;
+    end: number;
+    text: string;
+  }[];
+}>();
 
-  data: mapState({
-        ghost: selectors.player.ghost.time,
-        hovered: selectors.player.ghost.active,
-        current: selectors.current.episode,
-        playtime: selectors.player.playtime
-      }),
-  props: {
-    id: {
-      type: String,
-      default: null
-    },
-    data: {
-      type: Object,
-      default: () => ({})
-    }
-  },
+const store = injectStore();
 
-  computed: {
-    speaker() {
-      return {
-        id: path(['data', 'speaker', 'id'], this),
-        slug: path(['data', 'speaker', 'slug'], this),
-        avatar: path(['data', 'speaker', 'avatar'], this),
-        name: path(['data', 'speaker', 'name'], this),
-        nickname: path(['data', 'speaker', 'nickname'], this),
-        link: join('/', ['contributor', path(['data', 'speaker', 'slug'], this)])
-      }
-    },
-    start() {
-      return prop('start', this.data)
-    },
+const state = mapState({
+  ghost: selectors.player.ghost.time,
+  hovered: selectors.player.ghost.active,
+  current: selectors.current.episode,
+  playtime: selectors.player.playtime,
+  feed: selectors.podcast.feed
+});
 
-    texts() {
-      return propOr([], 'texts', this.data)
-    },
+const popoverVisible = ref(false);
 
-    active() {
-      return this.current === this.id
-    }
-  },
+const texts = computed(() => props.texts || []);
+const active = computed(() => props.episodeId === state.current);
 
-  methods: {
-    ...mapActions('playEpisode', 'simulatePlaytime', 'enableGhost', 'disableGhost'),
-    toHumanTime,
-    play(playtime) {
-      this.playEpisode({ id: this.id, playtime })
-    },
-    simulateSection(start) {
-      if (!this.active) {
-        return
-      }
+const play = (playtime: number) => {
+  store.dispatch(actions.playEpisode({ id: props.episodeId, playtime }));
+};
 
-      this.enableGhost()
-      this.simulatePlaytime(start)
-    },
-    activeTranscript(start, end) {
-      return this.active && this.playtime >= start && this.playtime < end
-    },
-    ghostTranscript(start, end) {
-      return (
-        this.active &&
-        !this.activeTranscript(start, end) &&
-        this.hovered &&
-        this.ghost >= start &&
-        this.ghost < end
-      )
-    },
-    transcriptId(start, end) {
-      if (this.activeTranscript(start, end)) {
-        return 'transcript-active'
-      }
-
-      if (this.ghostTranscript(start, end)) {
-        return 'transcript-ghost-active'
-      }
-
-      return null
-    },
-    showPopover() {
-      this.popoverVisible = true
-    },
-    hidePopover() {
-      this.popoverVisible = false
-    }
+const simulateSection = (playtime: number) => {
+  if (!active.value) {
+    return;
   }
-}
+
+  store.dispatch(actions.enableGhost());
+  store.dispatch(actions.simulatePlaytime(playtime));
+};
+
+const disableGhost = () => store.dispatch(actions.disableGhost());
+
+const activeTranscript = (start: number, end: number) =>
+  active.value && state.playtime >= start && state.playtime < end;
+
+const ghostTranscript = (start: number, end: number) =>
+  active.value &&
+  !activeTranscript(start, end) &&
+  state.hovered &&
+  state.ghost >= start &&
+  state.ghost < end;
+
+const transcriptId = (start: number, end: number) => {
+  if (activeTranscript(start, end)) {
+    return 'transcript-active';
+  }
+
+  if (ghostTranscript(start, end)) {
+    return 'transcript-ghost-active';
+  }
+
+  return undefined;
+};
+
+const showPopover = () => {
+  popoverVisible.value = true;
+};
+
+const hidePopover = () => {
+  popoverVisible.value = false;
+};
 </script>

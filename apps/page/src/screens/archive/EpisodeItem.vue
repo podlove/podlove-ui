@@ -38,7 +38,7 @@
                 class="mr-1 w-6"
                 v-for="(contributor, index) in state.episode.contributors"
                 :name="contributor.name"
-                :avatar="contributor.image"
+                :avatar="contributor.avatar"
                 :role="contributor.role"
                 :slug="contributor.slug"
                 :id="contributor.id"
@@ -84,7 +84,7 @@ const props = defineProps<{
 
 const state = mapState({
   episode: selectors.episode.data(props.id),
-  poster: selectors.podcast.image,
+  poster: selectors.podcast.poster,
   locale: selectors.runtime.locale
 });
 

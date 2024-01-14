@@ -10,9 +10,11 @@ export interface State {
 }
 
 type addEpisodePayload = Episode
+type updateEpisodePayload = {id: string} & Partial<Episode>
 
 export const actions = {
-  addEpisode: createAction<addEpisodePayload>('EPISODES_ADD')
+  addEpisode: createAction<addEpisodePayload>('EPISODES_ADD'),
+  updateEpisode: createAction<updateEpisodePayload>('EPISODES_UPDATE')
 };
 
 export const reducer = handleActions<State, any>({
@@ -25,6 +27,13 @@ export const reducer = handleActions<State, any>({
   [actions.addEpisode.toString()]: (state: State, { payload }: Action<addEpisodePayload>) => ({
       ...state,
       [payload.id]: payload
+  }),
+  [actions.updateEpisode.toString()]: (state: State, { payload }: Action<updateEpisodePayload>) => ({
+      ...state,
+      [payload.id]: {
+        ...state[payload.id],
+        ...payload
+      }
     })
   },
   {}

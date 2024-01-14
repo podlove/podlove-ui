@@ -17,87 +17,16 @@ import {
   searchTranscripts,
   type searchTranscriptsPayload
 } from '@podlove/player-actions/transcripts';
-import { secondsToMilliseconds, toPlayerTime } from '@podlove/utils/time';
 import { transcripts as getTranscripts } from '@podlove/player-config';
 import { binarySearch, textSearch } from '@podlove/utils/search';
 import { isDefinedAndNotNull } from '@podlove/utils/predicates';
 import type { PodloveWebPlayerSpeaker, PodloveWebPlayerChapter, PodloveWebPlayerTimelineChapterEntry,
-  PodloveWebPlayerTimelineTranscriptEntry, PodloveWebPlayerTranscript } from '@podlove/types';
+  PodloveWebPlayerTimelineTranscriptEntry } from '@podlove/types';
 import { ready, type initPayload } from '@podlove/player-actions/lifecycle';
 import type { Action } from 'redux-actions';
 import { backendPlaytime, requestPlaytime, simulatePlaytime, type backendPlaytimePayload, type requestPlaytimePayload, type simulatePlaytimePayload } from '@podlove/player-actions/timepiece';
 import { disableGhost } from '@podlove/player-actions/progress';
-
-const transformTime = (time) =>
-  is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time);
-
-const isNewChunk = (current, last) => {
-  if (last === undefined) {
-    return true;
-  }
-
-  const differentSpeaker = current.speaker !== last.speaker;
-  const text = last.texts.reduce((result, item) => result + ' ' + item.text, '');
-  const endOfSentence = endsWith('.', text) || endsWith('!', text) || endsWith('?', text);
-
-  return differentSpeaker || (text.length > 500 && endOfSentence);
-};
-
-const transformTranscript = reduce((transcripts: PodloveWebPlayerTimelineTranscriptEntry[], chunk: PodloveWebPlayerTranscript) => {
-  const lastChunk = last(transcripts);
-
-  if (isNewChunk(chunk, lastChunk)) {
-    return [
-      ...transcripts,
-      {
-        type: 'transcript',
-        start: transformTime(chunk.start),
-        end: transformTime(chunk.end),
-        speaker: chunk.speaker,
-        texts: [
-          {
-            start: transformTime(chunk.start),
-            end: transformTime(chunk.end),
-            text: chunk.text
-          }
-        ]
-      }
-    ];
-  }
-
-  return [
-    ...transcripts.slice(0, -1),
-    {
-      ...lastChunk,
-      end: transformTime(chunk.end),
-      texts: [
-        ...lastChunk.texts,
-        {
-          start: transformTime(chunk.start),
-          end: transformTime(chunk.end),
-          text: chunk.text
-        }
-      ]
-    }
-  ];
-}, []) as (input: PodloveWebPlayerTranscript[]) => PodloveWebPlayerTimelineTranscriptEntry[];
-
-const transformChapters = (chapters: PodloveWebPlayerChapter[]): PodloveWebPlayerTimelineChapterEntry[] =>
-  chapters.map((chapter, index) => ({
-    ...chapter,
-    type: 'chapter',
-    index: index
-  })) as PodloveWebPlayerTimelineChapterEntry[];
-
-const mapSpeakers = (speakers: PodloveWebPlayerSpeaker[]) =>
-  map((transcript: PodloveWebPlayerTimelineTranscriptEntry): PodloveWebPlayerTimelineTranscriptEntry => {
-    const result = speakers.find(({ id }) => id === transcript.speaker as unknown as string);
-
-    return {
-      ...transcript,
-      speaker: result
-    };
-  });
+import { createTimeline } from '@podlove/utils/transcripts';
 
 export const transcriptsSaga = ({
   selectSpeakers,
@@ -117,12 +46,6 @@ export const searchText = (transcripts: (PodloveWebPlayerTimelineChapterEntry | 
    ((entry as PodloveWebPlayerTimelineTranscriptEntry).texts || []).map(({ text }) => text).join(' ')
 ));
 
-export const createTimeline = (transcripts: PodloveWebPlayerTranscript[], chapters: PodloveWebPlayerChapter[], speakers: PodloveWebPlayerSpeaker[]): (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry)[] => {
-  const transcriptEntries: PodloveWebPlayerTimelineTranscriptEntry[] = compose(mapSpeakers(speakers), transformTranscript)(transcripts);
-  const chapterEntries: PodloveWebPlayerTimelineChapterEntry[] = transformChapters(chapters);
-
-  return sortBy(prop('start'), [...transcriptEntries, ...chapterEntries]) as (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry)[];
-}
 
 export function* init({ selectSpeakers, selectChapters, selectPlaytime }: {
   selectSpeakers: (input: any) => PodloveWebPlayerSpeaker[];

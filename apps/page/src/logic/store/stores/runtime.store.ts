@@ -6,21 +6,23 @@ export interface State {
   locale: string;
 }
 
-export interface initializePayload {
+export interface initializeAppPayload {
   feed: string;
   locale: string;
+  episodeId?: number;
 }
 
 export type dataFetchedPayload = Podcast;
 
 export const actions = {
-  initializeApp: createAction<initializePayload>('INITIALIZE'),
+  initializeApp: createAction<initializeAppPayload>('INITIALIZE'),
+  initializeEpisode: createAction<initializeAppPayload>('INITIALIZE_EPISODE'),
   dataFetched: createAction<dataFetchedPayload>('DATA_FETCHED')
 };
 
 export const reducer = handleActions<State, any>(
   {
-    [actions.initializeApp.toString()]: (state, { payload}: Action<initializePayload>) => ({
+    [actions.initializeApp.toString()]: (state, { payload}: Action<initializeAppPayload>) => ({
       ...state,
       locale: payload.locale
     }),

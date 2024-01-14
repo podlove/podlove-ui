@@ -1,12 +1,13 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import PageHeader from '../features/PageHeader.vue';
+import PlayBar from '../features/playbar/Playbar.vue';
+import { store } from '../logic';
+import { getLanguage } from "../i18n";
+
 const { title } = Astro.props;
-import { selectors, store }from '../logic';
 const state = store.getState();
 const lang = getLanguage();
-import Test from '../components/Test.vue'
-import { getLanguage } from "../i18n";
 ---
 
 <!doctype html>
@@ -23,11 +24,10 @@ import { getLanguage } from "../i18n";
 	</head>
 	<body>
     <PageHeader />
-    <!-- <Test client:load transition:persist /> -->
     <main transition:animate="slide">
       <slot></slot>
     </main>
-
+    <PlayBar client:only="vue" />
     <script>
       import '../logic';
     </script>

@@ -24,7 +24,6 @@ describe('actions', () => {
 
   beforeEach(() => {
     audioElement = audio(audioFixture());
-    console.log(audioElement)
     onError(audioElement, console.log);
   });
 

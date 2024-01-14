@@ -1,26 +1,28 @@
 ---
+import { createTimeline } from '@podlove/utils/transcripts'
 import Layout from '../../../../layouts/Layout.astro';
 import Hero from '../../../../screens/episodes/Hero.vue'
 import Navigation from '../../../../screens/episodes/Navigation.vue'
 import Timeline from '../../../../features/timeline/Timeline.vue'
+import { type Transcript } from '../../../../types/feed.types'
 
 import { store, selectors } from '../../../../logic';
 import { useTranslations } from '../../../../i18n'
 
-const { id } = Astro.params;
+const { episodeId } = Astro.params;
 const $t = useTranslations();
 const podcastTitle = selectors.podcast.title(store.getState());
-const episode = selectors.episode.data(id as string)(store.getState());
+const episode = selectors.episode.data(episodeId as string)(store.getState());
 
 const timeline = [
-  { start: 0, title: $t('TIMELINE.START'), type: 'marker' },
-  ...episode.chapters.map(chapter => ({...chapter, type: 'chapter'})),
-  { start: episode.duration, title: $t('TIMELINE.END'), type: 'marker' }
+  { start: 0, title: $t('TIMELINE.START') as string, type: 'marker' } as any,
+  ...createTimeline(episode.transcripts as Transcript[], episode.chapters || [], episode.contributors || []),
+  { start: episode.duration, title: $t('TIMELINE.END') as string, type: 'marker' } as any,
 ];
 ---
 
 <Layout title={`${podcastTitle} - ${episode.title}`}>
-  { id && <Hero id={id.toString()} client:idle>
+  { episodeId && <Hero id={episodeId.toString()} client:idle>
       <Navigation client:only="vue" shownotes={!!episode.description} timeline={timeline.length > 0} discuss={false} />
     </Hero> }
   <div class="lg:w-full lg:flex lg:justify-center pt-20">
@@ -47,7 +49,7 @@ const timeline = [
           { $t('EPISODE.TIMELINE') }
         </h2>
         <Timeline
-          episodeId={episode.id}
+          episodeId={episode.id.toString()}
           entries={timeline}
           client:idle
         />

@@ -16,7 +16,7 @@
     "
   >
     <nav class="flex w-app items-center justify-center">
-      <a :href="`/${state.feed}`" class="mr-4 text-gray-100 font-semibold">
+      <a :href="`/feed/${state.feed}`" class="mr-4 text-gray-100 font-semibold">
         {{ state.title }}
       </a>
       <a class="mr-4 font-light" :href="`/${state.feed}`" :title="state.title">{{ t('HEADER.EPISODES') }}</a>
@@ -41,7 +41,7 @@ const store = injectStore();
 
 const state = mapState({
   title: selectors.podcast.title,
-  image: selectors.podcast.image,
+  poster: selectors.podcast.poster,
   feed: selectors.podcast.feed
 });
 

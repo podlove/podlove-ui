@@ -48,7 +48,7 @@ import { selectors } from '../../logic';
 import HeaderContainer from '../../components/HeaderContainer.vue';
 
 const state = mapState({
-  poster: selectors.podcast.image,
+  poster: selectors.podcast.poster,
   title: selectors.podcast.title,
   description: selectors.podcast.description,
   summary: selectors.podcast.summary

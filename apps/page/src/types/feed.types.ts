@@ -4,12 +4,26 @@ export interface Podcast {
   hosts: Person[];
 }
 
+export interface Transcript {
+  voice: string;
+  speaker: string;
+  start: number;
+  end: number;
+  text: string;
+}
+
 export interface Show {
   title: string;
   description: string;
   link: string;
-  image: string;
+  poster: string;
   summary: string;
+}
+
+export interface Audio {
+  url: string;
+  size: string;
+  mimeType: string;
 }
 
 export interface Episode {
@@ -18,25 +32,27 @@ export interface Episode {
   publicationDate: string | null;
   description: string | null;
   subtitle: string | null;
+  link: string | null;
   duration: number | null;
   content: string | null;
   contributors: Person[];
   poster: string;
   chapters: Chapter[];
+  transcripts: Transcript[] | string;
+  audio: Audio[];
 }
 
 export interface Person {
-  name: string | null;
-  role: string | null;
-  image: string | null;
-  id: string | null;
-  slug: string | null;
+  id: string;
+  name: string;
+  avatar?: string;
 }
 
 export interface Chapter {
-  start: number | null;
-  end: number | null;
-  title: string | null;
-  image: string | null;
-  href: string | null;
+  start: number | string | null;
+  duration?: number | null;
+  end?: number | null;
+  image?: string | null;
+  title?: string | null;
+  href?: string | null;
 }

@@ -92,6 +92,10 @@
     "./promise": {
       "import": "./src/promise.ts",
       "types": "./src/promise.ts"
+    },
+    "./transcripts": {
+      "import": "./src/transcripts.ts",
+      "types": "./src/transcripts.ts"
     }
   },
   "publishConfig": {
@@ -171,6 +175,10 @@
       "./promise": {
         "import": "./dist/promise.mjs",
         "types": "./dist/promise.d.ts"
+      },
+      "./transcripts": {
+        "import": "./dist/transcripts.mjs",
+        "types": "./dist/transcripts.d.ts"
       }
     }
   },

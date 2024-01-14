@@ -19,7 +19,6 @@ export interface State {
   button: 'play' | 'pause' | 'loading' | 'restart';
   followContent: boolean;
   chapters: boolean;
-  path: string;
 }
 
 export const reducer = handleActions<State, any>(
@@ -44,10 +43,6 @@ export const reducer = handleActions<State, any>(
       ...state,
       followContent: !state.followContent
     }),
-    [ready.toString()]: (state, { payload }: Action<readyPayload>) => ({
-      ...state,
-      path: get(payload, 'path', '')
-    }),
     [actions.toggleChaptersOverlay.toString()]: (state) => ({
       ...state,
       chapters: !state.chapters
@@ -61,8 +56,7 @@ export const reducer = handleActions<State, any>(
     active: false,
     button: 'play',
     followContent: false,
-    chapters: false,
-    path: ''
+    chapters: false
   }
 );
 
@@ -70,6 +64,5 @@ export const selectors = {
   active: (state: State) => state.active,
   button: (state: State) => state.button,
   followContent: (state: State) => state.followContent,
-  path: (state: State) => state.path,
   chapters: (state: State) => state.chapters
 }

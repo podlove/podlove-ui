@@ -34,7 +34,7 @@
             <span class="mx-2">・</span>
             <span>{{ duration }}</span>
           </div>
-          <a :href="`/episodes/${id}`" class="text-center md:text-left">
+          <a :href="`/feed/${state.feed}/episodes/${id}`" class="text-center md:text-left">
             <h1
               v-if="state.episode.title"
               class="text-gray-100 text-3xl mb-5"
@@ -51,7 +51,7 @@
               <contributor
                 class="block w-12 mb-1"
                 :name="contributor.name"
-                :avatar="contributor.image"
+                :avatar="contributor.avatar"
                 :role="contributor.role"
                 :slug="contributor.slug"
                 :id="contributor.id"
@@ -80,8 +80,9 @@ const props = defineProps<{ id: string }>();
 
 const state = mapState({
   episode: selectors.episode.data(props.id),
-  poster: selectors.podcast.image,
-  locale: selectors.runtime.locale
+  poster: selectors.podcast.poster,
+  locale: selectors.runtime.locale,
+  feed: selectors.podcast.feed
 });
 
 const publicationDate = computed(() =>

@@ -19,7 +19,8 @@ const entries = [
   'time',
   'url',
   'useragent',
-  'promise'
+  'promise',
+  'transcripts'
 ];
 
 export default defineConfig({

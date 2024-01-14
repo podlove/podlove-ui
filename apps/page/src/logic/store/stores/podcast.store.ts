@@ -1,11 +1,12 @@
 import { handleActions, type Action } from 'redux-actions';
-import { actions as lifecycleActions, type dataFetchedPayload, type initializePayload } from './runtime.store'
+import { actions as lifecycleActions, type dataFetchedPayload, type initializeAppPayload } from './runtime.store'
 import { get } from 'lodash-es';
+import type { Show } from '../../../types/feed.types';
 
 export interface State {
   feed: string | null;
   title: string | null;
-  image: string | null;
+  poster: string | null;
   description: string | null;
   summary: string | null;
   episodes: string[];
@@ -15,28 +16,35 @@ export const reducer = handleActions<State, any>({
   [lifecycleActions.dataFetched.toString()]: (state, { payload }: Action<dataFetchedPayload>) => ({
     ...state,
     title: get(payload, ['show', 'title'], null),
-    image: get(payload, ['show', 'image'], null),
+    poster: get(payload, ['show', 'poster'], null),
     description: get(payload, ['show', 'description'], null),
     summary: get(payload, ['show', 'summary'], null),
     episodes: get(payload, ['episodes'], []).map(({ id }) => id)
   }),
-  [lifecycleActions.initializeApp.toString()]: (state, { payload }: Action<initializePayload>) => ({
+  [lifecycleActions.initializeApp.toString()]: (state, { payload }: Action<initializeAppPayload>) => ({
     ...state,
     feed: payload.feed
   })
 }, {
   feed: null,
   title: null,
-  image: null,
+  poster: null,
   description: null,
   summary: null,
   episodes: []
 });
 
 export const selectors = {
+  show: (state: State): Show => ({
+    title: get(state, 'title') || '',
+    description: get(state, 'description') || '',
+    link: get(state, 'link') || '',
+    poster: get(state, 'poster') || '',
+    summary: get(state, 'summary') || '',
+  }),
   feed: (state: State) => get(state, 'feed'),
   title: (state: State) => get(state, 'title'),
-  image: (state: State) => get(state, 'image'),
+  poster: (state: State) => get(state, 'poster'),
   description: (state: State) => get(state, 'description'),
   summary: (state: State) => get(state, 'summary'),
   episodes: (state: State) => get(state, 'episodes'),
