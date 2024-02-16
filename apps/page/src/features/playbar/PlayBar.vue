@@ -1,23 +1,23 @@
 <template>
-  <div class="w-full">
+  <div class="w-full bg-transparent">
     <custom-transition type="playbar">
       <div
         v-if="state.active && !scrolledToBottom"
-        class="w-screen fixed bottom-0 play-bar mb-0 z-50 bg-primary-700 bg-opacity-10"
+        class="play-bar w-screen fixed bottom-0 mb-0 z-40"
       >
-        <div class="w-full absolute progress pl-4 pr-6">
+        <div class="w-full absolute pl-4 pr-6 -mt-1">
           <div class="font-shadow flex justify-between text-xs -mt-4 font-bold">
             <timer :time="playtime" />
             <timer :time="duration" :remaining="true" />
           </div>
           <progress-bar
-            @input="store.dispatch"
-            @simulate="store.dispatch"
-            @ghost="store.dispatch"
-            thumbColor="rgba(255, 255, 255)"
-            :duration="duration"
-            :time="playtime"
-            :ghost="state.ghost"
+            class="progress-bar"
+            @time="dispatch"
+            @simulate="dispatch"
+            @ghost="dispatch"
+            :duration="state.duration"
+            :time="state.playtime"
+            :ghost="state.ghost || NaN"
             :buffer="state.buffer"
             :chapters="state.chapters"
             :quantiles="state.quantiles"
@@ -38,60 +38,72 @@
                   <h4 class="text-lg text-gray-100 uppercase truncate">{{ state.title }}</h4>
                 </a>
                 <a
-                  v-if="!state.ghostActive && state.currentChapter && state.currentChapter.index"
+                  v-if="
+                    !state.ghostActive && state.currentChapter && state.currentChapter.index > -1
+                  "
                   :href="`${link}?t=${toHumanTime(state.currentChapter.start + 10)}`"
                   class="block w-full text-gray-300 text-sm truncate"
+                  v-html="state.currentChapter.title"
                 >
-                  {{ state.currentChapter.title }}
                 </a>
                 <span
                   class="block w-full text-gray-300 text-sm truncate"
-                  v-if="state.ghostActive && state.ghostChapter && state.ghostChapter.index"
-                  >{{ state.ghostChapter.title }}</span
-                >
+                  v-if="state.ghostActive && state.ghostChapter && state.ghostChapter.index > -1"
+                  v-html="state.ghostChapter.title"
+                ></span>
               </div>
             </div>
             <div class="w-1/4 sm:w-1/2 md:w-1/3 flex items-center justify-center">
               <chapter-button
                 v-if="state.chapters.length > 0"
                 type="previous"
-                color="rgba(255, 255, 255)"
-                class="mx-2 hidden sm:block"
-                @click="store.dispatch"
+                class="chapter-button mx-2 hidden sm:block"
+                @previous="dispatch"
                 :title="$t(state.a11yChapterPrevious.key, state.a11yChapterPrevious.attr)"
               />
               <stepper-button
                 type="backwards"
-                class="mx-2 hidden sm:block"
-                @click="store.dispatch"
+                class="stepper-button mx-2 hidden sm:block"
+                @backwards="dispatch"
                 :title="$t(state.a11yStepperBackwards.key, state.a11yStepperBackwards.attr)"
               />
               <play-button
                 background="rgba(255, 255, 255)"
-                class="mx-2 rounded-full shadow-none hover:shadow-md"
+                class="play-button mx-2 rounded-full shadow-none hover:shadow-md"
                 :type="state.buttonType"
-                @click="store.dispatch"
+                @play="dispatch"
+                @pause="dispatch"
+                @restart="dispatch"
                 :title="playButtonA11y"
               />
               <stepper-button
                 type="forward"
-                class="mx-2 hidden sm:block"
-                @click="store.dispatch"
+                class="stepper-button mx-2 hidden sm:block"
+                @forward="dispatch"
                 :title="$t(state.a11yStepperForward.key, state.a11yStepperForward.attr)"
               />
               <chapter-button
                 v-if="state.chapters.length > 0"
                 type="next"
-                color="rgba(255, 255, 255)"
-                class="mx-2 hidden sm:block"
-                @click="store.dispatch"
+                class="chapter-button mx-2 hidden sm:block"
+                @next="dispatch"
                 :title="$t(state.a11yChapterNext.key, state.a11yChapterNext.attr)"
               />
             </div>
             <div class="justify-center items-end w-1/3 flex-col hidden md:flex">
               <div class="flex items-center">
                 <button
-                  class="flex justify-center items-center mx-2 rounded h-8 w-10 border-transparent"
+                  class="
+                    chapter-list-button
+                    flex
+                    justify-center
+                    items-center
+                    mx-2
+                    rounded
+                    h-8
+                    w-10
+                    border-transparent
+                  "
                   v-if="state.chapters.length > 0"
                   @click="toggleChaptersOverlay"
                   :class="{ 'border-gray-100 border': state.chaptersOverlay }"
@@ -100,12 +112,12 @@
                 </button>
                 <button
                   @click="toggleFollowContent"
-                  class="flex justify-center items-center mx-2 h-8 w-10 rounded"
+                  class="follow-button flex justify-center items-center mx-2 h-8 w-10 rounded"
                   :class="{ 'border-gray-100 border': state.followContent }"
                 >
-                  <!-- <lock-icon title="Follow Transcripts" /> -->
+                  <lock-icon />
                 </button>
-                <button @click="toggleMute" class="mx-2 ml-4">
+                <button @click="toggleMute" class="volume-button mx-2 ml-4">
                   <speaker-0-icon v-if="state.volumeIcon === 'speaker-0'" />
                   <speaker-25-icon v-if="state.volumeIcon === 'speaker-25'" />
                   <speaker-50-icon v-if="state.volumeIcon === 'speaker-50'" />
@@ -113,23 +125,22 @@
                 </button>
                 <div class="w-40 mx-2 mr-4 hidden lg:flex">
                   <input-slider
+                    class="volume-slider"
                     :min="0"
                     :max="1"
                     :value="state.volume"
-                    @input="setVolume"
+                    @slider-input="setVolume"
                     :step="0.001"
-                    background="rgba(255, 255, 255)"
-                    borderColor="rgba(255, 255, 255)"
                   />
                 </div>
-                <button class="mx-2" @click="nextRate" @dblclick="setRate(1)">
-                  <speed050-icon v-if="state.rateIcon === 'speed-050'" />
-                  <speed075-icon v-if="state.rateIcon === 'speed-075'" />
-                  <speed100-icon v-if="state.rateIcon === 'speed-100'" />
-                  <speed125-icon v-if="state.rateIcon === 'speed-125'" />
-                  <speed150-icon v-if="state.rateIcon === 'speed-150'" />
-                  <speed175-icon v-if="state.rateIcon === 'speed-175'" />
-                  <speed200-icon v-if="state.rateIcon === 'speed-200'" />
+                <button class="rate-button mx-2" @click="nextRate" @dblclick="setRate(1)">
+                  <speed-050-icon v-if="state.rateIcon === 'speed-050'" />
+                  <speed-075-icon v-if="state.rateIcon === 'speed-075'" />
+                  <speed-100-icon v-if="state.rateIcon === 'speed-100'" />
+                  <speed-125-icon v-if="state.rateIcon === 'speed-125'" />
+                  <speed-150-icon v-if="state.rateIcon === 'speed-150'" />
+                  <speed-175-icon v-if="state.rateIcon === 'speed-175'" />
+                  <speed-200-icon v-if="state.rateIcon === 'speed-200'" />
                 </button>
               </div>
             </div>
@@ -140,7 +151,18 @@
     <custom-transition type="chapters">
       <div
         v-if="state.chaptersOverlay"
-        class="fixed z-10 chapters-overlay rounded-t text-left font-light text-gray-100"
+        class="
+          chapters-drawer
+          fixed
+          z-10
+          rounded-t
+          text-left
+          font-light
+          text-gray-100
+          w-[450px]
+          bottom-[104px]
+          right-[100px]
+        "
       >
         <div class="w-full px-4 py-3 border-b border-gray-100 flex justify-between items-center">
           <h3 class="uppercase text-lg font-normal leading-none">{{ $t('PLAYBAR.CHAPTERS') }}</h3>
@@ -148,7 +170,7 @@
             <close-icon />
           </button>
         </div>
-        <div class="w-full p-2 chapters-list">
+        <div class="w-full p-2 max-h-[calc(100vh - 250px)] overflow-x-hidden">
           <chapter
             v-for="(chapter, index) in state.chapters"
             :chapter="chapter"
@@ -167,9 +189,6 @@ import { computed, ref, onMounted } from 'vue';
 import { toHumanTime } from '@podlove/utils/time';
 import { max, get, throttle, isNumber } from 'lodash-es';
 import { useI18n } from 'vue-i18n';
-
-const { t } = useI18n();
-
 import {
   PlayButton,
   ProgressBar,
@@ -189,7 +208,8 @@ import {
   Speed175Icon,
   Speed200Icon,
   ChapterIcon,
-  CloseIcon
+  CloseIcon,
+  LockIcon
 } from '@podlove/components';
 
 import { selectors, actions } from '../../logic/store';
@@ -198,7 +218,9 @@ import CustomTransition from '../../components/CustomTransition.vue';
 
 import Chapter from './Chapter.vue';
 
-const store = injectStore();
+const dispatch = injectStore().dispatch;
+
+const { t } = useI18n();
 
 const scrolledToBottom = ref(false);
 
@@ -248,12 +270,12 @@ const scroll = () => {
     ]) || 0 + window.innerHeight + 5) > document.documentElement.offsetHeight;
 };
 
-const setVolume = (volume: number) => store.dispatch(actions.setVolume(volume));
-const setRate = (rate: number) => store.dispatch(actions.setRate(rate));
-const nextRate = () => store.dispatch(actions.nextRate());
-const toggleMute = () => store.dispatch(actions.toggleMute());
-const toggleFollowContent = () => store.dispatch(actions.toggleFollowContent());
-const toggleChaptersOverlay = () => store.dispatch(actions.toggleChaptersOverlay());
+const setVolume = (volume: number) => dispatch(actions.setVolume(volume));
+const setRate = (rate: number) => dispatch(actions.setRate(rate));
+const nextRate = () => dispatch(actions.playbar.nextRate());
+const toggleMute = () => dispatch(actions.playbar.toggleMute());
+const toggleFollowContent = () => dispatch(actions.playbar.toggleFollowContent());
+const toggleChaptersOverlay = () => dispatch(actions.playbar.toggleChaptersOverlay());
 
 const playButtonA11y = computed(() => {
   switch (state.buttonType) {
@@ -274,32 +296,86 @@ onMounted(() => {
 });
 </script>
 
-<style>
-.progress {
-  margin-top: -5px;
+<style scoped>
+.play-bar {
+  background-color: rgba(var(--primary-color-800), 0.9);
+}
+
+.chapters-drawer {
+  background-color: rgba(var(--primary-color-800), 0.9);
+}
+
+.progress-bar {
+  --podlove-component--progress-bar--progress-color: rgba(var(--complementary-color-100), 0.5);
+  --podlove-component--progress-bar--chapters-separator-color: rgba(var(--primary-color-800), 0.9);
+  --podlove-component--progress-bar--chapters-background-color: rgb(var(--complementary-color-100));
+  --podlove-component--progress-bar--track-background-color: rgb(var(--complementary-color-100));
+  --podlove-component--progress-bar--thumb-background-color: rgb(var(--complementary-color-100));
+  --podlove-component--progress-bar--thumb-border-color: rgba(var(--primary-color-800), 0.9);
+  --podlove-component--progress-bar--ghost-background-color: rgba(
+    var(--complementary-color-100),
+    0.8
+  );
+  --podlove-component--progress-bar--ghost-border-color: rgba(var(--primary-color-800), 0.9);
+  --podlove-component--progress-bar--ghost-border-color: rgba(var(--primary-color-800), 0.9);
+  --podlove-component--progress-bar--buffer-background-color: rgba(
+    var(--complementary-color-100),
+    0.7
+  );
+}
+
+.chapter-button {
+  --podlove-component--chapter-button--color: rgba(var(--complementary-color-100), 0.7);
+}
+
+.chapter-button:hover {
+  --podlove-component--chapter-button--color: rgba(var(--complementary-color-100), 1);
+}
+
+.stepper-button {
+  --podlove-component--stepper-button--color: rgba(var(--complementary-color-100), 0.7);
+}
+
+.stepper-button:hover {
+  --podlove-component--stepper-button--color: rgba(var(--complementary-color-100), 1);
+}
+
+.play-button {
+  --podlove-component--play-button--text-color: rgba(var(--primary-color-800), 0.8);
+  --podlove-component--play-button--background: rgba(var(--complementary-color-100), 0.8);
+}
+
+.play-button:hover {
+  --podlove-component--play-button--text-color: rgba(var(--primary-color-800), 0.8);
+  --podlove-component--play-button--background: rgba(var(--complementary-color-100), 1);
+}
+
+.follow-button,
+.chapter-list-button,
+.volume-button,
+.rate-button {
+  --podlove-component--icon--color: rgba(var(--complementary-color-100), 0.8);
+}
+
+.follow-button:hover,
+.chapter-list-button:hover,
+.volume-button:hover,
+.rate-button:hover {
+  --podlove-component--icon--color: rgba(var(--complementary-color-100), 1);
+}
+
+.volume-slider {
+  --podlove-component--input-slider--thumb-color: rgba(var(--complementary-color-100), 0.8);
+  --podlove-component--input-slider--border-color: rgba(var(--complementary-color-100), 0.8);
+  --podlove-component--input-slider--progress-color: rgba(var(--complementary-color-100), 0.5);
+}
+.volume-slider:hover {
+  --podlove-component--input-slider--thumb-color: rgba(var(--complementary-color-100), 1);
+  --podlove-component--input-slider--border-color: rgba(var(--complementary-color-100), 1);
+  --podlove-component--input-slider--progress-color: rgba(var(--complementary-color-100), 0.8);
 }
 
 .font-shadow {
-  text-shadow: 0 0 3px white;
-}
-
-.chapters-overlay {
-  width: 450px;
-  bottom: 104px;
-  right: 100px;
-}
-
-.chapters-list {
-  max-height: calc(100vh - 250px);
-  overflow-x: auto;
-}
-
-.chapter-progress {
-  overflow: hidden;
-}
-
-.chapter-progress .title {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-shadow: 0 0 3px rgb(var(--gray-color-100));
 }
 </style>

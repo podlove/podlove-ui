@@ -1,3 +1,6 @@
-import { get } from "lodash-es";
+import { get } from 'lodash-es';
 
-export const select = (prop: string, fallback = {}) => (data: any) => get(data, prop, fallback);
+export const select =
+  <T>(prop: string, fallback = {}): ((input: any) => T) =>
+  (data: any) =>
+    get(data, prop, fallback) as unknown as T;

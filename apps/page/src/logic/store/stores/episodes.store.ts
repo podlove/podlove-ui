@@ -10,11 +10,15 @@ export interface State {
 }
 
 type addEpisodePayload = Episode
+export type episodeLoadPayload = Episode[];
 type updateEpisodePayload = {id: string} & Partial<Episode>
+export type requestEpisodePayload = string | string[];
 
 export const actions = {
   addEpisode: createAction<addEpisodePayload>('EPISODES_ADD'),
-  updateEpisode: createAction<updateEpisodePayload>('EPISODES_UPDATE')
+  updateEpisode: createAction<updateEpisodePayload>('EPISODES_UPDATE'),
+  requestEpisode: createAction<requestEpisodePayload>('EPISODE_REQUEST'),
+  episodeLoad: createAction<episodeLoadPayload>('EPISODE_LOAD')
 };
 
 export const reducer = handleActions<State, any>({
@@ -34,12 +38,16 @@ export const reducer = handleActions<State, any>({
         ...state[payload.id],
         ...payload
       }
-    })
+    }),
+  [actions.episodeLoad.toString()]: (state: State, { payload }: Action<episodeLoadPayload>) => payload.reduce((result, episode) => ({
+    ...result,
+    [episode.id]: episode
+  }), state),
   },
   {}
 );
 
 export const selectors = {
   item: (id: string | number) => (state: State) => get(state, id, {}) as Episode,
-  list: (state: State) => state
+  list: (state: State) => Object.values(state)
 };

@@ -1,4 +1,5 @@
 export interface Podcast {
+  etag: string | null;
   show: Show;
   episodes: Episode[];
   hosts: Person[];

@@ -33,7 +33,7 @@ const EVENTS: MediaEvent[] = [
   'onFilterUpdate'
 ];
 
-export const audio = () => {
+export const audio = (mountPoint?: HTMLElement) => {
   const facade = {
     load,
     mediaElement: null as unknown as MediaElement,
@@ -63,17 +63,25 @@ export const audio = () => {
 
   function load(sources: MediaSource[]) {
     // remove media element
-    facade.mediaElement && facade.mediaElement.parentNode?.removeChild(facade.mediaElement);
+    if (facade.mediaElement) {
+      facade.mediaElement.childNodes.forEach((source: any) => {
+        source.remove();
+      });
+      facade.mediaElement.remove();
+
+    }
 
     ACTIONS.forEach((action) => {
       facade.actions[action] = connect(sources, action);
     });
   }
 
+
+
   function connect(sources: MediaSource[], action: MediaAction) {
     return (params = []) => {
       // create a new media element
-      (facade as any).mediaElement = createAudioElement(sources);
+      (facade as any).mediaElement = createAudioElement(sources, mountPoint);
 
       attatchStream(facade.mediaElement);
 

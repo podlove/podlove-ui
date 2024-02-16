@@ -28,7 +28,11 @@
 </template>
 
 <script setup lang="ts">
-import type { PodloveWebPlayerTimelineChapterEntry, PodloveWebPlayerTimelineTranscriptEntry } from '@podlove/types';
+import type {
+  PodloveWebPlayerTimelineChapterEntry,
+  PodloveWebPlayerTimelineTranscriptEntry
+} from '@podlove/types';
+
 import ChapterComponent from './Chapter.vue';
 import MarkerComponent from './Marker.vue';
 import TranscriptComponent from './Transcript.vue';
@@ -40,8 +44,12 @@ interface MarkerEntry {
   end?: number | null;
 }
 
-const props = defineProps<{
+defineProps<{
   episodeId: string;
-  entries: (MarkerEntry | PodloveWebPlayerTimelineTranscriptEntry | PodloveWebPlayerTimelineChapterEntry)[];
+  entries: (
+    | MarkerEntry
+    | PodloveWebPlayerTimelineTranscriptEntry
+    | PodloveWebPlayerTimelineChapterEntry
+  )[];
 }>();
 </script>

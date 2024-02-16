@@ -16,7 +16,7 @@ defineProps<{
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
@@ -26,7 +26,7 @@ defineProps<{
 .playbar-leave-active {
   transition: margin 0.5s, opacity 0.5s;
 }
-.playbar-enter,
+.playbar-enter-from,
 .playbar-leave-to {
   opacity: 0;
   margin-bottom: -70px;
@@ -35,10 +35,10 @@ defineProps<{
 /* Chapters */
 .chapters-enter-active,
 .chapters-leave-active {
-  transition: bottom 0.5s;
+  transition: right 0.5s;
 }
-.chapters-enter,
+.chapters-enter-from,
 .chapters-leave-to {
-  bottom: -1000px !important;
+  right: -1000px !important;
 }
 </style>

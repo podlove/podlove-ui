@@ -16,15 +16,15 @@
     "
   >
     <nav class="flex w-app items-center justify-center">
-      <a :href="`/feed/${state.feed}`" class="mr-4 text-gray-100 font-semibold">
+      <a :href="state.index" class="mr-4 text-gray-100 font-semibold">
         {{ state.title }}
       </a>
-      <a class="mr-4 font-light" :href="`/${state.feed}`" :title="state.title">{{ t('HEADER.EPISODES') }}</a>
+      <a class="mr-4 font-light" :href="state.index" :title="state.title">{{ t('HEADER.EPISODES') }}</a>
       <!-- <a class="mr-4 font-light" href="/contributors">{{ t('HEADER.CONTRIBUTORS') }}</a> -->
-      <a class="mr-4 font-light cursor-pointer" @click="showOverlay">{{
+      <a class="mr-4 font-light cursor-pointer" @click="showOverlay()">{{
         $t('HEADER.SUBSCRIBE')
       }}</a>
-      <a class="mr-4 ml-auto font-light cursor-pointer" @click="showSearch"><search-icon /></a>
+      <a class="mr-4 ml-auto font-light cursor-pointer" @click="showSearch()"><search-icon /></a>
     </nav>
   </header>
 </template>
@@ -42,14 +42,15 @@ const store = injectStore();
 const state = mapState({
   title: selectors.podcast.title,
   poster: selectors.podcast.poster,
-  feed: selectors.podcast.feed
+  feed: selectors.podcast.feed,
+  index: selectors.router.index
 });
 
 const showOverlay = () => {
-  store.dispatch(actions.toggleSubscribeOverlay());
+  store.dispatch(actions.subscribeButton.toggleSubscribeOverlay());
 };
 
 const showSearch = () => {
-  store.dispatch(actions.showSearch());
+  store.dispatch(actions.search.show());
 };
 </script>

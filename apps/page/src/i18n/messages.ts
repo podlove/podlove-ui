@@ -37,6 +37,7 @@ const de = {
     PLACEHOLDER: 'Suchen',
     NO_RESULTS: 'Es wurden keine Ergebnisse gefunden',
     INDEXING: 'Suchindex wird erstellt',
+    EPISODE: `Episode {number} - {title}`,
     CATEGORY: {
       EPISODE: 'Episoden',
       CONTRIBUTOR: 'Kontributoren',

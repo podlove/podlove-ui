@@ -55,7 +55,7 @@ export function* setCurrentChapter({ selectCurrentChapter }: { selectCurrentChap
     return;
   }
 
-  yield put(requestPlaytime(current.start));
+  yield put(requestPlaytime(current.start as number));
 }
 
 export function* resetChapter({ selectPlaytime }: { selectPlaytime: (input: any) => number }): any {
@@ -71,7 +71,7 @@ export function* previousChapter({ selectPlaytime, selectCurrentChapter }: { sel
     return
   }
 
-  if (playtime - start <= 1000) {
+  if (playtime - (start as number) <= 1000) {
     yield put(chapter.setChapter(index - 1 < 0 ? 0 : index - 1));
   } else {
     yield put(chapter.setChapter(index < 0 ? 0 : index));

@@ -1,19 +1,9 @@
 import { createSelector } from 'reselect';
 import { calcHours, calcMinutes, calcSeconds } from '@podlove/utils/time';
-import { selectors as driver } from '@podlove/player-state/driver';
-import { selectors as show } from '@podlove/player-state/show';
-import { selectors as media } from '@podlove/player-state/media';
-import { selectors as timepiece } from '@podlove/player-state/timepiece';
-import { selectors as episode } from '@podlove/player-state/episode';
-import { selectors as audio } from '@podlove/player-state/audio';
-import { selectors as network } from '@podlove/player-state/network';
-import { selectors as ghost } from '@podlove/player-state/ghost';
-import { selectors as chapters } from '@podlove/player-state/chapters';
-import { selectors as quantiles } from '@podlove/player-state/quantiles';
-
 import { currentChapterByPlaytime } from '@podlove/utils/chapters';
+import type { PodloveWebPlayerChapter } from '@podlove/types';
 
-import type State from './state';
+import type State from './state.js';
 
 import { selectors as runtime } from './stores/runtime.store';
 import { selectors as theme } from './stores/theme.store';
@@ -22,67 +12,77 @@ import { selectors as episodes } from './stores/episodes.store';
 import { selectors as player } from './stores/player.store';
 import { selectors as playbar } from './stores/playbar.store';
 import { selectors as subscribeButton } from './stores/subscribe-button.store';
-import { selectors as router } from './stores/router.store';
 import { selectors as search } from './stores/search.store';
-import { select } from './helper';
-import type { PodloveWebPlayerChapter } from '@podlove/types';
+import { selectors as router } from './stores/router.store';
+import { selectors as contributors } from './stores/contributors.store';
 
 const slices = {
-  runtime: select('runtime'),
-  theme: select('theme'),
-  podcast: select('podcast'),
-  player: select('player'),
-  playbar: select('playbar'),
-  router: select('router'),
-  search: select('search'),
-  episodes: select('episodes'),
-  subscribeButton: select('subscribeButton')
+  runtime: (state: State) => state.runtime,
+  theme: (state: State) => state.theme,
+  podcast: (state: State) => state.podcast,
+  player: (state: State) => state.player,
+  playbar: (state: State) => state.playbar,
+  search: (state: State) => state.search,
+  episodes: (state: State) => state.episodes,
+  subscribeButton: (state: State) => state.subscribeButton,
+  router: (state: State) => state.router,
+  contributors: (state: State) => state.contributors,
 };
 
-const playtime = createSelector(slices.player, select('timepiece'), timepiece.playtime);
-const duration = createSelector(slices.player, select('timepiece'), timepiece.duration);
+// runtime
+const cacheKey = createSelector(slices.runtime, runtime.cacheKey);
 
-const showTitle = createSelector(slices.player, select('show'), show.title);
-const showPoster = createSelector(slices.player, select('show'), show.poster);
+// podcast
+const feed = createSelector(slices.podcast, podcast.feed);
 
-const episodeTitle = createSelector(slices.player, select('episode'), episode.title);
-const episodePoster = createSelector(slices.player, select('episode'), episode.poster);
+const playtime = createSelector(slices.player, player.playtime);
 
-const playing = createSelector(slices.player, select('driver'), driver.playing);
-const currentEpisode = createSelector(slices.player, select('current'), player.episode);
+const duration = createSelector(slices.player, player.duration);
 
-const volume = createSelector(slices.player, select('audio'), audio.volume);
-const muted = createSelector(slices.player, select('audio'), audio.muted);
-const rate = createSelector(slices.player, select('audio'), audio.rate);
+const showTitle = createSelector(slices.player, player.showTitle);
+const showPoster = createSelector(slices.player, player.showPoster);
 
-const playerGhostTime = createSelector(slices.player, select('ghost'), ghost.time);
+const episodeTitle = createSelector(slices.player, player.episodeTitle);
+const episodePoster = createSelector(slices.player, player.episodePoster);
+
+const playing = createSelector(slices.player, player.playing);
+const currentEpisode = createSelector(slices.player, player.currentEpisode);
+
+const volume = createSelector(slices.player, player.volume);
+const muted = createSelector(slices.player, player.muted);
+const rate = createSelector(slices.player, player.rate);
+
+const playerGhostTime = createSelector(slices.player, player.ghostTime);
 
 // chapters
-const chaptersList = createSelector(slices.player, select('chapters'), chapters.list);
-const chaptersNext = createSelector(slices.player, select('chapters'), chapters.next);
-const chaptersPrevious = createSelector(slices.player, select('chapters'), chapters.previous);
-const chaptersCurrent = createSelector(slices.player, select('chapters'), chapters.current);
-const chaptersTitle = createSelector(slices.player, select('chapters'), chapters.title);
-const chaptersImage = createSelector(slices.player, select('chapters'), chapters.image);
+const chaptersList = createSelector(slices.player, player.chaptersList);
+const chaptersNext = createSelector(slices.player, player.chaptersNext);
+const chaptersPrevious = createSelector(slices.player, player.chaptersPrevious);
+const chaptersCurrent = createSelector(slices.player, player.chaptersCurrent);
+const chaptersTitle = createSelector(slices.player, player.chaptersTitle);
+const chaptersImage = createSelector(slices.player, player.chaptersImage);
+
+// router
+const base = createSelector(slices.router, router.base);
 
 const translation = (key: string, attr = {}) => ({ key, attr });
 
 export default {
   runtime: {
     initialized: createSelector(slices.runtime, runtime.initialized),
-    locale: createSelector(slices.runtime, runtime.locale)
+    locale: createSelector(slices.runtime, runtime.locale),
+    cacheKey
   },
   theme: {
     background: createSelector(slices.theme, theme.background)
   },
   podcast: {
     show: createSelector(slices.podcast, podcast.show),
-    feed: createSelector(slices.podcast, podcast.feed),
+    feed,
     title: createSelector(slices.podcast, podcast.title),
     poster: createSelector(slices.podcast, podcast.poster),
     description: createSelector(slices.podcast, podcast.description),
     summary: createSelector(slices.podcast, podcast.summary),
-    episodes: createSelector(slices.podcast, podcast.episodes)
   },
   current: {
     episode: currentEpisode
@@ -99,6 +99,10 @@ export default {
         (episodeId: string | null, isPlaying: boolean) => episodeId === id && isPlaying
       )
   },
+  episodes: {
+    ids: createSelector(slices.podcast, podcast.episodes),
+    list: createSelector(slices.episodes, episodes.list),
+  },
   show: {
     poster: showPoster,
     title: showTitle
@@ -107,26 +111,27 @@ export default {
     playtime,
     duration,
     playing,
+    livesync: createSelector(slices.player, player.livesync),
     title: createSelector(
       [episodeTitle, showTitle],
-      (episode: string | null, show: string | null) => episode || show
+      (episode: string | null, show: string | null) => episode || show || ''
     ),
     image: createSelector(
       [episodePoster, showPoster],
-      (episode: string | null, show: string | null) => episode || show
+      (episode: string | null, show: string | null) => episode || show || ''
     ),
-    quantiles: createSelector(slices.player, select('quantiles'), quantiles.quantiles),
-    buffer: createSelector(slices.player, select('network'), network.buffer),
+    quantiles: createSelector(slices.player, player.quantiles),
+    buffer: createSelector(slices.player, player.buffer),
     ghost: {
       time: playerGhostTime,
-      active: createSelector(slices.player, select('ghost'), ghost.active),
+      active: createSelector(slices.player, player.ghostActive),
       chapter: createSelector(
         [chaptersList, playerGhostTime],
         (chapters: PodloveWebPlayerChapter[], ghostPlaytime: number | null) =>
           currentChapterByPlaytime(chapters || [], ghostPlaytime || 0)
       )
     },
-    media: createSelector(slices.player, select('media'), media.media),
+    media: createSelector(slices.player, player.media),
     audio: {
       muted,
       volume,
@@ -196,21 +201,28 @@ export default {
   subscribeButton: {
     visible: createSelector(slices.subscribeButton, subscribeButton.visible)
   },
-  router: {
-    id: createSelector(slices.router, router.id),
-    episode: createSelector(slices.router, router.episode)
-  },
   search: {
     query: createSelector(slices.search, search.query),
     visible: createSelector(slices.search, search.visible),
     initialized: createSelector(slices.search, search.initialized),
-    loading: createSelector(slices.search, search.loading),
     contributors: createSelector(slices.search, search.contributors),
     episodes: createSelector(slices.search, search.episodes),
     transcripts: createSelector(slices.search, search.transcripts),
     results: createSelector(slices.search, search.results),
     hasResults: createSelector(slices.search, search.hasResults),
-    selectedResult: createSelector(slices.search, search.selectedResult)
+    selectedResult: createSelector(slices.search, search.selectedResult),
+    episodesInitialized: createSelector(slices.search, search.episodesInitialized),
+    transcriptsInitialized: createSelector(slices.search, search.transcriptsInitialized),
+  },
+  contributors: {
+    item: (id: string) => createSelector(slices.contributors, contributors.item(id)),
+    list: createSelector(slices.contributors, contributors.list),
+  },
+  router: {
+    base,
+    episodeId: createSelector(slices.router, router.episodeId),
+    index: createSelector([base, feed], (...args) => args.filter(Boolean).join('/')),
+    episode: (episodeId: string) => createSelector([base, feed], (...args) => [...args, 'episode', episodeId].filter(Boolean).join('/')),
   },
   a11y: {
     chapterNext: (state: State) => {

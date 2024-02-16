@@ -56,7 +56,8 @@ sagas.run(
     selectMedia: selectors.media,
     selectPlaytime: selectors.playtime,
     selectPoster: selectors.driver.image,
-    selectTitle: selectors.driver.title
+    selectTitle: selectors.driver.title,
+    mountPoint: document.body
   }),
   transcriptsSaga({
     selectChapters: selectors.chapters.list,

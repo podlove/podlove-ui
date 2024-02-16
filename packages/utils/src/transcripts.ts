@@ -1,4 +1,4 @@
-import { last, compose, map, is, endsWith, sortBy, prop, reduce } from 'ramda';
+import { last, compose, map, is, endsWith, sortBy, prop, reduce, filter } from 'ramda';
 
 import {
   PodloveWebPlayerChapter,
@@ -10,19 +10,22 @@ import {
 import { secondsToMilliseconds, toPlayerTime } from './time.js';
 
 const mapSpeakers = (speakers: PodloveWebPlayerSpeaker[]) =>
-  map(
-    (
-      transcript: PodloveWebPlayerTimelineTranscriptEntry
-    ): PodloveWebPlayerTimelineTranscriptEntry => {
-      const result = speakers.find(({ id }) =>
-        id.startsWith(transcript.speaker as unknown as string)
-      );
+  compose(
+    filter(prop('speaker')),
+    map(
+      (
+        transcript: PodloveWebPlayerTimelineTranscriptEntry
+      ): PodloveWebPlayerTimelineTranscriptEntry => {
+        const result = speakers.find(({ id }) =>
+          id.startsWith(transcript.speaker as unknown as string)
+        );
 
-      return {
-        ...transcript,
-        speaker: result
-      };
-    }
+        return {
+          ...transcript,
+          speaker: result
+        };
+      }
+    )
   );
 
 const transformChapters = (

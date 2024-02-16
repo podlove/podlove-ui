@@ -1,6 +1,6 @@
-import { type, platform, client } from '../types'
-import { removeProtocol } from '../helper'
-import icon from './icon.svg'
+import { type, platform, client } from '../types.js';
+import { removeProtocol } from '../helper.js';
+import icon from './icon.svg';
 
 export default [
   client({
@@ -26,4 +26,4 @@ export default [
     type: type.service,
     icon
   })
-]
+];

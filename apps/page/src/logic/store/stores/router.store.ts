@@ -1,36 +1,61 @@
-import { handleActions, createAction, type Action } from 'redux-actions'
-import { get } from 'lodash-es'
 
-interface routeToPayload {
-  params: {
-    id: string;
-  };
-  path: string;
-}
-
-export const actions = {
-  routeTo: createAction<routeToPayload>('ROUTE')
-}
+import { last } from 'lodash-es';
+import { createAction, handleActions, type Action } from 'redux-actions';
 
 export interface State {
-  id: string | null;
-  episode: string | null;
+  path: string[];
 }
+
+export type navigatePayload = string[];
+export type setRoutePayload = string[];
+export interface episodePagePayload {
+  base: string;
+  episodeId: string;
+};
+
+export const actions = {
+  navigate: createAction<navigatePayload>('ROUTE_NAVIGATE'),
+  setRoute: createAction<setRoutePayload>('ROUTE_SET'),
+  episodePage: createAction<episodePagePayload>('ROUTE_EPISODE_PAGE'),
+};
+
+const updatePath = (state: State, { payload }: Action<string[]>) => ({
+  ...state,
+  path: payload
+});
 
 export const reducer = handleActions<State, any>(
   {
-    [actions.routeTo.toString()]: (_, { payload }: Action<routeToPayload>) => ({
-      id: get(payload, ['params', 'id'], null),
-      episode: get(payload, 'path', null),
-    })
+    [actions.navigate.toString()]: updatePath,
+    [actions.setRoute.toString()]: updatePath
   },
-  {
-    id: null,
-    episode: null
-  }
-)
+  { path: [] }
+);
 
 export const selectors = {
-  id: (state: State) => state.id,
-  episode: (state: State) => state.episode,
-}
+  episodeId: (state: State): string | null => {
+    if (!state.path.includes('episode')) {
+      return null
+    }
+
+    return last(state.path) || null;
+  },
+  segment: (state: State) => {
+    switch (true) {
+      case state.path.includes('episode'):
+        return 'episode';
+
+      default:
+        return 'index';
+    }
+  },
+  base: (state: State): string | null => {
+    switch (true) {
+      case state.path.includes('feed'):
+        return '/feed';
+
+      default:
+        return null;
+    }
+  }
+};

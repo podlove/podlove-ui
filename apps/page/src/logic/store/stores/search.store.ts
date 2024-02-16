@@ -1,40 +1,61 @@
-import type { PodloveWebPlayerContributor, PodloveWebPlayerTranscript } from '@podlove/types';
-import type { PodloveWebPlayerEpisode } from '@podlove/types';
 import { handleActions, createAction, type Action } from 'redux-actions';
+import type { Person } from '../../../types/feed.types';
 
 type showSearchActionPayload = void;
 type hideSearchActionPayload = void;
 type loadActionPayload = void;
-type initializedSearchPayload = void;
-type searchActionPayload = string;
-type resultsActionPayload = any[]
-type selectSearchResultPayload = number;
+type initializedSearchPayload = 'episodes' | 'contributors' | 'transcripts';
+export type searchActionPayload = string;
+type setResultsPayload = number;
+type selectSearchResultPayload = string | null;
+export type selectEpisodePayload = number;
+
+export interface EpisodeResult {
+  id: number;
+  title: string;
+  description: string;
+  episodeId: number;
+}
+
+export interface TranscriptResult {
+  id: string; text: string; speaker: string; episodeId: number; episodeTitle: string;
+}
+
+type setEpisodeResultsPayload = EpisodeResult[];
+type setTranscriptsResultsPayload = TranscriptResult[];
+type setContributorsPayload = Person[];
 
 export const actions = {
-  initializedSearch: createAction<initializedSearchPayload>('SEARCH_INITIALIZED'),
-  showSearch: createAction<showSearchActionPayload>('SEARCH_SHOW'),
-  hideSearch: createAction<hideSearchActionPayload>('SEARCH_HIDE'),
+  initialize: createAction<initializedSearchPayload>('SEARCH_INITIALIZED'),
+  show: createAction<showSearchActionPayload>('SEARCH_SHOW'),
+  hide: createAction<hideSearchActionPayload>('SEARCH_HIDE'),
   search: createAction<searchActionPayload>('SEARCH_QUERY'),
-  results: createAction<resultsActionPayload>('SEARCH_RESULTS'),
+  setEpisodeResults: createAction<setEpisodeResultsPayload>('SEARCH_RESULTS_EPISODE'),
+  setTranscriptsResults: createAction<setTranscriptsResultsPayload>('SEARCH_RESULTS_TRANSCRIPT'),
+  setContributorsResults: createAction<setContributorsPayload>('SEARCH_RESULTS_CONTRIBUTOR'),
   selectSearchResult: createAction<selectSearchResultPayload>('SEARCH_SELECT_RESULT'),
-  load: createAction<loadActionPayload>('SEARCH_LOADING')
+  load: createAction<loadActionPayload>('SEARCH_LOADING'),
+  setResults: createAction<setResultsPayload>('SEARCH_RESULTS'),
 }
 
 export interface State {
   visible: boolean;
-  loading: boolean;
   hasResults: boolean;
   query: string;
-  episodes: PodloveWebPlayerEpisode[];
-  contributors: PodloveWebPlayerContributor[];
-  transcripts: PodloveWebPlayerTranscript[];
-  selectedResult: null | number;
-  initialized: boolean;
+  episodes: EpisodeResult[];
+  contributors: Person[];
+  transcripts: TranscriptResult[];
+  selectedResult: null | string;
+  initialized: {
+    episodes: boolean;
+    contributors: boolean;
+    transcripts: boolean;
+  };
 }
 
 export const reducer = handleActions<State, any>(
   {
-    [actions.showSearch.toString()]: (state) => ({
+    [actions.show.toString()]: (state) => ({
       ...state,
       visible: true,
       hasResults: false,
@@ -44,7 +65,7 @@ export const reducer = handleActions<State, any>(
       transcripts: [],
       selectedResult: null
     }),
-    [actions.hideSearch.toString()]: (state) => ({
+    [actions.hide.toString()]: (state) => ({
       ...state,
       visible: false
     }),
@@ -52,21 +73,29 @@ export const reducer = handleActions<State, any>(
       ...state,
       query: payload
     }),
-    [actions.results.toString()]: (state, { payload }: Action<resultsActionPayload>) => ({
+    [actions.setEpisodeResults.toString()]: (state, { payload }: Action<setEpisodeResultsPayload>) => ({
       ...state,
-      hasResults: payload.length > 0,
-      contributors: payload.filter(({ index }) => index === 'contributor').slice(0, 5),
-      episodes: payload.filter(({ index }) => index === 'episode').slice(0, 5),
-      transcripts: payload.filter(({ index }) => index === 'transcript').slice(0, 5)
+      episodes: payload
     }),
-    [actions.initializedSearch.toString()]: (state) => ({
+    [actions.setTranscriptsResults.toString()]: (state, { payload }: Action<setTranscriptsResultsPayload>) => ({
       ...state,
-      initialized: true,
+      transcripts: payload
+    }),
+    [actions.setContributorsResults.toString()]: (state, { payload }: Action<setContributorsPayload>) => ({
+      ...state,
+      contributors: payload
+    }),
+    [actions.setResults.toString()]: (state, { payload }: Action<setResultsPayload>) => ({
+      ...state,
+      hasResults: payload > 0
+    }),
+    [actions.initialize.toString()]: (state, { payload }: Action<initializedSearchPayload>) => ({
+      ...state,
+      initialized: {
+        ...state.initialized,
+        [payload]: true
+      },
       loading: false
-    }),
-    [actions.load.toString()]: (state) => ({
-      ...state,
-      loading: true
     }),
     [actions.selectSearchResult.toString()]: (state, { payload }: Action<selectSearchResultPayload>) => ({
       ...state,
@@ -75,21 +104,24 @@ export const reducer = handleActions<State, any>(
   },
   {
     visible: false,
-    loading: false,
     hasResults: false,
     query: '',
     episodes: [],
     contributors: [],
     transcripts: [],
     selectedResult: null,
-    initialized: false
+    initialized: {
+      episodes: false,
+      contributors: false,
+      transcripts: false,
+    }
   }
 )
 
-
 export const selectors = {
-  initialized: (state: State) => state.initialized,
-  loading:(state: State) => state.loading,
+  initialized: (state: State) => Object.values(state.initialized).every(Boolean),
+  episodesInitialized: (state: State) => state.initialized.episodes,
+  transcriptsInitialized: (state: State) => state.initialized.transcripts,
   visible: (state: State) => state.visible,
   query: (state: State) => state.query,
   contributors: (state: State) => state.contributors,

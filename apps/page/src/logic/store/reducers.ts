@@ -17,9 +17,10 @@ import { reducer as action } from './stores/action.store';
 import { reducer as episodes } from './stores/episodes.store';
 import { reducer as playbar } from './stores/playbar.store';
 import { reducer as player } from './stores/player.store';
-import { reducer as router } from './stores/router.store';
 import { reducer as search } from './stores/search.store';
 import { reducer as subscribeButton } from './stores/subscribe-button.store';
+import { reducer as router } from './stores/router.store';
+import { reducer as contributors } from './stores/contributors.store';
 
 export default combineReducers({
   runtime,
@@ -41,7 +42,8 @@ export default combineReducers({
     audio,
     current: player
   }),
-  router,
   search,
-  subscribeButton
+  subscribeButton,
+  router,
+  contributors
 });

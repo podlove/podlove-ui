@@ -12,13 +12,13 @@ import { actions as subscribeButton } from './stores/subscribe-button.store';
 import { actions as router } from './stores/router.store';
 
 export default {
-  ...episodes,
-  ...player,
-  ...playbar,
-  ...subscribeButton,
-  ...router,
-  ...search,
-  ...lifecycle,
+  episodes,
+  player,
+  playbar,
+  subscribeButton,
+  search,
+  lifecycle,
+  router,
   setVolume,
   setRate,
   simulatePlaytime,

@@ -101,7 +101,8 @@ import {
   SummaryIcon,
   ShownotesIcon,
   DiscussIcon,
-  HourGlassIcon
+  HourGlassIcon,
+  LockIcon
 } from './icons/index.js';
 
 export {
@@ -206,5 +207,6 @@ export {
   SummaryIcon,
   ShownotesIcon,
   DiscussIcon,
-  HourGlassIcon
+  HourGlassIcon,
+  LockIcon
 };

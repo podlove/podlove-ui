@@ -1,7 +1,8 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import PageHeader from '../features/PageHeader.vue';
-import PlayBar from '../features/playbar/Playbar.vue';
+import PlayBar from '../features/playbar/PlayBar.vue';
+import Search from '../features/Search.vue';
 import { store } from '../logic';
 import { getLanguage } from "../i18n";
 
@@ -17,17 +18,20 @@ const lang = getLanguage();
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
     <script define:vars={{ state }}>window.REDUX_STATE = state;</script>
     <ViewTransitions />
 	</head>
 	<body>
-    <PageHeader />
-    <main transition:animate="slide">
+    <PageHeader client:idle />
+    <main transition:animate="fade">
       <slot></slot>
     </main>
-    <PlayBar client:only="vue" />
+    <Search client:only="vue" />
+    <PlayBar client:only="vue" transition:persis="player" />
+    <div id="media-container" transition:persist="media-container"></div>
     <script>
       import '../logic';
     </script>
@@ -36,46 +40,46 @@ const lang = getLanguage();
 
 <style>
   :root {
-    --primary-color-100: #F2F8FB;
-    --primary-color-200: #D9EBF8;
-    --primary-color-300: #B0D7F4;
-    --primary-color-400: #87C0EA;
-    --primary-color-500: #67A8D7;
-    --primary-color-600: #438ABE;
-    --primary-color-700: #216190;
-    --primary-color-800: #0C4168;
-    --primary-color-900: #042944;
+    --primary-color-100: 242, 248, 251;
+    --primary-color-200: 217, 235, 248;
+    --primary-color-300: 176, 215, 244;
+    --primary-color-400: 135, 192, 234;
+    --primary-color-500: 103, 168, 219;
+    --primary-color-600: 71, 138, 186;
+    --primary-color-700: 33, 97, 144;
+    --primary-color-800: 12, 65, 104;
+    --primary-color-900: 4, 41, 68;
 
-    --secondary-color-100: #F5FDF5;
-    --secondary-color-200: #E2F4E0;
-    --secondary-color-300: #B7E0B3;
-    --secondary-color-400: #98CC92;
-    --secondary-color-500: #98CC92;
-    --secondary-color-500: #79B273;
-    --secondary-color-600: #579750;
-    --secondary-color-700: #396E34;
-    --secondary-color-800: #285424;
-    --secondary-color-800: #072804;
+    --secondary-color-100: 0, 125, 165;
+    --secondary-color-200: 0, 228, 228;
+    --secondary-color-300: 181, 224, 171;
+    --secondary-color-400: 152, 204, 146;
+    --secondary-color-500: 152, 204, 146;
+    --secondary-color-500: 121, 186, 115;
+    --secondary-color-600: 87, 155, 80;
+    --secondary-color-700: 57, 110, 52;
+    --secondary-color-800: 40, 80, 36;
+    --secondary-color-800: 7, 48, 4;
 
-    --complementary-color-100: #FFF8F6;
-    --complementary-color-200: #FEE5DE;
-    --complementary-color-300: #FFBFAD;
-    --complementary-color-400: #F9997D;
-    --complementary-color-500: #F97751;
-    --complementary-color-600: #CA5D3D;
-    --complementary-color-700: #9B4127;
-    --complementary-color-800: #72301C;
-    --complementary-color-900: #341209;
+    --complementary-color-100: 255, 248, 246;
+    --complementary-color-200: 254, 236, 222;
+    --complementary-color-300: 255, 231, 173;
+    --complementary-color-400: 249, 155, 125;
+    --complementary-color-500: 249, 119, 81;
+    --complementary-color-600: 202, 85, 57;
+    --complementary-color-700: 157, 65, 39;
+    --complementary-color-800: 118, 52, 28;
+    --complementary-color-900: 52, 20, 1;
 
-    --gray-color-100: #FFFFFF;
-    --gray-color-200: #EDEFF2;
-    --gray-color-300: #CAD1D7;
-    --gray-color-400: #9EA5AC;
-    --gray-color-500: #767F87;
-    --gray-color-600: #56616A;
-    --gray-color-700: #3D464D;
-    --gray-color-800: #22282C;
-    --gray-color-900: #070809;
+    --gray-color-100: 255, 255, 255;
+    --gray-color-200: 230, 231, 232;
+    --gray-color-300: 205, 209, 215;
+    --gray-color-400: 154, 165, 172;
+    --gray-color-500: 115, 127, 135;
+    --gray-color-600: 86, 97, 104;
+    --gray-color-700: 61, 70, 85;
+    --gray-color-800: 34, 38, 44;
+    --gray-color-900: 7, 8, 9;
   }
 
   main {

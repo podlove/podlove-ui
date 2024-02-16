@@ -32,6 +32,6 @@ const top = computed(() => start.value > 0);
 const bottom = computed(() => start.value === 0);
 
 const play = () => {
-  store.dispatch(actions.playEpisode({ id: props.episodeId, playtime: start }));
+  store.dispatch(actions.playEpisode({ id: props.episodeId, playtime: start.value }));
 };
 </script>

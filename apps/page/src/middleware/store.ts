@@ -1,24 +1,24 @@
 import { defineMiddleware } from 'astro:middleware';
 import { waitFor } from '@podlove/utils/promise';
-import { get, toInteger } from 'lodash-es';
+import { toInteger } from 'lodash-es';
 import { actions, store, selectors } from '../logic';
+import { getRequestHeader } from '../lib/middleware';
 
-export const initializeStore = defineMiddleware(async ({ request, params }, next) => {
-  const acceptedLanguage = request.headers.get('accept-language') || '';
-  const locale = get(acceptedLanguage.split(','), 0, 'en-US');
+export const initializeStore = defineMiddleware(async ({ request, params, url }, next) => {
+  const locale = getRequestHeader(request, 'accept-language', 'en-US');
   const { feed, episodeId } = params;
 
   if (!feed) {
     throw Error('Missing Feed Url');
   }
 
-  store.dispatch(actions.initializeApp({ feed, locale, episodeId: toInteger(episodeId) }));
+  store.dispatch(actions.lifecycle.initializeApp({ feed, locale, episodeId: toInteger(episodeId) }));
 
   await waitFor(() => {
     const initialized = selectors.runtime.initialized(store.getState());
     return initialized ? true : undefined;
-  }).catch((err) => {
-    console.error('timeout fetching data');
+  }, 10000).catch((err) => {
+    throw Error('Request timed out');
   });
 
   return next();

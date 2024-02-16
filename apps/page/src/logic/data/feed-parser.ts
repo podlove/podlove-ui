@@ -11,7 +11,6 @@ import type {
 } from '../../types/feed.types';
 import { toPlayerTime } from '@podlove/utils/time';
 import { json } from '@podlove/utils/request';
-import type { PodloveWebPlayerTranscript } from '@podlove/types';
 
 let CACHE = new Map<string, Promise<Podcast>>();
 
@@ -69,11 +68,10 @@ const getTranscriptUrl = async (data: any): Promise<string> =>
     (item: { '@_type': string; '@_url': string }) => get(item, '@_type') === 'application/json'
   )?.['@_url'];
 
-const resolveTranscripts = async (transcriptsUrl: string): Promise<Transcript[]> => {
-  return json(transcriptsUrl)
+export const resolveTranscripts = async (transcriptsUrl: string): Promise<Transcript[]> =>
+  json(transcriptsUrl)
     .then((result) => get(result, ['segments'], []))
-    .then((items) => items.map(transformTranscript));
-};
+    .then((items) => items.map(transformTranscript).filter((item: Transcript) => item.text));
 
 const transformAudio = (input: any): Audio[] => {
   const url = get(input, ['enclosure', '@_url'], null);
@@ -95,7 +93,7 @@ const resolveEpisode =
     const id = get(data, 'itunes:episode', null);
     const duration = toPlayerTime(get(data, 'itunes:duration', 0));
     const transcriptUrl = await getTranscriptUrl(data);
-    // console.log(data);
+
     return {
       id: get(data, 'itunes:episode', null),
       title: get(data, 'title', null),
@@ -118,6 +116,7 @@ const resolveEpisode =
 const transform =
   (episodeId?: number) =>
   async (data: any): Promise<Podcast> => ({
+    etag: get(data, 'etag', null),
     show: transformShow(data),
     episodes: await Promise.all(
       castArray(get(data, ['channel', 'item'], [])).map(resolveEpisode(episodeId))
@@ -142,10 +141,17 @@ export default async ({
   //   return existing;
   // }
 
-  const result = fetch(feed)
-    .then((result) => result.text())
-    .then((data) => parser.parse(data))
-    .then((data) => get(data, 'rss', {}))
+  return await fetch(feed)
+    // TODO: add cache key
+    .then(async (result) => {
+      const feedXml = await result.text();
+      const etag: string | null = result.headers.get('etag');
+
+      return {
+        ...get(parser.parse(feedXml), 'rss', {}),
+        etag
+      };
+    })
     // .then((data) => {
     //   console.log(data);
     //   return data;
@@ -153,6 +159,4 @@ export default async ({
     .then(transform(episodeId));
 
   // CACHE.set(feedUrl, result);
-
-  return await result;
 };

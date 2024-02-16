@@ -3,47 +3,47 @@ import { disableGhost, enableGhost } from '@podlove/player-actions/progress';
 import { setChapter } from '@podlove/player-actions/chapters';
 import { simulatePlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
 import { requestPlay } from '@podlove/player-actions/play';
-import type {
-  PodloveWebPlayerChapter
-} from '@podlove/types';
+import type { PodloveWebPlayerChapter } from '@podlove/types';
 
 import LinkIcon from '../icons/Link.vue';
 import Timer from '../timer/Timer.vue';
 import { computed, ref } from 'vue';
+import { toInt } from '@podlove/utils/helper';
 
 const props = defineProps<{
-  chapter: PodloveWebPlayerChapter & { linkTitle?: string },
-  showLink?: boolean,
-  playtime?: number,
-  ghost?: number,
+  chapter: PodloveWebPlayerChapter & { linkTitle?: string };
+  showLink?: boolean;
+  playtime?: number;
+  ghost?: number;
 }>();
 
 const emit = defineEmits(['chapter', 'play', 'playtime', 'ghost', 'simulate', 'hover']);
+const ghost = computed(() => props.ghost || 0);
+const playtime = computed(() => props.playtime || 0);
+const start = computed(() => toInt(props.chapter.start));
+const end = computed(() => toInt(props.chapter.end));
 
 const progressContainer = ref<HTMLElement>();
 
 // computed
-const progress = (time: number) =>
-  `${((time - props.chapter.start) * 100) / (props.chapter.end - props.chapter.start)}%`;
+const progress = (time: number) => `${((time - start.value) * 100) / (end.value - start.value)}%`;
 
-const progressActive = computed(() => props.chapter.active && props.playtime < props.chapter.end);
-const ghostActive = computed(
-  () => props.ghost && props.ghost > props.chapter.start && props.ghost < props.chapter.end
-);
+const progressActive = computed(() => props.chapter.active && (props?.playtime || 0) < end.value);
+const ghostActive = computed(() => ghost.value > start.value && ghost.value < end.value);
 
-const progressWidth = computed(() => progress(props.playtime))
-const ghostWidth = computed(() => progress(props.ghost))
+const progressWidth = computed(() => progress(props.playtime));
+const ghostWidth = computed(() => progress(props.ghost));
 
 const remainingTime = computed(() => {
   if (props.chapter.active) {
-    return props.chapter.end - props.playtime;
+    return end.value - playtime.value;
   }
 
   if (ghostActive.value) {
-    return props.chapter.end - props.ghost;
+    return end.value - props.ghost;
   }
 
-  return props.chapter.end - props.chapter.start;
+  return end.value - start.value;
 });
 
 const hasLink = computed(() => props.chapter.href && props.showLink);
@@ -55,14 +55,12 @@ const hoverPlaytime = (event: MouseEvent): number | null => {
   }
   const clientRect = progressContainer.value?.getBoundingClientRect();
   return (
-    props.chapter.start +
-    ((props.chapter.end - props.chapter.start) * (event.clientX - clientRect.left)) /
-      clientRect.width
+    start.value + ((end.value - start.value) * (event.clientX - clientRect.left)) / clientRect.width
   );
 };
 
 const progressClick = () => {
-  emit('chapter', setChapter(props.chapter.index - 1));
+  emit('chapter', setChapter(props.chapter.index));
   emit('play', requestPlay());
   return false;
 };
@@ -103,8 +101,11 @@ const linkLeave = () => {
     @click.exact="progressClick"
     @click.alt="contextProgressClick"
   >
-    <span class="pointer-events-none w-[calc(100%-4.4em)]" aria-hidden="true">
-      {{ chapter.title }}
+    <span
+      class="pointer-events-none w-[calc(100%-4.4em)]"
+      aria-hidden="true"
+      v-html="chapter.title"
+    >
     </span>
     <span v-if="hasLink" class="flex max-w-[40%]">
       <link-icon class="flex-shrink-0 -mt-[2px]" />
@@ -124,13 +125,7 @@ const linkLeave = () => {
       :remaining="(chapter.active || !!ghostActive) && playtime > 0"
     />
     <span
-      class="
-        absolute
-        left-0
-        bottom-0
-        pointer-events-none
-        h-[3px]
-      "
+      class="absolute left-0 bottom-0 pointer-events-none h-[3px]"
       :class="{
         'podlove-component-chapter-progress-bar': progressActive,
         'podlove-component-chapter-ghost-bar': ghostActive
@@ -151,7 +146,7 @@ const linkLeave = () => {
 
 .podlove-component-chapter-ghost-bar {
   background-color: var(
-    --podlove-component--chapter-ghost--background,
+    --podlove-component--chapter-progress--ghost--background,
     var(--podlove-components-highlight)
   );
   width: v-bind('ghostWidth');

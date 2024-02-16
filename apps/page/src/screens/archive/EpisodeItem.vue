@@ -21,13 +21,13 @@
             inset-0
           "
         >
-          <play-button :size="50" :id="state.episode.id" />
+          <play-button :size="50" :id="state.episode.id.toString()" />
         </div>
       </div>
       <div class="flex flex-col overflow-hidden">
         <div class="h-20 mb-2 sm:h-auto sm:mb-0">
           <a
-            :href="`${base}/${state.episode.id}`"
+            :href="state.link"
             v-if="state.episode.title"
             class="leading-tight sm:leading block text-xl mb-1 uppercase whitespace-nowrap truncate"
             >{{ state.episode.mnemonic }} {{ state.episode.title }}</a
@@ -71,13 +71,13 @@ import { toHumanTime } from '@podlove/utils/time';
 import { computed } from 'vue';
 import { mapState } from 'redux-vuex';
 import { truncate } from 'lodash-es';
+
 import { selectors } from '../../logic';
 import PlayButton from '../../components/PlayButton.vue';
 import Contributor from '../../components/Contributor.vue';
 
 const props = defineProps<{
   id: string;
-  base: string;
   first: boolean;
   last: boolean;
 }>();
@@ -85,7 +85,8 @@ const props = defineProps<{
 const state = mapState({
   episode: selectors.episode.data(props.id),
   poster: selectors.podcast.poster,
-  locale: selectors.runtime.locale
+  locale: selectors.runtime.locale,
+  link: selectors.router.episode(props.id),
 });
 
 const publicationDate = computed(() =>

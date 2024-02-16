@@ -7,8 +7,7 @@ import type { Podcast } from '../../types/feed.types';
 
 function* fetchData(input: Action<initializeAppPayload>) {
   const feedData: Podcast = yield parseFeed(input.payload);
-
-  yield put(actions.dataFetched(feedData));
+  yield put(actions.lifecycle.dataFetched(feedData));
 }
 
 export default ({ selectInitializedApp }: { selectInitializedApp: (input: any) => boolean }) => {
@@ -19,6 +18,6 @@ export default ({ selectInitializedApp }: { selectInitializedApp: (input: any) =
       return;
     }
 
-    yield takeEvery(actions.initializeApp.toString(), fetchData);
+    yield takeEvery(actions.lifecycle.initializeApp.toString(), fetchData);
   };
 };

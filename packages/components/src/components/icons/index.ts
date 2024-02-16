@@ -72,6 +72,7 @@ import SummaryIcon from './Summary.vue';
 import ShownotesIcon from './Shownotes.vue';
 import DiscussIcon from './Discuss.vue';
 import HourGlassIcon from './HourGlass.vue';
+import LockIcon from './Lock.vue';
 
 export {
   PlayIcon,
@@ -147,5 +148,6 @@ export {
   SummaryIcon,
   ShownotesIcon,
   DiscussIcon,
-  HourGlassIcon
+  HourGlassIcon,
+  LockIcon
 };

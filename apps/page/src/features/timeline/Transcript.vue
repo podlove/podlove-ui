@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { mapState, injectStore } from 'redux-vuex';
 import { toHumanTime } from '@podlove/utils/time';
 import { UserIcon } from '@podlove/components';
@@ -57,13 +57,12 @@ import { UserIcon } from '@podlove/components';
 import { selectors, actions } from '../../logic';
 import Popover from '../../components/Popover.vue';
 import Bullet from './Bullet.vue';
-import { ref } from 'vue';
 
 const props = defineProps<{
   episodeId: string;
   start: number;
   end: number;
-  speaker: {
+  speaker?: {
     id?: string;
     slug?: string;
     avatar?: string;
@@ -84,16 +83,19 @@ const state = mapState({
   hovered: selectors.player.ghost.active,
   current: selectors.current.episode,
   playtime: selectors.player.playtime,
-  feed: selectors.podcast.feed
+  feed: selectors.podcast.feed,
 });
 
 const popoverVisible = ref(false);
 
 const texts = computed(() => props.texts || []);
 const active = computed(() => props.episodeId === state.current);
+const speaker = computed(
+  () => props.speaker || { id: null, slug: null, avatar: '', name: '', nickname: '' }
+);
 
 const play = (playtime: number) => {
-  store.dispatch(actions.playEpisode({ id: props.episodeId, playtime }));
+  store.dispatch(actions.player.playEpisode({ id: props.episodeId, playtime }));
 };
 
 const simulateSection = (playtime: number) => {
