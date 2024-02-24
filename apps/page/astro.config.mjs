@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
-import vue from "@astrojs/vue";
+import vue from '@astrojs/vue';
 
-import tailwind from "@astrojs/tailwind";
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +10,8 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone'
   }),
-  integrations: [vue({ appEntrypoint: '/src/app' }), tailwind()]
+  integrations: [
+    vue({ appEntrypoint: '/src/app' }),
+    tailwind()
+  ]
 });

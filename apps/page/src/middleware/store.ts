@@ -4,7 +4,7 @@ import { toInteger } from 'lodash-es';
 import { actions, store, selectors } from '../logic';
 import { getRequestHeader } from '../lib/middleware';
 
-export const initializeStore = defineMiddleware(async ({ request, params, url }, next) => {
+export const initializeStore = defineMiddleware(async ({ request, params }, next) => {
   const locale = getRequestHeader(request, 'accept-language', 'en-US');
   const { feed, episodeId } = params;
 

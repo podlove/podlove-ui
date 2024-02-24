@@ -71,7 +71,7 @@ const getTranscriptUrl = async (data: any): Promise<string> =>
 export const resolveTranscripts = async (transcriptsUrl: string): Promise<Transcript[]> =>
   json(transcriptsUrl)
     .then((result) => get(result, ['segments'], []))
-    .then((items) => items.map(transformTranscript).filter((item: Transcript) => item.text));
+    .then((items) => items.map(transformTranscript).filter((item: Transcript) => get(item, 'text')));
 
 const transformAudio = (input: any): Audio[] => {
   const url = get(input, ['enclosure', '@_url'], null);

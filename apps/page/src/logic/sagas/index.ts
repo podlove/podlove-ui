@@ -13,6 +13,7 @@ import routerSaga from './router.sagas';
 import { isClient } from '../../lib/runtime';
 import serviceworkerSaga from './serviceworker.sagas';
 import searchSaga from './search.sagas';
+import layoutSaga from './layout.sagas';
 
 export async function createSideEffects() {
   const sagas = [
@@ -43,6 +44,10 @@ export async function createSideEffects() {
     playbarSagas({
       selectRate: selectors.player.audio.rate,
       selectMuted: selectors.player.audio.muted
+    }),
+    layoutSaga({
+      selectSearchOverlayVisible: selectors.search.visible,
+      selectSubscribeOverlayVisible: selectors.subscribeButton.visible,
     })
   ] as any[];
 

@@ -3,9 +3,10 @@ import {
   requestPlay,
   requestPause,
   backendLoadingStart,
-  requestLoad
+  requestLoad,
+  backendLoadingEnd
 } from '@podlove/player-actions/play';
-import { requestPlaytime } from '@podlove/player-actions/timepiece';
+import { backendPlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
 import { takeOnce } from '@podlove/player-sagas/helper';
 import { setRate, setVolume, mute, unmute } from '@podlove/player-actions/audio';
 import { init, ready } from '@podlove/player-actions/lifecycle';
@@ -60,7 +61,6 @@ export default ({
 
     yield takeOnce(ready.toString(), requestPlayEpisode);
     yield takeOnce(backendLoadingStart.toString(), resetMeta);
-    yield delay(100);
   }
 
   function* playEpisode({ payload: { id, playtime } }: Action<playEpisodePayload>) {
@@ -83,7 +83,7 @@ export default ({
     }
 
     if (!isNil(playtime)) {
-      yield put(requestPlaytime(playtime));
+      yield takeOnce(backendPlaytime.toString(), requestPlaytimeEpisode, [playtime]);
     }
   }
 
@@ -93,6 +93,10 @@ export default ({
 
   function* requestPlayEpisode() {
     yield put(requestPlay());
+  }
+
+  function* requestPlaytimeEpisode(playtime: number) {
+    yield put(requestPlaytime(playtime));
   }
 
   return function* () {

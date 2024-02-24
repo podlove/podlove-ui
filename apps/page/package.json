@@ -15,6 +15,7 @@
     "@podlove/player-state": "workspace:*",
     "@podlove/components": "workspace:*",
     "@podlove/types": "workspace:*",
+    "@podlove/clients": "workspace:*",
     "@astrojs/check": "0.3.1",
     "@astrojs/node": "6.1.0",
     "@astrojs/tailwind": "5.0.2",
@@ -31,7 +32,8 @@
     "vue-i18n": "9.8.0",
     "scroll-into-view-if-needed": "3.1.0",
     "micromatch": "4.0.5",
-    "minisearch": "6.3.0"
+    "minisearch": "6.3.0",
+    "http-proxy-middleware": "2.0.6"
   },
   "devDependencies": {
     "tailwindcss": "3.0.24",

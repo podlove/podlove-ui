@@ -55,14 +55,6 @@ export default ({
     storeFields: ['id', 'name', 'avatar']
   });
 
-  function* disableOverflow() {
-    document.body.classList.add('overflow-hidden');
-  }
-
-  function* enableOverflow() {
-    document.body.classList.remove('overflow-hidden');
-  }
-
   function* createEpisodesSearchIndex(episodes: Episode[]) {
     const results = episodes.map((episode) => ({
       ...episode,
@@ -235,10 +227,6 @@ export default ({
 
   return function* () {
     yield takeOnce(actions.search.show.toString(), createSearchIndex);
-
-    yield takeEvery(actions.search.show.toString(), disableOverflow);
-    yield takeEvery(actions.search.hide.toString(), enableOverflow);
-
     yield throttle(300, actions.search.search.toString(), searchForResults);
 
     const keyboardEvents: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>

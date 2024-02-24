@@ -1,9 +1,14 @@
-import { CLIENTS } from "./index.js";
+import { CLIENTS } from './index.js';
 
 export interface PodcastClient {
   title: string | null;
   scheme: (feed: string) => string | null;
-  icon: string | null;
+  icon: {
+    format: string;
+    height: number;
+    src: string;
+    width: number;
+  };
   install?: string | null;
   service?: string;
   type: PodcastClientType | null;

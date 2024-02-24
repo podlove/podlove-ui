@@ -7,5 +7,9 @@ export const GET: APIRoute = async ({ url }) => {
     throw new Error('Missing url');
   }
 
-  return fetch(requestUrl);
+  const response = await fetch(requestUrl).then(res => res.body);
+
+  return new Response(response, {
+    headers: { 'Content-Type': 'application/json' }
+  });
 };
