@@ -6,7 +6,7 @@
           :src="state.episode.poster || state.poster"
           :width="100"
           :height="100"
-          class="rounded w-20 h-20 ring-1 ring-black ring-opacity-5"
+          class="rounded w-20 h-20 ring-1 ring-black ring-opacity-5 object-cover"
         />
         <div
           class="

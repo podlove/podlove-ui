@@ -1,24 +1,22 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import EpisodeItem from '../../../screens/archive/EpisodeItem.vue';
+import EpisodeList from '../../../screens/archive/List.vue';
 import { actions, selectors, store } from '../../../logic';
 import HeroIndex from '../../../screens/archive/Hero.vue';
+import LoadMore from '../../../screens/archive/LoadMore.vue';
 
 const title = selectors.podcast.title(store.getState());
-const episodes = selectors.episodes.ids(store.getState());
 
-store.dispatch(actions.router.setRoute(['feed']))
+store.dispatch(actions.router.setRoute(['feed']));
 ---
 <Layout title={title}>
 	<HeroIndex  />
 
   <div class="flex justify-center">
-    <div class="lg:w-app p-8 overflow-hidden">
-      {
-        episodes.map((episode, index) => <EpisodeItem id={episode.toString()} first={index === 0} last={index < episodes.length - 1} client:idle/>)
-      }
-    </div>
+    <EpisodeList client:idle />
   </div>
+
+  <LoadMore class="flex justify-center mb-8" client:idle />
 </Layout>
 
 <style>

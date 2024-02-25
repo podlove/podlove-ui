@@ -9,6 +9,7 @@ import { type State as search } from './stores/search.store';
 import { type State as subscribeButton } from './stores/subscribe-button.store';
 import { type State as router } from './stores/router.store';
 import { type State as contributors } from './stores/contributors.store';
+import { type State as view } from './stores/view.store';
 
 export default interface State {
   runtime: runtime,
@@ -21,5 +22,6 @@ export default interface State {
   subscribeButton: subscribeButton,
   player: player,
   router: router,
-  contributors: contributors
+  contributors: contributors,
+  view: view,
 };

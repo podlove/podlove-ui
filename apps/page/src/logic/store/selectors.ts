@@ -15,6 +15,7 @@ import { selectors as subscribeButton } from './stores/subscribe-button.store';
 import { selectors as search } from './stores/search.store';
 import { selectors as router } from './stores/router.store';
 import { selectors as contributors } from './stores/contributors.store';
+import { selectors as view } from './stores/view.store';
 
 const slices = {
   runtime: (state: State) => state.runtime,
@@ -27,6 +28,7 @@ const slices = {
   subscribeButton: (state: State) => state.subscribeButton,
   router: (state: State) => state.router,
   contributors: (state: State) => state.contributors,
+  view: (state: State) => state.view,
 };
 
 // runtime
@@ -71,7 +73,8 @@ export default {
   runtime: {
     initialized: createSelector(slices.runtime, runtime.initialized),
     locale: createSelector(slices.runtime, runtime.locale),
-    cacheKey
+    cacheKey,
+    buildDate: createSelector(slices.runtime, runtime.buildDate),
   },
   theme: {
     background: createSelector(slices.theme, theme.background)
@@ -83,6 +86,9 @@ export default {
     poster: createSelector(slices.podcast, podcast.poster),
     description: createSelector(slices.podcast, podcast.description),
     summary: createSelector(slices.podcast, podcast.summary),
+    copyright: createSelector(slices.podcast, podcast.copyright),
+    mail: createSelector(slices.podcast, podcast.mail),
+    owner: createSelector(slices.podcast, podcast.owner),
   },
   current: {
     episode: currentEpisode
@@ -100,8 +106,14 @@ export default {
       )
   },
   episodes: {
-    ids: createSelector(slices.podcast, podcast.episodes),
     list: createSelector(slices.episodes, episodes.list),
+  },
+  view: {
+    archive: {
+      episodes: createSelector(slices.view, view.archiveEpisodes),
+      page: createSelector(slices.view, view.archiveEpisodesPage),
+    },
+    loading: createSelector(slices.view, view.loading),
   },
   show: {
     poster: showPoster,

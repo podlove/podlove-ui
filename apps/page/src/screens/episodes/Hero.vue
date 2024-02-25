@@ -7,7 +7,7 @@
             :src="state.episode.poster || state.poster"
             :width="180"
             :height="180"
-            class="rounded shadow-lg border border-primary-700"
+            class="rounded shadow-lg border border-primary-700 w-full h-full object-cover"
           />
           <div
             class="

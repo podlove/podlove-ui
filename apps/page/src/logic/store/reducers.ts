@@ -21,6 +21,7 @@ import { reducer as search } from './stores/search.store';
 import { reducer as subscribeButton } from './stores/subscribe-button.store';
 import { reducer as router } from './stores/router.store';
 import { reducer as contributors } from './stores/contributors.store';
+import { reducer as view } from './stores/view.store';
 
 export default combineReducers({
   runtime,
@@ -45,5 +46,6 @@ export default combineReducers({
   search,
   subscribeButton,
   router,
-  contributors
+  contributors,
+  view
 });

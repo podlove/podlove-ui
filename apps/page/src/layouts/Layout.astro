@@ -1,11 +1,13 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions } from 'astro:transitions';
 import PageHeader from '../features/PageHeader.vue';
 import PlayBar from '../features/playbar/PlayBar.vue';
 import Search from '../features/Search.vue';
+import PageFooter from '../features/PageFooter.vue';
+import LoadingBar from '../features/LoadingBar.vue';
 import Subscribe from '../features/subscribe/Subscribe.vue';
 import { store } from '../logic';
-import { getLanguage } from "../i18n";
+import { getLanguage } from '../i18n';
 
 const { title } = Astro.props;
 const state = store.getState();
@@ -26,17 +28,20 @@ const lang = getLanguage();
     <ViewTransitions />
 	</head>
 	<body>
-    <PageHeader client:idle />
+    <PageHeader client:idle transition:persis="header" />
+    <LoadingBar client:only="vue" />
     <main transition:animate="fade">
       <slot></slot>
     </main>
-    <Search client:only="vue" />
-    <Subscribe client:only="vue" />
+    <PageFooter />
+
     <PlayBar client:only="vue" transition:persis="player" />
     <div id="media-container" transition:persist="media-container"></div>
     <script>
       import '../logic';
     </script>
+    <Search client:only="vue" />
+    <Subscribe client:only="vue" />
 	</body>
 </html>
 

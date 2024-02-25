@@ -1,10 +1,18 @@
 export const defaultLang = 'de';
 
 const de = {
+  ARCHIVE: {
+    LOAD_MORE: 'Mehr Anzeigen'
+  },
   HEADER: {
     SUBSCRIBE: 'Subscribe',
     EPISODES: 'Episoden',
     CONTRIBUTORS: 'Kontributoren'
+  },
+  FOOTER: {
+    COPYRIGHT: '© {copyright}',
+    CREATED_WITH: 'Erstellt mit {name} am {buildDate}',
+    CONTACT: 'Kontakt: {name}',
   },
   EPISODE: {
     SUMMARY: 'Info',

@@ -34,8 +34,8 @@ export default ({
   }
 
   return function* () {
-    if(import.meta.env.MODE === 'production') {
+    // if(import.meta.env.MODE === 'production') {
       yield registerServiceWorker();
-    }
+    // }
   };
 };

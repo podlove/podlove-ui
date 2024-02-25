@@ -1,8 +1,10 @@
 export interface Podcast {
   etag: string | null;
+  buildDate: string | null;
   show: Show;
   episodes: Episode[];
   hosts: Person[];
+  author: Author;
 }
 
 export interface Transcript {
@@ -28,7 +30,7 @@ export interface Audio {
 }
 
 export interface Episode {
-  id: string;
+  id: number;
   title: string | null;
   publicationDate: string | null;
   description: string | null;
@@ -56,4 +58,11 @@ export interface Chapter {
   image?: string | null;
   title?: string | null;
   href?: string | null;
+}
+
+export interface Author {
+  owner: string | null;
+  copyright: string | null;
+  name: string | null;
+  mail: string | null;
 }

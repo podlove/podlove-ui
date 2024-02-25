@@ -1,7 +1,11 @@
 import { get, castArray, kebabCase } from 'lodash-es';
 import { XMLParser } from 'fast-xml-parser';
+import { toPlayerTime } from '@podlove/utils/time';
+import { json } from '@podlove/utils/request';
+
 import type {
   Audio,
+  Author,
   Chapter,
   Episode,
   Person,
@@ -9,10 +13,6 @@ import type {
   Show,
   Transcript
 } from '../../types/feed.types';
-import { toPlayerTime } from '@podlove/utils/time';
-import { json } from '@podlove/utils/request';
-
-let CACHE = new Map<string, Promise<Podcast>>();
 
 const parser = new XMLParser({
   ignoreAttributes: false
@@ -71,7 +71,9 @@ const getTranscriptUrl = async (data: any): Promise<string> =>
 export const resolveTranscripts = async (transcriptsUrl: string): Promise<Transcript[]> =>
   json(transcriptsUrl)
     .then((result) => get(result, ['segments'], []))
-    .then((items) => items.map(transformTranscript).filter((item: Transcript) => get(item, 'text')));
+    .then((items) =>
+      items.map(transformTranscript).filter((item: Transcript) => get(item, 'text'))
+    );
 
 const transformAudio = (input: any): Audio[] => {
   const url = get(input, ['enclosure', '@_url'], null);
@@ -113,10 +115,19 @@ const resolveEpisode =
     };
   };
 
+const transformAuthor = (data: any): Author => ({
+  copyright: get(data, ['channel', 'copyright'], null),
+  owner: get(data, ['channel', 'itunes:owner', 'itunes:name'], null),
+  name: get(data, ['channel', 'itunes:author'], null),
+  mail: get(data, ['channel', 'itunes:owner', 'itunes:email'], null)
+});
+
 const transform =
   (episodeId?: number) =>
   async (data: any): Promise<Podcast> => ({
     etag: get(data, 'etag', null),
+    buildDate: get(data, ['channel', 'lastBuildDate'], null),
+    author: transformAuthor(data),
     show: transformShow(data),
     episodes: await Promise.all(
       castArray(get(data, ['channel', 'item'], [])).map(resolveEpisode(episodeId))
@@ -135,12 +146,6 @@ export default async ({
     return transform(episodeId)({});
   }
 
-  // const existing = CACHE.get(feedUrl);
-
-  // if (existing) {
-  //   return existing;
-  // }
-
   return await fetch(feed)
     // TODO: add cache key
     .then(async (result) => {
@@ -152,11 +157,5 @@ export default async ({
         etag
       };
     })
-    // .then((data) => {
-    //   console.log(data);
-    //   return data;
-    // })
     .then(transform(episodeId));
-
-  // CACHE.set(feedUrl, result);
 };

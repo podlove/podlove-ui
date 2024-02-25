@@ -19,8 +19,7 @@
       <a :href="state.index" class="mr-4 text-gray-100 font-semibold">
         {{ state.title }}
       </a>
-      <a class="mr-4 font-light" :href="state.index" :title="state.title">{{ t('HEADER.EPISODES') }}</a>
-      <!-- <a class="mr-4 font-light" href="/contributors">{{ t('HEADER.CONTRIBUTORS') }}</a> -->
+      <a class="mr-4 font-light" :href="state.index" :title="state.title">{{ $t('HEADER.EPISODES') }}</a>
       <a class="mr-4 font-light cursor-pointer" @click="showOverlay()">{{
         $t('HEADER.SUBSCRIBE')
       }}</a>
@@ -30,12 +29,9 @@
 </template>
 <script setup lang="ts">
 import { SearchIcon } from '@podlove/components';
-import { useI18n } from 'vue-i18n';
 import { mapState, injectStore } from 'redux-vuex';
 
 import { selectors, actions } from '../logic';
-
-const { t } = useI18n();
 
 const store = injectStore();
 

@@ -10,6 +10,7 @@ import { actions as player } from './stores/player.store';
 import { actions as playbar } from './stores/playbar.store';
 import { actions as subscribeButton } from './stores/subscribe-button.store';
 import { actions as router } from './stores/router.store';
+import { actions as view } from './stores/view.store';
 
 export default {
   episodes,
@@ -23,5 +24,6 @@ export default {
   setRate,
   simulatePlaytime,
   disableGhost,
-  enableGhost
+  enableGhost,
+  view
 };

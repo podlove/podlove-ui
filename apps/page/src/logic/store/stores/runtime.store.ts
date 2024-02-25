@@ -2,17 +2,19 @@ import { createAction, handleActions, type Action } from 'redux-actions';
 import { etag } from '../../../lib/caching.js';
 import type { Podcast } from '../../../types/feed.types.js';
 import { version } from '../../../../package.json';
+import { get } from 'lodash-es';
 
 export interface State {
   initialized: boolean;
   locale: string;
   cacheKey : string | null;
+  buildDate: string | null;
 }
 
 export interface initializeAppPayload {
   feed: string;
   locale: string;
-  episodeId?: number;
+  episodeId?: number
 }
 
 export type dataFetchedPayload = Podcast;
@@ -33,17 +35,19 @@ export const reducer = handleActions<State, any>(
     [actions.dataFetched.toString()]: (state, { payload }: Action<dataFetchedPayload>) => ({
       ...state,
       initialized: true,
+      buildDate: get(payload, 'buildDate', null),
       cacheKey: payload.etag ? etag({
         feed: payload.etag,
         version
       }) : null
     })
   },
-  { initialized: false, locale: 'en-US', cacheKey: null }
+  { initialized: false, locale: 'en-US', cacheKey: null, buildDate: null }
 );
 
 export const selectors = {
   initialized: (state: State) => state.initialized,
   locale: (state: State) => state.locale,
   cacheKey: (state: State) => state.cacheKey,
+  buildDate: (state: State) => state.buildDate,
 };

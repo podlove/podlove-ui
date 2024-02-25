@@ -1,7 +1,7 @@
 import { handleActions, type Action } from 'redux-actions';
-import { actions as lifecycleActions, type dataFetchedPayload, type initializeAppPayload } from './runtime.store'
 import { get } from 'lodash-es';
-import type { Show } from '../../../types/feed.types';
+import { actions as lifecycleActions, type dataFetchedPayload, type initializeAppPayload } from './runtime.store'
+import type { Author, Show } from '../../../types/feed.types';
 
 export interface State {
   feed: string | null;
@@ -9,7 +9,7 @@ export interface State {
   poster: string | null;
   description: string | null;
   summary: string | null;
-  episodes: string[];
+  author: Author;
 }
 
 export const reducer = handleActions<State, any>({
@@ -19,7 +19,12 @@ export const reducer = handleActions<State, any>({
     poster: get(payload, ['show', 'poster'], null),
     description: get(payload, ['show', 'description'], null),
     summary: get(payload, ['show', 'summary'], null),
-    episodes: get(payload, ['episodes'], []).map(({ id }) => id)
+    author: get(payload, ['author'], {
+      owner: null,
+      copyright: null,
+      name: null,
+      mail: null,
+    }),
   }),
   [lifecycleActions.initializeApp.toString()]: (state, { payload }: Action<initializeAppPayload>) => ({
     ...state,
@@ -31,7 +36,12 @@ export const reducer = handleActions<State, any>({
   poster: null,
   description: null,
   summary: null,
-  episodes: []
+  author: {
+    owner: null,
+    copyright: null,
+    name: null,
+    mail: null,
+  }
 });
 
 export const selectors = {
@@ -47,5 +57,7 @@ export const selectors = {
   poster: (state: State) => get(state, 'poster'),
   description: (state: State) => get(state, 'description'),
   summary: (state: State) => get(state, 'summary'),
-  episodes: (state: State) => get(state, 'episodes'),
+  copyright: (state: State) => get(state, ['author', 'copyright']),
+  owner: (state: State) => get(state, ['author', 'owner']),
+  mail: (state: State) => get(state, ['author', 'mail'])
 }
