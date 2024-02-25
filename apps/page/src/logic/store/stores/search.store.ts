@@ -112,7 +112,7 @@ export const reducer = handleActions<State, any>(
     selectedResult: null,
     initialized: {
       episodes: false,
-      contributors: false,
+      contributors: true,
       transcripts: false,
     }
   }

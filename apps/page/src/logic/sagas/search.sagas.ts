@@ -1,18 +1,18 @@
-import MiniSearch from 'minisearch';
+import * as fuzzySearch from '@m31coding/fuzzy-search';
+import { flattenDeep } from 'lodash-es';
 import { put, select, takeEvery, all, throttle, call } from 'redux-saga/effects';
-import { actions } from '../store';
-import type { Episode, Person, Transcript } from '../../types/feed.types';
 import type { Action } from 'redux-actions';
+import type { EventChannel } from 'redux-saga';
 import { takeOnce, channel } from '@podlove/player-sagas/helper';
 import type {
   EpisodeResult,
   TranscriptResult,
   searchActionPayload
 } from '../store/stores/search.store';
+import { actions } from '../store';
 import { resolveTranscripts } from '../data/feed-parser';
-import { flattenDeep } from 'lodash-es';
+import type { Episode, Person, Transcript } from '../../types/feed.types';
 import { findPerson } from '../../lib/persons';
-import type { EventChannel } from 'redux-saga';
 
 export default ({
   selectVisible,
@@ -29,31 +29,9 @@ export default ({
   selectResults: (input: any) => { id: string | number }[];
   selectSelectedResult: (input: any) => string | null;
 }) => {
-  const EPISODES = new MiniSearch({
-    fields: [
-      'id',
-      'title',
-      'publicationDate',
-      'description',
-      'subtitle',
-      'link',
-      'duration',
-      'content',
-      'chapters',
-      'contributors'
-    ],
-    storeFields: ['id', 'title', 'episodeId', 'description']
-  });
-
-  const TRANSCRIPTS = new MiniSearch({
-    fields: ['id', 'text', 'speaker.name'],
-    storeFields: ['id', 'text', 'speaker', 'episodeId', 'episodeTitle']
-  });
-
-  const CONTRIBUTORS = new MiniSearch({
-    fields: ['id', 'episode.title', 'episode.description'],
-    storeFields: ['id', 'name', 'avatar']
-  });
+  const EPISODES = fuzzySearch.SearcherFactory.createDefaultSearcher();
+  const TRANSCRIPTS = fuzzySearch.SearcherFactory.createDefaultSearcher();
+  const CONTRIBUTORS = fuzzySearch.SearcherFactory.createDefaultSearcher();
 
   function* createEpisodesSearchIndex(episodes: Episode[]) {
     const results = episodes.map((episode) => ({
@@ -69,7 +47,12 @@ export default ({
         .filter(Boolean)
         .join(' ')
     }));
-    yield EPISODES.addAllAsync(results);
+
+    EPISODES.indexEntities(
+      results,
+      (e) => e.id,
+      (e) => [e.title, e.description, e.chapters, e.contributors]
+    );
     yield put(actions.search.initialize('episodes'));
   }
 
@@ -96,7 +79,12 @@ export default ({
       }))
     );
 
-    yield TRANSCRIPTS.addAllAsync(flattenDeep(results));
+    TRANSCRIPTS.indexEntities(
+      flattenDeep(results),
+      (e) => e.id,
+      (e) => [e.text, e.speaker.name]
+    );
+
     yield put(actions.search.initialize('transcripts'));
   }
 
@@ -116,7 +104,12 @@ export default ({
       };
     });
 
-    yield CONTRIBUTORS.addAllAsync(flattenDeep(results));
+    CONTRIBUTORS.indexEntities(
+      flattenDeep(results),
+      (e) => e.id,
+      (e) => [e.episode.title, e.episode.description]
+    );
+
     yield put(actions.search.initialize('contributors'));
   }
 
@@ -124,10 +117,9 @@ export default ({
     const episodes: Episode[] = yield select(selectEpisodes);
     const contributors: Person[] = yield select(selectContributors);
     const resolvedEpisodes: Episode[] = yield all(episodes.map(fetchTranscripts));
-
     yield createEpisodesSearchIndex(resolvedEpisodes);
     yield createTranscriptsSearchIndex(resolvedEpisodes);
-    yield createContributorsSearchIndex(contributors, resolvedEpisodes);
+    // yield createContributorsSearchIndex(contributors, resolvedEpisodes);
   }
 
   function* searchForResults({ payload }: Action<searchActionPayload>) {
@@ -136,17 +128,17 @@ export default ({
       return;
     }
 
-    const episodes = EPISODES.search(payload || '', { fuzzy: 0.2 }).slice(
-      0,
-      5
+    const episodes = EPISODES.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
+      (match) => match.entity
     ) as unknown as EpisodeResult[];
-    const transcripts = TRANSCRIPTS.search(payload || '', {
-      fuzzy: 0.2
-    }).slice(0, 5) as unknown as TranscriptResult[];
-    const contributors = CONTRIBUTORS.search(payload || '', { fuzzy: 0.2 }).slice(
-      0,
-      5
-    ) as unknown as Person[];
+
+    const contributors = CONTRIBUTORS.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
+      (match) => match.entity
+    ) as unknown as ContributorsResult[];
+
+    const transcripts = TRANSCRIPTS.getMatches(
+      new fuzzySearch.Query(payload || '', 5)
+    ).matches.map((match) => match.entity) as unknown as TranscriptResult[];
 
     yield put(actions.search.setEpisodeResults(episodes));
     yield put(actions.search.setTranscriptsResults(transcripts));

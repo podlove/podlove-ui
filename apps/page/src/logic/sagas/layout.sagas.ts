@@ -3,6 +3,7 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { channel } from '@podlove/player-sagas/helper';
 
 import actions from '../store/actions';
+import { isClient } from '../../lib/runtime';
 
 function* disableOverflow() {
   document.body.classList.add('overflow-hidden');
@@ -13,11 +14,11 @@ function* enableOverflow() {
 }
 
 function* startLoading() {
-  yield put(actions.view.startLoading())
+  yield put(actions.view.startLoading());
 }
 
 function* stopLoading() {
-  yield put(actions.view.stopLoading())
+  yield put(actions.view.stopLoading());
 }
 
 export default function ({
@@ -28,15 +29,17 @@ export default function ({
   selectSearchOverlayVisible: (input: any) => boolean;
 }) {
   return function* () {
-    const pageLoadStart: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
-      document.addEventListener('astro:before-preparation', cb)
-    );
-    const pageLoadEnd: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
-      document.addEventListener('astro:after-preparation', cb)
-    );
+    if (isClient()) {
+      const pageLoadStart: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
+        document.addEventListener('astro:before-preparation', cb)
+      );
+      const pageLoadEnd: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
+        document.addEventListener('astro:after-preparation', cb)
+      );
 
-    yield takeEvery(pageLoadStart, startLoading);
-    yield takeEvery(pageLoadEnd, stopLoading);
+      yield takeEvery(pageLoadStart, startLoading);
+      yield takeEvery(pageLoadEnd, stopLoading);
+    }
 
     while (true) {
       const subscribeOverlayVisible: boolean = yield select(selectSubscribeOverlayVisible);

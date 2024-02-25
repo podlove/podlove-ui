@@ -32,7 +32,7 @@
     "vue-i18n": "9.8.0",
     "scroll-into-view-if-needed": "3.1.0",
     "micromatch": "4.0.5",
-    "minisearch": "6.3.0"
+    "@m31coding/fuzzy-search": "1.0.1"
   },
   "devDependencies": {
     "tailwindcss": "3.0.24",
