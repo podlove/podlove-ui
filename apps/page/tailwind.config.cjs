@@ -14,17 +14,6 @@ module.exports = {
         800: 'rgb(var(--primary-color-900))',
         900: 'rgb(var(--primary-color-900))'
       },
-      secondary: {
-        100: 'rgb(var(--secondary-color-100))',
-        200: 'rgb(var(--secondary-color-200))',
-        300: 'rgb(var(--secondary-color-300))',
-        400: 'rgb(var(--secondary-color-400))',
-        500: 'rgb(var(--secondary-color-500))',
-        600: 'rgb(var(--secondary-color-600))',
-        700: 'rgb(var(--secondary-color-700))',
-        800: 'rgb(var(--secondary-color-800))',
-        900: 'rgb(var(--secondary-color-900))'
-      },
       complementary: {
         100: 'rgb(var(--complementary-color-100))',
         200: 'rgb(var(--complementary-color-200))',

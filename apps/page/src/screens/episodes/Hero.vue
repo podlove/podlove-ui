@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="flex flex-col items-center md:block">
-          <div class="text-gray-500 font-mono text-sm py-1">
+          <div class="text-complementary-500 font-mono text-sm py-1">
             <span>{{ publicationDate }}</span>
             <span class="mx-2">・</span>
             <span>{{ duration }}</span>
@@ -37,7 +37,7 @@
           <a :href="`/feed/${state.feed}/episodes/${id}`" class="text-center md:text-left">
             <h1
               v-if="state.episode.title"
-              class="text-gray-100 text-3xl mb-5"
+              class="text-complementary-900 text-3xl mb-5"
               v-html="state.episode.title"
             />
           </a>
@@ -56,7 +56,7 @@
                 :slug="contributor.slug"
                 :id="contributor.id"
               />
-              <span class="text-gray-300">{{ contributor.nickname || first((contributor.name || '').split(' ')) }}</span>
+              <span class="text-complementary-600">{{ contributor.nickname || first((contributor.name || '').split(' ')) }}</span>
             </div>
           </div>
         </div>

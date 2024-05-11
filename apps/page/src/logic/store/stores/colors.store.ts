@@ -4,7 +4,6 @@ import type { ColorTokens } from '../../../types/color.types';
 
 export interface Colors {
   primary: ColorTokens;
-  secondary: ColorTokens;
   complementary: ColorTokens;
   gray: ColorTokens;
 }
@@ -35,18 +34,6 @@ export const reducer = handleActions<State, any>(
       700: [33, 97, 144],
       800: [12, 65, 104],
       900: [4, 41, 68]
-    },
-
-    secondary: {
-      100: [0, 125, 165],
-      200: [0, 228, 228],
-      300: [181, 224, 171],
-      400: [152, 204, 146],
-      500: [121, 186, 115],
-      600: [87, 155, 80],
-      700: [57, 110, 52],
-      800: [40, 80, 36],
-      900: [7, 48, 4]
     },
 
     complementary: {
