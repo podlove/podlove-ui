@@ -1,8 +1,8 @@
 import type { EventChannel } from 'redux-saga';
 import { call, fork, put, select, takeEvery } from 'redux-saga/effects';
 import { channel } from '@podlove/player-sagas/helper';
-import { prominent, average } from 'color.js';
-import { darken, isDark, lighten, luminosity, negate, rotate } from 'farbraum';
+import { prominent } from 'color.js';
+import { lighten, negate } from 'farbraum';
 
 import actions from '../store/actions';
 import { isClient } from '../../lib/runtime';
@@ -57,21 +57,19 @@ export default function ({
       return;
     }
 
-    const [primaryColor, secondaryColor]: [rgbColor, rgbColor] = yield prominent(proxy(poster), {
-      amount: 2
+    const [primaryColor]: [rgbColor] = yield prominent(proxy(poster), {
+      amount: 1
     });
 
 
     const complementaryColor = negate(primaryColor) as rgbColor;
 
     const primary = tailwindColorTokens(primaryColor);
-    const secondary = tailwindColorTokens(secondaryColor);
     const complementary = tailwindColorTokens(complementaryColor);
 
     yield put(
       actions.colors.setColors({
         ...(primary ? { primary } : {}),
-        ...(secondary ? { secondary } : {}),
         ...(complementary ? { complementary } : {})
       })
     );
