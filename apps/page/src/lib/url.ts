@@ -13,3 +13,5 @@ export const addQueryparams = (
 
   return tmp.toString();
 };
+
+export const proxy = (url: string) => `/proxy?` + new URLSearchParams({ url })

@@ -1,6 +1,6 @@
 <template>
   <span class="relative">
-    <img v-if="avatar" :src="avatar" :width="48" :height="48" class="rounded" />
+    <div v-if="avatar" class="rounded bg-cover w-12 h-12 bg-center" :style="{ 'background-image': `url(${avatar}` }" />
     <user-icon v-else :width="48" :height="48" />
     <popover v-if="name" >
       <div class="text-sm text-gray-800 p-1 text-center whitespace-nowrap">

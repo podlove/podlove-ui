@@ -7,7 +7,7 @@
             :src="state.episode.poster || state.poster"
             :width="180"
             :height="180"
-            class="rounded shadow-lg border border-primary-700 w-full h-full object-cover"
+            class="shadow-lg border rounded border-complementary-800 w-full h-full object-cover"
           />
           <div
             class="
@@ -18,7 +18,7 @@
               flex
               items-center
               justify-center
-              opacity-75
+              opacity-20
               hover:opacity-100
               transition
               ease-in
@@ -49,7 +49,7 @@
               :key="`episode-${id}-contributor-${index}`"
             >
               <contributor
-                class="block w-12 mb-1"
+                class="block w-12 mb-1 h-12"
                 :name="contributor.name"
                 :avatar="contributor.avatar"
                 :role="contributor.role"

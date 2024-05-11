@@ -20,19 +20,19 @@
             :title="state.title"
             :width="150"
             :height="150"
-            class="rounded block shadow-lg border border-primary-700"
+            class="rounded block shadow-lg border border-complementary-700"
           />
         </div>
         <div class="flex flex-col items-center md:block w-4/5">
           <h1
             v-if="state.description"
-            class="text-gray-100 text-2xl text-center md:text-left lg:text-3xl mb-1 font-light"
+            class="text-complementary-900 text-2xl text-center md:text-left lg:text-3xl mb-1 font-light"
           >
             {{ state.description }}
           </h1>
           <p
             v-if="state.summary"
-            class="text-gray-200 hidden md:block lg:text-xl w-10/12 md:text-lg font-extralight"
+            class="text-complementary-800 hidden md:block lg:text-xl w-10/12 md:text-lg font-extralight"
           >
             {{ state.summary }}
           </p>

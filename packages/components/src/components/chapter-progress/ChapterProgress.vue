@@ -93,7 +93,7 @@ const linkLeave = () => {
 
 <template>
   <div
-    class="podlove-component-chapter-progress relative flex items-center px-2 py-0"
+    class="podlove-component-chapter-progress relative flex items-center px-2 py-0 w-full overflow-hidden"
     ref="progressContainer"
     aria-hidden="true"
     @mouseout="progressOut"
@@ -102,7 +102,7 @@ const linkLeave = () => {
     @click.alt="contextProgressClick"
   >
     <span
-      class="pointer-events-none w-[calc(100%-4.4em)]"
+      class="pointer-events-none truncate w-full"
       aria-hidden="true"
       v-html="chapter.title"
     >
@@ -120,7 +120,7 @@ const linkLeave = () => {
       </a>
     </span>
     <timer
-      class="block text-right pointer-events-none pr-2 min-w-[4.4em]"
+      class="block text-right pointer-events-none px-2"
       :time="remainingTime"
       :remaining="(chapter.active || !!ghostActive) && playtime > 0"
     />

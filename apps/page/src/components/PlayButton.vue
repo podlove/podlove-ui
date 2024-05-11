@@ -32,8 +32,7 @@ const pause = () => {
 
 <style scoped>
 .play-button {
-  --podlove-component--play-button--text-color: rgb(var(--primary-color-200));
-  --podlove-component--play-button--background: rgb(var(--primary-color-800));
+  --podlove-component--play-button--text-color: rgb(var(--primary-color-900));
+  --podlove-component--play-button--background: rgb(var(--complementary-color-800));
 }
 </style>
-Layout

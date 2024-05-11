@@ -1,8 +1,8 @@
+import { get } from 'lodash-es';
 import { createAction, handleActions, type Action } from 'redux-actions';
 import { etag } from '../../../lib/caching.js';
 import type { Podcast } from '../../../types/feed.types.js';
 import { version } from '../../../../package.json';
-import { get } from 'lodash-es';
 
 export interface State {
   initialized: boolean;

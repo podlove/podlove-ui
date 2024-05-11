@@ -7,6 +7,7 @@ import type { Podcast } from '../../types/feed.types';
 
 function* fetchData(input: Action<initializeAppPayload>) {
   const feedData: Podcast = yield parseFeed(input.payload);
+  console.log(feedData);
   yield put(actions.lifecycle.dataFetched(feedData));
 }
 

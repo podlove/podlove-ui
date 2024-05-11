@@ -66,7 +66,7 @@
               ref="results"
             >
               <div class="text-gray-800 tracking-wide" v-if="state.contributors.length > 0">
-                <span class="font-normal px-3 mt-3 text-primary-700 opacity-75">
+                <span class="font-normal px-3 mt-3 text-gray-700 opacity-75">
                   {{ $t(`SEARCH.CATEGORY.CONTRIBUTOR`) }}
                 </span>
                 <button
@@ -103,7 +103,7 @@
                 </button>
               </div>
               <div class="text-gray-800 tracking-wide" v-if="state.episodes.length > 0">
-                <span class="font-normal px-3 mt-3 text-primary-700 opacity-75">
+                <span class="font-normal px-3 mt-3 text-gray-700 opacity-75">
                   {{ $t(`SEARCH.CATEGORY.EPISODE`) }}
                 </span>
                 <a
@@ -153,7 +153,7 @@
                 </a>
               </div>
               <div class="text-gray-800 tracking-wide" v-if="state.transcripts.length > 0">
-                <span class="font-normal px-3 mt-3 text-primary-700 opacity-75">
+                <span class="font-normal px-3 mt-3 text-gray-700 opacity-75">
                   {{ $t(`SEARCH.CATEGORY.TRANSCRIPT`) }}
                 </span>
                 <a

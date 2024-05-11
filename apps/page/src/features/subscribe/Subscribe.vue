@@ -13,7 +13,7 @@
             Subscribe
           </h2>
           <div class="overflow-y-auto">
-            <h3 class="font-mono inline-block border-gray-400 border-b-2 mb-6">
+            <h3 class="font-mono inline-block border-primary-400 border-b-2 mb-6">
               {{ $t('SUBSCRIBE_BUTTON.CLIENTS') }}
             </h3>
             <div class="subscribe-clients flex flex-col mb-4 sm:flex-wrap sm:flex-row">
@@ -33,8 +33,7 @@
                     border-gray-400
                     mx-2
                     overflow-hidden
-                    hover:border-primary-800 hover:shadow hover:bg-primary-200
-                    bg-primary-100
+                    hover:border-primary-900 hover:shadow hover:bg-complementary-900
                   "
                   :href="client.link"
                   target="_blank"
@@ -44,13 +43,13 @@
                     :style="{ maskImage: `url(${client.icon.src})` }"
                     class="subscribe-client-image w-10 h-10 mb-0 sm:w-10 sm:mb-2"
                   />
-                  <span class="font-light text-lg truncate px-2 text-primary-800">{{
+                  <span class="font-light text-lg w-11/12 overflow-hidden truncate text-center text-primary-800">{{
                     client.title
                   }}</span></a
                 >
               </div>
             </div>
-            <h3 class="font-mono inline-block border-gray-400 border-b-2 mb-6">
+            <h3 class="font-mono inline-block border-primary-400 border-b-2 mb-6">
               {{ $t('SUBSCRIBE_BUTTON.FEED') }}
             </h3>
             <div class="mx-2 mb-4">
@@ -68,8 +67,8 @@
                   font-light
                   cursor-pointer
                   truncate
-                  hover:bg-primary-200
-                  bg-primary-100
+                  hover:bg-complementary-900
+                  bg-complementary-100
                   appearance-none
                 "
                 @click="selectText"

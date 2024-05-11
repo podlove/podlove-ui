@@ -16,6 +16,7 @@ import { selectors as search } from './stores/search.store';
 import { selectors as router } from './stores/router.store';
 import { selectors as contributors } from './stores/contributors.store';
 import { selectors as view } from './stores/view.store';
+import { selectors as colors } from './stores/colors.store';
 
 const slices = {
   runtime: (state: State) => state.runtime,
@@ -29,6 +30,7 @@ const slices = {
   router: (state: State) => state.router,
   contributors: (state: State) => state.contributors,
   view: (state: State) => state.view,
+  colors: (state: State) => state.colors,
 };
 
 // runtime
@@ -115,6 +117,7 @@ export default {
     },
     loading: createSelector(slices.view, view.loading),
   },
+  colors: createSelector(slices.colors, colors.colors),
   show: {
     poster: showPoster,
     title: showTitle

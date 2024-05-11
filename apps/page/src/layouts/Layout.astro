@@ -6,12 +6,14 @@ import Search from '../features/Search.vue';
 import PageFooter from '../features/PageFooter.vue';
 import LoadingBar from '../features/LoadingBar.vue';
 import Subscribe from '../features/subscribe/Subscribe.vue';
+import Colors from '../features/Colors.vue';
 import { store } from '../logic';
 import { getLanguage } from '../i18n';
 
 const { title } = Astro.props;
 const state = store.getState();
 const lang = getLanguage();
+
 ---
 
 <!doctype html>
@@ -28,6 +30,7 @@ const lang = getLanguage();
     <ViewTransitions />
 	</head>
 	<body>
+    <Colors  client:load />
     <PageHeader client:idle transition:persis="header" />
     <LoadingBar client:only="vue" />
     <main transition:animate="fade">
@@ -46,49 +49,6 @@ const lang = getLanguage();
 </html>
 
 <style>
-  :root {
-    --primary-color-100: 242, 248, 251;
-    --primary-color-200: 217, 235, 248;
-    --primary-color-300: 176, 215, 244;
-    --primary-color-400: 135, 192, 234;
-    --primary-color-500: 103, 168, 219;
-    --primary-color-600: 71, 138, 186;
-    --primary-color-700: 33, 97, 144;
-    --primary-color-800: 12, 65, 104;
-    --primary-color-900: 4, 41, 68;
-
-    --secondary-color-100: 0, 125, 165;
-    --secondary-color-200: 0, 228, 228;
-    --secondary-color-300: 181, 224, 171;
-    --secondary-color-400: 152, 204, 146;
-    --secondary-color-500: 152, 204, 146;
-    --secondary-color-500: 121, 186, 115;
-    --secondary-color-600: 87, 155, 80;
-    --secondary-color-700: 57, 110, 52;
-    --secondary-color-800: 40, 80, 36;
-    --secondary-color-800: 7, 48, 4;
-
-    --complementary-color-100: 255, 248, 246;
-    --complementary-color-200: 254, 236, 222;
-    --complementary-color-300: 255, 231, 173;
-    --complementary-color-400: 249, 155, 125;
-    --complementary-color-500: 249, 119, 81;
-    --complementary-color-600: 202, 85, 57;
-    --complementary-color-700: 157, 65, 39;
-    --complementary-color-800: 118, 52, 28;
-    --complementary-color-900: 52, 20, 1;
-
-    --gray-color-100: 255, 255, 255;
-    --gray-color-200: 230, 231, 232;
-    --gray-color-300: 205, 209, 215;
-    --gray-color-400: 154, 165, 172;
-    --gray-color-500: 115, 127, 135;
-    --gray-color-600: 86, 97, 104;
-    --gray-color-700: 61, 70, 85;
-    --gray-color-800: 34, 38, 44;
-    --gray-color-900: 7, 8, 9;
-  }
-
   main {
     min-height: calc(110vh - 100px);
   }

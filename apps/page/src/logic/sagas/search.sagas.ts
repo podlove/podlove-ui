@@ -13,6 +13,7 @@ import { actions } from '../store';
 import { resolveTranscripts } from '../data/feed-parser';
 import type { Episode, Person, Transcript } from '../../types/feed.types';
 import { findPerson } from '../../lib/persons';
+import { proxy } from '../../lib/url';
 
 export default ({
   selectVisible,
@@ -50,8 +51,8 @@ export default ({
 
     EPISODES.indexEntities(
       results,
-      (e) => e.id,
-      (e) => [e.title, e.description, e.chapters, e.contributors]
+      (e: any) => e.id,
+      (e: any) => [e.title, e.description, e.chapters, e.contributors]
     );
     yield put(actions.search.initialize('episodes'));
   }
@@ -60,9 +61,7 @@ export default ({
     let transcripts: Transcript[] = [];
 
     if (typeof episode.transcripts === 'string') {
-      transcripts = yield resolveTranscripts(
-        `/proxy?` + new URLSearchParams({ url: episode.transcripts })
-      );
+      transcripts = yield resolveTranscripts(proxy(episode.transcripts));
     }
 
     return { ...episode, transcripts };
@@ -81,8 +80,8 @@ export default ({
 
     TRANSCRIPTS.indexEntities(
       flattenDeep(results),
-      (e) => e.id,
-      (e) => [e.text, e.speaker.name]
+      (e: any) => e.id,
+      (e: any) => [e.text, e.speaker.name]
     );
 
     yield put(actions.search.initialize('transcripts'));
@@ -106,8 +105,8 @@ export default ({
 
     CONTRIBUTORS.indexEntities(
       flattenDeep(results),
-      (e) => e.id,
-      (e) => [e.episode.title, e.episode.description]
+      (e: any) => e.id,
+      (e: any) => [e.episode.title, e.episode.description]
     );
 
     yield put(actions.search.initialize('contributors'));
@@ -132,13 +131,13 @@ export default ({
       (match) => match.entity
     ) as unknown as EpisodeResult[];
 
-    const contributors = CONTRIBUTORS.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
-      (match) => match.entity
-    ) as unknown as ContributorsResult[];
-
-    const transcripts = TRANSCRIPTS.getMatches(
+    const contributors = CONTRIBUTORS.getMatches(
       new fuzzySearch.Query(payload || '', 5)
-    ).matches.map((match) => match.entity) as unknown as TranscriptResult[];
+    ).matches.map((match) => match.entity) as unknown as Person[];
+
+    const transcripts = TRANSCRIPTS.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
+      (match) => match.entity
+    ) as unknown as TranscriptResult[];
 
     yield put(actions.search.setEpisodeResults(episodes));
     yield put(actions.search.setTranscriptsResults(transcripts));

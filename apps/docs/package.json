@@ -14,7 +14,7 @@
     "@podlove/subscribe-button": "workspace:*",
     "@podlove/types": "workspace:*",
     "@podlove/utils": "workspace:*",
-    "farbraum": "0.1.4",
+    "farbraum": "0.2.1",
     "vue": "3.2.41"
   },
   "devDependencies": {

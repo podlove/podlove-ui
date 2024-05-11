@@ -63,10 +63,15 @@ const transformShow = (data: any): Show => ({
   poster: get(data, ['channel', 'image', 'url'], null)
 });
 
-const getTranscriptUrl = async (data: any): Promise<string> =>
-  get(data, ['podcast:transcript'], []).find(
-    (item: { '@_type': string; '@_url': string }) => get(item, '@_type') === 'application/json'
-  )?.['@_url'];
+const getTranscriptUrl = async (data: any): Promise<string | null> => {
+  // TODO: use vtt parser instead of json
+  // console.log(get(data, ['podcast:transcript'], []));
+  // return get(data, ['podcast:transcript'], []).find(
+  //   (item: { '@_type': string; '@_url': string }) => get(item, '@_type') === 'application/json'
+  // )?.['@_url'];
+
+  return null;
+};
 
 export const resolveTranscripts = async (transcriptsUrl: string): Promise<Transcript[]> =>
   json(transcriptsUrl)
@@ -110,7 +115,7 @@ const resolveEpisode =
       chapters: castArray(get(data, ['psc:chapters', 'psc:chapter'], []))
         .map(transformChapter)
         .map(buildChapterList(duration)),
-      transcripts: id === episodeId ? await resolveTranscripts(transcriptUrl) : transcriptUrl,
+      transcripts: (id === episodeId && transcriptUrl) ? await resolveTranscripts(transcriptUrl) : [],
       audio: transformAudio(data)
     };
   };

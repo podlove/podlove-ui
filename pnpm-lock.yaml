@@ -51,8 +51,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/utils
       farbraum:
-        specifier: 0.1.4
-        version: 0.1.4
+        specifier: 0.2.1
+        version: 0.2.1
       vue:
         specifier: 3.2.41
         version: 3.2.41
@@ -126,6 +126,12 @@ importers:
       astro:
         specifier: 3.6.4
         version: 3.6.4(@types/node@18.18.14)(typescript@5.3.2)
+      color.js:
+        specifier: 1.2.0
+        version: 1.2.0
+      farbraum:
+        specifier: 0.2.1
+        version: 0.2.1
       fast-xml-parser:
         specifier: 4.3.2
         version: 4.3.2
@@ -215,8 +221,8 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
       farbraum:
-        specifier: 0.1.4
-        version: 0.1.4
+        specifier: 0.2.1
+        version: 0.2.1
       hashcode:
         specifier: 1.0.3
         version: 1.0.3
@@ -5917,6 +5923,10 @@ packages:
     hasBin: true
     dev: true
 
+  /color.js@1.2.0:
+    resolution: {integrity: sha512-0ajlNgWWOR7EK9N6l2h0YKsZPzMCLQG5bheCoTGpGfhkR8tB5eQNItdua1oFHDTeq9JKgSzQJqo+Gp3V/xW+Lw==}
+    dev: false
+
   /color@4.2.3:
     resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
     engines: {node: '>=12.5.0'}
@@ -7715,6 +7725,13 @@ packages:
 
   /farbraum@0.1.4:
     resolution: {integrity: sha512-1wUlUgTn9oZjrmYeay0CEgPvs822DeBrYilcHVLM8Su+V9n1YN5SlYeM3PKzu1euOdSeT2tC6zwe8LY3FA7uIw==}
+    dependencies:
+      color-name: 2.0.0
+      colortranslator: 1.9.3
+    dev: false
+
+  /farbraum@0.2.1:
+    resolution: {integrity: sha512-jRzGjnMMegGQCpneLuXd8pDOvC7Qr+1rTk0fQ0iF9VOXSq51MHocIuANA2SFfvPW+VenIXbRyclZVEdqxPYi2Q==}
     dependencies:
       color-name: 2.0.0
       colortranslator: 1.9.3

@@ -35,19 +35,19 @@
               />
               <div class="overflow-hidden">
                 <a :href="link">
-                  <h4 class="text-lg text-gray-100 uppercase truncate">{{ state.title }}</h4>
+                  <h4 class="text-lg text-complementary-900 uppercase truncate">{{ state.title }}</h4>
                 </a>
                 <a
                   v-if="
                     !state.ghostActive && state.currentChapter && state.currentChapter.index > -1
                   "
                   :href="`${link}?t=${toHumanTime(state.currentChapter.start + 10)}`"
-                  class="block w-full text-gray-300 text-sm truncate"
+                  class="block w-full text-complementary-600 text-sm truncate"
                   v-html="state.currentChapter.title"
                 >
                 </a>
                 <span
-                  class="block w-full text-gray-300 text-sm truncate"
+                  class="block w-full text-complementary-600 text-sm truncate"
                   v-if="state.ghostActive && state.ghostChapter && state.ghostChapter.index > -1"
                   v-html="state.ghostChapter.title"
                 ></span>
@@ -68,7 +68,6 @@
                 :title="$t(state.a11yStepperBackwards.key, state.a11yStepperBackwards.attr)"
               />
               <play-button
-                background="rgba(255, 255, 255)"
                 class="play-button mx-2 rounded-full shadow-none hover:shadow-md"
                 :type="state.buttonType"
                 @play="dispatch"
@@ -106,14 +105,14 @@
                   "
                   v-if="state.chapters.length > 0"
                   @click="toggleChaptersOverlay"
-                  :class="{ 'border-gray-100 border': state.chaptersOverlay }"
+                  :class="{ 'border-complementary-900 border': state.chaptersOverlay }"
                 >
                   <chapter-icon />
                 </button>
                 <button
                   @click="toggleFollowContent"
                   class="follow-button flex justify-center items-center mx-2 h-8 w-10 rounded"
-                  :class="{ 'border-gray-100 border': state.followContent }"
+                  :class="{ 'border-complementary-900 border': state.followContent }"
                 >
                   <lock-icon />
                 </button>
@@ -158,19 +157,19 @@
           rounded-t
           text-left
           font-light
-          text-gray-100
+          text-complementary-900
           w-[450px]
           bottom-[104px]
           right-[100px]
         "
       >
-        <div class="w-full px-4 py-3 border-b border-gray-100 flex justify-between items-center">
+        <div class="w-full px-4 py-3 border-b border-complementary-900 flex justify-between items-center">
           <h3 class="uppercase text-lg font-normal leading-none">{{ $t('PLAYBAR.CHAPTERS') }}</h3>
           <button @click="toggleChaptersOverlay">
             <close-icon />
           </button>
         </div>
-        <div class="w-full p-2 max-h-[calc(100vh - 250px)] overflow-x-hidden">
+        <div class="chapters w-full p-2 overflow-x-hidden">
           <chapter
             v-for="(chapter, index) in state.chapters"
             :chapter="chapter"
@@ -298,84 +297,88 @@ onMounted(() => {
 
 <style scoped>
 .play-bar {
-  background-color: rgba(var(--primary-color-800), 0.9);
+  background-color: rgba(var(--primary-color-900), 0.9);
 }
 
 .chapters-drawer {
-  background-color: rgba(var(--primary-color-800), 0.9);
+  background-color: rgba(var(--primary-color-900), 0.9);
 }
 
 .progress-bar {
-  --podlove-component--progress-bar--progress-color: rgba(var(--complementary-color-100), 0.5);
+  --podlove-component--progress-bar--progress-color: rgba(var(--complementary-color-900), 0.5);
   --podlove-component--progress-bar--chapters-separator-color: rgba(var(--primary-color-800), 0.9);
-  --podlove-component--progress-bar--chapters-background-color: rgb(var(--complementary-color-100));
-  --podlove-component--progress-bar--track-background-color: rgb(var(--complementary-color-100));
-  --podlove-component--progress-bar--thumb-background-color: rgb(var(--complementary-color-100));
+  --podlove-component--progress-bar--chapters-background-color: rgb(var(--complementary-color-900));
+  --podlove-component--progress-bar--track-background-color: rgb(var(--complementary-color-900));
+  --podlove-component--progress-bar--thumb-background-color: rgb(var(--complementary-color-900));
   --podlove-component--progress-bar--thumb-border-color: rgba(var(--primary-color-800), 0.9);
   --podlove-component--progress-bar--ghost-background-color: rgba(
-    var(--complementary-color-100),
+    var(--complementary-color-900),
     0.8
   );
   --podlove-component--progress-bar--ghost-border-color: rgba(var(--primary-color-800), 0.9);
   --podlove-component--progress-bar--ghost-border-color: rgba(var(--primary-color-800), 0.9);
   --podlove-component--progress-bar--buffer-background-color: rgba(
-    var(--complementary-color-100),
+    var(--complementary-color-900),
     0.7
   );
 }
 
 .chapter-button {
-  --podlove-component--chapter-button--color: rgba(var(--complementary-color-100), 0.7);
+  --podlove-component--chapter-button--color: rgba(var(--complementary-color-900), 0.7);
 }
 
 .chapter-button:hover {
-  --podlove-component--chapter-button--color: rgba(var(--complementary-color-100), 1);
+  --podlove-component--chapter-button--color: rgba(var(--complementary-color-900), 1);
 }
 
 .stepper-button {
-  --podlove-component--stepper-button--color: rgba(var(--complementary-color-100), 0.7);
+  --podlove-component--stepper-button--color: rgba(var(--complementary-color-900), 0.7);
 }
 
 .stepper-button:hover {
-  --podlove-component--stepper-button--color: rgba(var(--complementary-color-100), 1);
+  --podlove-component--stepper-button--color: rgba(var(--complementary-color-900), 1);
 }
 
 .play-button {
   --podlove-component--play-button--text-color: rgba(var(--primary-color-800), 0.8);
-  --podlove-component--play-button--background: rgba(var(--complementary-color-100), 0.8);
+  --podlove-component--play-button--background: rgba(var(--complementary-color-900), 0.8);
 }
 
 .play-button:hover {
   --podlove-component--play-button--text-color: rgba(var(--primary-color-800), 0.8);
-  --podlove-component--play-button--background: rgba(var(--complementary-color-100), 1);
+  --podlove-component--play-button--background: rgba(var(--complementary-color-900), 1);
 }
 
 .follow-button,
 .chapter-list-button,
 .volume-button,
 .rate-button {
-  --podlove-component--icon--color: rgba(var(--complementary-color-100), 0.8);
+  --podlove-component--icon--color: rgba(var(--complementary-color-900), 0.8);
 }
 
 .follow-button:hover,
 .chapter-list-button:hover,
 .volume-button:hover,
 .rate-button:hover {
-  --podlove-component--icon--color: rgba(var(--complementary-color-100), 1);
+  --podlove-component--icon--color: rgba(var(--complementary-color-900), 1);
 }
 
 .volume-slider {
-  --podlove-component--input-slider--thumb-color: rgba(var(--complementary-color-100), 0.8);
-  --podlove-component--input-slider--border-color: rgba(var(--complementary-color-100), 0.8);
-  --podlove-component--input-slider--progress-color: rgba(var(--complementary-color-100), 0.5);
+  --podlove-component--input-slider--thumb-color: rgba(var(--complementary-color-900), 0.8);
+  --podlove-component--input-slider--border-color: rgba(var(--complementary-color-900), 0.8);
+  --podlove-component--input-slider--progress-color: rgba(var(--complementary-color-900), 0.5);
 }
 .volume-slider:hover {
-  --podlove-component--input-slider--thumb-color: rgba(var(--complementary-color-100), 1);
-  --podlove-component--input-slider--border-color: rgba(var(--complementary-color-100), 1);
-  --podlove-component--input-slider--progress-color: rgba(var(--complementary-color-100), 0.8);
+  --podlove-component--input-slider--thumb-color: rgba(var(--complementary-color-900), 1);
+  --podlove-component--input-slider--border-color: rgba(var(--complementary-color-900), 1);
+  --podlove-component--input-slider--progress-color: rgba(var(--complementary-color-900), 0.8);
 }
 
 .font-shadow {
   text-shadow: 0 0 3px rgb(var(--gray-color-100));
+}
+
+.chapters {
+  max-height: calc(100vh - 250px);
 }
 </style>

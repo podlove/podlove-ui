@@ -9,7 +9,5 @@ export const GET: APIRoute = async ({ url }) => {
 
   const response = await fetch(requestUrl).then(res => res.body);
 
-  return new Response(response, {
-    headers: { 'Content-Type': 'application/json' }
-  });
+  return new Response(response);
 };

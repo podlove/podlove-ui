@@ -10,6 +10,7 @@ import { type State as subscribeButton } from './stores/subscribe-button.store';
 import { type State as router } from './stores/router.store';
 import { type State as contributors } from './stores/contributors.store';
 import { type State as view } from './stores/view.store';
+import { type State as colors } from './stores/colors.store';
 
 export default interface State {
   runtime: runtime,
@@ -24,4 +25,5 @@ export default interface State {
   router: router,
   contributors: contributors,
   view: view,
+  colors: colors
 };

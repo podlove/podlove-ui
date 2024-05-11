@@ -30,6 +30,6 @@ const bottom = computed(() => props.bottom || false);
 
 <style scoped>
 .timeline-bullet {
-  --podlove-component--icon--color: rgb(var(--primary-color-100));
+  --podlove-component--icon--color: rgb(var(--complementary-color-900));
 }
 </style>
