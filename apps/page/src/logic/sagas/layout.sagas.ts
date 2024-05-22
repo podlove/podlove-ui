@@ -57,10 +57,13 @@ export default function ({
       return;
     }
 
-    const [primaryColor]: [rgbColor] = yield prominent(proxy(poster), {
+    const primaryColor: rgbColor = yield prominent(proxy(poster), {
       amount: 1
     });
 
+    if (!primaryColor) {
+      return;
+    }
 
     const complementaryColor = negate(primaryColor) as rgbColor;
 

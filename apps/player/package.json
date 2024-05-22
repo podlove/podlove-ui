@@ -28,7 +28,6 @@
     "@podlove/subscribe-button": "workspace:*",
     "@podlove/types": "workspace:*",
     "@podlove/utils": "workspace:*",
-    "core-js": "3.15.2",
     "date-fns": "2.16.1",
     "debounce": "2.0.0",
     "farbraum": "0.2.1",

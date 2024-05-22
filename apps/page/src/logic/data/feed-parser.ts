@@ -1,7 +1,7 @@
 import { get, castArray, kebabCase } from 'lodash-es';
 import { XMLParser } from 'fast-xml-parser';
 import { toPlayerTime } from '@podlove/utils/time';
-import { json } from '@podlove/utils/request';
+import { parse } from '../../lib/transcripts';
 
 import type {
   Audio,
@@ -64,21 +64,18 @@ const transformShow = (data: any): Show => ({
 });
 
 const getTranscriptUrl = async (data: any): Promise<string | null> => {
-  // TODO: use vtt parser instead of json
-  // console.log(get(data, ['podcast:transcript'], []));
-  // return get(data, ['podcast:transcript'], []).find(
-  //   (item: { '@_type': string; '@_url': string }) => get(item, '@_type') === 'application/json'
-  // )?.['@_url'];
-
-  return null;
+  return get(data, ['podcast:transcript', '@_url'], null);
 };
 
 export const resolveTranscripts = async (transcriptsUrl: string): Promise<Transcript[]> =>
-  json(transcriptsUrl)
-    .then((result) => get(result, ['segments'], []))
-    .then((items) =>
-      items.map(transformTranscript).filter((item: Transcript) => get(item, 'text'))
-    );
+  fetch(transcriptsUrl)
+   .then((result) => result.text())
+   .then(parse)
+   .then(() => []);
+    // .then((result) => get(result, ['segments'], []))
+    // .then((items) =>
+    //   items.map(transformTranscript).filter((item: Transcript) => get(item, 'text'))
+    // );
 
 const transformAudio = (input: any): Audio[] => {
   const url = get(input, ['enclosure', '@_url'], null);

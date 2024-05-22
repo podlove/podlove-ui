@@ -1,0 +1,42 @@
+{
+  "name": "@podlove/webvtt-parser",
+  "version": "6.0.1-alpha.7",
+  "description": "Podcasting WebVTT parser",
+  "homepage": "https://github.com/podlove/ui/tree/development/packages/webvtt-parser",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [],
+  "author": "Alexander Heimbuch <github@heimbu.ch>",
+  "license": "MIT",
+  "files": [
+    "./dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/parser.ts",
+      "types": "./src/parser.ts"
+    }
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "import": "./dist/parser.mjs",
+        "types": "./dist/parser.d.ts"
+      }
+    }
+  },
+  "dependencies": {
+    "lodash-es": "4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "4.17.12",
+    "vite": "4.3.5",
+    "vite-plugin-dts": "3.6.3",
+    "vitest": "0.30.0"
+  }
+}

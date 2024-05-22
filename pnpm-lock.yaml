@@ -102,6 +102,9 @@ importers:
       '@m31coding/fuzzy-search':
         specifier: 1.0.1
         version: 1.0.1
+      '@plussub/srt-vtt-parser':
+        specifier: 1.1.1
+        version: 1.1.1
       '@podlove/clients':
         specifier: workspace:*
         version: link:../../packages/clients
@@ -211,9 +214,6 @@ importers:
       '@podlove/utils':
         specifier: workspace:*
         version: link:../../packages/utils
-      core-js:
-        specifier: 3.15.2
-        version: 3.15.2
       date-fns:
         specifier: 2.16.1
         version: 2.16.1
@@ -897,6 +897,25 @@ importers:
       vite-plugin-dts:
         specifier: 3.6.3
         version: 3.6.3(@types/node@18.18.14)(typescript@5.0.4)(vite@4.3.5)
+      vitest:
+        specifier: 0.30.0
+        version: 0.30.0(happy-dom@9.1.9)
+
+  packages/webvtt-parser:
+    dependencies:
+      lodash-es:
+        specifier: 4.17.21
+        version: 4.17.21
+    devDependencies:
+      '@types/lodash-es':
+        specifier: 4.17.12
+        version: 4.17.12
+      vite:
+        specifier: 4.3.5
+        version: 4.3.5(@types/node@18.18.14)
+      vite-plugin-dts:
+        specifier: 3.6.3
+        version: 3.6.3(@types/node@18.18.14)(typescript@5.3.2)(vite@4.3.5)
       vitest:
         specifier: 0.30.0
         version: 0.30.0(happy-dom@9.1.9)
@@ -2960,6 +2979,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@plussub/srt-vtt-parser@1.1.1:
+    resolution: {integrity: sha512-uHZLKANNVoXSEjLRtkyyDFXaiC86ZNnjPnHve5bs5RSiXV0DfVlUvXMZXzfR7X+z2OVdoLFn6oYsS2a/VkN8Ew==}
+    dev: false
 
   /@polka/url@1.0.0-next.23:
     resolution: {integrity: sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==}
@@ -6195,12 +6218,6 @@ packages:
     resolution: {integrity: sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /core-js@3.15.2:
-    resolution: {integrity: sha512-tKs41J7NJVuaya8DxIOCnl8QuPHx5/ZVbFo1oKgVl1qHFBBrDctzQGtuLjPpRdNTWmKPH6oEvgN/MUID+l485Q==}
-    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
-    requiresBuild: true
-    dev: false
 
   /core-util-is@1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
