@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-state",
-  "version": "5.12.2",
+  "version": "5.12.3",
   "description": "Reducers for Podlove Player Framework",
   "main": "index.js",
   "keywords": [],
@@ -11,7 +11,7 @@
     "@podlove/components": "^5.12.2",
     "@podlove/player-actions": "^5.12.2",
     "@podlove/player-config": "^5.12.2",
-    "@podlove/player-sagas": "^5.12.2",
+    "@podlove/player-sagas": "^5.12.3",
     "@podlove/utils": "^5.12.2",
     "color": "3.1.2",
     "object-mapper": "6.0.1",

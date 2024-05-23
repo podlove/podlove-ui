@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-sagas",
-  "version": "5.12.2",
+  "version": "5.12.3",
   "description": "Sagas for Podlove Web Player",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/sagas",
   "keywords": [],

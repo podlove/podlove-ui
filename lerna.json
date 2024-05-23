@@ -3,6 +3,6 @@
     "apps/**",
     "packages/**"
   ],
-  "version": "5.12.2",
+  "version": "5.12.3",
   "npmClient": "npm"
 }

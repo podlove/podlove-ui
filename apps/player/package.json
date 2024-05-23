@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player",
-  "version": "5.12.2",
+  "version": "5.12.3",
   "description": "HTML5 Goodness for Podcasting",
   "homepage": "https://github.com/podlove/ui/tree/development/apps/player",
   "scripts": {
@@ -24,8 +24,8 @@
     "@podlove/components": "^5.12.2",
     "@podlove/player-actions": "^5.12.2",
     "@podlove/player-config": "^5.12.2",
-    "@podlove/player-sagas": "^5.12.2",
-    "@podlove/player-state": "^5.12.2",
+    "@podlove/player-sagas": "^5.12.3",
+    "@podlove/player-state": "^5.12.3",
     "@podlove/utils": "^5.12.2",
     "color": "3.1.2",
     "copy-to-clipboard": "3.2.0",
