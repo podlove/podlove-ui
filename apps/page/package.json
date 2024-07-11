@@ -25,7 +25,7 @@
     "fast-xml-parser": "4.3.2",
     "lodash-es": "4.17.21",
     "redux": "4.2.1",
-    "redux-vuex": "3.0.2",
+    "redux-vuex": "3.1.2",
     "redux-actions": "3.0.0",
     "redux-saga": "1.2.3",
     "reselect": "4.1.8",

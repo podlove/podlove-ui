@@ -154,8 +154,8 @@ importers:
         specifier: 1.2.3
         version: 1.2.3
       redux-vuex:
-        specifier: 3.0.2
-        version: 3.0.2(redux@4.2.1)(vue@3.2.30)
+        specifier: 3.1.2
+        version: 3.1.2(redux@4.2.1)(vue@3.2.30)
       reselect:
         specifier: 4.1.8
         version: 4.1.8
@@ -12545,18 +12545,6 @@ packages:
       vue: 3.2.41
     dev: false
 
-  /redux-vuex@3.0.2(redux@4.2.1)(vue@3.2.30):
-    resolution: {integrity: sha512-V4ZYQ23VXgoxM2MJOcuuIqhWjO5eaGlv157fFE2KD6s0IttX1iLbqL2W+rwXdaLR7dfMawmLa7H+s2TLscyQUg==}
-    peerDependencies:
-      redux: 4.x
-      vue: 3.x
-    dependencies:
-      get-value: 3.0.1
-      redux: 4.2.1
-      set-value: 4.1.0
-      vue: 3.2.30
-    dev: false
-
   /redux-vuex@3.0.2(redux@4.2.1)(vue@3.2.41):
     resolution: {integrity: sha512-V4ZYQ23VXgoxM2MJOcuuIqhWjO5eaGlv157fFE2KD6s0IttX1iLbqL2W+rwXdaLR7dfMawmLa7H+s2TLscyQUg==}
     peerDependencies:
@@ -12567,6 +12555,18 @@ packages:
       redux: 4.2.1
       set-value: 4.1.0
       vue: 3.2.41
+    dev: false
+
+  /redux-vuex@3.1.2(redux@4.2.1)(vue@3.2.30):
+    resolution: {integrity: sha512-ge4wh2z1v3cYiNE8s7/rSvy3YIe27sFXcHRrWjYXw40q8e/7WdJZXV1gqvEnZTvJmr9T9Fb6f5owaQOnSKtD2w==}
+    peerDependencies:
+      redux: 5.x
+      vue: 3.x
+    dependencies:
+      get-value: 3.0.1
+      redux: 4.2.1
+      set-value: 4.1.0
+      vue: 3.2.30
     dev: false
 
   /redux@4.2.0:
