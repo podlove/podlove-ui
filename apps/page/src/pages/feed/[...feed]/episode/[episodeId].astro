@@ -20,8 +20,6 @@ const timeline = [
   ...createTimeline((episode.transcripts || []) as unknown as PodloveWebPlayerTranscript[], episode.chapters || [], episode.contributors || []),
   { start: episode.duration, title: $t('TIMELINE.END') as string, type: 'marker' } as any,
 ];
-
-console.log('speakers', episode.contributors )
 ---
 
 <Layout title={`${podcastTitle} - ${episode.title}`}>

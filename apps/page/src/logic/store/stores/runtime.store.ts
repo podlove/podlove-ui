@@ -40,7 +40,8 @@ export const reducer = handleActions<State, any>(
         feed: payload.etag,
         version
       }) : null
-    })
+    }),
+
   },
   { initialized: false, locale: 'en-US', cacheKey: null, buildDate: null }
 );

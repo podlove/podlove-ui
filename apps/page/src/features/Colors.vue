@@ -14,7 +14,7 @@ import type { Colors } from '../logic/store/stores/colors.store';
 import type { ColorTokens } from '../types/color.types';
 
 const state = mapState({
-  colors: selectors.colors
+  colors: selectors.colors.values
 });
 
 const colors: ComputedRef<string> = computed(() =>

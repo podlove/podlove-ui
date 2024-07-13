@@ -3,6 +3,7 @@ import { handleActions, createAction, type Action } from 'redux-actions';
 import type { ColorTokens } from '../../../types/color.types';
 
 export interface Colors {
+  initialized: boolean;
   primary: ColorTokens;
   complementary: ColorTokens;
   gray: ColorTokens;
@@ -20,10 +21,12 @@ export const reducer = handleActions<State, any>(
   {
     [actions.setColors.toString()]: (state, { payload }: Action<setColorsPayload>) => ({
       ...state,
+      initialized: true,
       ...payload
     })
   },
   {
+    initialized: false,
     primary: {
       100: [242, 248, 251],
       200: [217, 235, 248],
@@ -63,5 +66,6 @@ export const reducer = handleActions<State, any>(
 );
 
 export const selectors = {
-  colors: identity
+  colors: identity,
+  initialized: (state: State) => state.initialized
 };

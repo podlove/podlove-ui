@@ -6,7 +6,6 @@ import type { PodloveWebPlayerChapter } from '@podlove/types';
 import type State from './state.js';
 
 import { selectors as runtime } from './stores/runtime.store';
-import { selectors as theme } from './stores/theme.store';
 import { selectors as podcast } from './stores/podcast.store';
 import { selectors as episodes } from './stores/episodes.store';
 import { selectors as player } from './stores/player.store';
@@ -30,7 +29,7 @@ const slices = {
   router: (state: State) => state.router,
   contributors: (state: State) => state.contributors,
   view: (state: State) => state.view,
-  colors: (state: State) => state.colors,
+  colors: (state: State) => state.colors
 };
 
 // runtime
@@ -76,10 +75,7 @@ export default {
     initialized: createSelector(slices.runtime, runtime.initialized),
     locale: createSelector(slices.runtime, runtime.locale),
     cacheKey,
-    buildDate: createSelector(slices.runtime, runtime.buildDate),
-  },
-  theme: {
-    background: createSelector(slices.theme, theme.background)
+    buildDate: createSelector(slices.runtime, runtime.buildDate)
   },
   podcast: {
     show: createSelector(slices.podcast, podcast.show),
@@ -90,7 +86,7 @@ export default {
     summary: createSelector(slices.podcast, podcast.summary),
     copyright: createSelector(slices.podcast, podcast.copyright),
     mail: createSelector(slices.podcast, podcast.mail),
-    owner: createSelector(slices.podcast, podcast.owner),
+    owner: createSelector(slices.podcast, podcast.owner)
   },
   current: {
     episode: currentEpisode
@@ -108,16 +104,19 @@ export default {
       )
   },
   episodes: {
-    list: createSelector(slices.episodes, episodes.list),
+    list: createSelector(slices.episodes, episodes.list)
   },
   view: {
     archive: {
       episodes: createSelector(slices.view, view.archiveEpisodes),
-      page: createSelector(slices.view, view.archiveEpisodesPage),
+      page: createSelector(slices.view, view.archiveEpisodesPage)
     },
-    loading: createSelector(slices.view, view.loading),
+    loading: createSelector(slices.view, view.loading)
   },
-  colors: createSelector(slices.colors, colors.colors),
+  colors: {
+    values: createSelector(slices.colors, colors.colors),
+    initialized: createSelector(slices.colors, colors.initialized),
+  },
   show: {
     poster: showPoster,
     title: showTitle
@@ -227,17 +226,20 @@ export default {
     hasResults: createSelector(slices.search, search.hasResults),
     selectedResult: createSelector(slices.search, search.selectedResult),
     episodesInitialized: createSelector(slices.search, search.episodesInitialized),
-    transcriptsInitialized: createSelector(slices.search, search.transcriptsInitialized),
+    transcriptsInitialized: createSelector(slices.search, search.transcriptsInitialized)
   },
   contributors: {
     item: (id: string) => createSelector(slices.contributors, contributors.item(id)),
-    list: createSelector(slices.contributors, contributors.list),
+    list: createSelector(slices.contributors, contributors.list)
   },
   router: {
     base,
     episodeId: createSelector(slices.router, router.episodeId),
     index: createSelector([base, feed], (...args) => args.filter(Boolean).join('/')),
-    episode: (episodeId: string) => createSelector([base, feed], (...args) => [...args, 'episode', episodeId].filter(Boolean).join('/')),
+    episode: (episodeId: string) =>
+      createSelector([base, feed], (...args) =>
+        [...args, 'episode', episodeId].filter(Boolean).join('/')
+      )
   },
   a11y: {
     chapterNext: (state: State) => {

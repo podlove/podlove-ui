@@ -7,6 +7,7 @@ import PageFooter from '../features/PageFooter.vue';
 import LoadingBar from '../features/LoadingBar.vue';
 import Subscribe from '../features/subscribe/Subscribe.vue';
 import Colors from '../features/Colors.vue';
+import LoadingOverlay from '../features/LoadingOverlay.vue';
 import { store } from '../logic';
 import { getLanguage } from '../i18n';
 
@@ -30,7 +31,8 @@ const lang = getLanguage();
     <ViewTransitions />
 	</head>
 	<body>
-    <Colors  client:load />
+    <Colors client:only="vue" />
+    <LoadingOverlay client:load />
     <LoadingBar client:only="vue" />
     <PageHeader client:idle transition:persis="header" />
     <main transition:animate="fade">

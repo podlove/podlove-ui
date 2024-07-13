@@ -11,7 +11,6 @@ import { reducer as chapters } from '@podlove/player-state/chapters';
 import { reducer as quantiles } from '@podlove/player-state/quantiles';
 
 import { reducer as runtime } from './stores/runtime.store';
-import { reducer as theme } from './stores/theme.store';
 import { reducer as podcast } from './stores/podcast.store';
 import { reducer as action } from './stores/action.store';
 import { reducer as episodes } from './stores/episodes.store';
@@ -30,7 +29,6 @@ export default combineReducers({
   episodes,
   playbar,
   podcast,
-  theme,
   player: combineReducers({
     quantiles,
     chapters,

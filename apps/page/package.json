@@ -21,7 +21,7 @@
     "@astrojs/node": "6.1.0",
     "@astrojs/tailwind": "5.0.2",
     "@astrojs/vue": "4.0.0",
-    "astro": "3.6.4",
+    "astro": "4.11.5",
     "vue": "3.2.30",
     "fast-xml-parser": "4.3.2",
     "lodash-es": "4.17.21",
