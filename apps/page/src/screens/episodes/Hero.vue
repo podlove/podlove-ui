@@ -18,7 +18,7 @@
               flex
               items-center
               justify-center
-              opacity-20
+              opacity-50
               hover:opacity-100
               transition
               ease-in

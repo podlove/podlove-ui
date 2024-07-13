@@ -52,7 +52,7 @@ export default ({
     EPISODES.indexEntities(
       results,
       (e: any) => e.id,
-      (e: any) => [e.title, e.description, e.chapters, e.contributors]
+      (e: any) => [e.title, e.description, e.chapters, e.contributors, e.content]
     );
     yield put(actions.search.initialize('episodes'));
   }

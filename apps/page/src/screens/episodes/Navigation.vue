@@ -8,12 +8,12 @@
       class="h-20 relative w-full flex items-center justify-center"
       :class="{ 'bg-white -mb-4': !docked, 'bg-transparent': docked }"
     >
-      <span class="w-full absolute top-0 shadow left" v-if="!docked"></span>
+      <span class="w-full absolute top-0 left" v-if="!docked"></span>
     </div>
 
     <div
       class="text-complementary-900 h-16 flex justify-center items-center py-4 px-8 w-full"
-      :class="{ 'bg-primary-900 shadow rounded-b': docked }"
+      :class="{ 'bg-primary-900 rounded-b': docked }"
     >
       <!-- Summary -->
       <button
@@ -52,7 +52,7 @@
     </div>
 
     <div class="h-20 relative w-full -mb-4" :class="{ 'bg-white -mb-4': !docked }">
-      <span class="w-full absolute top-0 shadow right" v-if="!docked"></span>
+      <span class="w-full absolute top-0 right" v-if="!docked"></span>
     </div>
   </div>
 </template>
@@ -94,17 +94,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.shadow.left {
-  height: 1px;
-  bottom: 3em;
-  margin-top: -1px;
-}
-
-.shadow.right {
-  height: 1px;
-  bottom: 3em;
-  margin-top: -1px;
-}
 
 .docked {
   transition: z-index 300ms;

@@ -14,15 +14,23 @@ const normalize = (input: string): string =>
     // CR -> LF
     .replaceAll(CR, LF);
 
+export interface Cue {
+  identifier?: string;
+  voice?: string;
+  text: string;
+  start: number;
+  end: number;
+}
+
 /**
  * NOTES.
  *
  * - this is great: https://w3c.github.io/webvtt/
  */
-export default (input: string) => {
+export default (input: string): { cues: Cue[] } => {
   let pos = 0;
   let line = 1;
-  const cues = [];
+  const cues: Cue[] = [];
 
   const content = normalize(input);
   const next = (length: number = 1): string => content.substring(pos, pos + length);

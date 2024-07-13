@@ -1,5 +1,5 @@
 <template>
-  <div v-if="state.loading" class="absolute z-10 h-1 w-full">
+  <div class="fixed z-10 h-1 w-full">
     <div class="loading-bar h-1" :style="{ width: `${width}%` }"></div>
   </div>
 </template>
@@ -11,7 +11,6 @@ import { selectors } from '../logic';
 import { ref, onUnmounted } from 'vue';
 
 const width = ref(0);
-
 const state = mapState({
   loading: selectors.view.loading
 });
@@ -40,7 +39,7 @@ onUnmounted(() => {
 
 <style scoped>
 .loading-bar {
-  background-color: rgba(var(--secondary-color-100), 0.8);
+  background-color: rgba(var(--complementary-color-500), 0.8);
   transition: width 0.2s ease-in-out;
 }
 </style>

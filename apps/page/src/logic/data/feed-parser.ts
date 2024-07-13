@@ -1,7 +1,7 @@
 import { get, castArray, kebabCase } from 'lodash-es';
 import { XMLParser } from 'fast-xml-parser';
 import { toPlayerTime } from '@podlove/utils/time';
-import { parse } from '../../lib/transcripts';
+import webVttParser from '@podlove/webvtt-parser';
 
 import type {
   Audio,
@@ -64,18 +64,30 @@ const transformShow = (data: any): Show => ({
 });
 
 const getTranscriptUrl = async (data: any): Promise<string | null> => {
-  return get(data, ['podcast:transcript', '@_url'], null);
+  const transcripts: { '@_url': string; '@_type': string }[] = get(
+    data,
+    ['podcast:transcript'],
+    []
+  );
+  const vtt = transcripts.find((item) => get(item, ['@_type'], null) === 'text/vtt');
+
+  return get(vtt, ['@_url'], null);
 };
 
 export const resolveTranscripts = async (transcriptsUrl: string): Promise<Transcript[]> =>
   fetch(transcriptsUrl)
-   .then((result) => result.text())
-   .then(parse)
-   .then(() => []);
-    // .then((result) => get(result, ['segments'], []))
-    // .then((items) =>
-    //   items.map(transformTranscript).filter((item: Transcript) => get(item, 'text'))
-    // );
+    .then((result) => result.text())
+    .then(webVttParser)
+    .then((result) => get(result, ['cues'], []))
+    .then((cues) =>
+      cues.map((cue) => ({
+        voice: cue.voice || null,
+        speaker: cue.identifier || kebabCase(cue.voice) || null,
+        start: cue.start,
+        end: cue.end,
+        text: cue.text
+      }))
+    );
 
 const transformAudio = (input: any): Audio[] => {
   const url = get(input, ['enclosure', '@_url'], null);
@@ -99,7 +111,7 @@ const resolveEpisode =
     const transcriptUrl = await getTranscriptUrl(data);
 
     return {
-      id: get(data, 'itunes:episode', null),
+      id,
       title: get(data, 'title', null),
       description: get(data, 'description', null),
       subtitle: get(data, 'itunes:subtitle', null),
@@ -112,7 +124,7 @@ const resolveEpisode =
       chapters: castArray(get(data, ['psc:chapters', 'psc:chapter'], []))
         .map(transformChapter)
         .map(buildChapterList(duration)),
-      transcripts: (id === episodeId && transcriptUrl) ? await resolveTranscripts(transcriptUrl) : [],
+      transcripts: id === episodeId && transcriptUrl ? await resolveTranscripts(transcriptUrl) : [],
       audio: transformAudio(data)
     };
   };

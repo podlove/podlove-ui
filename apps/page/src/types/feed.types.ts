@@ -1,3 +1,5 @@
+import type { PodloveWebPlayerTranscript } from "@podlove/types";
+
 export interface Podcast {
   etag: string | null;
   buildDate: string | null;
@@ -8,8 +10,8 @@ export interface Podcast {
 }
 
 export interface Transcript {
-  voice: string;
-  speaker: string;
+  voice: string | null;
+  speaker: string | null;
   start: number;
   end: number;
   text: string;
@@ -41,7 +43,7 @@ export interface Episode {
   contributors: Person[];
   poster: string;
   chapters: Chapter[];
-  transcripts: Transcript[] | string;
+  transcripts: Transcript[];
   audio: Audio[];
 }
 

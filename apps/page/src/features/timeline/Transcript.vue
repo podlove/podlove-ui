@@ -31,8 +31,8 @@
         <span
           :id="transcriptId(text.start, text.end)"
           :class="{
-            'border-b-2 border-primary-200': ghostTranscript(text.start, text.end),
-            'border-b-2 border-primary-700': activeTranscript(text.start, text.end),
+            'border-b border-gray-200': ghostTranscript(text.start, text.end),
+            'border-b border-gray-700': activeTranscript(text.start, text.end),
             'ml-0': index === 0
           }"
           class="mr-1 break-words cursor-pointer"

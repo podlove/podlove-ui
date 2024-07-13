@@ -102,9 +102,6 @@ importers:
       '@m31coding/fuzzy-search':
         specifier: 1.0.1
         version: 1.0.1
-      '@plussub/srt-vtt-parser':
-        specifier: 1.1.1
-        version: 1.1.1
       '@podlove/clients':
         specifier: workspace:*
         version: link:../../packages/clients
@@ -126,6 +123,9 @@ importers:
       '@podlove/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@podlove/webvtt-parser':
+        specifier: workspace:*
+        version: link:../../packages/webvtt-parser
       astro:
         specifier: 3.6.4
         version: 3.6.4(@types/node@18.18.14)(typescript@5.3.2)
@@ -2979,10 +2979,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@plussub/srt-vtt-parser@1.1.1:
-    resolution: {integrity: sha512-uHZLKANNVoXSEjLRtkyyDFXaiC86ZNnjPnHve5bs5RSiXV0DfVlUvXMZXzfR7X+z2OVdoLFn6oYsS2a/VkN8Ew==}
-    dev: false
 
   /@polka/url@1.0.0-next.23:
     resolution: {integrity: sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==}

@@ -104,7 +104,6 @@ export const createTimeline = (
     transformTranscript
   )(transcripts);
   const chapterEntries: PodloveWebPlayerTimelineChapterEntry[] = transformChapters(chapters);
-
   return sortBy(prop('start'), [...transcriptEntries, ...chapterEntries]) as (
     | PodloveWebPlayerTimelineChapterEntry
     | PodloveWebPlayerTimelineTranscriptEntry

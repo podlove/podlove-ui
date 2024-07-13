@@ -4,10 +4,10 @@ import Layout from '../../../../layouts/Layout.astro';
 import Hero from '../../../../screens/episodes/Hero.vue'
 import Navigation from '../../../../screens/episodes/Navigation.vue'
 import Timeline from '../../../../features/timeline/Timeline.vue'
-import { type Transcript } from '../../../../types/feed.types'
 
 import { store, selectors, actions } from '../../../../logic';
 import { useTranslations } from '../../../../i18n'
+import type { PodloveWebPlayerTranscript } from '@podlove/types';
 
 const { episodeId } = Astro.params;
 const $t = useTranslations();
@@ -17,9 +17,11 @@ const episode = selectors.episode.data(episodeId as string)(store.getState());
 store.dispatch(actions.router.episodePage({ base: 'feed', episodeId: episodeId as string }));
 const timeline = [
   { start: 0, title: $t('TIMELINE.START') as string, type: 'marker' } as any,
-  ...createTimeline(episode.transcripts as Transcript[], episode.chapters || [], episode.contributors || []),
+  ...createTimeline((episode.transcripts || []) as unknown as PodloveWebPlayerTranscript[], episode.chapters || [], episode.contributors || []),
   { start: episode.duration, title: $t('TIMELINE.END') as string, type: 'marker' } as any,
 ];
+
+console.log('speakers', episode.contributors )
 ---
 
 <Layout title={`${podcastTitle} - ${episode.title}`}>

@@ -16,6 +16,7 @@
     "@podlove/components": "workspace:*",
     "@podlove/types": "workspace:*",
     "@podlove/clients": "workspace:*",
+    "@podlove/webvtt-parser": "workspace:*",
     "@astrojs/check": "0.3.1",
     "@astrojs/node": "6.1.0",
     "@astrojs/tailwind": "5.0.2",
@@ -34,8 +35,7 @@
     "micromatch": "4.0.5",
     "@m31coding/fuzzy-search": "1.0.1",
     "color.js": "1.2.0",
-    "farbraum": "0.2.1",
-    "@plussub/srt-vtt-parser": "1.1.1"
+    "farbraum": "0.2.1"
   },
   "devDependencies": {
     "tailwindcss": "3.0.24",

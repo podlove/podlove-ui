@@ -5,7 +5,7 @@
       class="absolute top-0 left-0 h-4 border-gray-500 border-l-2 w-1 -mt-4 ml-4"
     ></span>
     <span
-      class="w-8 h-8 border-gray-500 bg-primary-700 border-1 rounded flex items-center justify-center shadow overflow-hidden"
+      class="w-8 h-8 border-gray-500 bg-primary-900 border-1 rounded flex items-center justify-center shadow overflow-hidden"
     >
       <slot />
     </span>
