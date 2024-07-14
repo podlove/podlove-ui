@@ -34,7 +34,7 @@ const lang = getLanguage();
     <Colors client:only="vue" />
     <LoadingOverlay client:load />
     <LoadingBar client:only="vue" />
-    <PageHeader client:idle transition:persis="header" />
+    <PageHeader client:idle transition:persist="header" />
     <main transition:animate="fade">
       <slot></slot>
     </main>
