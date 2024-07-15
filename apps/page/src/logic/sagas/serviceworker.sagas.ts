@@ -17,10 +17,13 @@ export default ({
 
     const feed: string = yield select(selectFeed);
     const cacheKey: string = yield select(selectCacheKey);
+    const baseUrl = new URL(document.location.href);
+
+    const serviceWorkerUrl = `${baseUrl.origin}${serviceWorker}?feed=${feed}&cacheKey=${cacheKey}`;
 
     try {
       const registration: ServiceWorkerRegistration = yield navigator.serviceWorker.register(
-        `${serviceWorker}?feed=${feed}&cacheKey=${cacheKey}`,
+        serviceWorkerUrl,
         {
           scope: '/'
         }
@@ -35,7 +38,7 @@ export default ({
 
   return function* () {
     if(import.meta.env.MODE === 'production') {
-      yield registerServiceWorker();
+    yield registerServiceWorker();
     }
   };
 };
