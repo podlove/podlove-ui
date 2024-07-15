@@ -11,10 +11,6 @@ export default defineConfig({
   // adapter: node({
   //   mode: 'standalone'
   // }),
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    }
-  }),
+  adapter: cloudflare(),
   integrations: [vue({ appEntrypoint: '/src/app' }), tailwind()]
 });
