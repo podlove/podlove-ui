@@ -41,11 +41,11 @@ export const currentChapterByPlaytime = (
   playtime: number
 ): PodloveWebPlayerChapter =>
   find((chapter: PodloveWebPlayerChapter) => {
-    if (playtime < chapter.start) {
+    if (playtime < (chapter.start as number)) {
       return false;
     }
 
-    if (playtime >= chapter.end) {
+    if (playtime >= (chapter.end as number)) {
       return false;
     }
 
@@ -65,11 +65,11 @@ export const activeChapter = (chapter: PodloveWebPlayerChapter): PodloveWebPlaye
 export const setActiveByPlaytime =
   (playtime: number) =>
   (chapter: PodloveWebPlayerChapter): PodloveWebPlayerChapter => {
-    if (playtime < chapter.start) {
+    if (playtime < (chapter.start as number)) {
       return inactiveChapter(chapter);
     }
 
-    if (playtime >= chapter.end) {
+    if (playtime >= (chapter.end as number)) {
       return inactiveChapter(chapter);
     }
 

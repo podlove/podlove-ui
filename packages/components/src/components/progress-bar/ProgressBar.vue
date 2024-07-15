@@ -1,38 +1,12 @@
 <template>
   <div class="podlove-component--progress-bar w-full relative cursor-pointer">
-    <input
-      v-if="isMobile"
-      ref="inputElement"
-      type="range"
-      min="0"
-      :max="interpolate(duration)"
-      :value="interpolate(time)"
-      tabindex="-1"
-      aria-hidden="true"
-      @change="onChange(extractValue($event))"
-      @input="onInput(extractValue($event))"
-    />
-    <input
-      v-else
-      ref="inputElement"
-      type="range"
-      min="0"
-      :max="interpolate(duration)"
-      :value="interpolate(time)"
-      tabindex="-1"
-      aria-hidden="true"
-      @change="onChange(extractValue($event))"
-      @input="onInput(extractValue($event))"
-      @mousemove="onMouseMove"
-      @mouseout="onMouseOut"
-    />
-    <span class="progress-range block absolute w-full left-0 pointer-events-none" />
+    <span class="progress-range block absolute w-full left-0" />
     <span
       v-for="(buffering, index) in buffer"
       :key="`buffer-${index}`"
       tabindex="-1"
       aria-hidden="true"
-      class="progress-buffer"
+      class="progress-buffer pointer-events-none"
       :style="bufferStyle(buffering)"
     />
     <span
@@ -46,7 +20,7 @@
     <div>
       <span
         v-for="(chapter, index) in chapters"
-        :key="index"
+        :key="`chapter-${index}`"
         tabindex="-1"
         aria-hidden="true"
         data-test="progress-bar--chapter-progress--indicator"
@@ -84,6 +58,33 @@
       @change="onChange((extractValue($event) / 100) * duration)"
       @input="onInput((extractValue($event) / 100) * duration)"
     />
+    <input
+      v-if="isMobile"
+      ref="inputElement"
+      type="range"
+      min="0"
+      :max="duration"
+      :value="time"
+      tabindex="-1"
+      aria-hidden="true"
+      @change="onChange(extractValue($event))"
+      @input="onInput(extractValue($event))"
+    />
+    <input
+      v-else
+      ref="inputElement"
+      type="range"
+      min="0"
+      :max="duration"
+      :value="time"
+      tabindex="-1"
+      aria-hidden="true"
+      @change="onChange(extractValue($event))"
+      @input="onInput(extractValue($event))"
+      @mousemove="onMouseMove"
+      @mouseout="onMouseOut"
+    />
+
   </div>
 </template>
 
@@ -97,37 +98,25 @@ import { enableGhost, disableGhost } from '@podlove/player-actions/progress';
 
 import { computed, onMounted, ref } from 'vue';
 import { pathOr, path } from 'ramda';
+import { debounce } from 'lodash-es';
 
-const props = defineProps({
-  time: {
-    type: Number,
-    default: 0
-  },
-  duration: {
-    type: Number,
-    default: 0
-  },
-  ghost: {
-    type: Number,
-    default: undefined
-  },
-  buffer: {
-    type: Array,
-    default: () => []
-  },
-  quantiles: {
-    type: Array,
-    default: () => []
-  },
-  title: {
-    type: String,
-    default: ''
-  },
-  chapters: {
-    type: Array,
-    default: () => []
-  }
-});
+const props = defineProps<{
+  time?: number;
+  duration?: number;
+  ghost?: number;
+  buffer?: [number, number][];
+  quantiles?: [number, number][];
+  title?: string;
+  chapters?: { start: number; end: number; }[];
+}>();
+
+const time = computed(() => interpolate(props.time || 0));
+const duration = computed(() => interpolate(props.duration || 0));
+const buffer = computed(() => props.buffer || []);
+const quantiles = computed(() => props.quantiles || []);
+const title = computed(() => props.title || '');
+const chapters = computed(() => props.chapters || []);
+const ghost = computed(() => props.ghost || NaN);
 
 const emits = defineEmits(['time', 'ghost', 'simulate']);
 
@@ -148,9 +137,9 @@ onMounted(() => {
 });
 
 // Methods
-const onChange = (value: number) => emits('time', requestPlaytime(value));
+const onChange = (value: number) => emits('time', requestPlaytime(interpolate(value)));
 const onInput = (value: number) => {
-  emits('time', requestPlaytime(value));
+  emits('time', requestPlaytime(interpolate(value)));
   emits('ghost', disableGhost());
 };
 
@@ -166,21 +155,19 @@ const onMouseMove = (event: MouseEvent) => {
   }
 
   thumbActive.value = true;
-
-  emits('simulate', simulatePlaytime((props.duration * event.offsetX) / width));
+  emits('simulate', simulatePlaytime(interpolate((props.duration * event.offsetX) / width)));
   emits('ghost', enableGhost());
 
   return false;
 };
 
-const onMouseOut = () => {
+const onMouseOut = debounce(() => {
   thumbActive.value = false;
-
   emits('ghost', disableGhost());
-  emits('simulate', simulatePlaytime(props.time));
+  emits('simulate', simulatePlaytime(time.value));
 
   return false;
-};
+}, 30);
 
 const trackStyle = ([start, end]: [number, number]) => ({
   left: relativePosition(start, props.duration),

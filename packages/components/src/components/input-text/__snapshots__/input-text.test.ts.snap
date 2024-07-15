@@ -5,6 +5,7 @@ exports[`InputText > props > should render type 'background' 1`] = `
   background="#fff"
   class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
   data-v-41de188a=""
+  value=""
 />
 `;
 
@@ -13,6 +14,7 @@ exports[`InputText > props > should render type 'block' 1`] = `
   block="true"
   class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
   data-v-41de188a=""
+  value=""
 />
 `;
 
@@ -21,6 +23,7 @@ exports[`InputText > props > should render type 'borderColor' 1`] = `
   bordercolor="#fff"
   class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
   data-v-41de188a=""
+  value=""
 />
 `;
 
@@ -29,6 +32,7 @@ exports[`InputText > props > should render type 'color' 1`] = `
   class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
   color="#fff"
   data-v-41de188a=""
+  value=""
 />
 `;
 
@@ -37,6 +41,7 @@ exports[`InputText > props > should render type 'disabled' 1`] = `
   class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
   data-v-41de188a=""
   disabled=""
+  value=""
 />
 `;
 
@@ -44,6 +49,7 @@ exports[`InputText > props > should render type 'value' 1`] = `
 <input
   class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
   data-v-41de188a=""
+  value="input-value"
 />
 `;
 
@@ -51,5 +57,6 @@ exports[`InputText > props > should render without props 1`] = `
 <input
   class="podlove-component-input-text box-border inline-block resize-none p-1 border border-solid rounded-sm h-8"
   data-v-41de188a=""
+  value=""
 />
 `;

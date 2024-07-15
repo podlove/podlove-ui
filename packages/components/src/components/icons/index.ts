@@ -18,6 +18,7 @@ import AudioFileIcon from './AudioFile.vue';
 import ImageFileIcon from './ImageFile.vue';
 import PdfFileIcon from './PdfFile.vue';
 import TextFileIcon from './TextFile.vue';
+import UserIcon from './User.vue';
 import VideoFileIcon from './VideoFile.vue';
 import EmbedIcon from './Embed.vue';
 import TwitterIcon from './Twitter.vue';
@@ -66,6 +67,12 @@ import ChevronRightIcon from './ChevronRight.vue';
 import ChevronLeftIcon from './ChevronLeft.vue';
 import XingIcon from './Xing.vue';
 import WhatsAppIcon from './WhatsApp.vue';
+import TimelineIcon from './Timeline.vue';
+import SummaryIcon from './Summary.vue';
+import ShownotesIcon from './Shownotes.vue';
+import DiscussIcon from './Discuss.vue';
+import HourGlassIcon from './HourGlass.vue';
+import LockIcon from './Lock.vue';
 
 export {
   PlayIcon,
@@ -89,6 +96,7 @@ export {
   PdfFileIcon,
   TextFileIcon,
   VideoFileIcon,
+  UserIcon,
   EmbedIcon,
   TwitterIcon,
   RedditIcon,
@@ -135,5 +143,11 @@ export {
   ChevronRightIcon,
   ChevronLeftIcon,
   XingIcon,
-  WhatsAppIcon
+  WhatsAppIcon,
+  TimelineIcon,
+  SummaryIcon,
+  ShownotesIcon,
+  DiscussIcon,
+  HourGlassIcon,
+  LockIcon
 };

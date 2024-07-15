@@ -1,4 +1,4 @@
-import { type, platform, client } from '../types'
+import { type, platform, client } from '../types.js'
 import icon from './icon.svg'
 
 export default [

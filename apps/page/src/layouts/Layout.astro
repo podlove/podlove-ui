@@ -1,0 +1,57 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import PageHeader from '../features/PageHeader.vue';
+import PlayBar from '../features/playbar/PlayBar.vue';
+import Search from '../features/Search.vue';
+import PageFooter from '../features/PageFooter.vue';
+import LoadingBar from '../features/LoadingBar.vue';
+import Subscribe from '../features/subscribe/Subscribe.vue';
+import Colors from '../features/Colors.vue';
+import LoadingOverlay from '../features/LoadingOverlay.vue';
+import { store } from '../logic';
+import { getLanguage } from '../i18n';
+
+const { title } = Astro.props;
+const state = store.getState();
+const lang = getLanguage();
+
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+    <script is:inline define:vars={{ state }}>window.REDUX_STATE = state;</script>
+    <ViewTransitions />
+	</head>
+	<body>
+    <Colors client:only="vue" />
+    <LoadingOverlay client:load />
+    <LoadingBar client:only="vue" />
+    <PageHeader client:idle transition:persist="header" />
+    <main transition:animate="fade">
+      <slot></slot>
+    </main>
+    <PageFooter />
+
+    <PlayBar client:only="vue" transition:persis="player" />
+    <div id="media-container" transition:persist="media-container"></div>
+    <script>
+      import '../logic';
+    </script>
+    <Search client:only="vue" />
+    <Subscribe client:only="vue" />
+	</body>
+</html>
+
+<style>
+  main {
+    min-height: calc(110vh - 100px);
+  }
+</style>

@@ -12,7 +12,7 @@ export const json = async <T>(url: string | T): Promise<T | null> => {
   }
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
 
     if (response.status !== 200) {
       return null;
@@ -24,7 +24,7 @@ export const json = async <T>(url: string | T): Promise<T | null> => {
 
     return response.json();
   } catch (err) {
-    console.warn(err);
+    console.warn(url, err);
     return null;
   }
 };
@@ -35,7 +35,7 @@ export const html = async (url): Promise<string | null> => {
   }
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, { headers: { 'Accept': 'text/html' } })
 
     if (response.status !== 200) {
       return null;

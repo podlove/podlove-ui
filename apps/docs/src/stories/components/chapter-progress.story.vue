@@ -28,7 +28,7 @@ const progressColor = ref(persianGreen);
 const ghostColor = ref(sandyBrown);
 const style = ref({
   '--podlove-component--chapter-progress--background': progressColor,
-  '--podlove-component--chapter-progress--ghost-background': ghostColor
+  '--podlove-component--chapter-progress--ghost--background': ghostColor
 });
 </script>
 

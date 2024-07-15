@@ -73,7 +73,7 @@ const handleDblclick = (event: Event) => {
       @dblclick="handleDblclick"
     />
     <span
-      class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+      class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     />
     <span
       v-for="(pin, index) in pins"

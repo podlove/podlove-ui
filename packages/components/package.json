@@ -38,7 +38,8 @@
     "ramda": "0.29.0",
     "rangetouch": "2.0.1",
     "tailwindcss": "3.2.4",
-    "vue": "3.2.41"
+    "vue": "3.4.31",
+    "lodash-es": "4.17.21"
   },
   "peerDependencies": {
     "vue": "3"
@@ -46,10 +47,11 @@
   "devDependencies": {
     "@podlove/types": "workspace:*",
     "@types/ramda": "0.29.0",
+    "@types/lodash-es": "4.17.12",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@vitejs/plugin-vue": "4.2.1",
-    "@vue/test-utils": "2.3.2",
+    "@vue/test-utils": "2.4.6",
     "eslint": "8.54.0",
     "eslint-plugin-vue": "9.18.1",
     "happy-dom": "9.1.9",

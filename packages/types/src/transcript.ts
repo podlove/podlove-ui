@@ -1,8 +1,6 @@
 export interface PodloveWebPlayerTranscript {
-  start: string;
-  start_ms: number;
-  end: string;
-  end_ms: number;
+  start: string | number;
+  end: string | number;
   speaker: string;
   voice: string;
   text: string;
@@ -23,7 +21,7 @@ export interface PodloveWebPlayerTimelineChapterEntry {
 export interface PodloveWebPlayerSpeaker {
   id: string;
   name: string;
-  avatar: string;
+  avatar?: string;
   role?: {
     id: string;
     slug: string;

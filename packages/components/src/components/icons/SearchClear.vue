@@ -18,7 +18,6 @@ defineProps({
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g transform="translate(-207.000000, -398.000000)">
         <g transform="translate(0.000000, 341.000000)">
-          <rect fill="currentColor" x="207" y="57" width="21" height="21" rx="10.5" />
           <rect
             fill="currentColor"
             transform="translate(217.500000, 67.772971) rotate(45.000000) translate(-217.500000, -67.772971) "

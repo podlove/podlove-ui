@@ -38,15 +38,17 @@ export const playerSaga = ({
   selectMedia,
   selectPlaytime,
   selectTitle,
-  selectPoster
+  selectPoster,
+  mountPoint
 }: {
   selectMedia: (input: any) => PodloveWebPlayerAudio[];
   selectPlaytime: (input: any) => number;
   selectTitle: (input: any) => string;
   selectPoster: (input: any) => string;
+  mountPoint: HTMLElement
 }) =>
   function* saga() {
-    const connector = audio();
+    const connector = audio(mountPoint);
 
     yield takeEvery(ready.toString(), initPlayer, {
       selectMedia,
@@ -86,9 +88,7 @@ export function* initPlayer({
 
   connector.load(mediaFiles.map(file => ({
     src: propOr(null, 'url', file),
-    size: propOr(null, 'size', file),
-    title: propOr(null, 'title', file),
-    mimeType: propOr(null, 'mimeType', file),
+    type: propOr(null, 'mimeType', file),
   })));
 
   // AudioAttributes

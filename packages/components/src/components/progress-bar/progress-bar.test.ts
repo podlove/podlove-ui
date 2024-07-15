@@ -14,6 +14,26 @@ describe('ProgressBar', () => {
     });
   });
 
+  const props = {
+    duration: 10000,
+    time: 5000,
+    ghost: 30,
+    buffer: [
+      [0, 1000],
+      [5000, 6000]
+    ],
+    quantiles: [
+      [0, 300],
+      [5500, 6000]
+    ],
+    title: 'title',
+    chapters: [
+      { start: 0, end: 1000 },
+      { start: 1000, end: 5000 },
+      { start: 5000, end: 10000 }
+    ]
+  };
+
   describe('props', () => {
     test('should render with default props', async () => {
       const wrapper = await mount(ProgressBar);
@@ -21,90 +41,46 @@ describe('ProgressBar', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    const props = [
-      {
-        prop: 'time',
-        value: 5000
-      },
-      {
-        prop: 'ghost',
-        value: 30
-      },
-      {
-        prop: 'buffer',
-        value: [
-          [0, 1000],
-          [5000, 6000]
-        ]
-      },
-      {
-        prop: 'quantiles',
-        value: [
-          [0, 300],
-          [5500, 6000]
-        ]
-      },
-      {
-        prop: 'title',
-        value: 'title'
-      },
-      {
-        prop: 'chapters',
-        value: [1000, 5000]
-      }
-    ];
-
-    props.forEach(({ prop, value }) => {
-      test(`should render '${prop}'`, async () => {
-        const wrapper = await mount(ProgressBar, {
-          props: {
-            [prop]: value,
-            duration: 10000
-          }
-        });
-
-        expect(wrapper.element).toMatchSnapshot();
+    test(`should render with custom props`, async () => {
+      const wrapper = await mount(ProgressBar, {
+        props
       });
+
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
   describe('events', () => {
     test('should emit REQUEST_PLAYTIME on input event', async () => {
       const wrapper = await mount(ProgressBar, {
-        props: {
-          duration: 10000
-        }
+        props
       });
 
       await wrapper.find('input').trigger('input');
       expect(wrapper.emitted().ghost).toEqual([[disableGhost()]]);
-      expect(wrapper.emitted().time).toEqual([[requestPlaytime(0)]]);
+      expect(wrapper.emitted().time).toEqual([[requestPlaytime(5000)]]);
     });
 
     test('should emit REQUEST_PLAYTIME on input event', async () => {
       const wrapper = await mount(ProgressBar, {
-        props: {
-          duration: 10000
-        }
+        props
       });
 
       await wrapper.find('input').trigger('input');
 
       expect(wrapper.emitted().ghost).toEqual([[disableGhost()]]);
-      expect(wrapper.emitted().time).toEqual([[requestPlaytime(0)]]);
+      expect(wrapper.emitted().time).toEqual([[requestPlaytime(5000)]]);
     });
 
     test('should emit DISABLE_GHOST on input event', async () => {
       const wrapper = await mount(ProgressBar, {
-        props: {
-          duration: 10000
-        }
+        props
       });
 
       await wrapper.find('input').trigger('input');
 
       expect(wrapper.emitted().ghost).toEqual([[disableGhost()]]);
-      expect(wrapper.emitted().time).toEqual([[requestPlaytime(0)]]);
+      expect(wrapper.emitted().time).toEqual([[requestPlaytime(5000)]]);
     });
   });
 });

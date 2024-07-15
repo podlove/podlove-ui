@@ -1,4 +1,4 @@
-import { type, platform, client } from '../types'
+import { type, platform, client } from '../types.js'
 import icon from './icon.svg'
 
 export default [
@@ -20,7 +20,7 @@ export default [
   }),
   client({
     title: 'Google Podcasts',
-    scheme: (feed) => `https://podcasts.google.com/?feed=${btoa(feed)}`,
+    scheme: (feed) => `https://podcasts.google.com/?feed=${window.btoa(feed)}`,
     platform: platform.web,
     type: type.service,
     icon

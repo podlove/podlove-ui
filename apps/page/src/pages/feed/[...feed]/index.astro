@@ -1,0 +1,24 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import EpisodeList from '../../../screens/archive/List.vue';
+import { actions, selectors, store } from '../../../logic';
+import HeroIndex from '../../../screens/archive/Hero.vue';
+import LoadMore from '../../../screens/archive/LoadMore.vue';
+
+const title = selectors.podcast.title(store.getState());
+
+store.dispatch(actions.router.setRoute(['feed']));
+---
+<Layout title={title}>
+	<HeroIndex  />
+
+  <div class="flex justify-center">
+    <EpisodeList client:idle />
+  </div>
+
+  <LoadMore class="flex justify-center mb-8" client:idle />
+</Layout>
+
+<style>
+
+</style>

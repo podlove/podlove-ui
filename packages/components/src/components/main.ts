@@ -48,6 +48,7 @@ import {
   ImageFileIcon,
   PdfFileIcon,
   TextFileIcon,
+  UserIcon,
   VideoFileIcon,
   EmbedIcon,
   TwitterIcon,
@@ -95,7 +96,13 @@ import {
   ChevronRightIcon,
   ChevronLeftIcon,
   XingIcon,
-  WhatsAppIcon
+  WhatsAppIcon,
+  TimelineIcon,
+  SummaryIcon,
+  ShownotesIcon,
+  DiscussIcon,
+  HourGlassIcon,
+  LockIcon
 } from './icons/index.js';
 
 export {
@@ -137,6 +144,7 @@ export {
   ImageFileIcon,
   PdfFileIcon,
   TextFileIcon,
+  UserIcon,
   VideoFileIcon,
   EmbedIcon,
   TwitterIcon,
@@ -194,5 +202,11 @@ export {
   TwitterChannel,
   WhatsAppChannel,
   XingChannel,
-  PinterestChannel
+  PinterestChannel,
+  TimelineIcon,
+  SummaryIcon,
+  ShownotesIcon,
+  DiscussIcon,
+  HourGlassIcon,
+  LockIcon
 };

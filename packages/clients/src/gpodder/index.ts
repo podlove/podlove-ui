@@ -1,6 +1,6 @@
-import { type, platform, client } from '../types'
-import { removeHttps } from '../helper'
-import icon from './icon.svg'
+import { type, platform, client } from '../types.js';
+import { removeHttps } from '../helper.js';
+import icon from './icon.svg';
 
 export default [
   client({
@@ -27,4 +27,4 @@ export default [
     type: type.app,
     icon
   })
-]
+];

@@ -1,0 +1,98 @@
+---
+import { createTimeline } from '@podlove/utils/transcripts'
+import Layout from '../../../../layouts/Layout.astro';
+import Hero from '../../../../screens/episodes/Hero.vue'
+import Navigation from '../../../../screens/episodes/Navigation.vue'
+import Timeline from '../../../../features/timeline/Timeline.vue'
+
+import { store, selectors, actions } from '../../../../logic';
+import { useTranslations } from '../../../../i18n'
+import type { PodloveWebPlayerTranscript } from '@podlove/types';
+
+const { episodeId } = Astro.params;
+const $t = useTranslations();
+const podcastTitle = selectors.podcast.title(store.getState());
+const episode = selectors.episode.data(episodeId as string)(store.getState());
+
+store.dispatch(actions.router.episodePage({ base: 'feed', episodeId: episodeId as string }));
+const timeline = [
+  { start: 0, title: $t('TIMELINE.START') as string, type: 'marker' } as any,
+  ...createTimeline((episode.transcripts || []) as unknown as PodloveWebPlayerTranscript[], episode.chapters || [], episode.contributors || []),
+  { start: episode.duration, title: $t('TIMELINE.END') as string, type: 'marker' } as any,
+];
+---
+
+<Layout title={`${podcastTitle} - ${episode.title}`}>
+  { episodeId && <Hero id={episodeId.toString()} client:idle>
+      <Navigation client:only="vue" shownotes={!!episode.description} timeline={timeline.length > 0} discuss={false} />
+    </Hero> }
+  <div class="lg:w-full lg:flex lg:justify-center pt-20">
+    <div class="lg:w-app">
+      <section id="summary">
+        <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
+          { $t('EPISODE.SUMMARY') }
+        </h2>
+        <div class="font-light border-gray-400 border-b mb-12 pt-6 pb-12 px-6">
+          { episode.description }
+        </div>
+      </section>
+      { episode.content && <section id="shownotes">
+        <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
+          { $t('EPISODE.SHOWNOTES') }
+        </h2>
+        <div
+          class="font-light episode-content border-gray-400 border-b mb-12 pb-12 px-12"
+          set:html={episode.content}
+        ></div>
+      </section> }
+      { timeline.length > 0 && <section id="timeline">
+        <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
+          { $t('EPISODE.TIMELINE') }
+        </h2>
+        <Timeline
+          episodeId={(episode.id || '').toString()}
+          entries={timeline}
+          client:idle
+        />
+      </section> }
+    </div>
+  </div>
+</Layout>
+
+
+<style is:global>
+  .episode-content ul {
+    list-style-type: disc !important;
+    margin-bottom: 2em;
+  }
+
+  .episode-content li {
+    margin-bottom: 0.5em;
+  }
+
+  .episode-content h1 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: -1.5em;
+    margin-bottom: 1em;
+  }
+
+  .episode-content h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: -1.5em;
+    margin-bottom: 0.75em;
+  }
+
+  .episode-content h3 {
+    font-weight: bold;
+    font-size: 1em;
+    margin-left: -1.5em;
+    margin-bottom: 0.75em;
+  }
+
+  .episode-content a {
+    border-bottom: 1px solid rgba(203, 213, 224);
+    padding-bottom: 1px;
+  }
+  </style>
