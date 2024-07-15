@@ -145,7 +145,7 @@ const transform =
     show: transformShow(data),
     episodes: await Promise.all(
       castArray(get(data, ['channel', 'item'], [])).map(resolveEpisode(episodeId))
-    ),
+    ).then(episodes => episodes.filter(episode => episode.id !== null)),
     hosts: castArray(get(data, ['channel', 'podcast:person'], [])).map(transformPerson)
   });
 
@@ -161,7 +161,6 @@ export default async ({
   }
 
   return await fetch(feed)
-    // TODO: add cache key
     .then(async (result) => {
       const feedXml = await result.text();
       const etag: string | null = result.headers.get('etag');
