@@ -25,7 +25,7 @@ export const reducer = handleActions<State, any>(
       ...state,
      archive: {
       ...state.archive,
-      episodes: payload.episodes.map(({ id }) => id)
+      episodes: payload.data.episodes.map(({ id }) => id)
      }
     }),
     [actions.archiveLoadMore.toString()]: (state) => ({

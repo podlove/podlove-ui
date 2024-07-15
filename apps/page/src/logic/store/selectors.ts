@@ -19,7 +19,6 @@ import { selectors as colors } from './stores/colors.store';
 
 const slices = {
   runtime: (state: State) => state.runtime,
-  theme: (state: State) => state.theme,
   podcast: (state: State) => state.podcast,
   player: (state: State) => state.player,
   playbar: (state: State) => state.playbar,

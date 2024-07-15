@@ -12,21 +12,21 @@ import type {
 import { actions } from '../store';
 import { resolveTranscripts } from '../data/feed-parser';
 import type { Episode, Person, Transcript } from '../../types/feed.types';
-import { findPerson } from '../../lib/persons';
+// import { findPerson } from '../../lib/persons';
 import { proxy } from '../../lib/url';
 
 export default ({
   selectVisible,
   selectInitialized,
   selectEpisodes,
-  selectContributors,
+  // selectContributors,
   selectResults,
   selectSelectedResult
 }: {
   selectVisible: (input: any) => boolean;
   selectInitialized: (input: any) => boolean;
   selectEpisodes: (input: any) => Episode[];
-  selectContributors: (input: any) => Person[];
+  // selectContributors: (input: any) => Person[];
   selectResults: (input: any) => { id: string | number }[];
   selectSelectedResult: (input: any) => string | null;
 }) => {
@@ -87,34 +87,34 @@ export default ({
     yield put(actions.search.initialize('transcripts'));
   }
 
-  function* createContributorsSearchIndex(contributors: Person[], episodes: Episode[]) {
-    const results = contributors.map((contributor) => {
-      const attendedEpisodes = episodes.filter((episode) =>
-        findPerson(episode.contributors, contributor.id)
-      );
+  // function* createContributorsSearchIndex(contributors: Person[], episodes: Episode[]) {
+  //   const results = contributors.map((contributor) => {
+  //     const attendedEpisodes = episodes.filter((episode) =>
+  //       findPerson(episode.contributors, contributor.id)
+  //     );
 
-      return {
-        ...contributor,
-        id: `contributor-${contributor.id}`,
-        episode: {
-          title: attendedEpisodes.map(({ title }) => title).join(' '),
-          description: attendedEpisodes.map(({ description }) => description).join(' ')
-        }
-      };
-    });
+  //     return {
+  //       ...contributor,
+  //       id: `contributor-${contributor.id}`,
+  //       episode: {
+  //         title: attendedEpisodes.map(({ title }) => title).join(' '),
+  //         description: attendedEpisodes.map(({ description }) => description).join(' ')
+  //       }
+  //     };
+  //   });
 
-    CONTRIBUTORS.indexEntities(
-      flattenDeep(results),
-      (e: any) => e.id,
-      (e: any) => [e.episode.title, e.episode.description]
-    );
+  //   CONTRIBUTORS.indexEntities(
+  //     flattenDeep(results),
+  //     (e: any) => e.id,
+  //     (e: any) => [e.episode.title, e.episode.description]
+  //   );
 
-    yield put(actions.search.initialize('contributors'));
-  }
+  //   yield put(actions.search.initialize('contributors'));
+  // }
 
   function* createSearchIndex() {
     const episodes: Episode[] = yield select(selectEpisodes);
-    const contributors: Person[] = yield select(selectContributors);
+    // const contributors: Person[] = yield select(selectContributors);
     const resolvedEpisodes: Episode[] = yield all(episodes.map(fetchTranscripts));
     yield createEpisodesSearchIndex(resolvedEpisodes);
     yield createTranscriptsSearchIndex(resolvedEpisodes);

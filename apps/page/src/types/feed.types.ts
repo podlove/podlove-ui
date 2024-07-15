@@ -1,5 +1,3 @@
-import type { PodloveWebPlayerTranscript } from "@podlove/types";
-
 export interface Podcast {
   etag: string | null;
   buildDate: string | null;

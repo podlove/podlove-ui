@@ -1,24 +1,21 @@
-import { put, takeEvery, select, delay, all } from 'redux-saga/effects';
+import { put, takeEvery, select } from 'redux-saga/effects';
 import {
   requestPlay,
   requestPause,
   backendLoadingStart,
   requestLoad,
-  backendLoadingEnd
 } from '@podlove/player-actions/play';
 import { backendPlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
 import { takeOnce } from '@podlove/player-sagas/helper';
 import { setRate, setVolume, mute, unmute } from '@podlove/player-actions/audio';
 import { init, ready } from '@podlove/player-actions/lifecycle';
-import { castArray, isNil } from 'lodash-es';
+import { isNil } from 'lodash-es';
 import type { Action } from 'redux-actions';
 
 import { actions } from '../store';
-import type { Episode, Show, Transcript } from '../../types/feed.types';
+import type { Episode, Show } from '../../types/feed.types';
 import type { playEpisodePayload } from '../store/stores/player.store';
 import { toPlayerEpisode } from '../transformations/player';
-import { resolveTranscripts } from '../data/feed-parser';
-import type { requestEpisodePayload } from '../store/stores/episodes.store';
 
 export default ({
   selectEpisode,

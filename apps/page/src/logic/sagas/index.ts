@@ -61,7 +61,7 @@ export async function createSideEffects() {
     sagas.push(searchSaga({
       selectInitialized: selectors.search.initialized,
       selectEpisodes: selectors.episodes.list,
-      selectContributors: selectors.contributors.list,
+      // selectContributors: selectors.contributors.list,
       selectVisible: selectors.search.visible,
       selectResults: selectors.search.results,
       selectSelectedResult: selectors.search.selectedResult,

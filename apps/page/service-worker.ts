@@ -23,7 +23,7 @@ const getCache = async (): Promise<Cache | null> => {
 
 const handleRequest = async (request: Request) => {
   const cache = await getCache();
-  const cacheKey = await getCacheKey();
+  const cacheKey = getCacheKey();
 
   if (!cache || !cacheKey) {
     return fetch(request);

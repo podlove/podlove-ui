@@ -21,7 +21,7 @@
         @click="scrollTo('summary')"
       >
         <summary-icon class="mr-3" />
-        <span class="uppercase hidden md:block">{{ $t('EPISODE.SUMMARY') }}</span>
+        <span class="uppercase hidden md:block">{{ t('EPISODE.SUMMARY') }}</span>
       </button>
       <!-- Shownotes -->
       <button
@@ -30,7 +30,7 @@
         v-if="shownotes"
       >
         <shownotes-icon class="mr-3" />
-        <span class="uppercase hidden md:block">{{ $t('EPISODE.SHOWNOTES') }}</span>
+        <span class="uppercase hidden md:block">{{ t('EPISODE.SHOWNOTES') }}</span>
       </button>
       <!-- Timeline -->
       <button
@@ -38,7 +38,7 @@
         @click="scrollTo('timeline')"
       >
         <timeline-icon class="mr-3" />
-        <span class="uppercase hidden md:block">{{ $t('EPISODE.TIMELINE') }}</span>
+        <span class="uppercase hidden md:block">{{ t('EPISODE.TIMELINE') }}</span>
       </button>
       <!-- Discuss -->
       <button
@@ -47,7 +47,7 @@
         @click="scrollTo('discuss')"
       >
         <discuss-icon class="mr-3" />
-        <span class="uppercase hidden md:block">{{ $t('EPISODE.DISCUSS') }}</span>
+        <span class="uppercase hidden md:block">{{ t('EPISODE.DISCUSS') }}</span>
       </button>
     </div>
 
@@ -61,9 +61,11 @@
 import { ref, type Ref } from 'vue'
 import scrollIntoView from 'scroll-into-view-if-needed'
 import { TimelineIcon, SummaryIcon, ShownotesIcon, DiscussIcon } from '@podlove/components';
-
 import { onMounted } from 'vue';
 import { throttle } from 'lodash-es';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 defineProps<{
   shownotes: boolean;

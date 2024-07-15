@@ -27,7 +27,7 @@ const lang = getLanguage();
     <link rel="manifest" href="/manifest.json">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <script define:vars={{ state }}>window.REDUX_STATE = state;</script>
+    <script is:inline define:vars={{ state }}>window.REDUX_STATE = state;</script>
     <ViewTransitions />
 	</head>
 	<body>

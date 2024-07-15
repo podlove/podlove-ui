@@ -1,8 +1,6 @@
 import { get } from 'lodash-es';
 import { createAction, handleActions, type Action } from 'redux-actions';
-import { etag } from '../../../lib/caching.js';
 import type { Podcast } from '../../../types/feed.types.js';
-import { version } from '../../../../package.json';
 
 export interface State {
   initialized: boolean;
@@ -17,7 +15,10 @@ export interface initializeAppPayload {
   episodeId?: number
 }
 
-export type dataFetchedPayload = Podcast;
+export type dataFetchedPayload = {
+  data: Podcast,
+  cacheKey: string | null;
+};
 
 export const actions = {
   initializeApp: createAction<initializeAppPayload>('INITIALIZE'),
@@ -27,7 +28,7 @@ export const actions = {
 
 export const reducer = handleActions<State, any>(
   {
-    [actions.initializeApp.toString()]: (state, { payload}: Action<initializeAppPayload>) => ({
+    [actions.initializeApp.toString()]: (state, { payload }: Action<initializeAppPayload>) => ({
       ...state,
       initialized: false,
       locale: payload.locale
@@ -35,11 +36,8 @@ export const reducer = handleActions<State, any>(
     [actions.dataFetched.toString()]: (state, { payload }: Action<dataFetchedPayload>) => ({
       ...state,
       initialized: true,
-      buildDate: get(payload, 'buildDate', null),
-      cacheKey: payload.etag ? etag({
-        feed: payload.etag,
-        version
-      }) : null
+      buildDate: get(payload, ['data', 'buildDate'], null),
+      cacheKey: get(payload, 'cacheKey', null)
     }),
 
   },

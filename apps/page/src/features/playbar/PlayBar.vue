@@ -21,7 +21,7 @@
             :buffer="state.buffer"
             :chapters="state.chapters"
             :quantiles="state.quantiles"
-            :title="$t(state.a11yProgressBar.key, state.a11yProgressBar.attr)"
+            :title="t(state.a11yProgressBar.key, state.a11yProgressBar.attr)"
           />
         </div>
         <div class="px-4 py-2 pt-8">
@@ -59,13 +59,13 @@
                 type="previous"
                 class="chapter-button mx-2 hidden sm:block"
                 @previous="dispatch"
-                :title="$t(state.a11yChapterPrevious.key, state.a11yChapterPrevious.attr)"
+                :title="t(state.a11yChapterPrevious.key, state.a11yChapterPrevious.attr)"
               />
               <stepper-button
                 type="backwards"
                 class="stepper-button mx-2 hidden sm:block"
                 @backwards="dispatch"
-                :title="$t(state.a11yStepperBackwards.key, state.a11yStepperBackwards.attr)"
+                :title="t(state.a11yStepperBackwards.key, state.a11yStepperBackwards.attr)"
               />
               <play-button
                 class="play-button mx-2 rounded-full shadow-none hover:shadow-md"
@@ -79,14 +79,14 @@
                 type="forward"
                 class="stepper-button mx-2 hidden sm:block"
                 @forward="dispatch"
-                :title="$t(state.a11yStepperForward.key, state.a11yStepperForward.attr)"
+                :title="t(state.a11yStepperForward.key, state.a11yStepperForward.attr)"
               />
               <chapter-button
                 v-if="state.chapters.length > 0"
                 type="next"
                 class="chapter-button mx-2 hidden sm:block"
                 @next="dispatch"
-                :title="$t(state.a11yChapterNext.key, state.a11yChapterNext.attr)"
+                :title="t(state.a11yChapterNext.key, state.a11yChapterNext.attr)"
               />
             </div>
             <div class="justify-center items-end w-1/3 flex-col hidden md:flex">
@@ -164,7 +164,7 @@
         "
       >
         <div class="w-full px-4 py-3 border-b border-complementary-900 flex justify-between items-center">
-          <h3 class="uppercase text-lg font-normal leading-none">{{ $t('PLAYBAR.CHAPTERS') }}</h3>
+          <h3 class="uppercase text-lg font-normal leading-none">{{ t('PLAYBAR.CHAPTERS') }}</h3>
           <button @click="toggleChaptersOverlay">
             <close-icon />
           </button>

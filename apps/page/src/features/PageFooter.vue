@@ -4,7 +4,7 @@
   >
     <div class="w-full lg:w-app px-8 block lg:flex">
       <div class="w-full md:w-1/3 truncate">
-        {{ $t('FOOTER.COPYRIGHT', { copyright: state.copyright }) }}
+        {{ t('FOOTER.COPYRIGHT', { copyright: state.copyright }) }}
       </div>
       <div class="w-full md:w-1/3 truncate text-center" v-if="state.owner">
         <a
@@ -13,10 +13,10 @@
           :href="`mailto:${state.mail}`"
           target="_blank"
           rel="nofollow noopener"
-          >{{ $t('FOOTER.CONTACT', { name: state.owner }) }}</a
+          >{{ t('FOOTER.CONTACT', { name: state.owner }) }}</a
         >
         <span v-else>
-          {{ $t('FOOTER.CONTACT', { name: state.owner }) }}
+          {{ t('FOOTER.CONTACT', { name: state.owner }) }}
         </span>
       </div>
 
@@ -26,7 +26,7 @@
           href="https://podlove.org"
           target="_blank"
           rel="nofollow noopener"
-          >{{ $t('FOOTER.CREATED_WITH', { name: 'Podlove', buildDate }) }}</a
+          >{{ t('FOOTER.CREATED_WITH', { name: 'Podlove', buildDate }) }}</a
         >
       </div>
     </div>
@@ -36,7 +36,10 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { mapState } from 'redux-vuex';
+import { useI18n } from 'vue-i18n';
 import { selectors } from '../logic';
+
+const { t } = useI18n();
 
 const state = mapState({
   copyright: selectors.podcast.copyright,

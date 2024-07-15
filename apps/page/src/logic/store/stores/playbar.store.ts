@@ -1,7 +1,5 @@
-import { get } from 'lodash-es';
-import { ready, type readyPayload } from '@podlove/player-actions/lifecycle'
-import { handleActions, createAction, type Action } from 'redux-actions'
-import * as player from './player.store'
+import { handleActions, createAction } from 'redux-actions';
+import * as player from './player.store';
 
 export const actions = {
   play: createAction('PLAYBAR_PLAY'),
@@ -12,7 +10,7 @@ export const actions = {
   nextRate: createAction('NEXT_RATE'),
   toggleFollowContent: createAction('FOLLOW_CONTENT'),
   toggleChaptersOverlay: createAction('TOGGLE_CHAPTERS')
-}
+};
 
 export interface State {
   active: boolean;
@@ -65,4 +63,4 @@ export const selectors = {
   button: (state: State) => state.button,
   followContent: (state: State) => state.followContent,
   chapters: (state: State) => state.chapters
-}
+};

@@ -2,7 +2,7 @@ import { provideStore } from 'redux-vuex';
 import { createI18n } from 'vue-i18n';
 import type { App } from 'vue';
 import { messages, defaultLang, getLanguage } from './i18n';
-import { store, actions } from './logic';
+import { store } from './logic';
 
 export default (app: App) => {
   const i18n = createI18n({
@@ -13,5 +13,5 @@ export default (app: App) => {
   });
 
   app.use(i18n);
-  provideStore({ app, store, actions });
+  provideStore({ app, store });
 };

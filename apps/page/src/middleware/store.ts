@@ -17,7 +17,7 @@ export const initializeStore = defineMiddleware(async ({ request, params }, next
   await waitFor(() => {
     const initialized = selectors.runtime.initialized(store.getState());
     return initialized ? true : undefined;
-  }, 10000).catch((err) => {
+  }, 10000).catch(() => {
     throw Error('Request timed out');
   });
 

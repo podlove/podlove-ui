@@ -1,5 +1,4 @@
 import { type State as runtime } from './stores/runtime.store';
-import { type State as theme } from './stores/theme.store';
 import { type State as podcast } from './stores/podcast.store';
 import { type State as action } from './stores/action.store';
 import { type State as episodes } from './stores/episodes.store';
@@ -18,7 +17,6 @@ export default interface State {
   action: action,
   episodes: episodes,
   playbar: playbar,
-  theme: theme,
   search: search,
   subscribeButton: subscribeButton,
   player: player,

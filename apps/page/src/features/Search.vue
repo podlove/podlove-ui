@@ -38,11 +38,11 @@
             @input="searchQuery($event)"
             ref="search"
             id="search-input"
-            :placeholder="$t(`SEARCH.PLACEHOLDER`)"
+            :placeholder="t(`SEARCH.PLACEHOLDER`)"
             :value="state.query"
           />
           <span v-else class="font-light text-2xl text-gray-500 w-full p-2">{{
-            $t(`SEARCH.INDEXING`)
+            t(`SEARCH.INDEXING`)
           }}</span>
           <button class="text-gray-500 -ml-5" @click="searchQuery()">
             <search-clear-icon
@@ -58,7 +58,7 @@
               class="border-t border-gray-300 px-6 py-6 text-gray-600 text-center"
               v-if="!state.hasResults && state.query && state.query.length > 0"
             >
-              {{ $t('SEARCH.NO_RESULTS') }}
+              {{ t('SEARCH.NO_RESULTS') }}
             </div>
             <div
               class="results border-t border-gray-300 px-3 py-3 overflow-y-auto"
@@ -67,7 +67,7 @@
             >
               <div class="text-gray-800 tracking-wide" v-if="state.contributors.length > 0">
                 <span class="font-normal px-3 mt-3 text-gray-700 opacity-75">
-                  {{ $t(`SEARCH.CATEGORY.CONTRIBUTOR`) }}
+                  {{ t(`SEARCH.CATEGORY.CONTRIBUTOR`) }}
                 </span>
                 <button
                   @click="selectSearchResult(result.id)"
@@ -104,7 +104,7 @@
               </div>
               <div class="text-gray-800 tracking-wide" v-if="state.episodes.length > 0">
                 <span class="font-normal px-3 mt-3 text-gray-700 opacity-75">
-                  {{ $t(`SEARCH.CATEGORY.EPISODE`) }}
+                  {{ t(`SEARCH.CATEGORY.EPISODE`) }}
                 </span>
                 <a
                   :href="episodeLink(result.id)"
@@ -154,7 +154,7 @@
               </div>
               <div class="text-gray-800 tracking-wide" v-if="state.transcripts.length > 0">
                 <span class="font-normal px-3 mt-3 text-gray-700 opacity-75">
-                  {{ $t(`SEARCH.CATEGORY.TRANSCRIPT`) }}
+                  {{ t(`SEARCH.CATEGORY.TRANSCRIPT`) }}
                 </span>
                 <a
                   :href="episodeLink(result.episodeId) + `#:~:text=${result.text}`"
@@ -191,7 +191,7 @@
                     <div class="italic truncate">{{ result.text }}</div>
                     <div class="text-sm text-gray-400 font-light truncate">
                       {{
-                        $t('SEARCH.EPISODE', {
+                        t('SEARCH.EPISODE', {
                           number: result.episodeId,
                           title: result.episodeTitle
                         })
@@ -213,12 +213,14 @@ import { ref } from 'vue';
 import { injectStore, mapState } from 'redux-vuex';
 import { get } from 'lodash-es';
 import { CloseIcon, SearchIcon, SearchClearIcon, UserIcon } from '@podlove/components';
+import { useI18n } from 'vue-i18n';
 
 import Loader from '../components/Loader.vue';
 import { selectors, actions } from '../logic';
 import { findPerson } from '../lib/persons';
 import type { Person } from '../types/feed.types';
 
+const { t } = useI18n();
 const content = ref(null);
 
 const state = mapState({

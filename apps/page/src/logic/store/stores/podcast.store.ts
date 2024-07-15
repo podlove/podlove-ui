@@ -15,11 +15,11 @@ export interface State {
 export const reducer = handleActions<State, any>({
   [lifecycleActions.dataFetched.toString()]: (state, { payload }: Action<dataFetchedPayload>) => ({
     ...state,
-    title: get(payload, ['show', 'title'], null),
-    poster: get(payload, ['show', 'poster'], null),
-    description: get(payload, ['show', 'description'], null),
-    summary: get(payload, ['show', 'summary'], null),
-    author: get(payload, ['author'], {
+    title: get(payload, ['data', 'show', 'title'], null),
+    poster: get(payload, ['data', 'show', 'poster'], null),
+    description: get(payload, ['data', 'show', 'description'], null),
+    summary: get(payload, ['data', 'show', 'summary'], null),
+    author: get(payload, ['data', 'author'], {
       owner: null,
       copyright: null,
       name: null,

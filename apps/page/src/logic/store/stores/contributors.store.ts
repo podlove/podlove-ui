@@ -15,7 +15,7 @@ export type requestEpisodePayload = string | string[];
 
 export const reducer = handleActions<State, any>({
   [lifecycleActions.dataFetched.toString()]: (state, { payload }: Action<dataFetchedPayload>) => {
-      return flattenDeep(payload.episodes.map(episode => episode.contributors || [])).reduce((result, contributor) => ({
+      return flattenDeep(payload.data.episodes.map(episode => episode.contributors || [])).reduce((result, contributor) => ({
         ...result,
         [contributor.id]: contributor
       }), state)

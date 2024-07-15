@@ -14,7 +14,7 @@
           </h2>
           <div class="overflow-y-auto">
             <h3 class="font-mono inline-block border-primary-400 border-b-2 mb-6">
-              {{ $t('SUBSCRIBE_BUTTON.CLIENTS') }}
+              {{ t('SUBSCRIBE_BUTTON.CLIENTS') }}
             </h3>
             <div class="subscribe-clients flex flex-col mb-4 sm:flex-wrap sm:flex-row">
               <div class="w-full mb-4 sm:w-40" v-for="client in items" :key="client?.id">
@@ -50,7 +50,7 @@
               </div>
             </div>
             <h3 class="font-mono inline-block border-primary-400 border-b-2 mb-6">
-              {{ $t('SUBSCRIBE_BUTTON.FEED') }}
+              {{ t('SUBSCRIBE_BUTTON.FEED') }}
             </h3>
             <div class="mx-2 mb-4">
               <div
@@ -90,6 +90,7 @@ import getClients from '@podlove/clients';
 import { type, platform, type PodcatcherClientId } from '@podlove/clients/types';
 import { getPlatform } from '@podlove/utils/useragent';
 import { CloseIcon } from '@podlove/components';
+import { useI18n } from 'vue-i18n';
 
 import CustomTransition from '../../components/CustomTransition.vue';
 
@@ -98,7 +99,8 @@ import { actions, selectors } from '../../logic/store';
 
 const feed: Ref<null | HTMLElement> = ref(null);
 
-const store = injectStore();
+  const store = injectStore();
+  const { t } = useI18n();
 
 const state = mapState({
   feed: selectors.podcast.feed,
