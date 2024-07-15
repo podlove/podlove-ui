@@ -11,7 +11,6 @@ import { secondsToMilliseconds, toPlayerTime } from './time.js';
 
 const mapSpeakers = (speakers: PodloveWebPlayerSpeaker[]) =>
   compose(
-    filter(prop('speaker')),
     map(
       (
         transcript: PodloveWebPlayerTimelineTranscriptEntry
