@@ -1,14 +1,4 @@
 import { put, takeEvery, select, debounce, delay } from 'redux-saga/effects';
-import {
-  last,
-  compose,
-  map,
-  is,
-  endsWith,
-  sortBy,
-  prop,
-  reduce
-} from 'ramda';
 
 import {
   setTranscriptsTimeline,
@@ -45,7 +35,6 @@ export const searchIndex = (transcripts: (PodloveWebPlayerTimelineChapterEntry |
 export const searchText = (transcripts: (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry)[]) => textSearch(transcripts.map((entry: PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry) =>
    ((entry as PodloveWebPlayerTimelineTranscriptEntry).texts || []).map(({ text }) => text).join(' ')
 ));
-
 
 export function* init({ selectSpeakers, selectChapters, selectPlaytime }: {
   selectSpeakers: (input: any) => PodloveWebPlayerSpeaker[];

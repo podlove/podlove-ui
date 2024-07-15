@@ -12,9 +12,10 @@ exports[`InputSlider > props > should render type 'background' 1`] = `
     min="1"
     step="0.1"
     type="range"
+    value="0"
   />
   <span
-    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     data-v-aad1c04c=""
   />
   
@@ -40,9 +41,10 @@ exports[`InputSlider > props > should render type 'borderColor' 1`] = `
     min="1"
     step="0.1"
     type="range"
+    value="0"
   />
   <span
-    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     data-v-aad1c04c=""
   />
   
@@ -67,9 +69,10 @@ exports[`InputSlider > props > should render type 'pins' 1`] = `
     min="1"
     step="0.1"
     type="range"
+    value="0"
   />
   <span
-    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     data-v-aad1c04c=""
   />
   
@@ -109,9 +112,10 @@ exports[`InputSlider > props > should render type 'progressColor' 1`] = `
     min="1"
     step="0.1"
     type="range"
+    value="0"
   />
   <span
-    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     data-v-aad1c04c=""
   />
   
@@ -136,9 +140,10 @@ exports[`InputSlider > props > should render type 'step' 1`] = `
     min="1"
     step="1"
     type="range"
+    value="0"
   />
   <span
-    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     data-v-aad1c04c=""
   />
   
@@ -163,9 +168,10 @@ exports[`InputSlider > props > should render type 'value' 1`] = `
     min="1"
     step="0.1"
     type="range"
+    value="3"
   />
   <span
-    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     data-v-aad1c04c=""
   />
   
@@ -190,9 +196,10 @@ exports[`InputSlider > props > should render without props 1`] = `
     min="0"
     step="0.1"
     type="range"
+    value="0"
   />
   <span
-    class="track block w-full absolute left-0 pointer-events-none top-1/2 h-[2px] rounded-sm"
+    class="track block w-full absolute left-0 pointer-events-none top-[50%] h-[2px] rounded-sm"
     data-v-aad1c04c=""
   />
   

@@ -101,13 +101,13 @@ import { pathOr, path } from 'ramda';
 import { debounce } from 'lodash-es';
 
 const props = defineProps<{
-  time: number;
-  duration: number;
-  ghost: number;
-  buffer: [number, number][];
-  quantiles: [number, number][];
+  time?: number;
+  duration?: number;
+  ghost?: number;
+  buffer?: [number, number][];
+  quantiles?: [number, number][];
   title?: string;
-  chapters: { start: number; end: number; }[];
+  chapters?: { start: number; end: number; }[];
 }>();
 
 const time = computed(() => interpolate(props.time || 0));

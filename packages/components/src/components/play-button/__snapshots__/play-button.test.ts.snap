@@ -8,7 +8,7 @@ exports[`PlayButton > props > should render type 'loading' with 'background' 1`]
   id="play-button--loading"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -48,7 +48,7 @@ exports[`PlayButton > props > should render type 'loading' with 'color' 1`] = `
   id="play-button--loading"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -87,7 +87,7 @@ exports[`PlayButton > props > should render type 'loading' with 'label' 1`] = `
   id="play-button--loading"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -127,7 +127,7 @@ exports[`PlayButton > props > should render type 'pause' with 'background' 1`] =
   id="play-button--pause"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -189,7 +189,7 @@ exports[`PlayButton > props > should render type 'pause' with 'color' 1`] = `
   id="play-button--pause"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -250,7 +250,7 @@ exports[`PlayButton > props > should render type 'pause' with 'label' 1`] = `
   id="play-button--pause"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -319,7 +319,7 @@ exports[`PlayButton > props > should render type 'play' with 'background' 1`] = 
   id="play-button--play"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -369,7 +369,7 @@ exports[`PlayButton > props > should render type 'play' with 'color' 1`] = `
   id="play-button--play"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -418,7 +418,7 @@ exports[`PlayButton > props > should render type 'play' with 'label' 1`] = `
   id="play-button--play"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -475,7 +475,7 @@ exports[`PlayButton > props > should render type 'restart' with 'background' 1`]
   id="play-button--restart"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -525,7 +525,7 @@ exports[`PlayButton > props > should render type 'restart' with 'color' 1`] = `
   id="play-button--restart"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub
@@ -574,7 +574,7 @@ exports[`PlayButton > props > should render type 'restart' with 'label' 1`] = `
   id="play-button--restart"
 >
   <div
-    class="play-button--wrapper flex items-center justify-center overflow-hidden"
+    class="play-button--wrapper flex items-center justify-center overflow-hidden rounded-full"
     data-v-03d7d96a=""
   >
     <transition-stub

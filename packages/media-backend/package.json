@@ -117,7 +117,7 @@
     "integration:setup": "cypress install --force"
   },
   "dependencies": {
-    "hls.js": "1.4.12",
+    "hls.js": "1.5.13",
     "ramda": "0.29.0"
   },
   "devDependencies": {

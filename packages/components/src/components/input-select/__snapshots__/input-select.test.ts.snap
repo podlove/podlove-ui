@@ -108,10 +108,12 @@ exports[`InputSelect > props > should render type 'value' 1`] = `
 <select
   class="podlove-component-select block w-full border rounded-none p-1 h-8"
   data-v-729933d8=""
+  value="foo"
 >
   
   <option
     data-v-729933d8=""
+    selected=""
   >
     foo
   </option>

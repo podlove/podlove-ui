@@ -31,7 +31,7 @@
     "redux-actions": "3.0.0",
     "redux-saga": "1.2.3",
     "reselect": "4.1.8",
-    "vue-i18n": "9.8.0",
+    "vue-i18n": "9.13.1",
     "scroll-into-view-if-needed": "3.1.0",
     "multimatch": "7.0.0",
     "@m31coding/fuzzy-search": "1.0.1",

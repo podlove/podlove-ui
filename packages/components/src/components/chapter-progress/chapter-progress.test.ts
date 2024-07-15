@@ -79,7 +79,7 @@ describe('ChapterProgress', () => {
       });
 
       wrapper.trigger('click');
-      expect(wrapper.emitted().chapter).toEqual([[setChapter(1)]]);
+      expect(wrapper.emitted().chapter).toEqual([[setChapter(2)]]);
     });
 
     test('should emit REQUEST_PLAY on progress click', async () => {

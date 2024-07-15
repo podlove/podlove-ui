@@ -24,6 +24,7 @@ describe('actions', () => {
 
   beforeEach(() => {
     audioElement = audio(audioFixture());
+    load(audioElement);
     onError(audioElement, console.log);
   });
 
@@ -48,12 +49,22 @@ describe('actions', () => {
       expect(typeof playtimeSetter).to.equal('function');
     });
 
-    it('should set the playtime', () => {
-      expect(playtimeSetter(9).playtime).to.equal(9);
+    it('should set the playtime', (done) => {
+      audioLoader(
+        audioElement,
+        compose(done, () => {
+          expect(playtimeSetter(9).playtime).to.equal(9);
+        })
+      );
     });
 
-    it('should prevent playtimes less than 0', () => {
-      expect(playtimeSetter(-10).playtime).to.equal(0);
+    it('should prevent playtimes less than 0', (done) => {
+      audioLoader(
+        audioElement,
+        compose(done, () => {
+          expect(playtimeSetter(-10).playtime).to.equal(0);
+        })
+      );
     });
 
     it('should prevent playtime larger than duration', (done) => {

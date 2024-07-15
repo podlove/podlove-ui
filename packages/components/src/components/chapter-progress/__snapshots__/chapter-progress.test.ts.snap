@@ -1,44 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ChapterProgress > props > should render 'chapter' 1`] = `
-<div
-  aria-hidden="true"
-  class="podlove-component-chapter-progress relative flex items-center px-2 py-0"
-  data-v-1cf33334=""
->
-  <span
-    aria-hidden="true"
-    class="pointer-events-none w-[calc(100%-4.4em)]"
-    data-v-1cf33334=""
-  >
-    chapter title
-  </span>
-  <!--v-if-->
-  <time
-    class="block text-right pointer-events-none pr-2 min-w-[4.4em]"
-    data-v-1cf33334=""
-    datetime="00:00"
-  >
-    00:00
-  </time>
-  <span
-    aria-hidden="true"
-    class="absolute left-0 bottom-0 pointer-events-none h-[3px]"
-    data-v-1cf33334=""
-  />
-</div>
-`;
-
 exports[`ChapterProgress > props > should render 1`] = `
 <div
   aria-hidden="true"
-  class="podlove-component-chapter-progress relative flex items-center px-2 py-0"
+  class="podlove-component-chapter-progress relative flex items-center px-2 py-0 w-full overflow-hidden"
   data-v-1cf33334=""
   value="true"
 >
   <span
     aria-hidden="true"
-    class="pointer-events-none w-[calc(100%-4.4em)]"
+    class="pointer-events-none truncate w-full"
     data-v-1cf33334=""
   >
     chapter title
@@ -91,7 +62,7 @@ exports[`ChapterProgress > props > should render 1`] = `
     </a>
   </span>
   <time
-    class="block text-right pointer-events-none pr-2 min-w-[4.4em]"
+    class="block text-right pointer-events-none px-2"
     data-v-1cf33334=""
     datetime="00:00"
   >
