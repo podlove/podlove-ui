@@ -1,5 +1,5 @@
 import * as keyboard from '@podlove/utils/keyboard';
-import { min } from 'ramda';
+import { min } from 'lodash-es';
 import { call, takeEvery, put, select } from 'redux-saga/effects';
 import { KEY_DOWN } from '@podlove/player-actions/types';
 import { keyUp, keyDown } from '@podlove/player-actions/keyboard';
@@ -18,7 +18,7 @@ export function* scrubForward(
   const playtime = yield select(selectPlaytime);
   const duration = yield select(selectDuration);
 
-  yield put(requestPlaytime(min(playtime + 2000, duration)));
+  yield put(requestPlaytime(min([playtime + 2000, duration])));
 }
 
 export function* scrubBackward(selectPlaytime: (input: any) => number) {

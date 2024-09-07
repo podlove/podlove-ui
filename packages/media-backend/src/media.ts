@@ -1,4 +1,4 @@
-import { compose, curry } from 'ramda';
+import { flowRight as compose, curry } from 'lodash-es';
 
 import { appendNode, setAttributes, createNode } from './utils.js';
 import { mediaPolyfill } from './polyfills.js';

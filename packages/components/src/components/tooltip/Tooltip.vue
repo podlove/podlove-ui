@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { nextTick, ref, watch } from 'vue';
-import { prop } from 'ramda';
+import { get } from 'lodash-es';
 let hideTimeout: any;
 
 const props = defineProps({
@@ -99,7 +99,7 @@ const click = () => {
 };
 
 const clickOutside = (event: Event) => {
-  const target = prop('target', event) as HTMLElement;
+  const target = get(event, 'target') as HTMLElement;
   const containsTarget = (elem: HTMLElement) => {
     if (!elem) {
       return false;

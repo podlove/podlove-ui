@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { path } from 'ramda';
+import { get } from 'lodash-es';
 
 defineProps({
   disabled: {
@@ -19,7 +19,7 @@ defineProps({
 const emit = defineEmits(['change']);
 
 const changeEvent = (event: Event) => {
-  emit('change', path(['target', 'value'], event));
+  emit('change', get(event, ['target', 'value']));
 };
 </script>
 

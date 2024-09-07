@@ -1,4 +1,4 @@
-import { propOr, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 
 import {
@@ -33,12 +33,12 @@ export const reducer = handleActions<State, backendLoadingEndPayload>(
     }),
     [backendLoadingEnd.toString()]: (state, { payload }: Action<backendLoadingEndPayload>) => ({
       ...state,
-      playing: propOr(false, 'playing', payload)
+      playing: get(payload, 'playing', false)
     })
   },
   INITIAL_STATE
 );
 
 export const selectors = {
-  playing: prop('playing') as (input: State) => boolean
+  playing: (state: State) => state.playing
 };

@@ -1,13 +1,6 @@
-import { compose, propOr, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
-import { createObject } from '@podlove/utils/helper';
-import {
-  PodloveTheme,
-  PodloveThemeTokens,
-  PodloveWebPlayerEpisode
-} from '@podlove/types';
-
-import { theme } from '@podlove/player-config';
+import { PodloveTheme, PodloveThemeTokens, PodloveWebPlayerEpisode } from '@podlove/types';
 import { constructed, constructedPayload } from '@podlove/player-actions/lifecycle';
 import { setTheme } from '@podlove/player-actions/theme';
 import { setThemePayload } from '@podlove/player-actions/theme';
@@ -25,39 +18,14 @@ const TOKENS: PodloveThemeTokens = {
   alt: '#fff'
 };
 
-export const tokens = {
-  brand: propOr(TOKENS.brand, 'brand') as (input: PodloveThemeTokens) => string,
-  brandDark: propOr(TOKENS.brandDark, 'brandDark') as (
-    input: PodloveThemeTokens
-  ) => string,
-  brandDarkest: propOr(TOKENS.brandDarkest, 'brandDarkest') as (
-    input: PodloveThemeTokens
-  ) => string,
-  brandLightest: propOr(TOKENS.brandLightest, 'brandLightest') as (
-    input: PodloveThemeTokens
-  ) => string,
-  shadeDark: propOr(TOKENS.shadeDark, 'shadeDark') as (
-    input: PodloveThemeTokens
-  ) => string,
-  shadeBase: propOr(TOKENS.shadeBase, 'shadeBase') as (
-    input: PodloveThemeTokens
-  ) => string,
-  contrast: propOr(TOKENS.contrast, 'contrast') as (input: PodloveThemeTokens) => string,
-  alt: propOr(TOKENS.alt, 'alt') as (input: PodloveThemeTokens) => string
+const extractTokens = (input: PodloveWebPlayerEpisode): PodloveThemeTokens => {
+  const tokens = get(input, 'tokens', {});
+
+  return Object.entries(TOKENS).reduce(
+    (result, [key, fallback]) => ({ ...result, [key]: get(tokens, key, fallback) }),
+    {}
+  );
 };
-
-const getTokens = propOr({}, 'tokens');
-
-const extractTokens = createObject({
-  brand: compose(tokens.brand, getTokens, theme),
-  brandDark: compose(tokens.brandDark, getTokens, theme),
-  brandDarkest: compose(tokens.brandDarkest, getTokens, theme),
-  brandLightest: compose(tokens.brandLightest, getTokens, theme),
-  shadeDark: compose(tokens.shadeDark, getTokens, theme),
-  shadeBase: compose(tokens.shadeBase, getTokens, theme),
-  contrast: compose(tokens.contrast, getTokens, theme),
-  alt: compose(tokens.alt, getTokens, theme)
-}) as (input: PodloveWebPlayerEpisode) => PodloveThemeTokens;
 
 export const INITIAL_STATE: State = {
   tokens: TOKENS
@@ -75,15 +43,18 @@ export const reducer = handleActions<State, constructedPayload | setThemePayload
   INITIAL_STATE
 );
 
-const themeColors = propOr({}, 'tokens') as (input: State) => PodloveThemeTokens;
+const themeColor =
+  (key: keyof typeof TOKENS) =>
+  (state: State): string =>
+    get(state, ['tokens', key], get(TOKENS, key));
 
 export const selectors = {
-  brand: compose(prop('brand'), themeColors) as (input: State) => string,
-  brandDark: compose(prop('brandDark'), themeColors) as (input: State) => string,
-  brandDarkest: compose(prop('brandDarkest'), themeColors) as (input: State) => string,
-  brandLightest: compose(prop('brandLightest'), themeColors) as (input: State) => string,
-  shadeDark: compose(prop('shadeDark'), themeColors) as (input: State) => string,
-  shadeBase: compose(prop('shadeBase'), themeColors) as (input: State) => string,
-  contrast: compose(prop('contrast'), themeColors) as (input: State) => string,
-  alt: compose(prop('alt'), themeColors) as (input: State) => string
+  brand: themeColor('brand'),
+  brandDark: themeColor('brandDark'),
+  brandDarkest: themeColor('brandDarkest'),
+  brandLightest: themeColor('brandLightest'),
+  shadeDark: themeColor('shadeDark'),
+  shadeBase: themeColor('shadeBase'),
+  contrast: themeColor('contrast'),
+  alt: themeColor('alt')
 };

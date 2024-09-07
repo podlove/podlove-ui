@@ -20,18 +20,17 @@
     "@podlove/player-actions": "workspace:*",
     "@podlove/player-config": "workspace:*",
     "@podlove/utils": "workspace:*",
-    "ramda": "0.29.0",
+    "lodash-es": "4.17.21",
     "redux-actions": "3.0.0"
   },
   "devDependencies": {
     "@podlove/types": "workspace:*",
-    "@types/ramda": "0.29.0",
+    "@types/lodash-es": "4.17.12",
     "@types/redux-actions": "2.6.2",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "eslint": "8.54.0",
     "ts-toolbelt": "9.6.0",
-    "types-ramda": "0.29.1",
     "vite": "4.3.5",
     "vite-plugin-dts": "3.6.3",
     "vitest": "0.30.1"

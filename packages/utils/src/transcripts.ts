@@ -1,4 +1,4 @@
-import { last, compose, map, is, endsWith, sortBy, prop, reduce, filter } from 'ramda';
+import { last, sortBy, endsWith, isNumber } from 'lodash-es';
 
 import {
   PodloveWebPlayerChapter,
@@ -9,23 +9,18 @@ import {
 } from '@podlove/types';
 import { secondsToMilliseconds, toPlayerTime } from './time.js';
 
-const mapSpeakers = (speakers: PodloveWebPlayerSpeaker[]) =>
-  compose(
-    map(
-      (
-        transcript: PodloveWebPlayerTimelineTranscriptEntry
-      ): PodloveWebPlayerTimelineTranscriptEntry => {
-        const result = speakers.find(({ id }) =>
-          id.startsWith(transcript.speaker as unknown as string)
-        );
+const mapSpeakers =
+  (speakers: PodloveWebPlayerSpeaker[]) =>
+  (transcript: PodloveWebPlayerTimelineTranscriptEntry) => {
+    const result = speakers.find(({ id }) =>
+      id.startsWith(transcript.speaker as unknown as string)
+    );
 
-        return {
-          ...transcript,
-          speaker: result
-        };
-      }
-    )
-  );
+    return {
+      ...transcript,
+      speaker: result
+    };
+  };
 
 const transformChapters = (
   chapters: PodloveWebPlayerChapter[]
@@ -36,10 +31,13 @@ const transformChapters = (
     index: index
   })) as PodloveWebPlayerTimelineChapterEntry[];
 
-const transformTime = (time) =>
-  is(Number, time) ? secondsToMilliseconds(time) : toPlayerTime(time);
+const transformTime = (time: string | number) =>
+  isNumber(time) ? secondsToMilliseconds(time) : toPlayerTime(time);
 
-const isNewChunk = (current, last) => {
+const isNewChunk = (
+  current: PodloveWebPlayerTranscript,
+  last: PodloveWebPlayerTimelineTranscriptEntry
+) => {
   if (last === undefined) {
     return true;
   }
@@ -51,19 +49,39 @@ const isNewChunk = (current, last) => {
   return differentSpeaker || (text.length > 500 && endOfSentence);
 };
 
-const transformTranscript = reduce(
-  (transcripts: PodloveWebPlayerTimelineTranscriptEntry[], chunk: PodloveWebPlayerTranscript) => {
-    const lastChunk = last(transcripts);
+const transformTranscript = (
+  transcripts: PodloveWebPlayerTranscript[]
+): PodloveWebPlayerTimelineTranscriptEntry[] =>
+  transcripts.reduce(
+    (transcripts: PodloveWebPlayerTimelineTranscriptEntry[], chunk: PodloveWebPlayerTranscript) => {
+      const lastChunk = last(transcripts);
 
-    if (isNewChunk(chunk, lastChunk)) {
+      if (isNewChunk(chunk, lastChunk)) {
+        return [
+          ...transcripts,
+          {
+            type: 'transcript',
+            start: transformTime(chunk.start),
+            end: transformTime(chunk.end),
+            speaker: chunk.speaker,
+            texts: [
+              {
+                start: transformTime(chunk.start),
+                end: transformTime(chunk.end),
+                text: chunk.text
+              }
+            ]
+          } as PodloveWebPlayerTimelineTranscriptEntry
+        ];
+      }
+
       return [
-        ...transcripts,
+        ...transcripts.slice(0, -1),
         {
-          type: 'transcript',
-          start: transformTime(chunk.start),
+          ...lastChunk,
           end: transformTime(chunk.end),
-          speaker: chunk.speaker,
           texts: [
+            ...lastChunk.texts,
             {
               start: transformTime(chunk.start),
               end: transformTime(chunk.end),
@@ -72,39 +90,19 @@ const transformTranscript = reduce(
           ]
         }
       ];
-    }
-
-    return [
-      ...transcripts.slice(0, -1),
-      {
-        ...lastChunk,
-        end: transformTime(chunk.end),
-        texts: [
-          ...lastChunk.texts,
-          {
-            start: transformTime(chunk.start),
-            end: transformTime(chunk.end),
-            text: chunk.text
-          }
-        ]
-      }
-    ];
-  },
-  []
-) as (input: PodloveWebPlayerTranscript[]) => PodloveWebPlayerTimelineTranscriptEntry[];
+    },
+    []
+  );
 
 export const createTimeline = (
   transcripts: PodloveWebPlayerTranscript[],
   chapters: PodloveWebPlayerChapter[],
   speakers: PodloveWebPlayerSpeaker[]
 ): (PodloveWebPlayerTimelineChapterEntry | PodloveWebPlayerTimelineTranscriptEntry)[] => {
-  const transcriptEntries: PodloveWebPlayerTimelineTranscriptEntry[] = compose(
-    mapSpeakers(speakers),
-    transformTranscript
-  )(transcripts);
+  const transcriptEntries: PodloveWebPlayerTimelineTranscriptEntry[] = transformTranscript(
+    transcripts
+  ).map(mapSpeakers(speakers));
   const chapterEntries: PodloveWebPlayerTimelineChapterEntry[] = transformChapters(chapters);
-  return sortBy(prop('start'), [...transcriptEntries, ...chapterEntries]) as (
-    | PodloveWebPlayerTimelineChapterEntry
-    | PodloveWebPlayerTimelineTranscriptEntry
-  )[];
+
+  return sortBy([...transcriptEntries, ...chapterEntries], ['start']);
 };

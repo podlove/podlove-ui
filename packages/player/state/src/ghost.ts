@@ -1,4 +1,3 @@
-import { prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { toInt } from '@podlove/utils/helper';
 import { simulatePlaytime, simulatePlaytimePayload } from '@podlove/player-actions/timepiece';
@@ -38,6 +37,6 @@ export const reducer = handleActions<State, simulatePlaytimePayload>(
 );
 
 export const selectors = {
-  time: prop('time') as (input: State) => null | number,
-  active: prop('active') as (input: State) => boolean
+  time: (state: State) => state.time,
+  active: (state: State) => state.active,
 };

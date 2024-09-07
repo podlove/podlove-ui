@@ -97,8 +97,7 @@ import { requestPlaytime, simulatePlaytime } from '@podlove/player-actions/timep
 import { enableGhost, disableGhost } from '@podlove/player-actions/progress';
 
 import { computed, onMounted, ref } from 'vue';
-import { pathOr, path } from 'ramda';
-import { debounce } from 'lodash-es';
+import { get, debounce } from 'lodash-es';
 
 const props = defineProps<{
   time?: number;
@@ -143,10 +142,10 @@ const onInput = (value: number) => {
   emits('ghost', disableGhost());
 };
 
-const extractValue = (input: Event): number => path(['target', 'value'], input);
+const extractValue = (input: Event): number => get(input, ['target', 'value']);
 
 const onMouseMove = (event: MouseEvent) => {
-  const width = pathOr(0, ['target', 'clientWidth'], event);
+  const width = get(event, ['target', 'clientWidth'], 0);
 
   if ((event.offsetY < 13 && event.offsetY > 31) || event.offsetX < 0 || event.offsetX > width) {
     thumbActive.value = false;

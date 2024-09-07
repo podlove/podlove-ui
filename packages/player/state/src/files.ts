@@ -1,5 +1,5 @@
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
-import { prop, identity } from 'ramda';
 
 import { PodloveWebPlayerFile } from '@podlove/types';
 import { files } from '@podlove/player-config';
@@ -21,12 +21,12 @@ export const reducer = handleActions<State, readyPayload | selectFilePayload>(
     [selectFile.toString()]: (state, { payload }: Action<selectFilePayload>) =>
       state.map(
         (file: PodloveWebPlayerFile) =>
-          ({ ...file, hover: file.url === prop('url', payload) })
+          ({ ...file, hover: file.url === get(payload, 'url') })
       )
   },
   INITIAL_STATE
 );
 
 export const selectors = {
-  files: identity as (input: State) => State
+  files: (state: State) => state
 };

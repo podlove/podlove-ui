@@ -1,11 +1,9 @@
-import { curry } from 'ramda';
-
-export const delay = curry(
-  <T>(time: number, data: T): Promise<T> =>
+export const delay =
+  <T>(time: number) =>
+  (data: T): Promise<T> =>
     new Promise((resolve) => {
       setTimeout(() => resolve(data), time);
-    })
-);
+    });
 
 const pollingFn = globalThis.window ? requestAnimationFrame : (cb) => setTimeout(cb, 100);
 

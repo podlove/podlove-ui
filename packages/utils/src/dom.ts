@@ -1,4 +1,4 @@
-import { curry, compose, uniq, join, filter, head } from 'ramda';
+import { curry, flowRight as compose, uniq, join, filter, head } from 'lodash-es';
 import DOMPurify from 'dompurify';
 
 export const findNode = (selector: string | HTMLElement): HTMLElement => {

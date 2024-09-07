@@ -1,4 +1,3 @@
-import { prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { hideError, hideErrorPayload, showError, showErrorPayload } from '@podlove/player-actions/error';
 
@@ -31,9 +30,9 @@ export const reducer = handleActions<State, showErrorPayload | hideErrorPayload>
 );
 
 export const selectors = {
-  active: prop('active') as (input: State) => boolean,
-  icon: prop('icon') as (input: State) => string | null,
-  title: prop('title') as (input: State) => string | null,
-  message: prop('message') as (input: State) => string | null,
-  retry: prop('retry') as (input: State) => boolean
+  active: (state: State) => state.active,
+  icon: (state: State) => state.icon,
+  title: (state: State) => state.title,
+  message: (state: State) => state.message,
+  retry: (state: State) => state.retry,
 };

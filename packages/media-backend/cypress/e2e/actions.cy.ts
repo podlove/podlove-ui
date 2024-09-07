@@ -1,4 +1,3 @@
-import { compose } from 'ramda';
 import { audio } from '../../src';
 import { onPlay } from '../../src/events';
 import {
@@ -50,50 +49,39 @@ describe('actions', () => {
     });
 
     it('should set the playtime', (done) => {
-      audioLoader(
-        audioElement,
-        compose(done, () => {
-          expect(playtimeSetter(9).playtime).to.equal(9);
-        })
-      );
+      audioLoader(audioElement, () => {
+        expect(playtimeSetter(9).playtime).to.equal(9);
+        done();
+      });
     });
 
     it('should prevent playtimes less than 0', (done) => {
-      audioLoader(
-        audioElement,
-        compose(done, () => {
-          expect(playtimeSetter(-10).playtime).to.equal(0);
-        })
-      );
+      audioLoader(audioElement, () => {
+        expect(playtimeSetter(-10).playtime).to.equal(0);
+        done();
+      });
     });
 
     it('should prevent playtime larger than duration', (done) => {
       playAction();
-      audioLoader(
-        audioElement,
-        compose(
-          done,
-          (duration) => {
-            expect(playtimeSetter(duration + 50).playtime).to.equal(duration);
-          },
-          duration
-        )
-      );
+      audioLoader(audioElement, () => {
+        const dur = duration(audioElement);
+        expect(playtimeSetter(dur + 50).playtime).to.equal(dur);
+        done();
+      });
     });
 
     it('should use the playtime on play', (done) => {
       audioLoader(
         audioElement,
-        compose(
-          done,
-          () => {
-            playtimeSetter(50);
-            playAction();
-            expect(audioElement.playtime).to.be.at.least(50);
-            expect(audioElement.currentTime).to.be.at.least(50);
-          },
-          duration
-        )
+
+        () => {
+          playtimeSetter(50);
+          playAction();
+          expect(audioElement.playtime).to.be.at.least(50);
+          expect(audioElement.currentTime).to.be.at.least(50);
+          done();
+        }
       );
     });
   });

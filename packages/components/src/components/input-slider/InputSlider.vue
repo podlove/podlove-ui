@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { path } from 'ramda';
+import { get } from 'lodash-es';
 import { round } from '@podlove/utils/math';
 
 const pinRange = 0.01;
@@ -38,7 +38,7 @@ const relativePosition = (current: any = 0, minimum: any = 0, maximum: any = 0) 
 const thumbLeft = computed(() => relativePosition(props.value, props.min, props.max));
 
 const calcValue = (event: Event) => {
-      const value = path(['target','value'], event) as number;
+      const value = get(event, ['target','value']) as number;
 
       return (
         props.pins
@@ -56,7 +56,7 @@ const handleChange = (event: Event) => {
 };
 
 const handleDblclick = (event: Event) => {
-  emit('sliderDblclick', path(['target','value'], event));
+  emit('sliderDblclick', get(event, ['target','value']));
 };
 </script>
 

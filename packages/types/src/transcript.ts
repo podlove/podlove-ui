@@ -39,6 +39,6 @@ export interface PodloveWebPlayerTimelineTranscriptEntry {
   type: 'transcript';
   start: number;
   end: number;
-  speaker: PodloveWebPlayerSpeaker;
+  speaker: PodloveWebPlayerSpeaker | string;
   texts: { start: number; end: number; text: string }[];
 }

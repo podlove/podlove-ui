@@ -1,4 +1,4 @@
-import { prop } from 'ramda';
+import { get } from 'lodash-es';
 
 const getItem = (key) =>
   cy
@@ -22,7 +22,7 @@ const getItem = (key) =>
       return item;
     })
     .then((item) => JSON.parse(item))
-    .then(prop(key));
+    .then((result) => get(result, key));
 
 const mock = (value = {}) =>
   cy.window().then((win) => (win.localStorage.getItem = () => JSON.stringify(value)));

@@ -1,4 +1,3 @@
-import { identity } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 
 import * as config from '@podlove/player-config';
@@ -17,5 +16,5 @@ export const reducer = handleActions<State, constructedPayload>(
 );
 
 export const selectors = {
-  available: identity as (input: State) => boolean
+  available: (state: State) => state
 };

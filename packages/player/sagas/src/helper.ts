@@ -1,4 +1,4 @@
-import { equals } from 'ramda';
+import { isEqual } from 'lodash-es';
 import type { Action } from 'redux-actions';
 import { eventChannel } from 'redux-saga';
 import { fork, take, call } from 'redux-saga/effects';
@@ -32,7 +32,7 @@ export const mediaControl =
 export const matchAction =
   (matchType: string, matchPayload: any) =>
   ({ type, payload }: Action<any>) =>
-    type === matchType && equals(matchPayload, payload);
+    type === matchType && isEqual(matchPayload, payload);
 
 export function* takeOnce(pattern: string, saga: (...args: any[]) => any, ...args: any[]) {
   return yield fork(function* once() {

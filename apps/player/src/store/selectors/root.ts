@@ -1,35 +1,35 @@
-import { prop, path } from 'ramda';
-import { State as ContentState } from '@podlove/player-state/content';
-import { State as EmbedState } from '@podlove/player-state/embed';
+import { get } from 'lodash-es';
 import State from '../state.js';
 
+const slice = (slice: string) => (state: State) => get(state, slice);
+
 export default {
-  runtime: prop('runtime'),
-  theme: prop('theme'),
-  timepiece: prop('timepiece'),
-  episode: prop('episode'),
-  show: prop('show'),
-  chapters: prop('chapters'),
-  media: prop('media'),
-  playstate: prop('playstate'),
-  components: prop('components'),
-  visibleComponents: prop('visibleComponents'),
-  ghost: prop('ghost'),
-  network: prop('network'),
-  quantiles: prop('quantiles'),
-  tabs: prop('tabs'),
-  contributors: prop('contributors'),
-  files: prop('files'),
+  runtime: slice('runtime'),
+  theme: slice('theme'),
+  timepiece: slice('timepiece'),
+  episode: slice('episode'),
+  show: slice('show'),
+  chapters: slice('chapters'),
+  media: slice('media'),
+  playstate: slice('playstate'),
+  components: slice('components'),
+  visibleComponents: slice('visibleComponents'),
+  ghost: slice('ghost'),
+  network: slice('network'),
+  quantiles: slice('quantiles'),
+  tabs: slice('tabs'),
+  contributors: slice('contributors'),
+  files: slice('files'),
   share: {
-    content: path<State, ContentState>(['share', 'content']),
-    embed: path<State, EmbedState>(['share', 'embed']),
+    content: (state) => get(state, ['share', 'content']),
+    embed: (state) => get(state, ['share', 'embed'])
   },
-  reference: prop('reference'),
-  audio: prop('audio'),
-  transcripts: prop('transcripts'),
-  error: prop('error'),
-  driver: prop('driver'),
-  playlist: prop('playlist'),
-  subscribeButton: prop('subscribeButton'),
-  channels: prop('channels')
+  reference: slice('reference'),
+  audio: slice('audio'),
+  transcripts: slice('transcripts'),
+  error: slice('error'),
+  driver: slice('driver'),
+  playlist: slice('playlist'),
+  subscribeButton: slice('subscribeButton'),
+  channels: slice('channels')
 };

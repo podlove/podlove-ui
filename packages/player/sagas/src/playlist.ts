@@ -1,5 +1,5 @@
+import { get } from 'lodash-es';
 import { put, takeEvery, select } from 'redux-saga/effects';
-import { propOr } from 'ramda';
 import { init, ready } from '@podlove/player-actions/lifecycle';
 import * as player from '@podlove/player-actions/play';
 import * as playlist from '@podlove/player-actions/playlist';
@@ -41,7 +41,12 @@ export const playlistSaga = ({
   };
 
 export function* loadEpisode(
-  { selectEpisodeConfig, selectRate, selectVolume, selectMuted }: {
+  {
+    selectEpisodeConfig,
+    selectRate,
+    selectVolume,
+    selectMuted
+  }: {
     selectEpisodeConfig: (input: any) => string;
     selectRate: (input: any) => number;
     selectVolume: (input: any) => number;
@@ -73,7 +78,10 @@ export function* loadEpisode(
   yield takeOnce(player.backendLoadingStart.toString(), resetMeta, { rate, volume, muted });
 }
 
-export function* nextEpisode({ selectPlaylist }: { selectPlaylist: (input: any) => PodloveWebPlayerPlaylistItem[] }, { payload: { play } }: Action<nextEpisodePayload>): any {
+export function* nextEpisode(
+  { selectPlaylist }: { selectPlaylist: (input: any) => PodloveWebPlayerPlaylistItem[] },
+  { payload: { play } }: Action<nextEpisodePayload>
+): any {
   const list = yield select(selectPlaylist);
   const current = list.findIndex(({ active }) => active);
   const next = current + 1;
@@ -114,7 +122,9 @@ export function* setActiveEntry({ selectPlaylist, selectReference }) {
     return;
   }
 
-  const index = entries.findIndex((entry) => (propOr('', 'config', entry) as string).endsWith(reference));
+  const index = entries.findIndex((entry) =>
+    (get(entry, 'config', '') as string).endsWith(reference)
+  );
 
   if (index > -1) {
     yield put(playlist.markActive(index));

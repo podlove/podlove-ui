@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
-import { prop, compose } from 'ramda';
+import { get } from 'lodash-es';
 import {
   hideError,
   hideButtonControl,
@@ -251,23 +251,23 @@ export const reducer = handleActions<State, showComponentTabPayload | hideCompon
   INITIAL_STATE
 );
 
-const tabs = prop('tabs');
+// const tabs = prop('tabs');
 
 export const selectors = {
-  playButton: prop('playButton') as (input: State) => PlayButton,
-  stepperButtons: prop('stepperButtons') as (input: State) => boolean,
-  chapterButtons: prop('chapterButtons') as (input: State) => boolean,
-  progressBar: prop('progressBar') as (input: State) => boolean,
-  volumeControl: prop('volumeControl') as (input: State) => boolean,
-  rateControl: prop('rateControl') as (input: State) => boolean,
-  poster: prop('poster') as (input: State) => boolean,
-  error: prop('error') as (input: State) => boolean,
-  shownotesTab: compose(prop('shownotes'), tabs) as (input: State) => boolean,
-  chaptersTab: compose(prop('chapters'), tabs) as (input: State) => boolean,
-  transcriptTab: compose(prop('transcripts'), tabs) as (input: State) => boolean,
-  shareTab: compose(prop('share'), tabs) as (input: State) => boolean,
-  filesTab: compose(prop('files'), tabs) as (input: State) => boolean,
-  playlistTab: compose(prop('playlist'), tabs) as (input: State) => boolean,
-  audioTab: compose(prop('audio'), tabs) as (input: State) => boolean,
-  sharePlaytime: prop('sharePlaytime') as (input: State) => boolean
+  playButton: (state: State) => state.playButton,
+  stepperButtons: (state: State) => state.stepperButtons,
+  chapterButtons: (state: State) => state.chapterButtons,
+  progressBar: (state: State) => state.progressBar,
+  volumeControl: (state: State) => state.volumeControl,
+  rateControl: (state: State) => state.rateControl,
+  poster: (state: State) => state.poster,
+  error: (state: State) => state.error,
+  sharePlaytime: (state: State) => state.sharePlaytime,
+  shownotesTab: (state: State) => get(state, ['tabs', 'shownotes']),
+  chaptersTab: (state: State) => get(state, ['tabs', 'chapters']),
+  transcriptTab: (state: State) => get(state, ['tabs', 'transcripts']),
+  shareTab: (state: State) => get(state, ['tabs', 'share']),
+  filesTab: (state: State) => get(state, ['tabs', 'files']),
+  playlistTab: (state: State) => get(state, ['tabs', 'playlist']),
+  audioTab: (state: State) => get(state, ['tabs', 'audio']),
 };
