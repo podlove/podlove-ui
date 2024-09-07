@@ -1,4 +1,3 @@
-import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 
 import { selectEmbedSize, selectEmbedSizePayload } from '@podlove/player-actions/embed';

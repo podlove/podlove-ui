@@ -1,8 +1,6 @@
 import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { sanitize } from '@podlove/utils/dom';
-import { createObject } from '@podlove/utils/helper';
-import { PodloveWebPlayerConfig } from '@podlove/types';
 
 import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
 

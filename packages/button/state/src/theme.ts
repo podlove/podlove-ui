@@ -1,4 +1,3 @@
-import { createSelector } from 'reselect';
 import { flow, get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { createObject } from '@podlove/utils/helper';

@@ -406,7 +406,7 @@ describe('transcripts', () => {
     });
 
     test('should call SET_SEARCH_TRANSCRIPTS_RESULTS with searchIndex', () => {
-      searchFn.mockReturnValue(10);
+      searchFn.mockReturnValue([10]);
       expect(gen.next().value).toEqual(put(setTranscriptsSearchResults([10])));
     });
 
@@ -416,7 +416,7 @@ describe('transcripts', () => {
     });
 
     test('should end the saga', () => {
-      searchFn.mockReturnValue(10);
+      searchFn.mockReturnValue([10]);
       gen.next();
       expect(gen.next().done).toBeTruthy();
     });
