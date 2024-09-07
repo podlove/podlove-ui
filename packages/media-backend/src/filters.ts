@@ -1,9 +1,9 @@
-import { compose, when, curry, has, and } from 'ramda';
-
+import { flowRight as compose } from 'lodash-es';
 import { dispatchEvent } from './utils.js';
 import { connectBuffer } from './media-context.js';
+import { curry, has } from 'lodash-es';
 
-const hasAudioContext = and(has('audioContext'), has('audioBuffer'));
+const hasAudioContext = (input: any): boolean =>  has(input, 'audioContext') && has(input, 'audioBuffer');
 
 const channelGain = curry((channels, node) => {
   const gainNode = node.audioContext.createGain();
@@ -16,8 +16,20 @@ const channelGain = curry((channels, node) => {
   return connectBuffer(gainNode, node);
 });
 
-const mono = when(hasAudioContext, compose(dispatchEvent('filterUpdated'), channelGain(1)));
+const mono = (input: any) => {
+  if (!hasAudioContext(input)) {
+    return input;
+  }
 
-const stereo = when(hasAudioContext, compose(dispatchEvent('filterUpdated'), channelGain(2)));
+  return compose(dispatchEvent('filterUpdated'), channelGain(1))
+}
+
+const stereo = (input: any) => {
+  if (!hasAudioContext(input)) {
+    return input;
+  }
+
+  return compose(dispatchEvent('filterUpdated'), channelGain(2))
+}
 
 export { mono, stereo };

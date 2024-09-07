@@ -1,4 +1,3 @@
-import { curry } from 'ramda';
 import { toFloat, toInt } from './helper.js';
 
 export const toPercent = (input: string | number): number => {
@@ -23,8 +22,8 @@ export const roundUp = (base: number, number: number): number => {
 export const relativePosition = (current: number = 0, maximum: number = 0): string =>
   current < maximum ? (current * 100) / maximum + '%' : '100%';
 
-export const inRange: any = curry(
-  (lower: number, upper: number, value: number): number => {
+export const inRange: any = (
+  (lower: number) => (upper: number) => (value: number): number => {
     if (value < lower) {
       return lower;
     }

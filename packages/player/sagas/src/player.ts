@@ -30,9 +30,9 @@ import type { backendLoadingEndPayload } from '@podlove/player-actions/play';
 import type { backendBufferPayload } from '@podlove/player-actions/play';
 import type { backendErrorPayload } from '@podlove/player-actions/play';
 import { requestPlay, requestRestart, requestLoad, requestStop } from '@podlove/player-actions/play';
-import { propOr } from 'ramda';
 
 import { channel } from './helper.js';
+import { get } from 'lodash-es';
 
 export const playerSaga = ({
   selectMedia,
@@ -87,8 +87,8 @@ export function* initPlayer({
   }
 
   connector.load(mediaFiles.map(file => ({
-    src: propOr(null, 'url', file),
-    type: propOr(null, 'mimeType', file),
+    src: get(file, 'url', null),
+    type: get(file, 'mimeType', null),
   })));
 
   // AudioAttributes

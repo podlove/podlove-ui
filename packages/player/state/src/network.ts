@@ -1,4 +1,4 @@
-import { propOr } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { backendBuffer, backendBufferPayload } from '@podlove/player-actions/play';
 
@@ -21,5 +21,5 @@ export const reducer = handleActions<State, backendBufferPayload>(
 );
 
 export const selectors = {
-  buffer: propOr([], 'buffer') as (input: State) => [number, number][]
+  buffer: (state: State) => get(state, 'buffer', [])
 };

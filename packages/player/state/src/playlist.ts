@@ -1,4 +1,4 @@
-import { compose, find, prop, identity } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { playlist } from '@podlove/player-config';
 import { toPlayerTime } from '@podlove/utils/time';
@@ -61,11 +61,11 @@ export const reducer = handleActions<
   INITIAL_STATE
 );
 
-const episode = find(({ active }) => active) as (input: State) => PlaylistItem;
+const episode = (state: State): PlaylistItem => state.find(({ active }) => active);
 
 export const selectors = {
-  list: identity as (input: State) => State,
+  list: (state: State) => state,
   episode,
-  title: compose(prop('title'), episode) as (input: State) => string,
-  config: compose(prop('config'), episode) as (input: State) => string
+  title: (state: State): string => get(episode(state), 'title'),
+  config: (state: State): string => get(episode(state), 'config')
 };

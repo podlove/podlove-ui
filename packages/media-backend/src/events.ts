@@ -1,4 +1,4 @@
-import { curry, compose } from 'ramda';
+import { curry, flowRight as compose } from 'lodash-es';
 import { getNodeFromEvent, collectProperties, toArray } from './utils.js';
 import {
   props,

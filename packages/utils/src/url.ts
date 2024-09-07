@@ -1,6 +1,5 @@
-import { compose, propOr, replace } from 'ramda';
+import { flow, replace } from 'lodash-es';
 import queryString from 'query-string';
-import { stripr } from './helper.js';
 
 const url = (href: string): URL => {
   try {
@@ -15,12 +14,15 @@ const url = (href: string): URL => {
   }
 };
 
-export const hostname = compose<any[], URL, string, string>(
-  replace(/^(www\.)/, ''),
-  propOr('', 'hostname'),
-  url
+export const hostname: (input: string) => string = flow(url, ({ hostname }) =>
+  replace(hostname, /^(www\.)/, '')
 );
-export const pathname = compose<any[], URL, string, string>(stripr('/'), propOr('', 'pathname'), url);
+
+export const pathname = flow(
+  url,
+  ({ pathname }) => pathname || '',
+  (pathname: string) => (pathname.endsWith('/') ? pathname.slice(0, pathname.length - 1) : pathname)
+);
 
 export const addQueryParameter = (
   url: string,

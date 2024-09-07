@@ -5,7 +5,10 @@ import copy from './copy.js';
 const clipboardMock = {
   writeText: vi.fn()
 };
-(global.navigator as any).clipboard = clipboardMock;
+
+vi.stubGlobal('navigator', { clipboard: clipboardMock });
+// (global.navigator as any).clipboard =
+//   clipboardMock;
 
 describe('copy', () => {
   test('should copy text to clipboard', () => {
@@ -16,7 +19,7 @@ describe('copy', () => {
   });
 
   test('should log a warning when clipboard is not implemented', () => {
-    (global.navigator as any).clipboard = null;
+    vi.stubGlobal('navigator', { clipboard: null });
     const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     copy('Test Text');
     expect(consoleWarnSpy).toHaveBeenCalledTimes(1);

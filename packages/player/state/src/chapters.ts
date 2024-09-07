@@ -1,7 +1,7 @@
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { PodloveWebPlayerChapter } from '@podlove/types';
 
-import { prop, compose } from 'ramda';
 import {
   setChaptersPayload,
   setChapterPayload,
@@ -68,12 +68,12 @@ export const reducer = handleActions<
   INITIAL_STATE
 );
 
-export const current = prop('current');
+export const current = (state: State) => state.current;
 export const selectors = {
-  list: prop('list') as (input: State) => PodloveWebPlayerChapter[],
-  next: prop('next') as (input: State) => PodloveWebPlayerChapter,
-  previous: prop('previous') as (input: State) => PodloveWebPlayerChapter,
-  current: prop('current') as (input: State) => PodloveWebPlayerChapter,
-  title: compose(prop('title'), current) as (input: State) => string,
-  image: compose(prop('image'), current) as (input: State) => string,
+  list: (state: State) => state.list,
+  next: (state: State) => state.next,
+  previous: (state: State) => state.previous,
+  current: (state: State) => state.current,
+  title: (state: State) => get(state, ['current', 'title']),
+  image: (state: State) => get(state, ['current', 'image'])
 };

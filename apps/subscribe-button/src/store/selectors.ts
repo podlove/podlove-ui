@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { propOr } from 'ramda';
+import { get } from 'lodash-es';
 import { type State as ConfigState } from '@podlove/button-state/config';
 import { selectors as viewSelectors, type State as ViewState } from '@podlove/button-state/view';
 import { selectors as themeSelectors, type State as ThemeState } from '@podlove/button-state/theme';
@@ -10,17 +10,17 @@ import { scope } from '@podlove/utils/helper';
 
 import State from './state.js';
 
+const slice = <T>(slice: string, fallback = {}) => (state: State): T => get(state, slice, fallback);
+
 const slices = {
-  config: propOr({}, 'config') as (input: State) => ConfigState,
-  theme: propOr({}, 'theme') as (input: State) => ThemeState,
-  view: propOr({}, 'view') as (input: State) => ViewState,
-  finish: propOr({}, 'finish') as (input: State) => FinishState,
-  feed: propOr({}, 'feed') as (input: State) => string,
-  runtime: propOr({}, 'runtime') as (input: State) => RuntimeState,
-  clients: propOr([], 'clients') as (input: State) => ClientsState,
+  config: slice<ConfigState>('config'),
+  theme: slice<ThemeState>('theme'),
+  view: slice<ViewState>('view'),
+  finish:slice<FinishState>('finish'),
+  feed: slice<string>('feed'),
+  runtime: slice<RuntimeState>('runtime'),
+  clients: slice<ClientsState>('clients', []),
 };
-
-
 
 export const theme = {
   ...scope(themeSelectors, slices.theme),

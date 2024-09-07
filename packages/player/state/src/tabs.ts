@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
-import { propOr, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { toggleTab } from '@podlove/player-actions/tabs';
 import { toggleTabPayload } from '@podlove/player-actions/tabs';
 
@@ -25,18 +25,17 @@ export const reducer = handleActions<State, toggleTabPayload>(
   {
     [toggleTab.toString()]: (state, { payload }: Action<toggleTabPayload>) => ({
       ...INITIAL_STATE,
-      [payload]: !propOr(false, payload, state)
+      [payload]: !get(state, payload, false)
     })
   },
   INITIAL_STATE
 );
 
 export const selectors = {
-  chapters: prop('chapters') as (input: State) => boolean,
-  audio: prop('audio') as (input: State) => boolean,
-  share: prop('share') as (input: State) => boolean,
-  files: prop('files') as (input: State) => boolean,
-  shownotes: prop('shownotes') as (input: State) => boolean,
-  transcripts: prop('transcripts') as (input: State) => boolean,
-  playlist: prop('playlist') as (input: State) => boolean
+  chapters: (state: State) => state.chapters,
+  share: (state: State) => state.share,
+  files: (state: State) => state.files,
+  shownotes: (state: State) => state.shownotes,
+  transcripts: (state: State) => state.transcripts,
+  playlist: (state: State) => state.playlist
 };

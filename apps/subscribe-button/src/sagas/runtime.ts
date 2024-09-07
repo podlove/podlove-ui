@@ -1,6 +1,6 @@
 import { setRuntime } from '@podlove/button-actions/runtime';
 import { isMobile } from '@podlove/utils/detect';
-import { head } from 'ramda';
+import { head } from 'lodash-es';
 import { detect } from 'detect-browser';
 import { Action } from 'redux';
 import { put } from 'redux-saga/effects';

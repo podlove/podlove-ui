@@ -1,5 +1,5 @@
 import { takeEvery, select, put } from 'redux-saga/effects';
-import { min, max } from 'ramda';
+import { min, max } from 'lodash-es';
 import { requestPlaytime } from '@podlove/player-actions/timepiece';
 import * as stepper from '@podlove/player-actions/stepper';
 
@@ -36,12 +36,12 @@ export function* stepForward({
 
   const upperLimit = livesync > 0 ? livesync : duration;
 
-  const targetPlaytime = min(playtime + 30 * 1000, upperLimit);
+  const targetPlaytime = min([playtime + 30 * 1000, upperLimit]);
   yield put(requestPlaytime(targetPlaytime));
 }
 
 export function* stepBackward({ selectPlaytime }: { selectPlaytime: (input: any) => number }) {
   const playtime = yield select(selectPlaytime);
-  const targetPlaytime = max(playtime - 15 * 1000, 0);
+  const targetPlaytime = max([playtime - 15 * 1000, 0]);
   yield put(requestPlaytime(targetPlaytime));
 }

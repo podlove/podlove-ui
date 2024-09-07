@@ -16,7 +16,6 @@ Opinionated low level functional bindings to control html5 audio
 - Functional bindings to all necessary events
 - Composability for all audio actions
 - Helper functions to get relevant audio element properties
-- Written in vanilla es6 with only one dependency to [ramda](https://github.com/ramda/ramda)
 
 ## Installation
 
@@ -50,12 +49,11 @@ const myAudioElement = audio([{
 All audio element actions are curried and accept as their first parameter the audio element. Also each action returns the audio element:
 
 ```javascript
-import { compose } from 'ramda'
 import { play, setPlaytime } from '@podlove/media-backend/actions'
 
-const setPlaytimeAndPlay = compose(play, setAudioPlaytime)(myAudioElement)
 // Sets the playtime to 50 seconds and plays the audio
-setPlaytimeAndPlay(50)
+setAudioPlaytime(50, myAudioElement);
+play(myAudioElement);
 ```
 
 For convenience also a `action` composer is available:

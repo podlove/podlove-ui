@@ -1,5 +1,4 @@
 import { Action, handleActions } from 'redux-actions'
-import { identity } from 'ramda'
 
 import { PodloveWebPlayerContent } from '@podlove/types';
 import { selectContent, selectContentPayload } from '@podlove/player-actions/share'
@@ -19,5 +18,5 @@ export const reducer = handleActions<State, selectContentPayload>(
 )
 
 export const selectors = {
-  content: identity as (input: State) => State
+  content: (state: State) => state
 }

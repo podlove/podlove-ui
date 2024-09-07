@@ -1,8 +1,7 @@
 import { Action, handleActions } from 'redux-actions';
-import { propOr } from 'ramda';
+import { get } from 'lodash-es';
 import { language } from '@podlove/player-config';
 
-import { prop } from 'ramda';
 import { setLanguage } from '@podlove/player-actions/runtime';
 import { setLanguagePayload } from '@podlove/player-actions/runtime';
 import { setRuntime } from '@podlove/player-actions/runtime';
@@ -42,11 +41,11 @@ export const reducer = handleActions<
     }),
     [setRuntime.toString()]: (state, { payload }: Action<setRuntimePayload>) => ({
       ...state,
-      display: propOr(null, 'display', payload) as unknown as string,
-      browser: propOr(null, 'browser', payload) as unknown as string,
-      locale: propOr(null, 'locale', payload) as unknown as string,
-      platform: propOr(null, 'platform', payload) as unknown as string,
-      language: propOr(null, 'language', payload) as unknown as string
+      display: get(payload, 'display', null),
+      browser: get(payload, 'browser', null),
+      locale: get(payload, 'locale', null),
+      platform: get(payload, 'platform', null),
+      language: get(payload, 'language', null)
     }),
     [setVersion.toString()]: (state, { payload }: Action<setVersionPayload>) => ({
       ...state,
@@ -65,9 +64,9 @@ export const reducer = handleActions<
 );
 
 export const selectors = {
-  language: prop('language') as (input: State) => string,
-  platform: prop('platform') as (input: State) => string,
-  locale: prop('locale') as (input: State) => string,
-  version: prop('version') as (input: State) => string,
-  mode: prop('mode') as (input: State) => 'embed' | 'native'
+  language: (state: State) => get(state, 'language'),
+  platform: (state: State) => get(state, 'platform'),
+  locale: (state: State) => get(state, 'locale'),
+  version: (state: State) => get(state, 'version'),
+  mode: (state: State) => get(state, 'mode')
 };

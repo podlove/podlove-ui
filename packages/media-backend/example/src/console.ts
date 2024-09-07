@@ -1,4 +1,4 @@
-import { curry } from "ramda";
+import { curry } from "lodash-es";
 
 export const log = curry((category, payload) => {
   console.group(category);

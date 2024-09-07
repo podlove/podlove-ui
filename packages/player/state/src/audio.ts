@@ -1,6 +1,4 @@
-import { prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
-import { compose } from 'ramda';
 
 import { inRange } from '@podlove/utils/math';
 import { toFloat } from '@podlove/utils/helper';
@@ -28,8 +26,9 @@ export const INITIAL_STATE: State = {
   rate: 1
 };
 
-const inVolumeRange = compose<any[], number, number>(inRange(0, INITIAL_STATE.volume), toFloat);
-const inRateRange = compose<any[], number, number>(inRange(0.5, 4), toFloat);
+const inVolumeRange = (input: string | number) => inRange(0, INITIAL_STATE.volume, toFloat(input));
+
+const inRateRange = (input: string | number) => inRange(0.5, 4, toFloat(input));
 
 export const reducer = handleActions<State, setVolumeActionPayload | muteActionPayload | unmuteActionPayload | setRateActionPayload>(
   {
@@ -57,7 +56,7 @@ export const reducer = handleActions<State, setVolumeActionPayload | muteActionP
 );
 
 export const selectors = {
-  volume: prop('volume') as (input: State) => number,
-  muted: prop('muted') as (input: State) => boolean,
-  rate: prop('rate') as (input: State) => number,
+  volume: (state: State) => state.volume,
+  muted: (state: State) => state.muted,
+  rate: (state: State) => state.rate,
 }

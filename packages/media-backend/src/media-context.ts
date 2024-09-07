@@ -1,4 +1,4 @@
-import { curry } from 'ramda';
+import { curry } from 'lodash-es';
 import { F } from 'ts-toolbelt';
 
 export const connectBuffer: F.Curry<

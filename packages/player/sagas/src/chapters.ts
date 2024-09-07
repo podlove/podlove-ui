@@ -1,4 +1,4 @@
-import { propOr, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { takeEvery, select, put } from 'redux-saga/effects';
 import type { Action } from 'redux-actions';
 
@@ -90,8 +90,8 @@ export function* initChapters({ selectDuration }: { selectDuration: (input: any)
   const duration: number = yield select(selectDuration);
 
   const state = chapters.reduce((result: PodloveWebPlayerChapter[], chapter: PodloveWebPlayerChapter, index: number, chapters: PodloveWebPlayerChapter[]) => {
-    const end: PodloveWebPlayerChapter = propOr({ start: duration } as PodloveWebPlayerChapter, (index + 1).toString(), chapters);
-    const href = (propOr('', 'href', chapter) as string).trim();
+    const end: PodloveWebPlayerChapter = get(chapters, index + 1, { start: duration } as PodloveWebPlayerChapter);
+    const href = (get(chapter, 'href', '') as string).trim();
 
     return [
       ...result,
@@ -99,8 +99,8 @@ export function* initChapters({ selectDuration }: { selectDuration: (input: any)
         index,
         start: toPlayerTime(chapter?.start || 0),
         end: toPlayerTime(end?.start || 0),
-        title: prop('title', chapter),
-        image: prop('image', chapter),
+        title: get(chapter, 'title'),
+        image: get(chapter, 'image'),
         href,
         linkTitle: href ? hostname(href) : null
       }

@@ -1,6 +1,6 @@
 import { Store } from 'redux';
 import { App } from 'vue';
-import { mergeDeepRight } from 'ramda';
+import { merge } from 'lodash-es';
 import createSubscribeButton from '@podlove/subscribe-button/app';
 import { init as playerInit } from '@podlove/player-actions/lifecycle';
 import { init as buttonInit } from '@podlove/button-actions/lifecycle';
@@ -42,7 +42,7 @@ class PodloveWebPlayer extends HTMLElement {
       parseConfig(config, episode)
     ]);
 
-    const data = mergeDeepRight(resolvedEpisode, resolvedConfig);
+    const data = merge(resolvedEpisode, resolvedConfig);
     this.player.store.dispatch(playerInit(data as unknown as PodloveWebPlayerEpisode));
 
     if (configParser.subscribeButton(data)) {

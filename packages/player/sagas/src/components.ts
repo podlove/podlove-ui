@@ -1,5 +1,4 @@
 import { put, takeEvery, select } from 'redux-saga/effects';
-import { isEmpty } from 'ramda';
 import { setTranscriptsTimeline } from '@podlove/player-actions/transcripts'
 import {
   showPlayingButton,
@@ -36,6 +35,7 @@ import { backendEnd, backendLoadingEnd, backendLoadingStart, backendPause, backe
 import { selectEpisode } from '@podlove/player-actions/playlist';
 import { ready } from '@podlove/player-actions/lifecycle';
 import type { Action } from 'redux-actions';
+import { isEmpty } from 'lodash-es';
 
 export const componentsSaga = ({
   selectTranscripts,
