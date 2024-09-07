@@ -1,4 +1,5 @@
 import { put, takeEvery, select, debounce, delay } from 'redux-saga/effects';
+import { isNil } from 'lodash-es';
 
 import {
   setTranscriptsTimeline,
@@ -9,7 +10,6 @@ import {
 } from '@podlove/player-actions/transcripts';
 import { transcripts as getTranscripts } from '@podlove/player-config';
 import { binarySearch, textSearch } from '@podlove/utils/search';
-import { isDefinedAndNotNull } from '@podlove/utils/predicates';
 import type { PodloveWebPlayerSpeaker, PodloveWebPlayerChapter, PodloveWebPlayerTimelineChapterEntry,
   PodloveWebPlayerTimelineTranscriptEntry } from '@podlove/types';
 import { ready, type initPayload } from '@podlove/player-actions/lifecycle';
@@ -70,7 +70,7 @@ export function* init({ selectSpeakers, selectChapters, selectPlaytime }: {
 export function* update(searchFn, { payload }: Action<backendPlaytimePayload | requestPlaytimePayload>) {
   const index: number = searchFn(payload);
 
-  if (isDefinedAndNotNull(index)) {
+  if (!isNil(index)) {
     yield put(updateTranscripts(index));
   }
 }
@@ -79,7 +79,7 @@ export function* debouncedUpdate(searchFn, { payload }: Action<simulatePlaytimeP
   const index = searchFn(payload);
   yield delay(200);
 
-  if (isDefinedAndNotNull(index)) {
+  if (!isNil(index)) {
     yield put(updateTranscripts(index));
   }
 }
@@ -88,7 +88,7 @@ export function* resetToPlaytime(searchFn, selectPlaytime: (input: any) => numbe
   const playtime = yield select(selectPlaytime);
   const index = searchFn(playtime);
 
-  if (isDefinedAndNotNull(index)) {
+  if (!isNil(index)) {
     yield put(updateTranscripts(index));
   }
 }

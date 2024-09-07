@@ -1,4 +1,4 @@
-import { identity, flow, isNil } from 'lodash-es';
+import { isNil } from 'lodash-es';
 
 /**
  * Collection of functional helpers
@@ -39,17 +39,6 @@ export const createObject =
       (result, [key, f]) => ({
         ...result,
         [key]: f(value)
-      }),
-      {} as T
-    );
-
-export const scope =
-  <T>(selectors: { [key: string]: Function } = {}) =>
-  (context: Function = identity): T =>
-    Object.keys(selectors).reduce(
-      (result, key) => ({
-        ...result,
-        [key]: flow(context as any, selectors[key] as any)
       }),
       {} as T
     );

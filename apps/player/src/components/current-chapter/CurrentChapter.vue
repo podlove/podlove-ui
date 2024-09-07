@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-import { get } from 'lodash';
+import { get } from 'lodash-es';
 import { mapState } from 'redux-vuex';
 
 import select from '../../store/selectors/index.js';
