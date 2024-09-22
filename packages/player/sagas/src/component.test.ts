@@ -543,7 +543,7 @@ describe('components', () => {
       expect(gen.next().value).toEqual(put(showComponentTab('shownotes')));
     });
 
-    test.only('should dispatch SHOW_COMPONENT_TAB with share when channels are avaialble', () => {
+    test('should dispatch SHOW_COMPONENT_TAB with share when channels are avaialble', () => {
       gen.next();
       gen.next();
       gen.next();

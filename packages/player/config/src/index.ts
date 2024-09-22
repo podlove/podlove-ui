@@ -36,7 +36,7 @@ export const media = (input: PodloveWebPlayerEpisode): PodloveWebPlayerAudio[] =
   }));
 };
 
-export const chapters = (input: PodloveWebPlayerEpisode): PodloveWebPlayerChapter[] =>
+export const chapters = (input: Partial<PodloveWebPlayerEpisode>): PodloveWebPlayerChapter[] =>
   get(input, 'chapters', []) as PodloveWebPlayerChapter[];
 
 export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
