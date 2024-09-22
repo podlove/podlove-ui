@@ -3,7 +3,7 @@ import type { PodloveWebPlayerConfig, PodloveWebPlayerEpisode } from '@podlove/t
 import { INIT, READY, RESTORE, CONSTRUCTED } from './types.js';
 
 export type initPayload = PodloveWebPlayerEpisode;
-export type readyPayload = PodloveWebPlayerEpisode & PodloveWebPlayerConfig;
+export type readyPayload = Partial<PodloveWebPlayerEpisode & PodloveWebPlayerConfig>;
 export type restorePayload = void;
 export type constructedPayload = PodloveWebPlayerEpisode & PodloveWebPlayerConfig;
 

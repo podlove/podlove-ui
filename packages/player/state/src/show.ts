@@ -26,7 +26,7 @@ export const reducer = handleActions<State, readyPayload>(
       ...state,
       title: get(payload, ['show', 'title'], null),
       subtitle: get(payload, ['show', 'subtitle'], null),
-      summary: sanitize(get(payload, ['show', 'summary'], null)).innerHTML,
+      summary: sanitize(get(payload, ['show', 'summary'], null)),
       link: get(payload, ['show', 'link'], null),
       poster: get(payload, ['show', 'poster'], null)
     })

@@ -1,6 +1,7 @@
 import { init } from '@podlove/player-actions/lifecycle';
 import { Action, Store } from 'redux';
 import State from '../../src/store/state.js';
+import { curry } from 'lodash-es';
 
 export const setState =
   (...fragments) =>
@@ -9,7 +10,7 @@ export const setState =
     PODLOVE_STORE.dispatch(init(state));
   };
 
-export const onUpdate = (store: Store<State>) => (type: string) => (assertion: (state: State, action: Action) => void) => {
+export const onUpdate = curry((store: Store<State>, type: string, assertion: (state: State, action: Action) => void) => {
   const subscription = store.subscribe(() => {
     const action = store.getState().lastAction;
 
@@ -20,4 +21,4 @@ export const onUpdate = (store: Store<State>) => (type: string) => (assertion: (
     assertion(store.getState(), action);
     subscription();
   });
-};
+});

@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { READY } from '@podlove/player-actions/types';
 
-import { reducer, INITIAL_STATE } from './show';
+import { reducer, INITIAL_STATE } from './show.js';
 
 describe('show', () => {
   test(`it is a reducer function`, () => {

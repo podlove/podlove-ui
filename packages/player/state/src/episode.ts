@@ -30,7 +30,7 @@ export const reducer = handleActions<State, readyPayload>(
 
       title: get(payload, 'title', null),
       subtitle: get(payload, 'subtitle', null),
-      summary: sanitize(get(payload, 'summary', null)).innerHTML,
+      summary: sanitize(get(payload, 'summary', null)),
       link: get(payload, 'link', null),
       poster: get(payload, 'poster', null),
       publicationDate: parseDate(get(payload, 'publicationDate', null))

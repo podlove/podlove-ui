@@ -39,7 +39,8 @@ describe('audio', () => {
   test('should mute on MUTE', () => {
     expect(
       reducer(INITIAL_STATE, {
-        type: MUTE
+        type: MUTE,
+        payload: null
       })
     ).toEqual({
       ...INITIAL_STATE,
@@ -55,7 +56,8 @@ describe('audio', () => {
           muted: true
         },
         {
-          type: UNMUTE
+          type: UNMUTE,
+          payload: null
         }
       )
     ).toEqual({

@@ -65,7 +65,7 @@ export const removeClasses: any = curry((classes: string[] = [], el: HTMLElement
   return el;
 });
 
-export const sanitize = (input: HTMLElement): HTMLElement => {
+export const sanitize = (input: string): string => {
   if (!input || typeof window === 'undefined') {
     return input;
   }

@@ -19,7 +19,7 @@ export const chaptersSaga = ({
 }: {
   selectDuration: (input: any) => number;
   selectPlaytime: (input: any) => number;
-  selectCurrentChapter: (input: any) => PodloveWebPlayerChapter;
+  selectCurrentChapter: (input: any) => PodloveWebPlayerChapter | null;
   selectChapterList: (input: any) => PodloveWebPlayerChapter[];
 }) =>
   function* saga() {
