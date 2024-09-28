@@ -5,7 +5,6 @@ import { stepperSaga } from '@podlove/player-sagas/stepper';
 import { lifeCycleSaga } from '@podlove/player-sagas/lifecycle';
 
 import { selectors } from '../store';
-import dataSagas from './data.sagas';
 import episodeSagas from './episode.sagas';
 import playbarSagas from './playbar.sagas';
 import routerSaga from './router.sagas';
@@ -19,7 +18,6 @@ export async function createSideEffects() {
   const sagas = [
     lifeCycleSaga,
     routerSaga,
-    dataSagas({ selectInitializedApp: selectors.runtime.initialized }),
     episodeSagas({
       selectEpisode: selectors.episode.data,
       selectShow: selectors.podcast.show,
