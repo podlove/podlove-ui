@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
-// import node from '@astrojs/node';
+import node from '@astrojs/node';
 import vue from '@astrojs/vue';
 
 import tailwind from '@astrojs/tailwind';
@@ -11,6 +11,8 @@ export default defineConfig({
   // adapter: node({
   //   mode: 'standalone'
   // }),
-  adapter: cloudflare(),
+  adapter: cloudflare({
+
+   }),
   integrations: [vue({ appEntrypoint: '/src/app' }), tailwind()]
 });
