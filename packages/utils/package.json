@@ -183,7 +183,7 @@
     }
   },
   "dependencies": {
-    "dompurify": "2.0.12",
+    "dompurify": "2.0.17",
     "farbraum": "0.1.4",
     "query-string": "8.1.0",
     "ramda": "0.29.0"
