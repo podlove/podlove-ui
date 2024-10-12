@@ -1,7 +1,7 @@
 {
   "name": "@podlove/page",
   "type": "module",
-  "version": "6.1.0-alpha.0",
+  "version": "6.1.0-alpha.1",
   "private": true,
   "scripts": {
     "serve": "astro dev",

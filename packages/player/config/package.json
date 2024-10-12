@@ -1,6 +1,6 @@
 {
   "name": "@podlove/player-config",
-  "version": "6.1.0-alpha.0",
+  "version": "6.1.0-alpha.1",
   "description": "Configuration for Podlove Player Framework",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/player/config",
   "scripts": {
