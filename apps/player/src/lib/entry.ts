@@ -1,6 +1,8 @@
-import { html } from '@podlove/utils/request';
+import { html, css } from '@podlove/utils/request';
 import variant from '../templates/index.js';
-import styles from '../styles.css?inline';
+import frameworkStyle from '../styles.css?inline';
+
+const fetchPlayerStyles = () => css(import.meta.resolve('./style.css'));
 
 const fetchTemplate = async (node: HTMLElement): Promise<string> => {
   const templateUrl = node.getAttribute('template');
@@ -31,7 +33,15 @@ export const createEntry = async (
   entry.innerHTML = '';
 
   const styling = document.createElement('style');
-  styling.appendChild(document.createTextNode(styles));
+  styling.appendChild(document.createTextNode(frameworkStyle));
+
+  await fetchPlayerStyles().then(result => {
+    if (!result) {
+      return
+    }
+
+    styling.appendChild(document.createTextNode(result));
+  });
 
   const player = document.createElement('web-player');
   player.innerHTML = template;

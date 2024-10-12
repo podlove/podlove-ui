@@ -52,3 +52,27 @@ export const html = async (url): Promise<string | null> => {
     return null;
   }
 };
+
+export const css = async (url): Promise<string | null> => {
+  if (typeof url !== 'string') {
+    return url;
+  }
+
+  try {
+    const response = await fetch(url, { headers: { 'Accept': 'text/css' } })
+
+    if (response.status !== 200) {
+      return null;
+    }
+
+    if (!getHeaders<string[]>('content-type', [], response).includes('text/css')) {
+      return null
+    }
+
+
+    return response.text();
+  } catch (err) {
+    console.warn(err);
+    return null;
+  }
+};

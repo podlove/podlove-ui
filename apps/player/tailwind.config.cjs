@@ -2,7 +2,7 @@ module.exports = {
   content: [
     './src/**/*.{vue,html}',
     '../../packages/components/src/**/*.vue',
-    '../../apps/subscribe-button/src/**/*.vue'
+    '../subscribe-button/src/**/*.vue'
   ],
   theme: {
     colors: {},

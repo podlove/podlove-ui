@@ -31,6 +31,9 @@ const productionConfig: UserConfigExport = {
     }
   },
   plugins: [vue(), dts({ entryRoot: '../player/src' })],
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+},
   resolve
 };
 
