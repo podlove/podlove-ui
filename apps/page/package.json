@@ -2,6 +2,7 @@
   "name": "@podlove/page",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "serve": "astro dev",
     "build": "astro check && astro build",
