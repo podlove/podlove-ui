@@ -1,4 +1,3 @@
-import { prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { toInt } from '@podlove/utils/helper';
 import { duration, playtime } from '@podlove/player-config';
@@ -26,7 +25,14 @@ export const INITIAL_STATE: State = {
   livesync: 0
 };
 
-export const reducer = handleActions<State, readyPayload | backendDurationPayload | backendPlaytimePayload | requestPlaytimePayload | backendLiveSyncPayload>(
+export const reducer = handleActions<
+  State,
+  | readyPayload
+  | backendDurationPayload
+  | backendPlaytimePayload
+  | requestPlaytimePayload
+  | backendLiveSyncPayload
+>(
   {
     [ready.toString()]: (state, { payload }: Action<readyPayload>) => ({
       ...state,
@@ -54,7 +60,7 @@ export const reducer = handleActions<State, readyPayload | backendDurationPayloa
 );
 
 export const selectors = {
-  playtime: prop('playtime') as (input: State) => number,
-  duration: prop('duration') as (input: State) => number,
-  livesync: prop('livesync') as (input: State) => number,
-}
+  playtime: (state: State) => state.playtime,
+  duration: (state: State) => state.duration,
+  livesync: (state: State) => state.livesync
+};

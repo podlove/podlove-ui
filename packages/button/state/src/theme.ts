@@ -1,11 +1,10 @@
-import { createSelector } from 'reselect';
-import { prop, compose, propOr } from 'ramda';
+import { flow, get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { createObject } from '@podlove/utils/helper';
-import type { PodloveThemeTokens } from '@podlove/types';
+import type { PodloveTheme, PodloveThemeTokens } from '@podlove/types';
 import { init, initPayload } from '@podlove/button-actions/lifecycle';
 
-const theme = propOr({}, 'theme');
+const theme = (input: initPayload): PodloveTheme => get(input, 'theme', {} as PodloveTheme);
 
 const TOKENS: PodloveThemeTokens = {
   brand: '#E64415',
@@ -19,31 +18,33 @@ const TOKENS: PodloveThemeTokens = {
 };
 
 export const tokens = {
-  brand: propOr(TOKENS.brand, 'brand'),
-  brandDark: propOr(TOKENS.brandDark, 'brandDark'),
-  brandDarkest: propOr(TOKENS.brandDarkest, 'brandDarkest'),
-  brandLightest: propOr(TOKENS.brandLightest, 'brandLightest'),
-  shadeDark: propOr(TOKENS.shadeDark, 'shadeDark'),
-  shadeBase: propOr(TOKENS.shadeBase, 'shadeBase'),
-  contrast: propOr(TOKENS.contrast, 'contrast'),
-  alt: propOr(TOKENS.alt, 'alt')
+  brand: (input: PodloveThemeTokens): string => get(input, 'brand', TOKENS.brand),
+  brandDark: (input: PodloveThemeTokens): string => get(input, 'brandDark', TOKENS.brandDark),
+  brandDarkest: (input: PodloveThemeTokens): string =>
+    get(input, 'brandDarkest', TOKENS.brandDarkest),
+  brandLightest: (input: PodloveThemeTokens): string =>
+    get(input, 'brandLightest', TOKENS.brandLightest),
+  shadeDark: (input: PodloveThemeTokens): string => get(input, 'shadeDark', TOKENS.shadeDark),
+  shadeBase: (input: PodloveThemeTokens): string => get(input, 'shadeBase', TOKENS.shadeBase),
+  contrast: (input: PodloveThemeTokens): string => get(input, 'contrast', TOKENS.contrast),
+  alt: (input: PodloveThemeTokens): string => get(input, 'alt', TOKENS.alt)
 };
 
-const getTokens = propOr({}, 'tokens');
+const getTokens = (input: PodloveThemeTokens) => get(input, 'tokens', {});
 
 const extractTokens = createObject({
-  brand: compose(tokens.brand, getTokens, theme),
-  brandDark: compose(tokens.brandDark, getTokens, theme),
-  brandDarkest: compose(tokens.brandDarkest, getTokens, theme),
-  brandLightest: compose(tokens.brandLightest, getTokens, theme),
-  shadeDark: compose(tokens.shadeDark, getTokens, theme),
-  shadeBase: compose(tokens.shadeBase, getTokens, theme),
-  contrast: compose(tokens.contrast, getTokens, theme),
-  alt: compose(tokens.alt, getTokens, theme)
+  brand: flow(theme, getTokens, tokens.brand),
+  brandDark: flow(theme, getTokens, tokens.brandDark),
+  brandDarkest: flow(theme, getTokens, tokens.brandDarkest),
+  brandLightest: flow(theme, getTokens, tokens.brandLightest),
+  shadeDark: flow(theme, getTokens, tokens.shadeDark),
+  shadeBase: flow(theme, getTokens, tokens.shadeBase),
+  contrast: flow(theme, getTokens, tokens.contrast),
+  alt: flow(theme, getTokens, tokens.alt)
 }) as (input: initPayload) => PodloveThemeTokens;
 
 export interface State {
-  tokens: PodloveThemeTokens
+  tokens: PodloveThemeTokens;
 }
 
 export const INITIAL_STATE: State = {
@@ -59,15 +60,15 @@ export const reducer = handleActions<State, initPayload>(
   INITIAL_STATE
 );
 
-const themeColors = propOr({}, 'tokens') as (input: State) => PodloveThemeTokens;
+const themeColors = (key: keyof PodloveThemeTokens) => (input: State): string | null => get(input, ['tokens', key], null);
 
 export const selectors = {
-  brand: createSelector(themeColors, prop('brand')),
-  brandDark: createSelector(themeColors, prop('brandDark')),
-  brandDarkest: createSelector(themeColors, prop('brandDarkest')),
-  brandLightest: createSelector(themeColors, prop('brandLightest')),
-  shadeDark: createSelector(themeColors, prop('shadeDark')),
-  shadeBase: createSelector(themeColors, prop('shadeBase')),
-  contrast: createSelector(themeColors, prop('contrast')),
-  alt: createSelector(themeColors, prop('alt'))
+  brand: themeColors('brand'),
+  brandDark: themeColors('brandDark'),
+  brandDarkest: themeColors('brandDarkest'),
+  brandLightest: themeColors('brandLightest'),
+  shadeDark: themeColors('shadeDark'),
+  shadeBase: themeColors('shadeBase'),
+  contrast: themeColors('contrast'),
+  alt: themeColors('alt'),
 };

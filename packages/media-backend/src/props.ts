@@ -1,8 +1,8 @@
 import Hls from 'hls.js';
 
-import { path, compose, defaultTo } from 'ramda';
+import { get } from 'lodash-es';
+
 import {
-  AudioState,
   AudioStateCurrentData,
   AudioStateEnoughData,
   AudioStateFutureData,
@@ -27,54 +27,48 @@ const transformBuffered = (buffered: TimeRanges | undefined) => {
 };
 
 // Media Props
-const duration = compose<[MediaElement], number | undefined, number>(
-  defaultTo(0),
-  path(['duration'])
-);
-const playtime: (input: MediaElement) => number | undefined = path<number>(['playtime']);
-const buffered = compose<[MediaElement], TimeRanges | undefined, [number, number][]>(
-  transformBuffered,
-  path(['buffered'])
-);
-const volume: (input: MediaElement) => number | undefined = path<number>(['volume']);
-const ended: (input: MediaElement) => boolean | undefined = path<boolean>(['ended']);
-const paused: (input: MediaElement) => boolean | undefined = path<boolean>(['paused']);
-const rate: (input: MediaElement) => number | undefined = path<number>(['playbackRate']);
-const muted: (input: MediaElement) => boolean | undefined = path<boolean>(['muted']);
-const src: (input: MediaElement) => string | undefined = path<string>(['currentSrc']);
-const channels: (input: MediaElement) => number | undefined = path<number>([
-  'activeBuffer',
-  'channelCount'
-]);
-const buffer: (input: MediaElement) => AudioBuffer | undefined = path<AudioBuffer>(['audioBuffer']);
-const initialized: (input: MediaElement) => boolean | undefined = path<boolean>(['initialized']);
-const hls: (input: MediaElement) => typeof Hls | undefined = path<typeof Hls>(['hls']);
-const liveSync: (input: MediaElement) => number | undefined = path<number>(['liveSync']);
+const duration = (input: MediaElement): number => get(input, ['duration'], 0);
+const playtime = (input: MediaElement): number | undefined => get(input, ['playtime']);
+const buffered = (input: MediaElement): [number, number][] => {
+  const buffer = get(input, ['buffered']);
 
-const state = compose<[MediaElement], number | undefined, AudioState | undefined>(
-  (state: number | undefined) => {
-    switch (state) {
-      case 0: {
-        return AudioStateNothing;
-      }
-      case 1: {
-        return AudioStateMetaData;
-      }
-      case 2: {
-        return AudioStateCurrentData;
-      }
-      case 3: {
-        return AudioStateFutureData;
-      }
-      case 4: {
-        return AudioStateEnoughData;
-      }
-      default:
-        return undefined;
+  return transformBuffered(buffer);
+};
+const volume = (input: MediaElement): number | undefined => get(input, ['volume']);
+const ended = (input: MediaElement): boolean | undefined => get(input, ['ended']);
+const paused = (input: MediaElement): boolean | undefined => get(input, ['paused']);
+const rate = (input: MediaElement): number | undefined => get(input, ['playbackRate']);
+const muted = (input: MediaElement): boolean | undefined => get(input, ['muted']);
+const src = (input: MediaElement): string | undefined => get(input, ['currentSrc']);
+const channels = (input: MediaElement): number | undefined =>
+  get(input, ['activeBuffer', 'channelCount']);
+const buffer = (input: MediaElement): AudioBuffer | undefined => get(input, ['audioBuffer']);
+const initialized = (input: MediaElement): boolean | undefined => get(input, ['initialized']);
+const hls = (input: MediaElement): typeof Hls | undefined => get(input, ['hls']);
+const liveSync = (input: MediaElement): number | undefined => get(input, ['liveSync']);
+
+const state = (input: MediaElement) => {
+  const state: number | undefined = get(input, ['readyState']);
+  switch (state) {
+    case 0: {
+      return AudioStateNothing;
     }
-  },
-  path<number>(['readyState'])
-);
+    case 1: {
+      return AudioStateMetaData;
+    }
+    case 2: {
+      return AudioStateCurrentData;
+    }
+    case 3: {
+      return AudioStateFutureData;
+    }
+    case 4: {
+      return AudioStateEnoughData;
+    }
+    default:
+      return undefined;
+  }
+};
 
 const playing = (media: MediaElement): boolean =>
   media && media.currentTime > 0 && !media.paused && !media.ended && media.readyState > 2;

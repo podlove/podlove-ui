@@ -1,5 +1,4 @@
-import { curry, map, compose, identity } from 'ramda';
-import { isUndefinedOrNull } from './predicates.js';
+import { isNil } from 'lodash-es';
 
 /**
  * Collection of functional helpers
@@ -31,30 +30,15 @@ export const toFloat = (input: string | number = 0): number =>
 export const fallbackTo =
   <T>(fallback: T) =>
   (value: T) =>
-    isUndefinedOrNull(value) ? fallback : value;
-export const createObject: any = curry(
-  <T>(specification: { [key: string]: Function }, value: any): any =>
-    map((f: Function) => f(value), specification)
-);
-export const scope: any = curry(
-  (
-    selectors: { [key: string]: Function } = {},
-    context: Function = identity
-  ): { [key: string]: any } =>
-    Object.keys(selectors).reduce(
-      (result, key) => ({
+    isNil(value) ? fallback : value;
+
+export const createObject =
+  <T>(specification: { [key: string]: Function }) =>
+  (value: any): T =>
+    Object.entries(specification).reduce(
+      (result, [key, f]) => ({
         ...result,
-        [key]: compose(selectors[key] as any, context as any)
+        [key]: f(value)
       }),
-      {}
-    )
-);
-export const startsWith: any = curry((q: string, str: string): boolean => str.startsWith(q));
-export const endsWith: any = curry((q: string, str: string): boolean => str.endsWith(q));
-export const stripl: any = curry((q: string, str: string): string =>
-  startsWith(q, str) ? str.slice(q.length) : str
-);
-export const stripr: any = curry((q: string, str: string): string =>
-  endsWith(q, str) ? str.slice(0, str.length - q.length) : str
-);
-export const strip: any = curry((q: string, str: string): string => stripl(q, stripr(q, str)));
+      {} as T
+    );

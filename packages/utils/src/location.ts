@@ -1,4 +1,4 @@
-import { compose } from 'ramda';
+import { flow } from 'lodash-es';
 import queryString, { ParsedQuery } from 'query-string';
 import { toPlayerTime } from './time.js';
 
@@ -41,7 +41,4 @@ const parseParameters = (parameters: {
   return parsed;
 };
 
-export const urlParameters = compose<any[], ParsedQuery, LocationParameters>(
-  parseParameters,
-  locationParams
-);
+export const urlParameters = flow(locationParams, parseParameters);

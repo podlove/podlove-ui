@@ -1,6 +1,6 @@
 /* global HTMLMediaElement */
 import Hls from 'hls.js';
-import { compose } from 'ramda';
+import { flowRight as compose } from 'lodash-es';
 import { MediaElement, MediaSource } from './types.js';
 
 import { toArray, getMediaSources } from './utils.js';

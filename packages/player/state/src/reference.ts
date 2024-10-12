@@ -1,4 +1,4 @@
-import { prop } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import {
   shareReference,
@@ -35,8 +35,8 @@ export const reducer = handleActions<State, readyPayload>(
 );
 
 export const selectors = {
-  share: prop('share') as (input: State) => string,
-  config: prop('config') as (input: State) => string,
-  episode: prop('episode') as (input: State) => string,
-  origin: prop('origin') as (input: State) => string
+  share: (state: State) => get(state, 'share'),
+  config: (state: State) => get(state, 'config'),
+  episode: (state: State) => get(state, 'episode'),
+  origin: (state: State) => get(state, 'origin')
 };

@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
-import { identity } from 'ramda';
+import { identity } from 'lodash-es';
 import { getPlatform } from '@podlove/utils/useragent';
 import getClients from '@podlove/clients';
 import { PodcastClient, PodcatcherClientId, platform, type } from '@podlove/clients/types';

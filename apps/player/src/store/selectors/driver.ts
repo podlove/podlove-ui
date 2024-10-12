@@ -1,4 +1,3 @@
-import { either } from 'ramda'
 import { selectors as driver } from '@podlove/player-state/driver'
 import { createSelector } from 'reselect'
 
@@ -9,6 +8,6 @@ import chapters from './chapters.js'
 
 export default {
   playing: createSelector(root.driver, driver.playing),
-  title: either(episode.title, show.title),
-  image: either(chapters.image, episode.poster, show.poster)
+  title: state => episode.title(state) || show.title(state),
+  image: state => chapters.image(state) || episode.poster(state) || show.poster(state)
 }

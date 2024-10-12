@@ -1,6 +1,6 @@
-import { compose, propOr, equals, lt, length } from 'ramda';
 import { selectors as components } from '@podlove/player-state/components';
 import { createSelector } from 'reselect';
+import { get } from 'lodash-es';
 
 import root from './root.js';
 import chapters from './chapters.js';
@@ -20,8 +20,8 @@ export default {
   shareTab: createSelector(root.components, components.shareTab),
   filesTab: createSelector(root.components, components.filesTab),
   playlistTab: createSelector(root.components, components.playlistTab),
-  nextChapterDisabled: createSelector(chapters.next, compose(equals(-1), propOr(-1, 'index'))),
-  previousChapterDisabled: createSelector(chapters.previous, compose(equals(-1), propOr(-1, 'index'))),
-  chaptersChannel: createSelector(chapters.list, compose(lt(0), length)),
+  nextChapterDisabled: createSelector(chapters.next, (chapter) => get(chapter, 'index', -1) === -1),
+  previousChapterDisabled: createSelector(chapters.previous, (chapter) => get(chapter, 'index', -1) === -1),
+  chaptersChannel: createSelector(chapters.list, (chapters) => chapters.length > 0),
   sharePlaytime: createSelector(root.components, components.sharePlaytime)
 };

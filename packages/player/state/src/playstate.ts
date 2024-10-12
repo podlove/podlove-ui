@@ -1,4 +1,3 @@
-import { identity } from 'ramda';
 import { handleActions } from 'redux-actions';
 import { constructed, restore } from '@podlove/player-actions/lifecycle';
 import { backendEnd, backendLoadingEnd } from '@podlove/player-actions/play';
@@ -20,5 +19,5 @@ export const reducer = handleActions<State, void>(
 );
 
 export const selectors = {
-  playstate: identity
+  playstate: (state: State) => state
 };

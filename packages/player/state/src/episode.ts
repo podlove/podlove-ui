@@ -1,11 +1,9 @@
-import { compose, propOr, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
 
 import { parseDate } from '@podlove/utils/time';
 import { sanitize } from '@podlove/utils/dom';
-import { createObject } from '@podlove/utils/helper';
-import { PodloveWebPlayerConfig } from '@podlove/types';
 
 export interface State {
   title: string | null;
@@ -25,30 +23,27 @@ export const INIT_STATE: State = {
   publicationDate: null
 };
 
-const update = createObject({
-  title: propOr(null, 'title'),
-  subtitle: propOr(null, 'subtitle'),
-  summary: compose(sanitize, propOr(null, 'summary')),
-  link: propOr(null, 'link'),
-  poster: propOr(null, 'poster'),
-  publicationDate: compose(parseDate, propOr(null, 'publicationDate'))
-}) as (input: PodloveWebPlayerConfig) => State;
-
 export const reducer = handleActions<State, readyPayload>(
   {
     [ready.toString()]: (state, { payload }: Action<readyPayload>) => ({
       ...state,
-      ...update(payload)
+
+      title: get(payload, 'title', null),
+      subtitle: get(payload, 'subtitle', null),
+      summary: sanitize(get(payload, 'summary', null)),
+      link: get(payload, 'link', null),
+      poster: get(payload, 'poster', null),
+      publicationDate: parseDate(get(payload, 'publicationDate', null))
     })
   },
   INIT_STATE
 );
 
 export const selectors = {
-  title: prop('title') as (input: State) => string | null,
-  subtitle: prop('subtitle') as (input: State) => string | null,
-  summary: prop('summary') as (input: State) => string | null,
-  link: prop('link') as (input: State) => string | null,
-  poster: prop('poster') as (input: State) => string | null,
-  publicationDate: prop('publicationDate') as (input: State) => number | null
+  title: (state: State) => state.title,
+  subtitle: (state: State) => state.subtitle,
+  summary: (state: State) => state.summary,
+  link: (state: State) => state.link,
+  poster: (state: State) => state.poster,
+  publicationDate: (state: State) => state.publicationDate
 };

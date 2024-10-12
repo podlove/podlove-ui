@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
-import { identity, propOr } from 'ramda';
+import { get } from 'lodash-es';
 
 import { PodloveWebPlayerContributor } from '@podlove/types';
 import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
@@ -11,11 +11,11 @@ export const INITIAL_STATE: State = [];
 export const reducer = handleActions<State, readyPayload>(
   {
     [ready.toString()]: (_, { payload }: Action<readyPayload>) =>
-      propOr([], 'contributors', payload)
+      get(payload, 'contributors', [])
   },
   INITIAL_STATE
 );
 
 export const selectors = {
-  contributors: identity as (input: State) => State
+  contributors: (state: State) => state
 };

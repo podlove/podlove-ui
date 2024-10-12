@@ -6,7 +6,6 @@ import root from './root.js'
 
 export default createObject({
   chapters: createSelector(root.tabs, tabs.chapters),
-  audio: createSelector(root.tabs, tabs.audio),
   share: createSelector(root.tabs, tabs.share),
   files: createSelector(root.tabs, tabs.files),
   shownotes: createSelector(root.tabs, tabs.shownotes),

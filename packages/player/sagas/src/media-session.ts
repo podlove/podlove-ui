@@ -1,11 +1,11 @@
 /* global MediaMetadata */
 import { takeEvery, put, select, call } from 'redux-saga/effects';
-import { min, max } from 'ramda';
 import * as media from '@podlove/player-actions/play';
 import * as timepiece from '@podlove/player-actions/timepiece';
 import * as chapters from '@podlove/player-actions/chapters';
 import { ready } from '@podlove/player-actions/lifecycle';
-import { channel, mediaControl } from './helper';
+import { channel, mediaControl } from './helper.js';
+import { max, min } from 'lodash-es';
 
 export const mediaSessionSaga = ({
   selectPoster,
@@ -104,13 +104,13 @@ export function* stepForward({
   const playtime: number = yield select(selectPlaytime);
   const duration: number = yield select(selectDuration);
 
-  yield put(timepiece.requestPlaytime(min(playtime + 30000, duration)));
+  yield put(timepiece.requestPlaytime(min([playtime + 30000, duration])));
 }
 
 export function* stepBackward({ selectPlaytime }: { selectPlaytime: (input: any) => number }) {
   const playtime: number = yield select(selectPlaytime);
 
-  yield put(timepiece.requestPlaytime(max(playtime - 15000, 0)));
+  yield put(timepiece.requestPlaytime(max([playtime - 15000, 0])));
 }
 
 export function* nextChapter() {

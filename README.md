@@ -21,7 +21,6 @@ This mono repo creates a set of different packages within the `@podlove` NPM org
 - Bundling: [Vite](https://vitejs.dev/)
 - View Renderer: [Vue](https://vuejs.org/)
 - Statemanagement: [Redux](https://redux.js.org/)
-- Helpers: [Ramda](https://ramdajs.com/)
 - Styling: [Tailwind](https://tailwindcss.com/)
 - Testing: [Vitest](https://vitest.dev/) and [Cypress](https://www.cypress.io/)
 

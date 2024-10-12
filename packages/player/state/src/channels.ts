@@ -1,5 +1,4 @@
 import { Action, handleActions } from 'redux-actions';
-import { identity } from 'ramda';
 import { channels } from '@podlove/player-config';
 import { PodloveWebPlayerChannel } from '@podlove/types'
 import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
@@ -25,5 +24,5 @@ export const reducer = handleActions<State, readyPayload>(
 );
 
 export const selectors = {
-  channels: identity as (input: State) => State
+  channels: (state: State) => state
 };

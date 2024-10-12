@@ -1,4 +1,4 @@
-import { find, propOr } from 'ramda';
+import { get } from 'lodash-es';
 import { PodloveWebPlayerChapter } from '@podlove/types';
 
 const emptyChapter: PodloveWebPlayerChapter = {
@@ -10,7 +10,7 @@ const emptyChapter: PodloveWebPlayerChapter = {
 };
 
 export const getChapterByIndex = (chapters: PodloveWebPlayerChapter[], index: number) =>
-  propOr(emptyChapter, index >= 0 ? index : null, chapters);
+  get(chapters, index, emptyChapter);
 
 export const currentChapterIndex = (chapters: PodloveWebPlayerChapter[]): number => {
   const index = (chapters || []).findIndex((chapter) => chapter.active);
@@ -40,7 +40,7 @@ export const currentChapterByPlaytime = (
   chapters: PodloveWebPlayerChapter[],
   playtime: number
 ): PodloveWebPlayerChapter =>
-  find((chapter: PodloveWebPlayerChapter) => {
+  chapters.find((chapter) => {
     if (playtime < (chapter.start as number)) {
       return false;
     }
@@ -50,7 +50,7 @@ export const currentChapterByPlaytime = (
     }
 
     return true;
-  })(chapters);
+  });
 
 export const inactiveChapter = (chapter: PodloveWebPlayerChapter): PodloveWebPlayerChapter => ({
   ...chapter,

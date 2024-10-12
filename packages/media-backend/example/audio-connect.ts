@@ -1,5 +1,4 @@
-import { compose, defaultTo, path, prop } from 'ramda';
-
+import { get } from 'lodash-es';
 import { connect, props } from '../src/index.js';
 import {
   loadButton,
@@ -37,32 +36,25 @@ export default () => {
   pauseButton?.addEventListener('click', () => connector.actions.pause());
   muteButton?.addEventListener('click', () => connector.actions.mute());
   unmuteButton?.addEventListener('click', () => connector.actions.unmute());
-  restartButton?.addEventListener(
-    'click',
-    compose(
-      () => connector.actions.play(),
-      () => connector.actions.setPlaytime(0),
-      () => connector.actions.pause()
-    )
-  );
+  restartButton?.addEventListener('click', () => {
+    connector.actions.pause();
+    connector.actions.setPlaytime(0);
+    connector.actions.play();
+  });
 
   // inputs
-  volumeInput?.addEventListener(
-    'change',
-    compose((val) => connector.actions.setVolume(val), path(['target', 'value']))
-  );
-  rateInput?.addEventListener(
-    'change',
-    compose((val) => connector.actions.setRate(val), path(['target', 'value']))
-  );
-  progressBar.addEventListener(
-    'change',
-    compose(
-      (val: any) => connector.actions.setPlaytime(val * 250),
-      defaultTo(0),
-      path(['target', 'value'])
-    )
-  );
+  volumeInput?.addEventListener('change', (event) => {
+    const value = get(event, ['target', 'value']);
+    connector.actions.setVolume(value);
+  });
+  rateInput?.addEventListener('change', (event) => {
+    const value = get(event, ['target', 'value']);
+    connector.actions.setRate(value);
+  });
+  progressBar.addEventListener('change', (event) => {
+    const value = get(event, ['target', 'value'], 0);
+    connector.actions.setPlaytime(value * 250);
+  });
 
   // Props
   const renderProps = () => {
@@ -75,13 +67,16 @@ export default () => {
 
     Object.keys(playerProperties).map((key: any) => {
       const propNode = document.createElement('tr');
-      propNode.innerHTML = `<td>${key}</td><td>${prop(key, playerProperties)}</td>`;
+      propNode.innerHTML = `<td>${key}</td><td>${get(playerProperties, key)}</td>`;
       element?.appendChild(propNode);
     });
   };
 
   // Events
-  const onEvent = (event: any) => compose(renderProps, log(event));
+  const onEvent = (event: any) => {
+    log(event);
+    renderProps();
+  };
   connector.events.onLoaded(onEvent('loaded'));
   connector.events.onLoading(onEvent('loading'));
   connector.events.onBuffering(onEvent('buffering'));

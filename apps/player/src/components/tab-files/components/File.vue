@@ -30,14 +30,13 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { injectStore } from 'redux-vuex';
-import { compose, includes, defaultTo, toLower } from 'ramda';
 import { DownloadIcon, AudioFileIcon, VideoFileIcon, TextFileIcon, PdfFileIcon } from '@podlove/components';
 import { toMegabyte } from '@podlove/utils/math';
 import { hoverFile, selectFile } from '@podlove/player-actions/files';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
-const isType = (type) => compose(includes(type), toLower, defaultTo(''));
+const isType = (type: string) => (input: string) =>  (input || '').toLowerCase().includes(type);
 const audio = isType('audio');
 const video = isType('video');
 const pdf = isType('pdf');

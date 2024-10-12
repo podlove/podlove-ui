@@ -13,7 +13,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
-import { prop } from 'ramda';
+import { get } from 'lodash-es';
 import { mapState } from 'redux-vuex';
 
 import select from '../../store/selectors/index.js';
@@ -35,7 +35,7 @@ const chapter = computed(() => {
   return state.currentChapter;
 });
 
-const title = computed(() => prop('title', chapter.value));
+const title = computed(() => get(chapter.value, 'title'));
 </script>
 
 <style lang="postcss" scoped>

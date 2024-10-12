@@ -1,4 +1,4 @@
-import { compose, prop, propOr } from 'ramda';
+import { get } from 'lodash-es';
 import type {
   PodloveSubscribeButtonClient,
   PodloveSubscribeButtonConfig,
@@ -6,18 +6,12 @@ import type {
   PodloveRuntime
 } from '@podlove/types';
 
-export const feed = prop('feed') as (input: PodloveSubscribeButtonConfig) => string;
-export const clients = propOr([], 'clients') as (
-  input: PodloveSubscribeButtonConfig
-) => PodloveSubscribeButtonClient[];
-export const theme = propOr({}, 'theme') as (
-  input: PodloveSubscribeButtonConfig
-) => PodloveTheme;
+export const feed = (input: PodloveSubscribeButtonConfig): string => get(input, 'feed');
+export const clients = (input: PodloveSubscribeButtonConfig): PodloveSubscribeButtonClient[] =>
+  get(input, 'clients', []);
+export const theme = (input: PodloveSubscribeButtonConfig): PodloveTheme => get(input, 'theme', {} as PodloveTheme);
+export const runtime = (input: PodloveSubscribeButtonConfig): PodloveRuntime =>
+  get(input, 'runtime', {});
 
-export const runtime = propOr({}, 'runtime') as (
-  input: PodloveSubscribeButtonConfig
-) => PodloveRuntime;
-
-export const language = compose(prop('language'), runtime) as (
-  input: PodloveSubscribeButtonConfig
-) => string;
+export const language = (input: PodloveSubscribeButtonConfig): string =>
+  get(input, 'language', 'en');
