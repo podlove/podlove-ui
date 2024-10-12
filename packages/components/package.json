@@ -1,6 +1,6 @@
 {
   "name": "@podlove/components",
-  "version": "6.0.1-alpha.7",
+  "version": "6.1.0-alpha.0",
   "description": "Reusable Podlove UI Components",
   "homepage": "https://github.com/podlove/ui/tree/development/packages/components",
   "scripts": {
@@ -35,19 +35,19 @@
     "@podlove/player-actions": "workspace:*",
     "@podlove/utils": "workspace:*",
     "floating-vue": "2.0.0-beta.20",
+    "lodash-es": "4.17.21",
     "ramda": "0.29.0",
     "rangetouch": "2.0.1",
     "tailwindcss": "3.2.4",
-    "vue": "3.4.31",
-    "lodash-es": "4.17.21"
+    "vue": "3.4.31"
   },
   "peerDependencies": {
     "vue": "3"
   },
   "devDependencies": {
     "@podlove/types": "workspace:*",
-    "@types/ramda": "0.29.0",
     "@types/lodash-es": "4.17.12",
+    "@types/ramda": "0.29.0",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
     "@vitejs/plugin-vue": "4.2.1",

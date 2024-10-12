@@ -1,7 +1,7 @@
 {
   "name": "@podlove/page",
   "type": "module",
-  "version": "0.0.1",
+  "version": "6.1.0-alpha.0",
   "private": true,
   "scripts": {
     "serve": "astro dev",
@@ -10,39 +10,39 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@podlove/player-sagas": "workspace:*",
-    "@podlove/utils": "workspace:*",
-    "@podlove/player-actions": "workspace:*",
-    "@podlove/player-state": "workspace:*",
-    "@podlove/components": "workspace:*",
-    "@podlove/types": "workspace:*",
-    "@podlove/clients": "workspace:*",
-    "@podlove/webvtt-parser": "workspace:*",
     "@astrojs/check": "0.8.1",
+    "@astrojs/cloudflare": "11.0.1",
     "@astrojs/node": "8.3.2",
     "@astrojs/tailwind": "5.1.0",
     "@astrojs/vue": "4.5.0",
-    "@astrojs/cloudflare": "11.0.1",
+    "@m31coding/fuzzy-search": "1.0.1",
+    "@podlove/clients": "workspace:*",
+    "@podlove/components": "workspace:*",
+    "@podlove/player-actions": "workspace:*",
+    "@podlove/player-sagas": "workspace:*",
+    "@podlove/player-state": "workspace:*",
+    "@podlove/types": "workspace:*",
+    "@podlove/utils": "workspace:*",
+    "@podlove/webvtt-parser": "workspace:*",
     "astro": "4.11.5",
-    "vue": "3.4.31",
+    "color.js": "1.2.0",
+    "farbraum": "0.2.1",
     "fast-xml-parser": "4.3.2",
     "lodash-es": "4.17.21",
+    "multimatch": "7.0.0",
     "redux": "4.2.1",
-    "redux-vuex": "3.1.2",
     "redux-actions": "3.0.0",
     "redux-saga": "1.2.3",
+    "redux-vuex": "3.1.2",
     "reselect": "4.1.8",
-    "vue-i18n": "9.13.1",
     "scroll-into-view-if-needed": "3.1.0",
-    "multimatch": "7.0.0",
-    "@m31coding/fuzzy-search": "1.0.1",
-    "color.js": "1.2.0",
-    "farbraum": "0.2.1"
+    "vue": "3.4.31",
+    "vue-i18n": "9.13.1"
   },
   "devDependencies": {
-    "tailwindcss": "3.0.24",
-    "typescript": "5.3.2",
     "@types/lodash-es": "4.17.12",
-    "@types/redux-actions": "2.6.5"
+    "@types/redux-actions": "2.6.5",
+    "tailwindcss": "3.0.24",
+    "typescript": "5.3.2"
   }
 }

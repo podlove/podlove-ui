@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0-alpha.0](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.7...v6.1.0-alpha.0) (2024-10-12)
+
+**Note:** Version bump only for package @podlove/button-config
+
 ## [6.0.1-alpha.7](https://github.com/podlove/podlove-ui/compare/v6.0.1-alpha.6...v6.0.1-alpha.7) (2023-12-01)
 
 ### Bug Fixes
