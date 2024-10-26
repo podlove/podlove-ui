@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 import { toInteger } from 'lodash-es';
-import { actions, store, selectors } from '../logic';
+import { actions, store } from '../logic';
 import { getRequestHeader } from '../lib/middleware';
 import parseFeed from '../logic/data/feed-parser';
 import type { Podcast } from '../types/feed.types';

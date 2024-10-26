@@ -1,25 +1,11 @@
 import { get } from 'lodash-es';
 import { messages, defaultLang } from './messages';
-import { store, selectors } from '../logic'
+import { store, selectors } from '../logic';
+import { translateFactory } from '@podlove/utils/translate';
 
 export function useTranslations() {
   const lang = getLanguage();
-
-  return (key: string) => {
-    const message = get(messages, [lang, key].join('.'));
-
-    if (message) {
-      return message
-    }
-
-    const fallback = get(messages, [defaultLang, key].join('.'));
-
-    if (fallback) {
-      return fallback;
-    }
-
-    return key;
-  };
+  return translateFactory(lang, defaultLang, messages);
 }
 
 export function getLanguage() {

@@ -21,10 +21,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { injectStore, mapState } from 'redux-vuex';
-import { useI18n } from 'vue-i18n';
+import { useTranslations } from '@podlove/utils/translate';
 import { selectors, actions } from '../../logic';
 
-const { t } = useI18n();
+const t = useTranslations();
 
 const store = injectStore();
 

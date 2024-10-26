@@ -6,7 +6,10 @@
         v-click-outside="toggleSubscribeOverlay"
       >
         <div class="relative bg-gray-100 max-w-4xl w-full rounded shadow-lg p-8 mt-8">
-          <button class="absolute right-0 top-0 mr-2 -mt-16 text-gray-100" @click="toggleSubscribeOverlay">
+          <button
+            class="absolute right-0 top-0 mr-2 -mt-16 text-gray-100"
+            @click="toggleSubscribeOverlay"
+          >
             <close-icon :size="40" />
           </button>
           <h2 class="absolute font-extralight text-3xl text-gray-100 top-0 left-0 ml-5 -mt-16">
@@ -20,21 +23,7 @@
               <div class="w-full mb-4 sm:w-40" v-for="client in items" :key="client?.id">
                 <a
                   v-if="client?.link"
-                  class="
-                    flex
-                    items-center
-                    flex-row
-                    sm:flex-col
-                    border-2
-                    rounded
-                    p-4
-                    sm:pt-5
-                    whitespace-nowrap
-                    border-gray-400
-                    mx-2
-                    overflow-hidden
-                    hover:border-primary-900 hover:shadow hover:bg-complementary-900
-                  "
+                  class="flex items-center flex-row sm:flex-col border-2 rounded p-4 sm:pt-5 whitespace-nowrap border-gray-400 mx-2 overflow-hidden hover:border-primary-900 hover:shadow hover:bg-complementary-900"
                   :href="client.link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -43,9 +32,10 @@
                     :style="{ maskImage: `url(${client.icon.src})` }"
                     class="subscribe-client-image w-10 h-10 mb-0 sm:w-10 sm:mb-2"
                   />
-                  <span class="font-light text-lg w-11/12 overflow-hidden truncate text-center text-primary-800">{{
-                    client.title
-                  }}</span></a
+                  <span
+                    class="font-light text-lg w-11/12 overflow-hidden truncate text-center text-primary-800"
+                    >{{ client.title }}</span
+                  ></a
                 >
               </div>
             </div>
@@ -55,22 +45,7 @@
             <div class="mx-2 mb-4">
               <div
                 ref="feed"
-                class="
-                  rounded
-                  p-2
-                  w-full
-                  border-gray-400 border-2
-                  text-primary-800
-                  hover:border-primary-800
-                  focus:border-primary-800
-                  px-2
-                  font-light
-                  cursor-pointer
-                  truncate
-                  hover:bg-complementary-900
-                  bg-complementary-100
-                  appearance-none
-                "
+                class="rounded p-2 w-full border-gray-400 border-2 text-primary-800 hover:border-primary-800 focus:border-primary-800 px-2 font-light cursor-pointer truncate hover:bg-complementary-900 bg-complementary-100 appearance-none"
                 @click="selectText"
               >
                 {{ state.feed }}
@@ -90,7 +65,7 @@ import getClients from '@podlove/clients';
 import { type, platform, type PodcatcherClientId } from '@podlove/clients/types';
 import { getPlatform } from '@podlove/utils/useragent';
 import { CloseIcon } from '@podlove/components';
-import { useI18n } from 'vue-i18n';
+import { useTranslations } from '@podlove/utils/translate';
 
 import CustomTransition from '../../components/CustomTransition.vue';
 
@@ -99,8 +74,8 @@ import { actions, selectors } from '../../logic/store';
 
 const feed: Ref<null | HTMLElement> = ref(null);
 
-  const store = injectStore();
-  const { t } = useI18n();
+const store = injectStore();
+const t = useTranslations();
 
 const state = mapState({
   feed: selectors.podcast.feed,
@@ -172,22 +147,23 @@ const items = computed(() =>
     .reverse()
 );
 
-const toggleSubscribeOverlay = () => store.dispatch(actions.subscribeButton.toggleSubscribeOverlay());
+const toggleSubscribeOverlay = () =>
+  store.dispatch(actions.subscribeButton.toggleSubscribeOverlay());
 const selectText = () => {
   if (!feed.value) {
     return;
   }
 
-  const selection = window.getSelection()
-  const range = document.createRange()
-  range.setStart(feed.value, 0)
-  range.setEnd(feed.value, 1)
+  const selection = window.getSelection();
+  const range = document.createRange();
+  range.setStart(feed.value, 0);
+  range.setEnd(feed.value, 1);
 
   if (selection) {
-    selection.removeAllRanges()
-    selection.addRange(range)
+    selection.removeAllRanges();
+    selection.addRange(range);
   }
-}
+};
 </script>
 
 <style scoped>

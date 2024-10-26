@@ -36,10 +36,10 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { mapState } from 'redux-vuex';
-import { useI18n } from 'vue-i18n';
 import { selectors } from '../logic';
+import { useTranslations } from '@podlove/utils/translate';
 
-const { t } = useI18n();
+const t = useTranslations();
 
 const state = mapState({
   copyright: selectors.podcast.copyright,

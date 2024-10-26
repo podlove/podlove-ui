@@ -213,14 +213,14 @@ import { ref } from 'vue';
 import { injectStore, mapState } from 'redux-vuex';
 import { get } from 'lodash-es';
 import { CloseIcon, SearchIcon, SearchClearIcon, UserIcon } from '@podlove/components';
-import { useI18n } from 'vue-i18n';
+import { useTranslations } from '@podlove/utils/translate';
 
 import Loader from '../components/Loader.vue';
 import { selectors, actions } from '../logic';
 import { findPerson } from '../lib/persons';
 import type { Person } from '../types/feed.types';
 
-const { t } = useI18n();
+const t = useTranslations();
 const content = ref(null);
 
 const state = mapState({
