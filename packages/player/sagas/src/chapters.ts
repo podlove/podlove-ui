@@ -91,7 +91,7 @@ export function* initChapters({ selectDuration }: { selectDuration: (input: any)
 
   const state = chapters.reduce((result: PodloveWebPlayerChapter[], chapter: PodloveWebPlayerChapter, index: number, chapters: PodloveWebPlayerChapter[]) => {
     const end: PodloveWebPlayerChapter = get(chapters, index + 1, { start: duration } as PodloveWebPlayerChapter);
-    const href = (get(chapter, 'href', '') as string).trim();
+    const href = (get(chapter, 'href') || '' as string).trim();
 
     return [
       ...result,

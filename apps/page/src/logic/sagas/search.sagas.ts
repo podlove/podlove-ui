@@ -1,6 +1,6 @@
 import * as fuzzySearch from '@m31coding/fuzzy-search';
 import { flattenDeep } from 'lodash-es';
-import { put, select, takeEvery, all, throttle, call } from 'redux-saga/effects';
+import { put, select, takeEvery, all, call, debounce } from 'redux-saga/effects';
 import type { Action } from 'redux-actions';
 import type { EventChannel } from 'redux-saga';
 import { takeOnce, channel } from '@podlove/player-sagas/helper';
@@ -32,7 +32,7 @@ export default ({
 }) => {
   const EPISODES = fuzzySearch.SearcherFactory.createDefaultSearcher();
   const TRANSCRIPTS = fuzzySearch.SearcherFactory.createDefaultSearcher();
-  const CONTRIBUTORS = fuzzySearch.SearcherFactory.createDefaultSearcher();
+  // const CONTRIBUTORS = fuzzySearch.SearcherFactory.createDefaultSearcher();
 
   function* createEpisodesSearchIndex(episodes: Episode[]) {
     const results = episodes.map((episode) => ({
@@ -52,14 +52,18 @@ export default ({
     EPISODES.indexEntities(
       results,
       (e: any) => e.id,
-      (e: any) => [e.title, e.description, e.chapters, e.contributors, e.content]
+      (e: any) => [e.title, e.description, e.chapters, e.contributors, e.content, e.subtitle]
     );
+
+    console.log(EPISODES.getMatches(new fuzzySearch.Query('klar', 5, 0.1)));
+
     yield put(actions.search.initialize('episodes'));
   }
 
   function* fetchTranscripts(episode: Episode) {
     let transcripts: Transcript[] = [];
 
+    console.log('call!', episode.transcripts)
     if (typeof episode.transcripts === 'string') {
       transcripts = yield resolveTranscripts(proxy(episode.transcripts));
     }
@@ -114,6 +118,7 @@ export default ({
 
   function* createSearchIndex() {
     const episodes: Episode[] = yield select(selectEpisodes);
+    console.log(episodes);
     // const contributors: Person[] = yield select(selectContributors);
     const resolvedEpisodes: Episode[] = yield all(episodes.map(fetchTranscripts));
     yield createEpisodesSearchIndex(resolvedEpisodes);
@@ -127,22 +132,22 @@ export default ({
       return;
     }
 
-    const episodes = EPISODES.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
+    const episodes = EPISODES.getMatches(new fuzzySearch.Query(payload || '', 5, 0.1)).matches.map(
       (match) => match.entity
     ) as unknown as EpisodeResult[];
 
-    const contributors = CONTRIBUTORS.getMatches(
-      new fuzzySearch.Query(payload || '', 5)
-    ).matches.map((match) => match.entity) as unknown as Person[];
+    // const contributors = CONTRIBUTORS.getMatches(
+    //   new fuzzySearch.Query(payload || '', 5)
+    // ).matches.map((match) => match.entity) as unknown as Person[];
 
-    const transcripts = TRANSCRIPTS.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
+    const transcripts = TRANSCRIPTS.getMatches(new fuzzySearch.Query(payload || '', 5, 0.1)).matches.map(
       (match) => match.entity
     ) as unknown as TranscriptResult[];
 
     yield put(actions.search.setEpisodeResults(episodes));
     yield put(actions.search.setTranscriptsResults(transcripts));
-    yield put(actions.search.setContributorsResults(contributors));
-    yield put(actions.search.setResults([...episodes, ...transcripts, ...contributors].length));
+    // yield put(actions.search.setContributorsResults(contributors));
+    yield put(actions.search.setResults([...episodes, ...transcripts].length));
   }
 
   // Keyboard interactions
@@ -218,7 +223,7 @@ export default ({
 
   return function* () {
     yield takeOnce(actions.search.show.toString(), createSearchIndex);
-    yield throttle(300, actions.search.search.toString(), searchForResults);
+    yield debounce(300, actions.search.search.toString(), searchForResults);
 
     const keyboardEvents: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
       document.addEventListener('keydown', cb)

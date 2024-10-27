@@ -107,7 +107,7 @@
                   {{ t(`SEARCH.CATEGORY.EPISODE`) }}
                 </span>
                 <a
-                  :href="episodeLink(result.id)"
+                  :href="episodeLink(result.episodeId)"
                   @click="hideSearch"
                   class="
                     flex
@@ -130,8 +130,8 @@
                   <span
                     class="
                       rounded-full
-                      bg-primary-600
-                      text-gray-100
+                      bg-complementary-100
+                      text-primary-900
                       px-2
                       p-1
                       mr-3

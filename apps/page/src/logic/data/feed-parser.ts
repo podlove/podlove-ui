@@ -124,7 +124,7 @@ const resolveEpisode =
       chapters: castArray(get(data, ['psc:chapters', 'psc:chapter'], []))
         .map(transformChapter)
         .map(buildChapterList(duration)),
-      transcripts: id === episodeId && transcriptUrl ? await resolveTranscripts(transcriptUrl) : [],
+      transcripts: id === episodeId && transcriptUrl ? await resolveTranscripts(transcriptUrl) : (transcriptUrl || []),
       audio: transformAudio(data)
     };
   };
