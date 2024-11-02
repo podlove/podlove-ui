@@ -55,15 +55,12 @@ export default ({
       (e: any) => [e.title, e.description, e.chapters, e.contributors, e.content, e.subtitle]
     );
 
-    console.log(EPISODES.getMatches(new fuzzySearch.Query('klar', 5, 0.1)));
-
     yield put(actions.search.initialize('episodes'));
   }
 
   function* fetchTranscripts(episode: Episode) {
     let transcripts: Transcript[] = [];
 
-    console.log('call!', episode.transcripts)
     if (typeof episode.transcripts === 'string') {
       transcripts = yield resolveTranscripts(proxy(episode.transcripts));
     }
@@ -118,7 +115,6 @@ export default ({
 
   function* createSearchIndex() {
     const episodes: Episode[] = yield select(selectEpisodes);
-    console.log(episodes);
     // const contributors: Person[] = yield select(selectContributors);
     const resolvedEpisodes: Episode[] = yield all(episodes.map(fetchTranscripts));
     yield createEpisodesSearchIndex(resolvedEpisodes);

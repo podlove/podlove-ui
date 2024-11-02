@@ -1,5 +1,5 @@
 import { select } from 'redux-saga/effects';
-import serviceWorker from '../../../service-worker.js?url';
+import serviceWorker from '../../../service-worker.js?worker';
 
 export default ({
   selectFeed,
