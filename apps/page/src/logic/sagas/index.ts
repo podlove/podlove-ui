@@ -10,7 +10,6 @@ import playbarSagas from './playbar.sagas';
 import routerSaga from './router.sagas';
 
 import { isClient } from '../../lib/runtime';
-import serviceworkerSaga from './serviceworker.sagas';
 import searchSaga from './search.sagas';
 import layoutSaga from './layout.sagas';
 
@@ -51,11 +50,6 @@ export async function createSideEffects() {
   ] as any[];
 
   if (isClient()) {
-    sagas.push(serviceworkerSaga({
-      selectFeed: selectors.podcast.feed,
-      selectCacheKey: selectors.runtime.cacheKey,
-    }));
-
     sagas.push(searchSaga({
       selectInitialized: selectors.search.initialized,
       selectEpisodes: selectors.episodes.list,

@@ -19,6 +19,7 @@ export default ({
   selectVisible,
   selectInitialized,
   selectEpisodes,
+  selectFeed,
   // selectContributors,
   selectResults,
   selectSelectedResult
@@ -29,6 +30,7 @@ export default ({
   // selectContributors: (input: any) => Person[];
   selectResults: (input: any) => { id: string | number }[];
   selectSelectedResult: (input: any) => string | null;
+  selectFeed: (input: any) => string | null
 }) => {
   const EPISODES = fuzzySearch.SearcherFactory.createDefaultSearcher();
   const TRANSCRIPTS = fuzzySearch.SearcherFactory.createDefaultSearcher();
