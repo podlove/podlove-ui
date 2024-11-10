@@ -23,7 +23,7 @@
               <div class="w-full mb-4 sm:w-40" v-for="client in items" :key="client?.id">
                 <a
                   v-if="client?.link"
-                  class="flex items-center flex-row sm:flex-col border-2 rounded p-4 sm:pt-5 whitespace-nowrap border-gray-400 mx-2 overflow-hidden hover:border-primary-900 hover:shadow hover:bg-complementary-900"
+                  class="flex items-center flex-row sm:flex-col border-2 rounded p-4 sm:pt-5 whitespace-nowrap border-gray-400 mx-2 overflow-hidden hover:border-primary-900 hover:shadow hover:bg-complementary-900 bg-complementary-100"
                   :href="client.link"
                   target="_blank"
                   rel="noopener noreferrer"
