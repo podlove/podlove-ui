@@ -14,15 +14,16 @@ import { resolveTranscripts } from '../data/feed-parser';
 import type { Episode, Person, Transcript } from '../../types/feed.types';
 // import { findPerson } from '../../lib/persons';
 import { proxy } from '../../lib/url';
+import * as indexeddb from '../../lib/indexeddb';
 
 export default ({
   selectVisible,
   selectInitialized,
   selectEpisodes,
-  selectFeed,
   // selectContributors,
   selectResults,
-  selectSelectedResult
+  selectSelectedResult,
+  selectCacheKey
 }: {
   selectVisible: (input: any) => boolean;
   selectInitialized: (input: any) => boolean;
@@ -30,7 +31,7 @@ export default ({
   // selectContributors: (input: any) => Person[];
   selectResults: (input: any) => { id: string | number }[];
   selectSelectedResult: (input: any) => string | null;
-  selectFeed: (input: any) => string | null
+  selectCacheKey: (input: any) => string | null;
 }) => {
   const EPISODES = fuzzySearch.SearcherFactory.createDefaultSearcher();
   const TRANSCRIPTS = fuzzySearch.SearcherFactory.createDefaultSearcher();
@@ -60,14 +61,50 @@ export default ({
     yield put(actions.search.initialize('episodes'));
   }
 
-  function* fetchTranscripts(episode: Episode) {
-    let transcripts: Transcript[] = [];
+  function* resolveEpisodes(episodes: Episode[]) {
+    const cacheKey: string = yield select(selectCacheKey);
+    const db: IDBDatabase = yield indexeddb.open(cacheKey, {
+      onCreate: indexeddb.createStore('transcripts', { keyPath: 'url' }, [
+        { name: 'url', keyPath: 'url', options: { unique: true } }
+      ])
+    });
 
-    if (typeof episode.transcripts === 'string') {
-      transcripts = yield resolveTranscripts(proxy(episode.transcripts));
+    const transcriptsDb = indexeddb.transaction('transcripts', db);
+
+    for (const episode of episodes) {
+      // are even transcripts available
+      if (typeof episode.transcripts !== 'string') {
+        continue;
+      }
+
+      const transcriptUrl = episode.transcripts;
+
+      // database lookup
+      const stored: {
+        url: string;
+        transcripts: Transcript[];
+      } | null = yield transcriptsDb.find<{
+        url: string;
+        transcripts: Transcript[];
+      }>('url', transcriptUrl);
+
+      if (stored !== null) {
+        episode.transcripts = stored.transcripts;
+        continue;
+      }
+
+      // transcripts needs to be fetched
+      episode.transcripts = yield resolveTranscripts(proxy(transcriptUrl));
+
+      // persist episodes
+      try {
+        yield transcriptsDb.save({ url: transcriptUrl, transcripts: episode.transcripts });
+      } catch (err) {
+        console.error(err);
+      }
     }
 
-    return { ...episode, transcripts };
+    return episodes;
   }
 
   function* createTranscriptsSearchIndex(episodes: Episode[]) {
@@ -118,7 +155,7 @@ export default ({
   function* createSearchIndex() {
     const episodes: Episode[] = yield select(selectEpisodes);
     // const contributors: Person[] = yield select(selectContributors);
-    const resolvedEpisodes: Episode[] = yield all(episodes.map(fetchTranscripts));
+    const resolvedEpisodes: Episode[] = yield resolveEpisodes(episodes);
     yield createEpisodesSearchIndex(resolvedEpisodes);
     yield createTranscriptsSearchIndex(resolvedEpisodes);
     // yield createContributorsSearchIndex(contributors, resolvedEpisodes);
@@ -138,9 +175,9 @@ export default ({
     //   new fuzzySearch.Query(payload || '', 5)
     // ).matches.map((match) => match.entity) as unknown as Person[];
 
-    const transcripts = TRANSCRIPTS.getMatches(new fuzzySearch.Query(payload || '', 5, 0.1)).matches.map(
-      (match) => match.entity
-    ) as unknown as TranscriptResult[];
+    const transcripts = TRANSCRIPTS.getMatches(
+      new fuzzySearch.Query(payload || '', 5, 0.1)
+    ).matches.map((match) => match.entity) as unknown as TranscriptResult[];
 
     yield put(actions.search.setEpisodeResults(episodes));
     yield put(actions.search.setTranscriptsResults(transcripts));

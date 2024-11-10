@@ -57,6 +57,7 @@ export async function createSideEffects() {
       selectVisible: selectors.search.visible,
       selectResults: selectors.search.results,
       selectSelectedResult: selectors.search.selectedResult,
+      selectCacheKey: selectors.runtime.cacheKey
     }))
 
     const { playerSaga } = await import('@podlove/player-sagas/player');
