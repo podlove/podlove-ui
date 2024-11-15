@@ -74,7 +74,8 @@ export default {
     initialized: createSelector(slices.runtime, runtime.initialized),
     locale: createSelector(slices.runtime, runtime.locale),
     cacheKey,
-    buildDate: createSelector(slices.runtime, runtime.buildDate)
+    buildDate: createSelector(slices.runtime, runtime.buildDate),
+    version: createSelector(slices.runtime, runtime.version),
   },
   podcast: {
     show: createSelector(slices.podcast, podcast.show),
@@ -259,7 +260,7 @@ export default {
       }
 
       if (Number(current?.start) + 2000 > playtime(state)) {
-        return translation('A11Y.PLAYER_CHAPTER_CURRENT', current);
+        return translation('A11Y.PLAYER_CHAPTER_CURRENT', current || {});
       }
 
       return translation('A11Y.PLAYER_CHAPTER_PREVIOUS', previous);
@@ -274,7 +275,7 @@ export default {
       return translation('A11Y.PLAYER_STEPPER_FORWARD', { seconds: 30 });
     },
     playButtonPause: (state: State) => {
-      return translation('A11Y.PLAYER_PAUSE', chaptersCurrent(state));
+      return translation('A11Y.PLAYER_PAUSE', chaptersCurrent(state) || {});
     },
     playButtonDuration: (state: State) => {
       const time = {
@@ -285,7 +286,7 @@ export default {
       return translation('A11Y.PLAYER_START', {
         hours: calcHours(time.playtime > 0 ? time.playtime : time.duration),
         minutes: calcMinutes(time.playtime > 0 ? time.playtime : time.duration),
-        seconds: calcSeconds(time.playtime > 0 ? playtime : time.duration)
+        seconds: calcSeconds(time.playtime > 0 ? time.playtime : time.duration)
       });
     },
     playButtonReplay: () => {

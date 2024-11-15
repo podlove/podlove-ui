@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
-import { compose, prop } from 'ramda';
+import { get } from 'lodash-es';
 
 import {
   PodloveWebPlayerTimelineChapterEntry,
@@ -146,13 +146,13 @@ export const reducer = handleActions<
 );
 
 export const selectors = {
-  timeline: prop('timeline'),
-  active: prop('active'),
-  follow: prop('follow'),
-  hasTranscripts: prop('hasTranscripts'),
-  search: prop('search'),
-  searchQuery: compose(prop('query'), prop('search')),
-  searchSelected: compose(prop('selected'), prop('search')),
-  searchResults: compose(prop('results'), prop('search')),
-  searching: compose(prop('searching'), prop('search'))
+  timeline: (state: State) => state.timeline,
+  active: (state: State) => state.active,
+  follow: (state: State) => state.follow,
+  hasTranscripts: (state: State) => state.hasTranscripts,
+  search: (state: State) => state.search,
+  searchQuery: (state: State) => get(state, ['search', 'query']),
+  searchSelected: (state: State) => get(state, ['search', 'selected']),
+  searchResults: (state: State) => get(state, ['search', 'results']),
+  searching: (state: State) => get(state, ['search', 'searching']),
 };

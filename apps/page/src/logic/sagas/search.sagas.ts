@@ -1,6 +1,6 @@
 import * as fuzzySearch from '@m31coding/fuzzy-search';
 import { flattenDeep } from 'lodash-es';
-import { put, select, takeEvery, all, throttle, call } from 'redux-saga/effects';
+import { put, select, takeEvery, call, debounce } from 'redux-saga/effects';
 import type { Action } from 'redux-actions';
 import type { EventChannel } from 'redux-saga';
 import { takeOnce, channel } from '@podlove/player-sagas/helper';
@@ -13,7 +13,8 @@ import { actions } from '../store';
 import { resolveTranscripts } from '../data/feed-parser';
 import type { Episode, Person, Transcript } from '../../types/feed.types';
 // import { findPerson } from '../../lib/persons';
-import { proxy } from '../../lib/url';
+import { proxy, addQueryparams } from '../../lib/url';
+import * as indexeddb from '../../lib/indexeddb';
 
 export default ({
   selectVisible,
@@ -21,7 +22,9 @@ export default ({
   selectEpisodes,
   // selectContributors,
   selectResults,
-  selectSelectedResult
+  selectSelectedResult,
+  selectCacheKey,
+  selectVersion
 }: {
   selectVisible: (input: any) => boolean;
   selectInitialized: (input: any) => boolean;
@@ -29,10 +32,12 @@ export default ({
   // selectContributors: (input: any) => Person[];
   selectResults: (input: any) => { id: string | number }[];
   selectSelectedResult: (input: any) => string | null;
+  selectCacheKey: (input: any) => string | null;
+  selectVersion: (input: any) => string | null;
 }) => {
   const EPISODES = fuzzySearch.SearcherFactory.createDefaultSearcher();
   const TRANSCRIPTS = fuzzySearch.SearcherFactory.createDefaultSearcher();
-  const CONTRIBUTORS = fuzzySearch.SearcherFactory.createDefaultSearcher();
+  // const CONTRIBUTORS = fuzzySearch.SearcherFactory.createDefaultSearcher();
 
   function* createEpisodesSearchIndex(episodes: Episode[]) {
     const results = episodes.map((episode) => ({
@@ -52,19 +57,69 @@ export default ({
     EPISODES.indexEntities(
       results,
       (e: any) => e.id,
-      (e: any) => [e.title, e.description, e.chapters, e.contributors, e.content]
+      (e: any) => [e.title, e.description, e.chapters, e.contributors, e.content, e.subtitle]
     );
+
     yield put(actions.search.initialize('episodes'));
   }
 
-  function* fetchTranscripts(episode: Episode) {
-    let transcripts: Transcript[] = [];
+  function* resolveEpisodes(episodes: Episode[]) {
+    const version: string = yield select(selectVersion);
+    const cacheKey: string = yield select(selectCacheKey);
 
-    if (typeof episode.transcripts === 'string') {
-      transcripts = yield resolveTranscripts(proxy(episode.transcripts));
-    }
+    const db: IDBDatabase = yield indexeddb.open(`episodes@${version}`, {
+      onCreate: indexeddb.createStore('transcripts', { keyPath: 'url' }, [
+        { name: 'url', keyPath: 'url', options: { unique: true } }
+      ])
+    });
 
-    return { ...episode, transcripts };
+    const transcriptsDb = indexeddb.transaction('transcripts', db);
+
+    const results: Episode[] = yield Promise.all(
+      episodes.map(async (episode) => {
+        // are even transcripts available
+        if (typeof episode.transcripts !== 'string') {
+          return episode;
+        }
+
+        const transcriptUrl = addQueryparams(episode.transcripts, { cacheKey });
+
+        // database lookup
+        const stored: {
+          url: string;
+          transcripts: Transcript[];
+        } | null = await transcriptsDb.find<{
+          url: string;
+          transcripts: Transcript[];
+        }>('url', transcriptUrl);
+
+        if (stored !== null) {
+          return {
+            ...episode,
+            transcripts: stored.transcripts
+          };
+        }
+
+        let resolved: Transcript[] = [];
+
+        // persist episodes
+        try {
+          // transcripts needs to be fetched
+          resolved = await resolveTranscripts(proxy(transcriptUrl));
+
+          await transcriptsDb.save({ url: transcriptUrl, transcripts: resolved });
+        } catch (err) {
+          console.error(err);
+        }
+
+        return {
+          ...episode,
+          transcripts: resolved
+        };
+      })
+    );
+
+    return results;
   }
 
   function* createTranscriptsSearchIndex(episodes: Episode[]) {
@@ -115,7 +170,7 @@ export default ({
   function* createSearchIndex() {
     const episodes: Episode[] = yield select(selectEpisodes);
     // const contributors: Person[] = yield select(selectContributors);
-    const resolvedEpisodes: Episode[] = yield all(episodes.map(fetchTranscripts));
+    const resolvedEpisodes: Episode[] = yield resolveEpisodes(episodes);
     yield createEpisodesSearchIndex(resolvedEpisodes);
     yield createTranscriptsSearchIndex(resolvedEpisodes);
     // yield createContributorsSearchIndex(contributors, resolvedEpisodes);
@@ -127,22 +182,22 @@ export default ({
       return;
     }
 
-    const episodes = EPISODES.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
+    const episodes = EPISODES.getMatches(new fuzzySearch.Query(payload || '', 5, 0.1)).matches.map(
       (match) => match.entity
     ) as unknown as EpisodeResult[];
 
-    const contributors = CONTRIBUTORS.getMatches(
-      new fuzzySearch.Query(payload || '', 5)
-    ).matches.map((match) => match.entity) as unknown as Person[];
+    // const contributors = CONTRIBUTORS.getMatches(
+    //   new fuzzySearch.Query(payload || '', 5)
+    // ).matches.map((match) => match.entity) as unknown as Person[];
 
-    const transcripts = TRANSCRIPTS.getMatches(new fuzzySearch.Query(payload || '', 5)).matches.map(
-      (match) => match.entity
-    ) as unknown as TranscriptResult[];
+    const transcripts = TRANSCRIPTS.getMatches(
+      new fuzzySearch.Query(payload || '', 5, 0.1)
+    ).matches.map((match) => match.entity) as unknown as TranscriptResult[];
 
     yield put(actions.search.setEpisodeResults(episodes));
     yield put(actions.search.setTranscriptsResults(transcripts));
-    yield put(actions.search.setContributorsResults(contributors));
-    yield put(actions.search.setResults([...episodes, ...transcripts, ...contributors].length));
+    // yield put(actions.search.setContributorsResults(contributors));
+    yield put(actions.search.setResults([...episodes, ...transcripts].length));
   }
 
   // Keyboard interactions
@@ -218,7 +273,7 @@ export default ({
 
   return function* () {
     yield takeOnce(actions.search.show.toString(), createSearchIndex);
-    yield throttle(300, actions.search.search.toString(), searchForResults);
+    yield debounce(300, actions.search.search.toString(), searchForResults);
 
     const keyboardEvents: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
       document.addEventListener('keydown', cb)

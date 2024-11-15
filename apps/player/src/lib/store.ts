@@ -1,12 +1,12 @@
-import { State } from '@podlove/player-state/lifecycle';
-import { curry } from 'ramda';
+import { State as LifeCycleState } from '@podlove/player-state/lifecycle';
 import { Store } from 'redux';
+import State from '../store/state.js';
 
-const onLifecycle = curry(
-  (event: string, store: Store) =>
+const onLifecycle =
+  (event: string) => (store: Store<State>) =>
     new Promise((resolve) => {
       const unsubscribe = store.subscribe(() => {
-        const { lifecycle }: { lifecycle: State } = store.getState();
+        const { lifecycle }: { lifecycle: LifeCycleState } = store.getState();
 
         if (lifecycle !== event) {
           return;
@@ -18,7 +18,6 @@ const onLifecycle = curry(
 
       store.dispatch({ type: 'PLUGIN_CONNECT' });
     })
-);
 
 export const ready = onLifecycle('ready') as (store: Store) => Promise<Store>;
 export const constructed = onLifecycle('constructed') as (store: Store) => Promise<Store>;

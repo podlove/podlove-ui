@@ -31,7 +31,7 @@
         <span
           :id="transcriptId(text.start, text.end)"
           :class="{
-            'border-b border-gray-200': ghostTranscript(text.start, text.end),
+            'border-b border-gray-300': ghostTranscript(text.start, text.end),
             'border-b border-gray-700': activeTranscript(text.start, text.end),
             'ml-0': index === 0
           }"

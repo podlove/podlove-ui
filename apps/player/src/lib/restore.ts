@@ -1,6 +1,6 @@
 import { PodloveWebPlayerConfig, PodloveWebPlayerTab } from '@podlove/types';
 import { Store } from 'redux';
-
+import { get, isEmpty } from 'lodash-es';
 import debounce from 'debounce';
 import { selectors } from '@podlove/player-state/timepiece';
 import { backendPlaytime, requestPlaytime } from '@podlove/player-actions/timepiece';
@@ -8,7 +8,6 @@ import { restore } from '@podlove/player-actions/lifecycle';
 import { showPauseButton } from '@podlove/player-actions/components';
 import { loadQuantiles } from '@podlove/player-actions/quantiles';
 import { toggleTab } from '@podlove/player-actions/tabs';
-import { compose, propOr, curry, path, isEmpty } from 'ramda';
 import LocalStorage from '@podlove/utils/localstorage';
 import { hashCode } from 'hashcode';
 import { activeTab as getActiveTab, sharePlaytime } from '@podlove/player-config';
@@ -17,14 +16,15 @@ import { urlParameters } from '@podlove/utils/location';
 import { requestPause, requestPlay } from '@podlove/player-actions/play';
 
 import { ready } from './store.js';
+import State from '../store/state.js';
 
-const selectPlaytime = compose(selectors.playtime, propOr({}, 'timepiece'));
+const selectPlaytime = (state: State) => selectors.playtime(get(state, 'timepiece', {}));
 
-const selectQuantiles = propOr([], 'quantiles');
+const selectQuantiles = (state: State) => get(state, 'quantiles', []);
 
-const selectTabs = propOr({}, 'tabs');
+const selectTabs = (state: State) => get(state, 'tabs', {});
 
-const recordState = curry((key: string, storage: ReturnType<typeof LocalStorage>, store: Store) => {
+const recordState = (key: string, storage: ReturnType<typeof LocalStorage>) => (store: Store<State>) => {
   store.subscribe(
     debounce(() => {
       const state = store.getState();
@@ -34,14 +34,14 @@ const recordState = curry((key: string, storage: ReturnType<typeof LocalStorage>
       storage.put(key, { playtime, tabs, quantiles });
     }, 1000)
   );
-});
+};
 
 export const persistPlayer = (config: PodloveWebPlayerConfig, store: Store) => {
   const storage = LocalStorage('pwp');
   const key = hashCode().value(config);
   const [, existing = {}] = storage.get<{
     playtime?: number;
-    quantiles?: [[number, number]];
+    quantiles?: [number, number][];
     tabs?: {
       [key: string]: boolean;
     };
@@ -51,7 +51,7 @@ export const persistPlayer = (config: PodloveWebPlayerConfig, store: Store) => {
 
   ready(store).then(() => {
     const { tabs } = store.getState();
-    const quantiles: [[number, number]] = propOr([], 'quantiles', existing);
+    const quantiles: [number, number][] = get(existing, 'quantiles', []);
 
     if (config.features.persistPlaystate) {
       if (quantiles.length > 0) {
@@ -93,12 +93,12 @@ export const activeTab = (config, store) => {
     const state = store.getState();
 
     // if the tab is already active
-    if (path(['tabs', tab], state)) {
+    if (get(state, ['tabs', tab])) {
       return;
     }
 
     // if the chapters tab is selected but chapters aren't available
-    if (tab === 'chapters' && isEmpty(path(['chapters', 'list'], state))) {
+    if (tab === 'chapters' && isEmpty(get(state, ['chapters', 'list']))) {
       return;
     }
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { propOr, pathOr } from 'ramda';
+import { get } from 'lodash-es';
 import { json } from '@podlove/utils/request';
 import * as playerConfig from '@podlove/player-config';
 import {
@@ -63,14 +63,14 @@ const fetchReference = async (
 ): Promise<PodloveWebPlayerReference> => ({
   episode: typeof refs.episode === 'string' ? refs.episode : null,
   config: typeof refs.config === 'string' ? refs.config : null,
-  share: pathOr(await import.meta.resolve('./share.html'), ['share', 'outlet'], config)
+  share: get(config, ['share', 'outlet'], await import.meta.resolve('./share.html'))
 });
 
 const fetchFeatures = async (
   config: PodloveWebPlayerConfig
 ): Promise<PodloveWebPlayerFeatures> => ({
-  persistTab: pathOr(true, ['features', 'persistTab'], config),
-  persistPlaystate: pathOr(true, ['features', 'persistPlaystate'], config)
+  persistTab: get(config, ['features', 'persistTab'], true),
+  persistPlaystate: get(config, ['features', 'persistPlaystate'], true)
 });
 
 const resolve = async <T>(url: string | object, fallback?: any): Promise<T> => {
@@ -85,9 +85,9 @@ const resolve = async <T>(url: string | object, fallback?: any): Promise<T> => {
 export const subscribeButtonConfig = (
   config: PodloveWebPlayerConfig
 ): PodloveSubscribeButtonConfig => {
-  const theme = propOr({}, 'theme', config) as PodloveTheme;
-  const button = propOr({}, 'subscribe-button', config) as PodloveSubscribeButtonConfig;
-  const runtime = propOr({}, 'runtime', config);
+  const theme = get(config, 'theme', {}) as PodloveTheme;
+  const button = get(config, 'subscribe-button', {}) as PodloveSubscribeButtonConfig;
+  const runtime = get(config, 'runtime', {});
 
   return {
     theme,

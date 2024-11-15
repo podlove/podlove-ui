@@ -20,7 +20,8 @@ const entries = [
   'url',
   'useragent',
   'promise',
-  'transcripts'
+  'transcripts',
+  'translate'
 ];
 
 export default defineConfig({

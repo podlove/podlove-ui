@@ -1,6 +1,7 @@
-import { compose, defaultTo, path } from "ramda";
-import { actions } from "../../src";
-import { MediaElement } from "../../src/types";
+
+import { get, flowRight as compose } from "lodash-es";
+import { actions } from "../../src/index.js";
+import { MediaElement } from "../../src/types.js";
 
 export const volumeInput = document.getElementById("volume");
 export const rateInput = document.getElementById("rate");
@@ -10,7 +11,7 @@ export const progressBar = document.getElementById(
 
 export const registerInputs = (node: MediaElement) => {
   const mediaActions = actions(node);
-  const getValue = compose(defaultTo(0), path(["target", "value"]));
+  const getValue = get(node, ["target", "value"], 0);
 
   volumeInput?.addEventListener(
     "change",

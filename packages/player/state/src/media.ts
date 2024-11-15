@@ -1,4 +1,3 @@
-import { identity } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 import { PodloveWebPlayerAudio } from '@podlove/types';
 import { media } from '@podlove/player-config';
@@ -15,5 +14,5 @@ export const reducer = handleActions<State, readyPayload>(
 );
 
 export const selectors = {
-  media: identity as (input: State) => State
+  media: (state: State) => state
 };

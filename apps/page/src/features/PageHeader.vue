@@ -30,11 +30,12 @@
 <script setup lang="ts">
 import { SearchIcon } from '@podlove/components';
 import { mapState, injectStore } from 'redux-vuex';
-import { useI18n } from 'vue-i18n';
+
 
 import { selectors, actions } from '../logic';
+import { useTranslations } from '../i18n';
 
-const { t } = useI18n();
+const t = useTranslations();
 const store = injectStore();
 
 const state = mapState({

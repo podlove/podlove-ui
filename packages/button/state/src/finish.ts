@@ -1,4 +1,4 @@
-import { prop } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { hide, hidePayload, show } from '@podlove/button-actions/finish-card';
 import { showPayload } from '@podlove/button-actions/finish-card';
@@ -32,12 +32,12 @@ export const reducer = handleActions<State, showPayload | hidePayload>(
 );
 
 export const selectors = {
-  overlay: prop('install') as (input: State) => string | null,
-  finish: prop('title') as (input: State) => string | null,
-  icon: prop('icon') as (input: State) => string | null,
-  link: prop('link') as (input: State) => string | null,
-  os: prop('os') as (input: State) => string | null,
-  rss: prop('rss') as (input: State) => string | null,
-  type: prop('type') as (input: State) => string | null,
-  install: prop('install') as (input: State) => string | null
+  overlay: (state: State) => get(state, 'install', null),
+  finish: (state: State) => get(state, 'title', null),
+  icon: (state: State) => get(state, 'icon', null),
+  link: (state: State) => get(state, 'link', null),
+  os: (state: State) => get(state, 'os', null),
+  rss: (state: State) => get(state, 'rss', null),
+  type: (state: State) => get(state, 'type', null),
+  install: (state: State) => get(state, 'install', null),
 };

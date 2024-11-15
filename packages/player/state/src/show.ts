@@ -1,8 +1,6 @@
-import { pathOr, compose, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { Action, handleActions } from 'redux-actions';
 import { sanitize } from '@podlove/utils/dom';
-import { createObject } from '@podlove/utils/helper';
-import { PodloveWebPlayerConfig } from '@podlove/types';
 
 import { ready, readyPayload } from '@podlove/player-actions/lifecycle';
 
@@ -22,28 +20,24 @@ export const INITIAL_STATE: State = {
   link: null
 };
 
-const change = createObject({
-  title: pathOr(null, ['show', 'title']),
-  subtitle: pathOr(null, ['show', 'subtitle']),
-  summary: compose(sanitize, pathOr(null, ['show', 'summary'])),
-  link: pathOr(null, ['show', 'link']),
-  poster: pathOr(null, ['show', 'poster'])
-}) as (input: PodloveWebPlayerConfig) => State;
-
 export const reducer = handleActions<State, readyPayload>(
   {
     [ready.toString()]: (state, { payload }: Action<readyPayload>) => ({
       ...state,
-      ...change(payload)
+      title: get(payload, ['show', 'title'], null),
+      subtitle: get(payload, ['show', 'subtitle'], null),
+      summary: sanitize(get(payload, ['show', 'summary'], null)),
+      link: get(payload, ['show', 'link'], null),
+      poster: get(payload, ['show', 'poster'], null)
     })
   },
   INITIAL_STATE
 );
 
 export const selectors = {
-  title: prop('title') as (input: State) => string | null,
-  subtitle: prop('subtitle') as (input: State) => string | null,
-  summary: prop('summary') as (input: State) => string | null,
-  link: prop('link') as (input: State) => string | null,
-  poster: prop('poster') as (input: State) => string | null
+  title: (state: State) => state.title,
+  subtitle: (state: State) => state.subtitle,
+  summary: (state: State) => state.summary,
+  link: (state: State) => state.link,
+  poster: (state: State) => state.poster
 };

@@ -41,7 +41,7 @@ export interface Episode {
   contributors: Person[];
   poster: string;
   chapters: Chapter[];
-  transcripts: Transcript[];
+  transcripts: Transcript[] | string;
   audio: Audio[];
 }
 

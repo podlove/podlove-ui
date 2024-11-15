@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
-import { propOr, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { language } from '@podlove/button-config';
 import type { PodloveRuntime } from '@podlove/types';
 import {
@@ -30,10 +30,10 @@ export const reducer = handleActions<State, setLanguagePayload | setRuntimePaylo
     }),
     [setRuntime.toString()]: (state, { payload }: Action<setRuntimePayload>): State => ({
       ...state,
-      browser: propOr(null, 'browser', payload),
-      locale: propOr(null, 'locale', payload),
-      platform: propOr(null, 'platform', payload),
-      language: propOr(null, 'language', payload)
+      browser: get(payload, 'browser', null),
+      locale: get(payload, 'locale', null),
+      platform: get(payload, 'platform', null),
+      language: get(payload, 'language', null)
     }),
     [setVersion.toString()]: (state, { payload }: Action<setVersionPayload>): State => ({
       ...state,
@@ -48,8 +48,8 @@ export const reducer = handleActions<State, setLanguagePayload | setRuntimePaylo
 );
 
 export const selectors = {
-  language: prop('language') as (input: State) => string | null,
-  platform: prop('platform') as (input: State) => string | null,
-  locale: prop('locale') as (input: State) => string | null,
-  version: prop('version') as (input: State) => string | null
+  language: (state: State) => get(state, 'language', null),
+  platform: (state: State) => get(state, 'platform', null),
+  locale: (state: State) => get(state, 'locale', null),
+  version: (state: State) => get(state, 'version', null),
 };

@@ -1,12 +1,12 @@
 /* eslint-disable no-empty */
-import { prop } from 'ramda'
+import { get } from 'lodash-es'
 import { Store } from 'redux'
 
 export default (...stores: { store: Store, prefix: string }[]) =>
   stores.forEach((sender) => {
     sender.store.subscribe(() => {
-      const action = prop('lastAction', sender.store.getState())
-      const type = prop('type', action)
+      const action = get( sender.store.getState(), 'lastAction')
+      const type = get(action, 'type')
 
       try {
         stores.forEach((reciever) => {

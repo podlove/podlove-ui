@@ -1,4 +1,4 @@
-import { compose, ifElse, identity } from 'ramda';
+import { flowRight as compose } from 'lodash-es';
 import { getNodeFromEvent } from './utils.js';
 import { initialized, duration, props } from './props.js';
 import { MediaElement } from './types.js';
@@ -136,13 +136,29 @@ const resetToLivesync = (node: MediaElement) => {
 const polifyllLiveSync = (node: MediaElement) => {
   node.addEventListener(
     'canplay',
-    compose(ifElse(isLivestream, addLiveSync, identity), getNodeFromEvent),
+    (event) => {
+      const node = getNodeFromEvent(event);
+
+      if (isLivestream(node)) {
+        return addLiveSync(node);
+      }
+
+      return node;
+    },
     { once: true }
   );
 
   node.addEventListener(
     'play',
-    compose(ifElse(isLivestream, resetToLivesync, identity), getNodeFromEvent),
+    (event) => {
+      const node = getNodeFromEvent(event);
+
+      if (isLivestream(node)) {
+        return resetToLivesync(node);
+      }
+
+      return node;
+    },
     { once: true }
   );
 

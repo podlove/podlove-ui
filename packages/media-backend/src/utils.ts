@@ -1,9 +1,9 @@
-import { compose, curry, prop } from 'ramda';
+import { flowRight as compose, curry, get } from 'lodash-es';
 import { MediaElement, MediaSource } from './types.js';
 import { F } from 'ts-toolbelt';
 
 // Transformation utils
-const collectProperties = curry(
+const collectProperties = curry<{ [key: string]: Function }, MediaElement, any>(
   <T>(props: { [key: string]: Function }, val: MediaElement): T =>
     Object.keys(props).reduce(
       (result, name) =>
@@ -18,7 +18,7 @@ const toArray = <T>(input: T | T[]): T[] =>
   Array.isArray(input) ? (input as T[]) : ([input] as T[]);
 
 // Event Utils
-const getNodeFromEvent = prop('target') as (input: any) => MediaElement;
+const getNodeFromEvent = (input: any): MediaElement => get(input, 'target');
 
 // Dom Utils
 const createNode = (tag: string) => document.createElement(tag);

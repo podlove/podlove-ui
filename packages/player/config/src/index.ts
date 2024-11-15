@@ -1,6 +1,5 @@
-import { compose, map, prop, propOr } from 'ramda';
+import { get } from 'lodash-es';
 import { toPlayerTime } from '@podlove/utils/time';
-import { createObject } from '@podlove/utils/helper';
 import type {
   PodloveWebPlayerAudio,
   PodloveWebPlayerChannel,
@@ -18,44 +17,38 @@ import type {
   PodloveWebPlayerPlaylistItem
 } from '@podlove/types';
 
-export const duration = compose<any[], string, number | null>(
-  toPlayerTime,
-  propOr('0', 'duration') as (input: PodloveWebPlayerConfig) => string
-);
+export const duration = (input: PodloveWebPlayerConfig): number | null =>
+  toPlayerTime(get(input, 'duration', '0'));
+export const version = (input: PodloveWebPlayerConfig | PodloveWebPlayerEpisode): number | null =>
+  get(input, 'version', null);
 
-export const version = propOr<string | null>(null, 'version');
+export const playtime = (input: PodloveWebPlayerConfig): number | null =>
+  toPlayerTime(get(input, 'playtime', '0'));
 
-export const playtime = compose<any[], string, number | null>(
-  toPlayerTime,
-  propOr('0', 'playtime') as (input: PodloveWebPlayerConfig) => string
-);
+export const media = (input: PodloveWebPlayerEpisode): PodloveWebPlayerAudio[] => {
+  const audio = get(input, 'audio', []);
 
-export const media = compose<any[], PodloveWebPlayerAudio[], PodloveWebPlayerAudio[]>(
-  map(
-    createObject({
-      url: propOr(null, 'url'),
-      size: propOr(0, 'size'),
-      title: propOr(null, 'title'),
-      mimeType: propOr(null, 'mimeType')
-    }) as (input: any) => PodloveWebPlayerAudio
-  ),
-  propOr([], 'audio')
-);
+  return audio.map((item) => ({
+    url: get(item, 'url', null),
+    size: get(item, 'size', 0),
+    title: get(item, 'title', null),
+    mimeType: get(item, 'mimeType', null)
+  }));
+};
 
-export const chapters = propOr([], 'chapters') as (
-  input: PodloveWebPlayerEpisode
-) => PodloveWebPlayerChapter[];
+export const chapters = (input: Partial<PodloveWebPlayerEpisode>): PodloveWebPlayerChapter[] =>
+  get(input, 'chapters', []) as PodloveWebPlayerChapter[];
 
 export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
-  const theme = propOr({}, 'theme', config) as (input: PodloveWebPlayerConfig) => PodloveTheme;
+  const theme = get(config, 'theme', {} as PodloveTheme);
 
   if ([5, 6].includes(version(config))) {
     return {
-      tokens: propOr({}, 'tokens', theme)
+      tokens: get(theme, 'tokens', {})
     };
   }
 
-  const brand = propOr(null, 'main', theme) as unknown as string;
+  const brand = get(theme, 'main', null);
 
   if (brand) {
     return {
@@ -70,37 +63,33 @@ export const theme = (config: PodloveWebPlayerConfig): PodloveTheme => {
   };
 };
 
-export const reference = propOr({}, 'reference') as (
-  input: PodloveWebPlayerEpisode
-) => PodloveWebPlayerReference;
-export const transcripts = propOr([], 'transcripts') as (
-  input: PodloveWebPlayerEpisode
-) => PodloveWebPlayerTranscript[];
-export const shareReference = compose(
-  propOr(null, 'share') as (input: PodloveWebPlayerReference) => string | null,
-  reference
-);
+export const reference = (input: PodloveWebPlayerEpisode): PodloveWebPlayerReference =>
+  get(input, 'reference', {} as PodloveWebPlayerReference);
 
-export const originReference = compose(
-  propOr(null, 'origin') as (input: PodloveWebPlayerReference) => string | null,
-  reference
-);
+export const transcripts = (input: PodloveWebPlayerEpisode): PodloveWebPlayerTranscript[] =>
+  get(input, 'transcripts', []) as PodloveWebPlayerTranscript[];
+
+export const shareReference = (input: PodloveWebPlayerEpisode): string | null =>
+  get(reference(input), 'share', null);
+
+export const originReference = (input: PodloveWebPlayerEpisode): string | null =>
+  get(reference(input), 'origin', null);
 
 export const episodeReference = (config: PodloveWebPlayerEpisode): string | null => {
   const ref = reference(config);
 
   if ([5, 6].includes(version(config))) {
-    return propOr(null, 'episode', ref) as unknown as string | null;
+    return get(ref, 'episode', null);
   }
 
-  return propOr(null, 'config', ref) as unknown as string | null;
+  return get(ref, 'config', null);
 };
 
 export const configReference = (config: PodloveWebPlayerEpisode): string | null => {
   const ref = reference(config);
 
   if ([5, 6].includes(version(config))) {
-    return propOr(null, 'config', ref) as unknown as string | null;
+    return get(ref, 'config', null);
   }
 
   return null;
@@ -116,21 +105,21 @@ export const validate = (config: PodloveWebPlayerEpisode): boolean => {
   return true;
 };
 
-export const runtime = propOr({}, 'runtime') as (input: PodloveWebPlayerConfig) => PodloveRuntime;
+export const runtime = (input: PodloveWebPlayerConfig): PodloveRuntime =>
+  get(input, 'runtime', {} as PodloveRuntime);
 
-export const language = compose<any[], PodloveRuntime, string>(
-  prop('language') as (input: PodloveRuntime) => string,
-  runtime
-);
-export const platform = compose(prop('platform'), runtime);
+export const language = (input: PodloveWebPlayerConfig): string =>
+  get(runtime(input), 'language', 'en');
 
-export const playlist = propOr([], 'playlist') as (
-  input: PodloveWebPlayerConfig
-) => PodloveWebPlayerPlaylistItem[];
+export const platform = (input: PodloveWebPlayerConfig): string => get(runtime(input), 'platform');
 
-export const files = (config: PodloveWebPlayerEpisode): PodloveWebPlayerFile[] => {
-  const files: PodloveWebPlayerFile[] = propOr(media(config), 'files', config);
-  return files
+export const playlist = (input: PodloveWebPlayerConfig): PodloveWebPlayerPlaylistItem[] =>
+  get(input, 'playlist', []) as PodloveWebPlayerPlaylistItem[];
+
+export const files = (
+  config: PodloveWebPlayerEpisode
+): (PodloveWebPlayerFile | PodloveWebPlayerAudio)[] => {
+  return get(config, 'files', media(config))
     .filter(({ url }) => !!url)
     .reduce(
       (result: PodloveWebPlayerFile[], item) => [
@@ -141,24 +130,17 @@ export const files = (config: PodloveWebPlayerEpisode): PodloveWebPlayerFile[] =
     );
 };
 
-export const activeTab = prop('activeTab') as (
-  input: PodloveWebPlayerConfig
-) => PodloveWebPlayerTab;
+export const activeTab = (input: PodloveWebPlayerConfig): PodloveWebPlayerTab =>
+  get(input, 'activeTab');
 
-export const subscribeButton = prop('subscribe-button') as (
-  input: PodloveWebPlayerConfig
-) => PodloveSubscribeButtonConfig;
+export const subscribeButton = (input: PodloveWebPlayerConfig): PodloveSubscribeButtonConfig =>
+  get(input, 'subscribe-button');
 
-export const share = propOr({}, 'share') as (
-  input: PodloveWebPlayerConfig
-) => PodloveWebPlayerShare;
+export const share = (input: PodloveWebPlayerConfig): PodloveWebPlayerShare =>
+  get(input, 'share', {});
 
-export const channels = compose<any[], PodloveWebPlayerShare, PodloveWebPlayerChannel[]>(
-  propOr([], 'channels') as (input: PodloveWebPlayerShare) => PodloveWebPlayerChannel[],
-  share
-);
+export const channels = (input: PodloveWebPlayerConfig): PodloveWebPlayerChannel[] =>
+  get(share(input), 'channels', []);
 
-export const sharePlaytime = compose<any[], PodloveWebPlayerShare, boolean>(
-  propOr(false, 'sharePlaytime') as (input: PodloveWebPlayerShare) => boolean,
-  share
-);
+export const sharePlaytime = (input: PodloveWebPlayerConfig): boolean =>
+  get(share(input), 'sharePlaytime', false);

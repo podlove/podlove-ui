@@ -1,8 +1,11 @@
 import { defineMiddleware } from 'astro:middleware';
-import { waitFor } from '@podlove/utils/promise';
 import { toInteger } from 'lodash-es';
-import { actions, store, selectors } from '../logic';
+import { actions, store } from '../logic';
 import { getRequestHeader } from '../lib/middleware';
+import parseFeed from '../logic/data/feed-parser';
+import type { Podcast } from '../types/feed.types';
+import { createHash } from '../lib/caching';
+import { version } from '../../package.json';
 
 export const initializeStore = defineMiddleware(async ({ request, params }, next) => {
   const locale = getRequestHeader(request, 'accept-language', 'en-US');
@@ -14,12 +17,10 @@ export const initializeStore = defineMiddleware(async ({ request, params }, next
 
   store.dispatch(actions.lifecycle.initializeApp({ feed, locale, episodeId: toInteger(episodeId) }));
 
-  await waitFor(() => {
-    const initialized = selectors.runtime.initialized(store.getState());
-    return initialized ? true : undefined;
-  }, 10000).catch(() => {
-    throw Error('Request timed out');
-  });
+  const data: Podcast = await parseFeed({ feed, episodeId: toInteger(episodeId) });
+  const cacheKey: string | null = data.etag ? await createHash(`${data.etag}${version}`) : null;
+
+  store.dispatch(actions.lifecycle.dataFetched({ data, cacheKey, version }));
 
   return next();
 });

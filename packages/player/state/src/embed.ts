@@ -1,4 +1,3 @@
-import { prop } from 'ramda';
 import { Action, handleActions } from 'redux-actions';
 
 import { selectEmbedSize, selectEmbedSizePayload } from '@podlove/player-actions/embed';
@@ -27,6 +26,6 @@ export const reducer = handleActions<State, selectEmbedSizePayload>(
 );
 
 export const selectors = {
-  available: prop('available') as (input: State) => string[],
-  size: prop('size') as (input: State) => string
+  available: (state: State) => state.available,
+  size: (state: State) => state.size
 };

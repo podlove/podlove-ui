@@ -7,17 +7,19 @@ export interface State {
   locale: string;
   cacheKey : string | null;
   buildDate: string | null;
+  version: string | null;
 }
 
 export interface initializeAppPayload {
   feed: string;
   locale: string;
-  episodeId?: number
+  episodeId?: number;
 }
 
 export type dataFetchedPayload = {
   data: Podcast,
   cacheKey: string | null;
+  version: string | null;
 };
 
 export const actions = {
@@ -37,11 +39,12 @@ export const reducer = handleActions<State, any>(
       ...state,
       initialized: true,
       buildDate: get(payload, ['data', 'buildDate'], null),
-      cacheKey: get(payload, 'cacheKey', null)
+      cacheKey: get(payload, 'cacheKey', null),
+      version: get(payload, 'version', null),
     }),
 
   },
-  { initialized: false, locale: 'en-US', cacheKey: null, buildDate: null }
+  { initialized: false, locale: 'en-US', cacheKey: null, buildDate: null, version: null }
 );
 
 export const selectors = {
@@ -49,4 +52,5 @@ export const selectors = {
   locale: (state: State) => state.locale,
   cacheKey: (state: State) => state.cacheKey,
   buildDate: (state: State) => state.buildDate,
+  version: (state: State) => state.version,
 };

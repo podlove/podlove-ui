@@ -1,4 +1,4 @@
-import { prop } from 'ramda';
+import { get } from 'lodash-es';
 import { handleActions } from 'redux-actions';
 
 import * as list from '@podlove/button-actions/list';
@@ -36,7 +36,7 @@ export const reducer = handleActions<
 );
 
 export const selectors = {
-  overlay: prop('overlay') as (input: State) => boolean,
-  finish: prop('finish') as (input: State) => boolean,
-  list: prop('list') as (input: State) => boolean
+  overlay: (state: State) => get(state, 'overlay'),
+  finish: (state: State) => get(state, 'finish'),
+  list: (state: State) => get(state, 'list')
 };

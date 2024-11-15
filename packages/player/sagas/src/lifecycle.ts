@@ -1,10 +1,10 @@
 import type { Action } from 'redux-actions';
-import { propOr } from 'ramda';
+import { get } from 'lodash-es';
 import { put, takeEvery } from 'redux-saga/effects';
 import * as lifecycle from '@podlove/player-actions/lifecycle';
 import { json } from '@podlove/utils/request';
-import type { PodloveWebPlayerResolvedConfig } from '@podlove/types';
-import { takeOnce } from './helper';
+
+import { takeOnce } from './helper.js';
 
 export function* lifeCycleSaga() {
   yield takeEvery(lifecycle.init.toString(), ready);
@@ -13,8 +13,8 @@ export function* lifeCycleSaga() {
 
 export function* ready({ payload }: Action<lifecycle.readyPayload>) {
   const [chapters, transcripts] = yield Promise.all([
-    json(propOr([], 'chapters', payload)),
-    json(propOr([], 'transcripts', payload))
+    json(get(payload, 'chapters', [])),
+    json(get(payload, 'transcripts', []))
   ]);
 
   // TODO: validate config
@@ -23,7 +23,7 @@ export function* ready({ payload }: Action<lifecycle.readyPayload>) {
       ...payload,
       chapters,
       transcripts
-    } as PodloveWebPlayerResolvedConfig)
+    })
   );
 }
 

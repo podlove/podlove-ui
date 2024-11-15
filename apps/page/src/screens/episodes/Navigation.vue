@@ -63,9 +63,9 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import { TimelineIcon, SummaryIcon, ShownotesIcon, DiscussIcon } from '@podlove/components';
 import { onMounted } from 'vue';
 import { throttle } from 'lodash-es';
-import { useI18n } from 'vue-i18n';
+import { useTranslations } from '@podlove/utils/translate';
 
-const { t } = useI18n();
+const t = useTranslations();
 
 defineProps<{
   shownotes: boolean;

@@ -107,7 +107,7 @@
                   {{ t(`SEARCH.CATEGORY.EPISODE`) }}
                 </span>
                 <a
-                  :href="episodeLink(result.id)"
+                  :href="episodeLink(result.episodeId)"
                   @click="hideSearch"
                   class="
                     flex
@@ -130,8 +130,8 @@
                   <span
                     class="
                       rounded-full
-                      bg-primary-600
-                      text-gray-100
+                      bg-complementary-100
+                      text-primary-900
                       px-2
                       p-1
                       mr-3
@@ -213,14 +213,14 @@ import { ref } from 'vue';
 import { injectStore, mapState } from 'redux-vuex';
 import { get } from 'lodash-es';
 import { CloseIcon, SearchIcon, SearchClearIcon, UserIcon } from '@podlove/components';
-import { useI18n } from 'vue-i18n';
+import { useTranslations } from '@podlove/utils/translate';
 
 import Loader from '../components/Loader.vue';
 import { selectors, actions } from '../logic';
 import { findPerson } from '../lib/persons';
 import type { Person } from '../types/feed.types';
 
-const { t } = useI18n();
+const t = useTranslations();
 const content = ref(null);
 
 const state = mapState({

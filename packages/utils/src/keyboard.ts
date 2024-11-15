@@ -1,4 +1,4 @@
-import { compose, propOr, prop } from 'ramda';
+import { flowRight as compose, get } from 'lodash-es';
 
 const keycodes = () => {
   const codes: { [key: string]: number } = {
@@ -96,7 +96,6 @@ const keycodes = () => {
   }
 
   return (searchInput: KeyboardEvent | number): string | number | undefined => {
-
     // Keyboard Events
     if (searchInput && 'object' === typeof searchInput) {
       const hasKeyCode = searchInput.which || searchInput.keyCode || searchInput.charCode;
@@ -127,7 +126,7 @@ const keycodes = () => {
 };
 
 const filterGlobal = (callback: Function) => (evt: KeyboardEvent) => {
-  const target: string = prop('nodeName', evt.target) as unknown as string;
+  const target: string = get(evt.target, 'nodeName') as unknown as string;
 
   if (target !== 'BODY') {
     return;
@@ -140,10 +139,10 @@ const getKey = keycodes();
 
 const parseKey = (evt) => ({
   key: getKey(evt),
-  ctrl: propOr(false, 'ctrlKey', evt),
-  shift: propOr(false, 'shiftKey', evt),
-  meta: propOr(false, 'metaKey', evt),
-  alt: propOr(false, 'altKey', evt)
+  ctrl: get(evt, 'ctrlKey', false),
+  shift: get(evt, 'shiftKey', false),
+  meta: get(evt, 'metaKey', false),
+  alt: get(evt, 'altKey', false)
 });
 
 export const keydown = (callback: Function): void =>

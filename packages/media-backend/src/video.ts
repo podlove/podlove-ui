@@ -1,4 +1,4 @@
-import { compose } from 'ramda';
+import { flowRight as compose } from 'lodash-es';
 
 import { createSourceNodes, mediaNode } from './media.js';
 import { MediaElement, MediaSource } from './types.js';

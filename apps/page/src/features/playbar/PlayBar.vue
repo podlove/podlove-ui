@@ -187,7 +187,6 @@ import { mapState, injectStore } from 'redux-vuex';
 import { computed, ref, onMounted } from 'vue';
 import { toHumanTime } from '@podlove/utils/time';
 import { max, get, throttle, isNumber } from 'lodash-es';
-import { useI18n } from 'vue-i18n';
 import {
   PlayButton,
   ProgressBar,
@@ -210,6 +209,7 @@ import {
   CloseIcon,
   LockIcon
 } from '@podlove/components';
+import { useTranslations } from '@podlove/utils/translate';
 
 import { selectors, actions } from '../../logic/store';
 
@@ -219,7 +219,7 @@ import Chapter from './Chapter.vue';
 
 const dispatch = injectStore().dispatch;
 
-const { t } = useI18n();
+const t = useTranslations();
 
 const scrolledToBottom = ref(false);
 

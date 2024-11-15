@@ -1,5 +1,5 @@
 import { describe, test, beforeEach, expect, vi } from 'vitest';
-import { compose, prop } from 'ramda';
+import { get } from 'lodash-es';
 import { put, takeEvery, select } from 'redux-saga/effects';
 import {
   transcriptsSaga,
@@ -22,8 +22,9 @@ import {
   updateTranscripts,
   setTranscriptsSearchResults
 } from '@podlove/player-actions/transcripts';
+import { Action } from 'redux-actions';
 
-const params = compose(prop('args'), prop('payload'));
+const params = (action: Action<{ args: any }>) => get(action, ['payload', 'args']);
 
 describe('transcripts', () => {
   describe('transcriptsSaga()', () => {
@@ -118,7 +119,7 @@ describe('transcripts', () => {
       selectSpeakers = vi.fn();
       selectChapters = vi.fn();
       selectPlaytime = vi.fn();
-      gen = init({ selectSpeakers, selectChapters, selectPlaytime }, { payload: { transcripts } });
+      gen = init({ selectSpeakers, selectChapters, selectPlaytime }, { payload: { transcripts } } as any);
     });
 
     test('should should create a generator', () => {
@@ -319,7 +320,7 @@ describe('transcripts', () => {
 
     beforeEach(() => {
       search = vi.fn();
-      gen = update(search, { payload: 'foo' });
+      gen = update(search, { payload: 'foo' } as any);
     });
 
     test('should should create a generator', () => {
@@ -354,7 +355,7 @@ describe('transcripts', () => {
 
     beforeEach(() => {
       search = vi.fn();
-      gen = debouncedUpdate(search, { payload: 'foo' });
+      gen = debouncedUpdate(search, { payload: 'foo' } as any);
     });
 
     test('should should create a generator', () => {
@@ -392,7 +393,7 @@ describe('transcripts', () => {
 
     beforeEach(() => {
       searchFn = vi.fn();
-      gen = search(searchFn, { payload: 'foo' });
+      gen = search(searchFn, { payload: 'foo' } as any);
     });
 
     test('should should create a generator', () => {
@@ -405,8 +406,8 @@ describe('transcripts', () => {
     });
 
     test('should call SET_SEARCH_TRANSCRIPTS_RESULTS with searchIndex', () => {
-      searchFn.mockReturnValue(10);
-      expect(gen.next().value).toEqual(put(setTranscriptsSearchResults(10)));
+      searchFn.mockReturnValue([10]);
+      expect(gen.next().value).toEqual(put(setTranscriptsSearchResults([10])));
     });
 
     test('should call with empty array SET_SEARCH_TRANSCRIPTS_RESULTS ', () => {
@@ -415,7 +416,7 @@ describe('transcripts', () => {
     });
 
     test('should end the saga', () => {
-      searchFn.mockReturnValue(10);
+      searchFn.mockReturnValue([10]);
       gen.next();
       expect(gen.next().done).toBeTruthy();
     });

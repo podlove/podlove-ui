@@ -1,6 +1,4 @@
-import { curry } from 'ramda';
-
-export const binarySearch: any = curry((list: any[], search: number): number => {
+export const binarySearch: any = (list: any[]) => (search: number): number => {
   let minIndex = 0;
   let maxIndex = list.length - 1;
   let currentIndex;
@@ -20,9 +18,9 @@ export const binarySearch: any = curry((list: any[], search: number): number => 
   }
 
   return maxIndex;
-});
+};
 
-export const textSearch: any = curry((input: string[], query: string): number[] => {
+export const textSearch: any = (input: string[]) => (query: string): number[] => {
   const queryExpr = new RegExp(query, 'ig');
 
   return input.reduce((results: number[], item, index) => {
@@ -35,4 +33,4 @@ export const textSearch: any = curry((input: string[], query: string): number[] 
 
     return results;
   }, []);
-});
+};

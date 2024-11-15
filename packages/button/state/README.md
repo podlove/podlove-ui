@@ -26,18 +26,18 @@ A selector is a function that provides access to a specific state property witho
 
 ```javascript
 import { selectors as runtime } from '@podlove/player-state/runtime'
-import { compose } from 'ramda'
+import { createSelector } from 'reselect';
 
 import root from './root'
 
 export default {
-  language: compose(
-    runtime.language,
-    root.runtime
+  language: createSelector(
+    root.runtime,
+    runtime.language
   ),
-  platform: compose(
-    runtime.platform,
-    root.runtime
+  platform: createSelector(
+    root.runtime,
+    runtime.platform
   )
 }
 ```

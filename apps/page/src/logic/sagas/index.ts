@@ -5,13 +5,11 @@ import { stepperSaga } from '@podlove/player-sagas/stepper';
 import { lifeCycleSaga } from '@podlove/player-sagas/lifecycle';
 
 import { selectors } from '../store';
-import dataSagas from './data.sagas';
 import episodeSagas from './episode.sagas';
 import playbarSagas from './playbar.sagas';
 import routerSaga from './router.sagas';
 
 import { isClient } from '../../lib/runtime';
-import serviceworkerSaga from './serviceworker.sagas';
 import searchSaga from './search.sagas';
 import layoutSaga from './layout.sagas';
 
@@ -19,7 +17,6 @@ export async function createSideEffects() {
   const sagas = [
     lifeCycleSaga,
     routerSaga,
-    dataSagas({ selectInitializedApp: selectors.runtime.initialized }),
     episodeSagas({
       selectEpisode: selectors.episode.data,
       selectShow: selectors.podcast.show,
@@ -53,11 +50,6 @@ export async function createSideEffects() {
   ] as any[];
 
   if (isClient()) {
-    sagas.push(serviceworkerSaga({
-      selectFeed: selectors.podcast.feed,
-      selectCacheKey: selectors.runtime.cacheKey,
-    }));
-
     sagas.push(searchSaga({
       selectInitialized: selectors.search.initialized,
       selectEpisodes: selectors.episodes.list,
@@ -65,6 +57,8 @@ export async function createSideEffects() {
       selectVisible: selectors.search.visible,
       selectResults: selectors.search.results,
       selectSelectedResult: selectors.search.selectedResult,
+      selectCacheKey: selectors.runtime.cacheKey,
+      selectVersion: selectors.runtime.version
     }))
 
     const { playerSaga } = await import('@podlove/player-sagas/player');

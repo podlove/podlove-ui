@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions'
-import { identity } from 'ramda'
+import { identity } from 'lodash-es'
 import * as config from '@podlove/button-config'
 import { init, initPayload } from '@podlove/button-actions/lifecycle'
 
