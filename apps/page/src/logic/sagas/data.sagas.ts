@@ -9,10 +9,9 @@ import { createHash } from '../../lib/caching';
 
 function* fetchData(input: Action<initializeAppPayload>) {
   const data: Podcast = yield parseFeed(input.payload);
-
   const cacheKey: string | null = data.etag ? yield createHash(`${data.etag}${version}`) : null;
 
-  yield put(actions.lifecycle.dataFetched({ data, cacheKey }));
+  yield put(actions.lifecycle.dataFetched({ data, cacheKey, version }));
 }
 
 export default ({ selectInitializedApp }: { selectInitializedApp: (input: any) => boolean }) => {

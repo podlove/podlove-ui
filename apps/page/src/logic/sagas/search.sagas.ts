@@ -1,6 +1,6 @@
 import * as fuzzySearch from '@m31coding/fuzzy-search';
 import { flattenDeep } from 'lodash-es';
-import { put, select, takeEvery, all, call, debounce } from 'redux-saga/effects';
+import { put, select, takeEvery, call, debounce } from 'redux-saga/effects';
 import type { Action } from 'redux-actions';
 import type { EventChannel } from 'redux-saga';
 import { takeOnce, channel } from '@podlove/player-sagas/helper';
@@ -13,7 +13,7 @@ import { actions } from '../store';
 import { resolveTranscripts } from '../data/feed-parser';
 import type { Episode, Person, Transcript } from '../../types/feed.types';
 // import { findPerson } from '../../lib/persons';
-import { proxy } from '../../lib/url';
+import { proxy, addQueryparams } from '../../lib/url';
 import * as indexeddb from '../../lib/indexeddb';
 
 export default ({
@@ -23,7 +23,8 @@ export default ({
   // selectContributors,
   selectResults,
   selectSelectedResult,
-  selectCacheKey
+  selectCacheKey,
+  selectVersion
 }: {
   selectVisible: (input: any) => boolean;
   selectInitialized: (input: any) => boolean;
@@ -32,6 +33,7 @@ export default ({
   selectResults: (input: any) => { id: string | number }[];
   selectSelectedResult: (input: any) => string | null;
   selectCacheKey: (input: any) => string | null;
+  selectVersion: (input: any) => string | null;
 }) => {
   const EPISODES = fuzzySearch.SearcherFactory.createDefaultSearcher();
   const TRANSCRIPTS = fuzzySearch.SearcherFactory.createDefaultSearcher();
@@ -62,8 +64,10 @@ export default ({
   }
 
   function* resolveEpisodes(episodes: Episode[]) {
+    const version: string = yield select(selectVersion);
     const cacheKey: string = yield select(selectCacheKey);
-    const db: IDBDatabase = yield indexeddb.open(cacheKey, {
+
+    const db: IDBDatabase = yield indexeddb.open(`episodes@${version}`, {
       onCreate: indexeddb.createStore('transcripts', { keyPath: 'url' }, [
         { name: 'url', keyPath: 'url', options: { unique: true } }
       ])
@@ -71,40 +75,51 @@ export default ({
 
     const transcriptsDb = indexeddb.transaction('transcripts', db);
 
-    for (const episode of episodes) {
-      // are even transcripts available
-      if (typeof episode.transcripts !== 'string') {
-        continue;
-      }
+    const results: Episode[] = yield Promise.all(
+      episodes.map(async (episode) => {
+        // are even transcripts available
+        if (typeof episode.transcripts !== 'string') {
+          return episode;
+        }
 
-      const transcriptUrl = episode.transcripts;
+        const transcriptUrl = addQueryparams(episode.transcripts, { cacheKey });
 
-      // database lookup
-      const stored: {
-        url: string;
-        transcripts: Transcript[];
-      } | null = yield transcriptsDb.find<{
-        url: string;
-        transcripts: Transcript[];
-      }>('url', transcriptUrl);
+        // database lookup
+        const stored: {
+          url: string;
+          transcripts: Transcript[];
+        } | null = await transcriptsDb.find<{
+          url: string;
+          transcripts: Transcript[];
+        }>('url', transcriptUrl);
 
-      if (stored !== null) {
-        episode.transcripts = stored.transcripts;
-        continue;
-      }
+        if (stored !== null) {
+          return {
+            ...episode,
+            transcripts: stored.transcripts
+          };
+        }
 
-      // transcripts needs to be fetched
-      episode.transcripts = yield resolveTranscripts(proxy(transcriptUrl));
+        let resolved: Transcript[] = [];
 
-      // persist episodes
-      try {
-        yield transcriptsDb.save({ url: transcriptUrl, transcripts: episode.transcripts });
-      } catch (err) {
-        console.error(err);
-      }
-    }
+        // persist episodes
+        try {
+          // transcripts needs to be fetched
+          resolved = await resolveTranscripts(proxy(transcriptUrl));
 
-    return episodes;
+          await transcriptsDb.save({ url: transcriptUrl, transcripts: resolved });
+        } catch (err) {
+          console.error(err);
+        }
+
+        return {
+          ...episode,
+          transcripts: resolved
+        };
+      })
+    );
+
+    return results;
   }
 
   function* createTranscriptsSearchIndex(episodes: Episode[]) {

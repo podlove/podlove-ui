@@ -74,7 +74,8 @@ export default {
     initialized: createSelector(slices.runtime, runtime.initialized),
     locale: createSelector(slices.runtime, runtime.locale),
     cacheKey,
-    buildDate: createSelector(slices.runtime, runtime.buildDate)
+    buildDate: createSelector(slices.runtime, runtime.buildDate),
+    version: createSelector(slices.runtime, runtime.version),
   },
   podcast: {
     show: createSelector(slices.podcast, podcast.show),
