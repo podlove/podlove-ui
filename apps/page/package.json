@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/lodash-es": "4.17.12",
     "@types/redux-actions": "2.6.5",
-    "tailwindcss": "3.0.24",
+    "tailwindcss": "3.4.13",
     "typescript": "5.3.2"
   }
 }
