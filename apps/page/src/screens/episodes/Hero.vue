@@ -5,7 +5,7 @@
         <div class="w-[180px] h-[180px] relative mb-4 md:mb-0 md:mr-8">
           <div
             :style="{backgroundImage: `url(${state.episode.poster || state.poster})`}"
-            class="shadow-lg border rounded border-complementary-800 w-[180px] h-[180px] bg-cover"
+            class="shadow-lg border rounded border-complementary-800 w-[180px] h-[180px] bg-cover bg-center"
           ></div>
           <div
             class="

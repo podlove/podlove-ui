@@ -21,18 +21,18 @@
           ></div>
         </div>
         <div class="flex flex-col items-center md:block w-4/5">
-          <h1
-            v-if="state.description"
-            class="text-complementary-900 text-2xl text-center md:text-left lg:text-3xl font-light line-clamp-2 mb-2"
-          >
-            {{ state.description }}
-          </h1>
-          <p
-            v-if="state.summary"
+          <template  v-if="state.description">
+            <h1
+              v-html="state.description"
+              class="text-complementary-900 text-2xl text-center md:text-left lg:text-3xl font-light line-clamp-2 mb-2"
+            ></h1>
+          </template>
+          <template v-if="state.summary">
+            <p
+            v-html="state.summary"
             class="text-complementary-800 hidden md:line-clamp-5 lg:text-xl md:text-lg font-extralight"
-          >
-            {{ state.summary }}
-          </p>
+            ></p>
+          </template>
         </div>
       </div>
     </div>

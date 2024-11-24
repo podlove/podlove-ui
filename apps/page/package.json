@@ -38,7 +38,8 @@
     "redux-vuex": "3.1.2",
     "reselect": "4.1.8",
     "scroll-into-view-if-needed": "3.1.0",
-    "vue-i18n": "9.13.1"
+    "vue-i18n": "9.13.1",
+    "@picocss/pico": "2.0.6"
   },
   "devDependencies": {
     "@types/lodash-es": "4.17.12",
