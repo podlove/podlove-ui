@@ -13,8 +13,8 @@ const props = defineProps<{ size: number }>();
 const size = computed(() => props.size);
 
 const style = computed(() => ({
-  width: size.value,
-  height: size.value
+  width: size.value + 'px',
+  height: size.value + 'px'
 }));
 </script>
 

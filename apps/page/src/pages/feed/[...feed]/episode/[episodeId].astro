@@ -11,8 +11,10 @@ import type { PodloveWebPlayerTranscript } from '@podlove/types';
 
 const { episodeId } = Astro.params;
 const $t = useTranslations();
-const podcastTitle = selectors.podcast.title(store.getState());
-const episode = selectors.episode.data(episodeId as string)(store.getState());
+const state = store.getState();
+const podcastTitle = selectors.podcast.title(state);
+const episode = selectors.episode.data(episodeId as string)(state);
+const favicon = selectors.podcast.poster(state);
 
 store.dispatch(actions.router.episodePage({ base: 'feed', episodeId: episodeId as string }));
 const timeline = [
@@ -26,7 +28,7 @@ const timeline = [
 ];
 ---
 
-<Layout title={`${podcastTitle} - ${episode.title}`}>
+<Layout title={`${podcastTitle} - ${episode.title}`} favicon={favicon} description={episode.description}>
   {
     episodeId && (
       <Hero id={episodeId.toString()} client:idle>

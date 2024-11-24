@@ -6,11 +6,12 @@ import Search from '../features/Search.vue';
 import PageFooter from '../features/PageFooter.vue';
 import LoadingBar from '../features/LoadingBar.vue';
 import Subscribe from '../features/subscribe/Subscribe.vue';
+import PageCover from '../features/PageCover.vue';
 import Colors from '../features/Colors.vue';
 import { store } from '../logic';
 import { getLanguage } from '../i18n';
 
-const { title } = Astro.props;
+const { title, description, favicon } = Astro.props;
 const state = store.getState();
 const lang = getLanguage();
 
@@ -22,10 +23,11 @@ const lang = getLanguage();
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={favicon} />
     <link rel="manifest" href="/manifest.json">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+    <meta name="description" content={description} />
     <script is:inline define:vars={{ state }}>window.REDUX_STATE = state;</script>
     <ViewTransitions />
 	</head>
@@ -45,6 +47,7 @@ const lang = getLanguage();
     </script>
     <Search client:only="vue" />
     <Subscribe client:only="vue" />
+    <PageCover client:load />
 	</body>
 </html>
 
