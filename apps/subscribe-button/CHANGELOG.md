@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.13.0](https://github.com/podlove/podlove-ui/compare/v5.12.3...v5.13.0) (2024-12-07)
+
+
+### Features
+
+* **player:** add arabic language support ([#1167](https://github.com/podlove/podlove-ui/issues/1167)) ([3e941e4](https://github.com/podlove/podlove-ui/commit/3e941e47f9fec95b943087f1063a1f35509ec898))
+
+
+
+
+
 ## [5.12.2](https://github.com/podlove/podlove-ui/compare/v5.12.1...v5.12.2) (2024-01-24)
 
 **Note:** Version bump only for package @podlove/subscribe-button

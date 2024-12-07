@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.13.0](https://github.com/podlove/podlove-ui/compare/v5.12.3...v5.13.0) (2024-12-07)
+
+**Note:** Version bump only for package @podlove/web-player
+
+
+
+
+
 ## [5.12.3](https://github.com/podlove/podlove-ui/compare/v5.12.2...v5.12.3) (2024-05-23)
 
 **Note:** Version bump only for package @podlove/web-player

@@ -1,6 +1,6 @@
 {
   "name": "@podlove/subscribe-button",
-  "version": "5.12.2",
+  "version": "5.13.0",
   "description": "",
   "main": "subscribe-button.js",
   "scripts": {
