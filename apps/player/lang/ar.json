@@ -1,0 +1,179 @@
+{
+  "CHAPTERS": {
+    "TITLE": "فصول"
+  },
+  "AUDIO": {
+    "TITLE": "الصوت",
+    "VOLUME": "مستوى الصوت",
+    "SPEED": "السرعة",
+    "DEBUG_STATE": "تصدير حالة التصحيح"
+  },
+  "PLAYER": {
+    "PLAY_EPISODE": "تشغيل البودكاست",
+    "REPLAY": "إعادة تشغيل",
+    "RETRY": "إعادة المحاولة"
+  },
+  "ERROR": {
+    "NETWORK": {
+      "TITLE": "مشكلة اتصال",
+      "MESSAGE": "فشل في تحميل ملفات الصوت من السيرفر. قد يكون انقطع اتصالك بالإنترنت أو يوجد مشكلة من طرف خدمة الاستضافة."
+    },
+    "MEDIA": {
+      "TITLE": "ملفات الميديا غير موجودة",
+      "MESSAGE": "تلقى مشغّل الصوت إعدادات غير صحيحة. لا يمكن استخدام المشغّل بدون ملفات صوت. يرجى التواصل مع خدمة الاستضافة الخاصة بك لحل المشكلة."
+    },
+    "CONFIG": {
+      "TITLE": "إعدادات الحلقة غير موجودة",
+      "MESSAGE": "لم يتمكن مشغّل الصوت من إيجاد إعدادات الحلقة .يرجى التواصل مع خدمة الاستضافة الخاصة بك لحل المشكلة."
+    }
+  },
+  "FILES": {
+    "TITLE": "الملفات",
+    "TYPES": {
+      "AUDIO": "ملف صوت",
+      "PDF": "ملف PDF",
+      "TEXT": "نص",
+      "VIDEO": "فيديو"
+    },
+    "ACTIONS": {
+      "DOWNLOAD": "تنزيل",
+      "COPY": "نسخ الرابط"
+    }
+  },
+  "SHARE": {
+    "TITLE": "مشاركة الحلقة",
+    "CONTENT": {
+      "SHOW": "البرنامج",
+      "EPISODE": "الحلقة",
+      "CHAPTER": "الفصل",
+      "TIME": "التشغيل بدءًا من اللحظة"
+    },
+    "SHARE_CHANNEL": "المشاركة على...",
+    "SHARE_LINK": "الرابط",
+    "ACTIONS": {
+      "COPY": "نسخ"
+    },
+    "PLAYTIME": "المشاركة بدءًا من اللحظة ({playtime})",
+    "EPISODE": {
+      "TEXT": {
+        "BEGINNING": "\"{title}\" ({link})",
+        "CHAPTER": "\"{chapter}\" من \"{title}\" ({link})",
+        "PLAYTIME": "\"{title}\" ({link})"
+      },
+      "SUBJECT": {
+        "BEGINNING": "{title}",
+        "CHAPTER": "{title} - {chapter}",
+        "PLAYTIME": "{title}"
+      }
+    },
+    "SHOW": {
+      "TEXT": "\"{title}\" ({link})",
+      "SUBJECT": "{title}"
+    },
+    "EMBED": {
+      "TITLE": "تضمين المشغّل",
+      "LABEL": {
+        "SIZE": "حجم التضمين",
+        "CODE": "كود التضمين"
+      },
+      "ACTIONS": {
+        "COPY": "نسخ الكود"
+      }
+    }
+  },
+  "SHOWNOTES": {
+    "TITLE": "ملاحظات حول الحلقة",
+    "PUBLICATION_DATE": "تم النشر في: {month}/{day}/{year}",
+    "DURATION_WITH_HOURS": "{hours} ساعة {minutes} دقيقة",
+    "DURATION": "{minutes} دقيقة"
+  },
+  "TRANSCRIPTS": {
+    "TITLE": "النص",
+    "CHAPTER": "الفصل {index}: {title}",
+    "FOLLOW": {
+      "ACTIVE": "إيقاف النص",
+      "INACTIVE": "اتّباع النص"
+    },
+    "PLACEHOLDER": "البحث في النص عن ...",
+    "NO_SEARCH_RESULTS": "لا يوجد نتائج"
+  },
+  "MESSAGES": {
+    "COPIED": "تم النسخ!"
+  },
+  "PLAYLIST": {
+    "TITLE": "الحلقات ذات الصلة"
+  },
+  "SUBSCRIBE": "متابعة",
+  "A11Y": {
+    "ALT_EPISODE_COVER": "صورة الحلقة",
+    "ALT_SHOW_COVER": "صورة البرنامج",
+    "ALT_CHAPTER_COVER": "صورة الفصل {title}",
+    "PLAYER_PLAY": "تشغيل الحلقة",
+    "PLAYER_START": "بدء الحلقة، طولها {hours} ساعة {minutes} دقيقة {seconds} ثانية",
+    "PLAYER_RESTART": "العودة إلى بداية الحلقة",
+    "PLAYER_ERROR": "إعادة محاولة تشغيل الحلقة",
+    "PLAYER_PAUSE": "إيقاف التشغيل مؤقتاً",
+    "PLAYER_LOADING": "تحميل الحلقة",
+    "PLAYER_CHAPTER_NEXT": "الانتقال إلى الفصل التالي: {index} - {title}",
+    "PLAYER_CHAPTER_END": "الانتقال إلى نهاية الفصل",
+    "PLAYER_CHAPTER_START": "الانتقال إلى بداية الحلقة",
+    "PLAYER_CHAPTER_PREVIOUS": "الانتقال إلى الفصل السابق: {index} - {title}",
+    "PLAYER_CHAPTER_CURRENT": "الانتقال إلى بداية الفصل الحالي: {index} - {title}",
+    "PLAYER_STEPPER_BACK": "الرجوع {seconds} ثانية",
+    "PLAYER_STEPPER_FORWARD": "التقديم {seconds} ثانية",
+    "PROGRESSBAR_INPUT": "تغيير لحظة التشغيل إلى مئوية",
+    "TIMER_CHAPTER": "الفصل الحالي: {index} - {title}",
+    "CONTRIBUTOR_COVER": "المتكلّم {name}",
+    "SHARE_CHANNEL": "المشاركة على {channel}",
+    "COPY_SHARE_LINK": "نسخ الرابط",
+    "SHARE_OVERLAY": "شاشة المشاركة",
+    "OVERLAY_CLOSE": "إغلاق شاشة المشاركة",
+    "COPY_EMBED_CODE": "نسخ كود التضمين",
+    "DOWNLOAD_EPISODE": "تنزيل الحلقة",
+    "SELECT_EPISODE_FILETYPE": "اختيار نوع ملف الحلقة",
+    "COPY_DOWNLOAD_URL": "نسخ رابط التنزيل",
+    "SET_RATE_IN_PERCENT": "تحديد سرعة التشغيل بالنسبة المئوية",
+    "SET_VOLUME_IN_PERCENT": "تحديد مستوى الصوت بالنسبة المئوية",
+    "DOWNLOAD_FILE": "تنزيل الملف {url}",
+    "COPY_FILE": "نسخ الملف {url}",
+    "PLAYLIST_ENTRY": "تشغيل الحلقة {title}",
+    "TAB_TRIGGER": {
+      "SHOWNOTES": "ملاحظات حول الحلقة",
+      "CHAPTERS": "الفصول",
+      "TRANSCRIPTS": "النصوص",
+      "FILES": "الملفات",
+      "PLAYLIST": "الحلقات ذات الصلة",
+      "SHARE": "مشاركة"
+    },
+    "TAB_PANEL": "لوحة الإجراءات في باب {name}",
+    "TAB_CLOSE": {
+      "SHOWNOTES": "إخفاء باب الملاحظات حول الحلقة",
+      "CHAPTERS": "إخفاء باب الفصول",
+      "TRANSCRIPTS": "إخفاء باب النصوص",
+      "FILES": "إخفاء باب الملفات",
+      "PLAYLIST": "إخفاء باب الحلقات ذات الصلة",
+      "SHARE": "إخفاء باب المشاركة"
+    },
+    "TIMER_CURRENT": "لحظة التشغيل الحالية: {hours} ساعة {minutes} دقيقة {seconds} ثانية",
+    "TIMER_REMAINING": "الوقت المتبقي من الحلقة: {hours} ساعة {minutes} دقيقة {seconds} ثانية",
+    "TIMER_DURATION": "الوقت الإجمالي: {hours} ساعة {minutes} دقيقة {seconds} ثانية",
+    "TIMER_LIVE": "قبل اللايف: {hours} ساعة {minutes} دقيقة {seconds} ثانية",
+    "CHAPTER_LIST": "الفصول",
+    "CHAPTER_PAUSE": "إيقاف مؤقت للفصل{index}: \"{title}\"",
+    "CHAPTER_PLAY": "استئناف تشغيل الفصل{index}: \"{title}\"",
+    "TRANSCRIPTS_SEARCH": "البحث في النص",
+    "TRANSCRIPTS_SEARCH_CLEAR": "إعادة ضبط البحث",
+    "TRANSCRIPTS_SEARCH_PREVIOUS": "نتيجة البحث السابقة",
+    "TRANSCRIPTS_SEARCH_NEXT": "نتيجة البحث التالية",
+    "TRANSCRIPTS_FOLLOW": "اتّباع النصوص",
+    "TRANSCRIPTS_UNFOLLOW": "إيقاف اتّباع النصوص",
+    "EPISODE_LIST": "الحلقات",
+    "EPISODE_PLAY": "تشغيل الحلقة \"{title}\"",
+    "EPISODE_PAUSE": "إيقاف مؤقت للحلقة \"{title}\"",
+    "SHARE_EMBED_CODE": "كود التضمين",
+    "VOLUME_CONTROL": "إظهار أداة التحكّم بمستوى الصوت",
+    "SPEED_CONTROL": "تحديد سرعة التشغيل إلى {speed}%",
+    "SUBSCRIBE_BUTTON": "متابعة البودكاست"
+  },
+  "LIVE": "لايف"
+}
