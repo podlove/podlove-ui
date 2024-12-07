@@ -1,9 +1,11 @@
-import en from './en'
-import de from './de'
-import fr from './fr'
+import en from './en.js'
+import de from './de.js'
+import fr from './fr.js'
+import ar from './ar.js'
 
 export default {
   en,
   de,
-  fr
+  fr,
+  ar
 }
