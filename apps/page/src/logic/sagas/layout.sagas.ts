@@ -1,13 +1,13 @@
 import type { EventChannel } from 'redux-saga';
 import { call, fork, put, select, takeEvery } from 'redux-saga/effects';
 import { channel } from '@podlove/player-sagas/helper';
-import { prominent } from 'color.js';
 import { lighten, negate } from 'farbraum';
 
 import actions from '../store/actions';
-import { isClient } from '../../lib/runtime';
+import { isClient, isServer } from '../../lib/runtime';
 import type { ColorTokens, rgbColor } from '../../types/color.types';
 import { proxy } from '../../lib/url';
+import { getImageColors } from '../../lib/color';
 
 export default function ({
   selectSubscribeOverlayVisible,
@@ -57,16 +57,8 @@ export default function ({
       return;
     }
 
-    const primaryColor: rgbColor = yield prominent(proxy(poster), {
-      amount: 1
-    });
-
-    if (!primaryColor) {
-      return;
-    }
-
-    const complementaryColor = negate(primaryColor) as rgbColor;
-
+    const {primaryColor, complementaryColor} = yield getImageColors(poster);
+    console.log('call!',  {primaryColor, complementaryColor});
     const primary = tailwindColorTokens(primaryColor);
     const complementary = tailwindColorTokens(complementaryColor);
 
@@ -79,9 +71,11 @@ export default function ({
   }
 
   return function* () {
-    if (isClient()) {
-      yield fork(initializeColors);
+    if (isServer()) {
+      yield takeEvery(actions.lifecycle.dataFetched.toString(), initializeColors);
+    }
 
+    if (isClient()) {
       const pageLoadStart: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
         document.addEventListener('astro:before-preparation', cb)
       );

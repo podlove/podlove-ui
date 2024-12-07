@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@m31coding/fuzzy-search": "1.0.1",
-    "color.js": "1.2.0",
     "farbraum": "0.2.1",
     "@podlove/player-sagas": "workspace:*",
     "@podlove/utils": "workspace:*",
@@ -39,7 +38,8 @@
     "reselect": "4.1.8",
     "scroll-into-view-if-needed": "3.1.0",
     "vue-i18n": "9.13.1",
-    "@picocss/pico": "2.0.6"
+    "@picocss/pico": "2.0.6",
+    "@colour-extractor/colour-extractor": "1.0.1"
   },
   "devDependencies": {
     "@types/lodash-es": "4.17.12",

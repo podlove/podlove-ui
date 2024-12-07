@@ -42,12 +42,11 @@ const lang = getLanguage();
 
     <PlayBar client:only="vue" transition:persis="player" />
     <div id="media-container" transition:persist="media-container"></div>
+    <Search client:only="vue" />
+    <Subscribe client:only="vue" />
     <script>
       import '../logic';
     </script>
-    <Search client:only="vue" />
-    <Subscribe client:only="vue" />
-    <PageCover client:load />
 	</body>
 </html>
 
