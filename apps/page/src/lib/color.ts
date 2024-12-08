@@ -1,44 +1,26 @@
-import ColorThief from 'colorthief';
-import fetch from 'node-fetch';
+import { extractColors } from 'extract-colors';
+import getPixels from 'get-pixels';
 import { type rgbColor } from '../types/color.types';
 
-// const createImage = (src: string): Promise<HTMLImageElement> => {
-//   const image = document.createElement('img');
-//   image.src = src;
-//   image.style.display = 'none';
-//   globalThis.window.document.body.appendChild(image);
+export const getImageColors = async (
+  src: string
+): Promise<{ primaryColor: rgbColor | null; complementaryColor: rgbColor | null }> =>
+  new Promise((resolve) => {
+    getPixels(src, async (err, pixels) => {
+      if (err) {
+        return resolve({ primaryColor: null, complementaryColor: null });
+      }
 
-//   return new Promise((resolve, reject) => {
-//     if (image.complete) {
-//       return resolve(image);
-//     }
+      const data = [...pixels.data];
+      const [width, height] = pixels.shape;
 
-//     image.onload = () => {
-//       resolve(image);
-//     };
+      const { primaryColor, complementaryColor } = await extractColors({ data, width, height })
+        .then(([primary, secondary]) => ({
+          primaryColor: [primary.red, primary.green, primary.blue] as rgbColor,
+          complementaryColor: [secondary.red, secondary.green, secondary.blue] as rgbColor,
+        }))
+        .catch(() => ({ primaryColor: null, complementaryColor: null }));
 
-//     image.onerror = () => {
-//       reject();
-//     }
-//   });
-// }
-
-export const getImageColors = async (src: string): Promise<{ primaryColor: rgbColor; complementaryColor: rgbColor; } | null> => {
-  const image = await fetch(src)
-  .then(response => {
-    if (!response.ok) {
-      return null;
-    }
-
-    return response.buffer();
-  }).catch(() => null);
-
-  if (!image) {
-    return {primaryColor: null, complementaryColor: null }
-  }
-
-  const [primaryColor, complementaryColor] = ColorThief.getPalette(image);
-
-  return {primaryColor, complementaryColor };
-}
-
+      return resolve({ primaryColor, complementaryColor });
+    });
+  });

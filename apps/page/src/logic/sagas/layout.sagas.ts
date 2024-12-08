@@ -57,8 +57,7 @@ export default function ({
       return;
     }
 
-    const {primaryColor, complementaryColor} = yield getImageColors(poster);
-    console.log('call!',  {primaryColor, complementaryColor});
+    const { primaryColor, complementaryColor } = yield getImageColors(poster);
     const primary = tailwindColorTokens(primaryColor);
     const complementary = tailwindColorTokens(complementaryColor);
 

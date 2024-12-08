@@ -6,7 +6,6 @@ import Search from '../features/Search.vue';
 import PageFooter from '../features/PageFooter.vue';
 import LoadingBar from '../features/LoadingBar.vue';
 import Subscribe from '../features/subscribe/Subscribe.vue';
-import PageCover from '../features/PageCover.vue';
 import Colors from '../features/Colors.vue';
 import { store } from '../logic';
 import { getLanguage } from '../i18n';
@@ -24,7 +23,6 @@ const lang = getLanguage();
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={favicon} />
-    <link rel="manifest" href="/manifest.json">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
     <meta name="description" content={description} />
@@ -32,7 +30,7 @@ const lang = getLanguage();
     <ViewTransitions />
 	</head>
 	<body>
-    <Colors client:only="vue" />
+    <Colors />
     <LoadingBar client:only="vue" />
     <PageHeader client:idle transition:persist="header" />
     <main transition:animate="fade">

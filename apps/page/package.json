@@ -38,13 +38,14 @@
     "reselect": "4.1.8",
     "scroll-into-view-if-needed": "3.1.0",
     "vue-i18n": "9.13.1",
-    "@picocss/pico": "2.0.6",
-    "@colour-extractor/colour-extractor": "1.0.1"
+    "extract-colors": "4.1.1",
+    "get-pixels": "3.3.3"
   },
   "devDependencies": {
     "@types/lodash-es": "4.17.12",
     "@types/redux-actions": "2.6.5",
     "tailwindcss": "3.4.13",
-    "typescript": "5.3.2"
+    "typescript": "5.3.2",
+    "@types/get-pixels": "3.3.4"
   }
 }
