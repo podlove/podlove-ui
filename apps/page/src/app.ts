@@ -1,6 +1,6 @@
 import { provideStore } from 'redux-vuex';
-import { provideTranslations } from '@podlove/utils/translate';
 import type { App } from 'vue';
+import { provideTranslations } from '@podlove/utils/translate';
 import { messages, defaultLang, getLanguage } from './i18n';
 import { store } from './logic';
 

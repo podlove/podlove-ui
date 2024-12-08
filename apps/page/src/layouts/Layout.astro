@@ -10,7 +10,7 @@ import Colors from '../features/Colors.vue';
 import { store } from '../logic';
 import { getLanguage } from '../i18n';
 
-const { title } = Astro.props;
+const { title, description, favicon } = Astro.props;
 const state = store.getState();
 const lang = getLanguage();
 
@@ -22,15 +22,15 @@ const lang = getLanguage();
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/manifest.json">
+		<link rel="icon" type="image/svg+xml" href={favicon} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+    <meta name="description" content={description} />
     <script is:inline define:vars={{ state }}>window.REDUX_STATE = state;</script>
     <ViewTransitions />
 	</head>
 	<body>
-    <Colors client:only="vue" />
+    <Colors />
     <LoadingBar client:only="vue" />
     <PageHeader client:idle transition:persist="header" />
     <main transition:animate="fade">
@@ -40,11 +40,11 @@ const lang = getLanguage();
 
     <PlayBar client:only="vue" transition:persis="player" />
     <div id="media-container" transition:persist="media-container"></div>
+    <Search client:only="vue" />
+    <Subscribe client:only="vue" />
     <script>
       import '../logic';
     </script>
-    <Search client:only="vue" />
-    <Subscribe client:only="vue" />
 	</body>
 </html>
 

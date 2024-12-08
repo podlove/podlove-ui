@@ -3,12 +3,10 @@
     <div class="w-app flex font-light items-center flex-col mt-6">
       <div class="flex flex-col items-center md:items-start md:flex-row">
         <div class="w-[180px] h-[180px] relative mb-4 md:mb-0 md:mr-8">
-          <img
-            :src="state.episode.poster || state.poster"
-            :width="180"
-            :height="180"
-            class="shadow-lg border rounded border-complementary-800 w-full h-full object-cover"
-          />
+          <div
+            :style="{backgroundImage: `url(${state.episode.poster || state.poster})`}"
+            class="shadow-lg border rounded border-complementary-800 w-[180px] h-[180px] bg-cover bg-center"
+          ></div>
           <div
             class="
               absolute

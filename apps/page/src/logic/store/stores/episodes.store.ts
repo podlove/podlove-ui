@@ -22,11 +22,11 @@ export const actions = {
 };
 
 export const reducer = handleActions<State, any>({
-  [lifecycleActions.dataFetched.toString()]: (state, { payload }: Action<dataFetchedPayload>) => {
+  [lifecycleActions.dataFetched.toString()]: (_state, { payload }: Action<dataFetchedPayload>) => {
     return payload.data.episodes.reduce((result, episode) => ({
       ...result,
       [episode.id]: episode
-    }), state)
+    }), {})
   },
   [actions.addEpisode.toString()]: (state: State, { payload }: Action<addEpisodePayload>) => ({
       ...state,
