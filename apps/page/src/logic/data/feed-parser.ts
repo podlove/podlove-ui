@@ -1,4 +1,4 @@
-import { get, castArray, kebabCase } from 'lodash-es';
+import { get, castArray, kebabCase, isArray } from 'lodash-es';
 import { XMLParser } from 'fast-xml-parser';
 import { toPlayerTime } from '@podlove/utils/time';
 import webVttParser from '@podlove/webvtt-parser';
@@ -69,7 +69,8 @@ const getTranscriptUrl = async (data: any): Promise<string | null> => {
     ['podcast:transcript'],
     []
   );
-  const vtt = transcripts.find((item) => get(item, ['@_type'], null) === 'text/vtt');
+
+  const vtt = (isArray(transcripts) ? transcripts: [transcripts]).find((item) => get(item, ['@_type'], null) === 'text/vtt');
 
   return get(vtt, ['@_url'], null);
 };

@@ -1,12 +1,11 @@
 import type { EventChannel } from 'redux-saga';
 import { call, fork, put, select, takeEvery } from 'redux-saga/effects';
 import { channel } from '@podlove/player-sagas/helper';
-import { lighten, negate } from 'farbraum';
+import { lighten } from 'farbraum';
 
 import actions from '../store/actions';
 import { isClient, isServer } from '../../lib/runtime';
 import type { ColorTokens, rgbColor } from '../../types/color.types';
-import { proxy } from '../../lib/url';
 import { getImageColors } from '../../lib/color';
 
 export default function ({
@@ -17,6 +16,7 @@ export default function ({
   selectSubscribeOverlayVisible: (input: any) => boolean;
   selectSearchOverlayVisible: (input: any) => boolean;
   selectShowPoster: (input: any) => string | null;
+  selectFeed: (input: any) => string | null;
 }) {
   function* disableOverflow() {
     document.body.classList.add('overflow-hidden');
@@ -34,7 +34,7 @@ export default function ({
     yield put(actions.view.stopLoading());
   }
 
-  function* initializeColors() {
+  function* initializeTheme() {
     const poster: string | null = yield select(selectShowPoster);
 
     const tailwindColorTokens = (color: rgbColor | null): ColorTokens | null => {
@@ -58,20 +58,23 @@ export default function ({
     }
 
     const { primaryColor, complementaryColor } = yield getImageColors(poster);
+
     const primary = tailwindColorTokens(primaryColor);
     const complementary = tailwindColorTokens(complementaryColor);
 
     yield put(
-      actions.colors.setColors({
-        ...(primary ? { primary } : {}),
-        ...(complementary ? { complementary } : {})
+      actions.theme.setTheme({
+        colors: {
+          ...(primary ? { primary } : {}),
+          ...(complementary ? { complementary } : {})
+        }
       })
     );
   }
 
   return function* () {
     if (isServer()) {
-      yield takeEvery(actions.lifecycle.dataFetched.toString(), initializeColors);
+      yield takeEvery(actions.lifecycle.dataFetched.toString(), initializeTheme);
     }
 
     if (isClient()) {

@@ -10,11 +10,11 @@
 import { mapState } from 'redux-vuex';
 import { computed, type ComputedRef } from 'vue';
 import { selectors } from '../logic';
-import type { Colors } from '../logic/store/stores/colors.store';
+import type { Colors } from '../logic/store/stores/theme.store';
 import type { ColorTokens } from '../types/color.types';
 
 const state = mapState({
-  colors: selectors.colors.values
+  colors: selectors.theme.colors
 });
 
 const colors: ComputedRef<string> = computed(() =>

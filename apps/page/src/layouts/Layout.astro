@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import PageHeader from '../features/PageHeader.vue';
 import PlayBar from '../features/playbar/PlayBar.vue';
 import Search from '../features/Search.vue';
@@ -13,28 +13,29 @@ import { getLanguage } from '../i18n';
 const { title, description, favicon } = Astro.props;
 const state = store.getState();
 const lang = getLanguage();
-
 ---
 
 <!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={favicon} />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
     <meta name="description" content={description} />
-    <script is:inline define:vars={{ state }}>window.REDUX_STATE = state;</script>
-    <ViewTransitions />
-	</head>
-	<body>
-    <Colors />
+    <script is:inline define:vars={{ state }}>
+      window.REDUX_STATE = state;
+    </script>
+    <ClientRouter />
+  </head>
+  <body>
+    <Colors client:load />
     <LoadingBar client:only="vue" />
     <PageHeader client:idle transition:persist="header" />
     <main transition:animate="fade">
-      <slot></slot>
+      <slot />
     </main>
     <PageFooter />
 
@@ -45,7 +46,7 @@ const lang = getLanguage();
     <script>
       import '../logic';
     </script>
-	</body>
+  </body>
 </html>
 
 <style>

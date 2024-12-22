@@ -11,7 +11,7 @@ import { actions as playbar } from './stores/playbar.store';
 import { actions as subscribeButton } from './stores/subscribe-button.store';
 import { actions as router } from './stores/router.store';
 import { actions as view } from './stores/view.store';
-import { actions as colors } from './stores/colors.store';
+import { actions as theme } from './stores/theme.store';
 
 export default {
   episodes,
@@ -27,5 +27,5 @@ export default {
   disableGhost,
   enableGhost,
   view,
-  colors
+  theme
 };

@@ -23,7 +23,7 @@ export const initializeStore = defineMiddleware(async ({ request, params }, next
 
   store.dispatch(actions.lifecycle.dataFetched({ data, cacheKey, version }));
 
-  await waitForConidition(() => selectors.colors.initialized(store.getState()), 1000)
+  await waitForConidition(() => selectors.initialized(store.getState()), 1000)
 
   return next();
 });

@@ -69,10 +69,10 @@ import { mapState } from 'redux-vuex';
 import { toHumanTime } from '@podlove/utils/time';
 import { computed } from 'vue';
 import { first } from 'lodash-es';
-import HeaderContainer from '../../components/HeaderContainer.vue';
 import Contributor from '../../components/Contributor.vue';
 import PlayButton from '../../components/PlayButton.vue';
 import { selectors } from '../../logic';
+import HeaderContainer from '../../components/HeaderContainer.vue';
 
 const props = defineProps<{ id: string }>();
 

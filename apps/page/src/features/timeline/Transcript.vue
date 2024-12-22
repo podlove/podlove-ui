@@ -1,16 +1,18 @@
 <template>
-  <div class="p-2">
+  <div class="p-2" v-if="texts.length > 0">
     <div class="flex items-center mb-2">
       <bullet :top="true" :bottom="true" :time="start">
         <a v-if="speaker.slug" :href="`/feed/${state.feed}/contributor/${speaker.slug}`">
           <span @mouseover="showPopover" @mouseleave="hidePopover">
             <img v-if="speaker.avatar" :src="speaker.avatar" :width="48" :height="48" />
-            <user-icon v-else :size="48" />
+            <span v-else class="w-[48px] h-[48px] flex items-center justify-center">
+              <user-icon :size="28" />
+            </span>
           </span>
         </a>
         <span v-else @mouseover="showPopover" @mouseleave="hidePopover">
           <img v-if="speaker.avatar" :src="speaker.avatar" :width="48" :height="48" />
-          <user-icon v-else :size="48" />
+          <user-icon v-else :size="28" />
         </span>
         <popover direction="right">
           <div class="text-sm text-gray-800 p-1 text-center whitespace-nowrap">
@@ -83,12 +85,12 @@ const state = mapState({
   hovered: selectors.player.ghost.active,
   current: selectors.current.episode,
   playtime: selectors.player.playtime,
-  feed: selectors.podcast.feed,
+  feed: selectors.podcast.feed
 });
 
 const popoverVisible = ref(false);
 
-const texts = computed(() => props.texts || []);
+const texts = computed(() => (props.texts || []).filter(Boolean));
 const active = computed(() => props.episodeId === state.current);
 const speaker = computed(
   () => props.speaker || { id: null, slug: null, avatar: '', name: '', nickname: '' }
