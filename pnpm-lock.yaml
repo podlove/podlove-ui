@@ -138,9 +138,6 @@ importers:
       get-pixels:
         specifier: 3.3.3
         version: 3.3.3
-      jpeg-js:
-        specifier: 0.4.4
-        version: 0.4.4
       lodash-es:
         specifier: 4.17.21
         version: 4.17.21
@@ -150,9 +147,6 @@ importers:
       ndarray:
         specifier: 1.0.19
         version: 1.0.19
-      pngjs:
-        specifier: 7.0.0
-        version: 7.0.0
       pure-color-thief-node:
         specifier: 1.0.8
         version: 1.0.8
@@ -14200,11 +14194,6 @@ packages:
   /pngjs@3.4.0:
     resolution: {integrity: sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==}
     engines: {node: '>=4.0.0'}
-    dev: false
-
-  /pngjs@7.0.0:
-    resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
-    engines: {node: '>=14.19.0'}
     dev: false
 
   /posix-character-classes@0.1.1:
