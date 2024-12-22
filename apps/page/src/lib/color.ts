@@ -1,4 +1,3 @@
-import fs from 'node:fs';
 import { isDark } from 'farbraum';
 import { type rgbColor } from '../types/color.types';
 

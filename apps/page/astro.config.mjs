@@ -11,5 +11,10 @@ export default defineConfig({
       enabled: true
     }
   }),
+  vite: {
+    ssr: {
+      external: ['path', 'stream', 'zlib'],
+    },
+  },
   integrations: [vue({ appEntrypoint: '/src/app' }), tailwind()]
 });

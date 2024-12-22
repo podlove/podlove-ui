@@ -24,6 +24,7 @@
     "@astrojs/tailwind": "5.1.4",
     "@astrojs/vue": "5.0.3",
     "@astrojs/cloudflare": "12.1.0",
+    "@astrojs/check": "0.9.4",
     "astro": "5.1.1",
     "vue": "3.5.12",
     "fast-xml-parser": "4.5.0",
