@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <icon :width="size" :height="size" viewBox="0 0 28 28">
+  <icon :width="size" :height="size" viewBox="0 0  24 24">
     <path
       stroke-linecap="round"
       stroke-linejoin="round"

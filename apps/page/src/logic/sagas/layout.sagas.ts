@@ -40,10 +40,10 @@ export default function ({
     const tailwindColorTokens = (color: rgbColor | null): ColorTokens | null => {
       const tokens = [100, 200, 300, 400, 500, 600, 700, 800];
 
+      console.log(color);
       if (!color) {
         return null;
       }
-
       return tokens.reduce(
         (result, token) => ({
           ...result,

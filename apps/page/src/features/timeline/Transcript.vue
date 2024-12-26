@@ -6,13 +6,13 @@
           <span @mouseover="showPopover" @mouseleave="hidePopover">
             <img v-if="speaker.avatar" :src="speaker.avatar" :width="48" :height="48" />
             <span v-else class="w-[48px] h-[48px] flex items-center justify-center">
-              <user-icon :size="28" />
+              <user-icon :size="24" />
             </span>
           </span>
         </a>
         <span v-else @mouseover="showPopover" @mouseleave="hidePopover">
           <img v-if="speaker.avatar" :src="speaker.avatar" :width="48" :height="48" />
-          <user-icon v-else :size="28" />
+          <user-icon v-else :size="24" />
         </span>
         <popover direction="right">
           <div class="text-sm text-gray-800 p-1 text-center whitespace-nowrap">
