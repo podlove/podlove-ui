@@ -4,9 +4,9 @@ import { channel } from '@podlove/player-sagas/helper';
 import { lighten } from 'farbraum';
 
 import actions from '../store/actions';
-import { isClient, isServer } from '../../lib/runtime';
+import { isClient } from '../../lib/runtime';
 import type { ColorTokens, rgbColor } from '../../types/color.types';
-import { getImageColors } from '../../lib/color';
+import getImageColors from '../../lib/get-image-color';
 
 export default function ({
   selectSubscribeOverlayVisible,
@@ -58,7 +58,6 @@ export default function ({
     }
 
     const { primaryColor, complementaryColor } = yield getImageColors(poster);
-
     const primary = tailwindColorTokens(primaryColor);
     const complementary = tailwindColorTokens(complementaryColor);
 
@@ -73,11 +72,9 @@ export default function ({
   }
 
   return function* () {
-    if (isServer()) {
-      yield takeEvery(actions.lifecycle.dataFetched.toString(), initializeTheme);
-    }
-
     if (isClient()) {
+      yield fork(initializeTheme);
+
       const pageLoadStart: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
         document.addEventListener('astro:before-preparation', cb)
       );

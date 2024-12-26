@@ -31,7 +31,7 @@ const lang = getLanguage();
     <ClientRouter />
   </head>
   <body>
-    <Colors client:load />
+    <Colors client:only="vue" />
     <LoadingBar client:only="vue" />
     <PageHeader client:idle transition:persist="header" />
     <main transition:animate="fade">

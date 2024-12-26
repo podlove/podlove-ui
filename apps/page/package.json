@@ -37,8 +37,6 @@
     "reselect": "4.1.8",
     "scroll-into-view-if-needed": "3.1.0",
     "vue-i18n": "9.13.1",
-    "pure-color-thief-node": "1.0.8",
-    "get-pixels": "3.3.3",
     "ndarray": "1.0.19",
     "quantize": "1.0.2"
   },
