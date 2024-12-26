@@ -5,11 +5,14 @@ import { actions, selectors, store } from '../../../logic';
 import HeroIndex from '../../../screens/archive/Hero.vue';
 import LoadMore from '../../../screens/archive/LoadMore.vue';
 
-const title = selectors.podcast.title(store.getState());
+const state = store.getState();
+const title = selectors.podcast.title(state);
+const favicon = selectors.podcast.poster(state);
+const description = selectors.podcast.description(state);
 
 store.dispatch(actions.router.setRoute(['feed']));
 ---
-<Layout title={title}>
+<Layout title={title} favicon={favicon} description={description}>
 	<HeroIndex  />
 
   <div class="flex justify-center">

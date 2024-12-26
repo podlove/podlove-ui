@@ -1,4 +1,4 @@
-import { get, castArray, kebabCase } from 'lodash-es';
+import { get, castArray, kebabCase, isArray } from 'lodash-es';
 import { XMLParser } from 'fast-xml-parser';
 import { toPlayerTime } from '@podlove/utils/time';
 import webVttParser from '@podlove/webvtt-parser';
@@ -69,7 +69,8 @@ const getTranscriptUrl = async (data: any): Promise<string | null> => {
     ['podcast:transcript'],
     []
   );
-  const vtt = transcripts.find((item) => get(item, ['@_type'], null) === 'text/vtt');
+
+  const vtt = (isArray(transcripts) ? transcripts: [transcripts]).find((item) => get(item, ['@_type'], null) === 'text/vtt');
 
   return get(vtt, ['@_url'], null);
 };
@@ -104,9 +105,9 @@ const transformAudio = (input: any): Audio[] => {
 };
 
 const resolveEpisode =
-  (episodeId?: number) =>
-  async (data: any): Promise<Episode> => {
-    const id = get(data, 'itunes:episode', null);
+  (episodeCount: number, episodeId?: number) =>
+  async (data: any, position: number): Promise<Episode> => {
+    const id = get(data, 'itunes:episode', episodeCount - position);
     const duration = toPlayerTime(get(data, 'itunes:duration', 0));
     const transcriptUrl = await getTranscriptUrl(data);
 
@@ -138,16 +139,19 @@ const transformAuthor = (data: any): Author => ({
 
 const transform =
   (episodeId?: number) =>
-  async (data: any): Promise<Podcast> => ({
+  async (data: any): Promise<Podcast> => {
+    const episodes = castArray(get(data, ['channel', 'item'], []))
+    return {
     etag: get(data, 'etag', null),
     buildDate: get(data, ['channel', 'lastBuildDate'], null),
     author: transformAuthor(data),
     show: transformShow(data),
     episodes: await Promise.all(
-      castArray(get(data, ['channel', 'item'], [])).map(resolveEpisode(episodeId))
+      episodes.map(resolveEpisode(episodes.length, episodeId))
     ).then(episodes => episodes.filter(episode => episode.id !== null)),
     hosts: castArray(get(data, ['channel', 'podcast:person'], [])).map(transformPerson)
-  });
+  };
+}
 
 export default async ({
   feed,

@@ -21,6 +21,5 @@ export const initializeStore = defineMiddleware(async ({ request, params }, next
   const cacheKey: string | null = data.etag ? await createHash(`${data.etag}${version}`) : null;
 
   store.dispatch(actions.lifecycle.dataFetched({ data, cacheKey, version }));
-
   return next();
 });

@@ -1,13 +1,12 @@
 import type { EventChannel } from 'redux-saga';
 import { call, fork, put, select, takeEvery } from 'redux-saga/effects';
 import { channel } from '@podlove/player-sagas/helper';
-import { prominent } from 'color.js';
-import { lighten, negate } from 'farbraum';
+import { lighten } from 'farbraum';
 
 import actions from '../store/actions';
 import { isClient } from '../../lib/runtime';
 import type { ColorTokens, rgbColor } from '../../types/color.types';
-import { proxy } from '../../lib/url';
+import getImageColors from '../../lib/get-image-color';
 
 export default function ({
   selectSubscribeOverlayVisible,
@@ -17,6 +16,7 @@ export default function ({
   selectSubscribeOverlayVisible: (input: any) => boolean;
   selectSearchOverlayVisible: (input: any) => boolean;
   selectShowPoster: (input: any) => string | null;
+  selectFeed: (input: any) => string | null;
 }) {
   function* disableOverflow() {
     document.body.classList.add('overflow-hidden');
@@ -34,16 +34,16 @@ export default function ({
     yield put(actions.view.stopLoading());
   }
 
-  function* initializeColors() {
+  function* initializeTheme() {
     const poster: string | null = yield select(selectShowPoster);
 
     const tailwindColorTokens = (color: rgbColor | null): ColorTokens | null => {
       const tokens = [100, 200, 300, 400, 500, 600, 700, 800];
 
+      console.log(color);
       if (!color) {
         return null;
       }
-
       return tokens.reduce(
         (result, token) => ({
           ...result,
@@ -57,30 +57,23 @@ export default function ({
       return;
     }
 
-    const primaryColor: rgbColor = yield prominent(proxy(poster), {
-      amount: 1
-    });
-
-    if (!primaryColor) {
-      return;
-    }
-
-    const complementaryColor = negate(primaryColor) as rgbColor;
-
+    const { primaryColor, complementaryColor } = yield getImageColors(poster);
     const primary = tailwindColorTokens(primaryColor);
     const complementary = tailwindColorTokens(complementaryColor);
 
     yield put(
-      actions.colors.setColors({
-        ...(primary ? { primary } : {}),
-        ...(complementary ? { complementary } : {})
+      actions.theme.setTheme({
+        colors: {
+          ...(primary ? { primary } : {}),
+          ...(complementary ? { complementary } : {})
+        }
       })
     );
   }
 
   return function* () {
     if (isClient()) {
-      yield fork(initializeColors);
+      yield fork(initializeTheme);
 
       const pageLoadStart: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
         document.addEventListener('astro:before-preparation', cb)

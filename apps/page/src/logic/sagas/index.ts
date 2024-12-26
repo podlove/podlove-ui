@@ -45,7 +45,8 @@ export async function createSideEffects() {
     layoutSaga({
       selectSearchOverlayVisible: selectors.search.visible,
       selectSubscribeOverlayVisible: selectors.subscribeButton.visible,
-      selectShowPoster: selectors.podcast.poster
+      selectShowPoster: selectors.podcast.poster,
+      selectFeed: selectors.podcast.feed
     })
   ] as any[];
 

@@ -13,7 +13,7 @@
 
     <div
       class="text-complementary-900 h-16 flex justify-center items-center py-4 px-8 w-full"
-      :class="{ 'bg-primary-900 rounded-b': docked }"
+      :class="{ 'bg-primary-700 rounded-b': docked }"
     >
       <!-- Summary -->
       <button

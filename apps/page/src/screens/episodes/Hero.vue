@@ -3,12 +3,10 @@
     <div class="w-app flex font-light items-center flex-col mt-6">
       <div class="flex flex-col items-center md:items-start md:flex-row">
         <div class="w-[180px] h-[180px] relative mb-4 md:mb-0 md:mr-8">
-          <img
-            :src="state.episode.poster || state.poster"
-            :width="180"
-            :height="180"
-            class="shadow-lg border rounded border-complementary-800 w-full h-full object-cover"
-          />
+          <div
+            :style="{backgroundImage: `url(${state.episode.poster || state.poster})`}"
+            class="shadow-lg border rounded border-complementary-800 w-[180px] h-[180px] bg-cover bg-center"
+          ></div>
           <div
             class="
               absolute
@@ -71,10 +69,10 @@ import { mapState } from 'redux-vuex';
 import { toHumanTime } from '@podlove/utils/time';
 import { computed } from 'vue';
 import { first } from 'lodash-es';
-import HeaderContainer from '../../components/HeaderContainer.vue';
 import Contributor from '../../components/Contributor.vue';
 import PlayButton from '../../components/PlayButton.vue';
 import { selectors } from '../../logic';
+import HeaderContainer from '../../components/HeaderContainer.vue';
 
 const props = defineProps<{ id: string }>();
 

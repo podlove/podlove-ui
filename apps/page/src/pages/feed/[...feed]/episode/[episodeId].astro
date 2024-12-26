@@ -1,98 +1,208 @@
 ---
-import { createTimeline } from '@podlove/utils/transcripts'
+import { createTimeline } from '@podlove/utils/transcripts';
 import Layout from '../../../../layouts/Layout.astro';
-import Hero from '../../../../screens/episodes/Hero.vue'
-import Navigation from '../../../../screens/episodes/Navigation.vue'
-import Timeline from '../../../../features/timeline/Timeline.vue'
+import Hero from '../../../../screens/episodes/Hero.vue';
+import Navigation from '../../../../screens/episodes/Navigation.vue';
+import Timeline from '../../../../features/timeline/Timeline.vue';
 
 import { store, selectors, actions } from '../../../../logic';
-import { useTranslations } from '../../../../i18n'
+import { useTranslations } from '../../../../i18n';
 import type { PodloveWebPlayerTranscript } from '@podlove/types';
 
 const { episodeId } = Astro.params;
 const $t = useTranslations();
-const podcastTitle = selectors.podcast.title(store.getState());
-const episode = selectors.episode.data(episodeId as string)(store.getState());
+const state = store.getState();
+const podcastTitle = selectors.podcast.title(state);
+const episode = selectors.episode.data(episodeId as string)(state);
+const favicon = selectors.podcast.poster(state);
 
 store.dispatch(actions.router.episodePage({ base: 'feed', episodeId: episodeId as string }));
 const timeline = [
   { start: 0, title: $t('TIMELINE.START') as string, type: 'marker' } as any,
-  ...createTimeline((episode.transcripts || []) as unknown as PodloveWebPlayerTranscript[], episode.chapters || [], episode.contributors || []),
-  { start: episode.duration, title: $t('TIMELINE.END') as string, type: 'marker' } as any,
+  ...createTimeline(
+    (episode.transcripts || []) as unknown as PodloveWebPlayerTranscript[],
+    episode.chapters || [],
+    episode.contributors || []
+  ),
+  { start: episode.duration, title: $t('TIMELINE.END') as string, type: 'marker' } as any
 ];
 ---
 
-<Layout title={`${podcastTitle} - ${episode.title}`}>
-  { episodeId && <Hero id={episodeId.toString()} client:idle>
-      <Navigation client:only="vue" shownotes={!!episode.description} timeline={timeline.length > 0} discuss={false} />
-    </Hero> }
+<Layout title={`${podcastTitle} - ${episode.title}`} favicon={favicon} description={episode.description}>
+  {
+    episodeId && (
+      <Hero id={episodeId.toString()} client:idle>
+        <Navigation
+          client:only="vue"
+          shownotes={!!episode.description}
+          timeline={timeline.length > 0}
+          discuss={false}
+        />
+      </Hero>
+    )
+  }
   <div class="lg:w-full lg:flex lg:justify-center pt-20">
     <div class="lg:w-app">
       <section id="summary">
         <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
-          { $t('EPISODE.SUMMARY') }
+          {$t('EPISODE.SUMMARY')}
         </h2>
-        <div class="font-light border-gray-400 border-b mb-12 pt-6 pb-12 px-6">
-          { episode.description }
+        <div class="font-light border-gray-400 border-b mb-12 pt-6 pb-12 px-6" set:html={episode.description}>
         </div>
       </section>
-      { episode.content && <section id="shownotes">
-        <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
-          { $t('EPISODE.SHOWNOTES') }
-        </h2>
-        <div
-          class="font-light episode-content border-gray-400 border-b mb-12 pb-12 px-12"
-          set:html={episode.content}
-        ></div>
-      </section> }
-      { timeline.length > 0 && <section id="timeline">
-        <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
-          { $t('EPISODE.TIMELINE') }
-        </h2>
-        <Timeline
-          episodeId={(episode.id || '').toString()}
-          entries={timeline}
-          client:idle
-        />
-      </section> }
+      {
+        episode.content && (
+          <section id="shownotes">
+            <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
+              {$t('EPISODE.SHOWNOTES')}
+            </h2>
+            <div
+              class="font-light episode-content border-gray-400 border-b mb-12 pb-12 px-6"
+              set:html={episode.content}
+            />
+          </section>
+        )
+      }
+      {
+        timeline.length > 0 && (
+          <section id="timeline">
+            <h2 class="font-mono inline-block border-gray-400 border-b-2 mb-6 mx-8 sm:mx-2">
+              {$t('EPISODE.TIMELINE')}
+            </h2>
+            <Timeline episodeId={(episode.id || '').toString()} entries={timeline} client:idle />
+          </section>
+        )
+      }
     </div>
   </div>
 </Layout>
 
-
 <style is:global>
-  .episode-content ul {
-    list-style-type: disc !important;
-    margin-bottom: 2em;
+  /* Typography */
+  .episode-content b,
+  .episode-content strong {
+    font-weight: bold;
   }
 
-  .episode-content li {
-    margin-bottom: 0.5em;
+  .episode-content p {
+    margin-top: 0;
+  }
+
+  .episode-content h1,
+  .episode-content h2,
+  .episode-content h3,
+  .episode-content h4,
+  .episode-content h5,
+  .episode-content h6 {
+    font-weight: 300;
+    letter-spacing: -0.1rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
   }
 
   .episode-content h1 {
-    font-weight: bold;
-    font-size: 1.5em;
-    margin-left: -1.5em;
-    margin-bottom: 1em;
+    font-size: 1.8rem;
+    line-height: 1.2;
   }
 
   .episode-content h2 {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-left: -1.5em;
-    margin-bottom: 0.75em;
+    font-size: 1.4rem;
+    line-height: 1.25;
   }
 
   .episode-content h3 {
-    font-weight: bold;
-    font-size: 1em;
-    margin-left: -1.5em;
-    margin-bottom: 0.75em;
+    font-size: 1.2rem;
+    line-height: 1.3;
   }
 
-  .episode-content a {
-    border-bottom: 1px solid rgba(203, 213, 224);
-    padding-bottom: 1px;
+  .episode-content h4 {
+    font-size: 1rem;
+    letter-spacing: -0.08rem;
+    line-height: 1.35;
   }
-  </style>
+
+  .episode-content h5 {
+    font-size: 0.8rem;
+    letter-spacing: -0.05rem;
+    line-height: 1.5;
+  }
+
+  .episode-content h6 {
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  /** Spacing **/
+  .episode-content button,
+  .episode-content dd,
+  .episode-content dt,
+  .episode-content li {
+    margin-bottom: 1rem;
+  }
+
+  .episode-content fieldset,
+  .episode-content input,
+  .episode-content select,
+  .episode-content textarea {
+    margin-bottom: 1.5rem;
+  }
+
+  .episode-content blockquote,
+  .episode-content dl,
+  .episode-content figure,
+  .episode-content form,
+  .episode-content ol,
+  .episode-content p,
+  .episode-content pre,
+  .episode-content table,
+  .episode-content img,
+  .episode-content ul {
+    margin-bottom: 2.5rem;
+  }
+
+  /* List */
+  .episode-content dl,
+  .episode-content ol,
+  .episode-content ul {
+    list-style: none;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .episode-content dl,
+  .episode-content ol,
+  .episode-content ul {
+    margin: 1rem 0 1rem 1rem;
+  }
+
+  .episode-content ol {
+    list-style: decimal inside;
+  }
+  .episode-content ul {
+    list-style: circle inside;
+  }
+
+  /* Links */
+  .episode-content a {
+    color: rgba(var(--complementary-color-900), 0.5);
+    text-decoration: none;
+  }
+
+  .episode-content a:focus,
+  .episode-content a:hover {
+    color: rgba(var(--complementary-color-900));
+  }
+
+  /* Image */
+  .episode-content img {
+    max-width: 100%;
+  }
+
+  /* Divider */
+  .episode-content hr {
+    margin: 1rem 0;
+    display: block;
+    border-top: 1px solid rgba(var(--primary-color-900));
+  }
+</style>

@@ -25,14 +25,14 @@
         </div>
       </div>
       <div class="flex flex-col overflow-hidden">
-        <div class="h-20 mb-2 sm:h-auto sm:mb-0">
+        <div>
           <a
             :href="state.link"
             v-if="state.episode.title"
-            class="leading-tight sm:leading block text-xl mb-1 uppercase whitespace-nowrap truncate"
+            class="leading-tight sm:leading block text-xl uppercase whitespace-nowrap truncate"
             >{{ state.episode.mnemonic }} {{ state.episode.title }}</a
           >
-          <div class="block md:flex mb-2">
+          <div class="block md:flex">
             <div class="flex mb-2 md:mb-0">
               <contributor
                 class="mr-1 w-6"

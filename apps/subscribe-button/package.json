@@ -25,7 +25,7 @@
     "redux-saga": "1.2.3",
     "redux-vuex": "3.0.2",
     "reselect": "4.1.8",
-    "tailwindcss": "3.2.4",
+    "tailwindcss": "3.4.13",
     "vue": "3.5.12",
     "vue-i18n": "10.0.4",
     "lodash-es": "4.17.21"
