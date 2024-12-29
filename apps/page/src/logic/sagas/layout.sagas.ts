@@ -40,7 +40,6 @@ export default function ({
     const tailwindColorTokens = (color: rgbColor | null): ColorTokens | null => {
       const tokens = [100, 200, 300, 400, 500, 600, 700, 800];
 
-      console.log(color);
       if (!color) {
         return null;
       }
@@ -57,7 +56,7 @@ export default function ({
       return;
     }
 
-    const { primaryColor, complementaryColor } = yield getImageColors(poster);
+    const { primaryColor, complementaryColor } = yield getImageColors(`/api/proxy?url=${poster}`);
     const primary = tailwindColorTokens(primaryColor);
     const complementary = tailwindColorTokens(complementaryColor);
 
