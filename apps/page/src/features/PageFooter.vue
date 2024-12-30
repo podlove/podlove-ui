@@ -23,10 +23,10 @@
       <div class="w-full md:w-1/3 truncate text-right">
         <a
           class="hover:underline"
-          href="https://podlove.org"
+          href="https://lux.podlove.org"
           target="_blank"
           rel="nofollow noopener"
-          >{{ t('FOOTER.CREATED_WITH', { name: 'Podlove', buildDate }) }}</a
+          >{{ t('FOOTER.CREATED_WITH', { name: 'Podlove Lux', buildDate }) }}</a
         >
       </div>
     </div>

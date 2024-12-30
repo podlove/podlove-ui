@@ -2,9 +2,9 @@
   <div>
     <div class="mt-2 grid grid-cols-1 podcast-search">
       <div
-        class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600 w-128"
+        class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-complementary-600 w-128"
       >
-        <div class="shrink-0 select-none text-base text-gray-500 flex items-center">
+        <div class="shrink-0 select-none text-base text-gray-500 flex items-center w-6">
           <LoadingIcon
             v-if="loading"
             class="pointer-events-none col-start-1 row-start-1 size-5"
@@ -18,7 +18,7 @@
         </div>
         <input
           type="text"
-          class="block min-w-0 w-full grow pt-1 pb-1.5 pl-1.5 pr-1.5 text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 text-xl font-extralight"
+          class="block min-w-0 w-full grow pt-1 pb-1.5 pl-1.5 pr-1.5 text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 text-lg font-extralight"
           placeholder="Search for a Podcast or enter a Feed"
           :value="query"
           @input="input"

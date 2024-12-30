@@ -3,7 +3,7 @@
     <Search :query="query" @search="search" :loading="loading" class="mb-10" />
     <Transition name="slide-fade">
       <ul v-if="results.length > 0">
-        <PodcastItem
+        <Item
           v-for="podcast in results"
           :title="podcast.title"
           :description="podcast.description"
@@ -14,17 +14,23 @@
     </Transition>
     <Transition name="slide-fade">
       <div
-        v-if="results.length === 0 && query.length > 0 && loading === false"
-        class="border p-4 rounded border-complementary-300"
+        v-if="
+          results.length === 0 &&
+          query.length > 0 &&
+          loading === false &&
+          feedError === false &&
+          searchError === false
+        "
+        class="border p-4 rounded border-[rgb(228,70,59)]"
       >
-        Podcast not found? Maybe it's not even registered with
+        Podcast not found? Maybe it's registered at
         <a class="text-[rgb(56,126,25)]" href="https://fyyd.de/add-feed">fyyd</a> yet? 😊
       </div>
     </Transition>
     <Transition name="slide-fade">
       <div
         v-if="(searchError || feedError) && !loading"
-        class="border p-4 rounded border-complementary-300"
+        class="border p-4 rounded border-[rgb(228,70,59)]"
       >
         <span v-if="feedError">Invalid feed, check the url or search for a Podcast. 😓</span>
         <span v-if="searchError"
@@ -38,9 +44,10 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { debounce, get } from 'lodash-es';
-import Search from './components/PodcastSearch.vue';
-import PodcastItem from './components/PodcastItem.vue';
+import { get } from 'lodash-es';
+import Search from './components/Search.vue';
+import Item from './components/Item.vue';
+import { debounceAsync } from '../../lib/debounce-async';
 
 const query = ref('');
 const loading = ref(false);
@@ -71,74 +78,87 @@ const isValidUrl = (url: string) => {
 };
 
 const queryFeed = async (url: string, signal: AbortSignal): Promise<ListItem[]> => {
-  const feed = await fetch(`/api/feed?url=${url}`, { signal }).then((res) =>
-    res.json()
-  );
+  try {
+    const feed = await fetch(`/api/feed?url=${url}`, { signal }).then((res) => res.json());
 
-  return [
-    {
-      title: get(feed, ['show', 'title']),
-      feed: url,
-      description: get(feed, ['show', 'summary'], null),
-      image: get(feed, ['show', 'poster'], null),
-      author: get(feed, ['author', 'owner'], null)
+    return [
+      {
+        title: get(feed, ['show', 'title']),
+        feed: url,
+        description: get(feed, ['show', 'summary'], null),
+        image: get(feed, ['show', 'poster'], null),
+        author: get(feed, ['author', 'owner'], null)
+      }
+    ];
+  } catch (err: any) {
+    if (err.name !== 'AbortError') {
+      return [];
     }
-  ];
+
+    throw err;
+  }
 };
 
 const queryFyyd = async (query: string, signal: AbortSignal): Promise<ListItem[]> => {
-  const response = await fetch(`https://api.fyyd.de/0.2/search/podcast?title=${query}`, {
-    signal
-  });
-  const data = await response.json();
+  try {
+    const data = await fetch(`https://api.fyyd.de/0.2/search/podcast?title=${query}`, {
+      signal
+    }).then((res) => res.json());
 
-  return get(data, ['data'], [])
-    .map((item: any) => ({
-      title: get(item, 'title', null) as string | null,
-      image: get(item, 'imgURL', null) as string | null,
-      feed: get(item, 'xmlURL', null) as string | null,
-      description: get(item, 'description', null) as string | null,
-      author: get(item, 'author', null) as string | null
-    }))
-    .filter(({ title, feed }: { title: string; feed: string }) => title && feed);
-};
-
-const handleInput = debounce(
-  async (query: string) => {
-    const controller = new AbortController();
-
-    loading.value = true;
-    searchError.value = false;
-    feedError.value = false;
-
-    if (isValidUrl(query)) {
-      try {
-        results.value = await queryFeed(query, controller.signal);
-      } catch (_err) {
-        feedError.value = true;
-      }
-    } else {
-      try {
-        results.value = await queryFyyd(query, controller.signal);
-      } catch (_err) {
-        searchError.value = true;
-      }
+    return get(data, ['data'], [])
+      .map((item: any) => ({
+        title: get(item, 'title', null) as string | null,
+        image: get(item, 'imgURL', null) as string | null,
+        feed: get(item, 'xmlURL', null) as string | null,
+        description: get(item, 'description', null) as string | null,
+        author: get(item, 'author', null) as string | null
+      }))
+      .filter(({ title, feed }: { title: string; feed: string }) => title && feed);
+  } catch (err: any) {
+    if (err.name !== 'AbortError') {
+      return [];
     }
 
-    loading.value = false;
-  },
-  300,
-  { leading: true }
-);
+    throw err;
+  }
+};
 
-watch(query, handleInput);
+const handleInput = debounceAsync(async (query: string, signal: AbortSignal) => {
+  searchError.value = false;
+  feedError.value = false;
+
+  if (query.length === 0) {
+    return;
+  }
+
+  if (isValidUrl(query)) {
+    [results.value, feedError.value] = await queryFeed(query, signal)
+      .then((results): [ListItem[], boolean] => [results, false])
+      .catch((err: any) => [[], err.name !== 'AbortError']);
+  } else {
+    [results.value, searchError.value] = await queryFyyd(query, signal)
+      .then((results): [ListItem[], boolean] => [results, false])
+      .catch((err: any) => [[], err.name !== 'AbortError']);
+  }
+}, 300);
+
+const controller: AbortController | null = new AbortController();
+let queryRunning = false;
+
+watch(query, async (value: string) => {
+  if (queryRunning) {
+    // controller.abort();
+  }
+
+  loading.value = true;
+  queryRunning = true;
+  await handleInput(value, controller.signal)
+  queryRunning = false;
+  loading.value = false;
+});
 </script>
 
 <style>
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }

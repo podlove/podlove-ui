@@ -8,7 +8,7 @@ const fetchImage = async (
 ): Promise<{ data: ArrayBuffer; dimensions: { width: number; height: number } }> =>
   new Promise((resolve, reject) => {
     const img = new Image();
-    img.crossOrigin = 'anonymous';
+    img.crossOrigin = 'Anonymous';
     img.onload = function () {
       const canvas = document.createElement('canvas');
       canvas.width = img.width;
@@ -58,7 +58,7 @@ const convertToPixels = (pixels: ndarray.NdArray): quantize.RgbPixel[] => {
 const extractColors = (
   pixels: quantize.RgbPixel[]
 ): { primaryColor: rgbColor | null; complementaryColor: rgbColor | null } => {
-  const colorPalette = quantize(pixels, 1);
+  const colorPalette = quantize(pixels, 2);
 
   if (!colorPalette) {
     return { primaryColor: null, complementaryColor: null };
@@ -77,6 +77,7 @@ const getImageColors = async (
     .then(parseImage)
     .then(convertToPixels)
     .then(extractColors)
+
     .catch(() => ({ primaryColor: null, complementaryColor: null }));
 
 export default getImageColors;
