@@ -1,0 +1,68 @@
+---
+import { getLanguage } from '../i18n';
+import FeedSearch from '../features/feed-search/FeedSearch.vue';
+const lang = getLanguage();
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="icon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Podlove Lux</title>
+    <style>
+      :root {
+        --primary-color-100: 251, 243, 198;
+        --primary-color-200: 249, 229, 143;
+        --primary-color-300: 245, 208, 79;
+        --primary-color-400: 240, 183, 29;
+        --primary-color-500: 224, 160, 18;
+        --primary-color-600: 193, 123, 13;
+        --primary-color-700: 154, 87, 14;
+        --primary-color-800: 128, 69, 19;
+        --primary-color-900: 109, 57, 22;
+        --complementary-color-100: 230, 237, 248;
+        --complementary-color-200: 200, 218, 239;
+        --complementary-color-300: 152, 188, 225;
+        --complementary-color-400: 96, 152, 208;
+        --complementary-color-500: 60, 123, 187;
+        --complementary-color-600: 43, 97, 158;
+        --complementary-color-700: 36, 77, 128;
+        --complementary-color-800: 33, 67, 107;
+        --complementary-color-900: 33, 58, 89;
+        --gray-color-100: 255, 255, 255;
+        --gray-color-200: 230, 231, 232;
+        --gray-color-300: 205, 209, 215;
+        --gray-color-400: 154, 165, 172;
+        --gray-color-500: 115, 127, 135;
+        --gray-color-600: 86, 97, 104;
+        --gray-color-700: 61, 70, 85;
+        --gray-color-800: 34, 38, 44;
+        --gray-color-900: 7, 8, 9;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <header>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-20 text-center lg:pt-32">
+        <h1
+          class="flex justify-center mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl text-complementary-900"
+        >
+          <img src="icon.svg" class="h-14 mr-2 mt-2.5" />
+          <div class="mr-2 flex flex-col text-left">
+            <span class="">Podlove</span>
+            <span class="text-2xl ml-0.5 -mt-3">Illuminate your Feed</span>
+          </div><span class="relative whitespace-nowrap text-primary-500">Lux</span>
+        </h1>
+      </div>
+    </header>
+    <main>
+      <div class="flex items-center justify-center">
+        <FeedSearch client:idle />
+      </div>
+    </main>
+  </body>
+</html>
