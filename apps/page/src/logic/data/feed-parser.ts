@@ -2,6 +2,7 @@ import { get, castArray, kebabCase, isArray } from 'lodash-es';
 import { XMLParser } from 'fast-xml-parser';
 import { toPlayerTime } from '@podlove/utils/time';
 import webVttParser from '@podlove/webvtt-parser';
+import sanitizeHtml from 'sanitize-html';
 
 import type {
   Audio,
@@ -55,6 +56,15 @@ const buildChapterList =
     end: get(list, [index + 1, 'start'], duration) as number
   });
 
+const cleanContent = (content: string) =>
+  sanitizeHtml(content, {
+    allowedTags: ['h1', 'h2', 'h3', 'p', 'b', 'i', 'em', 'strong', 'a', 'img', 'ul', 'li', 'ol'],
+    allowedAttributes: {
+      a: ['href'],
+      img: ['src']
+    }
+  });
+
 const transformShow = (data: any): Show => ({
   title: get(data, ['channel', 'title'], null),
   description: get(data, ['channel', 'description'], null),
@@ -70,7 +80,9 @@ const getTranscriptUrl = async (data: any): Promise<string | null> => {
     []
   );
 
-  const vtt = (isArray(transcripts) ? transcripts: [transcripts]).find((item) => get(item, ['@_type'], null) === 'text/vtt');
+  const vtt = (isArray(transcripts) ? transcripts : [transcripts]).find(
+    (item) => get(item, ['@_type'], null) === 'text/vtt'
+  );
 
   return get(vtt, ['@_url'], null);
 };
@@ -119,13 +131,16 @@ const resolveEpisode =
       link: get(data, 'link', null),
       publicationDate: get(data, 'pubDate', null),
       duration,
-      content: get(data, 'content:encoded', null),
+      content: cleanContent(get(data, 'content:encoded', null)),
       poster: get(data, ['itunes:image', '@_href'], null),
       contributors: castArray(get(data, ['podcast:person'], [])).map(transformPerson),
       chapters: castArray(get(data, ['psc:chapters', 'psc:chapter'], []))
         .map(transformChapter)
         .map(buildChapterList(duration)),
-      transcripts: id === episodeId && transcriptUrl ? await resolveTranscripts(transcriptUrl) : (transcriptUrl || []),
+      transcripts:
+        id === episodeId && transcriptUrl
+          ? await resolveTranscripts(transcriptUrl)
+          : transcriptUrl || [],
       audio: transformAudio(data)
     };
   };
@@ -140,18 +155,18 @@ const transformAuthor = (data: any): Author => ({
 const transform =
   (episodeId?: number) =>
   async (data: any): Promise<Podcast> => {
-    const episodes = castArray(get(data, ['channel', 'item'], []))
+    const episodes = castArray(get(data, ['channel', 'item'], []));
     return {
-    etag: get(data, 'etag', null),
-    buildDate: get(data, ['channel', 'lastBuildDate'], null),
-    author: transformAuthor(data),
-    show: transformShow(data),
-    episodes: await Promise.all(
-      episodes.map(resolveEpisode(episodes.length, episodeId))
-    ).then(episodes => episodes.filter(episode => episode.id !== null)),
-    hosts: castArray(get(data, ['channel', 'podcast:person'], [])).map(transformPerson)
+      etag: get(data, 'etag', null),
+      buildDate: get(data, ['channel', 'lastBuildDate'], null),
+      author: transformAuthor(data),
+      show: transformShow(data),
+      episodes: await Promise.all(episodes.map(resolveEpisode(episodes.length, episodeId))).then(
+        (episodes) => episodes.filter((episode) => episode.id !== null)
+      ),
+      hosts: castArray(get(data, ['channel', 'podcast:person'], [])).map(transformPerson)
+    };
   };
-}
 
 export default async ({
   feed,
