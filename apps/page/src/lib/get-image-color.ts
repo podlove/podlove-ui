@@ -58,7 +58,7 @@ const convertToPixels = (pixels: ndarray.NdArray): quantize.RgbPixel[] => {
 const extractColors = (
   pixels: quantize.RgbPixel[]
 ): { primaryColor: rgbColor | null; complementaryColor: rgbColor | null } => {
-  const colorPalette = quantize(pixels, 2);
+  const colorPalette = quantize(pixels, 5);
 
   if (!colorPalette) {
     return { primaryColor: null, complementaryColor: null };
