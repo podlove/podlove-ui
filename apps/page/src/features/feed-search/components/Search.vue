@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="mt-2 grid grid-cols-1 podcast-search">
+    <div class="mt-2 grid grid-cols-1 podcast-search w-full">
       <div
-        class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-complementary-600 w-128"
+        class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-complementary-600 lg:min-w-128 w-full"
       >
         <div class="shrink-0 select-none text-base text-gray-500 flex items-center w-6">
           <LoadingIcon
@@ -18,7 +18,7 @@
         </div>
         <input
           type="text"
-          class="block min-w-0 w-full grow pt-1 pb-1.5 pl-1.5 pr-1.5 text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 text-lg font-extralight"
+          class="block w-full grow pt-1 pb-1.5 pl-1.5 pr-1.5 text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 text-base lg:text-lg font-extralight min-w-64"
           placeholder="Search for a Podcast or enter a Feed"
           :value="query"
           @input="input"
@@ -44,7 +44,7 @@ import { ref } from 'vue';
 
 import Fyyd from './Fyyd.vue';
 
-defineProps<{ query: string | null; loading: boolean; }>();
+defineProps<{ query: string | null; loading: boolean }>();
 
 const showPoweredBy = ref(false);
 

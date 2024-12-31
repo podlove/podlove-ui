@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-full bg-gray-800 p-6 mt-16 text-gray-100 font-extralight text-sm flex justify-center"
+    class="w-full bg-gray-800 p-6 mt-16 text-gray-100 font-extralight text-sm"
   >
-    <div class="w-full lg:w-app px-8 block lg:flex">
-      <div class="w-full md:w-1/3 truncate">
+    <div class="w-full px-8 flex flex-col md:flex-row">
+      <div class="w-full md:w-1/3 truncate text-center">
         {{ t('FOOTER.COPYRIGHT', { copyright: state.copyright }) }}
       </div>
       <div class="w-full md:w-1/3 truncate text-center" v-if="state.owner">
@@ -20,7 +20,7 @@
         </span>
       </div>
 
-      <div class="w-full md:w-1/3 truncate text-right">
+      <div class="w-full md:w-1/3 truncate text-center md:text-right">
         <a
           class="hover:underline"
           href="https://lux.podlove.org"

@@ -1,6 +1,6 @@
 <template>
   <div class="py-8 border-gray-400 border-dashed" :class="{ 'pt-0': first, 'border-b': last }">
-    <div class="flex">
+    <div class="flex mb-2 lg:mb-0">
       <div class="player-tile-button w-20 h-20 mr-4 relative flex-shrink-0 mt-1">
         <img
           :src="state.episode.poster || state.poster"
@@ -29,7 +29,7 @@
           <a
             :href="state.link"
             v-if="state.episode.title"
-            class="leading-tight sm:leading block text-xl uppercase whitespace-nowrap truncate"
+            class="leading-tight sm:leading block text-xl uppercase line-clamp-2 lg:line-clamp-1"
             >{{ state.episode.mnemonic }} {{ state.episode.title }}</a
           >
           <div class="block md:flex">

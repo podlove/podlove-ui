@@ -258,7 +258,7 @@ const state = mapState({
 
 const playtime = computed(() => (isNumber(state.ghost) ? state.ghost : state.playtime));
 const duration = computed(() => state.duration - (state.ghost ? state.ghost : state.playtime));
-const link = computed(() => `/feed/${state.feed}/episodes/${state.episode}`);
+const link = computed(() => `/feed/${state.feed}/episode/${state.episode}`);
 
 const scroll = () => {
   scrolledToBottom.value =

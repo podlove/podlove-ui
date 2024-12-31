@@ -6,14 +6,14 @@
   >
     <div
       class="h-20 relative w-full flex items-center justify-center"
-      :class="{ 'bg-white -mb-4': !docked, 'bg-transparent': docked }"
+      :class="{ 'bg-primary-900 -mb-4': !docked, 'bg-transparent': docked }"
     >
       <span class="w-full absolute top-0 left" v-if="!docked"></span>
     </div>
 
     <div
       class="text-complementary-900 h-16 flex justify-center items-center py-4 px-8 w-full"
-      :class="{ 'bg-primary-700 rounded-b': docked }"
+      :class="{ 'bg-primary-900 rounded-b': docked }"
     >
       <!-- Summary -->
       <button
@@ -51,7 +51,7 @@
       </button>
     </div>
 
-    <div class="h-20 relative w-full -mb-4" :class="{ 'bg-white -mb-4': !docked }">
+    <div class="h-20 relative w-full -mb-4" :class="{ 'bg-transparent -mb-4': !docked }">
       <span class="w-full absolute top-0 right" v-if="!docked"></span>
     </div>
   </div>

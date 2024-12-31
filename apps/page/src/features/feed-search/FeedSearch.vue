@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-[800px] flex items-center flex-col">
-    <Search :query="query" @search="search" :loading="loading" class="mb-10" />
+    <Search :query="query" @search="search" :loading="loading" class="lg:mb-10" />
     <Transition name="slide-fade">
       <ul v-if="results.length > 0">
         <Item
