@@ -6,7 +6,7 @@
   >
     <div
       class="h-20 relative w-full flex items-center justify-center"
-      :class="{ 'bg-primary-900 -mb-4': !docked, 'bg-transparent': docked }"
+      :class="{ '-mb-4': !docked }"
     >
       <span class="w-full absolute top-0 left" v-if="!docked"></span>
     </div>
@@ -51,7 +51,7 @@
       </button>
     </div>
 
-    <div class="h-20 relative w-full -mb-4" :class="{ 'bg-transparent -mb-4': !docked }">
+    <div class="h-20 relative w-full -mb-4" :class="{ '-mb-4': !docked }">
       <span class="w-full absolute top-0 right" v-if="!docked"></span>
     </div>
   </div>
