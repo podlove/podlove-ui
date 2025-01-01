@@ -58,8 +58,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref } from 'vue'
-import scrollIntoView from 'scroll-into-view-if-needed'
+import { ref, type Ref } from 'vue';
+import scrollIntoView from 'scroll-into-view-if-needed';
 import { TimelineIcon, SummaryIcon, ShownotesIcon, DiscussIcon } from '@podlove/components';
 import { onMounted } from 'vue';
 import { throttle } from 'lodash-es';
@@ -71,32 +71,31 @@ defineProps<{
   shownotes: boolean;
   discuss: boolean;
   timeline: boolean;
-}>()
+}>();
 
-const navigation: Ref<HTMLElement | null>  = ref(null);
+const navigation: Ref<HTMLElement | null> = ref(null);
 
 const docked = ref(false);
 
 const handleScroll = () => {
-  const height = navigation.value?.clientHeight || 0
-  const top = navigation.value?.offsetTop || 0
-  const scroll = window.scrollY
-  docked.value = scroll > height + top + 100
-}
+  const height = navigation.value?.clientHeight || 0;
+  const top = navigation.value?.offsetTop || 0;
+  const scroll = window.scrollY;
+  docked.value = scroll > height + top + 100;
+};
 
 const scrollTo = (id: string) => {
-  const node = document.getElementById(id)
-  node && scrollIntoView(node, { behavior: 'smooth', scrollMode: 'always', block: 'start' })
-}
+  const node = document.getElementById(id);
+  node && scrollIntoView(node, { behavior: 'smooth', scrollMode: 'always', block: 'start' });
+};
 
 onMounted(() => {
-  handleScroll()
-    window && window.addEventListener('scroll', throttle(handleScroll, 100))
-})
+  handleScroll();
+  window && window.addEventListener('scroll', throttle(handleScroll, 100));
+});
 </script>
 
 <style scoped>
-
 .docked {
   transition: z-index 300ms;
 }
