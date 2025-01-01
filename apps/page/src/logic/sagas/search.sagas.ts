@@ -11,8 +11,7 @@ import type {
 } from '../store/stores/search.store';
 import { actions } from '../store';
 import { resolveTranscripts } from '../data/feed-parser';
-import type { Episode, Person, Transcript } from '../../types/feed.types';
-// import { findPerson } from '../../lib/persons';
+import type { Episode, Transcript } from '../../types/feed.types';
 import { proxy, addQueryparams } from '../../lib/url';
 import * as indexeddb from '../../lib/indexeddb';
 
@@ -20,7 +19,6 @@ export default ({
   selectVisible,
   selectInitialized,
   selectEpisodes,
-  // selectContributors,
   selectResults,
   selectSelectedResult,
   selectCacheKey,
@@ -29,7 +27,6 @@ export default ({
   selectVisible: (input: any) => boolean;
   selectInitialized: (input: any) => boolean;
   selectEpisodes: (input: any) => Episode[];
-  // selectContributors: (input: any) => Person[];
   selectResults: (input: any) => { id: string | number }[];
   selectSelectedResult: (input: any) => string | null;
   selectCacheKey: (input: any) => string | null;
@@ -37,7 +34,6 @@ export default ({
 }) => {
   const EPISODES = fuzzySearch.SearcherFactory.createDefaultSearcher();
   const TRANSCRIPTS = fuzzySearch.SearcherFactory.createDefaultSearcher();
-  // const CONTRIBUTORS = fuzzySearch.SearcherFactory.createDefaultSearcher();
 
   function* createEpisodesSearchIndex(episodes: Episode[]) {
     const results = episodes.map((episode) => ({
@@ -142,31 +138,6 @@ export default ({
     yield put(actions.search.initialize('transcripts'));
   }
 
-  // function* createContributorsSearchIndex(contributors: Person[], episodes: Episode[]) {
-  //   const results = contributors.map((contributor) => {
-  //     const attendedEpisodes = episodes.filter((episode) =>
-  //       findPerson(episode.contributors, contributor.id)
-  //     );
-
-  //     return {
-  //       ...contributor,
-  //       id: `contributor-${contributor.id}`,
-  //       episode: {
-  //         title: attendedEpisodes.map(({ title }) => title).join(' '),
-  //         description: attendedEpisodes.map(({ description }) => description).join(' ')
-  //       }
-  //     };
-  //   });
-
-  //   CONTRIBUTORS.indexEntities(
-  //     flattenDeep(results),
-  //     (e: any) => e.id,
-  //     (e: any) => [e.episode.title, e.episode.description]
-  //   );
-
-  //   yield put(actions.search.initialize('contributors'));
-  // }
-
   function* createSearchIndex() {
     const episodes: Episode[] = yield select(selectEpisodes);
     // const contributors: Person[] = yield select(selectContributors);
@@ -185,10 +156,6 @@ export default ({
     const episodes = EPISODES.getMatches(new fuzzySearch.Query(payload || '', 5, 0.1)).matches.map(
       (match) => match.entity
     ) as unknown as EpisodeResult[];
-
-    // const contributors = CONTRIBUTORS.getMatches(
-    //   new fuzzySearch.Query(payload || '', 5)
-    // ).matches.map((match) => match.entity) as unknown as Person[];
 
     const transcripts = TRANSCRIPTS.getMatches(
       new fuzzySearch.Query(payload || '', 5, 0.1)

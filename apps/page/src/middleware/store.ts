@@ -5,7 +5,10 @@ import { getRequestHeader } from '../lib/middleware';
 import parseFeed from '../logic/data/feed-parser';
 import type { Podcast } from '../types/feed.types';
 import { createHash } from '../lib/caching';
-import { version } from '../../package.json';
+
+const version = import.meta.env.VITE_COMMIT_HASH;
+
+console.log({ version })
 
 export const initializeStore = defineMiddleware(async ({ request, params }, next) => {
   const locale = getRequestHeader(request, 'accept-language', 'en-US');
