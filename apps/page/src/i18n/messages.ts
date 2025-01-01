@@ -11,7 +11,7 @@ const en = {
   },
   FOOTER: {
     COPYRIGHT: ({ copyright }: { copyright: string }) => `© ${copyright}`,
-    CREATED_WITH: ({ name, buildDate }: { name: string, buildDate: string }) => `Created with ${name} on ${buildDate}`,
+    CREATED_WITH: ({ name, version }: { name: string, version: string }) => `Created with ${name} [${version}]`,
     CONTACT: ({ name }: { name: string }) => `Contact: ${name}`,
   },
   EPISODE: {
@@ -89,7 +89,7 @@ const de: typeof en = {
   },
   FOOTER: {
     COPYRIGHT: ({ copyright }: { copyright: string }) => `© ${copyright}`,
-    CREATED_WITH: ({ name, buildDate }: { name: string, buildDate: string }) => `Erstellt mit ${name} am ${buildDate}`,
+    CREATED_WITH: ({ name, version }: { name: string, version: string }) => `Erstellt mit ${name} [${version}]`,
     CONTACT: ({ name }: { name: string }) => `Kontakt: ${name}`,
   },
   EPISODE: {
