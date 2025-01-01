@@ -1,11 +1,12 @@
 ---
 import { getLanguage } from '../i18n';
 import FeedSearch from '../features/feed-search/FeedSearch.vue';
+const version = import.meta.env.VITE_COMMIT_HASH;
 const lang = getLanguage();
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Illuminate your RSS Feed" />
@@ -45,7 +46,7 @@ const lang = getLanguage();
       }
     </style>
   </head>
-  <body class="bg-gray-100">
+  <body class="bg-gray-100 relative h-full">
     <header class="w-full">
       <div class="flex justify-center px-4 pb-8 pt-10 text-center lg:pt-32 lg:pb-16 w-full">
         <h1
@@ -60,9 +61,14 @@ const lang = getLanguage();
       </div>
     </header>
     <main>
-      <div class="flex items-center justify-center">
+      <div class="flex items-center justify-center pb-10">
         <FeedSearch client:idle />
       </div>
     </main>
+    <footer class="absolute bottom-0 left-0 w-full h-8">
+      <div class="w-full text-right p-1 px-2 text-gray-500 text-xs">
+        Version: {version}
+      </div>
+    </footer>
   </body>
 </html>
