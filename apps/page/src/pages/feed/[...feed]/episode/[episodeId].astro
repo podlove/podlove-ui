@@ -95,7 +95,6 @@ const timeline = [
   .episode-content h5,
   .episode-content h6 {
     font-weight: 300;
-    letter-spacing: -0.1rem;
     margin-bottom: 1rem;
     margin-top: 0;
   }
@@ -138,7 +137,7 @@ const timeline = [
   .episode-content dd,
   .episode-content dt,
   .episode-content li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
   }
 
   .episode-content fieldset,
@@ -158,7 +157,7 @@ const timeline = [
   .episode-content table,
   .episode-content img,
   .episode-content ul {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
   }
 
   /* List */
@@ -177,10 +176,15 @@ const timeline = [
   }
 
   .episode-content ol {
-    list-style: decimal inside;
+    list-style: decimal;
   }
   .episode-content ul {
-    list-style: circle inside;
+    list-style: circle;
+  }
+
+  .episode-content ul li ul {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   /* Links */
@@ -196,7 +200,8 @@ const timeline = [
 
   /* Image */
   .episode-content img {
-    max-width: 100%;
+    max-width: 450px;
+    margin: 0 auto 1rem auto;
   }
 
   /* Divider */

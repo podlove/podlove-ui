@@ -39,7 +39,8 @@
     "vue-i18n": "9.13.1",
     "ndarray": "1.0.19",
     "quantize": "1.0.2",
-    "@heroicons/vue": "2.2.0"
+    "@heroicons/vue": "2.2.0",
+    "sanitize-html": "2.14.0"
   },
   "devDependencies": {
     "@types/lodash-es": "4.17.12",
@@ -48,6 +49,7 @@
     "typescript": "5.3.2",
     "@types/get-pixels": "3.3.4",
     "@types/quantize": "1.0.2",
-    "@types/ndarray": "1.0.14"
+    "@types/ndarray": "1.0.14",
+    "@types/sanitize-html": "2.13.0"
   }
 }

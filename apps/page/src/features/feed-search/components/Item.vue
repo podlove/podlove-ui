@@ -7,7 +7,7 @@
           <span class="absolute inset-x-0 -top-px bottom-0" />
           {{ title }}
         </p>
-        <p class="mt-1 flex text-xs/5 text-gray-500">
+        <p class="mt-1 text-xs/5 text-gray-500 line-clamp-4">
           {{ description }}
         </p>
       </div>

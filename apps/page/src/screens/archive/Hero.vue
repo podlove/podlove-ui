@@ -13,6 +13,7 @@
             mb-4
             md:mb-0 md:mr-8 md:mt-1
             w-1/5
+            min-w-[150px]
           "
         >
           <div

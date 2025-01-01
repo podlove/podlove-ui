@@ -19,7 +19,7 @@
             <h3 class="font-mono inline-block border-primary-400 border-b-2 mb-6">
               {{ t('SUBSCRIBE_BUTTON.CLIENTS') }}
             </h3>
-            <div class="subscribe-clients flex flex-col mb-4 sm:flex-wrap sm:flex-row">
+            <div class="subscribe-clients flex flex-col mb-4 sm:flex-wrap sm:flex-row min-h-36">
               <div class="w-full mb-4 sm:w-40" v-for="client in items" :key="client?.id">
                 <a
                   v-if="client?.link"
