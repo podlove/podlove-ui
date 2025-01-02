@@ -115,6 +115,7 @@ const linkLeave = () => {
         target="_blank"
         @mouseover="linkOver"
         @mouseleave="linkLeave"
+        @click.stop
       >
         {{ chapter.linkTitle }}
       </a>
