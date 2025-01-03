@@ -1,15 +1,16 @@
 # Podlove UI
 
-> Mono Repo for all UI Related Podlove Projects
+> Home of Podlove Web Player, Podlove Subscribe Button and Podlove Lux
 
 ## Getting Started
 
 ### For Contribution
 
-1. Make sure you have Node 10+ and [lerna](https://lerna.js.org/) installed
+1. Make sure you have [devbox installed](https://www.jetify.com/docs/devbox/quickstart/)
 2. Fork this repository
-3. Run `npm install` to setup the workspace
-4. Run npm scripts for development (e.g. `npm run dev:web-player`)
+3. Run `devbox install` to setup the workspace
+4. Run `devbox run pnpm install` to install the dependencies
+4. Run scripts for development (e.g. `devbox run pnpm start`)
 
 ### For Usage
 
@@ -30,15 +31,15 @@ Note: These are recommended and well supported libraries. The usage within each 
 
 ### [@podlove/player](apps/player/README.md) 
 
-Core Podlove Player State Bound Components. Building blocks with state bindings to create the web player 
+Podlove Web Player, including building blocks with state bindings and default templates.
+
+### [@podlove/page](apps/page/README.md) 
+
+Podlove Lux, frontend for RSS feeds with a sticky player and powerfull search.
 
 ### [@podlove/subscribe-button](apps/subscribe-button/README.md)
 
-Embedded Subscribe Button with client detection:
-
-- Podcatcher Services
-- Podcatcher Clients
-- Install and RSS Feed Endcard
+Embedded Subscribe Button with client detection.
 
 ## Packages
 
@@ -88,42 +89,17 @@ Collection of helper utils for dealing with time, transforming chapters accordin
 
 Documentation for Podlove Web Player
 
-## Build Environment
-
-Used CI: [DroneCI](https://cloud.drone.io/podlove/podlove-ui) with the following [pipelines](.drone.yml):
-
-- `apps/player`
-- `apps/web-player`
-- `apps/subscribe-button`
-- `apps/components`
-- `packages/player-actions`
-- `packages/player-sagas`
-- `packages/player-state`
-- `packages/player-utils`
-- `packages/clients`
-- `docs/web-player`
-
-Steps:
-
-- `lint`
-- `test`
-- `build`
-- `integration`
-- `release`
-
 ## Releasing
 
 Podlove Web Player follows the git flow convention with support branches. Please read the [documentation to follow this pattern](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) if you want to contribute.
 
 To create a release you have to:
 
-1. Create a release branch from the `master` or `support` branch 
-2. Run the following lerna command in the release branch: `lerna version --no-git-tag-version`
+1. MErge your changes to a release branch (e.g.  `master`)
+2. Run `devbox run pnpm run version` to start the release process
   - Select a major/minor/patch/custom version (please see [semantic versioning documentation](https://semver.org))
-3. Create a PR against master/support branch and merge it if the release/review was successfull
-4. Tag the master/support commit with the release version (e.g. `v5.0.2`)
-5. Create an integration branch by branching from develop and merge master into the integration branch
-6. Create a PR with develop as the target branch and merge it if the release/review was successfull
+3. Push the release commit and tag to Github
+4. Wait for the release to be published
 
 ### Join the conversation
 
