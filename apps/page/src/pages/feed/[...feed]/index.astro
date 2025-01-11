@@ -5,6 +5,8 @@ import { actions, selectors, store } from '../../../logic';
 import HeroIndex from '../../../screens/archive/Hero.vue';
 import LoadMore from '../../../screens/archive/LoadMore.vue';
 
+const baseUrl = Astro.originPathname;
+
 const state = store.getState();
 const title = selectors.podcast.title(state);
 const favicon = selectors.podcast.poster(state);
@@ -12,8 +14,9 @@ const description = selectors.podcast.description(state);
 
 store.dispatch(actions.router.setRoute(['feed']));
 ---
-<Layout title={title} favicon={favicon} description={description}>
-	<HeroIndex  />
+
+<Layout title={title} favicon={favicon} description={description} baseUrl={baseUrl}>
+  <HeroIndex />
 
   <div class="flex justify-center">
     <EpisodeList client:idle />
@@ -22,6 +25,4 @@ store.dispatch(actions.router.setRoute(['feed']));
   <LoadMore class="flex justify-center mb-8" client:idle />
 </Layout>
 
-<style>
-
-</style>
+<style></style>

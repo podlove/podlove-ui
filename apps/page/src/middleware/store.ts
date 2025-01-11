@@ -5,20 +5,26 @@ import { getRequestHeader } from '../lib/middleware';
 import parseFeed from '../logic/data/feed-parser';
 import type { Podcast } from '../types/feed.types';
 import { createHash } from '../lib/caching';
+import { getRequestParams } from './request-param';
 
 const version = import.meta.env.VITE_COMMIT_HASH;
 
-console.log({ version })
-
-export const initializeStore = defineMiddleware(async ({ request, params }, next) => {
+export const initializeStore = defineMiddleware(async ({ request }, next) => {
   const locale = getRequestHeader(request, 'accept-language', 'en-US');
-  const { feed, episodeId } = params;
+  const { feed, episodeId, customDomain } = getRequestParams(request);
 
   if (!feed) {
-    throw Error('Missing Feed Url');
+    throw new Error('Missing Feed');
   }
 
-  store.dispatch(actions.lifecycle.initializeApp({ feed, locale, episodeId: toInteger(episodeId) }));
+  store.dispatch(
+    actions.lifecycle.initializeApp({
+      feed,
+      locale,
+      episodeId: toInteger(episodeId),
+      customDomain
+    })
+  );
 
   const data: Podcast = await parseFeed({ feed, episodeId: toInteger(episodeId) });
   const cacheKey: string | null = data.etag ? await createHash(`${data.etag}${version}`) : null;

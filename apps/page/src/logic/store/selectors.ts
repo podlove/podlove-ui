@@ -66,19 +66,19 @@ const chaptersImage = createSelector(slices.player, player.chaptersImage);
 
 // router
 const base = createSelector(slices.router, router.base);
-
+const customDomain = createSelector(slices.router, router.customDomain);
 const translation = (key: string, attr = {}) => ({ key, attr });
 
 export default {
   initialized: (state: State) => {
-    return state.theme.initialized
+    return state.theme.initialized;
   },
   runtime: {
     initialized: createSelector(slices.runtime, runtime.initialized),
     locale: createSelector(slices.runtime, runtime.locale),
     cacheKey,
     buildDate: createSelector(slices.runtime, runtime.buildDate),
-    version: createSelector(slices.runtime, runtime.version),
+    version: createSelector(slices.runtime, runtime.version)
   },
   podcast: {
     show: createSelector(slices.podcast, podcast.show),
@@ -118,7 +118,7 @@ export default {
   },
   theme: {
     colors: createSelector(slices.theme, theme.colors),
-    initialized: createSelector(slices.theme, theme.initialized),
+    initialized: createSelector(slices.theme, theme.initialized)
   },
   show: {
     poster: showPoster,
@@ -238,11 +238,21 @@ export default {
   router: {
     base,
     episodeId: createSelector(slices.router, router.episodeId),
-    index: createSelector([base, feed], (...args) => args.filter(Boolean).join('/')),
+    index: createSelector([base, feed, customDomain], (base, feed, customDomain) => {
+      if (customDomain) {
+        return '/';
+      }
+
+      return [base, feed].filter(Boolean).join('/');
+    }),
     episode: (episodeId: string) =>
-      createSelector([base, feed], (...args) =>
-        [...args, 'episode', episodeId].filter(Boolean).join('/')
-      )
+      createSelector([base, feed, customDomain], (base, feed, customDomain) => {
+        if (customDomain) {
+          return ['episode', episodeId].filter(Boolean).join('/');
+        }
+
+        return [base, feed, 'episode', episodeId].filter(Boolean).join('/');
+      })
   },
   a11y: {
     chapterNext: (state: State) => {
