@@ -1,5 +1,5 @@
 import { handleActions, createAction, type Action } from 'redux-actions';
-import type { ColorTokens } from '../../../types/color.types';
+import type { ColorTokens, rgbColor } from '../../../types/color.types';
 
 export interface Colors {
   primary: ColorTokens;
@@ -11,8 +11,13 @@ export type setThemePayload = {
   colors: Partial<Colors>;
 }
 
+export type initializeThemePayload = {
+  primaryColor: rgbColor | null;
+}
+
 export const actions = {
-  setTheme: createAction<setThemePayload>('COLORS_SET')
+  setTheme: createAction<setThemePayload>('THEME_SET'),
+  initializeTheme: createAction<initializeThemePayload>('THEME_INIT')
 };
 
 export interface State {

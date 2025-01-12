@@ -11,7 +11,7 @@ const version = import.meta.env.VITE_COMMIT_HASH;
 
 export const initializeStore = defineMiddleware(async ({ request }, next) => {
   const locale = getRequestHeader(request, 'accept-language', 'en-US');
-  const { feed, episodeId, customDomain } = getRequestParams(request);
+  const { feed, episodeId, customDomain, primaryColor } = getRequestParams(request);
 
   if (!feed) {
     throw new Error('Missing Feed');
@@ -30,5 +30,10 @@ export const initializeStore = defineMiddleware(async ({ request }, next) => {
   const cacheKey: string | null = data.etag ? await createHash(`${data.etag}${version}`) : null;
 
   store.dispatch(actions.lifecycle.dataFetched({ data, cacheKey, version }));
+
+  if (primaryColor) {
+    store.dispatch(actions.theme.initializeTheme({ primaryColor }));
+  }
+
   return next();
 });

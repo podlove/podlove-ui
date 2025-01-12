@@ -1,22 +1,27 @@
 import type { EventChannel } from 'redux-saga';
 import { call, fork, put, select, takeEvery } from 'redux-saga/effects';
 import { channel } from '@podlove/player-sagas/helper';
-import { lighten } from 'farbraum';
+import { isDark, lighten } from 'farbraum';
+import type { Action } from 'redux-actions';
 
 import actions from '../store/actions';
 import { isClient } from '../../lib/runtime';
 import type { ColorTokens, rgbColor } from '../../types/color.types';
 import getImageColors from '../../lib/get-image-color';
+import type { initializeThemePayload } from '../store/stores/theme.store';
+import { isArray } from 'lodash-es';
 
 export default function ({
   selectSubscribeOverlayVisible,
   selectSearchOverlayVisible,
-  selectShowPoster
+  selectShowPoster,
+  selectThemeInitialized
 }: {
   selectSubscribeOverlayVisible: (input: any) => boolean;
   selectSearchOverlayVisible: (input: any) => boolean;
   selectShowPoster: (input: any) => string | null;
   selectFeed: (input: any) => string | null;
+  selectThemeInitialized: (input: any) => boolean;
 }) {
   function* disableOverflow() {
     document.body.classList.add('overflow-hidden');
@@ -34,7 +39,7 @@ export default function ({
     yield put(actions.view.stopLoading());
   }
 
-  function* initializeTheme() {
+  function* initializeTheme({ payload }: Action<initializeThemePayload>) {
     const poster: string | null = yield select(selectShowPoster);
 
     const tailwindColorTokens = (color: rgbColor | null): ColorTokens | null => {
@@ -43,6 +48,7 @@ export default function ({
       if (!color) {
         return null;
       }
+
       return tokens.reduce(
         (result, token) => ({
           ...result,
@@ -52,13 +58,22 @@ export default function ({
       ) as ColorTokens;
     };
 
-    if (!poster) {
+    let primaryColor: rgbColor | null = null;
+
+    if (isArray(payload.primaryColor)) {
+      primaryColor = payload.primaryColor;
+    }
+
+    if (!primaryColor && poster) {
+      primaryColor = yield getImageColors(`/api/proxy?url=${poster}`);
+    }
+
+    if (!primaryColor) {
       return;
     }
 
-    const { primaryColor, complementaryColor } = yield getImageColors(`/api/proxy?url=${poster}`);
     const primary = tailwindColorTokens(primaryColor);
-    const complementary = tailwindColorTokens(complementaryColor);
+    const complementary = tailwindColorTokens(isDark(primaryColor) ? [240, 240, 240] : [1, 1, 1]);
 
     yield put(
       actions.theme.setTheme({
@@ -71,18 +86,24 @@ export default function ({
   }
 
   return function* () {
-    if (isClient()) {
-      yield fork(initializeTheme);
+    yield takeEvery(actions.theme.initializeTheme.toString(), initializeTheme);
 
+    if (isClient()) {
       const pageLoadStart: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
         document.addEventListener('astro:before-preparation', cb)
       );
       const pageLoadEnd: EventChannel<KeyboardEvent> = yield call(channel, (cb: EventListener) =>
         document.addEventListener('astro:after-preparation', cb)
       );
-
       yield takeEvery(pageLoadStart, startLoading);
       yield takeEvery(pageLoadEnd, stopLoading);
+
+      const initialized: boolean = yield select(selectThemeInitialized);
+
+      if (!initialized) {
+        yield put(actions.theme.initializeTheme({ primaryColor: null }));
+      }
+
     }
 
     while (true) {

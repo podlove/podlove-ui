@@ -41,7 +41,7 @@
     "quantize": "1.0.2",
     "@heroicons/vue": "2.2.0",
     "sanitize-html": "2.14.0",
-    "extract-domain": "5.0.2"
+    "tldts": "6.1.71"
   },
   "devDependencies": {
     "@types/lodash-es": "4.17.12",

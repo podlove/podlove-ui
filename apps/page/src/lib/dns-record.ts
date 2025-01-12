@@ -1,21 +1,24 @@
-import dns from 'node:dns';
 import { get, noop } from 'lodash-es';
 import type { APIContext } from 'astro';
-import extractDomain from 'extract-domain';
+import { getDomain } from 'tldts';
 import { safeParse } from './json';
 
 type FeedData = { feed: string | null; primary_color: string | null };
+type DnsAnswer = {
+  name: string;
+  type: number;
+  TTL: number;
+  data: string;
+};
 
-const getDnsRecords = (hostname: string): Promise<string[]> =>
-  new Promise((resolve, reject) => {
-    dns.resolve(hostname, 'TXT', (err, records) => {
-      if (err) {
-        return reject(err);
-      }
-
-      return resolve(records[0]);
-    });
-  });
+const getDnsRecords = async (hostname: string): Promise<DnsAnswer[]> =>
+  fetch(`https://cloudflare-dns.com/dns-query?name=${hostname}&type=TXT`, {
+    headers: {
+      Accept: 'application/dns-json'
+    }
+  })
+    .then((res) => res.json())
+    .then((result) => get(result, ['Answer'], []));
 
 const getStore = (context: APIContext): KVNamespace =>
   get(context, ['locals', 'runtime', 'env', 'CUSTOM_DOMAINS'], {
@@ -24,7 +27,7 @@ const getStore = (context: APIContext): KVNamespace =>
   } as unknown as KVNamespace);
 
 export const extractDnsData = async (context: APIContext): Promise<FeedData> => {
-  const domain = extractDomain(context.url.hostname);
+  const domain = getDomain(context.url.hostname);
   const entryName = `lux.${domain}`;
   const store = getStore(context);
   const fallback = { feed: null, primary_color: null };
@@ -32,10 +35,22 @@ export const extractDnsData = async (context: APIContext): Promise<FeedData> => 
   let result = await store.get(entryName);
 
   if (!result) {
-    result = await getDnsRecords(entryName).then(
-      ([result]) => result,
-      () => null
-    );
+    result = await getDnsRecords(entryName)
+      .then(
+        ([result]) => get(result, 'data', null),
+        () => null
+      )
+      .then((result) => {
+        if (!result) {
+          return null;
+        }
+
+        try {
+          return atob(result.replace(/['"]+/g, ''));
+        } catch (err) {
+          return null;
+        }
+      });
   }
 
   if (!result) {
