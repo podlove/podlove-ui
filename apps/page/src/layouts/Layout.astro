@@ -10,7 +10,7 @@ import Colors from '../features/Colors.vue';
 import { store } from '../logic';
 import { getLanguage } from '../i18n';
 
-const { title, description, favicon } = Astro.props;
+const { title, description, favicon, baseUrl } = Astro.props;
 const state = store.getState();
 const lang = getLanguage();
 ---
@@ -25,6 +25,7 @@ const lang = getLanguage();
     <meta name="generator" content="Podlove Lux" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <base href={baseUrl} />
     <script is:inline define:vars={{ state }}>
       window.REDUX_STATE = state;
     </script>

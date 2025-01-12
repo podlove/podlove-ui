@@ -1,11 +1,13 @@
 import quantize from 'quantize';
-import { isDark } from 'farbraum';
 import { type rgbColor } from '../types/color.types';
 import ndarray from 'ndarray';
 
 const fetchImage = async (
   imageUrl: string
-): Promise<{ data: ArrayBuffer; dimensions: { width: number; height: number } }> =>
+): Promise<{
+  data: Uint8ClampedArray<ArrayBufferLike>;
+  dimensions: { width: number; height: number };
+}> =>
   new Promise((resolve, reject) => {
     const img = new Image();
     img.crossOrigin = 'Anonymous';
@@ -30,7 +32,7 @@ const parseImage = ({
   data,
   dimensions
 }: {
-  data: ArrayBuffer;
+  data: Uint8ClampedArray<ArrayBufferLike>;
   dimensions: { width: number; height: number };
 }): ndarray.NdArray =>
   ndarray(
@@ -55,29 +57,23 @@ const convertToPixels = (pixels: ndarray.NdArray): quantize.RgbPixel[] => {
   return result;
 };
 
-const extractColors = (
-  pixels: quantize.RgbPixel[]
-): { primaryColor: rgbColor | null; complementaryColor: rgbColor | null } => {
+const extractColors = (pixels: quantize.RgbPixel[]): rgbColor | null => {
   const colorPalette = quantize(pixels, 5);
 
   if (!colorPalette) {
-    return { primaryColor: null, complementaryColor: null };
+    return null;
   }
 
   const [primaryColor] = colorPalette.palette();
-  const complementaryColor: rgbColor = isDark(primaryColor) ? [240, 240, 240] : [1, 1, 1];
 
-  return { primaryColor, complementaryColor };
+  return primaryColor;
 };
 
-const getImageColors = async (
-  src: string
-): Promise<{ primaryColor: rgbColor | null; complementaryColor: rgbColor | null }> =>
+const getImagePrimaryColor = async (src: string): Promise<rgbColor | null> =>
   fetchImage(src)
     .then(parseImage)
     .then(convertToPixels)
     .then(extractColors)
+    .catch(() => null);
 
-    .catch(() => ({ primaryColor: null, complementaryColor: null }));
-
-export default getImageColors;
+export default getImagePrimaryColor;

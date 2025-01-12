@@ -171,6 +171,9 @@ importers:
       scroll-into-view-if-needed:
         specifier: 3.1.0
         version: 3.1.0
+      tldts:
+        specifier: 6.1.71
+        version: 6.1.71
       vue:
         specifier: 3.5.12
         version: 3.5.12(typescript@5.3.2)
@@ -178,6 +181,9 @@ importers:
         specifier: 9.13.1
         version: 9.13.1(vue@3.5.12)
     devDependencies:
+      '@cloudflare/workers-types':
+        specifier: 4.20250109.0
+        version: 4.20250109.0
       '@types/get-pixels':
         specifier: 3.3.4
         version: 3.3.4
@@ -1002,7 +1008,7 @@ packages:
     dependencies:
       '@astrojs/internal-helpers': 0.4.1
       '@astrojs/underscore-redirects': 0.4.0
-      '@cloudflare/workers-types': 4.20241205.0
+      '@cloudflare/workers-types': 4.20250109.0
       '@inox-tools/astro-when': 1.0.1(astro@5.1.1)
       astro: 5.1.1(@types/node@18.18.14)(typescript@5.3.2)
       esbuild: 0.24.0
@@ -1011,7 +1017,7 @@ packages:
       miniflare: 3.20241205.0
       tiny-glob: 0.2.9
       vite: 6.0.3(@types/node@18.18.14)
-      wrangler: 3.93.0(@cloudflare/workers-types@4.20241205.0)
+      wrangler: 3.93.0(@cloudflare/workers-types@4.20250109.0)
     transitivePeerDependencies:
       - '@types/node'
       - bufferutil
@@ -2022,9 +2028,8 @@ packages:
       zod: 3.23.8
     dev: false
 
-  /@cloudflare/workers-types@4.20241205.0:
-    resolution: {integrity: sha512-pj1VKRHT/ScQbHOIMFODZaNAlJHQHdBSZXNIdr9ebJzwBff9Qz8VdqhbhggV7f+aUEh8WSbrsPIo4a+WtgjUvw==}
-    dev: false
+  /@cloudflare/workers-types@4.20250109.0:
+    resolution: {integrity: sha512-Y1zgSaEOOevl9ORpzgMcm4j535p3nK2lrblHHvYM2yxR50SBKGh+wvkRFAIxWRfjUGZEU+Fp6923EGioDBbobA==}
 
   /@codemirror/commands@6.3.2:
     resolution: {integrity: sha512-tjoi4MCWDNxgIpoLZ7+tezdS9OEB6pkiDKhfKx9ReJ/XBcs2G2RXIu+/FxXBlWsPTsz6C9q/r4gjzrsxpcnqCQ==}
@@ -16127,6 +16132,17 @@ packages:
     engines: {node: '>=14.0.0'}
     dev: true
 
+  /tldts-core@6.1.71:
+    resolution: {integrity: sha512-LRbChn2YRpic1KxY+ldL1pGXN/oVvKfCVufwfVzEQdFYNo39uF7AJa/WXdo+gYO7PTvdfkCPCed6Hkvz/kR7jg==}
+    dev: false
+
+  /tldts@6.1.71:
+    resolution: {integrity: sha512-LQIHmHnuzfZgZWAf2HzL83TIIrD8NhhI0DVxqo9/FdOd4ilec+NTNZOlDZf7EwrTNoutccbsHjvWHYXLAtvxjw==}
+    hasBin: true
+    dependencies:
+      tldts-core: 6.1.71
+    dev: false
+
   /tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
     engines: {node: '>=0.6.0'}
@@ -18363,7 +18379,7 @@ packages:
       '@cloudflare/workerd-windows-64': 1.20241205.0
     dev: false
 
-  /wrangler@3.93.0(@cloudflare/workers-types@4.20241205.0):
+  /wrangler@3.93.0(@cloudflare/workers-types@4.20250109.0):
     resolution: {integrity: sha512-+wfxjOrtm6YgDS+NdJkB6aiBIS3ED97mNRQmfrEShRJW4pVo4sWY6oQ1FsGT+j4tGHplrTbWCE6U5yTgjNW/lw==}
     engines: {node: '>=16.17.0'}
     hasBin: true
@@ -18375,7 +18391,7 @@ packages:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@cloudflare/workers-shared': 0.10.0
-      '@cloudflare/workers-types': 4.20241205.0
+      '@cloudflare/workers-types': 4.20250109.0
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
       '@esbuild-plugins/node-modules-polyfill': 0.2.2(esbuild@0.17.19)
       blake3-wasm: 2.1.5

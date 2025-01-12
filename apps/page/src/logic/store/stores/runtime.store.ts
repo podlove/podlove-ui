@@ -14,6 +14,7 @@ export interface initializeAppPayload {
   feed: string;
   locale: string;
   episodeId?: number;
+  customDomain: boolean;
 }
 
 export type dataFetchedPayload = {

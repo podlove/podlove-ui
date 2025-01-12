@@ -1,9 +1,11 @@
 
 import { last } from 'lodash-es';
 import { createAction, handleActions, type Action } from 'redux-actions';
+import { actions as runtimeActions } from "./runtime.store";
 
 export interface State {
   path: string[];
+  customDomain: boolean;
 }
 
 export type navigatePayload = string[];
@@ -26,10 +28,14 @@ const updatePath = (state: State, { payload }: Action<string[]>) => ({
 
 export const reducer = handleActions<State, any>(
   {
+    [runtimeActions.initializeApp.toString()]: (state, action: ReturnType<typeof runtimeActions.initializeApp>) => ({
+      ...state,
+      customDomain: action.payload.customDomain
+    }),
     [actions.navigate.toString()]: updatePath,
     [actions.setRoute.toString()]: updatePath
   },
-  { path: [] }
+  { path: [], customDomain: true }
 );
 
 export const selectors = {
@@ -57,5 +63,6 @@ export const selectors = {
       default:
         return null;
     }
-  }
+  },
+  customDomain: (state: State) => state.customDomain
 };

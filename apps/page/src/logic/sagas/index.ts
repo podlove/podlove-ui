@@ -46,7 +46,8 @@ export async function createSideEffects() {
       selectSearchOverlayVisible: selectors.search.visible,
       selectSubscribeOverlayVisible: selectors.subscribeButton.visible,
       selectShowPoster: selectors.podcast.poster,
-      selectFeed: selectors.podcast.feed
+      selectFeed: selectors.podcast.feed,
+      selectThemeInitialized: selectors.theme.initialized
     })
   ] as any[];
 
