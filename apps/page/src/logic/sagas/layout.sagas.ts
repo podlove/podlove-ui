@@ -10,6 +10,7 @@ import type { ColorTokens, rgbColor } from '../../types/color.types';
 import getImageColors from '../../lib/get-image-color';
 import type { initializeThemePayload } from '../store/stores/theme.store';
 import { isArray } from 'lodash-es';
+import { proxy } from '../../lib/url';
 
 export default function ({
   selectSubscribeOverlayVisible,
@@ -65,7 +66,7 @@ export default function ({
     }
 
     if (!primaryColor && poster) {
-      primaryColor = yield getImageColors(`/api/proxy?url=${poster}`);
+      primaryColor = yield getImageColors(proxy(poster));
     }
 
     if (!primaryColor) {
