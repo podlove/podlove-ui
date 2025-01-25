@@ -51,7 +51,6 @@
     "@types/get-pixels": "3.3.4",
     "@types/quantize": "1.0.2",
     "@types/ndarray": "1.0.14",
-    "@types/sanitize-html": "2.13.0",
-    "@cloudflare/workers-types": "4.20250109.0"
+    "@types/sanitize-html": "2.13.0"
   }
 }
