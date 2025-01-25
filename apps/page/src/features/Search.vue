@@ -130,8 +130,8 @@
                   <span
                     class="
                       rounded-full
-                      bg-complementary-100
-                      text-primary-900
+                      bg-primary-900
+                      text-complementary-100
                       px-2
                       p-1
                       mr-3
