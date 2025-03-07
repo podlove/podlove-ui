@@ -36,7 +36,7 @@
     "redux-vuex": "3.1.2",
     "reselect": "4.1.8",
     "scroll-into-view-if-needed": "3.1.0",
-    "vue-i18n": "9.13.1",
+    "vue-i18n": "9.14.3",
     "ndarray": "1.0.19",
     "quantize": "1.0.2",
     "@heroicons/vue": "2.2.0",
