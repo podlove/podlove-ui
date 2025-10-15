@@ -160,7 +160,7 @@
     "@typescript-eslint/parser": "6.11.0",
     "@types/lodash-es": "4.17.12",
     "eslint": "8.54.0",
-    "happy-dom": "9.1.9",
+    "happy-dom": "20.0.2",
     "typescript": "5.0.4",
     "vite": "4.3.5",
     "vite-plugin-dts": "3.6.3",
