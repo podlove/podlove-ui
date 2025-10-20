@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "4.17.12",
-    "vite": "4.3.5",
+    "vite": "5.4.21",
     "vite-plugin-dts": "3.6.3",
     "vitest": "0.30.0"
   }
