@@ -28,7 +28,7 @@
     "astro": "5.1.1",
     "vue": "3.5.12",
     "fast-xml-parser": "4.5.0",
-    "lodash-es": "4.17.21",
+    "lodash-es": "4.17.23",
     "multimatch": "7.0.0",
     "redux": "4.2.1",
     "redux-actions": "3.0.0",
